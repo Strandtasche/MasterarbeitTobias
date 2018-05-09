@@ -1,0 +1,72 @@
+\documentclass [a4paper, 10pt]{scrartcl}
+
+
+% Sprache + Encoding
+\usepackage{ucs} % unicode
+\usepackage[utf8x]{inputenc}
+\usepackage{ngerman} % deutsche Sprache
+%\usepackage{textcomp}
+\include{AufgabenblattHeader}
+	
+
+\Arbeitsart{Masterarbeit}
+\Titel{Multi-Target-Tracking in der Schüttgutsortierung}
+
+
+\Student[B.Sc.]{abc34343}
+\Matrikelnummer{abc1234}
+\Referent[Prof. Dr.-Ing.]{Uwe D. Hanebeck}
+\Mitarbeiter[Dipl.-Inform.]{Florian Pfaff}
+\MitarbeiterB[Dr.-Ing.]{Benjamin Noack}
+% Beginn Arbeit / Zwischenvortrag / Abgabe
+\Termine{15. Dezember 2014}{$\approx$ 15. März 2015}{15. Juni 2015}
+
+% Datum für Unterschrift:
+% \renewcommand{\today}{16. Dezember 2013}
+\setlength{\parskip}{5pt}
+
+\begin{document}
+\Anfang
+% \vspace*{}
+Bei sogenannten optischen Bandsortieranlagen werden Teilchen auf Basis
+visueller Eigenschaften klassifiziert. Bei der Anlage, so wie sie bei
+Kunden des Fraunhofer IOSB im Einsatz ist, werden durch richtiges Timing
+und gezieltes Aktivieren von Druckluftdüsen eine Klasse Teilchen während
+einer, nach der Bandkante beginnender, Flugphase von der anderen separiert.
+Aufgrund von Verzögerungen ist es nicht möglich, die Klassifikation und das
+Ausblasen gleichzeitig zu vollziehen. Deshalb muss die Position der
+Teilchen nach ihrer Klassifikation prädiziert (vorhergesagt) werden. Im
+Produktivsystem basiert die Prädiktion auf einer Positionsmessung mittels
+einer Zeilenkamera, kombiniert mit der Annahme, dass sich alle Teilchen mit
+gleicher Geschwindigkeit in Laufrichtung des Bandes bewegen.
+
+Während diese Annahme bei ausreichender Materialberuhigung bei vielen
+Schüttgütern zu guten Ergebnissen führt, gibt es mehrere Schüttgüter, bei
+denen die Anforderungen an die Materialberuhigung zu hoch sind. Des
+Weiteren wurden Schüttgüter erkannt, bei denen die Klassifikation mittels
+der Zeilenkamera nur unzureichende Ergebnisse liefert. 
+Zur Lösung dieser beiden Probleme soll eine Flächenkamera genutzt werden, mit Hilfe derer die zu sortierenden Teilchen über
+mehrere Zeitschritte hinweg beobachtet werden können. Dies ermöglicht, die
+Bewegung der Teilchen besser vorherzusagen und neue Merkmale aus der
+Bewegung zu gewinnen.
+
+Im Rahmen dieser Masterarbeit werden Multi-Target-Trackingverfahren untersucht und entwickelt, die zur Verfolgung 
+des Schüttgutstroms eingesetzt werden können. Hierzu müssen die durch eine Bandsortieranlage gegebenen Rahmenbedingungen berücksichtigt werden. 
+In umgekehrter Richtung werden zudem Kriterien aus den Trackingverfahren abgeleitet, auf deren Basis wichtige Parameter der Sortieranlage, wie z.B. Geometrie und Bandgeschwindigkeit optimiert werden können.  
+% Diese Masterarbeit baut auf dem derzeitigen Stand des Experimentalsystems
+% auf, erweitert diesen und liefert neue Erkenntnisse, wie gut die
+% anvisierten Ziele durch das verbesserte Experimentalsystem erreicht werden
+% können.
+
+
+\textbf{Aufgaben}
+\begin{itemize}
+% \setlength{\itemsep}{1pt}
+  \item Anpassung und Weiterentwicklung von Multi-Target-Trackingverfahren für Schüttgüter in Bandsortieranlagen mit einhergehender Bewertung der Schätzqualität
+  \item Bei der Bewertung der Trackingverfahren und der Schätzqualität sollen reale Kameraeffekten, Abtasteffekte, Band- und Objekteigenschaften berücksichtigt werden.
+  \item Aus den Trackingverfahren sollen optimale Bedingungen an den Aufbau der Sortieranlage abgeleitet werden. Diese Erkenntnisse sollen in den Aufbau des Experimentalsystems Tablsort 2.0 einfließen.
+  \item Die entwickelten Trackingverfahren werden um die Möglichkeit der Parameterschätzung erweitert, so dass objektspezifische Bewegungseigenschaften bestimmt werden können und als Sortierkriterium herangezogen werden können.
+\end{itemize}
+\Ende
+\end{document}
+
