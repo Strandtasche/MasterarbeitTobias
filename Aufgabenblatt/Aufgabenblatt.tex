@@ -10,14 +10,16 @@
 	
 
 \Arbeitsart{Masterarbeit}
-\Titel{Multi-Target-Tracking in der Schüttgutsortierung}
+\Titel{Parameterfindung für Kalmanfilter mittels neuronaler Netze}
 
 
-\Student[B.Sc.]{abc34343}
-\Matrikelnummer{abc1234}
+\Student[B.Sc.]{Tobias Hornberger}
+\Matrikelnummer{1697163}
 \Referent[Prof. Dr.-Ing.]{Uwe D. Hanebeck}
 \Mitarbeiter[Dipl.-Inform.]{Florian Pfaff}
-\MitarbeiterB[Dr.-Ing.]{Benjamin Noack}
+\MitarbeiterB[M.Sc.]{Georg Maier}
+
+
 % Beginn Arbeit / Zwischenvortrag / Abgabe
 \Termine{15. Dezember 2014}{$\approx$ 15. März 2015}{15. Juni 2015}
 
@@ -28,31 +30,20 @@
 \begin{document}
 \Anfang
 % \vspace*{}
-Bei sogenannten optischen Bandsortieranlagen werden Teilchen auf Basis
-visueller Eigenschaften klassifiziert. Bei der Anlage, so wie sie bei
-Kunden des Fraunhofer IOSB im Einsatz ist, werden durch richtiges Timing
-und gezieltes Aktivieren von Druckluftdüsen eine Klasse Teilchen während
-einer, nach der Bandkante beginnender, Flugphase von der anderen separiert.
-Aufgrund von Verzögerungen ist es nicht möglich, die Klassifikation und das
-Ausblasen gleichzeitig zu vollziehen. Deshalb muss die Position der
-Teilchen nach ihrer Klassifikation prädiziert (vorhergesagt) werden. Im
-Produktivsystem basiert die Prädiktion auf einer Positionsmessung mittels
-einer Zeilenkamera, kombiniert mit der Annahme, dass sich alle Teilchen mit
-gleicher Geschwindigkeit in Laufrichtung des Bandes bewegen.
+Kalmanfilter sind ein mathematisches Verfahren, dass in vielen Bereichen Anwendung findet. 
+Es wird unter anderem in einem optischen Bandsortieranlage des Fraunhofer IOSBs dazu eingesetzt die Bewegung einzelner Schüttgutelemente zu prädizieren.
+Um korrekte Vorhersagen zu bestimmen wird ein Bewegungsmodell sowie akkurate Beschreibungen des Mess- sowie des Systemrauschens benötigt.
+\textit{Motivation, wie es schwer ist so ein Bewegungsmodell zu finden}.
 
-Während diese Annahme bei ausreichender Materialberuhigung bei vielen
-Schüttgütern zu guten Ergebnissen führt, gibt es mehrere Schüttgüter, bei
-denen die Anforderungen an die Materialberuhigung zu hoch sind. Des
-Weiteren wurden Schüttgüter erkannt, bei denen die Klassifikation mittels
-der Zeilenkamera nur unzureichende Ergebnisse liefert. 
-Zur Lösung dieser beiden Probleme soll eine Flächenkamera genutzt werden, mit Hilfe derer die zu sortierenden Teilchen über
-mehrere Zeitschritte hinweg beobachtet werden können. Dies ermöglicht, die
-Bewegung der Teilchen besser vorherzusagen und neue Merkmale aus der
-Bewegung zu gewinnen.
 
-Im Rahmen dieser Masterarbeit werden Multi-Target-Trackingverfahren untersucht und entwickelt, die zur Verfolgung 
-des Schüttgutstroms eingesetzt werden können. Hierzu müssen die durch eine Bandsortieranlage gegebenen Rahmenbedingungen berücksichtigt werden. 
-In umgekehrter Richtung werden zudem Kriterien aus den Trackingverfahren abgeleitet, auf deren Basis wichtige Parameter der Sortieranlage, wie z.B. Geometrie und Bandgeschwindigkeit optimiert werden können.  
+Maschinelle Lernverfahren haben in der letzter Zeit durch ihre Fähigkeit 
+komplexe Muster in großen Datenmengen zu finden ohne diese von Hand modellieren zu müssen an Relevanz gewonnen.
+\textit{benötigt große Mengen an Trainings- und Testdaten}
+
+Im Rahmen dieser Masterarbeit soll untersucht werden inwiefern Neuronale Netze das aufwendige Feintuning der  Kalmanfilter-Parameter von Hand ersetzen können.
+\textit{Dazu werden ein Haufen Daten gebraucht, die vorhanden nutzen\/neue Suchen}
+
+
 % Diese Masterarbeit baut auf dem derzeitigen Stand des Experimentalsystems
 % auf, erweitert diesen und liefert neue Erkenntnisse, wie gut die
 % anvisierten Ziele durch das verbesserte Experimentalsystem erreicht werden
@@ -62,10 +53,10 @@ In umgekehrter Richtung werden zudem Kriterien aus den Trackingverfahren abgelei
 \textbf{Aufgaben}
 \begin{itemize}
 % \setlength{\itemsep}{1pt}
-  \item Anpassung und Weiterentwicklung von Multi-Target-Trackingverfahren für Schüttgüter in Bandsortieranlagen mit einhergehender Bewertung der Schätzqualität
-  \item Bei der Bewertung der Trackingverfahren und der Schätzqualität sollen reale Kameraeffekten, Abtasteffekte, Band- und Objekteigenschaften berücksichtigt werden.
-  \item Aus den Trackingverfahren sollen optimale Bedingungen an den Aufbau der Sortieranlage abgeleitet werden. Diese Erkenntnisse sollen in den Aufbau des Experimentalsystems Tablsort 2.0 einfließen.
-  \item Die entwickelten Trackingverfahren werden um die Möglichkeit der Parameterschätzung erweitert, so dass objektspezifische Bewegungseigenschaften bestimmt werden können und als Sortierkriterium herangezogen werden können.
+  \item Modellieren und trainieren eines neuronalen Netzes, dass die Parameter eines Kalmanfilters ermittelt
+  \item \textit{Daten Sammeln und einsetzen}
+  \item \textit{Ein Material? Generalisieren?}
+  \item 
 \end{itemize}
 \Ende
 \end{document}
