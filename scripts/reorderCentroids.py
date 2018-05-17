@@ -3,12 +3,13 @@
 import os
 import csv
 from numpy import genfromtxt
-
+import sys
 
 
 cwd = os.getcwd()
 # print(cwd)
 
+#USAGE ARGUMENTS: input, output, [track histories]
 
 inputFile = cwd + "/../data/test_case1.csv"
 trackHistory  = []
@@ -18,10 +19,18 @@ trackHistory.append(cwd + "/../data/3output.csv")
 
 outputFile = cwd + "/../data/test_case1_ordered.csv"
 
+if (len(sys.argv) > 1):
+        inputFile = os.path.abspath(sys.argv[1])
+        outputFile = os.path.abspath(sys.argv[2])
+        trackHistory = []
+        for i in range (3, len(sys.argv)):
+            trackHistory.append(os.path.abspath(sys.argv[i]))
 
 my_data = []
 for track in trackHistory:
     my_data.append(genfromtxt(track, delimiter=',', dtype='int_'))
+
+print("Number tracks: " + str(len(trackHistory)))
 
 # print(my_data[0])
 dataTotal = []
@@ -41,6 +50,8 @@ with open(inputFile, "r") as f:
         i = i + 1
         dataTotal.append(data)
 
+print("successfully read from " + inputFile)
+
 #print(header[0])
 #print(dataTotal)##
 
@@ -49,4 +60,7 @@ with open(outputFile, "w") as csv_file:
     writer.writerow(header)
     for line in dataTotal:
         writer.writerow(line)
+
+
+print("exported to " + outputFile)
 
