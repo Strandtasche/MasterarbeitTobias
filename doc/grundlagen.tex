@@ -1,0 +1,57 @@
+
+
+Grundlagen:
+
+
+- TrackSort Schüttgutsortierung
+- Kalman Filter
+- NN
+	- RNN
+	- LSTM
+
+Das Kalman-Filter
+Als Kalman-Filter bezeichnet man ein mathematisches Verfahren mit dem Messfehler in realen Messwerten reduziert werden können und nicht messbare Systemgrößen geschätzt werden können. 
+
+
+[vergangene, aktuelle und zukünftige Systemzustände schätzen]
+[Einschränkung Linearität (Extended Kalman) und Gauß rauschen]
+
+Der Zustand des Systems zum Zeitschritt $t$ wird als $y_t$ und die Messung im Zeitschritt $t$ als $z_t$ bezeichnet.
+
+\begin{equation}
+	y_t = A y_{t-1} + w, 	w ~ N(0, Q)
+\end{equation}
+
+\begin{equation}
+	z_t = H y_{t} + v, 	v ~ N(0, R)
+\end{equation}
+
+Dabei ist $A$ die Zustandsübergangsmatrix, die den Übergang von einem Zustand in den nächsten beschreibt.
+$H$ ist die Messmatrix, die beschreibt wie Messungen aus dem Zustand entstehen und Q und R sind die Kovarianzmatrizen des Systemrauschens beziehungsweise des Messrauschens. 
+
+Das Kalman-Filter funktioniert mittels abwechselnd ausgeführter \textit{predict} und \textit{update} Schritte.
+
+\begin{equation}
+\hat{y}'_t = A \hat{y}'_{t-1}
+\end{equation}
+
+\begin{equation}
+	\hat{P}'_t = A \hat{P}'_{t-1} A^\textit{T} + Q
+\end{equation}
+
+
+
+
+
+
+
+
+Neuronale Netze:
+
+Die Grundsteine des Feldes wurde 1943 von Warren McCulloch und Walter Pitts gelegt, 
+die in ihrem Paper ein Neuronenmodell vorschlugen, mit dem sich logische arithmetische Funktionen berechnen lassen. 
+Infolge dessen gab verschiedene Forschungsbestrebungen in dem Feld, wie [Examples: TODO!].
+
+[Viele der Begrifflichkeiten, die wir heute noch verwenden wurden 1956 auf der Dartmouth Conference festlegt.]
+
+Nachdem jedoch Marvin Minsky und Seymour Papert zeigten, dass einzelne Perceptrons nicht in der Lage sind linear nicht separierbare Probleme zu lösen sank das Interesse an dem Feld.
