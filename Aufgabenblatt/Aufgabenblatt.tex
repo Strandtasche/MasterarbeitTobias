@@ -32,19 +32,20 @@
 \Anfang
 % \vspace*{}
 Kalman-Filter sind ein mathematisches Verfahren, dass in vielen Bereichen Anwendung findet. 
-Es wird unter anderem in einem optischen Bandsortieranlage des Fraunhofer IOSBs dazu eingesetzt die Bewegung einzelner Schüttgutelemente zu prädizieren.
-Um korrekte Vorhersagen zu bestimmen wird ein Bewegungsmodell sowie akkurate Beschreibungen des Mess- sowie des Systemrauschens benötigt.
+Es wird unter anderem in einem optischen Bandsortieranlage des Fraunhofer IOSBs dazu eingesetzt Bewegungen einzelner Schüttgutelemente zu prädizieren.
+Um korrekte Vorhersagen zu bestimmen wird ein Bewegungsmodell, sowie akkurate Beschreibungen des Mess- sowie des Systemrauschens benötigt.
 Ein gutes Bewegungsmodell zu bestimmen ist aufwendig und verschiedene Bewegungsmodelle erreichen bei unterschiedlichen Schüttgütern unterschiedlich gute Ergebnisse.
 %\textit{[Motivation, wie es schwer ist so ein Bewegungsmodell zu finden]}.
 
 
 Maschinelle Lernverfahren haben in der letzter Zeit durch ihre Fähigkeit 
-komplexe Muster in Datensätzen zu finden ohne diese von Hand modellieren zu müssen an Relevanz gewonnen.
+komplexe Muster in Datensätzen zu finden, ohne diese von Hand modellieren zu müssen, an Relevanz gewonnen.
 Speziell neuronale Netze erleben eine Renaissance und werden für eine große Menge an unterschiedlichsten Problemen eingesetzt.
 Hierfür werden große Mengen an Trainings- und Testdaten benötigt. 
 %\textit{[benötigt große Mengen an Trainings- und Testdaten]}
 
-Im Rahmen dieser Masterarbeit soll untersucht werden inwiefern Neuronale Netze das aufwendige Feintuning der Kalmanfilter-Parameter von Hand ersetzen können.
+%Im Rahmen dieser Masterarbeit soll untersucht werden, inwiefern Neuronale Netze das aufwendige Feintuning der Kalmanfilter-Parameter von Hand ersetzen können.
+Im Rahmen dieser Masterarbeit sollen verschiedene Ansätze untersucht werden, wie Neuronale Netze eingesetzt werden können um die Bewegung von Schüttgutpartikeln zu prädizieren.
 Dazu müssen vorhandene Daten von der Schüttgutsortierung aufbereitet werden und neue Daten gesammelt werden.
 Nachdem ein Netzwerk mit Hilfe der Tensorflow Software Library modelliert wurde kann dieses dann mit diesen Daten trainiert werden.
 
@@ -62,7 +63,13 @@ Nachdem ein Netzwerk mit Hilfe der Tensorflow Software Library modelliert wurde 
 % \setlength{\itemsep}{1pt}
   \item Datensammlung und Vorverarbeitung
   \item Data-Augmentation
-  \item Modellieren und trainieren eines neuronalen Netzes, dass die Parameter eines Kalman-Filters ermittelt
+  %\item Modellieren und trainieren eines neuronalen Netzes, dass die Parameter eines Kalman-Filters ermittelt
+  \item Erproben von verschiedenen Ansätzen für die Bewegungsprädiktion von Schüttgutelementen mittels neuronalen Netzen
+  	\begin{itemize}
+  		\item Modellieren und trainieren verschiedener Netze
+  		\item Vergleich der verschiedenen Ansätze mit dem parametrierten Kalman-Filter und gegebenenfalls untereinander
+  		%\item [Vergleich der verschiedenen Ansätze]
+  	\end{itemize}
 \end{itemize}
 \Ende
 \end{document}
