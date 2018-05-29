@@ -24,5 +24,5 @@ USAGE: In Matlab
  1. add nessesary things to path - _addpath(genpath('matlab') ?_
  2. navigate to folder with data you want to process
  3. optional: change files variable to fit your input csvs.
- 4. >> doAllThingsMatlab
+ 4. \>\> doAllThingsMatlab
 
