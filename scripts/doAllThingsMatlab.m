@@ -2,24 +2,25 @@
 % 1. add nessesary things to path -addpath(genpath('matlab') ?
 % 2. navigate to folder with data you want to process
 % 3. optional: change files variable to fit your input csvs.
-% >> doAllThingsMatlab
+% >> reorder_centroids
 
+clear all
 disp('starting script')
 
 %Set magic Parameters, so the tracking works well
 allParam=getDefaultParam([30;0]);
 allParam.score.looseStep=30;
 allParam.association.useOrientation=false;
-allParam.initial.PositionCov=2000*eye(2);
-allParam.meas.PositionCov=2000*eye(2);
+allParam.initial.PositionCov=4000*eye(2);
+allParam.meas.PositionCov=4000*eye(2);
 allParam.association.tryToUseMex=false;
 disp('parameters set!')
 
 %files = dir('*_data.csv');
-files = dir('*case3.csv');
+files = dir('extracted_blobs.csv');
 i = 1;
 for file = files'
-    trackHistory=tracksortAlgorithm([0,2450;0,1500],1300,1450,allParam,file.name);
+    trackHistory=tracksortAlgorithm([0,2450;0,1750],1300,1450,allParam,file.name);
     %These numbers in this command should be fitted for the input data, but
     %same camera setup should be able to use the same ones.
     saving = strcat("Trackhistory_", file.name(1:end-4));
@@ -30,6 +31,16 @@ for file = files'
     A = transpose(trackHistory(1).RawMeasurements);
     for it = 2:size(trackHistory,2)
         B = transpose(trackHistory(it).RawMeasurements);
+        
+        rowsA = size(A,1)
+        rowsB = size(B,1)
+        if rowsA ~= rowsB
+            if rowsA > rowsB
+                B = vertcat(B, NaN(rowsA-rowsB, size(B,2)))
+            else
+                A = vertcat(A, NaN(rowsB-rowsA, size(A,2)))
+            end
+        end
         A = horzcat(A,B);
     end
     disp(A)
