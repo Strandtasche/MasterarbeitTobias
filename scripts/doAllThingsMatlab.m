@@ -17,7 +17,7 @@ allParam.association.tryToUseMex=false;
 disp('parameters set!')
 
 %files = dir('*_data.csv');
-files = dir('extracted_blobs.csv');
+files = dir('Trackhistory_extracted_blobs_RawMeas_NANs.csv');
 i = 1;
 for file = files'
     trackHistory=tracksortAlgorithm([0,2450;0,1750],1300,1450,allParam,file.name);
@@ -55,7 +55,7 @@ for file = files'
     end
     
     % save it in csv file
-    data_table = array2table(A, 'VariableNames', header_array);
+    data_table = array2table(A, 'VariableNames', header);
     writetable(data_table, strcat(saving, "_RawMeas.csv"));
     
 end
