@@ -1,4 +1,4 @@
-% Usage: 
+% Usage:
 % 1. add nessesary things to path -addpath(genpath('matlab') ?
 % 2. navigate to folder with data you want to process
 % 3. optional: change files variable to fit your input csvs.
@@ -17,7 +17,7 @@ allParam.association.tryToUseMex=false;
 disp('parameters set!')
 
 %files = dir('*_data.csv');
-files = dir('test_case3.csv');
+files = dir('01_data.csv');
 i = 1;
 for file = files'
     trackHistory=tracksortAlgorithm([0,2450;0,1750],1300,1450,allParam,file.name);
@@ -28,38 +28,57 @@ for file = files'
     savingFile = strcat(saving, ".mat");
     %save trackhistory to file
     save(savingFile, "trackHistory");
-    
+
     i = i + 1;
-    A = transpose(trackHistory(1).RawMeasurements);
+    assembledRawMeasurements = transpose(trackHistory(1).RawMeasurements);
     for it = 2:size(trackHistory,2)
-        B = transpose(trackHistory(it).RawMeasurements);
-        
-        rowsA = size(A,1);
-        rowsB = size(B,1);
+        currentRawMeasurements = transpose(trackHistory(it).RawMeasurements);
+
+        rowsA = size(assembledRawMeasurements,1)
+        rowsB = size(currentRawMeasurements,1)
         if rowsA ~= rowsB
             if rowsA > rowsB
-                B = vertcat(B, NaN(rowsA-rowsB, size(B,2)));
+                currentRawMeasurements = vertcat(currentRawMeasurements, NaN(rowsA-rowsB, size(currentRawMeasurements,2)));
             else
-                A = vertcat(A, NaN(rowsB-rowsA, size(A,2)));
+                assembledRawMeasurements = vertcat(assembledRawMeasurements, NaN(rowsB-rowsA, size(assembledRawMeasurements,2)));
             end
         end
-        A = horzcat(A,B);
+        assembledRawMeasurements = horzcat(assembledRawMeasurements,currentRawMeasurements);
     end
-    
-    
+
     % write header
     num_tracks = size(trackHistory,2);
     header = {};
-   
+
     for i=1:num_tracks
         header(end+1) = {strcat(strcat('TrackID_',num2str(i)),'_X')};
         header(end+1) = {strcat(strcat('TrackID_',num2str(i)),'_Y')};
     end
-    
+
     % save it in csv file
-    data_table = array2table(A, 'VariableNames', header);
+    data_table = array2table(assembledRawMeasurements, 'VariableNames', header);
     writetable(data_table, strcat(saving, "_RawMeas.csv"));
-    
+
+    % shift observations accordingly
+    for currentTrackID=1:num_tracks
+        startTime = trackHistory(currentTrackID).StartTime;
+
+        if startTime > 1
+            trackObservations = assembledRawMeasurements(:, 2*currentTrackID-1:2*currentTrackID);
+            % shift vector by startTime - 1
+            shift = NaN(startTime-1, 2);
+            trackObservations = vertcat(shift, trackObservations);
+            % now trim it
+            trackObservations = trackObservations(1:end-startTime + 1,:);
+            % replace vector accordingly
+            assembledRawMeasurements(:, 2*currentTrackID-1:2*currentTrackID) = trackObservations;
+        end
+    end
+
+    % save it in csv file
+    data_table = array2table(assembledRawMeasurements, 'VariableNames', header);
+    writetable(data_table, strcat(saving, "_RawMeas_shifted.csv"));
+
 end
-    
+
 disp('finished')
