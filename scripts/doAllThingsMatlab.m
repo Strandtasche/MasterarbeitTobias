@@ -44,7 +44,19 @@ for file = files'
         A = horzcat(A,B);
     end
     disp(A)
-    %csvwrite(strcat(saving,"_RawMeas.csv") ,trackHistory(1).RawMeasurements)
+    
+    % write header
+    num_tracks = size(trackHistory,2);
+    header = {}
+   
+    for i=1:num_tracks
+        header(end+1) = {strcat(strcat('TrackID_',num2str(i)),'_X')};
+        header(end+1) = {strcat(strcat('TrackID_',num2str(i)),'_Y')};
+    end
+    
+    % save it in csv file
+    data_table = array2table(A, 'VariableNames', header_array);
+    writetable(data_table, strcat(saving, "_RawMeas.csv"));
     
 end
     
