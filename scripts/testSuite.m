@@ -1,5 +1,5 @@
 
-function [trackHistoryUpdated] = testSuite(varargin)
+function trackHistoryUpdated = testSuite(varargin)
 %testSuite: check if
 %   Detailed explanation goes here
     assert((nargin == 2) ||(nargin == 1), 'Wrong number of arguments')
@@ -8,8 +8,10 @@ function [trackHistoryUpdated] = testSuite(varargin)
     if isa(varargin{1}, 'char') || isstring(varargin{1})
         load(varargin{1});
     else
-        trackHistory = varargin{1};
+        trackHistory_dummy = varargin{1};
     end
+    
+    %trackHistoryUpdated = 0;
     
     if nargin == 1
         threshold = 5;
@@ -21,9 +23,9 @@ function [trackHistoryUpdated] = testSuite(varargin)
     %Removal reverse order
     removal = [];
     %iterate over all Tracks in Trackhistory
-    for it = 1:size(trackHistory,2)
+    for it = 1:size(trackHistory_dummy,2)
         %calculate number of non-NaN
-        nanified = isnan(transpose(trackHistory(it).RawMeasurements));
+        nanified = isnan(transpose(trackHistory_dummy(it).RawMeasurements));
         invertedNani = sum(arrayfun(@(x) 1-x, nanified));
         %disp(invertedNani(1))
         if invertedNani(1) < threshold
@@ -35,13 +37,15 @@ function [trackHistoryUpdated] = testSuite(varargin)
 
     %removal of tracks with too many NaN Values
     for rem = removal
-        trackHistory(rem) = [];
-    
+        trackHistory_dummy(rem) = [];
+    end
+        
     if ok == 1
         disp("All correct!")
     end
     
-    trackHistoryUpdated = trackHistory;
+    trackHistoryUpdated = trackHistory_dummy;
+    %disp(trackHistoryUpdated)
 end
 
 

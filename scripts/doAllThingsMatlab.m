@@ -17,37 +17,39 @@ allParam.association.tryToUseMex=false;
 disp('parameters set!')
 
 %files = dir('*_data.csv');
-files = dir('Trackhistory_extracted_blobs_RawMeas_NANs.csv');
+files = dir('test_case3.csv');
 i = 1;
 for file = files'
     trackHistory=tracksortAlgorithm([0,2450;0,1750],1300,1450,allParam,file.name);
     %These numbers in this command should be fitted for the input data, but
     %same camera setup should be able to use the same ones.
+    trackHistory = testSuite(trackHistory, 5);
     saving = strcat("Trackhistory_", file.name(1:end-4));
     savingFile = strcat(saving, ".mat");
     %save trackhistory to file
     save(savingFile, "trackHistory");
+    
     i = i + 1;
     A = transpose(trackHistory(1).RawMeasurements);
     for it = 2:size(trackHistory,2)
         B = transpose(trackHistory(it).RawMeasurements);
         
-        rowsA = size(A,1)
-        rowsB = size(B,1)
+        rowsA = size(A,1);
+        rowsB = size(B,1);
         if rowsA ~= rowsB
             if rowsA > rowsB
-                B = vertcat(B, NaN(rowsA-rowsB, size(B,2)))
+                B = vertcat(B, NaN(rowsA-rowsB, size(B,2)));
             else
-                A = vertcat(A, NaN(rowsB-rowsA, size(A,2)))
+                A = vertcat(A, NaN(rowsB-rowsA, size(A,2)));
             end
         end
         A = horzcat(A,B);
     end
-    disp(A)
+    
     
     % write header
     num_tracks = size(trackHistory,2);
-    header = {}
+    header = {};
    
     for i=1:num_tracks
         header(end+1) = {strcat(strcat('TrackID_',num2str(i)),'_X')};
