@@ -19,10 +19,11 @@
 \Referent[Prof. Dr.-Ing.]{Uwe D. Hanebeck}
 \Mitarbeiter[Dipl.-Inform.]{Florian Pfaff}
 \MitarbeiterB[M.Sc.]{Georg Maier}
-
+\MitarbeiterC[Dr.-Ing.]{Benjamin Noack}
+\MitarbeiterD[Dr.-Ing.]{Robin Gruna}
 
 % Beginn Arbeit / Zwischenvortrag / Abgabe
-\Termine{15. Dezember 2014}{$\approx$ 15. März 2015}{15. Juni 2015}
+\Termine{1. Juni 2018}{$\approx$ 1. Oktober 2018}{31. Januar 2019}
 
 % Datum für Unterschrift:
 % \renewcommand{\today}{16. Dezember 2013}
@@ -32,22 +33,22 @@
 \Anfang
 % \vspace*{}
 Kalman-Filter sind ein mathematisches Verfahren, das in vielen Bereichen Anwendung findet. 
-Es wird unter anderem in einer optischen Bandsortieranlage des Fraunhofer IOSBs dazu eingesetzt, Bewegungen einzelner Schüttgutelemente zu prädizieren.
-Um korrekte Vorhersagen zu erhalten wird ein Bewegungsmodell sowie akkurate Beschreibungen des Mess- sowie des Systemrauschens benötigt.
+Es wird unter anderem in optischen Bandsortieranlagen des Fraunhofer IOSBs dazu eingesetzt, Bewegungen einzelner Schüttgutelemente zu prädizieren.
+Um korrekte Vorhersagen zu erhalten, wird ein Bewegungsmodell sowie akkurate Beschreibungen des Mess- sowie des Systemrauschens benötigt.
 Ein gutes Bewegungsmodell zu bestimmen ist aufwendig und verschiedene Bewegungsmodelle erreichen bei unterschiedlichen Schüttgütern Ergebnisse mit unterschiedlicher Qualität.
 %\textit{[Motivation, wie es schwer ist so ein Bewegungsmodell zu finden]}.
 
 
 Maschinelle Lernverfahren haben in letzter Zeit durch ihre Fähigkeit 
-komplexe Muster in Datensätzen zu finden, ohne diese von Hand modellieren zu müssen, an Relevanz gewonnen.
+komplexe Muster in Datensätzen zu finden, ohne weitreichende händische Vorgaben machen zu müssen, an Relevanz gewonnen.
 Speziell neuronale Netze erleben eine Renaissance und werden für eine große Menge an unterschiedlichsten Problemen eingesetzt.
 Hierfür werden große Mengen an Trainings- und Testdaten benötigt. 
 %\textit{[benötigt große Mengen an Trainings- und Testdaten]}
 
 %Im Rahmen dieser Masterarbeit soll untersucht werden, inwiefern Neuronale Netze das aufwendige Feintuning der Kalmanfilter-Parameter von Hand ersetzen können.
-Im Rahmen dieser Masterarbeit sollen verschiedene Ansätze untersucht werden, wie Neuronale Netze eingesetzt werden können um die Bewegung von Schüttgutpartikeln zu prädizieren.
+Im Rahmen dieser Masterarbeit sollen verschiedene Ansätze untersucht werden, wie neuronale Netze eingesetzt werden können um die Bewegung von Schüttgutpartikeln zu prädizieren.
 Dazu müssen vorhandene Daten von der Schüttgutsortierung aufbereitet werden und neue Daten gesammelt werden.
-Nachdem ein Netzwerk mit Hilfe der Tensorflow Software Library modelliert wurde, kann dieses dann mit diesen Daten trainiert werden.
+Nachdem ein Netzwerk mit Hilfe der Tensorflow-Software-Library modelliert wurde, kann dieses dann mit diesen Daten trainiert werden.
 
 %\textit{[Dazu werden ein Haufen Daten gebraucht, die vorhanden nutzen\/neue Suchen]}
 
@@ -67,7 +68,7 @@ Nachdem ein Netzwerk mit Hilfe der Tensorflow Software Library modelliert wurde,
   \item Erproben von verschiedenen Ansätzen für die Bewegungsprädiktion von Schüttgutelementen mittels neuronalen Netzen
   	\begin{itemize}
   		\item Modellieren und Trainieren verschiedener Netze
-  		\item Vergleich der verschiedenen Ansätze mit dem parametrierten Kalman-Filter und gegebenenfalls untereinander
+  		\item Vergleich der verschiedenen Ansätze mit dem State of the Art und gegebenenfalls untereinander
   		%\item [Vergleich der verschiedenen Ansätze]
   	\end{itemize}
 \end{itemize}

@@ -33,8 +33,18 @@
 }
 
 \newcommand{\MitarbeiterB}[2][]{%
-  \newcommand{\mitarbeiterbtitel}{#1\ }%
-  \newcommand{\mitarbeiterbname}{#2}%
+  \newcommand{\mitarbeitertitelB}{#1\ }%
+  \newcommand{\mitarbeiternameB}{#2}%
+}
+
+\newcommand{\MitarbeiterC}[2][]{%
+  \newcommand{\mitarbeitertitelC}{#1\ }%
+  \newcommand{\mitarbeiternameC}{#2}%
+}
+
+\newcommand{\MitarbeiterD}[2][]{%
+  \newcommand{\mitarbeitertitelD}{#1\ }%
+  \newcommand{\mitarbeiternameD}{#2}%
 }
 
 \newcommand{\Student}[2][]{%
@@ -85,7 +95,10 @@
     \textbf{Bearbeiter:} &\textbf{\studenttitel\studentname} &
     \textbf{Matrikelnummer: \matrikelnr}
     \\\ \\
-    \textbf{Betr. Mitarbeiter:}&\multicolumn{2}{l}{\textbf{\mitarbeitertitel\mitarbeitername}, \textbf{\mitarbeiterbtitel\mitarbeiterbname}}\\
+    % \textbf{Betr. Mitarbeiter:}&\multicolumn{2}{l}{\textbf{\mitarbeitertitel\mitarbeitername}, \textbf{\mitarbeiterbtitel\mitarbeiterbname}}\\
+    \textbf{Betr. Mitarbeiter:}&\multicolumn{2}{l}{\textbf{\mitarbeitertitel\mitarbeitername}, \textbf{\mitarbeitertitelB\mitarbeiternameB}}\\
+    \textbf{}&\multicolumn{2}{l}{\textbf{\ifdefined\mitarbeiternameC\mitarbeitertitelC\mitarbeiternameC\fi}, \textbf{\ifdefined\mitarbeiternameD\mitarbeitertitelD\mitarbeiternameD\fi}}\\
+
     \textbf{Referent:}& \multicolumn{2}{l}{\textbf{\betreuertitel\betreuername}}\\
     \ \\\end{tabularx}
   \begin{tabular}{lr}
