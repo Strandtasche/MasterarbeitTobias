@@ -3,7 +3,9 @@
 # Importing necessary things
 import tensorflow as tf
 from tensorflow import estimator as estimator
-import loadDataExample as ld
+import argparse
+from starttf.utils.hyperparams import load_params
+
 
 import numpy as np
 np.set_printoptions(precision=2)
@@ -11,6 +13,8 @@ np.set_printoptions(precision=2)
 from sklearn.model_selection import train_test_split
 
 import matplotlib.pyplot as plt
+import time
+import datetime
 
 import logging
 
@@ -20,8 +24,10 @@ tf.logging.set_verbosity(tf.logging.ERROR)
 logging.basicConfig(level=logging.INFO)
 logging.info('Tensorflow %s' % tf.__version__)
 
-TRAINING = True
+TRAINING = False
 WITHPLOT = False
+
+
 
 
 (X_train, y_train), (X_test, y_test) = ld.loadData(5)
@@ -49,8 +55,38 @@ def test_input_fn():
 		shuffle=False)
 
 
+def training_input_fn_Slices(features, labels, batch_size):
+	"""An input function for training"""
+	# Convert the inputs to a Dataset.
+	featureDict = {ld.CSV_COLUMN_NAMES[k]: features[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))}
 
+	dataset = tf.data.Dataset.from_tensor_slices((featureDict, labels.astype(np.float32)))
 
+	# Shuffle, repeat, and batch the examples.
+	dataset = dataset.shuffle(1000).repeat().batch(batch_size)
+
+	# Return the dataset.
+
+	return dataset
+
+def eval_input_fn(features, labels, batch_size):
+	"""An input function for evaluation or prediction"""
+	featureDict = {ld.CSV_COLUMN_NAMES[k]: features[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))}
+	if labels is None:
+		# No labels, use only features.
+		inputs = featureDict
+	else:
+		inputs = (featureDict, labels)
+
+	# Convert the inputs to a Dataset.
+	dataset = tf.data.Dataset.from_tensor_slices(inputs)
+
+	# Batch the examples
+	assert batch_size is not None, "batch_size must not be None"
+	dataset = dataset.batch(batch_size)
+
+	# Return the dataset.
+	return dataset
 
 # Network Design
 # --------------
@@ -60,12 +96,15 @@ my_feature_columns = []
 for key in ld.CSV_COLUMN_NAMES:
 	my_feature_columns.append(tf.feature_column.numeric_column(key=key))
 
-STEPS_PER_EPOCH = 100
-EPOCHS = 200
-BATCH_SIZE = 100
+hyper_params = load_params("hyper_params.json")
+time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
+
+STEPS_PER_EPOCH = hyper_params.train.steps_per_epoch
+EPOCHS = hyper_params.train.epochs
+BATCH_SIZE = hyper_params.train.batch_size
 
 hidden_layers = [16, 16, 16, 16, 16]
-dropout = 0.0
+dropout = hyper_params.arch.dropout_rate
 
 MODEL_PATH='./DNNRegressors/'
 for hl in hidden_layers:
@@ -92,7 +131,8 @@ if TRAINING:
 	for epoch in range(EPOCHS+1):
 
 		# Fit the DNNRegressor (This is where the magic happens!!!)
-		regressor.train(input_fn=training_input_fn(batch_size=BATCH_SIZE), steps=STEPS_PER_EPOCH)
+		#regressor.train(input_fn=training_input_fn(batch_size=BATCH_SIZE), steps=STEPS_PER_EPOCH)
+		regressor.train(input_fn=lambda :training_input_fn_Slices(X_train, y_train, BATCH_SIZE), steps=STEPS_PER_EPOCH)
 
 
 		# Thats it -----------------------------
@@ -110,12 +150,12 @@ else:
 # 	logging.info('No training today, just prediction')
 # 	try:
 		# Prediction
-	eval_dict = regressor.evaluate(input_fn=test_input_fn())
+	eval_dict = regressor.evaluate(input_fn=lambda :eval_input_fn(X_test, y_test, 2))
 	print("eval: " + str(eval_dict))
 	# print('\nTest set accuracy: {accuracy:0.3f}\n'.format(**eval_result))
 
 	X_pred = np.linspace(0,1,11)
-	y_pred = regressor.predict(input_fn=test_input_fn())
+	y_pred = regressor.predict(input_fn=lambda :eval_input_fn(X_test, None, 1))
 	print(y_pred)
 
 	# Get trained values out of the Network
