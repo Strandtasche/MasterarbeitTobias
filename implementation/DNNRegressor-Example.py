@@ -36,19 +36,19 @@ parser.add_argument('--number', default=1, type=int, help="youGod")
 
 # Defining the Tensorflow input functions
 # for training
-def training_input_fn(batch_size=1):
-	return tf.estimator.inputs.numpy_input_fn(x={ld.CSV_COLUMN_NAMES[k]: X_train[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))},
-											  y=y_train.astype(np.float32),
-											  batch_size=batch_size,
-											  num_epochs=None,
-											  shuffle=True)
-# for test
-def test_input_fn():
-	return tf.estimator.inputs.numpy_input_fn(
-		x={ld.CSV_COLUMN_NAMES[k]: X_test[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))},
-		y=y_test.astype(np.float32),
-		num_epochs=1,
-		shuffle=False)
+# def training_input_fn(batch_size=1):
+# 	return tf.estimator.inputs.numpy_input_fn(x={ld.CSV_COLUMN_NAMES[k]: X_train[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))},
+# 											  y=y_train.astype(np.float32),
+# 											  batch_size=batch_size,
+# 											  num_epochs=None,
+# 											  shuffle=True)
+# # for test
+# def test_input_fn():
+# 	return tf.estimator.inputs.numpy_input_fn(
+# 		x={ld.CSV_COLUMN_NAMES[k]: X_test[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))},
+# 		y=y_test.astype(np.float32),
+# 		num_epochs=1,
+# 		shuffle=False)
 
 
 def training_input_fn_Slices(features, labels, batch_size):
@@ -90,8 +90,6 @@ def eval_input_fn(features, labels, batch_size):
 def main(argv):
 	args = parser.parse_args(argv[1:])
 
-	print(args)
-	print(args.training)
 
 	TRAINING = args.training
 	WITHPLOT = args.plot
@@ -102,19 +100,29 @@ def main(argv):
 	# --------------
 	#OLD: feature_columns = [tf.feature_column.numeric_column('X', shape=(1,))]
 
+
 	my_feature_columns = []
 	for key in ld.CSV_COLUMN_NAMES:
 		my_feature_columns.append(tf.feature_column.numeric_column(key=key))
 
-	hyper_params = load_params("hyper_params.json")
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
-	STEPS_PER_EPOCH = hyper_params.train.steps_per_epoch
-	EPOCHS = hyper_params.train.epochs
-	BATCH_SIZE = hyper_params.train.batch_size
+	try:
+		hyper_params = load_params("hyper_params.json")
+		STEPS_PER_EPOCH = hyper_params.train.steps_per_epoch
+		EPOCHS = hyper_params.train.epochs
+		BATCH_SIZE = hyper_params.train.batch_size
 
-	hidden_layers = [16, 16, 16, 16, 16]
-	dropout = hyper_params.arch.dropout_rate
+		hidden_layers = [16, 16, 16, 16, 16]
+		dropout = hyper_params.arch.dropout_rate
+	except AttributeError as err:
+		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
+		logging.error("AttributeError: {0}".format(err))
+		exit()
+	except:
+		logging.error("Some kind of error? not sure")
+		exit()
+
 
 	MODEL_PATH='./DNNRegressors/'
 	for hl in hidden_layers:
