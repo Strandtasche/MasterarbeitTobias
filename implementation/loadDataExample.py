@@ -20,10 +20,20 @@ load = False
 
 CSV_COLUMN_NAMES = ['X_1', 'X_2', 'X_3', 'X_4']
 
+def genColumnNames(featureSize):
+	names = []
+	for i in range(featureSize):
+		names.append('X_' + str(i))
+	for i in range(featureSize):
+		names.append('Y_' + str(i))
+
+	return names
+
+
 def loadCSVData(file='/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case1_labels.csv', featureSize=5):
 
 	df = pd.read_csv(file)
-	featureSize = 2    # print(df.head(1))
+	# print(df.head(1))
 
 
 	data = {}
@@ -83,40 +93,8 @@ def loadCSVtoNpy(inputFile='/home/tobi/Projects/KIT/MasterarbeitTobias/data/Grou
 			x[counter]['labels'] =  a[sp + featureSize + 1] #np.array(a[sp + featureSize + 1], b[sp + featureSize + 1])
 			counter = counter + 1
 
-	#print(x)
 
 	np.save(outputfile, x)
-
-
-def train_input_fn(features, labels, batch_size):
-	"""An input function for training"""
-	# Convert the inputs to a Dataset.
-	print(features)
-	dataset = tf.data.Dataset.from_tensor_slices((dict(features), labels))
-
-	# Shuffle, repeat, and batch the examples.
-	dataset = dataset.shuffle(1000).repeat().batch(batch_size)
-	print("this is dataset type: " + str(type(dataset)))
-	return dataset
-
-def eval_input_fn(features, labels, batch_size):
-	"""An input function for evaluation or prediction"""
-	features=dict(features)
-	if labels is None:
-		# No labels, use only features.
-		inputs = features
-	else:
-		inputs = (features, labels)
-
-	# Convert the inputs to a Dataset.
-	dataset = tf.data.Dataset.from_tensor_slices(inputs)
-
-	# Batch the examples
-	assert batch_size is not None, "batch_size must not be None"
-	dataset = dataset.batch(batch_size)
-
-	# Return the dataset.
-	return dataset
 
 
 
