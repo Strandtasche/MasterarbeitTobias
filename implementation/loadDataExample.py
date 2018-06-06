@@ -21,6 +21,7 @@ load = False
 CSV_COLUMN_NAMES = ['X_1', 'X_2', 'X_3', 'X_4']
 
 def genColumnNames(featureSize):
+	"""returns an array that can be used as the name for feature columns"""
 	names = []
 	for i in range(featureSize):
 		names.append('X_' + str(i))
@@ -31,7 +32,7 @@ def genColumnNames(featureSize):
 
 
 def loadCSVData(file='/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case1_labels.csv', featureSize=5):
-
+	"""loads data from from CSV file and returns a dictionary with features and labels"""
 	df = pd.read_csv(file)
 	# print(df.head(1))
 
@@ -50,11 +51,12 @@ def loadCSVData(file='/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTrut
 			a = df.iloc[:,(2 + 2*i)].values
 			b = df.iloc[:, (2 + 2*i+ 1)].values
 			sp = random.randint(0, df.shape[0] - featureSize - 2)
-			#print(sp)
 			final_feature = np.append(a[sp:(sp+featureSize)], b[sp:(sp+featureSize)])
-			final_label = np.array(a[sp + featureSize + 1], b[sp + featureSize + 1])
+			final_label = np.append(a[sp + featureSize + 1], b[sp + featureSize + 1])
 
-			#print(final_label)
+			# print("a: " + str(a[sp + featureSize + 1]) + ", b:" + str(b[sp + featureSize + 1]))
+
+			# print(final_label)
 			# assert final_feature.shape[0] == final_label.shape[0]
 
 			data["features"].append(final_feature)
@@ -64,7 +66,8 @@ def loadCSVData(file='/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTrut
 
 
 def loadCSVtoNpy(inputFile='/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case1_labels.csv', outputfile ='in.npy', featureSize=5):
-
+	"""loads data from a csv file and generates a set of features and labels from it.
+	the result is saved into a npy file and placed in the current folder"""
 
 	dt = np.dtype([('features', float, (2*featureSize,)), ('labels', float )])#(2,))])
 
@@ -100,6 +103,9 @@ def loadCSVtoNpy(inputFile='/home/tobi/Projects/KIT/MasterarbeitTobias/data/Grou
 
 
 def loadData(featureSize=5):
+	"""generates data in the right format from csv files and returns a
+	dataset as (train_features, train_labels), (test_features, test_labels)."""
+
 	training_file = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case1_labels.csv'
 	test_file = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case2_labels_NoNan.csv'
 
@@ -114,6 +120,7 @@ def loadData(featureSize=5):
 	test_features = test_data["features"]
 	test_labels = test_data["labels"]
 
+
 	assert train_features.shape[0] == train_labels.shape[0]
 	assert test_features.shape[0] == test_labels.shape[0]
 
@@ -127,4 +134,3 @@ def loadData(featureSize=5):
 
 
 
-# print(training_data)
