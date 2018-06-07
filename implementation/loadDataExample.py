@@ -16,9 +16,9 @@ import random
 load = False
 # featureSize = 5
 
-# CSV_COLUMN_NAMES = ['X_1', 'X_2', 'X_3', 'X_4', 'X_5', 'Y_1', 'Y_2', 'Y_3', 'Y_4', 'Y_5']
+#CSV_COLUMN_NAMES = ['X_1', 'X_2', 'X_3', 'X_4', 'X_5', 'Y_1', 'Y_2', 'Y_3', 'Y_4', 'Y_5']
 
-CSV_COLUMN_NAMES = ['X_1', 'X_2', 'X_3', 'X_4']
+#CSV_COLUMN_NAMES = ['X_1', 'X_2', 'X_3', 'X_4']
 
 def genColumnNames(featureSize):
 	"""returns an array that can be used as the name for feature columns"""
@@ -109,8 +109,8 @@ def loadData(featureSize=5):
 	training_file = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case1_labels.csv'
 	test_file = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case2_labels_NoNan.csv'
 
-	loadCSVtoNpy(training_file, "training_in.npy", 2)
-	loadCSVtoNpy(test_file, "test_in.npy", 2)
+	loadCSVtoNpy(training_file, "training_in.npy", featureSize)
+	loadCSVtoNpy(test_file, "test_in.npy", featureSize)
 
 	train_data = np.load('training_in.npy')
 	train_features = train_data["features"]
@@ -120,11 +120,16 @@ def loadData(featureSize=5):
 	test_features = test_data["features"]
 	test_labels = test_data["labels"]
 
+	CsvColumnNames = genColumnNames(featureSize)
+
+	trainFeatureDict = {CsvColumnNames[k]: train_features[:,k] for k in range(2*featureSize)}
+	testFeatureDict = {CsvColumnNames[k]: test_features[:,k] for k in range(2*featureSize)}
+
 
 	assert train_features.shape[0] == train_labels.shape[0]
 	assert test_features.shape[0] == test_labels.shape[0]
 
-	return (train_features, train_labels), (test_features, test_labels)
+	return (trainFeatureDict, train_labels), (testFeatureDict, test_labels)
 
 
 

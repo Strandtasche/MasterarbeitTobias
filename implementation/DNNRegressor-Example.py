@@ -5,7 +5,7 @@ import tensorflow as tf
 from tensorflow import estimator as estimator
 import argparse
 from starttf.utils.hyperparams import load_params
-
+import itertools
 
 import numpy as np
 np.set_printoptions(precision=2)
@@ -43,20 +43,22 @@ parser.add_argument('--number', default=1, type=int, help="youGod")
 # 											  num_epochs=None,
 # 											  shuffle=True)
 # # for test
-# def test_input_fn():
-# 	return tf.estimator.inputs.numpy_input_fn(
-# 		x={ld.CSV_COLUMN_NAMES[k]: X_test[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))},
-# 		y=y_test.astype(np.float32),
-# 		num_epochs=1,
-# 		shuffle=False)
+def test_input_fn():
+	x_pred = [307.0008645, 289.3084862, 287.6603193, 286.5064696, 280.9218467, 878.2148575, 904.4078876, 941.4911504, 963.7507131, 997.3503217]
+	argu = {ld.CSV_COLUMN_NAMES[k]: x_pred[k] for k in range(len(ld.CSV_COLUMN_NAMES))}
+	return tf.estimator.inputs.numpy_input_fn(
+		x=argu,
+		num_epochs=1,
+		shuffle=False)
 
 
 def training_input_fn_Slices(features, labels, batch_size):
 	"""An input function for training"""
 	# Convert the inputs to a Dataset.
-	featureDict = {ld.CSV_COLUMN_NAMES[k]: features[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))}
+	#featureDict = {ld.CSV_COLUMN_NAMES[k]: features[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))}
+	featureDict = dict(features)
 
-	dataset = tf.data.Dataset.from_tensor_slices((featureDict, labels.astype(np.float32)))
+	dataset = tf.data.Dataset.from_tensor_slices((featureDict, labels))
 
 	# Shuffle, repeat, and batch the examples.
 	dataset = dataset.shuffle(1000).repeat().batch(batch_size)
@@ -67,7 +69,8 @@ def training_input_fn_Slices(features, labels, batch_size):
 
 def eval_input_fn(features, labels, batch_size):
 	"""An input function for evaluation or prediction"""
-	featureDict = {ld.CSV_COLUMN_NAMES[k]: features[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))}
+	#featureDict = {ld.CSV_COLUMN_NAMES[k]: features[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))}
+	featureDict = dict(features)
 	if labels is None:
 		# No labels, use only features.
 		inputs = featureDict
@@ -102,7 +105,8 @@ def main(argv):
 
 
 	my_feature_columns = []
-	for key in ld.CSV_COLUMN_NAMES:
+	columnNames = ld.genColumnNames(5)
+	for key in columnNames:
 		my_feature_columns.append(tf.feature_column.numeric_column(key=key))
 
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
@@ -206,3 +210,6 @@ if __name__ == '__main__':
 	logging.basicConfig(level=logging.INFO)
 	logging.info('Tensorflow %s' % tf.__version__)
 	tf.app.run(main)
+
+
+
