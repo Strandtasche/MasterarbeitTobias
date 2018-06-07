@@ -109,14 +109,18 @@ def loadData(featureSize=5):
 	training_file = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case1_labels.csv'
 	test_file = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case2_labels_NoNan.csv'
 
-	loadCSVtoNpy(training_file, "training_in.npy", featureSize)
-	loadCSVtoNpy(test_file, "test_in.npy", featureSize)
+	trainingInNpFile = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/trainingIn.npy'
+	testInNpFile = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/testIn.npy'
 
-	train_data = np.load('training_in.npy')
+
+	loadCSVtoNpy(training_file, trainingInNpFile, featureSize)
+	loadCSVtoNpy(test_file, testInNpFile, featureSize)
+
+	train_data = np.load(trainingInNpFile)
 	train_features = train_data["features"]
 	train_labels = train_data["labels"]
 
-	test_data = np.load('test_in.npy')
+	test_data = np.load(testInNpFile)
 	test_features = test_data["features"]
 	test_labels = test_data["labels"]
 
