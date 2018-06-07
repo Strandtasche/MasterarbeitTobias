@@ -176,11 +176,20 @@ def main(argv):
 		print("eval: " + str(eval_dict))
 		# print('\nTest set accuracy: {accuracy:0.3f}\n'.format(**eval_result))
 
-		X_pred = np.linspace(0,1,11)
-		y_pred = regressor.predict(input_fn=lambda :eval_input_fn(X_test, None, 1))
-		print(y_pred)
+		# print(X_test)
+		x_pred = {}
+		vals = [100 + 1*i for i in range(10)]
+		iter = 0
+		for i in columnNames:
+			x_pred[i] = [vals[iter]]
+			iter = iter + 1
 
-		# Get trained values out of the Network
+		y_pred = regressor.predict(input_fn=lambda :eval_input_fn(x_pred, labels=None, batch_size=1))
+		# predictions = list(p["predictions"] for p in itertools.islice(y_pred, 6))
+		for elem in y_pred:
+			print(elem)
+
+	# Get trained values out of the Network
 		for variable_name in regressor.get_variable_names():
 			if str(variable_name).startswith('dnn/hiddenlayer') and \
 					(str(variable_name).endswith('weights') or \
