@@ -510,26 +510,35 @@
     \vskip 40\p@
   }}
 
-\renewcommand\section{\@startsection{section}{1}{\z@}
+\renewcommand\section{\scr@startsection{section}{1}{\z@}
                                    {-3.5ex \@plus -1ex \@minus -.2ex}
                                    {2.3ex \@plus.2ex}
                                    {\sffamily\Large\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}
+\renewcommand\subsection{\scr@startsection{subsection}{2}{\z@}
                                    {-3.25ex\@plus -1ex \@minus -.2ex}
                                    {1.5ex \@plus .2ex}
                                    {\sffamily\large\bfseries}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}
+\renewcommand\subsubsection{\scr@startsection{subsubsection}{3}{\z@}
                                    {-3.25ex\@plus -1ex \@minus -.2ex}
                                    {1.5ex \@plus .2ex}
                                    {\sffamily\normalsize\bfseries}}
-\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}
+\renewcommand\paragraph{\scr@startsection{paragraph}{4}{\z@}
                                    {3.25ex \@plus1ex \@minus.2ex}
                                    {-1em}
                                    {\sffamily\normalsize\bfseries}}
-\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}
+\renewcommand\subparagraph{\scr@startsection{subparagraph}{5}{\parindent}
                                    {3.25ex \@plus1ex \@minus .2ex}
                                    {-1em}
                                    {\sffamily\normalsize\bfseries}}
                                    
 \makeatother
 
+
+
+\makeatletter
+\@ifpackagelater{scrbase}{2014/12/12}{% for newer versions: do nothing:
+    %
+}{% for older versions: use \@startsection instead of \scr@startsection:
+    \def\scr@startsection{\@startsection}%
+}%
+\makeatother

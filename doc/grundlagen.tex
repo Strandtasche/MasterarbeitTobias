@@ -19,11 +19,11 @@ Als Kalman-Filter bezeichnet man ein mathematisches Verfahren mit dem Messfehler
 Der Zustand des Systems zum Zeitschritt $t$ wird als $y_t$ und die Messung im Zeitschritt $t$ als $z_t$ bezeichnet.
 
 \begin{equation}
-	y_t = A y_{t-1} + w, 	w ~ N(0, Q)
+	y_t = A y_{t-1} + w, 	w \sim N(0, Q)
 \end{equation}
 
 \begin{equation}
-	z_t = H y_{t} + v, 	v ~ N(0, R)
+	z_t = H y_{t} + v, 	v \sim N(0, R)
 \end{equation}
 
 Dabei ist $A$ die Zustandsübergangsmatrix, die den Übergang von einem Zustand in den nächsten beschreibt.
@@ -54,15 +54,69 @@ Infolge dessen gab verschiedene Forschungsbestrebungen in dem Feld, wie [Example
 
 [Viele der Begrifflichkeiten, die wir heute noch verwenden wurden 1956 auf der Dartmouth Conference festlegt.]
 
-Nachdem jedoch Marvin Minsky und Seymour Papert zeigten, dass einzelne Perceptrons nicht in der Lage sind linear nicht separierbare Probleme zu lösen sank das Interesse an dem Feld.
+Nachdem jedoch Marvin Minsky und Seymour Papert zeigten, dass einzelne Perzeptrons nicht in der Lage sind linear nicht separierbare Probleme zu lösen sank das Interesse an dem Feld.
 
 \subsection{Perzeptron}
 
 Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron.
 Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert $o$ ausgibt.
 Die einzelnen Eingaben $x_i$ haben jeweils eine Gewichtung $w_i$.
-Es existiert ein sogenannter Schwellwert oder \textit{bias}, der normalerweise durch eine zusätzliche Eingabe $x_{m+1} mit dem Wert $+1$ und dem dazugehörigen Gewicht $w_{m+1}$ modelliert wird.
+Es existiert ein sogenannter Schwellwert oder \textit{bias}, der normalerweise 
+durch eine zusätzliche Eingabe $x_{m+1}$ mit dem Wert $+1$ und dem dazugehörigen Gewicht $w_{m+1}$ modelliert wird.
+Den Ausgabewert $y$ erhält man dadurch, dass man die gewichteten Eingaben aufsummiert und in die Aktivierungsfunktion des Perzeptrons gibt.
+Ein Überblick über verschiedene Aktivierungsfunktionen ist unter \ref{activationfuncs} zu finden.
 
-AKTIVIERUNGSFUNKTION
+Mathematisch ist die Ausgabe eines Perzeptrons also wie folgt definiert:
 
-OUTPUT!
+\begin{equation}
+	y = \phi ( \sum_{i= 0}^{m} w_i x_i)
+\end{equation}
+
+Beim Lernen werden die Gewichte der einzelnen Eingaben so an gepasst, dass die gewünschte Ausgabe erreicht wird.
+Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen Operatoren AND, OR und NOT genutzt werden
+
+\subsection{Aktivierungsfunktionen}
+\label{activationfuncs}
+Es gibt verschiedene Aktivierungsfunktionen, die für den Einsatz in neuronalen Netzen in Frage kommen.
+Sie sind von essenzieller Wichtigkeit, da ohne eine Nicht-Linearität das Netz in eine einfache Regression kollabiert.
+
+Eine Aktivierungsfunktion sollte leicht abzuleiten sein, 
+da dies im Rahmen des Backpropagation Algorithmus häufig geschieht und sonst beträchtlicher Rechenaufwand entsteht.
+
+\begin{description}
+	\item[Sigmoid-Funktion] \hfill \\
+		\begin{equation}
+			f(x) = \frac{1}{1 + e^x} = \frac{e^x}{e^{x + 1}},
+		\end{equation}
+		
+		\begin{equation}
+			f'(x) = f(x) * (1 - f(x))
+		\end{equation}
+		
+
+	\item[TanH] \hfill \\
+		% \begin{equation}
+		
+		% 	% f(x) = tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}},	
+		% 	% f'(x) = 1 - f(x)^2
+			
+		% \end{equation}
+		\begin{equation}
+			f(x) = tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}
+		\end{equation}
+		\begin{equation}
+			f'(x) = 1 - f(x)^2
+		\end{equation}
+	
+	\item[ReLu] \hfill \\
+		\begin{equation}
+			f(x) = max(0, x)
+		\end{equation}
+		\begin{equation*}
+			f'(x) = \begin{cases}
+			0 &\text{, falls $x < 0$}\\
+			1 &\text{, falls $x > 0$}
+			\end{cases}
+		\end{equation*}
+
+\end{description}
