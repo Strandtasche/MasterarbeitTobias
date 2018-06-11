@@ -103,7 +103,7 @@ def main(argv):
 	# --------------
 	#OLD: feature_columns = [tf.feature_column.numeric_column('X', shape=(1,))]
 
-
+	print(y_train)
 	my_feature_columns = []
 	columnNames = ld.genColumnNames(5)
 	for key in columnNames:
@@ -135,12 +135,11 @@ def main(argv):
 	logging.info('Saving to %s' % MODEL_PATH)
 
 	# Validation and Test Configuration
-	validation_metrics = {"MSE": tf.contrib.metrics.streaming_mean_squared_error}
-	test_config = estimator.RunConfig(save_checkpoints_steps=100,
+	test_config = estimator.RunConfig(save_checkpoints_steps=200,
 									  save_checkpoints_secs=None)
 	# Building the Network
 	regressor = estimator.DNNRegressor(feature_columns=my_feature_columns,
-									   label_dimension=1,
+									   label_dimension=2,
 									   hidden_units=hidden_layers,
 									   model_dir=MODEL_PATH,
 									   dropout=dropout,
@@ -166,6 +165,8 @@ def main(argv):
 			if epoch%10==0:
 				print("we are making progress: " + str(epoch))
 
+				eval_dict = regressor.evaluate(input_fn=lambda :eval_input_fn(X_test, y_test, 1))
+				print("eval: " + str(eval_dict))
 
 	# Now it's trained. We can try to predict some values.
 	else:

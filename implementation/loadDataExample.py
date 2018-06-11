@@ -69,7 +69,7 @@ def loadCSVtoNpy(inputFile='/home/tobi/Projects/KIT/MasterarbeitTobias/data/Grou
 	"""loads data from a csv file and generates a set of features and labels from it.
 	the result is saved into a npy file and placed in the current folder"""
 
-	dt = np.dtype([('features', float, (2*featureSize,)), ('labels', float )])#(2,))])
+	dt = np.dtype([('features', float, (2*featureSize,)), ('labels', float,(2,))])
 
 
 	df = pd.read_csv(inputFile)
@@ -93,7 +93,7 @@ def loadCSVtoNpy(inputFile='/home/tobi/Projects/KIT/MasterarbeitTobias/data/Grou
 		for k in range(sampleNumberPerTrack):
 			sp = random.randint(0, df.shape[0] - featureSize - 2)
 			x[counter]['features'] = np.append(a[sp:(sp+featureSize)], b[sp:(sp+featureSize)])
-			x[counter]['labels'] =  a[sp + featureSize + 1] #np.array(a[sp + featureSize + 1], b[sp + featureSize + 1])
+			x[counter]['labels'] = np.append(a[sp + featureSize + 1], b[sp + featureSize + 1]) #a[sp + featureSize + 1]
 			counter = counter + 1
 
 
@@ -128,6 +128,12 @@ def loadData(featureSize=5):
 
 	trainFeatureDict = {CsvColumnNames[k]: train_features[:,k] for k in range(2*featureSize)}
 	testFeatureDict = {CsvColumnNames[k]: test_features[:,k] for k in range(2*featureSize)}
+
+	labelNames = ['X_n', 'Y_n']
+
+
+	trainLabelDict = {labelNames[k]: train_labels[:,k] for k in range(2)}
+	testLabelDict = {labelNames[k]: test_labels[:,k] for k in range(2)}
 
 
 	assert train_features.shape[0] == train_labels.shape[0]
