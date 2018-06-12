@@ -15,6 +15,11 @@
 \usepackage{color}
 \usepackage{courier}
 
+\usepackage{todonotes}
+
+\usepackage{biblatex}
+
+\addbibresource{sources.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Edit notation.tex if necessary
@@ -47,5 +52,12 @@
 
     \input{grundlagen}
     \input{relatedWork}
+
+
+
+
+    \nocite{*}
+
+    \printbibliography[heading=bibintoc]
 \end{document}
 
