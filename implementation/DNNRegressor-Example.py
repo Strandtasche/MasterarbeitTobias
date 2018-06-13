@@ -24,32 +24,9 @@ import loadDataExample as ld
 parser = argparse.ArgumentParser()
 parser.add_argument('--training', default=False, type=bool, help='if training of eval')
 parser.add_argument('--plot', default=False, type=bool, help='plotting with matplotlib')
-parser.add_argument('--number', default=1, type=int, help="youGod")
+parser.add_argument('--number', default=1, type=int, help="youGot")
 
 
-
-# X_train = np.random.random((15, 4))
-# y_train = np.random.random((15,))
-# X_test = X_train
-# y_test = y_train
-
-
-# Defining the Tensorflow input functions
-# for training
-# def training_input_fn(batch_size=1):
-# 	return tf.estimator.inputs.numpy_input_fn(x={ld.CSV_COLUMN_NAMES[k]: X_train[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))},
-# 											  y=y_train.astype(np.float32),
-# 											  batch_size=batch_size,
-# 											  num_epochs=None,
-# 											  shuffle=True)
-# # for test
-def test_input_fn():
-	x_pred = [307.0008645, 289.3084862, 287.6603193, 286.5064696, 280.9218467, 878.2148575, 904.4078876, 941.4911504, 963.7507131, 997.3503217]
-	argu = {ld.CSV_COLUMN_NAMES[k]: x_pred[k] for k in range(len(ld.CSV_COLUMN_NAMES))}
-	return tf.estimator.inputs.numpy_input_fn(
-		x=argu,
-		num_epochs=1,
-		shuffle=False)
 
 
 def training_input_fn_Slices(features, labels, batch_size):
