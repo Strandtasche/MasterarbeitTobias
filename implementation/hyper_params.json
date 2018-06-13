@@ -1,0 +1,18 @@
+{
+    "arch": {
+        "dropout_rate": 0.1
+    },
+    "problem": {
+        "data_path": "datasets/mnist",
+        "number_of_categories": 10
+    },
+    "train": {
+        "batch_size": 100,
+        "epochs": 1000,
+        "steps_per_epoch": 100,
+        "learning_rate": {
+            "start_value": 0.001,
+            "type": "const"
+        }
+    }
+}
