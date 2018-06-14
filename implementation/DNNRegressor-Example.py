@@ -14,17 +14,19 @@ from sklearn.model_selection import train_test_split
 
 import matplotlib.pyplot as plt
 import time
+import os
 import datetime
 
 import logging
 
 import loadDataExample as ld
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--training', default=False, type=bool, help='if training of eval')
 parser.add_argument('--plot', default=False, type=bool, help='plotting with matplotlib')
-parser.add_argument('--number', default=1, type=int, help="youGot")
+parser.add_argument('--fake', default=False, type=bool, help="use real data?")
 
 
 
@@ -70,17 +72,20 @@ def eval_input_fn(features, labels, batch_size):
 def main(argv):
 	args = parser.parse_args(argv[1:])
 
-
 	TRAINING = args.training
 	WITHPLOT = args.plot
+	FAKE = args.fake
 
-	(X_train, y_train), (X_test, y_test) = ld.loadData(5)
+	if not FAKE:
+		(X_train, y_train), (X_test, y_test) = ld.loadData(5)
+	else:
+		(X_train, y_train), (X_test, y_test) = ld.loadFakeData(5)
+
 
 	# Network Design
 	# --------------
 	#OLD: feature_columns = [tf.feature_column.numeric_column('X', shape=(1,))]
 
-	print(y_train)
 	my_feature_columns = []
 	columnNames = ld.genColumnNames(5)
 	for key in columnNames:
@@ -104,8 +109,11 @@ def main(argv):
 		logging.error("Some kind of error? not sure")
 		exit()
 
+	if not FAKE:
+		MODEL_PATH='./DNNRegressors/'
+	else:
+		MODEL_PATH= './DNNRegressorsFAKE/'
 
-	MODEL_PATH='./DNNRegressors/'
 	for hl in hidden_layers:
 		MODEL_PATH += '%s_' % hl
 	MODEL_PATH += 'D0%s' % (int(dropout*10))

@@ -6,7 +6,7 @@ import os
 import pandas as pd
 import re
 import random
-
+from sklearn.model_selection import train_test_split
 
 
 
@@ -106,11 +106,14 @@ def loadData(featureSize=5):
 	"""generates data in the right format from csv files and returns a
 	dataset as (train_features, train_labels), (test_features, test_labels)."""
 
-	training_file = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case1_labels.csv'
-	test_file = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/test_case2_labels_NoNan.csv'
 
-	trainingInNpFile = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/trainingIn.npy'
-	testInNpFile = '/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTruthExample/testIn.npy'
+	prefix = os.getcwd()
+
+	training_file = prefix + '/../data/GroundTruthExample/test_case1_labels.csv'
+	test_file = prefix + '/../data/GroundTruthExample/test_case2_labels_NoNan.csv'
+
+	trainingInNpFile = prefix + '/../data/GroundTruthExample/trainingIn.npy'
+	testInNpFile = prefix + '/../data/GroundTruthExample/testIn.npy'
 
 
 	loadCSVtoNpy(training_file, trainingInNpFile, featureSize)
@@ -129,11 +132,11 @@ def loadData(featureSize=5):
 	trainFeatureDict = {CsvColumnNames[k]: train_features[:,k] for k in range(2*featureSize)}
 	testFeatureDict = {CsvColumnNames[k]: test_features[:,k] for k in range(2*featureSize)}
 
-	labelNames = ['X_n', 'Y_n']
+	# labelNames = ['X_n', 'Y_n']
 
 
-	trainLabelDict = {labelNames[k]: train_labels[:,k] for k in range(2)}
-	testLabelDict = {labelNames[k]: test_labels[:,k] for k in range(2)}
+	# trainLabelDict = {labelNames[k]: train_labels[:,k] for k in range(2)}
+	# testLabelDict = {labelNames[k]: test_labels[:,k] for k in range(2)}
 
 
 	assert train_features.shape[0] == train_labels.shape[0]
@@ -142,10 +145,60 @@ def loadData(featureSize=5):
 	return (trainFeatureDict, train_labels), (testFeatureDict, test_labels)
 
 
+def prepareFakeData(startpX = 700, startpY = 0, veloX=-5, veloY=30, numberEx = 75, featureSize=5):
+	startpointx = startpX
+	startpointy = startpY
+
+	numberExamples = numberEx
+
+	speedx = veloX
+	speedy = veloY
+
+	posX = [startpointx + i*speedx for i in range(numberExamples)]
+	posY = [startpointy + i*speedy for i in range(numberExamples)]
+
+	featureCount = numberExamples - featureSize
+
+	assert numberExamples > (featureSize + 1) and featureSize > 0
+
+	dt = np.dtype([('features', float, (2 * featureSize,)), ('labels', float, (2,))])
+	data = np.zeros((featureCount,), dtype=dt)
+
+	# print("posX: " + str(len(posX)))
+	# print("feature count: " + str(featureCount))
 
 
+	for i in range(featureCount):
+		# print("Start: %d", i)
+		# print("stop: %d", (i + featureSize))
+		assert (i + featureSize) < numberExamples
+		data[i]['features'] = np.append(posX[i:(i+featureSize)], posY[i:(i+featureSize)])
+		data[i]['labels'] = np.append(posX[i + featureSize], posY[i + featureSize])
+
+	return data
 
 
+def loadFakeData(featureSize=5):
 
+	dataArray = []
+
+	for i in range(20):
+		dataPoint = prepareFakeData(700 + 10 * random.randint(-i, i), 10 * random.randint(0, 15),
+		random.randint(-15, 15), random.randint(5, 45), random.randint(30, 75), featureSize)
+		dataArray.append(dataPoint)
+
+	data = dataArray.pop()
+	for i in dataArray:    #TODO: Maybe improve performance here?
+		data = np.append(data, i)
+
+
+	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(data['features'], data['labels'], test_size=0.2)
+
+	CsvColumnNames = genColumnNames(featureSize)
+	
+	trainFeatureDict={CsvColumnNames[k]: trainFeatures[:, k] for k in range(2 * featureSize)}
+	testFeatureDict = {CsvColumnNames[k]: testFeatures[:, k] for k in range(2 * featureSize)}
+
+	return (trainFeatureDict, trainLabels), (testFeatureDict, testLabels)
 
 
