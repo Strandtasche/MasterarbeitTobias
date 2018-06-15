@@ -178,11 +178,11 @@ def prepareFakeData(startpX = 700, startpY = 0, veloX=-5, veloY=30, numberEx = 7
 	return data
 
 
-def loadFakeData(featureSize=5):
+def loadFakeData(featureSize=5, numberOfLines=20):
 
 	dataArray = []
 
-	for i in range(20):
+	for i in range(numberOfLines):
 		dataPoint = prepareFakeData(700 + 10 * random.randint(-i, i), 10 * random.randint(0, 15),
 		random.randint(-15, 15), random.randint(5, 45), random.randint(30, 75), featureSize)
 		dataArray.append(dataPoint)

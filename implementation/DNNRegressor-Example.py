@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import time
 import os
 import datetime
-
+import shutil
 import logging
 
 import loadDataExample as ld
@@ -40,7 +40,7 @@ def training_input_fn_Slices(features, labels, batch_size):
 	dataset = tf.data.Dataset.from_tensor_slices((featureDict, labels))
 
 	# Shuffle, repeat, and batch the examples.
-	dataset = dataset.shuffle(1000).repeat().batch(batch_size)
+	dataset = dataset.shuffle(2500).repeat().batch(batch_size)
 
 	# Return the dataset.
 
@@ -76,8 +76,25 @@ def main(argv):
 	WITHPLOT = args.plot
 	FAKE = args.fake
 
+	try:
+		hyper_params = load_params("hyper_params.json")
+		STEPS_PER_EPOCH = hyper_params.train.steps_per_epoch
+		EPOCHS = hyper_params.train.epochs
+		BATCH_SIZE = hyper_params.train.batch_size
+
+		FAKE_DATA_AMOUNT = hyper_params.data.numberFakeLines
+		hidden_layers = hyper_params.arch.hidden_layers
+		dropout = hyper_params.arch.dropout_rate
+	except AttributeError as err:
+		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
+		logging.error("AttributeError: {0}".format(err))
+		exit()
+	except:
+		logging.error("Some kind of error? not sure")
+		exit()
+
 	if not FAKE:
-		(X_train, y_train), (X_test, y_test) = ld.loadData(5)
+		(X_train, y_train), (X_test, y_test) = ld.loadData(5, FAKE_DATA_AMOUNT)
 	else:
 		(X_train, y_train), (X_test, y_test) = ld.loadFakeData(5)
 
@@ -93,21 +110,6 @@ def main(argv):
 
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
-	try:
-		hyper_params = load_params("hyper_params.json")
-		STEPS_PER_EPOCH = hyper_params.train.steps_per_epoch
-		EPOCHS = hyper_params.train.epochs
-		BATCH_SIZE = hyper_params.train.batch_size
-
-		hidden_layers = [16, 16, 16, 16, 16]
-		dropout = hyper_params.arch.dropout_rate
-	except AttributeError as err:
-		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
-		logging.error("AttributeError: {0}".format(err))
-		exit()
-	except:
-		logging.error("Some kind of error? not sure")
-		exit()
 
 	if not FAKE:
 		MODEL_PATH='./DNNRegressors/'
@@ -130,6 +132,11 @@ def main(argv):
 									   dropout=dropout,
 									   config=test_config)
 
+	try:
+		shutil.copy2("./hyper_params.json", MODEL_PATH + '/hyper_params_' + time_stamp + ".json")
+	except:
+		print("params not saved in folder.")
+
 	# Train it
 	if TRAINING:
 		logging.info('Train the DNN Regressor...\n')
@@ -150,7 +157,7 @@ def main(argv):
 			if epoch%10==0:
 				print("we are making progress: " + str(epoch))
 
-				eval_dict = regressor.evaluate(input_fn=lambda :eval_input_fn(X_test, y_test, 1))
+				eval_dict = regressor.evaluate(input_fn=lambda :eval_input_fn(X_test, y_test, BATCH_SIZE))
 				print("eval: " + str(eval_dict))
 
 	# Now it's trained. We can try to predict some values.
@@ -158,22 +165,35 @@ def main(argv):
 	# 	logging.info('No training today, just prediction')
 	# 	try:
 			# Prediction
-		eval_dict = regressor.evaluate(input_fn=lambda :eval_input_fn(X_test, y_test, 2))
+		eval_dict = regressor.evaluate(input_fn=lambda :eval_input_fn(X_test, y_test, BATCH_SIZE))
 		print("eval: " + str(eval_dict))
 		# print('\nTest set accuracy: {accuracy:0.3f}\n'.format(**eval_result))
 
-		# print(X_test)
-		x_pred = {}
-		vals = [100 + 1*i for i in range(10)]
-		iter = 0
-		for i in columnNames:
-			x_pred[i] = [vals[iter]]
-			iter = iter + 1
+		# x_pred = {}
+		# vals = [100 + 1*i for i in range(10)]
+		# iter = 0
+		# for i in columnNames:
+		# 	x_pred[i] = [vals[iter]]
+		# 	iter = iter + 1
 
-		y_pred = regressor.predict(input_fn=lambda :eval_input_fn(x_pred, labels=None, batch_size=1))
+		print(y_test.shape)
+
+		x_pred2 = {}
+		for i in columnNames:
+			x_pred2[i] = [X_test[i].item(0)]
+
+		y_vals2 = np.array([y_test[0]])
+
+		print(x_pred2)
+		print(y_vals2)
+
+		y_pred = regressor.predict(input_fn=lambda :eval_input_fn(x_pred2, labels=None, batch_size=1))
 		# predictions = list(p["predictions"] for p in itertools.islice(y_pred, 6))
 		for elem in y_pred:
 			print(elem)
+
+		eval_dict = regressor.evaluate(input_fn=lambda :eval_input_fn(x_pred2, y_vals2, 1))
+		print("eval: " + str(eval_dict))
 
 	# Get trained values out of the Network
 		for variable_name in regressor.get_variable_names():
