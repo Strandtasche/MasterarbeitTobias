@@ -30,6 +30,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--training', default=False, type=bool, help='if training of eval')
 parser.add_argument('--plot', default=False, type=bool, help='plotting with matplotlib')
 parser.add_argument('--fake', default=False, type=bool, help="use real data?")
+parser.add_argument('--plotNo', default=1, type=int, help="number of lines plotted")
 
 
 def training_input_fn_Slices(features, labels, batch_size):
@@ -75,6 +76,7 @@ def main(argv):
 	TRAINING = args.training
 	WITHPLOT = args.plot
 	FAKE = args.fake
+	numberPrint = args.plotNo
 
 	try:
 		hyper_params = load_params("hyper_params.json")
@@ -113,12 +115,13 @@ def main(argv):
 	if not FAKE:
 		MODEL_PATH = './DNNRegressors/'
 	else:
-		MODEL_PATH = './DNNRegressorsFAKE2/'
+		MODEL_PATH = './DNNRegressorsFAKE3/'
 
 	for hl in hidden_layers:
 		MODEL_PATH += '%s_' % hl
-	MODEL_PATH += 'D0%s_' % (int(dropout * 10))
+	MODEL_PATH += 'D0%s_' % (int(dropout * 100))
 	MODEL_PATH += 'FS%s_' % (FEATURE_SIZE)
+	MODEL_PATH += 'LR%s_' % (int(learningRate * 100))
 
 	if FAKE:
 		MODEL_PATH += 'FD%s' % (FAKE_DATA_AMOUNT)
@@ -183,11 +186,12 @@ def main(argv):
 
 		print(y_test.shape)
 
+
 		x_pred2 = {}
 		for i in columnNames:
-			x_pred2[i] = [X_test[i].item(0)]
+			x_pred2[i] = [X_test[i].item(k) for k in range(numberPrint)]
 
-		y_vals2 = np.array([y_test[0]])
+		y_vals2 = np.array([y_test[i] for i in range(numberPrint)])
 
 		print(x_pred2)
 		print(y_vals2[0])
@@ -199,33 +203,31 @@ def main(argv):
 		print("predicted: ")
 		print(y_predicted)
 
-		score_sklearn = metrics.mean_squared_error([y_predicted], y_vals2)
-		print('MSE (sklearn): {0:f}'.format(score_sklearn))
-
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(x_pred2, y_vals2, 1))
 		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
 
 		# # Final Plot
 		if WITHPLOT:
-			x = []
-			y = []
-			for i in x_pred2.keys():
-				if i[0] == 'X':
-					x.append(x_pred2[i][0])
-				else:
-					y.append(x_pred2[i][0])
+			for k in range(numberPrint):
+				x = []
+				y = []
+				for i in x_pred2.keys():
+					if i[0] == 'X':
+						x.append(x_pred2[i][k])
+					else:
+						y.append(x_pred2[i][k])
 
-			assert len(x) == len(y)
+				assert len(x) == len(y)
 
 
 
-			plt.plot(x, y, 'ro',label='function to predict')
-			plt.plot(y_test[0][0], y_test[0][1], 'go', label='target')
-			# print(pred)
-			plt.plot(y_predicted[0], y_predicted[1], 'bo', label='prediction')
+				plt.plot(x, y, 'ro',label='function to predict')
+				plt.plot(y_test[k][0], y_test[k][1], 'go', label='target')
+				# print(pred)
+				plt.plot(y_predicted[0], y_predicted[1], 'bo', label='prediction')
 			plt.plot()
 			# plt.plot(X, regressor.predict(x={'X': X}, as_iterable=False), label='DNNRegressor prediction')
-			plt.legend(loc=9)
+			#plt.legend(loc=9)
 			# plt.ylim([0, 1])
 
 			plt.title('%s DNNRegressor' % MODEL_PATH.split('/')[-1])
