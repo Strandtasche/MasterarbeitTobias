@@ -1,7 +1,8 @@
 {
     "arch": {
         "dropout_rate": 0.5,
-        "hidden_layers": [16, 16, 16]
+        "hidden_layers": [16, 8],
+        "feature_size": 10
     },
     "problem": {
         "data_path": "datasets/mnist",
@@ -11,10 +12,7 @@
         "batch_size": 1000,
         "epochs": 500,
         "steps_per_epoch": 500,
-        "learning_rate": {
-            "start_value": 0.001,
-            "type": "const"
-        }
+        "learning_rate": 0.05
     },
     "data": {
         "numberFakeLines": 4000

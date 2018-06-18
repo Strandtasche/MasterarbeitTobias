@@ -182,9 +182,11 @@ def loadFakeData(featureSize=5, numberOfLines=20):
 
 	dataArray = []
 
-	for i in range(numberOfLines):
-		dataPoint = prepareFakeData(700 + 10 * random.randint(-i, i), 10 * random.randint(0, 15),
-		random.randint(-15, 15), random.randint(5, 45), random.randint(30, 75), featureSize)
+	# for i in range(numberOfLines):
+	while len(dataArray) < numberOfLines:
+
+		dataPoint = prepareFakeData(random.randint(500,1200), 10 * random.randint(0, 15),
+		random.randint(-15, 15), random.uniform(5, 45), 100, featureSize)
 		dataArray.append(dataPoint)
 
 	data = dataArray.pop()
@@ -192,7 +194,7 @@ def loadFakeData(featureSize=5, numberOfLines=20):
 		data = np.append(data, i)
 
 
-	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(data['features'], data['labels'], test_size=0.2)
+	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(data['features'], data['labels'], test_size=0.1)
 
 	CsvColumnNames = genColumnNames(featureSize)
 	
