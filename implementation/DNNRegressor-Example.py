@@ -117,7 +117,7 @@ def main(argv):
 	if not FAKE:
 		MODEL_PATH = './DNNRegressors/'
 	else:
-		MODEL_PATH = './DNNRegressorsFAKE3/'
+		MODEL_PATH = './DNNRegressorsFAKE4/'
 
 	for hl in hidden_layers:
 		MODEL_PATH += '%s_' % hl
@@ -139,8 +139,7 @@ def main(argv):
 	                                   hidden_units=hidden_layers,
 	                                   model_dir=MODEL_PATH,
 	                                   dropout=dropout,
-	                                   optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=learningRate,
-	                                                                               l1_regularization_strength=0.001),
+	                                   optimizer=tf.train.AdagradOptimizer(learning_rate=learningRate),
 	                                   config=test_config)
 
 	try:
@@ -189,7 +188,7 @@ def main(argv):
 		# 	x_pred[i] = [vals[iter]]
 		# 	iter = iter + 1
 
-		print(y_test.shape[0])
+		# print(y_test.shape)
 
 		assert numberPrint < y_test.shape[0]
 
