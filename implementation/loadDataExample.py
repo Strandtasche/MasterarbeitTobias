@@ -184,9 +184,11 @@ def loadFakeData(featureSize=5, numberOfLines=100):
 			# print(len(dataArray))
 
 
-	data = dataArray.pop()
-	for i in dataArray:  # TODO: Maybe improve performance here?
-		data = np.append(data, i)
+	# data = dataArray.pop()
+	# for i in dataArray:  # TODO: Maybe improve performance here?
+	# 	data = np.append(data, i)
+	data = np.concatenate(dataArray)
+
 
 	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(data['features'], data['labels'], test_size=0.1)
 
