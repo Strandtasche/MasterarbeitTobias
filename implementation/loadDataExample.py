@@ -7,6 +7,7 @@ import pandas as pd
 import re
 import random
 from sklearn.model_selection import train_test_split
+import logging
 
 load = False
 
@@ -168,7 +169,7 @@ def prepareFakeData(startpX=700, startpY=0, veloX=-5, veloY=30, numberEx=75, fea
 	return data
 
 
-def loadFakeData(featureSize=5, numberOfLines=20):
+def loadFakeData(featureSize=5, numberOfLines=100):
 	dataArray = []
 
 	# for i in range(numberOfLines):
@@ -176,8 +177,12 @@ def loadFakeData(featureSize=5, numberOfLines=20):
 		dataPoint = prepareFakeData(random.randint(500, 1200), 10 * random.randint(0, 15),
 		                            random.randint(-15, 15), random.uniform(5, 45), 100, featureSize)
 		dataArray.append(dataPoint)
-		dataPoint2 = prepareFakeData(700 + random.randint(-50, 50), 10 * random.randint(0, 5),
-		                             random.randint(-10, 15), random.uniform(10, 55), 100, featureSize)
+		# dataPoint2 = prepareFakeData(700 + random.randint(-50, 50), 10 * random.randint(0, 5),
+		#                              random.randint(-10, 15), random.uniform(10, 55), 100, featureSize)
+		if len(dataArray) % 50 == 0:
+			logging.info("Data Generation progress: %i / %i" % (len(dataArray), numberOfLines))
+			# print(len(dataArray))
+
 
 	data = dataArray.pop()
 	for i in dataArray:  # TODO: Maybe improve performance here?

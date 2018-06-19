@@ -1,6 +1,6 @@
 {
     "arch": {
-        "dropout_rate": 0.00,
+        "dropout_rate": 0.0,
         "hidden_layers": [16, 16],
         "feature_size": 10
     },
@@ -10,11 +10,11 @@
     },
     "train": {
         "batch_size": 1000,
-        "epochs": 250,
-        "steps_per_epoch": 250,
+        "epochs": 500,
+        "steps_per_epoch": 500,
         "learning_rate": 0.05
     },
     "data": {
-        "numberFakeLines": 10000
+        "numberFakeLines": 1000
     }
 }

@@ -96,10 +96,12 @@ def main(argv):
 		logging.error("Some kind of error? not sure")
 		exit()
 
+	# print("Fake: %r" % FAKE)
+
 	if not FAKE:
-		(X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE, FAKE_DATA_AMOUNT)
+		(X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
 	else:
-		(X_train, y_train), (X_test, y_test) = ld.loadFakeData(FEATURE_SIZE)
+		(X_train, y_train), (X_test, y_test) = ld.loadFakeData(FEATURE_SIZE, FAKE_DATA_AMOUNT)
 
 	# Network Design
 	# --------------
@@ -168,6 +170,9 @@ def main(argv):
 				eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
 				print("eval: " + str(eval_dict))
 
+				# eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_train, y_train, BATCH_SIZE))
+				# print("eval: " + str(eval_dict))
+
 	# Now it's trained. We can try to predict some values.
 	else:
 		# 	logging.info('No training today, just prediction')
@@ -184,7 +189,9 @@ def main(argv):
 		# 	x_pred[i] = [vals[iter]]
 		# 	iter = iter + 1
 
-		print(y_test.shape)
+		print(y_test.shape[0])
+
+		assert numberPrint < y_test.shape[0]
 
 
 		x_pred2 = {}
