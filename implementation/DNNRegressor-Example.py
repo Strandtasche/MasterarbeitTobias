@@ -5,14 +5,10 @@ import tensorflow as tf
 from tensorflow import estimator as estimator
 import argparse
 from starttf.utils.hyperparams import load_params
-import itertools
+
+from MaUtil import *
 
 import numpy as np
-
-np.set_printoptions(precision=2)
-
-from sklearn import metrics
-from sklearn import preprocessing
 
 
 import matplotlib.pyplot as plt
@@ -25,49 +21,13 @@ import logging
 import loadDataExample as ld
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+np.set_printoptions(precision=2)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--training', default=False, type=bool, help='if training of eval')
 parser.add_argument('--plot', default=False, type=bool, help='plotting with matplotlib')
 parser.add_argument('--fake', default=False, type=bool, help="use real data?")
 parser.add_argument('--plotNo', default=1, type=int, help="number of lines plotted")
-
-
-def training_input_fn_Slices(features, labels, batch_size):
-	"""An input function for training"""
-	# Convert the inputs to a Dataset.
-	# featureDict = {ld.CSV_COLUMN_NAMES[k]: features[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))}
-	featureDict = dict(features)
-
-	dataset = tf.data.Dataset.from_tensor_slices((featureDict, labels))
-
-	# Shuffle, repeat, and batch the examples.
-	dataset = dataset.shuffle(2500).repeat().batch(batch_size)
-
-	# Return the dataset.
-
-	return dataset
-
-
-def eval_input_fn(features, labels, batch_size):
-	"""An input function for evaluation or prediction"""
-	# featureDict = {ld.CSV_COLUMN_NAMES[k]: features[:,k] for k in range(len(ld.CSV_COLUMN_NAMES))}
-	featureDict = dict(features)
-	if labels is None:
-		# No labels, use only features.
-		inputs = featureDict
-	else:
-		inputs = (featureDict, labels)
-
-	# Convert the inputs to a Dataset.
-	dataset = tf.data.Dataset.from_tensor_slices(inputs)
-
-	# Batch the examples
-	assert batch_size is not None, "batch_size must not be None"
-	dataset = dataset.batch(batch_size)
-
-	# Return the dataset.
-	return dataset
 
 
 def main(argv):
