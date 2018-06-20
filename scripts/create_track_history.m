@@ -25,7 +25,7 @@ function[] = create_track_history(source_path, dest_path)
     i = 1;
     for file = files'
         
-        trackHistory=tracksortAlgorithm([0,2450;0,1750],1300,1450,allParam,source_path);
+        trackHistory=tracksortAlgorithm([0,2450;0,1750],1300,1450,allParam,file.name);
         
         trackHistory_nothingDeleted = trackHistory;
         %These numbers in this command should be fitted for the input data, but
@@ -33,9 +33,9 @@ function[] = create_track_history(source_path, dest_path)
         THRESH_MINNANS = 4;
         THRESH_BACKWARDS = 3;
         %first argument of testSuite 
-        trackHistory = preprocessTrackHistory(true, trackHistory, THRESH_MINNANS, THRESH_BACKWARDS);
+        trackHistory = preprocessTrackHistory(trackHistory, true, THRESH_MINNANS, THRESH_BACKWARDS);
         dest_path = strcat(dest_path,"/");
-        savingFileNameTrackHistory = strcat(file.name(1:end-numel('_extracted_blobs.csv')),'_trackHistory.mat');
+        savingFileNameTrackHistory = strcat(file.name(1:end-numel('.csv')),'_trackHistory.mat');
         savingPathTrackHistory = strcat(dest_path, savingFileNameTrackHistory);
         
         %save trackhistory to file
@@ -132,9 +132,7 @@ function[] = create_track_history(source_path, dest_path)
 
         % save it in csv file
         data_table = array2table(assembledRawMeasurements, 'VariableNames', header);
-        csvFileNothingDeleted = savingFileNameTrackHistory(1:strfind(savingFileNameTrackHistory,'_trackHistory.mat')-1);
-        appendix = strcat(csvFileNothingDeleted,'_trackHistory_NothingDeleted.csv');
-        csvFileNothingDeleted = strcat(csvFileNothingDeleted, appendix);
+        csvFileNothingDeleted = strcat(file.name(1:end-numel('.csv')),'_trackHistory_NothingDeleted.csv');
         writetable(data_table, strcat(dest_path, csvFileNothingDeleted));
 
 

@@ -1,27 +1,27 @@
 
-function trackHistoryUpdated = preprocessTrackHistory(ydescending, varargin)
+function trackHistoryUpdated = preprocessTrackHistory(trackHistoryInp, ydescending, varargin)
 %testSuite: check if
 %   Detailed explanation goes here
     assert(ismember(nargin, [1, 2, 3, 4]), 'Wrong number of arguments')
     
     %check if first argument is filename or object and load accordingly
-    if isa(varargin{1}, 'char') || isstring(varargin{1})
-        load(varargin{1});
+    if isa(trackHistoryInp, 'char') || isstring(trackHistoryInp)
+        load(trackHistoryInp);
     else
-        trackHistory_dummy = varargin{1};
+        trackHistory_dummy = trackHistoryInp;
     end
     
     %trackHistoryUpdated = 0;
     
-    if nargin == 1
+    if nargin == 2
         threshold_minNans = 5;
         threshold_backwards = 3;
-    elseif nargin == 2
-        threshold_minNans = varargin{2};
+    elseif nargin == 3
+        threshold_minNans = varargin{1};
         threshold_backwards = 3;
     else
-        threshold_minNans = varargin{2};
-        threshold_backwards = varargin{3};
+        threshold_minNans = varargin{1};
+        threshold_backwards = varargin{2};
     end
     
     ok = 1;
