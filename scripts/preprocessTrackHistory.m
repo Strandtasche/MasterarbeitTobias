@@ -2,7 +2,7 @@
 function trackHistoryUpdated = preprocessTrackHistory(trackHistoryInp, ydescending, varargin)
 %testSuite: check if
 %   Detailed explanation goes here
-    assert(ismember(nargin, [1, 2, 3, 4]), 'Wrong number of arguments')
+    assert(ismember(nargin, [2, 3, 4]), 'Wrong number of arguments')
     
     %check if first argument is filename or object and load accordingly
     if isa(trackHistoryInp, 'char') || isstring(trackHistoryInp)
