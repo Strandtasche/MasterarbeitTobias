@@ -17,7 +17,7 @@ allParam.association.tryToUseMex=false;
 disp('parameters set!')
 
 %files = dir('*_data.csv');
-files = dir('01_data.csv');
+files = dir('02_data.csv');
 i = 1;
 for file = files'
     trackHistory=tracksortAlgorithm([0,2450;0,1750],1300,1450,allParam,file.name);
@@ -34,8 +34,8 @@ for file = files'
     for it = 2:size(trackHistory,2)
         currentRawMeasurements = transpose(trackHistory(it).RawMeasurements);
 
-        rowsA = size(assembledRawMeasurements,1)
-        rowsB = size(currentRawMeasurements,1)
+        rowsA = size(assembledRawMeasurements,1);
+        rowsB = size(currentRawMeasurements,1);
         if rowsA ~= rowsB
             if rowsA > rowsB
                 currentRawMeasurements = vertcat(currentRawMeasurements, NaN(rowsA-rowsB, size(currentRawMeasurements,2)));
