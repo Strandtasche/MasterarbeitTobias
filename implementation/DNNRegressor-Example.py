@@ -88,6 +88,7 @@ def main(argv):
 		hidden_layers = hyper_params.arch.hidden_layers
 		dropout = hyper_params.arch.dropout_rate
 		learningRate = hyper_params.train.learning_rate
+		dataFolder = hyper_params.problem.data_path
 	except AttributeError as err:
 		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
 		logging.error("AttributeError: {0}".format(err))
@@ -96,10 +97,11 @@ def main(argv):
 		logging.error("Some kind of error? not sure")
 		exit()
 
-	# print("Fake: %r" % FAKE)
 
 	if not FAKE:
-		(X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
+		# (X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
+		(X_train, y_train), (X_test, y_test) = ld.loadRawMeas(dataFolder, FEATURE_SIZE)
+
 	else:
 		(X_train, y_train), (X_test, y_test) = ld.loadFakeData(FEATURE_SIZE, FAKE_DATA_AMOUNT)
 
@@ -127,6 +129,8 @@ def main(argv):
 
 	if FAKE:
 		MODEL_PATH += 'FD%s' % (FAKE_DATA_AMOUNT)
+	else:
+		MODEL_PATH += 'DS_%s' % (dataFolder.replace("/", "_"))
 
 	logging.info('Saving to %s' % MODEL_PATH)
 

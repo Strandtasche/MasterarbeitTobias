@@ -4,6 +4,7 @@ import pandas as pd
 import random
 from sklearn.model_selection import train_test_split
 import logging
+import glob
 
 
 # featureSize = 5
@@ -116,11 +117,12 @@ def _removeNans(array):
 	return trimmed
 
 
-def loadRawMeas(inputFile='/home/tobi/Projects/KIT/MasterarbeitTobias/data/Trackhistory_02_data_RawMeas.csv',
-                 outputfile='in.npy', featureSize=5):
-	"""loads real(!) data from a csv file and generates a set of features and labels from it."""
+def prepareRawMeas(inputFile, featureSize=5):
+	"""loads real(!) data from a csv file return a dataframe"""
 
 	# dt = np.dtype([('features', float, (2 * featureSize,)), ('labels', float, (2,))])
+
+	logging.info("Preparing Data from " + inputFile)
 
 	df = pd.read_csv(inputFile)
 	df = _validateDF(df, featureSize)
@@ -167,6 +169,38 @@ def loadRawMeas(inputFile='/home/tobi/Projects/KIT/MasterarbeitTobias/data/Track
 
 		dataFrameList.append(pd.DataFrame(tempdict, index=[0]))
 
+
+	# assert len(dataFrameList) > 0
+	if len(dataFrameList) != 0:
+		newDf = pd.concat(dataFrameList, ignore_index=True)
+	else:
+		newDf = pd.DataFrame()
+		logging.warning("no data found in " + inputFile)
+
+	# print(testFeatures)
+	# print(testLabels)
+
+	return newDf
+
+
+
+def loadRawMeas(input, featureSize=5):
+
+	folder = ''
+	if input[:5] == "/home":
+		folder = input
+	else:
+		folder = '/home/hornberger/Projects/MasterarbeitTobias/' + input
+
+
+	fileList = glob.glob(folder + '/*')
+
+	assert len(fileList) > 0, "no files found input location " + folder + '/'
+	dataFrameList = []
+
+	for elem in fileList:
+		dataFrameList.append(prepareRawMeas(elem, featureSize))
+
 	newDf = pd.concat(dataFrameList, ignore_index=True)
 
 	labelDf = newDf[['LabelX', 'LabelY']].copy()
@@ -174,12 +208,8 @@ def loadRawMeas(inputFile='/home/tobi/Projects/KIT/MasterarbeitTobias/data/Track
 
 	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(featureDf, labelDf, test_size=0.1)
 
-	print(testFeatures)
-	print(testLabels)
+	return (trainFeatures, trainLabels), (testFeatures, testLabels)
 
-	return newDf
-
-	# return (trainFeatureDict, trainLabels), (testFeatureDict, testLabels)
 
 
 def loadData(featureSize=5):
