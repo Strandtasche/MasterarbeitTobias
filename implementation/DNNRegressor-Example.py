@@ -28,6 +28,7 @@ parser.add_argument('--training', default=False, type=bool, help='if training of
 parser.add_argument('--plot', default=False, type=bool, help='plotting with matplotlib')
 parser.add_argument('--fake', default=False, type=bool, help="use real data?")
 parser.add_argument('--plotNo', default=1, type=int, help="number of lines plotted")
+parser.add_argument('--hyperparams', default="hyper_params.json", type=str, help="hyper parameter file to be used.")
 
 
 def main(argv):
@@ -37,9 +38,10 @@ def main(argv):
 	WITHPLOT = args.plot
 	FAKE = args.fake
 	numberPrint = args.plotNo
+	hyperParamFile = args.hyperparams
 
 	try:
-		hyper_params = load_params("hyper_params.json")
+		hyper_params = load_params(hyperParamFile)
 		STEPS_PER_EPOCH = hyper_params.train.steps_per_epoch
 		EPOCHS = hyper_params.train.epochs
 		BATCH_SIZE = hyper_params.train.batch_size
@@ -79,7 +81,7 @@ def main(argv):
 	if not FAKE:
 		MODEL_PATH = './DNNRegressors/'
 	else:
-		MODEL_PATH = './DNNRegressorsFAKE4/'
+		MODEL_PATH = './DNNRegressorsFAKE5/'
 
 	for hl in hidden_layers:
 		MODEL_PATH += '%s_' % hl
