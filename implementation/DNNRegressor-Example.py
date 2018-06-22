@@ -52,6 +52,7 @@ def main(argv):
 		learningRate = hyper_params.train.learning_rate
 		dataFolder = hyper_params.problem.data_path
 		testSize = hyper_params.data.testSize
+		baseModelPath = hyper_params.problem.modelBasePath
 	except AttributeError as err:
 		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
 		logging.error("AttributeError: {0}".format(err))
@@ -77,12 +78,11 @@ def main(argv):
 	for key in columnNames:
 		my_feature_columns.append(tf.feature_column.numeric_column(key=key))
 
-	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
 	if not FAKE:
-		MODEL_PATH = './DNNRegressors/'
+		MODEL_PATH = baseModelPath
 	else:
-		MODEL_PATH = './DNNRegressorsFAKE5/'
+		MODEL_PATH = baseModelPath[0:-1] + "FakeData/"
 
 	for hl in hidden_layers:
 		MODEL_PATH += '%s_' % hl
@@ -108,11 +108,6 @@ def main(argv):
 	                                   dropout=dropout,
 	                                   optimizer=tf.train.AdagradOptimizer(learning_rate=learningRate),
 	                                   config=test_config)
-
-	try:
-		shutil.copy2("./hyper_params.json", MODEL_PATH + '/hyper_params_' + time_stamp + ".json")
-	except:
-		print("params not saved in folder.")
 
 	# Train it
 	if TRAINING:
