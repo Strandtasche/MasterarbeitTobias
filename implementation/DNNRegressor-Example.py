@@ -11,11 +11,7 @@ from MaUtil import *
 import numpy as np
 
 
-import matplotlib.pyplot as plt
-import time
 import os
-import datetime
-import shutil
 import logging
 
 import loadDataExample as ld
@@ -140,68 +136,41 @@ def main(argv):
 		# 	try:
 		# Prediction
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
-		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
-		# print('\nTest set accuracy: {accuracy:0.3f}\n'.format(**eval_result))
-
-		# x_pred = {}
-		# vals = [100 + 1*i for i in range(10)]
-		# iter = 0
-		# for i in columnNames:
-		# 	x_pred[i] = [vals[iter]]
-		# 	iter = iter + 1
-
-		# print(y_test.shape)
+		print('Error on whole Test set:\nMSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
 
 		assert numberPrint < y_test.shape[0]
 
+		if FAKE: #X_test is a dict of ndarrays
 
-		x_pred2 = {}
-		for i in columnNames:
-			x_pred2[i] = [X_test[i].item(k) for k in range(numberPrint)]
+			x_pred2 = {}
+			for i in columnNames:
+				x_pred2[i] = [X_test[i].item(k) for k in range(numberPrint)]
 
-		y_vals2 = np.array([y_test[i] for i in range(numberPrint)])
+			y_vals2 = np.array([y_test[i] for i in range(numberPrint)])
+
+		else: #X_test is a pandas dataframe
+			x_pred2 = X_test.head(numberPrint)
+			y_vals2 = y_test.head(numberPrint)
 
 		print(x_pred2)
-		print(y_vals2[0])
+		print(y_vals2)
 
 		y_pred = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=1))
-		# predictions = list(p["predictions"] for p in itertools.islice(y_pred, 6))
-		y_predicted = [p['predictions'] for p in y_pred][0]
-		# y_predicted = y_predicted.reshape(np.array(y_test).shape)
+		y_predicted = [p['predictions'] for p in y_pred]
 		print("predicted: ")
-		print(y_predicted)
+		# print(y_predicted)
+		for i in y_predicted:
+			print(i)
 
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(x_pred2, y_vals2, 1))
 		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
 
 		# # Final Plot
 		if WITHPLOT:
-			for k in range(numberPrint):
-				x = []
-				y = []
-				for i in x_pred2.keys():
-					if i[0] == 'X':
-						x.append(x_pred2[i][k])
-					else:
-						y.append(x_pred2[i][k])
-
-				assert len(x) == len(y)
-
-
-
-				plt.plot(x, y, 'ro',label='function to predict')
-				plt.plot(y_test[k][0], y_test[k][1], 'go', label='target')
-				# print(pred)
-				plt.plot(y_predicted[0], y_predicted[1], 'bo', label='prediction')
-			plt.plot()
-			# plt.plot(X, regressor.predict(x={'X': X}, as_iterable=False), label='DNNRegressor prediction')
-			#plt.legend(loc=9)
-			# plt.ylim([0, 1])
-
-			plt.title('%s DNNRegressor' % MODEL_PATH.split('/')[-1])
-			plt.tight_layout()
-			plt.savefig(MODEL_PATH + '_' + time_stamp +  '.png', dpi=72)
-			plt.close()
+			if type(x_pred2) == dict:
+				plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, MODEL_PATH)
+			else:
+				plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, MODEL_PATH)
 	# except:
 	# 	logging.error('Prediction failed! Maybe first train a model?')
 

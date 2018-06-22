@@ -192,8 +192,7 @@ def loadRawMeas(input, featureSize=5, testSize=0.1):
 	else:
 		folder = '/home/hornberger/Projects/MasterarbeitTobias/' + input
 
-
-	fileList = glob.glob(folder + '/*')
+	fileList = sorted(glob.glob(folder + '/*'))
 
 	assert len(fileList) > 0, "no files found input location " + folder + '/'
 	dataFrameList = []
