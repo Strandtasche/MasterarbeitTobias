@@ -51,6 +51,7 @@ def main(argv):
 		dropout = hyper_params.arch.dropout_rate
 		learningRate = hyper_params.train.learning_rate
 		dataFolder = hyper_params.problem.data_path
+		testSize = hyper_params.data.testSize
 	except AttributeError as err:
 		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
 		logging.error("AttributeError: {0}".format(err))
@@ -62,10 +63,10 @@ def main(argv):
 
 	if not FAKE:
 		# (X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
-		(X_train, y_train), (X_test, y_test) = ld.loadRawMeas(dataFolder, FEATURE_SIZE)
+		(X_train, y_train), (X_test, y_test) = ld.loadRawMeas(dataFolder, FEATURE_SIZE, testSize)
 
 	else:
-		(X_train, y_train), (X_test, y_test) = ld.loadFakeData(FEATURE_SIZE, FAKE_DATA_AMOUNT)
+		(X_train, y_train), (X_test, y_test) = ld.loadFakeData(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 
 	# Network Design
 	# --------------

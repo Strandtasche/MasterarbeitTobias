@@ -184,7 +184,7 @@ def prepareRawMeas(inputFile, featureSize=5):
 
 
 
-def loadRawMeas(input, featureSize=5):
+def loadRawMeas(input, featureSize=5, testSize=0.1):
 
 	folder = ''
 	if input[:5] == "/home":
@@ -206,7 +206,7 @@ def loadRawMeas(input, featureSize=5):
 	labelDf = newDf[['LabelX', 'LabelY']].copy()
 	featureDf = newDf.drop(['LabelX', 'LabelY'], axis=1)
 
-	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(featureDf, labelDf, test_size=0.1)
+	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(featureDf, labelDf, test_size=testSize)
 
 	return (trainFeatures, trainLabels), (testFeatures, testLabels)
 
@@ -283,7 +283,7 @@ def prepareFakeData(startpX=700, startpY=0, veloX=-5, veloY=30, numberEx=75, fea
 	return data
 
 
-def loadFakeData(featureSize=5, numberOfLines=100):
+def loadFakeData(featureSize=5, numberOfLines=100, testSize=0.1):
 	dataArray = []
 
 	# for i in range(numberOfLines):
@@ -302,7 +302,7 @@ def loadFakeData(featureSize=5, numberOfLines=100):
 	# 	data = np.append(data, i)
 	data = np.concatenate(dataArray)
 
-	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(data['features'], data['labels'], test_size=0.1)
+	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(data['features'], data['labels'], test_size=testSize)
 
 	CsvColumnNames = genColumnNames(featureSize)
 
