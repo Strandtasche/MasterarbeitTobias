@@ -116,25 +116,44 @@ def main(argv):
 		exit()
 
 	if saving and not FAKE:
-		logging.info("pickling Data to Model Path")
+		# logging.info("pickling Data to Model Path")
 
-		X_train.to_pickle(MODEL_PATH + '/X_train.pkl')
-		y_train.to_pickle(MODEL_PATH + '/y_train.pkl')
+		# X_train.to_pickle(MODEL_PATH + '/X_train.pkl')
+		# y_train.to_pickle(MODEL_PATH + '/y_train.pkl')
+		#
+		# X_test.to_pickle(MODEL_PATH + '/X_test.pkl')
+		# y_test.to_pickle(MODEL_PATH + '/y_test.pkl')
 
-		X_test.to_pickle(MODEL_PATH + '/X_test.pkl')
-		y_test.to_pickle(MODEL_PATH + '/y_test.pkl')
+		logging.info("storing data in data.h5")
+
+		with pd.HDFStore(MODEL_PATH + '/data.h5') as store:
+			store['xtrain'] = X_train
+			store['ytrain'] = y_train
+
+			store['xtest'] = X_test
+			store['ytest'] = y_test
 
 	if loading and not FAKE:
 		try:
-			logging.info("loading pickled data")
-			X_train = pd.read_pickle(MODEL_PATH + '/X_train.pkl')
-			y_train = pd.read_pickle(MODEL_PATH + '/y_train.pkl')
+			# logging.info("loading pickled data")
+			# X_train = pd.read_pickle(MODEL_PATH + '/X_train.pkl')
+			# y_train = pd.read_pickle(MODEL_PATH + '/y_train.pkl')
+			#
+			# X_test = pd.read_pickle(MODEL_PATH + '/X_test.pkl')
+			# y_test = pd.read_pickle(MODEL_PATH + '/y_test.pkl')
 
-			X_test = pd.read_pickle(MODEL_PATH + '/X_test.pkl')
-			y_test = pd.read_pickle(MODEL_PATH + '/y_test.pkl')
+			logging.info("loading data from store")
+
+			with pd.HDFStore(MODEL_PATH + '/data.h5') as store:
+				X_train = store['xtrain']
+				y_train = store['ytrain']
+
+				X_test = store['xtest']
+				y_test = store['ytest']
 
 		except:
-			logging.error("Error while loading from pickled data")
+			# logging.error("Error while loading from pickled data")
+			logging.error("Error while loading from stored data")
 
 
 
