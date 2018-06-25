@@ -5,11 +5,12 @@ import tensorflow as tf
 from tensorflow import estimator as estimator
 import argparse
 from starttf.utils.hyperparams import load_params
+import pandas as pd
 
 from MaUtil import *
 
 import numpy as np
-
+import random
 
 import os
 import logging
@@ -20,14 +21,18 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 np.set_printoptions(precision=2)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--training', default=False, type=bool, help='if training of eval')
-parser.add_argument('--plot', default=False, type=bool, help='plotting with matplotlib')
-parser.add_argument('--fake', default=False, type=bool, help="use real data?")
+parser.add_argument('--training', help='if training of eval', action="store_true")
+parser.add_argument('--plot', help='plotting with matplotlib', action="store_true")
+parser.add_argument('--fake', help="use real data?", action="store_true")
 parser.add_argument('--plotNo', default=1, type=int, help="number of lines plotted")
 parser.add_argument('--hyperparams', default="hyper_params.json", type=str, help="hyper parameter file to be used.")
 
+parser.add_argument('--save', help="pickle data", action="store_true")
+parser.add_argument('--load', help="load pickled data", action="store_true")
+
 
 def main(argv):
+
 	args = parser.parse_args(argv[1:])
 
 	TRAINING = args.training
@@ -35,6 +40,8 @@ def main(argv):
 	FAKE = args.fake
 	numberPrint = args.plotNo
 	hyperParamFile = args.hyperparams
+	saving = args.save
+	loading = args.load
 
 	try:
 		hyper_params = load_params(hyperParamFile)
@@ -57,13 +64,12 @@ def main(argv):
 		logging.error("Some kind of error? not sure")
 		exit()
 
-
-	if not FAKE:
-		# (X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
-		(X_train, y_train), (X_test, y_test) = ld.loadRawMeas(dataFolder, FEATURE_SIZE, testSize)
-
-	else:
-		(X_train, y_train), (X_test, y_test) = ld.loadFakeData(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
+	if not loading:
+		if not FAKE:
+			# (X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
+			(X_train, y_train), (X_test, y_test) = ld.loadRawMeas(dataFolder, FEATURE_SIZE, testSize)
+		else:
+			(X_train, y_train), (X_test, y_test) = ld.loadFakeData(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 
 	# Network Design
 	# --------------
@@ -105,6 +111,33 @@ def main(argv):
 	                                   optimizer=tf.train.AdagradOptimizer(learning_rate=learningRate),
 	                                   config=test_config)
 
+	if (loading or saving) and FAKE:
+		logging.error("no pickling of fake data. Sorry")
+		exit()
+
+	if saving and not FAKE:
+		logging.info("pickling Data to Model Path")
+
+		X_train.to_pickle(MODEL_PATH + '/X_train.pkl')
+		y_train.to_pickle(MODEL_PATH + '/y_train.pkl')
+
+		X_test.to_pickle(MODEL_PATH + '/X_test.pkl')
+		y_test.to_pickle(MODEL_PATH + '/y_test.pkl')
+
+	if loading and not FAKE:
+		try:
+			logging.info("loading pickled data")
+			X_train = pd.read_pickle(MODEL_PATH + '/X_train.pkl')
+			y_train = pd.read_pickle(MODEL_PATH + '/y_train.pkl')
+
+			X_test = pd.read_pickle(MODEL_PATH + '/X_test.pkl')
+			y_test = pd.read_pickle(MODEL_PATH + '/y_test.pkl')
+
+		except:
+			logging.error("Error while loading from pickled data")
+
+
+
 	# Train it
 	if TRAINING:
 		logging.info('Train the DNN Regressor...\n')
@@ -140,17 +173,19 @@ def main(argv):
 
 		assert numberPrint < y_test.shape[0]
 
+		sampleIndex = random.randint(0, y_test.shape[0] - numberPrint)
+
 		if FAKE: #X_test is a dict of ndarrays
 
 			x_pred2 = {}
 			for i in columnNames:
-				x_pred2[i] = [X_test[i].item(k) for k in range(numberPrint)]
+				x_pred2[i] = [X_test[i].item(sampleIndex + k) for k in range(numberPrint)]
 
-			y_vals2 = np.array([y_test[i] for i in range(numberPrint)])
+			y_vals2 = np.array([y_test[sampleIndex + k] for k in range(numberPrint)])
 
 		else: #X_test is a pandas dataframe
-			x_pred2 = X_test.head(numberPrint)
-			y_vals2 = y_test.head(numberPrint)
+			x_pred2 = X_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
+			y_vals2 = y_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
 
 		print(x_pred2)
 		print(y_vals2)

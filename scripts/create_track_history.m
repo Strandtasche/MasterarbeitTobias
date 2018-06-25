@@ -25,6 +25,7 @@ function[] = create_track_history(source_path, dest_path)
     i = 1;
     for file = files'
         
+        disp(strcat('Processing : ', file.name))
         trackHistory=tracksortAlgorithm([0,2450;0,1750],1300,1450,allParam,file.name);
         
         trackHistory_nothingDeleted = trackHistory;

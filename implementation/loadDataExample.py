@@ -97,7 +97,8 @@ def _validateDF(dataFrame, featureSize=5):
 
 	df = dataFrame
 	threshold = df.shape[0] - featureSize - 1 # has to fit at least 1 datapoint
-	df = df.dropna(axis=1, thresh=threshold)
+	df.dropna(axis=1, thresh=threshold, inplace=True)
+
 
 	# vals_clean = vals[~np.isnan(vals)]
 
@@ -173,12 +174,22 @@ def prepareRawMeas(inputFile, featureSize=5):
 	# assert len(dataFrameList) > 0
 	if len(dataFrameList) != 0:
 		newDf = pd.concat(dataFrameList, ignore_index=True)
+
+		sizeOld = newDf.shape[0]
+
+		newDf.dropna(subset=['LabelX', 'LabelY'], inplace=True)
+
+		if sizeOld != newDf.shape[0]:
+			print("removed Row for Label NaN")
+
 	else:
 		newDf = pd.DataFrame()
 		logging.warning("no data found in " + inputFile)
 
 	# print(testFeatures)
 	# print(testLabels)
+
+
 
 	return newDf
 
