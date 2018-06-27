@@ -320,3 +320,48 @@ def loadFakeData(featureSize=5, numberOfLines=100, testSize=0.1):
 	testFeatureDict = {CsvColumnNames[k]: testFeatures[:, k] for k in range(2 * featureSize)}
 
 	return (trainFeatureDict, trainLabels), (testFeatureDict, testLabels)
+
+def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1):
+	dataArray = []
+
+	featureDict = {}
+	labelDict = {}
+
+	columns = genColumnNames(featureSize)
+	# columns.append('LabelX')
+	# columns.append('LabelY')
+
+	for c in columns:
+		featureDict[c] = []
+
+	labelDict['LabelX'] = []
+	labelDict['LabelY'] = []
+
+	while len(dataArray) < numberOfLines:
+		dataPoint = prepareFakeData(random.randint(500, 1200), 10 * random.randint(0, 15),
+		                            random.randint(-15, 15), random.uniform(5, 45), 100, featureSize)
+		dataArray.append(dataPoint)
+		# dataPoint2 = prepareFakeData(700 + random.randint(-50, 50), 10 * random.randint(0, 5),
+		#                              random.randint(-10, 15), random.uniform(10, 55), 100, featureSize)
+		if len(dataArray) % 50 == 0:
+			logging.info("Data Generation progress: %i / %i" % (len(dataArray), numberOfLines))
+		# print(len(dataArray))
+
+	for dataPoint in dataArray:
+		for elem in dataPoint:
+
+			assert len(columns) == len(elem[0])
+			assert len(elem[1]) == 2
+
+			for i in range(len(elem[0])):
+				featureDict[columns[i]].append(elem[0][i])
+
+			labelDict['LabelX'].append(elem[1][0])
+			labelDict['LabelY'].append(elem[0][1])
+
+	featureDf = pd.DataFrame(featureDict)
+	labelDf = pd.DataFrame(labelDict)
+
+	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(featureDf, labelDf, test_size=testSize)
+
+	return (trainFeatures, trainLabels), (testFeatures, testLabels)

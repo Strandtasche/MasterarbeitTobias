@@ -27,8 +27,8 @@ parser.add_argument('--fake', help="use real data?", action="store_true")
 parser.add_argument('--plotNo', default=1, type=int, help="number of lines plotted")
 parser.add_argument('--hyperparams', default="hyper_params.json", type=str, help="hyper parameter file to be used.")
 
-parser.add_argument('--save', help="pickle data", action="store_true")
-parser.add_argument('--load', help="load pickled data", action="store_true")
+parser.add_argument('--save', help="store data", action="store_true")
+parser.add_argument('--load', help="load stored data", action="store_true")
 
 
 def main(argv):
@@ -69,7 +69,7 @@ def main(argv):
 			# (X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
 			(X_train, y_train), (X_test, y_test) = ld.loadRawMeas(dataFolder, FEATURE_SIZE, testSize)
 		else:
-			(X_train, y_train), (X_test, y_test) = ld.loadFakeData(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
+			(X_train, y_train), (X_test, y_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 
 	# Network Design
 	# --------------
@@ -90,7 +90,7 @@ def main(argv):
 		MODEL_PATH += '%s_' % hl
 	MODEL_PATH += 'D0%s_' % (int(dropout * 100))
 	MODEL_PATH += 'FS%s_' % (FEATURE_SIZE)
-	MODEL_PATH += 'LR%s_' % (int(learningRate * 100))
+	MODEL_PATH += 'LR%s_' % (str(learningRate % 1)[2:])
 
 	if FAKE:
 		MODEL_PATH += 'FD%s' % (FAKE_DATA_AMOUNT)
@@ -111,11 +111,11 @@ def main(argv):
 	                                   optimizer=tf.train.AdagradOptimizer(learning_rate=learningRate),
 	                                   config=test_config)
 
-	if (loading or saving) and FAKE:
-		logging.error("no pickling of fake data. Sorry")
-		exit()
+	# if (loading or saving) and FAKE:
+	# 	logging.error("no pickling of fake data. Sorry")
+	# 	exit()
 
-	if saving and not FAKE:
+	if saving: #and not FAKE:
 		# logging.info("pickling Data to Model Path")
 
 		# X_train.to_pickle(MODEL_PATH + '/X_train.pkl')
@@ -133,7 +133,7 @@ def main(argv):
 			store['xtest'] = X_test
 			store['ytest'] = y_test
 
-	if loading and not FAKE:
+	if loading: # and not FAKE:
 		try:
 			# logging.info("loading pickled data")
 			# X_train = pd.read_pickle(MODEL_PATH + '/X_train.pkl')
@@ -156,6 +156,9 @@ def main(argv):
 			logging.error("Error while loading from stored data")
 
 
+
+	print(X_train.shape, y_train.shape)
+	print(X_test.shape, y_test.shape)
 
 	# Train it
 	if TRAINING:
@@ -209,7 +212,7 @@ def main(argv):
 		print(x_pred2)
 		print(y_vals2)
 
-		y_pred = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=1))
+		y_pred = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=BATCH_SIZE))
 		y_predicted = [p['predictions'] for p in y_pred]
 		print("predicted: ")
 		# print(y_predicted)
