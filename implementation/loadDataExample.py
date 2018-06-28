@@ -357,7 +357,7 @@ def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1):
 				featureDict[columns[i]].append(elem[0][i])
 
 			labelDict['LabelX'].append(elem[1][0])
-			labelDict['LabelY'].append(elem[0][1])
+			labelDict['LabelY'].append(elem[1][1])
 
 	featureDf = pd.DataFrame(featureDict)
 	labelDf = pd.DataFrame(labelDict)

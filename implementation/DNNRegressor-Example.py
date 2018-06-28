@@ -30,6 +30,8 @@ parser.add_argument('--hyperparams', default="hyper_params.json", type=str, help
 parser.add_argument('--save', help="store data", action="store_true")
 parser.add_argument('--load', help="load stored data", action="store_true")
 
+parser.add_argument('--dispWeights', help="display weights of neurons", action="store_true")
+
 
 def main(argv):
 
@@ -42,6 +44,8 @@ def main(argv):
 	hyperParamFile = args.hyperparams
 	saving = args.save
 	loading = args.load
+
+	displayWeights = args.dispWeights
 
 	try:
 		hyper_params = load_params(hyperParamFile)
@@ -197,17 +201,17 @@ def main(argv):
 
 		sampleIndex = random.randint(0, y_test.shape[0] - numberPrint)
 
-		if FAKE: #X_test is a dict of ndarrays
-
-			x_pred2 = {}
-			for i in columnNames:
-				x_pred2[i] = [X_test[i].item(sampleIndex + k) for k in range(numberPrint)]
-
-			y_vals2 = np.array([y_test[sampleIndex + k] for k in range(numberPrint)])
-
-		else: #X_test is a pandas dataframe
-			x_pred2 = X_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
-			y_vals2 = y_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
+		# if FAKE: #X_test is a dict of ndarrays
+		#
+		# 	x_pred2 = {}
+		# 	for i in columnNames:
+		# 		x_pred2[i] = [X_test[i].item(sampleIndex + k) for k in range(numberPrint)]
+		#
+		# 	y_vals2 = np.array([y_test[sampleIndex + k] for k in range(numberPrint)])
+		#
+		# else: #X_test is a pandas dataframe
+		x_pred2 = X_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
+		y_vals2 = y_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
 
 		print(x_pred2)
 		print(y_vals2)
@@ -222,12 +226,17 @@ def main(argv):
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(x_pred2, y_vals2, 1))
 		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
 
+		if displayWeights:
+			for variable in regressor.get_variable_names():
+				print("name: \n{}\n value: \n{}".format(variable, regressor.get_variable_value(variable)))
+
 		# # Final Plot
 		if WITHPLOT:
-			if type(x_pred2) == dict:
-				plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, MODEL_PATH)
-			else:
-				plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, MODEL_PATH)
+			# if type(x_pred2) == dict:
+			# 	plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, MODEL_PATH)
+			# else:
+			plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, MODEL_PATH)
+
 	# except:
 	# 	logging.error('Prediction failed! Maybe first train a model?')
 
