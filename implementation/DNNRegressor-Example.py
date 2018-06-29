@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+__author__ = "Tobias Hornberger"
+__email__ = "saibot1207@googlemail.com"
+__status__ = "Development"
+
+
+
 # Importing necessary things
 import tensorflow as tf
 from tensorflow import estimator as estimator
