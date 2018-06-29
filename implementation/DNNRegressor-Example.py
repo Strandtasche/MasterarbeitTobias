@@ -6,9 +6,10 @@ from tensorflow import estimator as estimator
 import argparse
 from starttf.utils.hyperparams import load_params
 import pandas as pd
+import datetime
 
 from MaUtil import *
-
+import shutil
 import numpy as np
 import random
 
@@ -32,6 +33,8 @@ parser.add_argument('--load', help="load stored data", action="store_true")
 
 parser.add_argument('--dispWeights', help="display weights of neurons", action="store_true")
 
+parser.add_argument('--overwriteModel', default="", type=str, help="Model Path to overwrite generated Path")
+
 
 def main(argv):
 
@@ -44,8 +47,11 @@ def main(argv):
 	hyperParamFile = args.hyperparams
 	saving = args.save
 	loading = args.load
+	overWriteModelPath = args.overwriteModel
 
 	displayWeights = args.dispWeights
+
+	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
 	try:
 		hyper_params = load_params(hyperParamFile)
@@ -84,22 +90,24 @@ def main(argv):
 	for key in columnNames:
 		my_feature_columns.append(tf.feature_column.numeric_column(key=key))
 
+	if len(overWriteModelPath) == 0:
+		if not FAKE:
+			MODEL_PATH = baseModelPath
+		else:
+			MODEL_PATH = baseModelPath[0:-1] + "FakeData/"
 
-	if not FAKE:
-		MODEL_PATH = baseModelPath
+		for hl in hidden_layers:
+			MODEL_PATH += '%s_' % hl
+		MODEL_PATH += 'D0%s_' % (int(dropout * 100))
+		MODEL_PATH += 'FS%s_' % (FEATURE_SIZE)
+		MODEL_PATH += 'LR%s_' % (str(learningRate % 1)[2:])
+
+		if FAKE:
+			MODEL_PATH += 'FD%s' % (FAKE_DATA_AMOUNT)
+		else:
+			MODEL_PATH += 'DS_%s' % (dataFolder.replace("/", "_"))
 	else:
-		MODEL_PATH = baseModelPath[0:-1] + "FakeData/"
-
-	for hl in hidden_layers:
-		MODEL_PATH += '%s_' % hl
-	MODEL_PATH += 'D0%s_' % (int(dropout * 100))
-	MODEL_PATH += 'FS%s_' % (FEATURE_SIZE)
-	MODEL_PATH += 'LR%s_' % (str(learningRate % 1)[2:])
-
-	if FAKE:
-		MODEL_PATH += 'FD%s' % (FAKE_DATA_AMOUNT)
-	else:
-		MODEL_PATH += 'DS_%s' % (dataFolder.replace("/", "_"))
+		MODEL_PATH = overWriteModelPath
 
 	logging.info('Saving to %s' % MODEL_PATH)
 
@@ -118,6 +126,18 @@ def main(argv):
 	# if (loading or saving) and FAKE:
 	# 	logging.error("no pickling of fake data. Sorry")
 	# 	exit()
+
+	if not os.path.exists(MODEL_PATH):
+		os.makedirs(MODEL_PATH)
+		logging.info("{} does not exist. Creating folder".format(MODEL_PATH))
+	elif os.path.exists(MODEL_PATH) and not os.path.isdir(MODEL_PATH):
+		logging.warning("There is a file in the place where one would like to save their files..")
+
+	if not os.path.exists(MODEL_PATH + '/' + hyperParamFile):
+		shutil.copy2(hyperParamFile, MODEL_PATH + '/' + os.path.basename(MODEL_PATH + hyperParamFile))
+	else:
+		shutil.copy2(hyperParamFile, MODEL_PATH + '/' + os.path.basename(hyperParamFile)[:-5] + time_stamp + ".json")
+
 
 	if saving: #and not FAKE:
 		# logging.info("pickling Data to Model Path")
