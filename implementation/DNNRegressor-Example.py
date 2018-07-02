@@ -7,12 +7,10 @@ __status__ = "Development"
 
 
 # Importing necessary things
-import tensorflow as tf
 from tensorflow import estimator as estimator
 import argparse
 from starttf.utils.hyperparams import load_params
 import pandas as pd
-import datetime
 
 from MaUtil import *
 import shutil
@@ -41,6 +39,8 @@ parser.add_argument('--dispWeights', help="display weights of neurons", action="
 
 parser.add_argument('--overwriteModel', default="", type=str, help="Model Path to overwrite generated Path")
 
+parser.add_argument('--debug', help="enable Debug mode", action="store_true")
+
 
 def main(argv):
 
@@ -56,6 +56,8 @@ def main(argv):
 	overWriteModelPath = args.overwriteModel
 
 	displayWeights = args.dispWeights
+
+	DEBUG = args.debug
 
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
@@ -139,10 +141,12 @@ def main(argv):
 	elif os.path.exists(MODEL_PATH) and not os.path.isdir(MODEL_PATH):
 		logging.warning("There is a file in the place where one would like to save their files..")
 
-	if not os.path.exists(MODEL_PATH + '/' + hyperParamFile):
+	if not os.path.exists(MODEL_PATH + '/' + os.path.basename(hyperParamFile)):
 		shutil.copy2(hyperParamFile, MODEL_PATH + '/' + os.path.basename(MODEL_PATH + hyperParamFile))
+		# print("new hyperParam File written")
 	else:
 		shutil.copy2(hyperParamFile, MODEL_PATH + '/' + os.path.basename(hyperParamFile)[:-5] + time_stamp + ".json")
+		# print("added another version of hyper param file")
 
 
 	if saving: #and not FAKE:
@@ -185,7 +189,13 @@ def main(argv):
 			# logging.error("Error while loading from pickled data")
 			logging.error("Error while loading from stored data")
 
-
+	###DEBUG Vars:
+	if DEBUG:
+		pos = [int(i * EPOCHS/10)  for i in range(1, 10)]
+		debugVisualizerIndex = random.randint(1, X_test.shape[0])
+		featureVals = X_test.iloc[[debugVisualizerIndex]]
+		labelVals = y_test.iloc[[debugVisualizerIndex]]
+		predictions = []
 
 	print(X_train.shape, y_train.shape)
 	print(X_test.shape, y_test.shape)
@@ -214,6 +224,19 @@ def main(argv):
 
 				# eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_train, y_train, BATCH_SIZE))
 				# print("eval: " + str(eval_dict))
+
+			if DEBUG and epoch in pos:
+				debug_pred = regressor.predict(input_fn=lambda: eval_input_fn(featureVals, labels=None, batch_size=BATCH_SIZE))
+				debug_predicted = [p['predictions'] for p in debug_pred]
+				predictions.append((debug_predicted))
+
+
+		if DEBUG:
+			if FAKE:
+				savePath = '/home/hornberger/testFake'
+			else:
+				savePath = '/home/hornberger/testReal'
+			plotTrainDataPandas(featureVals, labelVals, predictions, savePath)
 
 	# Now it's trained. We can try to predict some values.
 	else:

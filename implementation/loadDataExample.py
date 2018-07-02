@@ -96,7 +96,7 @@ def loadCSVtoNpy(inputFile='/home/tobi/Projects/KIT/MasterarbeitTobias/data/Grou
 def _validateDF(dataFrame, featureSize=5):
 
 	df = dataFrame
-	threshold = df.shape[0] - featureSize - 1 # has to fit at least 1 datapoint
+	threshold = featureSize + 1 # has to fit at least 1 datapoint
 	df.dropna(axis=1, thresh=threshold, inplace=True)
 
 
@@ -213,6 +213,9 @@ def loadRawMeas(input, featureSize=5, testSize=0.1):
 
 	newDf = pd.concat(dataFrameList, ignore_index=True)
 
+	#DEBUG!!!
+	# newDf.dropna(axis=0)
+
 	labelDf = newDf[['LabelX', 'LabelY']].copy()
 	featureDf = newDf.drop(['LabelX', 'LabelY'], axis=1)
 
@@ -308,7 +311,7 @@ def loadFakeData(featureSize=5, numberOfLines=100, testSize=0.1):
 			# print(len(dataArray))
 
 	# data = dataArray.pop()
-	# for i in dataArray:  # TODO: Maybe improve performance here?
+	# for i in dataArray:  # TODO: Maybe improve performance here? -done
 	# 	data = np.append(data, i)
 	data = np.concatenate(dataArray)
 

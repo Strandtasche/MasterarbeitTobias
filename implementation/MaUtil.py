@@ -2,7 +2,8 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import datetime
 import time
-
+import logging
+from adjustText import adjust_text
 
 def training_input_fn_Slices(features, labels, batch_size):
 	"""An input function for training"""
@@ -72,7 +73,6 @@ def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 	plt.close()
 
 
-
 def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 
 	MODEL_PATH = savePath
@@ -103,3 +103,36 @@ def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 
 
 
+def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath):
+
+	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
+
+	x = x_pred2[[i for i in x_pred2.columns if i[0] == 'X']].values
+	y = x_pred2[[i for i in x_pred2.columns if i[0] == 'Y']].values
+	x_t = y_vals2[['LabelX']].values
+	y_t = y_vals2[['LabelY']].values
+
+	# print(x)
+	# print(y)
+
+	assert len(x) == len(y)
+
+	plt.plot(x, y, 'ro',label='function to predict')
+	plt.plot(x_t, y_t, 'go', label='target')
+	i = 0
+	total = len(y_predicted)
+	textArray = []
+	for elem in y_predicted:
+		plt.plot(elem[0][0], elem[0][1], 'bo', label='prediction')
+		textLabel = "{:.2f}%".format(i / total * 100)
+		textArray.append(plt.text(elem[0][0], elem[0][1], textLabel, ha='center', va='center'))
+		i = i + 1
+	adjust_text(textArray, arrowprops=dict(arrowstyle='->', color='black'))
+
+	plt.plot()
+	plt.title('%s DNNRegressor' % savePath.split('/')[-1])
+	plt.tight_layout()
+	logging.info("Saving debug image to file {}".format(savePath + '_' + time_stamp + '.png',))
+	plt.savefig(savePath + '_' + time_stamp + '.png', dpi=72)
+	# plt.show()
+	plt.close()
