@@ -5,17 +5,17 @@
         "feature_size": 5
     },
     "problem": {
-        "data_path": "data/experiment02",
-        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/sizeTest/"
+        "data_path": "data/experiment03",
+        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/debug2/"
     },
     "train": {
         "batch_size": 1000,
-        "epochs": 750,
-        "steps_per_epoch": 200,
+        "epochs": 500,
+        "steps_per_epoch": 500,
         "learning_rate": 0.01
     },
     "data": {
-        "numberFakeLines": 2500,
+        "numberFakeLines": 500,
         "testSize": 0.1
     }
 }
