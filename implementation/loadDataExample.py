@@ -213,8 +213,10 @@ def loadRawMeas(input, featureSize=5, testSize=0.1):
 
 	newDf = pd.concat(dataFrameList, ignore_index=True)
 
-	#DEBUG!!!
+	#Remove invalid rows: TODO: more sophisticated approach (forward/backwards fill?)
 	newDf.dropna(axis=0, inplace=True)
+
+	assert pd.notnull(newDf).all().all()
 
 	labelDf = newDf[['LabelX', 'LabelY']].copy()
 	featureDf = newDf.drop(['LabelX', 'LabelY'], axis=1)

@@ -5,6 +5,26 @@ import time
 import logging
 from adjustText import adjust_text
 
+def genModelPath(hyperparams, fake):
+	if not fake:
+		MODEL_PATH = hyperparams.problem.modelBasePath
+	else:
+		MODEL_PATH = hyperparams.problem.modelBasePath[0:-1] + "FakeData/"
+
+	for hl in hyperparams.arch.hidden_layers:
+		MODEL_PATH += '%s_' % hl
+	MODEL_PATH += 'D0%s_' % (int(hyperparams.arch.dropout_rate * 100))
+	MODEL_PATH += 'FS%s_' % (hyperparams.arch.feature_size)
+	MODEL_PATH += 'LR%s_' % (str(hyperparams.train.learning_rate % 1)[2:])
+
+	if fake:
+		MODEL_PATH += 'FD%s' % (hyperparams.data.numberFakeLines)
+	else:
+		MODEL_PATH += 'DS_%s' % (hyperparams.problem.data_path.replace("/", "_"))
+
+	return MODEL_PATH
+
+
 def training_input_fn_Slices(features, labels, batch_size):
 	"""An input function for training"""
 	# Convert the inputs to a Dataset.

@@ -40,7 +40,7 @@ parser.add_argument('--load', help="load stored data", action="store_true")
 
 parser.add_argument('--dispWeights', help="display weights of neurons", action="store_true")
 
-parser.add_argument('--overwriteModel', default="", type=str, help="Model Path to overwrite generated Path")
+parser.add_argument('--overwriteModel', default=None, type=str, help="Model Path to overwrite generated Path")
 
 parser.add_argument('--progressPlot', help="plot progress during training", action="store_true")
 parser.add_argument('--debug', help="enable Debug mode", action="store_true")
@@ -53,9 +53,7 @@ parser.add_argument(
       "--debug flag.")
 
 
-
 def main(argv):
-
 	args = parser.parse_args(argv[1:])
 
 	TRAINING = args.training
@@ -70,6 +68,7 @@ def main(argv):
 	displayWeights = args.dispWeights
 
 	DEBUG = args.debug
+	tensorboardDebugAddress = args.tensorboard_debug_address
 	progressPlot = args.progressPlot
 
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
@@ -90,10 +89,10 @@ def main(argv):
 	except AttributeError as err:
 		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
 		logging.error("AttributeError: {0}".format(err))
-		exit()
+		exit(1)
 	except:
 		logging.error("Some kind of error? not sure")
-		exit()
+		exit(1)
 
 	if not loading:
 		if not FAKE:
@@ -104,29 +103,14 @@ def main(argv):
 
 	# Network Design
 	# --------------
-	# OLD: feature_columns = [tf.feature_column.numeric_column('X', shape=(1,))]
 
 	my_feature_columns = []
 	columnNames = ld.genColumnNames(FEATURE_SIZE)
 	for key in columnNames:
 		my_feature_columns.append(tf.feature_column.numeric_column(key=key))
 
-	if len(overWriteModelPath) == 0:
-		if not FAKE:
-			MODEL_PATH = baseModelPath
-		else:
-			MODEL_PATH = baseModelPath[0:-1] + "FakeData/"
-
-		for hl in hidden_layers:
-			MODEL_PATH += '%s_' % hl
-		MODEL_PATH += 'D0%s_' % (int(dropout * 100))
-		MODEL_PATH += 'FS%s_' % (FEATURE_SIZE)
-		MODEL_PATH += 'LR%s_' % (str(learningRate % 1)[2:])
-
-		if FAKE:
-			MODEL_PATH += 'FD%s' % (FAKE_DATA_AMOUNT)
-		else:
-			MODEL_PATH += 'DS_%s' % (dataFolder.replace("/", "_"))
+	if not overWriteModelPath:
+		MODEL_PATH = genModelPath(hyper_params, FAKE)
 	else:
 		MODEL_PATH = overWriteModelPath
 
@@ -144,15 +128,12 @@ def main(argv):
 	                                   optimizer=tf.train.AdagradOptimizer(learning_rate=learningRate),
 	                                   config=test_config)
 
-	# if (loading or saving) and FAKE:
-	# 	logging.error("no pickling of fake data. Sorry")
-	# 	exit()
-
 	if not os.path.exists(MODEL_PATH):
 		os.makedirs(MODEL_PATH)
 		logging.info("{} does not exist. Creating folder".format(MODEL_PATH))
 	elif os.path.exists(MODEL_PATH) and not os.path.isdir(MODEL_PATH):
-		logging.warning("There is a file in the place where one would like to save their files..")
+		logging.error("There is a file in the place where one would like to save their files..")
+		exit(1)
 
 	if not os.path.exists(MODEL_PATH + '/' + os.path.basename(hyperParamFile)):
 		shutil.copy2(hyperParamFile, MODEL_PATH + '/' + os.path.basename(MODEL_PATH + hyperParamFile))
@@ -162,15 +143,7 @@ def main(argv):
 		# print("added another version of hyper param file")
 
 
-	if saving: #and not FAKE:
-		# logging.info("pickling Data to Model Path")
-
-		# X_train.to_pickle(MODEL_PATH + '/X_train.pkl')
-		# y_train.to_pickle(MODEL_PATH + '/y_train.pkl')
-		#
-		# X_test.to_pickle(MODEL_PATH + '/X_test.pkl')
-		# y_test.to_pickle(MODEL_PATH + '/y_test.pkl')
-
+	if saving:
 		logging.info("storing data in data.h5")
 
 		with pd.HDFStore(MODEL_PATH + '/data.h5') as store:
@@ -180,15 +153,8 @@ def main(argv):
 			store['xtest'] = X_test
 			store['ytest'] = y_test
 
-	if loading: # and not FAKE:
+	if loading:
 		try:
-			# logging.info("loading pickled data")
-			# X_train = pd.read_pickle(MODEL_PATH + '/X_train.pkl')
-			# y_train = pd.read_pickle(MODEL_PATH + '/y_train.pkl')
-			#
-			# X_test = pd.read_pickle(MODEL_PATH + '/X_test.pkl')
-			# y_test = pd.read_pickle(MODEL_PATH + '/y_test.pkl')
-
 			logging.info("loading data from store")
 
 			with pd.HDFStore(MODEL_PATH + '/data.h5') as store:
@@ -199,13 +165,12 @@ def main(argv):
 				y_test = store['ytest']
 
 		except:
-			# logging.error("Error while loading from pickled data")
 			logging.error("Error while loading from stored data")
-			exit()
+			exit(1)
 
-	###DEBUG Vars:
+	#Plot progress Vars:
 	if progressPlot:
-		pos = [int(i * EPOCHS/10)  for i in range(1, 10)]
+		pos = [int(i * EPOCHS/10) for i in range(1, 10)]
 		debugVisualizerIndex = random.randint(1, X_test.shape[0])
 		featureVals = X_test.iloc[[debugVisualizerIndex]]
 		labelVals = y_test.iloc[[debugVisualizerIndex]]
@@ -215,6 +180,16 @@ def main(argv):
 	if DEBUG:
 		hooks = [tf_debug.LocalCLIDebugHook()]
 
+	if DEBUG and tensorboardDebugAddress:
+		raise ValueError(
+			"The --debug and --tensorboard_debug_address flags are mutually "
+			"exclusive.")
+	if DEBUG:
+		hooks = [tf_debug.LocalCLIDebugHook()]
+
+	elif tensorboardDebugAddress:
+		hooks = [tf_debug.TensorBoardDebugHook(tensorboardDebugAddress)]
+	# hooks = [debug_hook]
 
 	print(X_train.shape, y_train.shape)
 	print(X_test.shape, y_test.shape)
@@ -247,8 +222,7 @@ def main(argv):
 			if progressPlot and epoch in pos:
 				debug_pred = regressor.predict(input_fn=lambda: eval_input_fn(featureVals, labels=None, batch_size=BATCH_SIZE))
 				debug_predicted = [p['predictions'] for p in debug_pred]
-				predictions.append((debug_predicted))
-
+				predictions.append(debug_predicted)
 
 		if progressPlot:
 			if FAKE:
@@ -269,15 +243,6 @@ def main(argv):
 
 		sampleIndex = random.randint(0, y_test.shape[0] - numberPrint)
 
-		# if FAKE: #X_test is a dict of ndarrays
-		#
-		# 	x_pred2 = {}
-		# 	for i in columnNames:
-		# 		x_pred2[i] = [X_test[i].item(sampleIndex + k) for k in range(numberPrint)]
-		#
-		# 	y_vals2 = np.array([y_test[sampleIndex + k] for k in range(numberPrint)])
-		#
-		# else: #X_test is a pandas dataframe
 		x_pred2 = X_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
 		y_vals2 = y_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
 
@@ -287,7 +252,6 @@ def main(argv):
 		y_pred = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=BATCH_SIZE))
 		y_predicted = [p['predictions'] for p in y_pred]
 		print("predicted: ")
-		# print(y_predicted)
 		for i in y_predicted:
 			print(i)
 
@@ -300,9 +264,6 @@ def main(argv):
 
 		# # Final Plot
 		if WITHPLOT:
-			# if type(x_pred2) == dict:
-			# 	plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, MODEL_PATH)
-			# else:
 			plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, MODEL_PATH)
 
 	# except:
@@ -312,7 +273,5 @@ def main(argv):
 if __name__ == '__main__':
 	tf.logging.set_verbosity(tf.logging.ERROR)
 	logging.basicConfig(level=logging.INFO)
-
-
 	logging.info('Tensorflow %s' % tf.__version__)
 	tf.app.run(main)
