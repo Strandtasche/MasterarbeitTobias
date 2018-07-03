@@ -10,6 +10,8 @@ __status__ = "Development"
 from tensorflow import estimator as estimator
 import argparse
 from starttf.utils.hyperparams import load_params
+from tensorflow.python import debug as tf_debug
+
 import pandas as pd
 
 from MaUtil import *
@@ -26,6 +28,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 np.set_printoptions(precision=2)
 
 parser = argparse.ArgumentParser()
+parser.register("type", "bool", lambda v: v.lower() == "true")
 parser.add_argument('--training', help='if training of eval', action="store_true")
 parser.add_argument('--plot', help='plotting with matplotlib', action="store_true")
 parser.add_argument('--fake', help="use real data?", action="store_true")
@@ -39,7 +42,16 @@ parser.add_argument('--dispWeights', help="display weights of neurons", action="
 
 parser.add_argument('--overwriteModel', default="", type=str, help="Model Path to overwrite generated Path")
 
+parser.add_argument('--progressPlot', help="plot progress during training", action="store_true")
 parser.add_argument('--debug', help="enable Debug mode", action="store_true")
+parser.add_argument(
+      "--tensorboard_debug_address",
+      type=str,
+      default=None,
+      help="Connect to the TensorBoard Debugger Plugin backend specified by "
+      "the gRPC address (e.g., localhost:1234). Mutually exclusive with the "
+      "--debug flag.")
+
 
 
 def main(argv):
@@ -58,6 +70,7 @@ def main(argv):
 	displayWeights = args.dispWeights
 
 	DEBUG = args.debug
+	progressPlot = args.progressPlot
 
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
@@ -188,14 +201,20 @@ def main(argv):
 		except:
 			# logging.error("Error while loading from pickled data")
 			logging.error("Error while loading from stored data")
+			exit()
 
 	###DEBUG Vars:
-	if DEBUG:
+	if progressPlot:
 		pos = [int(i * EPOCHS/10)  for i in range(1, 10)]
 		debugVisualizerIndex = random.randint(1, X_test.shape[0])
 		featureVals = X_test.iloc[[debugVisualizerIndex]]
 		labelVals = y_test.iloc[[debugVisualizerIndex]]
 		predictions = []
+
+	hooks = None
+	if DEBUG:
+		hooks = [tf_debug.LocalCLIDebugHook()]
+
 
 	print(X_train.shape, y_train.shape)
 	print(X_test.shape, y_test.shape)
@@ -209,7 +228,7 @@ def main(argv):
 			# Fit the DNNRegressor (This is where the magic happens!!!)
 			# regressor.train(input_fn=training_input_fn(batch_size=BATCH_SIZE), steps=STEPS_PER_EPOCH)
 			regressor.train(input_fn=lambda: training_input_fn_Slices(X_train, y_train, BATCH_SIZE),
-			                steps=STEPS_PER_EPOCH)
+			                steps=STEPS_PER_EPOCH, hooks=hooks)
 
 			# Thats it -----------------------------
 			# Start Tensorboard in Terminal:
@@ -225,13 +244,13 @@ def main(argv):
 				# eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_train, y_train, BATCH_SIZE))
 				# print("eval: " + str(eval_dict))
 
-			if DEBUG and epoch in pos:
+			if progressPlot and epoch in pos:
 				debug_pred = regressor.predict(input_fn=lambda: eval_input_fn(featureVals, labels=None, batch_size=BATCH_SIZE))
 				debug_predicted = [p['predictions'] for p in debug_pred]
 				predictions.append((debug_predicted))
 
 
-		if DEBUG:
+		if progressPlot:
 			if FAKE:
 				savePath = '/home/hornberger/testFake'
 			else:
@@ -277,7 +296,7 @@ def main(argv):
 
 		if displayWeights:
 			for variable in regressor.get_variable_names():
-				print("name: \n{}\n value: \n{}".format(variable, regressor.get_variable_value(variable)))
+				print("name: \n{}\n\nvalue: \n{}".format(variable, regressor.get_variable_value(variable)))
 
 		# # Final Plot
 		if WITHPLOT:
@@ -293,5 +312,7 @@ def main(argv):
 if __name__ == '__main__':
 	tf.logging.set_verbosity(tf.logging.ERROR)
 	logging.basicConfig(level=logging.INFO)
+
+
 	logging.info('Tensorflow %s' % tf.__version__)
 	tf.app.run(main)

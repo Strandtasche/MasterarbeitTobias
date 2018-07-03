@@ -214,7 +214,7 @@ def loadRawMeas(input, featureSize=5, testSize=0.1):
 	newDf = pd.concat(dataFrameList, ignore_index=True)
 
 	#DEBUG!!!
-	# newDf.dropna(axis=0)
+	newDf.dropna(axis=0, inplace=True)
 
 	labelDf = newDf[['LabelX', 'LabelY']].copy()
 	featureDf = newDf.drop(['LabelX', 'LabelY'], axis=1)

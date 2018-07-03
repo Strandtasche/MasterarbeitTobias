@@ -68,7 +68,7 @@ def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 
 	plt.title('%s DNNRegressor' % MODEL_PATH.split('/')[-1])
 	plt.tight_layout()
-	plt.savefig(MODEL_PATH + '_' + time_stamp + '.png', dpi=72)
+	plt.savefig(MODEL_PATH + '_' + time_stamp + '.png', dpi=300)
 	# plt.show()
 	plt.close()
 
@@ -96,7 +96,7 @@ def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 
 	plt.title('%s DNNRegressor' % MODEL_PATH.split('/')[-1])
 	plt.tight_layout()
-	plt.savefig(MODEL_PATH + '_' + time_stamp + '.png', dpi=72)
+	plt.savefig(MODEL_PATH + '_' + time_stamp + '.png', dpi=300)
 	# plt.show()
 	plt.close()
 
@@ -133,6 +133,6 @@ def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath):
 	plt.title('%s DNNRegressor' % savePath.split('/')[-1])
 	plt.tight_layout()
 	logging.info("Saving debug image to file {}".format(savePath + '_' + time_stamp + '.png',))
-	plt.savefig(savePath + '_' + time_stamp + '.png', dpi=72)
+	plt.savefig(savePath + '_' + time_stamp + '.png', dpi=300)
 	# plt.show()
 	plt.close()
