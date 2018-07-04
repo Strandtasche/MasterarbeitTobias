@@ -177,8 +177,7 @@ def main(argv):
 		predictions = []
 
 	hooks = None
-	if DEBUG:
-		hooks = [tf_debug.LocalCLIDebugHook()]
+
 
 	if DEBUG and tensorboardDebugAddress:
 		raise ValueError(
@@ -187,6 +186,8 @@ def main(argv):
 	if DEBUG:
 		hooks = [tf_debug.LocalCLIDebugHook()]
 
+
+	# Start tensorboard with debugger port argument: "tensorboard --logdir=./debug2 --debugger_port 6007"
 	elif tensorboardDebugAddress:
 		hooks = [tf_debug.TensorBoardDebugHook(tensorboardDebugAddress)]
 	# hooks = [debug_hook]
@@ -233,11 +234,20 @@ def main(argv):
 
 	# Now it's trained. We can try to predict some values.
 	else:
-		# 	logging.info('No training today, just prediction')
-		# 	try:
+		logging.info('No training today, just prediction')
+		try:
 		# Prediction
-		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
-		print('Error on whole Test set:\nMSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
+			eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
+			print('Error on whole Test set:\nMSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
+
+		except ValueError as err:
+			#probably failed to load model
+			logging.error("{}".format(err))
+			exit(1)
+
+		except:
+			logging.error("Unknown Error while trying to evaluate")
+			exit(1)
 
 		assert numberPrint < y_test.shape[0]
 
@@ -258,6 +268,7 @@ def main(argv):
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(x_pred2, y_vals2, 1))
 		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
 
+		#displaying weights in Net - (a bit redundant after implementation of debugger
 		if displayWeights:
 			for variable in regressor.get_variable_names():
 				print("name: \n{}\n\nvalue: \n{}".format(variable, regressor.get_variable_value(variable)))

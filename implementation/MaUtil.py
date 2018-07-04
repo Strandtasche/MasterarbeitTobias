@@ -6,6 +6,7 @@ import logging
 from adjustText import adjust_text
 
 def genModelPath(hyperparams, fake):
+	"""returns path to location of model based on parameters"""
 	if not fake:
 		MODEL_PATH = hyperparams.problem.modelBasePath
 	else:
@@ -63,7 +64,7 @@ def eval_input_fn(features, labels, batch_size):
 
 
 def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
-
+	"""plot a certain number of examples (from numpy array) with features, labels and prection and save to .png file"""
 	MODEL_PATH = savePath
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
@@ -82,9 +83,7 @@ def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 		plt.plot(y_vals2[k][0], y_vals2[k][1], 'go', label='target')
 		plt.plot(y_predicted[k][0], y_predicted[k][1], 'bo', label='prediction')
 	plt.plot()
-	# plt.plot(X, regressor.predict(x={'X': X}, as_iterable=False), label='DNNRegressor prediction')
 	#plt.legend(loc=9)
-	# plt.ylim([0, 1])
 
 	plt.title('%s DNNRegressor' % MODEL_PATH.split('/')[-1])
 	plt.tight_layout()
@@ -94,7 +93,8 @@ def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 
 
 def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
-
+	"""plot a certain number of examples (from pandas dataframe)
+	with features, labels and prection and save to .png file"""
 	MODEL_PATH = savePath
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
@@ -124,7 +124,7 @@ def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 
 
 def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath):
-
+	"""plot the different locations of prediction during training"""
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
 	x = x_pred2[[i for i in x_pred2.columns if i[0] == 'X']].values

@@ -30,9 +30,7 @@ def loadCSVData(file='/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTrut
 	df = pd.read_csv(file)
 	# print(df.head(1))
 
-	data = {}
-	data["features"] = []
-	data["labels"] = []
+	data = {"features": [], "labels": []}
 
 	numberTracks = (df.shape[1] - 2) / 2
 
@@ -94,15 +92,13 @@ def loadCSVtoNpy(inputFile='/home/tobi/Projects/KIT/MasterarbeitTobias/data/Grou
 
 
 def _validateDF(dataFrame, featureSize=5):
+	"""Private function: remove colums from dataframe which have too few datapoints to generate """
 
 	df = dataFrame
-	threshold = featureSize + 1 # has to fit at least 1 datapoint
+	threshold = featureSize + 1  # has to fit at least 1 datapoint
 	df.dropna(axis=1, thresh=threshold, inplace=True)
 
-
-	# vals_clean = vals[~np.isnan(vals)]
-
-	#TODO: zusammenhängende werte?
+	# TODO: zusammenhängende werte?
 
 	return df
 
@@ -194,14 +190,15 @@ def prepareRawMeas(inputFile, featureSize=5):
 	return newDf
 
 
-
 def loadRawMeas(input, featureSize=5, testSize=0.1):
+	"""loads all the raw measurement data from input into a pandas Dataframe and """
 
-	folder = ''
 	if input[:5] == "/home":
 		folder = input
 	else:
 		folder = '/home/hornberger/Projects/MasterarbeitTobias/' + input
+
+	# TODO: handle single file inputs? os.path.isDir() - make system agnostic
 
 	fileList = sorted(glob.glob(folder + '/*'))
 
@@ -213,7 +210,7 @@ def loadRawMeas(input, featureSize=5, testSize=0.1):
 
 	newDf = pd.concat(dataFrameList, ignore_index=True)
 
-	#Remove invalid rows: TODO: more sophisticated approach (forward/backwards fill?)
+	# Remove invalid rows: TODO: more sophisticated approach (forward/backwards fill?)
 	newDf.dropna(axis=0, inplace=True)
 
 	assert pd.notnull(newDf).all().all()
@@ -226,9 +223,9 @@ def loadRawMeas(input, featureSize=5, testSize=0.1):
 	return (trainFeatures, trainLabels), (testFeatures, testLabels)
 
 
-
 def loadData(featureSize=5):
-	"""generates data in the right format from csv files and returns a
+	"""DEPRECATED! use loadRawMeas() or loadFakeDataPandas() instead
+	generates data in the right format from csv files and returns a
 	dataset as (train_features, train_labels), (test_features, test_labels)."""
 
 	prefix = os.getcwd()
@@ -267,6 +264,8 @@ def loadData(featureSize=5):
 
 
 def prepareFakeData(startpX=700, startpY=0, veloX=-5, veloY=30, numberEx=75, featureSize=5):
+	"""generate a single line and slice it up into as many examples as necessary. Return the examples as an array"""
+
 	startpointx = startpX
 	startpointy = startpY
 
@@ -299,6 +298,8 @@ def prepareFakeData(startpX=700, startpY=0, veloX=-5, veloY=30, numberEx=75, fea
 
 
 def loadFakeData(featureSize=5, numberOfLines=100, testSize=0.1):
+	"""DEPRECATED: Use loadFakeDataPandas instead
+	loads generated fake data into training and test tuples """
 	dataArray = []
 
 	# for i in range(numberOfLines):
@@ -325,6 +326,7 @@ def loadFakeData(featureSize=5, numberOfLines=100, testSize=0.1):
 	testFeatureDict = {CsvColumnNames[k]: testFeatures[:, k] for k in range(2 * featureSize)}
 
 	return (trainFeatureDict, trainLabels), (testFeatureDict, testLabels)
+
 
 def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1):
 	dataArray = []
