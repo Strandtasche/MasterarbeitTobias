@@ -35,8 +35,10 @@ parser.add_argument('--fake', help="use real data?", action="store_true")
 parser.add_argument('--plotNo', default=1, type=int, help="number of lines plotted")
 parser.add_argument('--hyperparams', default="hyper_params.json", type=str, help="hyper parameter file to be used.")
 
-parser.add_argument('--save', help="store data", action="store_true")
-parser.add_argument('--load', help="load stored data", action="store_true")
+# parser.add_argument('--save', help="store data", action="store_true")
+parser.add_argument("-s", "--save", nargs='*', action="store", help="Store Data")
+parser.add_argument("-l", "--load", nargs='*', action="store", help="load Data")
+# parser.add_argument('--load', help="load stored data", action="store_true")
 
 parser.add_argument('--dispWeights', help="display weights of neurons", action="store_true")
 
@@ -51,6 +53,7 @@ parser.add_argument(
       help="Connect to the TensorBoard Debugger Plugin backend specified by "
       "the gRPC address (e.g., localhost:1234). Mutually exclusive with the "
       "--debug flag.")
+parser.add_argument('--lossAna', help="loss analysis", action="store_true")
 
 
 def main(argv):
@@ -71,6 +74,34 @@ def main(argv):
 	tensorboardDebugAddress = args.tensorboard_debug_address
 	progressPlot = args.progressPlot
 
+	maximumLossAnalysis = args.lossAna
+
+	saveLoc = None
+	if args.save is not None and args.load is not None:
+		raise ValueError(
+			"The --load and --save flags are mutually exclusive.")
+
+	if args.save is not None and len(args.save) not in (0, 1):
+		parser.error('Either give no values for save, or two, not {}.'.format(len(args.load)))
+	elif args.save is not None:
+		if len(args.save) == 0:
+			# save to default location
+			saveLoc = None
+		elif len(args.save) == 1:
+			# custom save location
+			saveLoc = args.save[0]
+
+	loadLoc = None
+	if args.load is not None and len(args.load) not in (0, 1):
+		parser.error('Either give no values for load, or two, not {}.'.format(len(args.load)))
+	elif args.load is not None:
+		if len(args.load) == 0:
+			# save to default location
+			loadLoc = None
+		elif len(args.load) == 1:
+			# custom save location
+			loadLoc = args.load[0]
+
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
 	try:
@@ -86,6 +117,7 @@ def main(argv):
 		dataFolder = hyper_params.problem.data_path
 		testSize = hyper_params.data.testSize
 		baseModelPath = hyper_params.problem.modelBasePath
+		baseImagePath = hyper_params.problem.imagePath
 	except AttributeError as err:
 		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
 		logging.error("AttributeError: {0}".format(err))
@@ -142,22 +174,27 @@ def main(argv):
 		shutil.copy2(hyperParamFile, MODEL_PATH + '/' + os.path.basename(hyperParamFile)[:-5] + time_stamp + ".json")
 		# print("added another version of hyper param file")
 
-
-	if saving:
+	if saving is not None:
 		logging.info("storing data in data.h5")
 
-		with pd.HDFStore(MODEL_PATH + '/data.h5') as store:
+		if saveLoc is None:
+			saveLoc = MODEL_PATH + '/data.h5'
+
+		with pd.HDFStore(saveLoc) as store:
 			store['xtrain'] = X_train
 			store['ytrain'] = y_train
 
 			store['xtest'] = X_test
 			store['ytest'] = y_test
 
-	if loading:
+	if loading is not None:
 		try:
+			if loadLoc is None:
+				loadLoc = MODEL_PATH + '/data.h5'
+
 			logging.info("loading data from store")
 
-			with pd.HDFStore(MODEL_PATH + '/data.h5') as store:
+			with pd.HDFStore(loadLoc) as store:
 				X_train = store['xtrain']
 				y_train = store['ytrain']
 
@@ -236,12 +273,13 @@ def main(argv):
 	else:
 		logging.info('No training today, just prediction')
 		try:
-		# Prediction
+			# Prediction
 			eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
 			print('Error on whole Test set:\nMSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
+			averageLoss = eval_dict['average_loss']
 
 		except ValueError as err:
-			#probably failed to load model
+			# probably failed to load model
 			logging.error("{}".format(err))
 			exit(1)
 
@@ -268,14 +306,48 @@ def main(argv):
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(x_pred2, y_vals2, 1))
 		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
 
-		#displaying weights in Net - (a bit redundant after implementation of debugger
+		if maximumLossAnalysis:
+			overAverageFeatures = []
+			overAverageLabels = []
+			overAverageLoss = []
+			overAveragePrediction = []
+			for index, row in X_test.iterrows():
+				exampleFeatures = X_test.loc[[index]]
+				exampleLabel = y_test.loc[[index]]
+				# print(type(exampleFeatures))
+				# print(type(exampleLabel))
+				vali = regressor.evaluate(input_fn=lambda: eval_input_fn(exampleFeatures, exampleLabel, 1))
+				bad_pred = regressor.predict(input_fn=lambda: eval_input_fn(exampleFeatures, labels=None, batch_size=1))
+				bad_predicted = [p['predictions'] for p in bad_pred]
+				# print(vali)
+				if vali['average_loss'] > averageLoss:
+					overAverageFeatures.append(exampleFeatures)
+					overAverageLabels.append(exampleLabel)
+					overAverageLoss.append(vali['average_loss'])
+					overAveragePrediction.append(bad_predicted[0])
+					# print(exampleFeatures)
+					# print(exampleLabel)
+				if len(overAverageLabels) % 10 == 0:
+					print("Length: {}".format(len(overAverageFeatures)))
+
+			tempDf1 = pd.concat(overAverageFeatures)
+			tempDf2 = pd.concat(overAverageLabels)
+
+			finalDf = pd.concat([tempDf1, tempDf2], axis=1)
+			plotDataPandas(len(overAverageFeatures), tempDf1, tempDf2, overAveragePrediction, baseImagePath,
+			               os.path.basename(MODEL_PATH) +'_' + 'highestLoss' + '_' + time_stamp + '.png')
+
+			print(finalDf)
+
+		# displaying weights in Net - (a bit redundant after implementation of debugger
 		if displayWeights:
 			for variable in regressor.get_variable_names():
 				print("name: \n{}\n\nvalue: \n{}".format(variable, regressor.get_variable_value(variable)))
 
 		# # Final Plot
 		if WITHPLOT:
-			plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, MODEL_PATH)
+			plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath,
+			               os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 
 	# except:
 	# 	logging.error('Prediction failed! Maybe first train a model?')

@@ -64,7 +64,9 @@ def eval_input_fn(features, labels, batch_size):
 
 
 def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
-	"""plot a certain number of examples (from numpy array) with features, labels and prection and save to .png file"""
+	"""DEPRECATED!
+	plot a certain number of examples (from numpy array) with features, labels and prection and save to .png file"""
+
 	MODEL_PATH = savePath
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
@@ -92,11 +94,16 @@ def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 	plt.close()
 
 
-def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
+def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath, name=None):
 	"""plot a certain number of examples (from pandas dataframe)
 	with features, labels and prection and save to .png file"""
 	MODEL_PATH = savePath
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
+
+	if name is None:
+		output = MODEL_PATH + 'Pic_' + time_stamp + '.png'
+	else:
+		output = name
 
 	x = x_pred2[[i for i in x_pred2.columns if i[0] == 'X']].head(numberPrint).values
 	y = x_pred2[[i for i in x_pred2.columns if i[0] == 'Y']].head(numberPrint).values
@@ -116,7 +123,8 @@ def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 
 	plt.title('%s DNNRegressor' % MODEL_PATH.split('/')[-1])
 	plt.tight_layout()
-	plt.savefig(MODEL_PATH + '_' + time_stamp + '.png', dpi=300)
+	logging.info("Saving Image to file {}".format(output))
+	plt.savefig(output, dpi=300)
 	# plt.show()
 	plt.close()
 

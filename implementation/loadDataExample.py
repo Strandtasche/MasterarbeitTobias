@@ -328,7 +328,7 @@ def loadFakeData(featureSize=5, numberOfLines=100, testSize=0.1):
 	return (trainFeatureDict, trainLabels), (testFeatureDict, testLabels)
 
 
-def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1):
+def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1, numberOfExamples=100):
 	dataArray = []
 
 	featureDict = {}
@@ -346,7 +346,7 @@ def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1):
 
 	while len(dataArray) < numberOfLines:
 		dataPoint = prepareFakeData(random.randint(500, 1200), 10 * random.randint(0, 15),
-		                            random.randint(-15, 15), random.uniform(5, 45), 100, featureSize)
+		                            random.randint(-15, 15), random.uniform(5, 45), numberOfExamples, featureSize)
 		dataArray.append(dataPoint)
 		# dataPoint2 = prepareFakeData(700 + random.randint(-50, 50), 10 * random.randint(0, 5),
 		#                              random.randint(-10, 15), random.uniform(10, 55), 100, featureSize)

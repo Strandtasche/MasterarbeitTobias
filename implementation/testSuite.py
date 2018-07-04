@@ -74,7 +74,18 @@ def test3(loading=False):
 
 	print(X_train1[X_train1.isna().any(axis=1)]) #[X_train1.isnull().any(axis=1)])
 
+def test4():
+	(X_train2, y_train2), (X_test2, y_test2) = ld.loadFakeDataPandas(5, 2, 0.1, 15)
+
+	print(X_test2.shape)
+
+	for index, row in X_test2.iterrows():
+		print(X_test2.loc[index])
+		print(y_test2.loc[index])
+
+
 
 logging.getLogger().setLevel(logging.INFO)
 
-test3(False)
+# test3(False)
+test4()
