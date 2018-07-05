@@ -7,7 +7,8 @@ __status__ = "Development"
 
 
 # Importing necessary things
-from tensorflow import estimator as estimator
+import tensorflow as tf
+from tensorflow import estimator
 import argparse
 from starttf.utils.hyperparams import load_params
 from tensorflow.python import debug as tf_debug
@@ -23,6 +24,7 @@ import os
 import logging
 
 import loadDataExample as ld
+import customEstimator as cE
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 np.set_printoptions(precision=2)
@@ -36,8 +38,8 @@ parser.add_argument('--plotNo', default=1, type=int, help="number of lines plott
 parser.add_argument('--hyperparams', default="hyper_params.json", type=str, help="hyper parameter file to be used.")
 
 # parser.add_argument('--save', help="store data", action="store_true")
-parser.add_argument("-s", "--save", nargs='*', action="store", help="Store Data")
-parser.add_argument("-l", "--load", nargs='*', action="store", help="load Data")
+parser.add_argument("--save", nargs='*', action="store", help="Store Data")
+parser.add_argument("--load", nargs='*', action="store", help="load Data")
 # parser.add_argument('--load', help="load stored data", action="store_true")
 
 parser.add_argument('--dispWeights', help="display weights of neurons", action="store_true")
@@ -55,6 +57,8 @@ parser.add_argument(
       "--debug flag.")
 parser.add_argument('--lossAna', help="loss analysis", action="store_true")
 
+parser.add_argument('--custom', help="use custom estimator", action="store_true")
+
 
 def main(argv):
 	args = parser.parse_args(argv[1:])
@@ -67,14 +71,15 @@ def main(argv):
 	saving = args.save
 	loading = args.load
 	overWriteModelPath = args.overwriteModel
+	customEstimator = args.custom
 
 	displayWeights = args.dispWeights
-
 	DEBUG = args.debug
 	tensorboardDebugAddress = args.tensorboard_debug_address
 	progressPlot = args.progressPlot
 
 	maximumLossAnalysis = args.lossAna
+
 
 	saveLoc = None
 	if args.save is not None and args.load is not None:
@@ -126,7 +131,7 @@ def main(argv):
 		logging.error("Some kind of error? not sure")
 		exit(1)
 
-	if not loading:
+	if loading is None:
 		if not FAKE:
 			# (X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
 			(X_train, y_train), (X_test, y_test) = ld.loadRawMeas(dataFolder, FEATURE_SIZE, testSize)
@@ -148,17 +153,28 @@ def main(argv):
 
 	logging.info('Saving to %s' % MODEL_PATH)
 
-	# Validation and Test Configuration
-	test_config = estimator.RunConfig(save_checkpoints_steps=200,
-	                                  save_checkpoints_secs=None)
-	# Building the Network
-	regressor = estimator.DNNRegressor(feature_columns=my_feature_columns,
-	                                   label_dimension=2,
-	                                   hidden_units=hidden_layers,
-	                                   model_dir=MODEL_PATH,
-	                                   dropout=dropout,
-	                                   optimizer=tf.train.AdagradOptimizer(learning_rate=learningRate),
-	                                   config=test_config)
+	if not customEstimator:
+		# Validation and Test Configuration
+		test_config = estimator.RunConfig(save_checkpoints_steps=200,
+										  save_checkpoints_secs=None)
+		# Building the Network
+		regressor = estimator.DNNRegressor(feature_columns=my_feature_columns,
+										   label_dimension=2,
+										   hidden_units=hidden_layers,
+										   model_dir=MODEL_PATH,
+										   dropout=dropout,
+										   optimizer=tf.train.AdagradOptimizer(learning_rate=learningRate),
+										   config=test_config)
+	else:
+		regressor = estimator.Estimator(
+			model_fn=cE.myCustomEstimator,
+			params={
+				"feature_columns": my_feature_columns,
+				"learning_rate": 0.001,
+				"optimizer": tf.train.AdamOptimizer,
+				"hidden_units": [20, 20]
+			})
+
 
 	if not os.path.exists(MODEL_PATH):
 		os.makedirs(MODEL_PATH)
