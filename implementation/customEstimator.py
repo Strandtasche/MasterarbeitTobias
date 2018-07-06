@@ -10,6 +10,8 @@ def myCustomEstimator(features, labels, mode, params):
 	# basierend auf hidden Units wird die Netztopologie aufgebaut
 	for units in params.get("hidden_units", [20]):
 		top = tf.layers.dense(inputs=top, units=units, activation=tf.nn.relu)
+		if "dropout" in params.keys() and params["dropout"] != 0:
+			top = tf.layers.dropout(inputs=top, rate=params["dropout"], training=mode == tf.estimator.ModeKeys.TRAIN)
 
 	# lineares output layer mit 2 Neuronen für die 2 Koordinaten
 	output_layer = tf.layers.dense(inputs=top, units=2)
@@ -27,6 +29,10 @@ def myCustomEstimator(features, labels, mode, params):
 	# print(output_layer)
 
 	average_loss = tf.losses.mean_squared_error(tf.cast(labels, tf.float32), output_layer)
+	tf.summary.scalar("average_loss", average_loss)
+
+	MSE = tf.metrics.mean_squared_error(tf.cast(labels, tf.float32), output_layer)
+	tf.summary.scalar('error', MSE[1])
 
 	# Pre-made estimators use the total_loss instead of the average,
 	# so report total_loss for compatibility.
@@ -48,7 +54,6 @@ def myCustomEstimator(features, labels, mode, params):
 
 	# Calculate root mean squared error
 	rmse = tf.metrics.root_mean_squared_error(tf.cast(labels, tf.float32), output_layer)
-	MSE = tf.metrics.mean_squared_error(tf.cast(labels, tf.float32), output_layer)
 
 	# Add the rmse to the collection of evaluation metrics.
 	eval_metrics = {"rmse": rmse, "average_loss": MSE}

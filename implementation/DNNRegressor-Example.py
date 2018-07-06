@@ -166,15 +166,19 @@ def main(argv):
 										   optimizer=tf.train.AdagradOptimizer(learning_rate=learningRate),
 										   config=test_config)
 	else:
+		test_config = estimator.RunConfig(save_checkpoints_steps=200,
+		                                  save_checkpoints_secs=None)
 		regressor = estimator.Estimator(
 			model_fn=cE.myCustomEstimator,
+			config=test_config,
+			model_dir=MODEL_PATH,
 			params={
 				"feature_columns": my_feature_columns,
-				"learning_rate": 0.001,
-				"optimizer": tf.train.AdamOptimizer,
-				"hidden_units": [20, 20]
+				"learning_rate": learningRate,
+				"optimizer": tf.train.AdagradOptimizer,
+				"hidden_units": hidden_layers,
+				"dropout": dropout
 			})
-
 
 	if not os.path.exists(MODEL_PATH):
 		os.makedirs(MODEL_PATH)
