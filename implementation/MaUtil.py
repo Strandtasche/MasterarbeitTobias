@@ -122,8 +122,12 @@ def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath, name=No
 
 	plt.plot(x, y, 'ro',label='function to predict')
 	plt.plot(x_t, y_t, 'go', label='target')
-	for k in range(numberPrint):
-		plt.plot(y_predicted[k][0], y_predicted[k][1], 'bo', label='prediction')
+	if isinstance(y_predicted, list):
+		for k in range(numberPrint):
+			plt.plot(y_predicted[k][0], y_predicted[k][1], 'bo', label='prediction')
+	else:
+		for k in range(numberPrint):
+			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'bo', label='prediction')
 	plt.plot()
 
 	plt.title('%s DNNRegressor' % MODEL_PATH.split('/')[-1])

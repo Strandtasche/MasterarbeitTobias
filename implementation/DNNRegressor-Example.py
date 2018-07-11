@@ -317,8 +317,8 @@ def main(argv):
 		print(x_pred2)
 		print(y_vals2)
 
-		y_pred = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=BATCH_SIZE))
-		y_predicted = [p['predictions'] for p in y_pred]
+		y_predGen = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=BATCH_SIZE))
+		y_predicted = [p['predictions'] for p in y_predGen]
 		print("predicted: ")
 		for i in y_predicted:
 			print(i)
@@ -327,39 +327,59 @@ def main(argv):
 		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
 
 		if maximumLossAnalysis:
-			overAverageFeatures = []
-			overAverageLabels = []
-			overAverageLoss = []
-			overAveragePrediction = []
-			threshold = 10
-			for index, row in X_test.iterrows():
-				exampleFeatures = X_test.loc[[index]]
-				exampleLabel = y_test.loc[[index]]
-				# print(type(exampleFeatures))
-				# print(type(exampleLabel))
-				vali = regressor.evaluate(input_fn=lambda: eval_input_fn(exampleFeatures, exampleLabel, 1))
-				bad_pred = regressor.predict(input_fn=lambda: eval_input_fn(exampleFeatures, labels=None, batch_size=1))
-				bad_predicted = [p['predictions'] for p in bad_pred]
-				# print(vali)
-				if vali['average_loss'] > averageLoss:
-					overAverageFeatures.append(exampleFeatures)
-					overAverageLabels.append(exampleLabel)
-					overAverageLoss.append(vali['average_loss'])
-					overAveragePrediction.append(bad_predicted[0])
-					# print(exampleFeatures)
-					# print(exampleLabel)
-				if len(overAverageLabels) == threshold:
-					print("Length: {}".format(len(overAverageFeatures)))
-					threshold = threshold + 10
+			totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=BATCH_SIZE))
+			totalPredictions = [p['predictions'] for p in totalPredictGen]
+			# for i in totalPredictions:
+			# 	print(i)
 
-			tempDf1 = pd.concat(overAverageFeatures)
-			tempDf2 = pd.concat(overAverageLabels)
+			xPredL = [p[0] for p in totalPredictions]
+			yPredL = [p[1] for p in totalPredictions]
 
-			finalDf = pd.concat([tempDf1, tempDf2], axis=1)
-			plotDataPandas(len(overAverageFeatures), tempDf1, tempDf2, overAveragePrediction, baseImagePath,
-			               os.path.basename(MODEL_PATH) +'_' + 'highestLoss' + '_' + time_stamp + '.png')
+			pandasLost = pd.DataFrame(data={'PredictionX': xPredL, 'PredictionY': yPredL}, index=y_test.index,
+			                          columns=['PredictionX', 'PredictionY'])
+			pandasLost = pd.concat([X_test, y_test, pandasLost], axis=1)
+			pandasLost['MSE'] = pandasLost.apply(lambda row: ((row['LabelX'] - row['PredictionX'])**2 + (row['LabelY'] - row['PredictionY'])**2)/2, axis=1)
 
-			print(finalDf)
+			maximumLossAnalysisCount = 20 #TODO: potenziell variable mit Arg?
+
+			printDF = pandasLost.sort_values(by='MSE', ascending=False).head(maximumLossAnalysisCount)
+			# print(printDF)
+			plotDataPandas(maximumLossAnalysisCount, printDF[columnNames] ,printDF[['LabelX', 'LabelY']], printDF[['PredictionX', 'PredictionY']], baseImagePath,
+			               baseImagePath + os.path.basename(MODEL_PATH) +'_'+ 'highestLoss' + '_' + time_stamp + '.png')
+
+			# overAverageFeatures = []
+			# overAverageLabels = []
+			# overAverageLoss = []
+			# overAveragePrediction = []
+			# threshold = 10
+			# for index, row in X_test.iterrows():
+			# 	exampleFeatures = X_test.loc[[index]]
+			# 	exampleLabel = y_test.loc[[index]]
+			# 	# print(type(exampleFeatures))
+			# 	# print(type(exampleLabel))
+			# 	vali = regressor.evaluate(input_fn=lambda: eval_input_fn(exampleFeatures, exampleLabel, 1))
+			# 	bad_pred = regressor.predict(input_fn=lambda: eval_input_fn(exampleFeatures, labels=None, batch_size=1))
+			# 	bad_predicted = [p['predictions'] for p in bad_pred]
+			# 	# print(vali)
+			# 	if vali['average_loss'] > averageLoss:
+			# 		overAverageFeatures.append(exampleFeatures)
+			# 		overAverageLabels.append(exampleLabel)
+			# 		overAverageLoss.append(vali['average_loss'])
+			# 		overAveragePrediction.append(bad_predicted[0])
+			# 		# print(exampleFeatures)
+			# 		# print(exampleLabel)
+			# 	if len(overAverageLabels) == threshold:
+			# 		print("Length: {}".format(len(overAverageFeatures)))
+			# 		threshold = threshold + 10
+			#
+			# tempDf1 = pd.concat(overAverageFeatures)
+			# tempDf2 = pd.concat(overAverageLabels)
+			#
+			# finalDf = pd.concat([tempDf1, tempDf2], axis=1)
+			# plotDataPandas(len(overAverageFeatures), tempDf1, tempDf2, overAveragePrediction, baseImagePath,
+			#                baseImagePath + os.path.basename(MODEL_PATH) +'_'+ 'highestLoss' + '_' + time_stamp + '.png')
+			#
+			# print(finalDf)
 
 		# displaying weights in Net - (a bit redundant after implementation of debugger
 		if displayWeights:
