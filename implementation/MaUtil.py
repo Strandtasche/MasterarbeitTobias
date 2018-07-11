@@ -5,12 +5,17 @@ import time
 import logging
 from adjustText import adjust_text
 
-def genModelPath(hyperparams, fake):
+def genModelPath(hyperparams, fake, usingCustomestimator):
 	"""returns path to location of model based on parameters"""
 	if not fake:
 		MODEL_PATH = hyperparams.problem.modelBasePath
 	else:
 		MODEL_PATH = hyperparams.problem.modelBasePath[0:-1] + "FakeData/"
+
+	if usingCustomestimator:
+		MODEL_PATH += 'CustomEstimator_'
+	else:
+		MODEL_PATH += 'PremadeEstimator_'
 
 	for hl in hyperparams.arch.hidden_layers:
 		MODEL_PATH += '%s_' % hl

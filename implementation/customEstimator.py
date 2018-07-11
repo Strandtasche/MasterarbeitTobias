@@ -22,7 +22,7 @@ def myCustomEstimator(features, labels, mode, params):
 	if mode == tf.estimator.ModeKeys.PREDICT:
 		# In `PREDICT` mode we only need to return predictions.
 		return tf.estimator.EstimatorSpec(
-			mode=mode, predictions={"prediction": output_layer})
+			mode=mode, predictions={"predictions": output_layer})
 
 	# Calculate loss using mean squared error
 	# print(labels)

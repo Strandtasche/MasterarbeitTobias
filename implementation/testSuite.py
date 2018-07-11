@@ -79,17 +79,14 @@ def test3(loading=False):
 
 	print(X_train1[X_train1.isna().any(axis=1)]) #[X_train1.isnull().any(axis=1)])
 
-def main(argv):
+def test4():
 	(X_train2, y_train2), (X_test2, y_test2) = ld.loadFakeDataPandas(5, 2, 0.1, 15)
-
 	print(X_test2)
 	print(y_test2)
-
 	my_feature_columns = []
 	columnNames = ld.genColumnNames(5)
 	for key in columnNames:
 		my_feature_columns.append(tf.feature_column.numeric_column(key=key))
-
 	regressor = estimator.Estimator(
 		model_fn=cE.myCustomEstimator,
 		params={
@@ -98,21 +95,17 @@ def main(argv):
 			"optimizer": tf.train.AdamOptimizer,
 			"hidden_units": [20, 20]
 		})
-
 	regressor.train(input_fn=lambda: training_input_fn_Slices(X_train2, y_train2, 1000), steps=1000)
-
 	eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test2, y_test2, 1000))
 	print("eval: " + str(eval_dict))
-
 	debug_pred = regressor.predict(input_fn=lambda: eval_input_fn(X_test2, labels=None, batch_size=1000))
 	# debug_predicted = [p['predictions'] for p in debug_pred]
 	for i in debug_pred:
 		print(i)
-
 	print("success!")
 
-
-
+def main(argv):
+	test4()
 
 if __name__ == '__main__':
 	tf.logging.set_verbosity(tf.logging.ERROR)
@@ -120,5 +113,6 @@ if __name__ == '__main__':
 	os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 	logging.info('Tensorflow %s' % tf.__version__)
 	tf.app.run(main)
+
 
 
