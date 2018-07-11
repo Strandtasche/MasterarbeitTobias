@@ -71,7 +71,7 @@ def main(argv):
 	saving = args.save
 	loading = args.load
 	overWriteModelPath = args.overwriteModel
-	customEstimator = args.custom
+	usingCustomEstimator = args.custom
 
 	displayWeights = args.dispWeights
 	DEBUG = args.debug
@@ -127,8 +127,8 @@ def main(argv):
 		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
 		logging.error("AttributeError: {0}".format(err))
 		exit(1)
-	except:
-		logging.error("Some kind of error? not sure")
+	except Exception as e:
+		logging.error("Some kind of error? not sure: {}".format(e))
 		exit(1)
 
 	if loading is None:
@@ -147,13 +147,13 @@ def main(argv):
 		my_feature_columns.append(tf.feature_column.numeric_column(key=key))
 
 	if not overWriteModelPath:
-		MODEL_PATH = genModelPath(hyper_params, FAKE)
+		MODEL_PATH = genModelPath(hyper_params, FAKE, usingCustomEstimator)
 	else:
 		MODEL_PATH = overWriteModelPath
 
 	logging.info('Saving to %s' % MODEL_PATH)
 
-	if not customEstimator:
+	if not usingCustomEstimator:
 		# Validation and Test Configuration
 		test_config = estimator.RunConfig(save_checkpoints_steps=200,
 										  save_checkpoints_secs=None)
@@ -221,8 +221,8 @@ def main(argv):
 				X_test = store['xtest']
 				y_test = store['ytest']
 
-		except:
-			logging.error("Error while loading from stored data")
+		except Exception as e:
+			logging.error("Error while loading from stored data: {}".format(e))
 			exit(1)
 
 	#Plot progress Vars:
@@ -303,8 +303,8 @@ def main(argv):
 			logging.error("{}".format(err))
 			exit(1)
 
-		except:
-			logging.error("Unknown Error while trying to evaluate")
+		except Exception as e:
+			logging.error("Unknown Error while trying to evaluate: {}".format(e))
 			exit(1)
 
 		assert numberPrint < y_test.shape[0]
@@ -331,6 +331,7 @@ def main(argv):
 			overAverageLabels = []
 			overAverageLoss = []
 			overAveragePrediction = []
+			threshold = 10
 			for index, row in X_test.iterrows():
 				exampleFeatures = X_test.loc[[index]]
 				exampleLabel = y_test.loc[[index]]
@@ -347,8 +348,9 @@ def main(argv):
 					overAveragePrediction.append(bad_predicted[0])
 					# print(exampleFeatures)
 					# print(exampleLabel)
-				if len(overAverageLabels) % 10 == 0:
+				if len(overAverageLabels) == threshold:
 					print("Length: {}".format(len(overAverageFeatures)))
+					threshold = threshold + 10
 
 			tempDf1 = pd.concat(overAverageFeatures)
 			tempDf2 = pd.concat(overAverageLabels)
@@ -367,7 +369,7 @@ def main(argv):
 		# # Final Plot
 		if WITHPLOT:
 			plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath,
-			               os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
+			               baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 
 	# except:
 	# 	logging.error('Prediction failed! Maybe first train a model?')
