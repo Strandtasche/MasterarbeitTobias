@@ -3,7 +3,7 @@ find /media/hornberger/data/Tracksort/Daten/ -type f -name "*data.csv" -print0 |
     laa=${line:39}
     baa=${laa/ /_}
     foo=${baa////_}
-    final="./data_extracted/$foo"
-    echo "$foo"
-    mv "${line/ /\ }" "$final"
+    final="${line:0:-8}$foo"
+    echo "$final"
+    svn mv "${line/ /\ }" "$final"
 done
