@@ -7,6 +7,7 @@ import time
 import csv
 import sys
 import os
+import math
 import collections
 
 # Import the event accumulator from Tensorboard. Location varies between Tensorflow versions. Try each known location until one works.
@@ -174,10 +175,17 @@ if ('scalars' in summaries):
 			for i in range(len(vals)):
 				v = vals[i];
 				data = [v.wall_time, v.step];
+				#print("length scalarTags: {}".format(len(scalarTags)))
+				# print(i)
 				for s in scalarTags:
 					scalarTag = ea.Scalars(s);
-					S = scalarTag[i];
-					data.append(S.value);
+					# print("length scalarTag: {}".format(len(scalarTag)))
+					if i < len(scalarTag):
+						S = scalarTag[i];
+						data.append(S.value);
+					else:
+						print("ScalarTag is too short - writing NaN")
+						data.append(math.nan)
 				logWriter.writerow(data);
 
 print(' ');
