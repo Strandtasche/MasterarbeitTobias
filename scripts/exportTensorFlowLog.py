@@ -184,7 +184,7 @@ if ('scalars' in summaries):
 						S = scalarTag[i];
 						data.append(S.value);
 					else:
-						print("ScalarTag is too short - writing NaN")
+						print("ScalarTag {} is too short - writing NaN".format(s))
 						data.append(math.nan)
 				logWriter.writerow(data);
 

@@ -142,7 +142,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--output_directory',
                         help='An argument for the output directory')
-    parse.add_argument('--noimage', help="ignore image output and only export csv", action="store_true" )
+    parser.add_argument('--noimage', help="ignore image output and only export csv", action="store_true" )
 
     args = parser.parse_args()
     if args.input_directory == None:
@@ -172,7 +172,8 @@ if __name__ == '__main__':
     images, num_images = read_images(args.input_directory, args.file_extension)
 
     # get image dimensioons
-    HEIGHT, WIDTH = images[0][0].shape
+    # print(images[0][0].shape)
+    HEIGHT, WIDTH, channels = images[0][0].shape
 
     # subtract bg
     images_without_bg = list()
@@ -251,7 +252,7 @@ if __name__ == '__main__':
     header.append('FrameNr')
     header.append('NumberMidPoints')
 
-    for i in range(1, (max_length-2)/2 + 1):
+    for i in range(1, int((max_length-2)/2 + 1)):
         header.append('MidPointX_' + str(i))
         header.append('MidPointY_' + str(i))
 
