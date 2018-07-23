@@ -36,7 +36,7 @@ def demosaic_file(f_input, f_output, ext):
 			fileLoc = os.path.dirname(f_output)
 			output_file_name = fileName.replace('.' + ext, '_debayer.png')
 			output_file = fileLoc + '/' + output_file_name
-			print('Writing ' + output_file + '...')
+			#print('Writing ' + output_file + '...')
 			cv2.imwrite(output_file, converted)
 
 	else:
