@@ -340,7 +340,7 @@ def main(argv):
 			pandasLost = pd.concat([X_test, y_test, pandasLost], axis=1)
 			pandasLost['MSE'] = pandasLost.apply(lambda row: ((row['LabelX'] - row['PredictionX'])**2 + (row['LabelY'] - row['PredictionY'])**2)/2, axis=1)
 
-			maximumLossAnalysisCount = 20 #TODO: potenziell variable mit Arg?
+			maximumLossAnalysisCount = numberPrint #TODO: potenziell variable mit Arg? / separat?
 
 			printDF = pandasLost.sort_values(by='MSE', ascending=False).head(maximumLossAnalysisCount)
 			# print(printDF)

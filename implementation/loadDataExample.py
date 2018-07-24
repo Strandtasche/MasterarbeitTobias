@@ -200,7 +200,7 @@ def loadRawMeas(input, featureSize=5, testSize=0.1):
 
 	# TODO: handle single file inputs? os.path.isDir() - make system agnostic
 
-	fileList = sorted(glob.glob(folder + '/*'))
+	fileList = sorted(glob.glob(folder + '/*.csv'))
 
 	assert len(fileList) > 0, "no files found input location " + folder + '/'
 	dataFrameList = []
