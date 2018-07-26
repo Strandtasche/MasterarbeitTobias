@@ -5,14 +5,14 @@
         "feature_size": 5
     },
     "problem": {
-        "data_path": "data/experiment01",
-        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/fineTuning/",
+        "data_path": "data/selbstgesammelteDaten/Kugeln/kugeln_011_trackHistory_NothingDeleted.csv",
+        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/kugeln/",
         "imagePath": "/home/hornberger/MasterarbeitTobias/images/"
     },
     "train": {
         "batch_size": 1000,
         "epochs": 500,
-        "steps_per_epoch": 500,
+        "steps_per_epoch": 200,
         "learning_rate": 0.01
     },
     "data": {

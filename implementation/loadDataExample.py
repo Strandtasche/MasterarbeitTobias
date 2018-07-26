@@ -176,7 +176,13 @@ def prepareRawMeas(inputFile, featureSize=5):
 		newDf.dropna(subset=['LabelX', 'LabelY'], inplace=True)
 
 		if sizeOld != newDf.shape[0]:
-			print("removed Row for Label NaN")
+			print("removed(s) Row for Label NaN")
+	
+		sizeOld = newDf.shape[0]
+		newDf.dropna(axis=0, inplace=True)
+		
+		if sizeOld != newDf.shape[0]:
+			print("removed Row(s) for Feature NaN")
 
 	else:
 		newDf = pd.DataFrame()
@@ -193,16 +199,22 @@ def prepareRawMeas(inputFile, featureSize=5):
 def loadRawMeas(input, featureSize=5, testSize=0.1):
 	"""loads all the raw measurement data from input into a pandas Dataframe and """
 
-	if input[:5] == "/home":
-		folder = input
-	else:
-		folder = '/home/hornberger/Projects/MasterarbeitTobias/' + input
+	# if input[:5] == "/home":
+	# 	folder = input
+	# else:
+	# 	folder = '/home/hornberger/Projects/MasterarbeitTobias/' + input
+
+	folder = input
 
 	# TODO: handle single file inputs? os.path.isDir() - make system agnostic
 
-	fileList = sorted(glob.glob(folder + '/*.csv'))
+	fileList = []
+	if folder[-4:] != '.csv':
+		fileList = sorted(glob.glob(folder + '/*.csv'))
+	else:
+		fileList.append(folder)
 
-	assert len(fileList) > 0, "no files found input location " + folder + '/'
+	assert len(fileList) > 0, "no files found input location " + folder
 	dataFrameList = []
 
 	for elem in fileList:
@@ -211,9 +223,9 @@ def loadRawMeas(input, featureSize=5, testSize=0.1):
 	newDf = pd.concat(dataFrameList, ignore_index=True)
 
 	# Remove invalid rows: TODO: more sophisticated approach (forward/backwards fill?)
-	newDf.dropna(axis=0, inplace=True)
 
-	assert pd.notnull(newDf).all().all()
+	if not pd.notnull(newDf).all().all():
+		raise ValueError("NaNs in labels or feature break Neural Network")
 
 	labelDf = newDf[['LabelX', 'LabelY']].copy()
 	featureDf = newDf.drop(['LabelX', 'LabelY'], axis=1)
