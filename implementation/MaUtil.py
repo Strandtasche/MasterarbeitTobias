@@ -62,7 +62,7 @@ def eval_input_fn(features, labels, batch_size):
 
 	# Batch the examples
 	assert batch_size is not None, "batch_size must not be None"
-	dataset = dataset.batch(batch_size)
+	dataset = dataset.shuffle(2500).batch(batch_size)
 
 	# Return the dataset.
 	return dataset
@@ -136,8 +136,6 @@ def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath, name=No
 	plt.savefig(output, dpi=300)
 	# plt.show()
 	plt.close()
-
-
 
 
 def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath):

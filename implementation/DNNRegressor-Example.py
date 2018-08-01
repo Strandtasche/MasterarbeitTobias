@@ -22,6 +22,7 @@ import random
 
 import os
 import logging
+from timeit import default_timer as timer
 
 import loadDataExample as ld
 import customEstimator as cE
@@ -330,12 +331,15 @@ def main(argv):
 
 		print(x_pred2)
 		print(y_vals2)
-
+		
+		startTime = timer()
 		y_predGen = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=BATCH_SIZE))
 		y_predicted = [p['predictions'] for p in y_predGen]
+		endTime = timer()
 		print("predicted: ")
 		for i in y_predicted:
 			print(i)
+		print("time: {:.2f}s".format((endTime - startTime)))
 
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(x_pred2, y_vals2, 1))
 		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))

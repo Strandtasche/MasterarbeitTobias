@@ -211,8 +211,10 @@ def loadRawMeas(input, featureSize=5, testSize=0.1):
 	fileList = []
 	if folder[-4:] != '.csv':
 		fileList = sorted(glob.glob(folder + '/*.csv'))
+		logging.info("getting all csv files in {}".format(folder))
 	else:
 		fileList.append(folder)
+		logging.info("loading file {}".format(folder))
 
 	assert len(fileList) > 0, "no files found input location " + folder
 	dataFrameList = []
