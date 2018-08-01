@@ -1,6 +1,6 @@
 % sent to me on 2018-07-25 by Florian
 
-
+Bool_Pos_z = false;
 % downsampleBy=1;
 % startAtIndex=1;
 numFrames=size(pos,2); % use all Frames
@@ -22,22 +22,27 @@ currentlyOnBelt=squeeze(...
 
 %%
 % Eliminate particles flying weirdly
-for track=1:size(pos,3)
-    if max(pos(3,currentlyOnBelt(:,track),track))>0.01
-        currentlyOnBelt(:,track)=false;
+if Bool_Pos_z
+    for track=1:size(pos,3)
+        if max(pos(3,currentlyOnBelt(:,track),track))>0.01
+            currentlyOnBelt(:,track)=false;
+        end
     end
 end
-
 %%
 numberOfMidpoints=sum(currentlyOnBelt,2);
 midpointMatrix=NaN(2,max(numberOfMidpoints),numel(numberOfMidpoints));
 orientationMatrix=NaN(max(numberOfMidpoints),numel(numberOfMidpoints));
 for t=1:numel(numberOfMidpoints)
     midpointMatrix(:,1:numberOfMidpoints(t),t)=pos(1:2,t,currentlyOnBelt(t,:));
-    orientationMatrix(1:numberOfMidpoints(t),t)=rotz(t,currentlyOnBelt(t,:));
+    if Bool_Pos_z
+        orientationMatrix(1:numberOfMidpoints(t),t)=rotz(t,currentlyOnBelt(t,:));
+    end
     % Assert that everything we have saved is valid
     assert(~any(any(any(isnan(midpointMatrix(:,1:numberOfMidpoints(t),t))))));
-    assert(~any(any(isnan(orientationMatrix(1:numberOfMidpoints(t),t)))));
+    if Bool_Pos_z
+        assert(~any(any(isnan(orientationMatrix(1:numberOfMidpoints(t),t)))));
+    end
 end
 midpointToGtMapping=NaN(max(numberOfMidpoints),numel(numberOfMidpoints));
 for t=1:numel(numberOfMidpoints)

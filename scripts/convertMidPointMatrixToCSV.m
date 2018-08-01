@@ -30,8 +30,8 @@ function[] = convertMidPointMatrixToCSV(midpointMatrix, dest_path)
     %disp(class(cHeader(3)))
     commaHeader = [cHeader;repmat({','},1,numel(cHeader))]; %insert commas
     commaHeader = commaHeader(:)';
-    disp(class(commaHeader(1)))
-    disp(class(commaHeader(2)))
+    %disp(class(commaHeader(1)))
+    %disp(class(commaHeader(2)))
     textHeader = cell2mat(commaHeader); %cHeader in text with commas
     %textHeader = strjoin(cHeader, ',');
     
