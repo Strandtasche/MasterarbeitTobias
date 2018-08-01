@@ -7,7 +7,7 @@ for i in **/*tfevents*; do # Whitespace-safe and recursive
     if [[ $DIR != *eval ]]; then
         python ~/MasterarbeitTobias/scripts/exportTensorFlowLog.py $i $DIR
         mv "$DIR/scalars.csv" "$DIR/$(basename $i).csv"
-        if [ $1== 'delete']; then
+        if [[ $1 = "delete" ]]; then
             echo "rm $i"
         fi
     fi
