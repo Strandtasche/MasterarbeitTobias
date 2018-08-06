@@ -60,9 +60,6 @@ selbe Ordnerstruktur in einem Parallelordner mit allen Bildern als debayertes PN
 ### debayer.py
 
 _Purpose_:  
-
-[//]: <> converting the image given by the Schüttgutsortierer's camera from greyscale (bayered) to color. Demosaic frames from Bonito Camera.
-
 Umrechnen ("Demosaicing") eines Bildes, das in Graustufen von der Kamera des Schüttgutsortierers kommt, in RGB.
 
 _Usage_:  
@@ -114,16 +111,15 @@ Unsortiertes CSV mit X, Y positionen von Partikeln zu einzelnen Zeitschritten, T
 _Output_:  
 CSV, wobei eine Spalte die Bewegung eines einzelnen Teilchens abbildet.
 
-### segment.py und segment_paramters.py
+### segment.py und segment_parameters.py
 
 
 _Purpose_:  
-converting the image given by the Schüttgutsortierer's camera from greyscale (bayered) to color.
-Demosaic frames from Bonito Camera.
+Findet Schüttgutpartikel in einem Set an Bildern und schreibt ihre X- und Y-Koordinaten in eine CSV Datei
 
 _Usage_:  
 * -i: input dataset - required 
-* -o: output file or folder - required
+* -o: output file - required
 * -nd: No Display - optional. Schaltet Konsolenoutput aus - Beschleunigung bei großen Anzahlen von Bildern
 
 _Input_:  
