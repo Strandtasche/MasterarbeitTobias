@@ -35,14 +35,14 @@ def test1():
 	print("finished")
 
 def test2():
-	df = ld.prepareRawMeas('/home/hornberger/Projects/MasterarbeitTobias/data/experiment01/07_data_trackHistory_NothingDeleted.csv', 5)
+	df = ld.prepareRawMeasNextStep('/home/hornberger/Projects/MasterarbeitTobias/data/experiment01/07_data_trackHistory_NothingDeleted.csv', 5)
 	print(df)
 
 def test3(loading=False):
 	print("loading data")
 
 	if loading == False:
-		(X_train1, y_train1), (X_test1, y_test1) = ld.loadRawMeas('/home/hornberger/Projects/MasterarbeitTobias/data/experiment01', 5, 0.1)
+		(X_train1, y_train1), (X_test1, y_test1) = ld.loadRawMeasNextStep('/home/hornberger/Projects/MasterarbeitTobias/data/experiment01', 5, 0.1)
 		(X_train2, y_train2), (X_test2, y_test2) = ld.loadFakeDataPandas(5, 500, 0.1)
 		with pd.HDFStore('data.h5') as store:
 			store['xtrain1'] = X_train1

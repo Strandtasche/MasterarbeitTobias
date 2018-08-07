@@ -114,7 +114,7 @@ def _removeNans(array):
 	return trimmed
 
 
-def prepareRawMeas(inputFile, featureSize=5):
+def prepareRawMeasNextStep(inputFile, featureSize=5):
 	"""loads real(!) data from a csv file return a dataframe"""
 
 	# dt = np.dtype([('features', float, (2 * featureSize,)), ('labels', float, (2,))])
@@ -124,7 +124,7 @@ def prepareRawMeas(inputFile, featureSize=5):
 	df = pd.read_csv(inputFile)
 	df = _validateDF(df, featureSize)
 
-	numberTracks = (df.shape[1] - 2) / 2
+	numberTracks = (df.shape[1]) / 2 #TODO: Validate change
 
 	assert numberTracks == int(numberTracks)
 
@@ -196,7 +196,7 @@ def prepareRawMeas(inputFile, featureSize=5):
 	return newDf
 
 
-def loadRawMeas(input, featureSize=5, testSize=0.1):
+def loadRawMeasNextStep(input, featureSize=5, testSize=0.1):
 	"""loads all the raw measurement data from input into a pandas Dataframe and """
 
 	# if input[:5] == "/home":
@@ -220,7 +220,7 @@ def loadRawMeas(input, featureSize=5, testSize=0.1):
 	dataFrameList = []
 
 	for elem in fileList:
-		dataFrameList.append(prepareRawMeas(elem, featureSize))
+		dataFrameList.append(prepareRawMeasNextStep(elem, featureSize))
 
 	newDf = pd.concat(dataFrameList, ignore_index=True)
 

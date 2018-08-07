@@ -142,7 +142,7 @@ def main(argv):
 	if loading is None:
 		if not FAKE:
 			# (X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
-			(X_train, y_train), (X_test, y_test) = ld.loadRawMeas(dataFolder, FEATURE_SIZE, testSize)
+			(X_train, y_train), (X_test, y_test) = ld.loadRawMeasNextStep(dataFolder, FEATURE_SIZE, testSize)
 		else:
 			(X_train, y_train), (X_test, y_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 			
