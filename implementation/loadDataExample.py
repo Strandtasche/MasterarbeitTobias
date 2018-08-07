@@ -1,3 +1,5 @@
+from __future__ import division
+
 import numpy as np
 import os
 import pandas as pd
@@ -5,6 +7,7 @@ import random
 from sklearn.model_selection import train_test_split
 import logging
 import glob
+import bisect
 
 
 # featureSize = 5
@@ -112,6 +115,25 @@ def _removeNans(array):
 		trimmed = np.zeros(0)
 
 	return trimmed
+
+# kopiert aus Stackoverflow thread "https://stackoverflow.com/questions/20677795/how-do-i-compute-the-intersection-point-of-two-lines-in-python"f
+
+def _line(p1, p2):
+	A = (p1[1] - p2[1])
+	B = (p2[0] - p1[0])
+	C = (p1[0]*p2[1] - p2[0]*p1[1])
+	return A, B, -C
+
+def _intersection(L1, L2):
+	D  = L1[0] * L2[1] - L1[1] * L2[0]
+	Dx = L1[2] * L2[1] - L1[1] * L2[2]
+	Dy = L1[0] * L2[2] - L1[2] * L2[0]
+	if D != 0:
+		x = Dx / D
+		y = Dy / D
+		return x,y
+	else:
+		return False
 
 
 def prepareRawMeasNextStep(inputFile, featureSize=5):
@@ -386,3 +408,177 @@ def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1, numberOfEx
 	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(featureDf, labelDf, test_size=testSize)
 
 	return (trainFeatures, trainLabels), (testFeatures, testLabels)
+
+
+def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predictionCutOff= 1300):
+	"""loads real(!) data from a csv file return a dataframe"""
+	
+	# dt = np.dtype([('features', float, (2 * featureSize,)), ('labels', float, (2,))])
+	
+	logging.info("Preparing Data from " + inputFile)
+	
+	df = pd.read_csv(inputFile)
+	df = _validateDF(df, featureSize)
+	
+	numberTracks = (df.shape[1]) / 2
+	
+	assert numberTracks == int(numberTracks)
+	
+	numberTracks = int(numberTracks)
+	
+	columnNames = genColumnNames(featureSize)
+	columnNames.append('LabelPosBalken')
+	columnNames.append('LabelTime')
+	
+	data = []
+	
+	for i in range(numberTracks):
+		a = df.iloc[:, (2 * i)].values
+		b = df.iloc[:, (2 * i + 1)].values
+		
+		# a = a[~np.isnan(a)]   #Remove nans from columns
+		# b = b[~np.isnan(b)]   #Remove NaNs from Columns
+		
+		a = _removeNans(a)
+		b = _removeNans(b)
+		
+		assert len(a) == len(b)
+		
+		# sort out vanishing tracks
+		if max(b) < separatorPosY:
+			logging.warning("skipping track: highest Value smaller than separator")
+			continue
+		
+		# get position above separator
+		xLoc = -1
+		if separatorPosY not in b:
+			postVal = b[b > separatorPosY].min()
+			preVal = b[b < separatorPosY].max()
+			preLoc = np.where(b ==preVal)
+			assert len(preLoc) == len(preLoc[0]) == 1
+			assert int(preLoc[0][0]) == preLoc[0][0]
+			preLoc = preLoc[0][0]
+			
+			postLoc = np.where(b == postVal)
+			assert len(postLoc) == len(postLoc[0]) == 1
+			assert int(postLoc[0][0]) == postLoc[0][0]
+			postLoc = postLoc[0][0]
+		
+			print("Track {}. positions: preloc {} - postloc {}".format(i, preLoc, postLoc))
+			
+			assert preLoc + 1 == postLoc
+			
+			L1 = _line([0, separatorPosY], [2000, separatorPosY])
+			L2 = _line([a[preLoc], b[preLoc]], [a[postLoc], b[postLoc]])
+			
+			R = _intersection(L1, L2)
+			if R:
+				print("intersection found! {}".format(R))
+				xLoc = R[0]
+			else:
+				logging.error("no intersection found for track {}".format(i))
+				exit(-1)
+		else:
+			print("value in array!")
+			xLoc = a[np.where(b == separatorPosY)]
+			
+		# remove items up to prediction phase
+		
+		indexCut = bisect.bisect_left(b, predictionCutOff)
+		
+		a = a[:indexCut]
+		b = b[:indexCut]
+		
+	
+		featureCount = len(a) - featureSize
+		if featureCount <= 0:
+			logging.warning("Not enough elements for features in track {}".format(i))
+			continue
+		for k in range(featureCount):
+			temp = {}
+			temp['features'] = np.append(a[k:(k+ featureSize)], b[k:(k+featureSize)])
+			temp['labels'] = np.append(xLoc, abs(preLoc - k))
+			data.append(temp)
+
+	# newDf = pd.DataFrame(columns=columNames)
+	dataFrameList = []
+
+	for elem in data:
+		# print(elem)
+		tempdict = {columnNames[k]: elem['features'][k] for k in range(2 * featureSize)}
+		for i in [-2, -1]:
+			tempdict[columnNames[i]] = elem['labels'][i]
+
+		dataFrameList.append(pd.DataFrame(tempdict, index=[0]))
+
+
+	# assert len(dataFrameList) > 0
+	if len(dataFrameList) != 0:
+		newDf = pd.concat(dataFrameList, ignore_index=True)
+
+		sizeOld = newDf.shape[0]
+
+		newDf.dropna(subset=[columnNames[-1], columnNames[-2]], inplace=True)
+
+		if sizeOld != newDf.shape[0]:
+			print("removed(s) Row for Label NaN")
+
+		sizeOld = newDf.shape[0]
+		newDf.dropna(axis=0, inplace=True)
+
+		if sizeOld != newDf.shape[0]:
+			print("removed Row(s) for Feature NaN")
+
+	else:
+		newDf = pd.DataFrame()
+		logging.warning("no data found in " + inputFile)
+
+	return newDf
+
+def _findSeparationLocation(inputFile, featureSize, separatorPosY):
+	
+	logging.info("Preparing Data from " + inputFile)
+	
+	df = pd.read_csv(inputFile)
+	df = _validateDF(df, featureSize)
+	
+	numberTracks = (df.shape[1]) / 2
+	
+	assert numberTracks == int(numberTracks)
+	
+	xLast = []
+	yLast = []
+	xSecondToLast = []
+	ySecondToLast = []
+	
+	data = []
+	
+	for i in range(numberTracks):
+		a = df.iloc[:, (2 * i)].values
+		b = df.iloc[:, (2 * i + 1)].values
+		
+		# a = a[~np.isnan(a)]   #Remove nans from columns
+		# b = b[~np.isnan(b)]   #Remove NaNs from Columns
+		
+		a = _removeNans(a)
+		b = _removeNans(b)
+		
+		assert len(a) == len(b)
+		
+		xLast.append(a[-1])
+		xSecondToLast.append(a[-2])
+		
+		yLast.append(b[-1])
+		ySecondToLast.append(b[-2])
+		
+	print("yLast: max - {}".format(max(yLast)))
+	print("yLast: min - {}".format(min(yLast)))
+	
+	tracksremoved = sum(i < separatorPosY for i in yLast)
+	tracksLostElement = sum(i > separatorPosY for i in ySecondToLast)
+	
+	print("Tracks removed by Separator Position: {}".format(tracksremoved))
+	print("Tracks elements wasted: {}".format(tracksLostElement))
+	
+	
+	return yLast
