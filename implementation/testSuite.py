@@ -7,9 +7,16 @@ import pandas as pd
 
 from MaUtil import *
 
+import argparse
+
 from tensorflow import estimator
 import customEstimator as cE
 import tensorflow as tf
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--training', help='if training of eval', action="store_true")
+parser.add_argument('--separator', nargs='*', type=int)
 
 def test1():
 	print("Running testSuite")
@@ -105,7 +112,9 @@ def test4():
 	print("success!")
 
 def main(argv):
-	test4()
+	args = parser.parse_args(argv[1:])
+	
+	print(args.separator)
 
 if __name__ == '__main__':
 	tf.logging.set_verbosity(tf.logging.ERROR)

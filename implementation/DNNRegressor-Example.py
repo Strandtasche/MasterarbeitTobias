@@ -19,6 +19,7 @@ from MaUtil import *
 import shutil
 import numpy as np
 import random
+import sys
 
 import os
 import logging
@@ -45,7 +46,7 @@ parser.add_argument("--load", nargs='*', action="store", help="load Data")
 # parser.add_argument('--load', help="load stored data", action="store_true")
 
 parser.add_argument('--dispWeights', help="display weights of neurons", action="store_true")
-
+parser.add_argument('--separator', nargs='*', type=int, help='turn on prediction for separator')
 parser.add_argument('--overrideModel', default=None, type=str, help="Model Path to override generated Path")
 parser.add_argument('--overrideInput', default=None, type=str, help="input path to override input path from hyper_params")
 
@@ -103,7 +104,8 @@ def main(argv):
 
 	loadLoc = None
 	if args.load is not None and len(args.load) not in (0, 1):
-		parser.error('Either give no values for load, or two, not {}.'.format(len(args.load)))
+		parser.error('Either give no values for load, or one, not {}.'.format(len(args.load)))
+		sys.exit(-1)
 	elif args.load is not None:
 		if len(args.load) == 0:
 			# save to default location
@@ -111,6 +113,23 @@ def main(argv):
 		elif len(args.load) == 1:
 			# custom save location
 			loadLoc = args.load[0]
+			
+	if args.separator is not None and FAKE:
+		parser.error('No fake data for separator training (yet)')
+			
+	if args.separator is not None and len(args.separator) not in (0, 2):
+		parser.error('Separator needs 2 Integers representing prediction Close off and separator position')
+	elif args.separator is not None:
+		separator = True
+		if len(args.separator) == 0:
+			separatorPosition = 1550
+			predictionCutOff = 1300
+		else:
+			separatorPosition = args.separator[0]
+			predictionCutOff = args.separator[1]
+	else:
+		separator = False
+	
 
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
@@ -134,15 +153,17 @@ def main(argv):
 	except AttributeError as err:
 		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
 		logging.error("AttributeError: {0}".format(err))
-		exit(1)
+		sys.exit(1)
 	except Exception as e:
 		logging.error("Some kind of error? not sure: {}".format(e))
-		exit(1)
+		sys.exit(1)
 
 	if loading is None:
-		if not FAKE:
+		if not FAKE and not separator:
 			# (X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
 			(X_train, y_train), (X_test, y_test) = ld.loadRawMeasNextStep(dataFolder, FEATURE_SIZE, testSize)
+		elif separator:
+			(X_train, y_train), (X_test, y_test) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize, separatorPosition, predictionCutOff)
 		else:
 			(X_train, y_train), (X_test, y_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 			
@@ -200,7 +221,7 @@ def main(argv):
 		logging.info("{} does not exist. Creating folder".format(MODEL_PATH))
 	elif os.path.exists(MODEL_PATH) and not os.path.isdir(MODEL_PATH):
 		logging.error("There is a file in the place where one would like to save their files..")
-		exit(1)
+		sys.exit(1)
 
 	if not os.path.exists(MODEL_PATH + '/' + os.path.basename(hyperParamFile)):
 		shutil.copy2(hyperParamFile, MODEL_PATH + '/' + os.path.basename(MODEL_PATH + hyperParamFile))
@@ -238,7 +259,7 @@ def main(argv):
 
 		except Exception as e:
 			logging.error("Error while loading from stored data: {}".format(e))
-			exit(1)
+			sys.exit(1)
 
 	#Plot progress Vars:
 	if progressPlot:
@@ -316,11 +337,11 @@ def main(argv):
 		except ValueError as err:
 			# probably failed to load model
 			logging.error("{}".format(err))
-			exit(1)
+			sys.exit(1)
 
 		except Exception as e:
 			logging.error("Unknown Error while trying to evaluate: {}".format(e))
-			exit(1)
+			sys.exit(1)
 
 		assert numberPrint < y_test.shape[0]
 

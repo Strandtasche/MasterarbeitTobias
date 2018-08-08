@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 import logging
 import glob
 import bisect
+import sys
 
 
 # featureSize = 5
@@ -31,15 +32,11 @@ def loadCSVData(file='/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTrut
                 featureSize=5):
 	"""loads data from from CSV file and returns a dictionary with features and labels"""
 	df = pd.read_csv(file)
-	# print(df.head(1))
 
 	data = {"features": [], "labels": []}
 
 	numberTracks = (df.shape[1] - 2) / 2
 
-	# print(numberTracks)
-
-	# print(df.iloc[:,2])
 	for k in range(50):
 		for i in range(int(numberTracks)):
 			a = df.iloc[:, (2 + 2 * i)].values
@@ -48,9 +45,6 @@ def loadCSVData(file='/home/tobi/Projects/KIT/MasterarbeitTobias/data/GroundTrut
 			final_feature = np.append(a[sp:(sp + featureSize)], b[sp:(sp + featureSize)])
 			final_label = np.append(a[sp + featureSize + 1], b[sp + featureSize + 1])
 
-			# print("a: " + str(a[sp + featureSize + 1]) + ", b:" + str(b[sp + featureSize + 1]))
-
-			# print(final_label)
 			# assert final_feature.shape[0] == final_label.shape[0]
 
 			data["features"].append(final_feature)
@@ -135,6 +129,9 @@ def _intersection(L1, L2):
 	else:
 		return False
 
+def _distanceEu(p1, p2):
+	return ((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2) ** 0.5
+
 
 def prepareRawMeasNextStep(inputFile, featureSize=5):
 	"""loads real(!) data from a csv file return a dataframe"""
@@ -181,7 +178,6 @@ def prepareRawMeasNextStep(inputFile, featureSize=5):
 	dataFrameList = []
 
 	for elem in data:
-		# print(elem)
 		tempdict = {columnNames[k]: elem['features'][k] for k in range(2 * featureSize)}
 		for i in [-2, -1]:
 			tempdict[columnNames[i]] = elem['labels'][i]
@@ -198,22 +194,17 @@ def prepareRawMeasNextStep(inputFile, featureSize=5):
 		newDf.dropna(subset=['LabelX', 'LabelY'], inplace=True)
 
 		if sizeOld != newDf.shape[0]:
-			print("removed(s) Row for Label NaN")
+			logging.info("removed(s) Row for Label NaN")
 	
 		sizeOld = newDf.shape[0]
 		newDf.dropna(axis=0, inplace=True)
 		
 		if sizeOld != newDf.shape[0]:
-			print("removed Row(s) for Feature NaN")
+			logging.info("removed Row(s) for Feature NaN")
 
 	else:
 		newDf = pd.DataFrame()
 		logging.warning("no data found in " + inputFile)
-
-	# print(testFeatures)
-	# print(testLabels)
-
-
 
 	return newDf
 
@@ -410,7 +401,7 @@ def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1, numberOfEx
 	return (trainFeatures, trainLabels), (testFeatures, testLabels)
 
 
-def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predictionCutOff= 1300):
+def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predictionCutOff=1300):
 	"""loads real(!) data from a csv file return a dataframe"""
 	
 	# dt = np.dtype([('features', float, (2 * featureSize,)), ('labels', float, (2,))])
@@ -433,20 +424,29 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 	data = []
 	
 	for i in range(numberTracks):
+		trackNo = int(''.join([s for s in df.iloc[:,2*i].name if s.isdigit()]))
+		
 		a = df.iloc[:, (2 * i)].values
 		b = df.iloc[:, (2 * i + 1)].values
-		
-		# a = a[~np.isnan(a)]   #Remove nans from columns
-		# b = b[~np.isnan(b)]   #Remove NaNs from Columns
 		
 		a = _removeNans(a)
 		b = _removeNans(b)
 		
+		if np.isnan(a).any() or np.isnan(b).any():
+			logging.warning("skipping track {}: NaN values in track".format(trackNo))
+			continue
+	
 		assert len(a) == len(b)
+		
 		
 		# sort out vanishing tracks
 		if max(b) < separatorPosY:
-			logging.warning("skipping track: highest Value smaller than separator")
+			logging.warning("skipping track {}: highest Value smaller than separator".format(trackNo))
+			continue
+		
+		indexCut = bisect.bisect_left(b, predictionCutOff)
+		if indexCut - featureSize < 0:
+			logging.warning("skipping track {}: Not enough elements for features".format(trackNo))
 			continue
 		
 		# get position above separator
@@ -454,7 +454,7 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 		if separatorPosY not in b:
 			postVal = b[b > separatorPosY].min()
 			preVal = b[b < separatorPosY].max()
-			preLoc = np.where(b ==preVal)
+			preLoc = np.where(b == preVal)
 			assert len(preLoc) == len(preLoc[0]) == 1
 			assert int(preLoc[0][0]) == preLoc[0][0]
 			preLoc = preLoc[0][0]
@@ -464,7 +464,7 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 			assert int(postLoc[0][0]) == postLoc[0][0]
 			postLoc = postLoc[0][0]
 		
-			print("Track {}. positions: preloc {} - postloc {}".format(i, preLoc, postLoc))
+			logging.debug("Track {}. positions: preloc {} - postloc {} \n preVal {} - postval {}".format(trackNo, preLoc, postLoc, preVal, postVal))
 			
 			assert preLoc + 1 == postLoc
 			
@@ -473,31 +473,31 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 			
 			R = _intersection(L1, L2)
 			if R:
-				print("intersection found! {}".format(R))
+				logging.debug("intersection found! {}".format(R))
 				xLoc = R[0]
+				additionalDistance = _distanceEu((a[preLoc], b[preLoc]), R) / _distanceEu((a[preLoc], b[preLoc]), (a[postLoc], b[postLoc]))
 			else:
-				logging.error("no intersection found for track {}".format(i))
-				exit(-1)
+				logging.error("no intersection found for track {}".format(trackNo))
+				sys.exit(1)
 		else:
-			print("value in array!")
+			logging.debug("track {}: value in array!".format(trackNo))
 			xLoc = a[np.where(b == separatorPosY)]
+			additionalDistance = 0
 			
 		# remove items up to prediction phase
 		
-		indexCut = bisect.bisect_left(b, predictionCutOff)
+
 		
 		a = a[:indexCut]
 		b = b[:indexCut]
 		
 	
 		featureCount = len(a) - featureSize
-		if featureCount <= 0:
-			logging.warning("Not enough elements for features in track {}".format(i))
-			continue
+		
 		for k in range(featureCount):
 			temp = {}
 			temp['features'] = np.append(a[k:(k+ featureSize)], b[k:(k+featureSize)])
-			temp['labels'] = np.append(xLoc, abs(preLoc - k))
+			temp['labels'] = np.append(xLoc, abs(preLoc - k) + additionalDistance)
 			data.append(temp)
 
 	# newDf = pd.DataFrame(columns=columNames)
@@ -521,19 +521,61 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 		newDf.dropna(subset=[columnNames[-1], columnNames[-2]], inplace=True)
 
 		if sizeOld != newDf.shape[0]:
-			print("removed(s) Row for Label NaN")
+			logging.info("removed(s) Row for Label NaN")
 
 		sizeOld = newDf.shape[0]
 		newDf.dropna(axis=0, inplace=True)
 
 		if sizeOld != newDf.shape[0]:
-			print("removed Row(s) for Feature NaN")
+			logging.info("removed Row(s) for Feature NaN")
 
 	else:
 		newDf = pd.DataFrame()
 		logging.warning("no data found in " + inputFile)
 
 	return newDf
+
+
+def loadRawMeasSeparation(input, featureSize=5, testSize=0.1, separatorPosY=1550, predictionCutOff=1300):
+	"""loads all the raw measurement data from input into a pandas Dataframe and """
+	
+	# if input[:5] == "/home":
+	# 	folder = input
+	# else:
+	# 	folder = '/home/hornberger/Projects/MasterarbeitTobias/' + input
+	
+	folder = input
+	
+	# TODO: handle single file inputs? os.path.isDir() - make system agnostic
+	
+	fileList = []
+	if folder[-4:] != '.csv':
+		fileList = sorted(glob.glob(folder + '/*.csv'))
+		logging.info("getting all csv files in {}".format(folder))
+	else:
+		fileList.append(folder)
+		logging.info("loading file {}".format(folder))
+	
+	assert len(fileList) > 0, "no files found input location " + folder
+	dataFrameList = []
+	
+	for elem in fileList:
+		dataFrameList.append(prepareRawMeasSeparation(elem, featureSize, separatorPosY, predictionCutOff))
+	
+	newDf = pd.concat(dataFrameList, ignore_index=True)
+	
+	# Remove invalid rows: TODO: more sophisticated approach (forward/backwards fill?)
+	
+	if not pd.notnull(newDf).all().all():
+		raise ValueError("NaNs in labels or feature break Neural Network")
+	
+	labelDf = newDf[['LabelPosBalken', 'LabelTime']].copy()
+	featureDf = newDf.drop(['LabelPosBalken', 'LabelTime'], axis=1)
+	
+	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(featureDf, labelDf, test_size=testSize)
+	
+	return (trainFeatures, trainLabels), (testFeatures, testLabels)
+
 
 def _findSeparationLocation(inputFile, featureSize, separatorPosY):
 	
