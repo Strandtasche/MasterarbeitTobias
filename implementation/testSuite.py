@@ -111,6 +111,13 @@ def test4():
 		print(i)
 	print("success!")
 
+
+def MSE(arr1, arr2):
+	diff = [arr1[i] - arr2[i] for i in range(len(arr1))]
+	squared = [i ** 2 for i in diff]
+	return sum(squared) ** 0.5
+
+
 def main(argv):
 	args = parser.parse_args(argv[1:])
 	
