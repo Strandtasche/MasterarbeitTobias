@@ -4,8 +4,10 @@ import datetime
 import time
 import logging
 from adjustText import adjust_text
+import numpy as np
+import pandas as pd
 
-def genModelPath(hyperparams, fake, usingCustomestimator):
+def genModelPath(hyperparams, fake, usingCustomestimator, separator):
 	"""returns path to location of model based on parameters"""
 	if not fake:
 		MODEL_PATH = hyperparams.problem.modelBasePath
@@ -16,6 +18,11 @@ def genModelPath(hyperparams, fake, usingCustomestimator):
 		MODEL_PATH += 'CustomEstimator_'
 	else:
 		MODEL_PATH += 'PremadeEstimator_'
+	
+	if separator:
+		MODEL_PATH = MODEL_PATH + 'Separation_'
+	else:
+		MODEL_PATH = MODEL_PATH + 'PredictNext_'
 
 	for hl in hyperparams.arch.hidden_layers:
 		MODEL_PATH += '%s_' % hl
@@ -62,7 +69,7 @@ def eval_input_fn(features, labels, batch_size):
 
 	# Batch the examples
 	assert batch_size is not None, "batch_size must not be None"
-	dataset = dataset.shuffle(2500).batch(batch_size)
+	dataset = dataset.batch(batch_size)
 
 	# Return the dataset.
 	return dataset
@@ -99,14 +106,13 @@ def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 	plt.close()
 
 
-def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath, name=None):
-	"""plot a certain number of examples (from pandas dataframe)
+def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath, name=None):
+	"""plot a certain number of next step prediction examples (from pandas dataframe)
 	with features, labels and prection and save to .png file"""
-	MODEL_PATH = savePath
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
 	if name is None:
-		output = MODEL_PATH + 'Pic_' + time_stamp + '.png'
+		output = savePath + 'Pic_' + time_stamp + '.png'
 	else:
 		output = name
 
@@ -130,7 +136,7 @@ def plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath, name=No
 			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'bo', label='prediction')
 	plt.plot()
 
-	plt.title('%s DNNRegressor' % MODEL_PATH.split('/')[-1])
+	plt.title('%s DNNRegressor' % savePath.split('/')[-1])
 	plt.tight_layout()
 	logging.info("Saving Image to file {}".format(output))
 	plt.savefig(output, dpi=300)
@@ -171,3 +177,66 @@ def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath):
 	plt.savefig(savePath + '_' + time_stamp + '.png', dpi=300)
 	# plt.show()
 	plt.close()
+
+
+def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_predicted, savePath, name=None):
+	"""plot a certain number of next step prediction examples (from pandas dataframe)
+		with features, labels and prection and save to .png file"""
+	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
+	
+	if name is None:
+		output = savePath + 'Pic_' + time_stamp + '.png'
+	else:
+		output = name
+	
+	x = x_pred2[[i for i in x_pred2.columns if i[0] == 'X']].head(numberPrint).values
+	y = x_pred2[[i for i in x_pred2.columns if i[0] == 'Y']].head(numberPrint).values
+	x_t = y_vals2.head(numberPrint).values
+	y_t = [separatorPosition] * numberPrint
+
+	ausgleichsgeradenY = []
+	ausgleichsgeradenX = []
+	for i in range(numberPrint):
+		p = np.poly1d(np.polyfit(y[i], x[i], 1))
+		p_y = [y[i][0], separatorPosition]
+		p_x = [p(y[i][0]), p(separatorPosition)]
+		ausgleichsgeradenY.append(p_y)
+		ausgleichsgeradenX.append(p_x)
+	
+	assert len(x) == len(y)
+	
+	plt.plot(x, y, 'ro', label='function to predict')
+	plt.plot(x_t, y_t, 'go', label='target')
+	for i in range(len(ausgleichsgeradenY)):
+		plt.plot(ausgleichsgeradenX[i], ausgleichsgeradenY[i], label='best fit straight line')
+	# plt.plot(ausgleichsgeradenX, ausgleichsgeradenY, label='best fit straight line')
+	if isinstance(y_predicted, list):
+		for k in range(numberPrint):
+			plt.plot(y_predicted[k][0], separatorPosition, 'bo', label='prediction')
+	else:
+		for k in range(numberPrint):
+			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'bo', label='prediction')
+	plt.plot()
+	
+	plt.title('%s DNNRegressor' % savePath.split('/')[-1])
+	plt.tight_layout()
+	logging.info("Saving Image to file {}".format(output))
+	plt.savefig(output, dpi=300)
+	# plt.show()
+	plt.close()
+
+
+def prepareMaximumLossAnalysis(X_test, y_test, numberPrint, regressor, batchSize):
+	totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=batchSize))
+	totalPredictions = [p['predictions'] for p in totalPredictGen]
+	xPredL = [p[0] for p in totalPredictions]
+	yPredL = [p[1] for p in totalPredictions]
+	pandasLost = pd.DataFrame(data={'PredictionX': xPredL, 'PredictionY': yPredL}, index=y_test.index,
+							  columns=['PredictionX', 'PredictionY'])
+	pandasLost = pd.concat([X_test, y_test, pandasLost], axis=1)
+	pandasLost['MSE'] = pandasLost.apply(
+		lambda row: ((row['LabelX'] - row['PredictionX']) ** 2 + (row['LabelY'] - row['PredictionY']) ** 2) / 2, axis=1)
+	maximumLossAnalysisCount = numberPrint  # TODO: potenziell variable mit Arg? / separat?
+	printDF = pandasLost.sort_values(by='MSE', ascending=False).head(maximumLossAnalysisCount)
+	return printDF
+	

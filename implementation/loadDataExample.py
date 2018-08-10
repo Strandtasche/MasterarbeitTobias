@@ -466,6 +466,10 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 		
 			logging.debug("Track {}. positions: preloc {} - postloc {} \n preVal {} - postval {}".format(trackNo, preLoc, postLoc, preVal, postVal))
 			
+			if preLoc + 1 != postLoc:
+				logging.warning("skipping track {}: uncertain Error")
+				continue
+			
 			assert preLoc + 1 == postLoc
 			
 			L1 = _line([0, separatorPosY], [2000, separatorPosY])

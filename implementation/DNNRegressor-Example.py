@@ -40,13 +40,10 @@ parser.add_argument('--fake', help="use real data?", action="store_true")
 parser.add_argument('--plotNo', default=1, type=int, help="number of lines plotted")
 parser.add_argument('--hyperparams', default="hyper_params.json", type=str, help="hyper parameter file to be used.")
 
-# parser.add_argument('--save', help="store data", action="store_true")
 parser.add_argument("--save", nargs='*', action="store", help="Store Data")
 parser.add_argument("--load", nargs='*', action="store", help="load Data")
-# parser.add_argument('--load', help="load stored data", action="store_true")
 
 parser.add_argument('--dispWeights', help="display weights of neurons", action="store_true")
-parser.add_argument('--separator', nargs='*', type=int, help='turn on prediction for separator')
 parser.add_argument('--overrideModel', default=None, type=str, help="Model Path to override generated Path")
 parser.add_argument('--overrideInput', default=None, type=str, help="input path to override input path from hyper_params")
 
@@ -62,6 +59,8 @@ parser.add_argument(
 parser.add_argument('--lossAna', help="loss analysis", action="store_true")
 
 parser.add_argument('--custom', help="use custom estimator", action="store_true")
+
+parser.add_argument('--separator', nargs='*', type=int, help='turn on prediction for separator')
 
 
 def main(argv):
@@ -93,7 +92,7 @@ def main(argv):
 			"The --load and --save flags are mutually exclusive.")
 
 	if args.save is not None and len(args.save) not in (0, 1):
-		parser.error('Either give no values for save, or two, not {}.'.format(len(args.load)))
+		parser.error('Either give no values for save, or two, not {}.'.format(len(args.save)))
 	elif args.save is not None:
 		if len(args.save) == 0:
 			# save to default location
@@ -183,7 +182,7 @@ def main(argv):
 		my_feature_columns.append(tf.feature_column.numeric_column(key=key))
 
 	if not overrideModelPath:
-		MODEL_PATH = genModelPath(hyper_params, FAKE, usingCustomEstimator)
+		MODEL_PATH = genModelPath(hyper_params, FAKE, usingCustomEstimator, separator)
 	else:
 		MODEL_PATH = overrideModelPath
 
@@ -347,8 +346,11 @@ def main(argv):
 
 		sampleIndex = random.randint(0, y_test.shape[0] - numberPrint)
 
-		x_pred2 = X_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
-		y_vals2 = y_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
+		# x_pred2 = X_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
+		# y_vals2 = y_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
+		
+		x_pred2 = X_test.sample(n=numberPrint, random_state=sampleIndex)
+		y_vals2 = y_test.sample(n=numberPrint, random_state=sampleIndex)
 
 		print(x_pred2)
 		print(y_vals2)
@@ -362,63 +364,15 @@ def main(argv):
 			print(i)
 		print("time: {:.2f}s".format((endTime - startTime)))
 
-		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(x_pred2, y_vals2, 1))
+		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(x_pred2, y_vals2, batch_size=BATCH_SIZE))
 		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
 
 		if maximumLossAnalysis:
-			totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=BATCH_SIZE))
-			totalPredictions = [p['predictions'] for p in totalPredictGen]
-			# for i in totalPredictions:
-			# 	print(i)
-
-			xPredL = [p[0] for p in totalPredictions]
-			yPredL = [p[1] for p in totalPredictions]
-
-			pandasLost = pd.DataFrame(data={'PredictionX': xPredL, 'PredictionY': yPredL}, index=y_test.index,
-			                          columns=['PredictionX', 'PredictionY'])
-			pandasLost = pd.concat([X_test, y_test, pandasLost], axis=1)
-			pandasLost['MSE'] = pandasLost.apply(lambda row: ((row['LabelX'] - row['PredictionX'])**2 + (row['LabelY'] - row['PredictionY'])**2)/2, axis=1)
-
-			maximumLossAnalysisCount = numberPrint #TODO: potenziell variable mit Arg? / separat?
-
-			printDF = pandasLost.sort_values(by='MSE', ascending=False).head(maximumLossAnalysisCount)
+			printDF = prepareMaximumLossAnalysis(X_test, y_test, numberPrint, regressor, BATCH_SIZE)
 			# print(printDF)
-			plotDataPandas(maximumLossAnalysisCount, printDF[columnNames] ,printDF[['LabelX', 'LabelY']], printDF[['PredictionX', 'PredictionY']], baseImagePath,
-			               baseImagePath + os.path.basename(MODEL_PATH) +'_'+ 'highestLoss' + '_' + time_stamp + '.png')
-
-			# overAverageFeatures = []
-			# overAverageLabels = []
-			# overAverageLoss = []
-			# overAveragePrediction = []
-			# threshold = 10
-			# for index, row in X_test.iterrows():
-			# 	exampleFeatures = X_test.loc[[index]]
-			# 	exampleLabel = y_test.loc[[index]]
-			# 	# print(type(exampleFeatures))
-			# 	# print(type(exampleLabel))
-			# 	vali = regressor.evaluate(input_fn=lambda: eval_input_fn(exampleFeatures, exampleLabel, 1))
-			# 	bad_pred = regressor.predict(input_fn=lambda: eval_input_fn(exampleFeatures, labels=None, batch_size=1))
-			# 	bad_predicted = [p['predictions'] for p in bad_pred]
-			# 	# print(vali)
-			# 	if vali['average_loss'] > averageLoss:
-			# 		overAverageFeatures.append(exampleFeatures)
-			# 		overAverageLabels.append(exampleLabel)
-			# 		overAverageLoss.append(vali['average_loss'])
-			# 		overAveragePrediction.append(bad_predicted[0])
-			# 		# print(exampleFeatures)
-			# 		# print(exampleLabel)
-			# 	if len(overAverageLabels) == threshold:
-			# 		print("Length: {}".format(len(overAverageFeatures)))
-			# 		threshold = threshold + 10
-			#
-			# tempDf1 = pd.concat(overAverageFeatures)
-			# tempDf2 = pd.concat(overAverageLabels)
-			#
-			# finalDf = pd.concat([tempDf1, tempDf2], axis=1)
-			# plotDataPandas(len(overAverageFeatures), tempDf1, tempDf2, overAveragePrediction, baseImagePath,
-			#                baseImagePath + os.path.basename(MODEL_PATH) +'_'+ 'highestLoss' + '_' + time_stamp + '.png')
-			#
-			# print(finalDf)
+			plotDataNextStepPandas(numberPrint, printDF[columnNames], printDF[['LabelX', 'LabelY']],
+								   printDF[['PredictionX', 'PredictionY']], baseImagePath,
+								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
 
 		# displaying weights in Net - (a bit redundant after implementation of debugger
 		if displayWeights:
@@ -427,10 +381,17 @@ def main(argv):
 
 		# # Final Plot
 		if WITHPLOT:
-			plotDataPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath,
-			               baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
+			if not separator:
+				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath,
+								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
+			else:
+				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted, baseImagePath,
+										baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 
-	# except:
+
+
+
+# except:
 	# 	logging.error('Prediction failed! Maybe first train a model?')
 
 
