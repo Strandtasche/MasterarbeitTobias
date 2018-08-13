@@ -384,10 +384,11 @@ def main(argv):
 			if not separator:
 				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
+				evaluateResultNextStep(X_test, y_test, numberPrint, regressor, BATCH_SIZE)
+			
 			else:
 				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted, baseImagePath,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
-
 
 
 

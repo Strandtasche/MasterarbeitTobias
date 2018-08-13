@@ -239,4 +239,27 @@ def prepareMaximumLossAnalysis(X_test, y_test, numberPrint, regressor, batchSize
 	maximumLossAnalysisCount = numberPrint  # TODO: potenziell variable mit Arg? / separat?
 	printDF = pandasLost.sort_values(by='MSE', ascending=False).head(maximumLossAnalysisCount)
 	return printDF
+
+
+def evaluateResultNextStep(X_test, y_test, numberPrint, regressor, batchSize):
+	totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=batchSize))
+	totalPredictions = [p['predictions'] for p in totalPredictGen]
+	xPredL = [p[0] for p in totalPredictions]
+	yPredL = [p[1] for p in totalPredictions]
+	pandasLost = pd.DataFrame(data={'PredictionX': xPredL, 'PredictionY': yPredL}, index=y_test.index,
+							  columns=['PredictionX', 'PredictionY'])
+	pandasLost = pd.concat([X_test, y_test, pandasLost], axis=1)
 	
+	pandasLost['pixelErrorX'] = pandasLost.apply(
+		lambda row: (row['LabelX'] - row['PredictionX']), axis=1)
+	pandasLost['pixelErrorY'] = pandasLost.apply(
+		lambda row: (row['LabelY'] - row['PredictionY']), axis=1)
+	pandasLost['pixelErrorTotal'] = pandasLost.apply(
+		lambda row: ((row['LabelX'] - row['PredictionX']) ** 2 + (row['LabelY'] - row['PredictionY']) ** 2) ** 0.5, axis=1)
+	
+	print("pixelErrorX.mean: {}".format(pandasLost['pixelErrorX'].mean()))
+	print("pixelErrorY.mean: {}".format(pandasLost['pixelErrorY'].mean()))
+	print("pixelErrorTotal.mean: {}".format(pandasLost['pixelErrorTotal'].mean()))
+	print(pandasLost[['pixelErrorX', 'pixelErrorY', 'pixelErrorTotal']].describe())
+	plt.boxplot(pandasLost['pixelErrorX'], showfliers=False)
+	plt.show()
