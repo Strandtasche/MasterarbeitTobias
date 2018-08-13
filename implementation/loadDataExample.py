@@ -401,7 +401,7 @@ def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1, numberOfEx
 	return (trainFeatures, trainLabels), (testFeatures, testLabels)
 
 
-def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predictionCutOff=1300):
+def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predictionCutOff=1300, direction=True):
 	"""loads real(!) data from a csv file return a dataframe"""
 	
 	# dt = np.dtype([('features', float, (2 * featureSize,)), ('labels', float, (2,))])
@@ -426,8 +426,12 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 	for i in range(numberTracks):
 		trackNo = int(''.join([s for s in df.iloc[:,2*i].name if s.isdigit()]))
 		
-		a = df.iloc[:, (2 * i)].values
-		b = df.iloc[:, (2 * i + 1)].values
+		if direction:
+			a = df.iloc[:, (2 * i)].values
+			b = df.iloc[:, (2 * i + 1)].values
+		else:
+			a = df.iloc[:, (2 * i + 1)].values
+			b = df.iloc[:, (2 * i)].values
 		
 		a = _removeNans(a)
 		b = _removeNans(b)
