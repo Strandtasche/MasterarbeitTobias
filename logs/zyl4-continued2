@@ -1,0 +1,57 @@
+INFO:root:Tensorflow 1.8.0
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug10Ev/zyl4-continued
+INFO:root:loading data from store
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 12.629487
+(219979, 10) (219979, 2)
+(24443, 10) (24443, 2)
+          X_0    X_1    X_2    X_3  ...      Y_1    Y_2    Y_3    Y_4
+134385  140.0  142.0  144.0  146.0  ...    281.0  359.0  438.0  516.0
+
+[1 rows x 10 columns]
+        LabelX  LabelY
+134385   150.0   596.0
+predicted: 
+[148.58 596.  ]
+time: 0.19s
+MSE (tensorflow): 1.005948
+INFO:root:Tensorflow 1.8.0
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug10Ev/zyl4-continued
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 12.379136, 'loss': 12350.336, 'global_step': 250250}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 12.990786, 'loss': 12960.5625, 'global_step': 252750}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 12.333685, 'loss': 12304.99, 'global_step': 255250}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 12.454008, 'loss': 12425.033, 'global_step': 257750}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 12.333191, 'loss': 12304.497, 'global_step': 260250}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 12.305738, 'loss': 12277.108, 'global_step': 262750}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 12.413651, 'loss': 12384.7705, 'global_step': 265250}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 12.219895, 'loss': 12191.466, 'global_step': 267750}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 12.40462, 'loss': 12375.76, 'global_step': 270250}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 12.40282, 'loss': 12373.964, 'global_step': 272750}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 12.504069, 'loss': 12474.979, 'global_step': 275250}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 12.192306, 'loss': 12163.94, 'global_step': 277750}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 12.434947, 'loss': 12406.017, 'global_step': 280250}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 12.132406, 'loss': 12104.18, 'global_step': 282750}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 12.091805, 'loss': 12063.674, 'global_step': 285250}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 12.089614, 'loss': 12061.487, 'global_step': 287750}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 12.16539, 'loss': 12137.087, 'global_step': 290250}

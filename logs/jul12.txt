@@ -1,0 +1,474 @@
+Starting Execution
+12/07/2018 11:44:11
+INFO:root:Tensorflow 1.8.0
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset2_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset3_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.2-BBgelb3_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_1.3-BBgelb1-250cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_1.4-BBgelb2-250cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_4.3-BB-gelb-ruhig-50cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/customComp3/PremadeEstimator_16_16_16_D00_FS5_LR01_DS_data_BB-ruhig
+INFO:root:/home/hornberger/MasterarbeitTobias/models/customComp3/PremadeEstimator_16_16_16_D00_FS5_LR01_DS_data_BB-ruhig does not exist. Creating folder
+INFO:root:Train the DNN Regressor...
+
+removed Row for Label NaN
+removed Row for Label NaN
+(24714, 10) (24714, 2)
+(2746, 10) (2746, 2)
+we are making progress: 0
+eval: {'average_loss': 168.75441, 'loss': 308933.1, 'global_step': 1000}
+we are making progress: 10
+eval: {'average_loss': 7.4253526, 'loss': 13593.345, 'global_step': 11000}
+we are making progress: 20
+eval: {'average_loss': 6.163723, 'loss': 11283.723, 'global_step': 21000}
+we are making progress: 30
+eval: {'average_loss': 5.4767833, 'loss': 10026.165, 'global_step': 31000}
+we are making progress: 40
+eval: {'average_loss': 5.2847304, 'loss': 9674.58, 'global_step': 41000}
+we are making progress: 50
+eval: {'average_loss': 5.2858896, 'loss': 9676.702, 'global_step': 51000}
+we are making progress: 60
+eval: {'average_loss': 5.0922685, 'loss': 9322.246, 'global_step': 61000}
+we are making progress: 70
+eval: {'average_loss': 5.0473785, 'loss': 9240.067, 'global_step': 71000}
+we are making progress: 80
+eval: {'average_loss': 5.0259833, 'loss': 9200.9, 'global_step': 81000}
+we are making progress: 90
+eval: {'average_loss': 4.9450126, 'loss': 9052.669, 'global_step': 91000}
+we are making progress: 100
+eval: {'average_loss': 5.1239147, 'loss': 9380.18, 'global_step': 101000}
+we are making progress: 110
+eval: {'average_loss': 4.8468275, 'loss': 8872.926, 'global_step': 111000}
+we are making progress: 120
+eval: {'average_loss': 4.852534, 'loss': 8883.372, 'global_step': 121000}
+we are making progress: 130
+eval: {'average_loss': 4.878991, 'loss': 8931.807, 'global_step': 131000}
+we are making progress: 140
+eval: {'average_loss': 4.7711177, 'loss': 8734.326, 'global_step': 141000}
+we are making progress: 150
+eval: {'average_loss': 4.7670684, 'loss': 8726.913, 'global_step': 151000}
+we are making progress: 160
+eval: {'average_loss': 4.7257586, 'loss': 8651.289, 'global_step': 161000}
+we are making progress: 170
+eval: {'average_loss': 4.7178144, 'loss': 8636.745, 'global_step': 171000}
+we are making progress: 180
+eval: {'average_loss': 4.6483974, 'loss': 8509.667, 'global_step': 181000}
+we are making progress: 190
+eval: {'average_loss': 4.640538, 'loss': 8495.278, 'global_step': 191000}
+we are making progress: 200
+eval: {'average_loss': 4.6127567, 'loss': 8444.42, 'global_step': 201000}
+we are making progress: 210
+eval: {'average_loss': 4.66581, 'loss': 8541.543, 'global_step': 211000}
+we are making progress: 220
+eval: {'average_loss': 4.5631948, 'loss': 8353.688, 'global_step': 221000}
+we are making progress: 230
+eval: {'average_loss': 4.5413837, 'loss': 8313.76, 'global_step': 231000}
+we are making progress: 240
+eval: {'average_loss': 4.551331, 'loss': 8331.97, 'global_step': 241000}
+we are making progress: 250
+eval: {'average_loss': 4.502687, 'loss': 8242.919, 'global_step': 251000}
+we are making progress: 260
+eval: {'average_loss': 4.4811144, 'loss': 8203.427, 'global_step': 261000}
+we are making progress: 270
+eval: {'average_loss': 4.465353, 'loss': 8174.5728, 'global_step': 271000}
+we are making progress: 280
+eval: {'average_loss': 4.4458895, 'loss': 8138.9414, 'global_step': 281000}
+we are making progress: 290
+eval: {'average_loss': 4.432812, 'loss': 8115.0015, 'global_step': 291000}
+we are making progress: 300
+eval: {'average_loss': 4.4323525, 'loss': 8114.16, 'global_step': 301000}
+we are making progress: 310
+eval: {'average_loss': 4.431103, 'loss': 8111.873, 'global_step': 311000}
+we are making progress: 320
+eval: {'average_loss': 4.436991, 'loss': 8122.652, 'global_step': 321000}
+we are making progress: 330
+eval: {'average_loss': 4.3617296, 'loss': 7984.873, 'global_step': 331000}
+we are making progress: 340
+eval: {'average_loss': 4.363213, 'loss': 7987.5884, 'global_step': 341000}
+we are making progress: 350
+eval: {'average_loss': 4.373192, 'loss': 8005.856, 'global_step': 351000}
+we are making progress: 360
+eval: {'average_loss': 4.310143, 'loss': 7890.435, 'global_step': 361000}
+we are making progress: 370
+eval: {'average_loss': 4.300471, 'loss': 7872.7285, 'global_step': 371000}
+we are making progress: 380
+eval: {'average_loss': 4.301644, 'loss': 7874.8755, 'global_step': 381000}
+we are making progress: 390
+eval: {'average_loss': 4.2680326, 'loss': 7813.345, 'global_step': 391000}
+we are making progress: 400
+eval: {'average_loss': 4.2540565, 'loss': 7787.76, 'global_step': 401000}
+we are making progress: 410
+eval: {'average_loss': 4.2349663, 'loss': 7752.811, 'global_step': 411000}
+we are making progress: 420
+eval: {'average_loss': 4.217046, 'loss': 7720.0054, 'global_step': 421000}
+we are making progress: 430
+eval: {'average_loss': 4.246367, 'loss': 7773.682, 'global_step': 431000}
+we are making progress: 440
+eval: {'average_loss': 4.1963434, 'loss': 7682.106, 'global_step': 441000}
+we are making progress: 450
+eval: {'average_loss': 4.1967807, 'loss': 7682.9067, 'global_step': 451000}
+we are making progress: 460
+eval: {'average_loss': 4.174919, 'loss': 7642.8853, 'global_step': 461000}
+we are making progress: 470
+eval: {'average_loss': 4.1442847, 'loss': 7586.804, 'global_step': 471000}
+we are making progress: 480
+eval: {'average_loss': 4.139509, 'loss': 7578.061, 'global_step': 481000}
+we are making progress: 490
+eval: {'average_loss': 4.1134086, 'loss': 7530.28, 'global_step': 491000}
+12/07/2018 12:29:42
+finished hyperV1
+INFO:root:Tensorflow 1.8.0
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset2_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset3_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.2-BBgelb3_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_1.3-BBgelb1-250cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_1.4-BBgelb2-250cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_4.3-BB-gelb-ruhig-50cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/customComp3/CustomEstimator_16_16_16_D00_FS5_LR01_DS_data_BB-ruhig
+INFO:root:/home/hornberger/MasterarbeitTobias/models/customComp3/CustomEstimator_16_16_16_D00_FS5_LR01_DS_data_BB-ruhig does not exist. Creating folder
+INFO:root:Train the DNN Regressor...
+
+removed Row for Label NaN
+removed Row for Label NaN
+(24714, 10) (24714, 2)
+(2746, 10) (2746, 2)
+we are making progress: 0
+eval: {'average_loss': 533.0772, 'loss': 487943.34, 'rmse': 23.088465, 'global_step': 1000}
+we are making progress: 10
+eval: {'average_loss': 39.23821, 'loss': 35916.04, 'rmse': 6.264041, 'global_step': 11000}
+we are making progress: 20
+eval: {'average_loss': 23.233633, 'loss': 21266.518, 'rmse': 4.820128, 'global_step': 21000}
+we are making progress: 30
+eval: {'average_loss': 16.83668, 'loss': 15411.173, 'rmse': 4.1032524, 'global_step': 31000}
+we are making progress: 40
+eval: {'average_loss': 13.471491, 'loss': 12330.905, 'rmse': 3.670353, 'global_step': 41000}
+we are making progress: 50
+eval: {'average_loss': 11.325893, 'loss': 10366.968, 'rmse': 3.3653965, 'global_step': 51000}
+we are making progress: 60
+eval: {'average_loss': 8.990577, 'loss': 8229.374, 'rmse': 2.998429, 'global_step': 61000}
+we are making progress: 70
+eval: {'average_loss': 6.8991814, 'loss': 6315.051, 'rmse': 2.6266294, 'global_step': 71000}
+we are making progress: 80
+eval: {'average_loss': 5.848701, 'loss': 5353.511, 'rmse': 2.4184089, 'global_step': 81000}
+we are making progress: 90
+eval: {'average_loss': 5.1953816, 'loss': 4755.506, 'rmse': 2.279338, 'global_step': 91000}
+we are making progress: 100
+eval: {'average_loss': 4.6866837, 'loss': 4289.8774, 'rmse': 2.164875, 'global_step': 101000}
+we are making progress: 110
+eval: {'average_loss': 4.3418694, 'loss': 3974.2578, 'rmse': 2.0837152, 'global_step': 111000}
+we are making progress: 120
+eval: {'average_loss': 4.0667567, 'loss': 3722.4382, 'rmse': 2.0166202, 'global_step': 121000}
+we are making progress: 130
+eval: {'average_loss': 3.8523793, 'loss': 3526.2112, 'rmse': 1.9627479, 'global_step': 131000}
+we are making progress: 140
+eval: {'average_loss': 3.6295457, 'loss': 3322.2441, 'rmse': 1.9051367, 'global_step': 141000}
+we are making progress: 150
+eval: {'average_loss': 3.434549, 'loss': 3143.757, 'rmse': 1.8532536, 'global_step': 151000}
+we are making progress: 160
+eval: {'average_loss': 3.293626, 'loss': 3014.7654, 'rmse': 1.814835, 'global_step': 161000}
+we are making progress: 170
+eval: {'average_loss': 3.1300812, 'loss': 2865.0676, 'rmse': 1.7692035, 'global_step': 171000}
+we are making progress: 180
+eval: {'average_loss': 3.0019052, 'loss': 2747.744, 'rmse': 1.7326007, 'global_step': 181000}
+we are making progress: 190
+eval: {'average_loss': 2.8794408, 'loss': 2635.6482, 'rmse': 1.6968915, 'global_step': 191000}
+we are making progress: 200
+eval: {'average_loss': 2.7998288, 'loss': 2562.7766, 'rmse': 1.6732689, 'global_step': 201000}
+we are making progress: 210
+eval: {'average_loss': 2.6868346, 'loss': 2459.3494, 'rmse': 1.6391567, 'global_step': 211000}
+we are making progress: 220
+eval: {'average_loss': 2.5975428, 'loss': 2377.6174, 'rmse': 1.6116894, 'global_step': 221000}
+we are making progress: 230
+eval: {'average_loss': 2.5261931, 'loss': 2312.3088, 'rmse': 1.5894003, 'global_step': 231000}
+we are making progress: 240
+eval: {'average_loss': 2.448044, 'loss': 2240.7764, 'rmse': 1.5646226, 'global_step': 241000}
+we are making progress: 250
+eval: {'average_loss': 2.3926716, 'loss': 2190.092, 'rmse': 1.5468262, 'global_step': 251000}
+we are making progress: 260
+eval: {'average_loss': 2.328807, 'loss': 2131.6348, 'rmse': 1.5260429, 'global_step': 261000}
+we are making progress: 270
+eval: {'average_loss': 2.276305, 'loss': 2083.578, 'rmse': 1.5087428, 'global_step': 271000}
+we are making progress: 280
+eval: {'average_loss': 2.2363038, 'loss': 2046.9634, 'rmse': 1.4954276, 'global_step': 281000}
+we are making progress: 290
+eval: {'average_loss': 2.1712377, 'loss': 1987.4062, 'rmse': 1.473512, 'global_step': 291000}
+we are making progress: 300
+eval: {'average_loss': 2.1309688, 'loss': 1950.5469, 'rmse': 1.4597838, 'global_step': 301000}
+we are making progress: 310
+eval: {'average_loss': 2.076117, 'loss': 1900.3392, 'rmse': 1.4408737, 'global_step': 311000}
+we are making progress: 320
+eval: {'average_loss': 2.0366802, 'loss': 1864.2412, 'rmse': 1.4271231, 'global_step': 321000}
+we are making progress: 330
+eval: {'average_loss': 1.9886838, 'loss': 1820.3086, 'rmse': 1.410207, 'global_step': 331000}
+we are making progress: 340
+eval: {'average_loss': 1.9551703, 'loss': 1789.6324, 'rmse': 1.3982741, 'global_step': 341000}
+we are making progress: 350
+eval: {'average_loss': 1.9122577, 'loss': 1750.3531, 'rmse': 1.3828441, 'global_step': 351000}
+we are making progress: 360
+eval: {'average_loss': 1.8835511, 'loss': 1724.0771, 'rmse': 1.3724253, 'global_step': 361000}
+we are making progress: 370
+eval: {'average_loss': 1.8305049, 'loss': 1675.5221, 'rmse': 1.3529615, 'global_step': 371000}
+we are making progress: 380
+eval: {'average_loss': 1.7960843, 'loss': 1644.0157, 'rmse': 1.3401806, 'global_step': 381000}
+we are making progress: 390
+eval: {'average_loss': 1.7700489, 'loss': 1620.1847, 'rmse': 1.3304318, 'global_step': 391000}
+we are making progress: 400
+eval: {'average_loss': 1.7319148, 'loss': 1585.2793, 'rmse': 1.3160223, 'global_step': 401000}
+we are making progress: 410
+eval: {'average_loss': 1.6996933, 'loss': 1555.786, 'rmse': 1.3037229, 'global_step': 411000}
+we are making progress: 420
+eval: {'average_loss': 1.6689464, 'loss': 1527.6422, 'rmse': 1.291877, 'global_step': 421000}
+we are making progress: 430
+eval: {'average_loss': 1.6452485, 'loss': 1505.9508, 'rmse': 1.2826724, 'global_step': 431000}
+we are making progress: 440
+eval: {'average_loss': 1.6198177, 'loss': 1482.6732, 'rmse': 1.2727206, 'global_step': 441000}
+we are making progress: 450
+eval: {'average_loss': 1.5979712, 'loss': 1462.6763, 'rmse': 1.2641089, 'global_step': 451000}
+we are making progress: 460
+eval: {'average_loss': 1.5888541, 'loss': 1454.331, 'rmse': 1.2604976, 'global_step': 461000}
+we are making progress: 470
+eval: {'average_loss': 1.5589736, 'loss': 1426.9805, 'rmse': 1.2485887, 'global_step': 471000}
+we are making progress: 480
+eval: {'average_loss': 1.533415, 'loss': 1403.5859, 'rmse': 1.2383113, 'global_step': 481000}
+we are making progress: 490
+eval: {'average_loss': 1.5238231, 'loss': 1394.8062, 'rmse': 1.2344323, 'global_step': 491000}
+12/07/2018 13:15:02
+finished hyperV2
+INFO:root:Tensorflow 1.8.0
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset2_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset3_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.2-BBgelb3_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_1.3-BBgelb1-250cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_1.4-BBgelb2-250cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_4.3-BB-gelb-ruhig-50cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/customComp3/Alter-Premade
+INFO:root:/home/hornberger/MasterarbeitTobias/models/customComp3/Alter-Premade does not exist. Creating folder
+INFO:root:Train the DNN Regressor...
+
+removed Row for Label NaN
+removed Row for Label NaN
+(24714, 10) (24714, 2)
+(2746, 10) (2746, 2)
+we are making progress: 0
+eval: {'average_loss': 410.4476, 'loss': 751392.75, 'global_step': 1000}
+we are making progress: 10
+eval: {'average_loss': 7.632384, 'loss': 13972.351, 'global_step': 11000}
+we are making progress: 20
+eval: {'average_loss': 6.3566546, 'loss': 11636.915, 'global_step': 21000}
+we are making progress: 30
+eval: {'average_loss': 6.1840405, 'loss': 11320.917, 'global_step': 31000}
+we are making progress: 40
+eval: {'average_loss': 6.0719614, 'loss': 11115.737, 'global_step': 41000}
+we are making progress: 50
+eval: {'average_loss': 6.2091236, 'loss': 11366.836, 'global_step': 51000}
+we are making progress: 60
+eval: {'average_loss': 5.917296, 'loss': 10832.597, 'global_step': 61000}
+we are making progress: 70
+eval: {'average_loss': 5.917515, 'loss': 10832.997, 'global_step': 71000}
+we are making progress: 80
+eval: {'average_loss': 5.929783, 'loss': 10855.456, 'global_step': 81000}
+we are making progress: 90
+eval: {'average_loss': 5.6580486, 'loss': 10358.001, 'global_step': 91000}
+we are making progress: 100
+eval: {'average_loss': 5.548922, 'loss': 10158.227, 'global_step': 101000}
+we are making progress: 110
+eval: {'average_loss': 5.492137, 'loss': 10054.272, 'global_step': 111000}
+we are making progress: 120
+eval: {'average_loss': 5.406479, 'loss': 9897.461, 'global_step': 121000}
+we are making progress: 130
+eval: {'average_loss': 5.3413253, 'loss': 9778.187, 'global_step': 131000}
+we are making progress: 140
+eval: {'average_loss': 5.343989, 'loss': 9783.0625, 'global_step': 141000}
+we are making progress: 150
+eval: {'average_loss': 5.2122965, 'loss': 9541.978, 'global_step': 151000}
+we are making progress: 160
+eval: {'average_loss': 5.1885624, 'loss': 9498.528, 'global_step': 161000}
+we are making progress: 170
+eval: {'average_loss': 5.0696654, 'loss': 9280.867, 'global_step': 171000}
+we are making progress: 180
+eval: {'average_loss': 5.025919, 'loss': 9200.782, 'global_step': 181000}
+we are making progress: 190
+eval: {'average_loss': 4.9593697, 'loss': 9078.953, 'global_step': 191000}
+we are making progress: 200
+eval: {'average_loss': 4.894091, 'loss': 8959.449, 'global_step': 201000}
+we are making progress: 210
+eval: {'average_loss': 4.858272, 'loss': 8893.877, 'global_step': 211000}
+we are making progress: 220
+eval: {'average_loss': 4.785515, 'loss': 8760.683, 'global_step': 221000}
+we are making progress: 230
+eval: {'average_loss': 4.743306, 'loss': 8683.413, 'global_step': 231000}
+we are making progress: 240
+eval: {'average_loss': 4.721812, 'loss': 8644.063, 'global_step': 241000}
+we are making progress: 250
+eval: {'average_loss': 4.654248, 'loss': 8520.377, 'global_step': 251000}
+we are making progress: 260
+eval: {'average_loss': 4.5844746, 'loss': 8392.6455, 'global_step': 261000}
+we are making progress: 270
+eval: {'average_loss': 4.516243, 'loss': 8267.735, 'global_step': 271000}
+we are making progress: 280
+eval: {'average_loss': 4.464903, 'loss': 8173.7485, 'global_step': 281000}
+we are making progress: 290
+eval: {'average_loss': 4.448639, 'loss': 8143.975, 'global_step': 291000}
+we are making progress: 300
+eval: {'average_loss': 4.3662543, 'loss': 7993.1562, 'global_step': 301000}
+we are making progress: 310
+eval: {'average_loss': 4.3286085, 'loss': 7924.2397, 'global_step': 311000}
+we are making progress: 320
+eval: {'average_loss': 4.269215, 'loss': 7815.51, 'global_step': 321000}
+we are making progress: 330
+eval: {'average_loss': 4.223964, 'loss': 7732.6704, 'global_step': 331000}
+we are making progress: 340
+eval: {'average_loss': 4.176665, 'loss': 7646.0806, 'global_step': 341000}
+we are making progress: 350
+eval: {'average_loss': 4.1385794, 'loss': 7576.3594, 'global_step': 351000}
+we are making progress: 360
+eval: {'average_loss': 4.108557, 'loss': 7521.3984, 'global_step': 361000}
+we are making progress: 370
+eval: {'average_loss': 4.044339, 'loss': 7403.8364, 'global_step': 371000}
+we are making progress: 380
+eval: {'average_loss': 4.0306315, 'loss': 7378.7427, 'global_step': 381000}
+we are making progress: 390
+eval: {'average_loss': 3.9590232, 'loss': 7247.652, 'global_step': 391000}
+we are making progress: 400
+eval: {'average_loss': 3.9279478, 'loss': 7190.763, 'global_step': 401000}
+we are making progress: 410
+eval: {'average_loss': 3.8882174, 'loss': 7118.03, 'global_step': 411000}
+we are making progress: 420
+eval: {'average_loss': 3.9259613, 'loss': 7187.1265, 'global_step': 421000}
+we are making progress: 430
+eval: {'average_loss': 3.7976236, 'loss': 6952.183, 'global_step': 431000}
+we are making progress: 440
+eval: {'average_loss': 3.7573192, 'loss': 6878.399, 'global_step': 441000}
+we are making progress: 450
+eval: {'average_loss': 3.7391477, 'loss': 6845.133, 'global_step': 451000}
+we are making progress: 460
+eval: {'average_loss': 3.7221978, 'loss': 6814.1035, 'global_step': 461000}
+we are making progress: 470
+eval: {'average_loss': 3.6560423, 'loss': 6692.9946, 'global_step': 471000}
+we are making progress: 480
+eval: {'average_loss': 3.6163442, 'loss': 6620.321, 'global_step': 481000}
+we are making progress: 490
+eval: {'average_loss': 3.5681415, 'loss': 6532.0776, 'global_step': 491000}
+12/07/2018 13:59:48
+finished hyperV3
+INFO:root:Tensorflow 1.8.0
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset2_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.0-BBgelb1_Frameset3_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Bonito_1.2-BBgelb3_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_1.3-BBgelb1-250cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_1.4-BBgelb2-250cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/Projects/MasterarbeitTobias/data/BB-ruhig/Aufnahmen_Paper_4.3-BB-gelb-ruhig-50cm_Frameset1_data_trackHistory_NothingDeleted.csv
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/customComp3/Alter-custom
+INFO:root:/home/hornberger/MasterarbeitTobias/models/customComp3/Alter-custom does not exist. Creating folder
+INFO:root:Train the DNN Regressor...
+
+removed Row for Label NaN
+removed Row for Label NaN
+(24714, 10) (24714, 2)
+(2746, 10) (2746, 2)
+we are making progress: 0
+eval: {'average_loss': 64.94941, 'loss': 59450.36, 'rmse': 8.059119, 'global_step': 1000}
+we are making progress: 10
+eval: {'average_loss': 6.651029, 'loss': 6087.9087, 'rmse': 2.578959, 'global_step': 11000}
+we are making progress: 20
+eval: {'average_loss': 5.375706, 'loss': 4920.563, 'rmse': 2.318557, 'global_step': 21000}
+we are making progress: 30
+eval: {'average_loss': 4.10224, 'loss': 3754.917, 'rmse': 2.0253987, 'global_step': 31000}
+we are making progress: 40
+eval: {'average_loss': 3.6395817, 'loss': 3331.4304, 'rmse': 1.9077687, 'global_step': 41000}
+we are making progress: 50
+eval: {'average_loss': 3.5518265, 'loss': 3251.1052, 'rmse': 1.884629, 'global_step': 51000}
+we are making progress: 60
+eval: {'average_loss': 3.208239, 'loss': 2936.6082, 'rmse': 1.7911558, 'global_step': 61000}
+we are making progress: 70
+eval: {'average_loss': 3.2775784, 'loss': 3000.077, 'rmse': 1.8104084, 'global_step': 71000}
+we are making progress: 80
+eval: {'average_loss': 2.9564028, 'loss': 2706.094, 'rmse': 1.7194194, 'global_step': 81000}
+we are making progress: 90
+eval: {'average_loss': 2.785564, 'loss': 2549.7195, 'rmse': 1.6690009, 'global_step': 91000}
+we are making progress: 100
+eval: {'average_loss': 2.6932485, 'loss': 2465.22, 'rmse': 1.641112, 'global_step': 101000}
+we are making progress: 110
+eval: {'average_loss': 2.7587175, 'loss': 2525.1462, 'rmse': 1.6609387, 'global_step': 111000}
+we are making progress: 120
+eval: {'average_loss': 2.432452, 'loss': 2226.5046, 'rmse': 1.559632, 'global_step': 121000}
+we are making progress: 130
+eval: {'average_loss': 2.3367069, 'loss': 2138.8657, 'rmse': 1.5286291, 'global_step': 131000}
+we are making progress: 140
+eval: {'average_loss': 2.2543921, 'loss': 2063.5203, 'rmse': 1.5014633, 'global_step': 141000}
+we are making progress: 150
+eval: {'average_loss': 2.1940973, 'loss': 2008.3304, 'rmse': 1.4812485, 'global_step': 151000}
+we are making progress: 160
+eval: {'average_loss': 2.191047, 'loss': 2005.5385, 'rmse': 1.4802185, 'global_step': 161000}
+we are making progress: 170
+eval: {'average_loss': 2.0840619, 'loss': 1907.6113, 'rmse': 1.4436281, 'global_step': 171000}
+we are making progress: 180
+eval: {'average_loss': 2.0331578, 'loss': 1861.0171, 'rmse': 1.4258884, 'global_step': 181000}
+we are making progress: 190
+eval: {'average_loss': 1.9210055, 'loss': 1758.3604, 'rmse': 1.3860034, 'global_step': 191000}
+we are making progress: 200
+eval: {'average_loss': 1.8575218, 'loss': 1700.2516, 'rmse': 1.3629093, 'global_step': 201000}
+we are making progress: 210
+eval: {'average_loss': 1.8068908, 'loss': 1653.9073, 'rmse': 1.3442065, 'global_step': 211000}
+we are making progress: 220
+eval: {'average_loss': 1.7519277, 'loss': 1603.5978, 'rmse': 1.3236041, 'global_step': 221000}
+we are making progress: 230
+eval: {'average_loss': 1.7785524, 'loss': 1627.9683, 'rmse': 1.3336238, 'global_step': 231000}
+we are making progress: 240
+eval: {'average_loss': 1.6646687, 'loss': 1523.7269, 'rmse': 1.2902204, 'global_step': 241000}
+we are making progress: 250
+eval: {'average_loss': 1.6387888, 'loss': 1500.0381, 'rmse': 1.2801518, 'global_step': 251000}
+we are making progress: 260
+eval: {'average_loss': 1.5826728, 'loss': 1448.6732, 'rmse': 1.2580433, 'global_step': 261000}
+we are making progress: 270
+eval: {'average_loss': 1.537398, 'loss': 1407.2316, 'rmse': 1.2399186, 'global_step': 271000}
+we are making progress: 280
+eval: {'average_loss': 1.5027165, 'loss': 1375.4865, 'rmse': 1.2258534, 'global_step': 281000}
+we are making progress: 290
+eval: {'average_loss': 1.4720529, 'loss': 1347.4191, 'rmse': 1.2132819, 'global_step': 291000}
+we are making progress: 300
+eval: {'average_loss': 1.4775939, 'loss': 1352.4908, 'rmse': 1.2155632, 'global_step': 301000}
+we are making progress: 310
+eval: {'average_loss': 1.4112697, 'loss': 1291.7821, 'rmse': 1.1879687, 'global_step': 311000}
+we are making progress: 320
+eval: {'average_loss': 1.4164128, 'loss': 1296.4899, 'rmse': 1.1901314, 'global_step': 321000}
+we are making progress: 330
+eval: {'average_loss': 1.3642727, 'loss': 1248.7643, 'rmse': 1.1680208, 'global_step': 331000}
+we are making progress: 340
+eval: {'average_loss': 1.3317244, 'loss': 1218.9718, 'rmse': 1.1540036, 'global_step': 341000}
+we are making progress: 350
+eval: {'average_loss': 1.3111668, 'loss': 1200.1547, 'rmse': 1.1450619, 'global_step': 351000}
+we are making progress: 360
+eval: {'average_loss': 1.3692064, 'loss': 1253.2803, 'rmse': 1.170131, 'global_step': 361000}
+we are making progress: 370
+eval: {'average_loss': 1.2628925, 'loss': 1155.9677, 'rmse': 1.1237849, 'global_step': 371000}
+we are making progress: 380
+eval: {'average_loss': 1.2363555, 'loss': 1131.6774, 'rmse': 1.1119152, 'global_step': 381000}
+we are making progress: 390
+eval: {'average_loss': 1.2787031, 'loss': 1170.4396, 'rmse': 1.1307975, 'global_step': 391000}
+we are making progress: 400
+eval: {'average_loss': 1.2140499, 'loss': 1111.2604, 'rmse': 1.1018393, 'global_step': 401000}
+we are making progress: 410
+eval: {'average_loss': 1.1896936, 'loss': 1088.9662, 'rmse': 1.0907308, 'global_step': 411000}
+we are making progress: 420
+eval: {'average_loss': 1.1668488, 'loss': 1068.0555, 'rmse': 1.0802077, 'global_step': 421000}
+we are making progress: 430
+eval: {'average_loss': 1.2190552, 'loss': 1115.8418, 'rmse': 1.1041083, 'global_step': 431000}
+we are making progress: 440
+eval: {'average_loss': 1.1524202, 'loss': 1054.8486, 'rmse': 1.0735084, 'global_step': 441000}
+we are making progress: 450
+eval: {'average_loss': 1.1336863, 'loss': 1037.7008, 'rmse': 1.0647471, 'global_step': 451000}
+we are making progress: 460
+eval: {'average_loss': 1.1140614, 'loss': 1019.7375, 'rmse': 1.0554911, 'global_step': 461000}
+we are making progress: 470
+eval: {'average_loss': 1.1017082, 'loss': 1008.43024, 'rmse': 1.0496229, 'global_step': 471000}
+we are making progress: 480
+eval: {'average_loss': 1.0978247, 'loss': 1004.8755, 'rmse': 1.0477713, 'global_step': 481000}
+we are making progress: 490
+eval: {'average_loss': 1.1549473, 'loss': 1057.1617, 'rmse': 1.0746847, 'global_step': 491000}
+12/07/2018 14:44:26
+finished hyperV4

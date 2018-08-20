@@ -1,0 +1,138 @@
+INFO:root:Tensorflow 1.8.0
+ERROR:root:Some kind of error? not sure: [Errno 2] No such file or directory: '/home/hornberger/MasterarbeitTobias/models/Aug11ev/hyperV1.json'
+INFO:root:Tensorflow 1.8.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_001_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_002_trackHistory_NothingDeleted.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_003_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_004_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_005_trackHistory_NothingDeleted.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_006_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_007_trackHistory_NothingDeleted.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_008_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_009_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_010_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_011_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_012_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_013_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_014_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_015_trackHistory_NothingDeleted.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug11ev/kug5
+INFO:root:/home/hornberger/MasterarbeitTobias/models/Aug11ev/kug5 does not exist. Creating folder
+INFO:root:storing data in data.h5
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 4177.197, 'loss': 4134171.5, 'global_step': 250}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 1877.5376, 'loss': 1858199.0, 'global_step': 2750}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 857.00244, 'loss': 848175.3, 'global_step': 5250}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 205.33539, 'loss': 203220.44, 'global_step': 7750}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 80.10464, 'loss': 79279.56, 'global_step': 10250}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 72.60104, 'loss': 71853.25, 'global_step': 12750}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 70.58132, 'loss': 69854.33, 'global_step': 15250}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 69.115746, 'loss': 68403.85, 'global_step': 17750}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 67.80686, 'loss': 67108.45, 'global_step': 20250}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 66.70552, 'loss': 66018.45, 'global_step': 22750}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 65.686714, 'loss': 65010.145, 'global_step': 25250}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 64.66209, 'loss': 63996.07, 'global_step': 27750}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 63.682346, 'loss': 63026.418, 'global_step': 30250}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 62.89118, 'loss': 62243.4, 'global_step': 32750}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 61.85097, 'loss': 61213.906, 'global_step': 35250}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 61.00211, 'loss': 60373.79, 'global_step': 37750}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 60.116695, 'loss': 59497.492, 'global_step': 40250}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 59.218582, 'loss': 58608.633, 'global_step': 42750}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 57.80008, 'loss': 57204.74, 'global_step': 45250}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 52.76932, 'loss': 52225.797, 'global_step': 47750}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 51.254814, 'loss': 50726.89, 'global_step': 50250}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 50.016487, 'loss': 49501.316, 'global_step': 52750}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 48.75735, 'loss': 48255.15, 'global_step': 55250}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 47.70469, 'loss': 47213.332, 'global_step': 57750}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 46.493313, 'loss': 46014.43, 'global_step': 60250}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 45.43346, 'loss': 44965.496, 'global_step': 62750}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 44.566296, 'loss': 44107.26, 'global_step': 65250}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 43.32782, 'loss': 42881.543, 'global_step': 67750}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 42.3627, 'loss': 41926.367, 'global_step': 70250}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 41.373615, 'loss': 40947.465, 'global_step': 72750}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 40.342182, 'loss': 39926.656, 'global_step': 75250}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 39.397064, 'loss': 38991.273, 'global_step': 77750}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 38.43445, 'loss': 38038.574, 'global_step': 80250}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 37.517384, 'loss': 37130.953, 'global_step': 82750}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 36.72678, 'loss': 36348.492, 'global_step': 85250}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 35.65334, 'loss': 35286.11, 'global_step': 87750}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 34.748566, 'loss': 34390.656, 'global_step': 90250}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 33.887836, 'loss': 33538.79, 'global_step': 92750}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 32.990883, 'loss': 32651.074, 'global_step': 95250}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 32.14061, 'loss': 31809.562, 'global_step': 97750}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 31.299494, 'loss': 30977.11, 'global_step': 100250}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 30.476774, 'loss': 30162.863, 'global_step': 102750}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 29.646822, 'loss': 29341.459, 'global_step': 105250}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 28.941488, 'loss': 28643.39, 'global_step': 107750}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 28.059233, 'loss': 27770.223, 'global_step': 110250}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 27.290499, 'loss': 27009.406, 'global_step': 112750}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 26.550451, 'loss': 26276.98, 'global_step': 115250}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 25.771084, 'loss': 25505.643, 'global_step': 117750}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 25.104372, 'loss': 24845.797, 'global_step': 120250}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 24.353334, 'loss': 24102.496, 'global_step': 122750}
+(89069, 10) (89069, 2)
+(9897, 10) (9897, 2)
