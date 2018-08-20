@@ -136,7 +136,7 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'bo', label='prediction')
 	plt.plot()
 
-	plt.title('%s DNNRegressor' % savePath.split('/')[-1])
+	plt.title('%s DNNRegressor NextStep' % savePath.split('/')[-1])
 	plt.tight_layout()
 	logging.info("Saving Image to file {}".format(output))
 	plt.savefig(output, dpi=300)
@@ -218,7 +218,7 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'bo', label='prediction')
 	plt.plot()
 	
-	plt.title('%s DNNRegressor' % savePath.split('/')[-1])
+	plt.title('%s DNNRegressor Separator' % savePath.split('/')[-1])
 	plt.tight_layout()
 	logging.info("Saving Image to file {}".format(output))
 	plt.savefig(output, dpi=300)

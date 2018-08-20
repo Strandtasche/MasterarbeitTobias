@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 __author__ = "Tobias Hornberger"
 __email__ = "saibot1207@googlemail.com"
@@ -186,6 +187,7 @@ def main(argv):
 	else:
 		MODEL_PATH = overrideModelPath
 
+	logging.info("time: {}".format(time_stamp))
 	logging.info('Saving to %s' % MODEL_PATH)
 
 	if not usingCustomEstimator:
@@ -304,10 +306,10 @@ def main(argv):
 			# Now open Browser and visit localhost:6006\
 
 			if epoch % 10 == 0:
-				print("we are making progress: " + str(epoch))
+				logging.info("Progress: epoch " + str(epoch))
 
 				eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
-				print("eval: " + str(eval_dict))
+				logging.info("eval: " + str(eval_dict))
 
 				# eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_train, y_train, BATCH_SIZE))
 				# print("eval: " + str(eval_dict))
@@ -330,7 +332,7 @@ def main(argv):
 		try:
 			# Prediction
 			eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
-			print('Error on whole Test set:\nMSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
+			logging.info('Error on whole Test set:\nMSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
 			averageLoss = eval_dict['average_loss']
 
 		except ValueError as err:
