@@ -60,6 +60,10 @@ def plotPieChart():
 									  wedgeprops={"edgecolor": "black", 'linewidth': 2,
 												  'antialiased': True})
 	
+	# legWedges = wedges
+	# for w in legWedges:
+	# 	w.set_linewidth(0)
+		
 	ax.legend(wedges, labels,
 			  title="Schüttgüter",
 			  loc="center left",
@@ -74,7 +78,7 @@ def plotPieChart():
 	
 	
 	#ax.axis('equal')
-	plt.savefig("pieChart.png", dpi=300)
+	# plt.savefig("pieChart.png", dpi=300)
 	plt.show()
 	
 plotPieChart()
