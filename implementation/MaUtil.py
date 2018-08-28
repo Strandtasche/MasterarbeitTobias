@@ -128,7 +128,7 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 
 	assert len(x) == len(y)
 
-	plt.plot(x, y, 'ro',label='feature')
+	plt.plot(x, y, 'ro', label='feature', markersize=4)
 	plt.plot(x_t, y_t, 'gx', label='label')
 	if isinstance(y_predicted, list):
 		for k in range(numberPrint):
@@ -137,15 +137,15 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 		for k in range(numberPrint):
 			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'b+', label='prediction')
 	plt.plot()
-	plt.xlim(100, 2000)
-	plt.ylim(0, 1700)
+	plt.xlim(100, 2050)
+	plt.ylim(0, 1750)
 
 	plt.title('%s DNNRegressor NextStep' % savePath.split('/')[-1])
 	plt.tight_layout()
 	
 	handles, labels = plt.gca().get_legend_handles_labels()
 	by_label = OrderedDict(zip(labels, handles))
-	plt.legend(by_label.values(), by_label.keys())
+	plt.legend(by_label.values(), by_label.keys(), loc=4)
 
 	logging.info("Saving Image to file {}".format(output))
 	plt.savefig(output, dpi=900)
@@ -214,11 +214,11 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	
 	assert len(x) == len(y)
 	
-	plt.plot(x, y, 'ro', label='function to predict')
-	plt.plot(x_t, y_t, 'gx', label='target')
 	for i in range(len(ausgleichsgeradenY)):
 		plt.plot(ausgleichsgeradenX[i], ausgleichsgeradenY[i], color='orange', linestyle='dashed', label='best fit straight line')
 	# plt.plot(ausgleichsgeradenX, ausgleichsgeradenY, label='best fit straight line')
+	plt.plot(x, y, 'ro', label='feature', markersize=4)
+	plt.plot(x_t, y_t, 'gx', label='label')
 	if isinstance(y_predicted, list):
 		for k in range(numberPrint):
 			plt.plot(y_predicted[k][0], separatorPosition, 'b+', label='prediction')
@@ -226,8 +226,8 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 		for k in range(numberPrint):
 			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'b+', label='prediction')
 	plt.plot()
-	plt.xlim(100, 2000)
-	plt.ylim(0, 1700)
+	plt.xlim(100, 2050)
+	plt.ylim(0, 1750)
 	
 	plt.title('%s DNNRegressor Separator' % savePath.split('/')[-1])
 	plt.tight_layout()
@@ -273,4 +273,4 @@ def evaluateResultNextStep(X_test, y_test, numberPrint, regressor, batchSize):
 	print("pixelErrorTotal.mean: {}".format(pandasLost['pixelErrorTotal'].mean()))
 	print(pandasLost[['pixelErrorX', 'pixelErrorY', 'pixelErrorTotal']].describe())
 	plt.boxplot(pandasLost['pixelErrorX'], showfliers=False)
-	plt.show()
+	#plt.show()
