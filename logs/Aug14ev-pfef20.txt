@@ -1,0 +1,352 @@
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_14.10.53
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:/home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20 does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:Progress: global step: <function global_step at 0x7ff7a85e5d08>
+INFO:root:eval: {'average_loss': 300.1134, 'loss': 297142.28, 'global_step': 500}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_14.11.21
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+(89105, 10) (89105, 2)
+(9901, 10) (9901, 2)
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 415, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 319, in main
+    logging.info("Progress: global step: {}".format(tf.train.global_step()))
+TypeError: global_step() missing 2 required positional arguments: 'sess' and 'global_step_tensor'
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_14.11.54
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:Progress: global step: None
+INFO:root:eval: {'average_loss': 28.95429, 'loss': 28667.645, 'global_step': 2901}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_14.13.16
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+INFO:root:test: <tf.Variable 'global_step:0' shape=() dtype=int64_ref>
+INFO:root:Progress: epoch 0
+INFO:root:Progress: global step: <tf.Variable 'global_step:0' shape=() dtype=int64_ref>
+INFO:root:eval: {'average_loss': 12.290833, 'loss': 12169.154, 'global_step': 4401}
+INFO:root:Progress: epoch 10
+INFO:root:Progress: global step: <tf.Variable 'global_step:0' shape=() dtype=int64_ref>
+INFO:root:eval: {'average_loss': 38.492393, 'loss': 38111.32, 'global_step': 9401}
+INFO:root:Progress: epoch 20
+INFO:root:Progress: global step: <tf.Variable 'global_step:0' shape=() dtype=int64_ref>
+INFO:root:eval: {'average_loss': 8.759792, 'loss': 8673.07, 'global_step': 14401}
+INFO:root:Progress: epoch 30
+INFO:root:Progress: global step: <tf.Variable 'global_step:0' shape=() dtype=int64_ref>
+INFO:root:eval: {'average_loss': 5.1774893, 'loss': 5126.232, 'global_step': 19401}
+INFO:root:Progress: epoch 40
+INFO:root:Progress: global step: <tf.Variable 'global_step:0' shape=() dtype=int64_ref>
+INFO:root:eval: {'average_loss': 5.9508038, 'loss': 5891.891, 'global_step': 24401}
+INFO:root:Progress: epoch 50
+INFO:root:Progress: global step: <tf.Variable 'global_step:0' shape=() dtype=int64_ref>
+INFO:root:eval: {'average_loss': 6.195998, 'loss': 6134.6577, 'global_step': 29401}
+INFO:root:Progress: epoch 60
+INFO:root:Progress: global step: <tf.Variable 'global_step:0' shape=() dtype=int64_ref>
+INFO:root:eval: {'average_loss': 5.4541545, 'loss': 5400.1587, 'global_step': 34401}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_14.17.18
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+(89105, 10) (89105, 2)
+(9901, 10) (9901, 2)
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 420, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 315, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 843, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 856, in _train_model_default
+    features, labels, model_fn_lib.ModeKeys.TRAIN, self.config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 831, in _call_model_fn
+    model_fn_results = self._model_fn(features=features, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 494, in _model_fn
+    config=config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 190, in _dnn_model_fn
+    logits=logits)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/head.py", line 1416, in create_estimator_spec
+    global_step=training_util.get_global_step())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/optimizer.py", line 424, in minimize
+    name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/optimizer.py", line 617, in apply_gradients
+    update_ops.append(processor.update_op(self, grad))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/optimizer.py", line 113, in update_op
+    update_op = optimizer._apply_dense(g, self._v)  # pylint: disable=protected-access
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/adam.py", line 152, in _apply_dense
+    grad, use_locking=self._use_locking).op
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/gen_training_ops.py", line 230, in apply_adam
+    use_nesterov=use_nesterov, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 350, in _apply_op_helper
+    g = ops._get_graph_from_inputs(_Flatten(keywords.values()))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 5637, in _get_graph_from_inputs
+    _assert_same_graph(original_graph_element, graph_element)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 5573, in _assert_same_graph
+    original_item))
+ValueError: Tensor("ExponentialDecay:0", shape=(), dtype=float32) must be from the same graph as Tensor("dnn/hiddenlayer_0/kernel/part_0:0", shape=(10, 16), dtype=float32_ref).
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_14.22.32
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 420, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 201, in main
+    global_step = tf.train.get_or_create_global_step(tf.get_default_graph)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/training_util.py", line 156, in get_or_create_global_step
+    global_step_tensor = get_global_step(graph)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/training_util.py", line 89, in get_global_step
+    global_step_tensors = graph.get_collection(ops.GraphKeys.GLOBAL_STEP)
+AttributeError: 'function' object has no attribute 'get_collection'
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_14.23.07
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 420, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 212, in main
+    global_step=tf.train.global_step(),
+TypeError: global_step() missing 2 required positional arguments: 'sess' and 'global_step_tensor'
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_14.57.00
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+(89105, 10) (89105, 2)
+(9901, 10) (9901, 2)
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 419, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 314, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 843, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 856, in _train_model_default
+    features, labels, model_fn_lib.ModeKeys.TRAIN, self.config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 831, in _call_model_fn
+    model_fn_results = self._model_fn(features=features, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 494, in _model_fn
+    config=config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 162, in _dnn_model_fn
+    optimizer, learning_rate=_LEARNING_RATE)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/optimizers.py", line 77, in get_optimizer_instance
+    'The given object is not an Optimizer instance. Given: {}'.format(opt))
+ValueError: The given object is not an Optimizer instance. Given: <function main.<locals>.<lambda> at 0x7f5e4ca830d0>
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_15.13.22
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 3.8272343, 'loss': 3789.3445, 'global_step': 38901}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_16.05.40
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 419, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 213, in main
+    decay_rate=0.96))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/learning_rate_decay.py", line 92, in exponential_decay
+    raise ValueError("global_step is required for exponential_decay.")
+ValueError: global_step is required for exponential_decay.
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_16.07.29
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+(89105, 10) (89105, 2)
+(9901, 10) (9901, 2)
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 419, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 314, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 843, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 856, in _train_model_default
+    features, labels, model_fn_lib.ModeKeys.TRAIN, self.config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 831, in _call_model_fn
+    model_fn_results = self._model_fn(features=features, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 494, in _model_fn
+    config=config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 162, in _dnn_model_fn
+    optimizer, learning_rate=_LEARNING_RATE)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/optimizers.py", line 77, in get_optimizer_instance
+    'The given object is not an Optimizer instance. Given: {}'.format(opt))
+ValueError: The given object is not an Optimizer instance. Given: <function main.<locals>.<lambda> at 0x7f428e5c20d0>
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_16.09.47
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+(89105, 10) (89105, 2)
+(9901, 10) (9901, 2)
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 419, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 314, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 843, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 856, in _train_model_default
+    features, labels, model_fn_lib.ModeKeys.TRAIN, self.config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 831, in _call_model_fn
+    model_fn_results = self._model_fn(features=features, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 494, in _model_fn
+    config=config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 190, in _dnn_model_fn
+    logits=logits)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/head.py", line 1416, in create_estimator_spec
+    global_step=training_util.get_global_step())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/optimizer.py", line 424, in minimize
+    name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/optimizer.py", line 617, in apply_gradients
+    update_ops.append(processor.update_op(self, grad))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/optimizer.py", line 113, in update_op
+    update_op = optimizer._apply_dense(g, self._v)  # pylint: disable=protected-access
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/adam.py", line 152, in _apply_dense
+    grad, use_locking=self._use_locking).op
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/gen_training_ops.py", line 230, in apply_adam
+    use_nesterov=use_nesterov, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 350, in _apply_op_helper
+    g = ops._get_graph_from_inputs(_Flatten(keywords.values()))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 5637, in _get_graph_from_inputs
+    _assert_same_graph(original_graph_element, graph_element)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 5573, in _assert_same_graph
+    original_item))
+ValueError: Tensor("ExponentialDecay:0", shape=(), dtype=float32) must be from the same graph as Tensor("dnn/hiddenlayer_0/kernel/part_0:0", shape=(10, 16), dtype=float32_ref).
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_16.16.40
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+(89105, 10) (89105, 2)
+(9901, 10) (9901, 2)
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 420, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 315, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 843, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 856, in _train_model_default
+    features, labels, model_fn_lib.ModeKeys.TRAIN, self.config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 831, in _call_model_fn
+    model_fn_results = self._model_fn(features=features, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 494, in _model_fn
+    config=config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 190, in _dnn_model_fn
+    logits=logits)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/head.py", line 1416, in create_estimator_spec
+    global_step=training_util.get_global_step())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/optimizer.py", line 424, in minimize
+    name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/optimizer.py", line 617, in apply_gradients
+    update_ops.append(processor.update_op(self, grad))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/optimizer.py", line 113, in update_op
+    update_op = optimizer._apply_dense(g, self._v)  # pylint: disable=protected-access
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/adam.py", line 152, in _apply_dense
+    grad, use_locking=self._use_locking).op
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/gen_training_ops.py", line 230, in apply_adam
+    use_nesterov=use_nesterov, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 350, in _apply_op_helper
+    g = ops._get_graph_from_inputs(_Flatten(keywords.values()))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 5637, in _get_graph_from_inputs
+    _assert_same_graph(original_graph_element, graph_element)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 5573, in _assert_same_graph
+    original_item))
+ValueError: Tensor("ExponentialDecay:0", shape=(), dtype=float32) must be from the same graph as Tensor("dnn/hiddenlayer_0/kernel/part_0:0", shape=(10, 16), dtype=float32_ref).
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_16.17.42
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 418, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 212, in main
+    decay_rate=0.96))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/learning_rate_decay.py", line 92, in exponential_decay
+    raise ValueError("global_step is required for exponential_decay.")
+ValueError: global_step is required for exponential_decay.
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-08-27_16.23.39
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Aug14ev/pfef20
+INFO:root:loading data from store
+INFO:root:Train the DNN Regressor...
+
+(89105, 10) (89105, 2)
+(9901, 10) (9901, 2)
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 424, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 319, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 843, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 856, in _train_model_default
+    features, labels, model_fn_lib.ModeKeys.TRAIN, self.config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 831, in _call_model_fn
+    model_fn_results = self._model_fn(features=features, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 494, in _model_fn
+    config=config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 162, in _dnn_model_fn
+    optimizer, learning_rate=_LEARNING_RATE)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/canned/optimizers.py", line 77, in get_optimizer_instance
+    'The given object is not an Optimizer instance. Given: {}'.format(opt))
+ValueError: The given object is not an Optimizer instance. Given: <function main.<locals>.<lambda> at 0x7f151e6fcf28>
