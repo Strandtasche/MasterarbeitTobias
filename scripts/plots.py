@@ -80,6 +80,23 @@ def plotPieChart():
 	#ax.axis('equal')
 	# plt.savefig("pieChart.png", dpi=300)
 	plt.show()
+
+
+def plot( show_axes=False):
+	ax = plt.gca()
+	# change default range so that new disks will work
+	plt.axis('equal')
+	ax.set_xlim((-1.5, 1.5))
+	ax.set_ylim((-1.5, 1.5))
 	
-plotPieChart()
+	if not show_axes:
+		ax.set_axis_off()
+	
+	disk1 = plt.Circle((0, 0), 1, edgecolor='red', facecolor='green', linestyle='dashed', linewidth=10)
+	ax.add_artist(disk1)
+	plt.show()
+	return
+
+plot()
+#plotPieChart()
 # plotFnct()
