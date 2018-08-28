@@ -10,7 +10,7 @@ for i in **/*tfevents*1; do # Whitespace-safe and recursive
         mv "$DIR/scalars.csv" "$DIR/$(basename $i).csv"
         if [[ $1 = "delete" ]]; then
             echo "rm $i"
-            #rm $i
+            rm $i
         fi
     fi
 done
