@@ -118,7 +118,7 @@ def main(argv):
 		parser.error('No fake data for separator training (yet)')
 			
 	if args.separator is not None and len(args.separator) not in (0, 2):
-		parser.error('Separator needs 2 Integers representing prediction Close off and separator position')
+		parser.error('Separator needs 2 Integers representing prediction Close off and separator position: given {}'.format(len(args.separator)))
 	elif args.separator is not None:
 		separator = True
 		if len(args.separator) == 0:
@@ -142,6 +142,7 @@ def main(argv):
 		FAKE_DATA_AMOUNT = hyper_params.data.numberFakeLines
 		hidden_layers = hyper_params.arch.hidden_layers
 		dropout = hyper_params.arch.dropout_rate
+		optimizer = hyper_params.train.optimizer
 		learningRate = hyper_params.train.learning_rate
 		if overrideInputPath is None:
 			dataFolder = hyper_params.problem.data_path
@@ -193,15 +194,31 @@ def main(argv):
 	if not usingCustomEstimator:
 		# Validation and Test Configuration
 		test_config = estimator.RunConfig(save_checkpoints_steps=200,
-										  save_checkpoints_secs=None)
-		# Building the Network
+										  save_checkpoints_secs=None, save_summary_steps=100)
+		if optimizer == 'Adagrad':
+			opti = tf.train.AdagradOptimizer(learning_rate=learningRate)
+		elif optimizer == 'Adam':
+			opti = tf.train.AdamOptimizer(learning_rate=learningRate)
+		else:
+			logging.error("No (or wrong) optimizer given in hyperparameter file")
+			sys.exit(-1)
+		
 		regressor = estimator.DNNRegressor(feature_columns=my_feature_columns,
 										   label_dimension=2,
 										   hidden_units=hidden_layers,
 										   model_dir=MODEL_PATH,
 										   dropout=dropout,
-										   optimizer=tf.train.AdagradOptimizer(learning_rate=learningRate),
-										   config=test_config)
+										   config=test_config,
+										   optimizer=opti
+										   							#tf.train.AdagradOptimizer(learning_rate=learningRate)
+										   							#tf.train.AdamOptimizer(learning_rate=learningRate)
+										   
+										   									#learning_rate=tf.train.exponential_decay(
+            																	# learning_rate=learningRate,
+            																	# global_step=None,
+            																	# decay_steps=10000,
+            																	# decay_rate=0.96))
+										   )
 	else:
 		test_config = estimator.RunConfig(save_checkpoints_steps=200,
 		                                  save_checkpoints_secs=None)
@@ -292,6 +309,9 @@ def main(argv):
 	# Train it
 	if TRAINING:
 		logging.info('Train the DNN Regressor...\n')
+		# test = tf.train.get_or_create_global_step()
+		# logging.info("test: {}".format(test))
+
 
 		for epoch in range(EPOCHS):
 
@@ -307,6 +327,7 @@ def main(argv):
 
 			if epoch % 10 == 0:
 				logging.info("Progress: epoch " + str(epoch))
+				# logging.info("Progress: global step: {}".format(tf.train.get_global_step()))
 
 				eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
 				logging.info("eval: " + str(eval_dict))
@@ -370,11 +391,17 @@ def main(argv):
 		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
 
 		if maximumLossAnalysis:
-			printDF = prepareMaximumLossAnalysis(X_test, y_test, numberPrint, regressor, BATCH_SIZE)
-			# print(printDF)
-			plotDataNextStepPandas(numberPrint, printDF[columnNames], printDF[['LabelX', 'LabelY']],
+			if not separator:
+				printDF = prepareMaximumLossAnalysisNextStep(X_test, y_test, numberPrint, regressor, BATCH_SIZE)
+				plotDataNextStepPandas(numberPrint, printDF[columnNames], printDF[['LabelX', 'LabelY']],
 								   printDF[['PredictionX', 'PredictionY']], baseImagePath,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
+			else:
+				printDF = prepareMaximumLossAnalysisSeparator(X_test, y_test, numberPrint, regressor, BATCH_SIZE)
+				plotDataSeparatorPandas(numberPrint, printDF[columnNames], printDF[['LabelPosBalken']],
+										separatorPosition, printDF[['PredictionIntersect']], baseImagePath,
+										baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
+			# print(printDF)
 
 		# displaying weights in Net - (a bit redundant after implementation of debugger
 		if displayWeights:
@@ -391,6 +418,7 @@ def main(argv):
 			else:
 				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted, baseImagePath,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
+				
 
 
 

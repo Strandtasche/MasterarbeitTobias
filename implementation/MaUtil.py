@@ -7,6 +7,7 @@ from adjustText import adjust_text
 import numpy as np
 import pandas as pd
 from collections import OrderedDict
+import sys
 
 
 def genModelPath(hyperparams, fake, usingCustomestimator, separator):
@@ -137,7 +138,7 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 		for k in range(numberPrint):
 			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'b+', label='prediction')
 	plt.plot()
-	plt.xlim(100, 2050)
+	plt.xlim(100, 2250)
 	plt.ylim(0, 1750)
 
 	plt.title('%s DNNRegressor NextStep' % savePath.split('/')[-1])
@@ -223,21 +224,29 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 		for k in range(numberPrint):
 			plt.plot(y_predicted[k][0], separatorPosition, 'b+', label='prediction')
 	else:
-		for k in range(numberPrint):
-			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'b+', label='prediction')
+		if 'PredictionX' in y_predicted:
+			for k in range(numberPrint):
+				plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'b+', label='prediction')
+		elif 'PredictionIntersect' in y_predicted:
+			for k in range(numberPrint):
+				plt.plot(y_predicted['PredictionIntersect'].iloc[k], separatorPosition, 'b+', label='prediction')
+		else:
+			logging.error("weird error in plotting. terminating.")
+			sys.exit(-1)
+			
 	plt.plot()
-	plt.xlim(100, 2050)
+	plt.xlim(100, 2250)
 	plt.ylim(0, 1750)
 	
 	plt.title('%s DNNRegressor Separator' % savePath.split('/')[-1])
 	plt.tight_layout()
 	logging.info("Saving Image to file {}".format(output))
 	plt.savefig(output, dpi=900)
-	# plt.show()
-	plt.close()
+	plt.show()
+	#plt.close()
 
 
-def prepareMaximumLossAnalysis(X_test, y_test, numberPrint, regressor, batchSize):
+def prepareMaximumLossAnalysisNextStep(X_test, y_test, numberPrint, regressor, batchSize):
 	totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=batchSize))
 	totalPredictions = [p['predictions'] for p in totalPredictGen]
 	xPredL = [p[0] for p in totalPredictions]
@@ -249,6 +258,21 @@ def prepareMaximumLossAnalysis(X_test, y_test, numberPrint, regressor, batchSize
 		lambda row: ((row['LabelX'] - row['PredictionX']) ** 2 + (row['LabelY'] - row['PredictionY']) ** 2) / 2, axis=1)
 	maximumLossAnalysisCount = numberPrint  # TODO: potenziell variable mit Arg? / separat?
 	printDF = pandasLost.sort_values(by='MSE', ascending=False).head(maximumLossAnalysisCount)
+	return printDF
+
+
+def prepareMaximumLossAnalysisSeparator(X_test, y_test, numberPrint, regressor, batchSize):
+	totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=batchSize))
+	totalPredictions = [p['predictions'] for p in totalPredictGen]
+	intersectPredL = [p[0] for p in totalPredictions]
+	timePredL = [p[1] for p in totalPredictions]
+	pandasLost = pd.DataFrame(data={'PredictionIntersect': intersectPredL, 'PredictionTime': timePredL}, index=y_test.index,
+							  columns=['PredictionIntersect', 'PredictionTime'])
+	pandasLost = pd.concat([X_test, y_test, pandasLost], axis=1)
+	pandasLost['positionError'] = pandasLost.apply(
+		lambda row: abs(row['LabelPosBalken'] - row['PredictionIntersect']), axis=1)
+	maximumLossAnalysisCount = numberPrint  # TODO: potenziell variable mit Arg? / separat?
+	printDF = pandasLost.sort_values(by='positionError', ascending=False).head(maximumLossAnalysisCount)
 	return printDF
 
 
