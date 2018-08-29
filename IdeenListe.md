@@ -8,3 +8,4 @@
   - Kollisionstracks aussortieren
   - Fehlerhistogram
 - Signifikante Features identifizieren
+- Unterschied mit/ohne Orientierung bei Zylinderdatensatz austesten
