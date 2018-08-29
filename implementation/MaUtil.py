@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 from collections import OrderedDict
 import sys
+import pickle
 
 
 def genModelPath(hyperparams, fake, usingCustomestimator, separator):
@@ -242,8 +243,8 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	plt.tight_layout()
 	logging.info("Saving Image to file {}".format(output))
 	plt.savefig(output, dpi=900)
-	plt.show()
-	#plt.close()
+	#plt.show()
+	plt.close()
 
 
 def prepareMaximumLossAnalysisNextStep(X_test, y_test, numberPrint, regressor, batchSize):
@@ -291,10 +292,22 @@ def evaluateResultNextStep(X_test, y_test, numberPrint, regressor, batchSize):
 		lambda row: (row['LabelY'] - row['PredictionY']), axis=1)
 	pandasLost['pixelErrorTotal'] = pandasLost.apply(
 		lambda row: ((row['LabelX'] - row['PredictionX']) ** 2 + (row['LabelY'] - row['PredictionY']) ** 2) ** 0.5, axis=1)
+
+	#with open('pandasLost.pkl', 'wb') as f:
+	#	pickle.dump(pandasLost, f)
 	
-	print("pixelErrorX.mean: {}".format(pandasLost['pixelErrorX'].mean()))
-	print("pixelErrorY.mean: {}".format(pandasLost['pixelErrorY'].mean()))
-	print("pixelErrorTotal.mean: {}".format(pandasLost['pixelErrorTotal'].mean()))
-	print(pandasLost[['pixelErrorX', 'pixelErrorY', 'pixelErrorTotal']].describe())
-	plt.boxplot(pandasLost['pixelErrorX'], showfliers=False)
+	logging.info("pixelErrorX.mean: {}".format(pandasLost['pixelErrorX'].mean()))
+	logging.info("pixelErrorY.mean: {}".format(pandasLost['pixelErrorY'].mean()))
+	logging.info("pixelErrorTotal.mean: {}".format(pandasLost['pixelErrorTotal'].mean()))
+	logging.info(pandasLost[['pixelErrorX', 'pixelErrorY', 'pixelErrorTotal']].describe())
+	
+	logging.info("number of predictions with error > 3: {}".format((pandasLost['pixelErrorTotal'] > 3).sum()))
+	
+	plt.boxplot(pandasLost['pixelErrorTotal'], showfliers=False)
+	plt.show()
+	plt.hist(pandasLost['pixelErrorTotal'], bins=40)
+	plt.show()
+	#hist = pandasLost.hist(bins=10)
 	#plt.show()
+	
+

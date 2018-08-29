@@ -211,7 +211,7 @@ def prepareRawMeasNextStep(inputFile, featureSize=5):
 	return newDf
 
 
-def loadRawMeasNextStep(input, featureSize=5, testSize=0.1):
+def loadRawMeasNextStep(inputLoc, featureSize=5, testSize=0.1):
 	"""loads all the raw measurement data from input into a pandas Dataframe and """
 
 	# if input[:5] == "/home":
@@ -219,7 +219,7 @@ def loadRawMeasNextStep(input, featureSize=5, testSize=0.1):
 	# else:
 	# 	folder = '/home/hornberger/Projects/MasterarbeitTobias/' + input
 
-	folder = input
+	folder = inputLoc
 
 	# TODO: handle single file inputs? os.path.isDir() - make system agnostic
 
