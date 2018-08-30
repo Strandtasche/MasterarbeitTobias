@@ -8,6 +8,8 @@ import numpy as np
 import pandas as pd
 from loadDataExample import _removeNans
 import matplotlib.pyplot as plt
+import logging
+import glob
 import time
 from random import random
 import weakref
@@ -67,14 +69,13 @@ def filterTracksByBestFitStraightLine(inputFile):
 	# print(df)
 
 
-def filterTracksByAngleDifference(inputFile):
+def filterTracksByAngleDifference(dataFrame, display=True):
 	
 	THRESHOLD = 0.3
 	
-	df = pd.read_csv(inputFile)
+	df = dataFrame
 	
 	numberTracks = (df.shape[1]) / 2
-	print(int(numberTracks))
 	
 	assert numberTracks == int(numberTracks)
 	plt.axis([100, 2250, 0, 1750])
@@ -93,13 +94,14 @@ def filterTracksByAngleDifference(inputFile):
 		vecs = []
 		
 		if len(a) <= 3:
-			print("track: {} - not enough points".format(trackNo))
-			
-			features = plt.plot(a, b, 'ro')
-			plt.pause(3)
-			f = features.pop(0).remove()
+			logging.info("track: {} - not enough points".format(trackNo))
 			dropIndices.append(2*i)
 			dropIndices.append(2*i + 1)
+		
+			if display:
+				features = plt.plot(a, b, 'ro')
+				plt.pause(3)
+				f = features.pop(0).remove()
 			continue
 		
 		for j in range(len(a) - 1):
@@ -114,18 +116,44 @@ def filterTracksByAngleDifference(inputFile):
 		# print("track: {}, angles: {}".format(trackNo, max(angles)))
 		
 		if max(angles) > THRESHOLD:
-			features = plt.plot(a, b, 'ro')
-			print("track: {}, angles: {}".format(trackNo, max(angles)))
-			plt.pause(3)
-			f = features.pop(0).remove()
+			logging.info("track: {}, angles: {}".format(trackNo, max(angles)))
 			dropIndices.append(2*i)
 			dropIndices.append(2*i + 1)
+			
+			if display:
+				features = plt.plot(a, b, 'ro')
+				plt.pause(3)
+				f = features.pop(0).remove()
 	
+	if display:
+		plt.show()
 	
-	plt.show()
-	
-	plt.close()
+		plt.close()
+		
+	logging.info("removed {}/{} tracks".format(int(len(dropIndices)/2), int(numberTracks)))
 	
 	return dropIndices
 
+
+def cleanUpFolder(path):
+
+	folder = path
+	
+	fileList = []
+	if folder[-4:] != '.csv':
+		fileList = sorted(glob.glob(folder + '/*.csv'))
+		logging.info("getting all csv files in {}".format(folder))
+	else:
+		fileList.append(folder)
+		logging.info("loading file {}".format(folder))
+	
+	assert len(fileList) > 0, "no files found input location " + folder
+	dataFrameList = []
+	
+	for elem in fileList:
+		logging.info("Write to " + elem.replace('selbstgesammelteDaten', 'cleanedData'))
+		df = pd.read_csv(elem)
+		dropIndices = filterTracksByAngleDifference(df, display=False)
+		df.drop(df.columns[dropIndices], axis=1, inplace=True)
+		df.to_csv(elem.replace('selbstgesammelteDaten', 'cleanedData').replace('Deleted.', 'Deleted_Clean.'), index=False, na_rep="NaN", encoding='utf-8')
 
