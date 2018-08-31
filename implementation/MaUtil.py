@@ -332,5 +332,53 @@ def evaluateResultNextStep(X_test, y_test, numberPrint, regressor, batchSize):
 	plt.show()
 	#hist = pandasLost.hist(bins=10)
 	#plt.show()
+
+
+def mirrorSingleFeature(points, midpoint, separator, direction=True):
+	
+	newpoints = points
+	if not separator:
+		if direction:
+			relIndices = [i for i in range(int((len(points)-2) / 2))]
+			relIndices.append(len(points) - 2)
+		else:
+			relIndices = [i for i in range(int((len(points)-2) / 2), len(points) - 2)]
+			relIndices.append(len(points) - 1)
+	else:
+		if direction:
+			relIndices = [i for i in range(int((len(points)-2) / 2))]
+			relIndices.append(len(points) - 2)
+		else:
+			relIndices = [i for i in range(int((len(points)-2) / 2), len(points) - 2)]
+			relIndices.append(len(points) - 2)
+
+	# print(relIndices)
+	for i in relIndices:
+		if points[i] < midpoint:
+			newpoints[i] = points[i] + 2 * abs(midpoint - points[i])
+		else:
+			newpoints[i] = points[i] - 2 * abs(midpoint - points[i])
+
+	return newpoints
+
+
+def augmentData(featuresTrain, labelsTrain, midpoint, separator, direction=True):
+	
+	oldDf = pd.concat([featuresTrain, labelsTrain], axis=1, sort=False)
+	newDf = oldDf
+	newDf.index += oldDf.index.max()
+	newDf.apply(lambda x: pd.Series(mirrorSingleFeature(x.values, midpoint, separator, direction), index=newDf.columns), axis=1)
+	
+	newDf = pd.concat([oldDf, newDf])
+
+	
+	if separator:
+		augmentedLabelDf = newDf[['LabelPosBalken', 'LabelTime']].copy()
+		augmentedFeatureDf = newDf.drop(['LabelPosBalken', 'LabelTime'], axis=1)
+	else:
+		augmentedLabelDf = newDf[['LabelX', 'LabelY']].copy()
+		augmentedFeatureDf = newDf.drop(['LabelX', 'LabelY'], axis=1)
+	
+	return augmentedFeatureDf, augmentedLabelDf
 	
 
