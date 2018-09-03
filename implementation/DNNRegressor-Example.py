@@ -62,6 +62,8 @@ parser.add_argument('--lossAna', help="loss analysis", action="store_true")
 parser.add_argument('--custom', help="use custom estimator", action="store_true")
 
 parser.add_argument('--separator', nargs='*', type=int, help='turn on prediction for separator')
+parser.add_argument('--augment', help="activate dataAugmentation on training data", action="store_true")
+parser.add_argument('--target', type=float, help="accuracy target.")
 
 
 def main(argv):
@@ -75,6 +77,7 @@ def main(argv):
 	hyperParamFile = args.hyperparams
 	saving = args.save
 	loading = args.load
+	augment = args.augment
 	overrideModelPath = args.overrideModel
 	overrideInputPath = args.overrideInput
 	usingCustomEstimator = args.custom
@@ -85,6 +88,7 @@ def main(argv):
 	progressPlot = args.progressPlot
 
 	maximumLossAnalysis = args.lossAna
+	cancelThreshold  = args.target
 
 
 	saveLoc = None
@@ -174,6 +178,13 @@ def main(argv):
 			X_test = X_train
 			y_train = pd.concat([y_train, y_test])
 			y_test = y_train
+		
+		#TODO: find Augmentation midpoint from data or as argument?
+		if augment:
+			logging.info("applying augmentation to Training Set...")
+			midpoint = 1160
+			X_train, y_train = augmentData(X_train, y_train, midpoint, separator, direction=True)
+			logging.info("done!")
 
 	# Network Design
 	# --------------
@@ -312,6 +323,7 @@ def main(argv):
 		# test = tf.train.get_or_create_global_step()
 		# logging.info("test: {}".format(test))
 
+		epochInterm = []
 
 		for epoch in range(EPOCHS):
 
@@ -332,13 +344,23 @@ def main(argv):
 				eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
 				logging.info("eval: " + str(eval_dict))
 
-				# eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_train, y_train, BATCH_SIZE))
-				# print("eval: " + str(eval_dict))
+				avgLoss = eval_dict['average_loss']
+				epochInterm.append(avgLoss)
+
+				if cancelThreshold is not None:
+					if avgLoss < cancelThreshold:
+						logging.info("reached cancel Threshold. finishing training")
+						break
 
 			if progressPlot and epoch in pos:
 				debug_pred = regressor.predict(input_fn=lambda: eval_input_fn(featureVals, labels=None, batch_size=BATCH_SIZE))
 				debug_predicted = [p['predictions'] for p in debug_pred]
 				predictions.append(debug_predicted)
+		
+		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
+
+		logging.info("Training completed. final average loss: {}, best average loss during training: {}".format(
+						eval_dict['average_loss'], min(epochInterm)))
 
 		if progressPlot:
 			if FAKE:

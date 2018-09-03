@@ -365,12 +365,14 @@ def mirrorSingleFeature(points, midpoint, separator, direction=True):
 def augmentData(featuresTrain, labelsTrain, midpoint, separator, direction=True):
 	
 	oldDf = pd.concat([featuresTrain, labelsTrain], axis=1, sort=False)
-	newDf = oldDf
+	newDf = oldDf.copy()
 	newDf.index += oldDf.index.max()
-	newDf.apply(lambda x: pd.Series(mirrorSingleFeature(x.values, midpoint, separator, direction), index=newDf.columns), axis=1)
+	# newDf.apply(lambda x: pd.Series(mirrorSingleFeature(x, midpoint, separator, direction)), axis=1, result_type='broadcast')
+	newDf.apply(lambda x: pd.Series(mirrorSingleFeature(x, midpoint, separator, direction)), axis=1, result_type='broadcast')
+	
+	assert pd.DataFrame.equals(oldDf, newDf) == False
 	
 	newDf = pd.concat([oldDf, newDf])
-
 	
 	if separator:
 		augmentedLabelDf = newDf[['LabelPosBalken', 'LabelTime']].copy()
