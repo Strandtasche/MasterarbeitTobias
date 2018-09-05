@@ -1,0 +1,122 @@
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-03_17.28.11
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedKug-Aug2
+INFO:root:loading data from store
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.487998
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedKug-Aug2_highestLoss_2018-09-03_17.28.11.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedKug-Aug2_2018-09-03_17.28.11.png
+INFO:root:pixelErrorX.mean: -0.18331754074050055
+INFO:root:pixelErrorY.mean: 0.9009528440816215
+INFO:root:pixelErrorTotal.mean: 1.162421125469473
+INFO:root:       pixelErrorX  pixelErrorY  pixelErrorTotal
+count  9818.000000  9818.000000      9818.000000
+mean     -0.183318     0.900953         1.162421
+std       0.726719     1.266006         1.274731
+min     -20.880493   -40.221619         0.029851
+25%      -0.538681     0.461060         0.714376
+50%      -0.184967     0.896484         1.075318
+75%       0.170288     1.334442         1.467272
+max      16.094360    43.410156        43.747764
+INFO:root:number of predictions with error > 3: 36
+(176706, 10) (176706, 2)
+(9818, 10) (9818, 2)
+          X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+58449   654.0   654.0   655.0   655.0   ...     827.0   919.0  1011.0  1103.0
+30171  1629.0  1625.0  1621.0  1618.0   ...     877.0   968.0  1057.0  1147.0
+22613   776.0   776.0   775.0   775.0   ...    1034.0  1124.0  1212.0  1300.0
+42     1775.0  1771.0  1767.0  1763.0   ...     963.0  1055.0  1146.0  1237.0
+39906  1747.0  1749.0  1751.0  1753.0   ...     612.0   705.0   797.0   890.0
+28312  1259.0  1260.0  1261.0  1262.0   ...     607.0   700.0   791.0   883.0
+17412  1352.0  1352.0  1351.0  1350.0   ...     212.0   305.0   396.0   489.0
+65478  1277.0  1274.0  1271.0  1268.0   ...     675.0   765.0   854.0   945.0
+18049  1031.0  1030.0  1029.0  1028.0   ...     878.0   971.0  1064.0  1157.0
+24183  1265.0  1268.0  1271.0  1273.0   ...    1013.0  1104.0  1195.0  1285.0
+
+[10 rows x 10 columns]
+       LabelX  LabelY
+58449   655.0  1194.0
+30171  1610.0  1236.0
+22613   774.0  1389.0
+42     1755.0  1327.0
+39906  1756.0   982.0
+28312  1264.0   974.0
+17412  1349.0   581.0
+65478  1262.0  1034.0
+18049  1026.0  1249.0
+24183  1279.0  1376.0
+predicted: 
+[ 655.79 1193.6 ]
+[1610.54 1235.54]
+[ 774.12 1387.7 ]
+[1755.21 1327.13]
+[1756.96  980.71]
+[1264.14  973.56]
+[1349.41  579.67]
+[1262.14 1033.3 ]
+[1026.49 1248.4 ]
+[1278.7  1375.16]
+time: 0.19s
+MSE (tensorflow): 0.484197
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-03_17.31.49
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedKug-Aug2
+INFO:root:loading data from store
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.487998
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedKug-Aug2_highestLoss_2018-09-03_17.31.49.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedKug-Aug2_2018-09-03_17.31.49.png
+INFO:root:pixelErrorX.mean: -0.18331754074050055
+INFO:root:pixelErrorY.mean: 0.9009528440816215
+INFO:root:pixelErrorTotal.mean: 1.162421125469473
+INFO:root:       pixelErrorX  pixelErrorY  pixelErrorTotal
+count  9818.000000  9818.000000      9818.000000
+mean     -0.183318     0.900953         1.162421
+std       0.726719     1.266006         1.274731
+min     -20.880493   -40.221619         0.029851
+25%      -0.538681     0.461060         0.714376
+50%      -0.184967     0.896484         1.075318
+75%       0.170288     1.334442         1.467272
+max      16.094360    43.410156        43.747764
+INFO:root:number of predictions with error > 3: 36
+(176706, 10) (176706, 2)
+(9818, 10) (9818, 2)
+          X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+13159  1657.0  1655.0  1653.0  1651.0   ...     749.0   839.0   930.0  1020.0
+26239  1404.0  1413.0  1422.0  1431.0   ...     391.0   481.0   573.0   663.0
+73072  1000.0  1000.0  1001.0  1002.0   ...    1114.0  1205.0  1295.0  1386.0
+3165   1411.0  1407.0  1403.0  1399.0   ...    1218.0  1308.0  1399.0  1488.0
+71444  1133.0  1134.0  1135.0  1136.0   ...     308.0   399.0   491.0   582.0
+35428  1414.0  1409.0  1404.0  1400.0   ...     384.0   474.0   564.0   654.0
+79362  1280.0  1282.0  1284.0  1286.0   ...     163.0   227.0   290.0   354.0
+70565   806.0   808.0   810.0   813.0   ...     467.0   560.0   652.0   744.0
+7636    900.0   901.0   902.0   902.0   ...     822.0   914.0  1007.0  1098.0
+52595  1198.0  1200.0  1202.0  1204.0   ...     355.0   445.0   537.0   627.0
+
+[10 rows x 10 columns]
+       LabelX  LabelY
+13159  1647.0  1111.0
+26239  1448.0   754.0
+73072  1005.0  1476.0
+3165   1391.0  1578.0
+71444  1138.0   674.0
+35428  1390.0   744.0
+79362  1291.0   418.0
+70565   817.0   837.0
+7636    903.0  1190.0
+52595  1208.0   718.0
+predicted: 
+[1647.04 1109.2 ]
+[1447.87  752.81]
+[1004.87 1474.79]
+[1391.49 1576.93]
+[1138.07  672.95]
+[1390.57  743.43]
+[1290.26  417.43]
+[817.42 835.73]
+[ 904.03 1189.64]
+[1207.96  717.13]
+time: 0.19s
+MSE (tensorflow): 0.694897

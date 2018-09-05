@@ -1,0 +1,384 @@
+INFO:root:Tensorflow 1.8.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_001_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_002_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_003_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_004_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_005_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_006_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_007_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_008_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_009_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_010_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_011_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_012_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData/Weizen/weizen_013_trackHistory_NothingDeleted_Clean.csv
+INFO:root:applying augmentation to Training Set...
+INFO:root:done!
+INFO:root:time: 2018-09-04_16.27.41
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm
+INFO:root:/home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm does not exist. Creating folder
+INFO:root:storing data in data.h5
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 2309.8105, 'loss': 2247360.2, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 4.4014544, 'loss': 4282.452, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 3.0594149, 'loss': 2976.6973, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 3.5090284, 'loss': 3414.1548, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 4.312989, 'loss': 4196.379, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 2.3459933, 'loss': 2282.5645, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 5.253223, 'loss': 5111.1914, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 2.0075188, 'loss': 1953.2413, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 1.8846232, 'loss': 1833.6686, 'global_step': 40500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 4.3790674, 'loss': 4260.6704, 'global_step': 45500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 2.38362, 'loss': 2319.174, 'global_step': 50500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 1.5970901, 'loss': 1553.9095, 'global_step': 55500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 2.2504253, 'loss': 2189.5803, 'global_step': 60500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 2.1562967, 'loss': 2097.997, 'global_step': 65500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 1.8510274, 'loss': 1800.9811, 'global_step': 70500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 1.450016, 'loss': 1410.8119, 'global_step': 75500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 5.6161637, 'loss': 5464.3193, 'global_step': 80500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 2.7988899, 'loss': 2723.216, 'global_step': 85500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 1.8357961, 'loss': 1786.1616, 'global_step': 90500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 1.3453034, 'loss': 1308.9304, 'global_step': 95500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 2.1115677, 'loss': 2054.4773, 'global_step': 100500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 2.1457088, 'loss': 2087.695, 'global_step': 105500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 1.2746432, 'loss': 1240.1805, 'global_step': 110500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 1.6815966, 'loss': 1636.1312, 'global_step': 115500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 1.1841272, 'loss': 1152.1119, 'global_step': 120500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 1.7208017, 'loss': 1674.2764, 'global_step': 125500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 1.3782545, 'loss': 1340.9906, 'global_step': 130500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 3.4838388, 'loss': 3389.6462, 'global_step': 135500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 1.2915308, 'loss': 1256.6117, 'global_step': 140500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 1.8146652, 'loss': 1765.602, 'global_step': 145500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 1.6010499, 'loss': 1557.7623, 'global_step': 150500}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 2.2966888, 'loss': 2234.5933, 'global_step': 155500}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 1.8360438, 'loss': 1786.4026, 'global_step': 160500}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 8.243316, 'loss': 8020.441, 'global_step': 165500}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 1.5404999, 'loss': 1498.8494, 'global_step': 170500}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-04_17.23.56
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm
+INFO:root:loading data from store
+INFO:root:Train: ((236416, 10), (236416, 2))
+INFO:root:Test: ((13135, 10), (13135, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 1.7485993, 'loss': 1701.3224, 'global_step': 171500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 1.5808265, 'loss': 1538.0857, 'global_step': 176500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 1.3737937, 'loss': 1336.6505, 'global_step': 181500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 1.2749804, 'loss': 1240.5087, 'global_step': 186500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 2.040868, 'loss': 1985.6891, 'global_step': 191500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 1.0465827, 'loss': 1018.2862, 'global_step': 196500}
+INFO:root:reached cancel Threshold. finishing training
+INFO:root:Training completed. final average loss: 1.0465826988220215, best average loss during training: 1.0465826988220215
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-04_17.30.27
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm
+INFO:root:loading data from store
+INFO:root:Train: ((236416, 10), (236416, 2))
+INFO:root:Test: ((13135, 10), (13135, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-04_17.30.30
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm
+INFO:root:loading data from store
+INFO:root:Train: ((236416, 10), (236416, 2))
+INFO:root:Test: ((13135, 10), (13135, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-04_17.31.40
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm
+INFO:root:loading data from store
+INFO:root:Train: ((236416, 10), (236416, 2))
+INFO:root:Test: ((13135, 10), (13135, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.046583
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_highestLoss_2018-09-04_17.31.40.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_2018-09-04_17.31.40.png
+INFO:root:pixelErrorX.mean: 0.1197773521373968
+INFO:root:pixelErrorY.mean: -0.21426746381477207
+INFO:root:pixelErrorTotal.mean: 1.1367996204786504
+INFO:root:        pixelErrorX   pixelErrorY  pixelErrorTotal
+count  13135.000000  13135.000000     13135.000000
+mean       0.119777     -0.214267         1.136800
+std        0.899352      1.106449         0.894938
+min      -12.415283    -20.710327         0.009681
+25%       -0.302078     -0.859497         0.613374
+50%        0.102234     -0.224243         0.987479
+75%        0.571960      0.428406         1.443641
+max       10.251663     31.029541        31.515172
+INFO:root:number of predictions with error > 3: 322
+           X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+41879    882.0   883.0   884.0   884.0   ...    1105.0  1183.0  1260.0  1338.0
+116029   842.0   842.0   843.0   842.0   ...     619.0   696.0   773.0   851.0
+18626   1911.0  1911.0  1911.0  1912.0   ...     498.0   576.0   654.0   733.0
+64268   1963.0  1963.0  1964.0  1964.0   ...     348.0   425.0   502.0   580.0
+121783   695.0   695.0   695.0   695.0   ...     255.0   332.0   411.0   489.0
+82409    713.0   713.0   713.0   713.0   ...     544.0   623.0   702.0   781.0
+118172  1747.0  1747.0  1747.0  1747.0   ...     317.0   395.0   474.0   552.0
+55850   1780.0  1780.0  1780.0  1780.0   ...    1103.0  1182.0  1261.0  1340.0
+45056   1339.0  1339.0  1339.0  1340.0   ...    1076.0  1156.0  1234.0  1313.0
+63779    527.0   528.0   528.0   529.0   ...     331.0   409.0   488.0   566.0
+
+[10 rows x 10 columns]
+        LabelX  LabelY
+41879    884.0  1417.0
+116029   843.0   929.0
+18626   1913.0   811.0
+64268   1965.0   658.0
+121783   695.0   569.0
+82409    715.0   859.0
+118172  1747.0   630.0
+55850   1781.0  1419.0
+45056   1340.0  1391.0
+63779    530.0   645.0
+predicted: 
+[ 885.23 1415.23]
+[842.63 927.97]
+[1912.17  811.8 ]
+[1964.83  658.23]
+[695.12 567.52]
+[713.82 860.49]
+[1747.1   632.16]
+[1779.94 1418.92]
+[1340.33 1391.65]
+[529.14 645.68]
+time: 0.19s
+MSE (tensorflow): 1.030985
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-05_09.37.05
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm
+INFO:root:loading data from store
+INFO:root:Train: ((236416, 10), (236416, 2))
+INFO:root:Test: ((13135, 10), (13135, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.046583
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_highestLoss_2018-09-05_09.37.05.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_2018-09-05_09.37.05.png
+INFO:root:pixelErrorX.mean: 0.1197773521373968
+INFO:root:pixelErrorY.mean: -0.21426746381477207
+INFO:root:pixelErrorTotal.mean: 1.1367996204786504
+INFO:root:        pixelErrorX   pixelErrorY  pixelErrorTotal
+count  13135.000000  13135.000000     13135.000000
+mean       0.119777     -0.214267         1.136800
+std        0.899352      1.106449         0.894938
+min      -12.415283    -20.710327         0.009681
+25%       -0.302078     -0.859497         0.613374
+50%        0.102234     -0.224243         0.987479
+75%        0.571960      0.428406         1.443641
+max       10.251663     31.029541        31.515172
+INFO:root:number of predictions with error > 3: 322
+           X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+84170    763.0   762.0   762.0   762.0   ...     820.0   899.0   979.0  1058.0
+94487   1150.0  1150.0  1151.0  1151.0   ...    1222.0  1300.0  1379.0  1457.0
+81661   1434.0  1435.0  1435.0  1435.0   ...     797.0   876.0   956.0  1036.0
+125546   771.0   771.0   770.0   769.0   ...     289.0   369.0   449.0   528.0
+71618   1626.0  1626.0  1626.0  1627.0   ...     849.0   928.0  1007.0  1087.0
+129616   662.0   662.0   663.0   663.0   ...     968.0  1047.0  1125.0  1204.0
+52773   1747.0  1747.0  1748.0  1747.0   ...     860.0   939.0  1018.0  1096.0
+53179   2057.0  2057.0  2058.0  2058.0   ...     443.0   521.0   599.0   678.0
+95388   2076.0  2077.0  2076.0  2074.0   ...     306.0   385.0   466.0   544.0
+17143    725.0   725.0   725.0   725.0   ...     533.0   612.0   691.0   770.0
+
+[10 rows x 10 columns]
+        LabelX  LabelY
+84170    762.0  1136.0
+94487   1152.0  1534.0
+81661   1436.0  1115.0
+125546   770.0   607.0
+71618   1627.0  1165.0
+129616   664.0  1283.0
+52773   1748.0  1175.0
+53179   2059.0   756.0
+95388   2073.0   623.0
+17143    726.0   849.0
+predicted: 
+[ 761.97 1137.35]
+[1151.58 1535.4 ]
+[1435.05 1114.32]
+[769.28 607.89]
+[1626.92 1165.04]
+[ 664.04 1282.28]
+[1747.33 1174.9 ]
+[2058.67  756.34]
+[2075.23  625.83]
+[725.81 849.52]
+time: 0.19s
+MSE (tensorflow): 1.057633
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-05_10.12.48
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm
+INFO:root:loading data from store
+INFO:root:Train: ((236416, 10), (236416, 2))
+INFO:root:Test: ((13135, 10), (13135, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.046583
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_highestLoss_2018-09-05_10.12.48.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_2018-09-05_10.12.48.png
+INFO:root:pixelErrorX.mean: 0.1197773521373968
+INFO:root:pixelErrorY.mean: -0.21426746381477207
+INFO:root:pixelErrorTotal.mean: 1.1367996204786504
+INFO:root:        pixelErrorX   pixelErrorY  pixelErrorTotal
+count  13135.000000  13135.000000     13135.000000
+mean       0.119777     -0.214267         1.136800
+std        0.899352      1.106449         0.894938
+min      -12.415283    -20.710327         0.009681
+25%       -0.302078     -0.859497         0.613374
+50%        0.102234     -0.224243         0.987479
+75%        0.571960      0.428406         1.443641
+max       10.251663     31.029541        31.515172
+INFO:root:number of predictions with error > 3: 322
+           X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+33946   1972.0  1972.0  1972.0  1973.0   ...     602.0   680.0   760.0   838.0
+87742    706.0   707.0   707.0   708.0   ...     871.0   950.0  1029.0  1108.0
+17281    443.0   442.0   443.0   443.0   ...     328.0   407.0   486.0   565.0
+124967   771.0   771.0   771.0   771.0   ...     225.0   304.0   382.0   461.0
+21761    635.0   636.0   636.0   637.0   ...    1174.0  1252.0  1330.0  1408.0
+110335  1146.0  1146.0  1146.0  1147.0   ...     760.0   838.0   917.0   996.0
+111708   609.0   609.0   609.0   609.0   ...     648.0   728.0   807.0   887.0
+125345   797.0   797.0   797.0   797.0   ...     414.0   493.0   571.0   650.0
+78424    823.0   823.0   823.0   824.0   ...     758.0   837.0   916.0   994.0
+78189    768.0   768.0   768.0   769.0   ...     820.0   899.0   978.0  1056.0
+
+[10 rows x 10 columns]
+        LabelX  LabelY
+33946   1973.0   917.0
+87742    709.0  1187.0
+17281    443.0   644.0
+124967   771.0   540.0
+21761    638.0  1486.0
+110335  1147.0  1075.0
+111708   610.0   966.0
+125345   798.0   728.0
+78424    824.0  1072.0
+78189    769.0  1135.0
+predicted: 
+[1972.63  917.35]
+[ 708.57 1186.11]
+[443.04 643.4 ]
+[771.08 538.97]
+[ 637.9 1485. ]
+[1146.58 1074.47]
+[610.   966.44]
+[797.71 728.93]
+[ 824.05 1073.14]
+[ 769.04 1134.5 ]
+time: 0.19s
+MSE (tensorflow): 0.342057
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-05_10.13.17
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm
+INFO:root:loading data from store
+INFO:root:Train: ((236416, 10), (236416, 2))
+INFO:root:Test: ((13135, 10), (13135, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.046583
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_highestLoss_2018-09-05_10.13.17.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_2018-09-05_10.13.17.png
+INFO:root:pixelErrorX.mean: 0.1197773521373968
+INFO:root:pixelErrorY.mean: -0.21426746381477207
+INFO:root:pixelErrorTotal.mean: 1.1367996204786504
+INFO:root:        pixelErrorX   pixelErrorY  pixelErrorTotal
+count  13135.000000  13135.000000     13135.000000
+mean       0.119777     -0.214267         1.136800
+std        0.899352      1.106449         0.894938
+min      -12.415283    -20.710327         0.009681
+25%       -0.302078     -0.859497         0.613374
+50%        0.102234     -0.224243         0.987479
+75%        0.571960      0.428406         1.443641
+max       10.251663     31.029541        31.515172
+INFO:root:number of predictions with error > 3: 322
+           X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+80760   1745.0  1745.0  1744.0  1744.0   ...     330.0   408.0   486.0   564.0
+60687   1412.0  1413.0  1413.0  1413.0   ...    1022.0  1101.0  1179.0  1258.0
+65323   1129.0  1129.0  1129.0  1129.0   ...    1050.0  1128.0  1208.0  1286.0
+7692     783.0   783.0   783.0   783.0   ...     545.0   624.0   701.0   780.0
+68201    859.0   860.0   860.0   861.0   ...    1349.0  1428.0  1506.0  1584.0
+104782  1370.0  1370.0  1371.0  1371.0   ...     198.0   276.0   354.0   433.0
+1863     757.0   757.0   758.0   759.0   ...    1159.0  1238.0  1316.0  1394.0
+63526    606.0   606.0   607.0   607.0   ...    1319.0  1397.0  1475.0  1553.0
+22903   1698.0  1697.0  1697.0  1696.0   ...     426.0   506.0   586.0   665.0
+111157  1812.0  1812.0  1812.0  1812.0   ...     257.0   336.0   414.0   493.0
+
+[10 rows x 10 columns]
+        LabelX  LabelY
+80760   1745.0   643.0
+60687   1414.0  1337.0
+65323   1130.0  1365.0
+7692     784.0   858.0
+68201    860.0  1661.0
+104782  1371.0   512.0
+1863     761.0  1472.0
+63526    608.0  1631.0
+22903   1696.0   745.0
+111157  1815.0   571.0
+predicted: 
+[1744.46  643.09]
+[1413.4  1336.72]
+[1129.6  1365.45]
+[784.06 858.44]
+[ 861.38 1661.48]
+[1371.4   511.19]
+[ 760.64 1471.65]
+[ 608.56 1630.08]
+[1695.62  744.89]
+[1812.89  572.  ]
+time: 0.19s
+MSE (tensorflow): 0.564493
