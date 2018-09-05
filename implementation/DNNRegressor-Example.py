@@ -314,8 +314,8 @@ def main(argv):
 		hooks = [tf_debug.TensorBoardDebugHook(tensorboardDebugAddress)]
 	# hooks = [debug_hook]
 
-	print(X_train.shape, y_train.shape)
-	print(X_test.shape, y_test.shape)
+	logging.info("Train: ({}, {})".format(X_train.shape, y_train.shape))
+	logging.info("Test: ({}, {})".format(X_test.shape, y_test.shape))
 
 	# Train it
 	if TRAINING:

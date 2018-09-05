@@ -300,6 +300,62 @@ def prepareMaximumLossAnalysisSeparator(X_test, y_test, numberPrint, regressor, 
 	return printDF
 
 
+def prepareEvaluationNextStepCVCA(features):
+	xpredCV = []
+	xpredCA = []
+	ypredCV = []
+	ypredCA = []
+
+	for index, row in features.iterrows():
+		xnextCV, ynextCV = predictionConstantVelNextStep(row.values)
+		xnextCA, ynextCA = predictionConcentAccelNextStep(row.values)
+		xpredCV.append(xnextCV)
+		ypredCV.append(ynextCV)
+		xpredCA.append(xnextCA)
+		ypredCA.append(ynextCA)
+		
+	data = {'CV_Prediction_X': xpredCV, 'CV_Prediction_Y': ypredCV,
+			'CA_Prediction_X': xpredCA, 'CA_Prediction_Y': ypredCA}
+	
+	constantVelAndAccel = pd.DataFrame.from_dict(data)
+	constantVelAndAccel.set_index(features.index)
+	
+	return constantVelAndAccel
+
+def predictionConstantVelNextStep(array):
+	
+	assert len(array) >= 4 # assume featuresize >= 2
+	indexLastX = int((len(array)) /2) - 1 # assuming 2 labels and 2*(featureSize) length)
+	indexLastY = int(len(array) - 1)
+	
+	v_x = array[indexLastX] - array[indexLastX - 1]
+	v_y = array[indexLastY] - array[indexLastY - 1]
+	
+	nextX = array[indexLastX] + v_x
+	nextY = array[indexLastY] + v_y
+	
+	return nextX, nextY
+
+def predictionConcentAccelNextStep(array):
+	
+	assert len(array) >= 6 # assume featuresize >= 3
+	
+	indexLastX = int((len(array)) /2) - 1 # assuming 2 labels and 2*(featureSize) length)
+	indexLastY = int(len(array) - 1)
+	
+	v_x = array[indexLastX] - array[indexLastX - 1]
+	v_y = array[indexLastY] - array[indexLastY - 1]
+	a_x = v_x - (array[indexLastX - 1] - array[indexLastX - 2])
+	a_y = v_y - (array[indexLastY - 1] - array[indexLastY - 2])
+	
+	t_delta = 1 # 1 time unit between observations
+	nextX = array[indexLastX] + t_delta * v_x + 0.5 * t_delta ** 2 * a_x
+	nextY = array[indexLastY] + v_y + a_y
+	
+	return nextX, nextY
+
+	
+
 def evaluateResultNextStep(X_test, y_test, numberPrint, regressor, batchSize):
 	totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=batchSize))
 	totalPredictions = [p['predictions'] for p in totalPredictGen]
@@ -326,9 +382,12 @@ def evaluateResultNextStep(X_test, y_test, numberPrint, regressor, batchSize):
 	
 	logging.info("number of predictions with error > 3: {}".format((pandasLost['pixelErrorTotal'] > 3).sum()))
 	
+	#TODO: Maybe save column total Pixelerror of current prediction so it can be compared to other schüttgüter
+	
 	plt.boxplot(pandasLost['pixelErrorTotal'], showfliers=False)
 	plt.show()
 	plt.hist(pandasLost['pixelErrorTotal'], bins=40)
+	# plt.yscale('log')
 	plt.show()
 	#hist = pandasLost.hist(bins=10)
 	#plt.show()
