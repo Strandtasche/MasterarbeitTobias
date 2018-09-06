@@ -59,6 +59,7 @@ def training_input_fn_Slices(features, labels, batch_size):
 
 # kopiert aus Stackoverflow thread "https://stackoverflow.com/questions/20677795/how-do-i-compute-the-intersection-point-of-two-lines-in-python"f
 def _line(p1, p2):
+	"""helper function, which returns the representation a line through the 2 given points"""
 	A = (p1[1] - p2[1])
 	B = (p2[0] - p1[0])
 	C = (p1[0]*p2[1] - p2[0]*p1[1])
@@ -66,6 +67,7 @@ def _line(p1, p2):
 
 
 def _intersection(L1, L2):
+	"""helper function, which returns the intersection point between 2 lines defined by _line"""
 	D  = L1[0] * L2[1] - L1[1] * L2[0]
 	Dx = L1[2] * L2[1] - L1[1] * L2[2]
 	Dy = L1[0] * L2[2] - L1[2] * L2[0]
@@ -78,6 +80,7 @@ def _intersection(L1, L2):
 
 
 def _distanceEu(p1, p2):
+	"""helper function, which returns the euclidian distance between two points"""
 	return ((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2) ** 0.5
 
 
@@ -271,6 +274,8 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 
 
 def prepareMaximumLossAnalysisNextStep(X_test, y_test, numberPrint, regressor, batchSize):
+	"""a helper function for maximum loss analysis in nextStep-Prediction mode,
+	returns a pandas dataframe with features, labels, prediction by the net and the MSE of that prediction"""
 	totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=batchSize))
 	totalPredictions = [p['predictions'] for p in totalPredictGen]
 	xPredL = [p[0] for p in totalPredictions]
@@ -286,6 +291,8 @@ def prepareMaximumLossAnalysisNextStep(X_test, y_test, numberPrint, regressor, b
 
 
 def prepareMaximumLossAnalysisSeparator(X_test, y_test, numberPrint, regressor, batchSize):
+	"""a helper function for maximum loss analysis in separator-Prediction mode,
+	returns a pandas dataframe with features, labels, prediction by the net and the MSE of that prediction"""
 	totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=batchSize))
 	totalPredictions = [p['predictions'] for p in totalPredictGen]
 	intersectPredL = [p[0] for p in totalPredictions]
@@ -301,6 +308,8 @@ def prepareMaximumLossAnalysisSeparator(X_test, y_test, numberPrint, regressor, 
 
 
 def prepareEvaluationNextStepCVCA(features):
+	"""a helper function for evaluation.
+	returns a pandas dataframe with CA and CV predictions for the next step, with the correct corresponding index"""
 	xpredCV = []
 	xpredCA = []
 	ypredCV = []
@@ -323,6 +332,8 @@ def prepareEvaluationNextStepCVCA(features):
 	return constantVelAndAccel
 
 def predictionConstantVelNextStep(array):
+	"""a helper function for the helper function for evaluation.
+	given one set of features, returns a tuple of x and y coordinate of a prediction made with the CV model"""
 	
 	assert len(array) >= 4 # assume featuresize >= 2
 	indexLastX = int((len(array)) /2) - 1 # assuming 2 labels and 2*(featureSize) length)
@@ -337,6 +348,8 @@ def predictionConstantVelNextStep(array):
 	return nextX, nextY
 
 def predictionConcentAccelNextStep(array):
+	"""a helper function for the helper function for evaluation.
+	given one set of features, returns a tuple of x and y coordinate of a prediction made with the CA model"""
 	
 	assert len(array) >= 6 # assume featuresize >= 3
 	
@@ -357,6 +370,8 @@ def predictionConcentAccelNextStep(array):
 	
 
 def evaluateResultNextStep(X_test, y_test, numberPrint, regressor, batchSize):
+	"""function to evaluate the result of this nets nextStep prediction.
+	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
 	totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=batchSize))
 	totalPredictions = [p['predictions'] for p in totalPredictGen]
 	xPredL = [p[0] for p in totalPredictions]
@@ -394,6 +409,8 @@ def evaluateResultNextStep(X_test, y_test, numberPrint, regressor, batchSize):
 
 
 def mirrorSingleFeature(points, midpoint, separator, direction=True):
+	"""helper function for Data Augmentation instance - mirror input
+	given an array of points and a line to mirror them on, returns an array of mirrored coordinates"""
 	
 	newpoints = points
 	if not separator:
@@ -422,6 +439,7 @@ def mirrorSingleFeature(points, midpoint, separator, direction=True):
 
 
 def augmentData(featuresTrain, labelsTrain, midpoint, separator, direction=True):
+	"""applies the mirror input data augmentation to some data"""
 	
 	oldDf = pd.concat([featuresTrain, labelsTrain], axis=1, sort=False)
 	newDf = oldDf.copy()

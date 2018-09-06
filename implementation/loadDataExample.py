@@ -102,6 +102,7 @@ def _validateDF(dataFrame, featureSize=5):
 
 
 def _removeNans(array):
+	"""private helper functions: given an array it returns the array trimmed from the first non-nan value to the last"""
 	arr1d = array
 	notnans = np.flatnonzero(~np.isnan(arr1d))
 	if notnans.size:
@@ -110,7 +111,6 @@ def _removeNans(array):
 		trimmed = np.zeros(0)
 
 	return trimmed
-
 
 
 def prepareRawMeasNextStep(inputFile, featureSize=5):
@@ -382,7 +382,8 @@ def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1, numberOfEx
 
 
 def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predictionCutOff=1300, direction=True):
-	"""loads real(!) data from a csv file return a dataframe"""
+	"""loads track data from a single csv file, extracts features and calculates Labels.
+	removes tracks that are incompatible with separator"""
 	
 	# dt = np.dtype([('features', float, (2 * featureSize,)), ('labels', float, (2,))])
 	
@@ -567,6 +568,8 @@ def loadRawMeasSeparation(input, featureSize=5, testSize=0.1, separatorPosY=1550
 
 
 def _findSeparationLocation(inputFile, featureSize, separatorPosY):
+	"""deprecated helper function for finding separation location
+	 now directly implemented in LoadDataExample.prepareRawMeasSeparation()"""
 	
 	logging.info("Preparing Data from " + inputFile)
 	

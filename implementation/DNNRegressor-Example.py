@@ -359,7 +359,7 @@ def main(argv):
 		
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
 
-		logging.info("Training completed. final average loss: {}, best average loss during training: {}".format(
+		logging.info("Training completed. final average loss: {:.3f}, best average loss during training: {:.3f}".format(
 						eval_dict['average_loss'], min(epochInterm)))
 
 		if progressPlot:

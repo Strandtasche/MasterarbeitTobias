@@ -15,18 +15,18 @@ from random import random
 import weakref
 
 def unit_vector(vector):
-	""" Returns the unit vector of the vector.  """
+	"""helper function: Returns the unit vector of the vector.  """
 	return vector / np.linalg.norm(vector)
 
 def angle_between(v1, v2):
-	""" Returns the angle in radians between vectors 'v1' and 'v2'::
-	"""
+	""" helper function: Returns the angle in radians between vectors 'v1' and 'v2'"""
 	v1_u = unit_vector(v1)
 	v2_u = unit_vector(v2)
 	return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
 
 
 def filterTracksByBestFitStraightLine(inputFile):
+	"""function to visualize the effect filtering tracks by Best fit straight line would have"""
 	
 	THRESHOLD = 3000000
 	
@@ -64,12 +64,14 @@ def filterTracksByBestFitStraightLine(inputFile):
 	plt.show()
 	
 	plt.close()
-
+	# Result: best fit straight line is not a sensible way to detect tracks with collisions
 
 	# print(df)
 
 
 def filterTracksByAngleDifference(dataFrame, display=True):
+	"""function to visualize the effect filtering tracks by Angle Difference line would have
+	returns a list of column indices that exceed the given THRESHOLD"""
 	
 	THRESHOLD = 0.3
 	
@@ -136,6 +138,7 @@ def filterTracksByAngleDifference(dataFrame, display=True):
 
 
 def cleanUpFolder(path):
+	""" cleanup function that drops tracks determined to be collision and writes new csv files to some location"""
 
 	folder = path
 	
