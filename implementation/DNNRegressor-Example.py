@@ -435,7 +435,10 @@ def main(argv):
 			if not separator:
 				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
-				evaluateResultNextStep(X_test, y_test, numberPrint, regressor, BATCH_SIZE)
+	
+				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=BATCH_SIZE))
+				totalPredictions = [p['predictions'] for p in totalPredictGen]
+				evaluateResultNextStep(X_test, y_test, totalPredictions)
 			
 			else:
 				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted, baseImagePath,
