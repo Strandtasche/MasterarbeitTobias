@@ -14,3 +14,6 @@
    - Eventuell können dann schlankere Netze verwendet werden, da bspw. keine Neuronen zur Bestimmung der Ableitung notwendig sind. Ggf. könnte man auch überflüssige Neuronen mithilfe von L1-Regularisierung identifizieren.
    - Indem man alles in ähnlicher Größenordnung hat und sich beispielsweise nur eine Abweichung vom aktuellsten Inkrement geben lässt, könnte ggf. eine gute L2-Regularisierung umgesezt werden.
    - Nutzung eines Bias-Neurons
+- Unsicherheit der Vorhersage
+   - MSE über alle Teilchen gerechnet. Achtung: Abweichung enthält auch Abweichung der Messung (des Labels)
+   - Abweichung als Label in neues Netz (Aber: Mehrfachverwendung von Daten)
