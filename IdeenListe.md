@@ -17,3 +17,5 @@
 - Unsicherheit der Vorhersage
    - MSE über alle Teilchen gerechnet. Achtung: Abweichung enthält auch Abweichung der Messung (des Labels)
    - Abweichung als Label in neues Netz (Aber: Mehrfachverwendung von Daten)
+- Schwierigere Fälle betrachten
+   - Aufnahmen von weiter vorne bei der Aufgabe der Partikel
