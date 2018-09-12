@@ -1,13 +1,14 @@
-import tensorflow as tf
-import matplotlib.pyplot as plt
 import datetime
-import time
 import logging
-from adjustText import adjust_text
+import sys
+import time
+from collections import OrderedDict
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from collections import OrderedDict
-import sys
+import tensorflow as tf
+from adjustText import adjust_text
 
 
 def genModelPath(hyperparams, fake, usingCustomestimator, separator):
@@ -30,11 +31,11 @@ def genModelPath(hyperparams, fake, usingCustomestimator, separator):
 	for hl in hyperparams.arch.hidden_layers:
 		MODEL_PATH += '%s_' % hl
 	MODEL_PATH += 'D0%s_' % (int(hyperparams.arch.dropout_rate * 100))
-	MODEL_PATH += 'FS%s_' % (hyperparams.arch.feature_size)
+	MODEL_PATH += 'FS%s_' % hyperparams.arch.feature_size
 	MODEL_PATH += 'LR%s_' % (str(hyperparams.train.learning_rate % 1)[2:])
 	
 	if fake:
-		MODEL_PATH += 'FD%s' % (hyperparams.data.numberFakeLines)
+		MODEL_PATH += 'FD%s' % hyperparams.data.numberFakeLines
 	else:
 		MODEL_PATH += 'DS_%s' % (hyperparams.problem.data_path.replace("/", "_"))
 	
@@ -131,6 +132,8 @@ def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 	
 	plt.title('%s DNNRegressor' % MODEL_PATH.split('/')[-1])
 	plt.tight_layout()
+	plt.xlabel('x-Coordinate (px)')
+	plt.ylabel('y-Coordinate (px)')
 	plt.savefig(MODEL_PATH + '_' + time_stamp + '.png', dpi=300)
 	# plt.show()
 	plt.close()
@@ -167,6 +170,8 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 	plt.plot()
 	plt.xlim(100, 2250)
 	plt.ylim(0, 1750)
+	plt.xlabel('x-Coordinate (px)')
+	plt.ylabel('y-Coordinate (px)')
 	
 	plt.title('%s DNNRegressor NextStep' % savePath.split('/')[-1])
 	plt.tight_layout()
@@ -210,6 +215,8 @@ def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath):
 	plt.plot()
 	plt.title('%s DNNRegressor' % savePath.split('/')[-1])
 	plt.tight_layout()
+	plt.xlabel('x-Coordinate (px)')
+	plt.ylabel('y-Coordinate (px)')
 	logging.info("Saving debug image to file {}".format(savePath + '_' + time_stamp + '.png', ))
 	plt.savefig(savePath + '_' + time_stamp + '.png', dpi=300)
 	# plt.show()
@@ -268,6 +275,8 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	
 	plt.title('%s DNNRegressor Separator' % savePath.split('/')[-1])
 	plt.tight_layout()
+	plt.xlabel('x-Coordinate (px)')
+	plt.ylabel('y-Coordinate (px)')
 	logging.info("Saving Image to file {}".format(output))
 	plt.savefig(output, dpi=900)
 	# plt.show()
@@ -385,7 +394,6 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions):
 	yPredL = [p[1] for p in totalPredictions]
 	pandasLost = pd.DataFrame(data={'NNPredictionX': xPredL, 'NNPredictionY': yPredL}, index=y_test.index)
 	
-	featureColumns = X_test.columns
 	caCvDf = prepareEvaluationNextStepCVCA(X_test)
 
 	pandasLost = pd.concat([X_test, y_test, pandasLost, caCvDf], axis=1)
@@ -427,11 +435,16 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions):
 	
 	# TODO: Maybe save column total Pixelerror of current prediction so it can be compared to other schüttgüter
 	
-	plt.boxplot(pandasLost['NNpixelErrorTotal'], showfliers=False)
-	plt.show()
-	# plt.hist(pandasLost['NNpixelErrorTotal'], bins=40)
-	# # plt.yscale('log')
+	fig1, ax1 = plt.subplots()
+	ax1.boxplot([pandasLost['NNpixelErrorTotal'], pandasLost['CVpixelErrorTotal'], pandasLost['CApixelErrorTotal']], showfliers=False)
 	# plt.show()
+	fig2, ax2 = plt.subplots()
+	ax2.hist([pandasLost['NNpixelErrorTotal'], pandasLost['CVpixelErrorTotal'], pandasLost['CApixelErrorTotal']],
+			 bins=40, label=['NNpixelErrorTotal', 'CVpixelErrorTotal', 'CApixelErrorTotal'])
+	# # plt.yscale('log')
+	# ax.style.use('seaborn-muted')
+	plt.legend(loc=1)
+	plt.show()
 
 
 # hist = pandasLost.hist(bins=10)

@@ -120,7 +120,7 @@ def main(argv):
 			
 	if args.separator is not None and FAKE:
 		parser.error('No fake data for separator training (yet)')
-			
+		
 	if args.separator is not None and len(args.separator) not in (0, 2):
 		parser.error('Separator needs 2 Integers representing prediction Close off and separator position: given {}'.format(len(args.separator)))
 	elif args.separator is not None:
@@ -172,14 +172,14 @@ def main(argv):
 		else:
 			(X_train, y_train), (X_test, y_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 			
-		#TODO: ziemlich hässlicher Hack - das könnte man noch schöner machen
+		# TODO: ziemlich hässlicher Hack - das könnte man noch schöner machen
 		if singleData:
 			X_train = pd.concat([X_train, X_test])
 			X_test = X_train
 			y_train = pd.concat([y_train, y_test])
 			y_test = y_train
 		
-		#TODO: find Augmentation midpoint from data or as argument?
+		# TODO: find Augmentation midpoint from data or as argument?
 		if augment:
 			logging.info("applying augmentation to Training Set...")
 			midpoint = 1160

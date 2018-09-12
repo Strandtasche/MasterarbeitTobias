@@ -50,7 +50,7 @@ def test2():
 def test3(loading=False):
 	print("loading data")
 	
-	if loading == False:
+	if not loading:
 		(X_train1, y_train1), (X_test1, y_test1) = ld.loadRawMeasNextStep(
 			'/home/hornberger/Projects/MasterarbeitTobias/data/experiment01', 5, 0.1)
 		(X_train2, y_train2), (X_test2, y_test2) = ld.loadFakeDataPandas(5, 500, 0.1)
@@ -188,6 +188,7 @@ def validateAugmentation(loadloc, numberV):
 		plt.plot(row[0], row[1], 'yx', label='target', markersize=4)
 	
 	plt.show()
+
 
 
 def main(argv):
