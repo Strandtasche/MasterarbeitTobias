@@ -443,8 +443,10 @@ def main(argv):
 			else:
 				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted, baseImagePath,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
+				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=BATCH_SIZE))
+				totalPredictions = [p['predictions'] for p in totalPredictGen]
 				
-
+				evaluateResultSeparator(X_test, y_test, totalPredictions)
 
 
 # except:
