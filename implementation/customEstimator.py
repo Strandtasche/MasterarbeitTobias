@@ -40,8 +40,19 @@ def myCustomEstimator(features, labels, mode, params):
 	total_loss = tf.to_float(batch_size) * average_loss
 
 	if mode == tf.estimator.ModeKeys.TRAIN:
-		optimizer = params.get("optimizer", tf.train.AdamOptimizer)
-		optimizer = optimizer(params.get("learning_rate", None))
+		decaying = params.get("decaying_learning_rate", False)
+		if decaying:
+			optimizer = params.get("optimizer", tf.train.AdamOptimizer)
+			learningRate = tf.train.exponential_decay(
+				learning_rate=params.get("learning_rate", None),
+				global_step=tf.train.get_global_step(),
+				decay_steps=params.get("decay_steps", 10000),
+				decay_rate=0.96)
+			optimizer = optimizer(learningRate)
+		else:
+			optimizer = params.get("optimizer", tf.train.AdamOptimizer)
+			optimizer = optimizer(params.get("learning_rate", None))
+		
 		train_op = optimizer.minimize(
 			loss=average_loss, global_step=tf.train.get_global_step())
 

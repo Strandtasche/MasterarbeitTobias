@@ -240,9 +240,11 @@ def main(argv):
 			params={
 				"feature_columns": my_feature_columns,
 				"learning_rate": learningRate,
-				"optimizer": tf.train.AdagradOptimizer,
+				"optimizer": tf.train.AdamOptimizer,
 				"hidden_units": hidden_layers,
-				"dropout": dropout
+				"dropout": dropout,
+				"decaying_learning_rate": True,
+				"decay_steps": 10000
 			})
 
 	if not os.path.exists(MODEL_PATH):
