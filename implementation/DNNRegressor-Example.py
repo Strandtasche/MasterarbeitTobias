@@ -88,8 +88,9 @@ def main(argv):
 	progressPlot = args.progressPlot
 
 	maximumLossAnalysis = args.lossAna
-	cancelThreshold  = args.target
-
+	cancelThreshold = args.target
+	
+	MIDPOINT = 1123
 
 	saveLoc = None
 	if args.save is not None and args.load is not None:
@@ -179,11 +180,10 @@ def main(argv):
 			y_train = pd.concat([y_train, y_test])
 			y_test = y_train
 		
-		# TODO: find Augmentation midpoint from data or as argument?
+		# TODO: find Augmentation MIDPOINT from data or as argument?
 		if augment:
 			logging.info("applying augmentation to Training Set...")
-			midpoint = 1160
-			X_train, y_train = augmentData(X_train, y_train, midpoint, separator, direction=True)
+			X_train, y_train = augmentData(X_train, y_train, MIDPOINT, separator, direction=True)
 			logging.info("done!")
 
 	# Network Design

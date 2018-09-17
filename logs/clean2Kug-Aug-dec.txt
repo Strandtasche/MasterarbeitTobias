@@ -1,0 +1,321 @@
+INFO:root:Tensorflow 1.8.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_001_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_002_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_003_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_004_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_005_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_006_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_007_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_008_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_009_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_010_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_011_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_012_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_013_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_014_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_015_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:applying augmentation to Training Set...
+INFO:root:done!
+INFO:root:time: 2018-09-14_15.46.36
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec
+INFO:root:/home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec does not exist. Creating folder
+INFO:root:storing data in data.h5
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 84.23503, 'loss': 41119.332, 'rmse': 9.177964, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 30.696085, 'loss': 14984.292, 'rmse': 5.540405, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 14.346061, 'loss': 7003.03, 'rmse': 3.7876194, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 4.8365417, 'loss': 2360.9578, 'rmse': 2.199214, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 2.9346216, 'loss': 1432.5355, 'rmse': 1.7130737, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 1.9071423, 'loss': 930.9715, 'rmse': 1.3809932, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 1.3852556, 'loss': 676.2125, 'rmse': 1.1769688, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 1.1824528, 'loss': 577.2143, 'rmse': 1.0874064, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.73068655, 'loss': 356.68463, 'rmse': 0.8548021, 'global_step': 40500}
+INFO:root:reached cancel Threshold. finishing training
+INFO:root:Training completed. final average loss: 0.731, best average loss during training: 0.731
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-14_15.57.04
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.730687
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec_highestLoss_2018-09-14_15.57.04.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec_2018-09-14_15.57.04.png
+INFO:root:
+       NNpixelErrorTotal        ...          CApixelErrorTotal
+count        9763.000000        ...                9763.000000
+mean            1.007932        ...                   2.089596
+std             0.667452        ...                   1.167131
+min             0.016603        ...                   0.000000
+25%             0.571026        ...                   1.118034
+50%             0.904725        ...                   2.000000
+75%             1.312179        ...                   3.000000
+max            15.210554        ...                  13.038405
+
+[8 rows x 3 columns]
+INFO:root:number of predictions with error > 3: 95
+INFO:matplotlib.backends._backend_tk:Could not load matplotlib icon: can't use "pyimage28" as iconphoto: not a photo image
+          X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+55432   947.0   946.0   946.0   946.0   ...    1281.0  1371.0  1461.0  1549.0
+77047   681.0   679.0   676.0   673.0   ...     634.0   699.0   764.0   828.0
+82094   729.0   726.0   723.0   720.0   ...     342.0   403.0   464.0   523.0
+10896  1723.0  1720.0  1718.0  1716.0   ...     553.0   646.0   737.0   830.0
+37885   544.0   543.0   543.0   543.0   ...     178.0   268.0   359.0   449.0
+5143    756.0   752.0   748.0   743.0   ...     450.0   541.0   634.0   725.0
+56128   713.0   714.0   715.0   717.0   ...    1049.0  1137.0  1226.0  1314.0
+8475    926.0   925.0   925.0   924.0   ...     702.0   792.0   882.0   971.0
+54394  1090.0  1093.0  1095.0  1097.0   ...    1066.0  1160.0  1254.0  1347.0
+8446   1044.0  1044.0  1044.0  1045.0   ...     383.0   476.0   568.0   661.0
+
+[10 rows x 10 columns]
+       LabelX  LabelY
+55432   946.0  1639.0
+77047   669.0   893.0
+82094   715.0   584.0
+10896  1711.0   922.0
+37885   542.0   539.0
+5143    735.0   818.0
+56128   719.0  1404.0
+8475    923.0  1061.0
+54394  1103.0  1440.0
+8446   1045.0   753.0
+predicted: 
+[ 946.   1639.25]
+[669.02 893.81]
+[714.65 585.47]
+[1711.85  922.07]
+[541.96 540.71]
+[735.96 817.05]
+[ 719.54 1402.1 ]
+[ 922.85 1061.64]
+[1102.02 1440.44]
+[1044.82  753.29]
+time: 0.18s
+MSE (tensorflow): 0.703100
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-14_16.11.11
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.884299, 'loss': 431.67056, 'rmse': 0.94037175, 'global_step': 41000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.6811218, 'loss': 332.48962, 'rmse': 0.82530105, 'global_step': 46000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 10.274529, 'loss': 5015.511, 'rmse': 3.2053907, 'global_step': 51000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 1.0037174, 'loss': 489.96466, 'rmse': 1.001857, 'global_step': 56000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 8.008021, 'loss': 3909.1157, 'rmse': 2.8298447, 'global_step': 61000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.68205136, 'loss': 332.94336, 'rmse': 0.825864, 'global_step': 66000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.5500953, 'loss': 268.52902, 'rmse': 0.74168414, 'global_step': 71000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 1.4995819, 'loss': 732.0209, 'rmse': 1.2245742, 'global_step': 76000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.8865555, 'loss': 432.77206, 'rmse': 0.94157076, 'global_step': 81000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.5178664, 'loss': 252.79646, 'rmse': 0.71962935, 'global_step': 86000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.7774594, 'loss': 379.51678, 'rmse': 0.8817366, 'global_step': 91000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.49430603, 'loss': 241.29549, 'rmse': 0.70306903, 'global_step': 96000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.50054526, 'loss': 244.34116, 'rmse': 0.70749223, 'global_step': 101000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 5.883935, 'loss': 2872.243, 'rmse': 2.4256823, 'global_step': 106000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.7448401, 'loss': 363.5937, 'rmse': 0.86304116, 'global_step': 111000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 1.2844172, 'loss': 626.9882, 'rmse': 1.1333213, 'global_step': 116000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.4587413, 'loss': 223.93457, 'rmse': 0.67730445, 'global_step': 121000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.9346789, 'loss': 456.26352, 'rmse': 0.96678793, 'global_step': 126000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.79468226, 'loss': 387.92413, 'rmse': 0.8914495, 'global_step': 131000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.6670657, 'loss': 325.6281, 'rmse': 0.8167409, 'global_step': 136000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.61991173, 'loss': 302.60992, 'rmse': 0.78734475, 'global_step': 141000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 0.5883312, 'loss': 287.19388, 'rmse': 0.7670275, 'global_step': 146000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.8541071, 'loss': 416.93237, 'rmse': 0.92417914, 'global_step': 151000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.4055792, 'loss': 197.98349, 'rmse': 0.636851, 'global_step': 156000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.6704392, 'loss': 327.27487, 'rmse': 0.8188035, 'global_step': 161000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.43871373, 'loss': 214.15811, 'rmse': 0.6623547, 'global_step': 166000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.4561595, 'loss': 222.67427, 'rmse': 0.6753958, 'global_step': 171000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.40699083, 'loss': 198.67258, 'rmse': 0.63795835, 'global_step': 176000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.52199084, 'loss': 254.80984, 'rmse': 0.72248936, 'global_step': 181000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 1.0352291, 'loss': 505.34708, 'rmse': 1.0174621, 'global_step': 186000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.40864784, 'loss': 199.48145, 'rmse': 0.6392557, 'global_step': 191000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.41673794, 'loss': 203.43063, 'rmse': 0.64555246, 'global_step': 196000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 0.5266358, 'loss': 257.07727, 'rmse': 0.7256968, 'global_step': 201000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 0.59241897, 'loss': 289.1893, 'rmse': 0.7696876, 'global_step': 206000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 0.856426, 'loss': 418.06436, 'rmse': 0.92543286, 'global_step': 211000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 0.41051504, 'loss': 200.39291, 'rmse': 0.64071447, 'global_step': 216000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 0.82694906, 'loss': 403.67517, 'rmse': 0.9093674, 'global_step': 221000}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 0.6851072, 'loss': 334.43506, 'rmse': 0.827712, 'global_step': 226000}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 0.45803726, 'loss': 223.5909, 'rmse': 0.6767845, 'global_step': 231000}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 0.4076049, 'loss': 198.97232, 'rmse': 0.6384394, 'global_step': 236000}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 0.5280961, 'loss': 257.7901, 'rmse': 0.7267022, 'global_step': 241000}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 0.39349163, 'loss': 192.08293, 'rmse': 0.6272891, 'global_step': 246000}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 1.0817798, 'loss': 528.07086, 'rmse': 1.0400865, 'global_step': 251000}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 0.80357367, 'loss': 392.26447, 'rmse': 0.8964227, 'global_step': 256000}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 0.43366545, 'loss': 211.6938, 'rmse': 0.6585328, 'global_step': 261000}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 0.5757703, 'loss': 281.0623, 'rmse': 0.7587953, 'global_step': 266000}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 0.39455634, 'loss': 192.60268, 'rmse': 0.62813723, 'global_step': 271000}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 0.98611516, 'loss': 481.37213, 'rmse': 0.9930333, 'global_step': 276000}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 0.5681467, 'loss': 277.34082, 'rmse': 0.7537551, 'global_step': 281000}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 0.4042339, 'loss': 197.32678, 'rmse': 0.6357939, 'global_step': 286000}
+INFO:root:Training completed. final average loss: 0.610, best average loss during training: 0.393
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-17_09.17.19
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.4060328, 'loss': 198.20491, 'rmse': 0.63720703, 'global_step': 291000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.5527496, 'loss': 269.8247, 'rmse': 0.7434713, 'global_step': 296000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.4149422, 'loss': 202.55405, 'rmse': 0.6441601, 'global_step': 301000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.67272586, 'loss': 328.39114, 'rmse': 0.82019866, 'global_step': 306000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 1.0785875, 'loss': 526.51245, 'rmse': 1.0385507, 'global_step': 311000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.5273128, 'loss': 257.40778, 'rmse': 0.7261631, 'global_step': 316000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.5897959, 'loss': 287.90887, 'rmse': 0.7679817, 'global_step': 321000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.42083272, 'loss': 205.42949, 'rmse': 0.6487162, 'global_step': 326000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.7139895, 'loss': 348.534, 'rmse': 0.844979, 'global_step': 331000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.3903073, 'loss': 190.52852, 'rmse': 0.6247458, 'global_step': 336000}
+INFO:root:reached cancel Threshold. finishing training
+INFO:root:Training completed. final average loss: 0.390, best average loss during training: 0.390
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-17_09.27.59
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.390307
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec_highestLoss_2018-09-17_09.27.59.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec_2018-09-17_09.27.59.png
+INFO:root:
+       NNpixelErrorTotal        ...          CApixelErrorTotal
+count        9763.000000        ...                9763.000000
+mean            0.763735        ...                   2.089596
+std             0.444234        ...                   1.167131
+min             0.006118        ...                   0.000000
+25%             0.455942        ...                   1.118034
+50%             0.719885        ...                   2.000000
+75%             1.010646        ...                   3.000000
+max            17.575898        ...                  13.038405
+
+[8 rows x 3 columns]
+INFO:root:number of predictions with error > 3: 5
+INFO:matplotlib.backends._backend_tk:Could not load matplotlib icon: can't use "pyimage28" as iconphoto: not a photo image
+          X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+4145   1679.0  1676.0  1673.0  1670.0   ...     476.0   565.0   655.0   744.0
+14266  1313.0  1312.0  1311.0  1310.0   ...     798.0   889.0   979.0  1070.0
+15032   965.0   970.0   974.0   979.0   ...     402.0   493.0   583.0   674.0
+30007   852.0   854.0   855.0   856.0   ...     425.0   515.0   606.0   696.0
+41298  1337.0  1335.0  1334.0  1333.0   ...     416.0   509.0   603.0   695.0
+20679  1368.0  1367.0  1365.0  1364.0   ...    1247.0  1336.0  1426.0  1515.0
+9186    624.0   622.0   621.0   620.0   ...     856.0   945.0  1034.0  1122.0
+85701   952.0   952.0   951.0   950.0   ...     499.0   592.0   685.0   779.0
+73380   830.0   832.0   833.0   835.0   ...     986.0  1077.0  1167.0  1257.0
+44538   997.0   997.0   998.0   998.0   ...    1209.0  1300.0  1391.0  1481.0
+
+[10 rows x 10 columns]
+       LabelX  LabelY
+4145   1663.0   833.0
+14266  1308.0  1159.0
+15032   986.0   765.0
+30007   858.0   787.0
+41298  1330.0   789.0
+20679  1360.0  1604.0
+9186    617.0  1212.0
+85701   949.0   872.0
+73380   839.0  1346.0
+44538   999.0  1572.0
+predicted: 
+[1664.09  833.19]
+[1308.21 1159.66]
+[986.45 764.1 ]
+[858.77 786.71]
+[1329.93  788.51]
+[1360.95 1603.55]
+[ 617.19 1211.29]
+[949.64 872.16]
+[ 838.77 1346.06]
+[ 998.91 1571.41]
+time: 0.19s
+MSE (tensorflow): 0.306844
