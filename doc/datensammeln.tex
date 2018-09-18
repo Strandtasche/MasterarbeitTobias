@@ -2,7 +2,7 @@
 
 Wie bei jeder Anwendung von maschinellen Lernverfahren sind die zugrundeliegenden Daten von äußerster Wichtigkeit.
 Im Rahmen dieser Masterarbeit wurden zu Beginn existierende Aufnahmen und Track benutzt, 
-bevor dann selbst am Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht wurden.
+bevor dann selbst am TableSort Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht wurden.
 
 
 \section{Eigene Aufnahmen}
@@ -10,14 +10,15 @@ bevor dann selbst am Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht 
 \subsection{Kamera}
 
 [Beschreibung von der Bonito Kamera, stats usw.]
-Zur Aufnahme der Trainingsdaten wurde eine Bonito CL-400 200 FPS Kamera benutzt,
-die oberhalb des Förderbandes angebracht wird.
+Zur Aufnahme der Trainingsdaten wurde eine Bonito CL-400 200 FPS Kamera benutzt, die in Abbildung \ref{pictureCam} zu sehen ist.
+Die ist, wie in [TODO: REF IOSB BILD] oberhalb des Förderbandes angebracht.
+Die Bilder, die von der Kamera aufgenommen werden haben eine Auflösung von 2320x1726 Pixeln.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{img/banner-Bonito_cropped}
-    \caption{Zur Aufname verwendete Kamera [TODO: Quelle Bild]}
-    \label{piechartSchuettgut}
+    \caption{Zur Aufnahme verwendete Kamera [TODO: Quelle Bild]}
+    \label{pictureCam}
 \end{figure}
 
 \subsection{Schüttgüter}
@@ -33,13 +34,44 @@ Aufgenommen wurden vier verschiedene Schüttgüter:
 
 Die Kugeln und der Pfeffer sowie die Zylinder und die Weizenkörner bilden jeweils 
 ein Paar aus einem geometrischen Körper und einem echten Objekt, das grob dessen Form ähnelt.
-[Details]
+
+Die Kugeln bestehen aus Holz und haben einen Durchmesser von 5mm.
+Die Zylinder bestehen ebenfalls aus Holz. Sie haben eine Länge von 1cm und einen Durchmesser von 3mm.
+\todo{TODO: Details}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{kugel_001_00084_debayer}
+        \caption{Kugeln}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[t]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{Pfeffer_003_00020_debayer}
+        \caption{Pfeffer}
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}[t]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{zylinder_001_00009_debayer}
+        \caption{Zylinder}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[t]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{weizen_004_00016_debayer}
+        \caption{Weizen}
+    \end{subfigure}
+    \caption{Verschiedene Schüttgüter}
+    \label{schuettgueterSchuessel}
+\end{figure}
+
+
 
 \subsection{Pipeline}
 
 Die Bilder wurden in Batches von je 3500 gesammelt.
-Die Bonito Kamera schreibt sie als eine Bayer-Matrix in Bitmap Dateien.
-Auf Grund der Menge an Bildern war es sinnvoll die Dateien in das png Format zu übertragen.
+Die Bonito Kamera schreibt sie in Form einer Bayer-Matrix in Bitmap Dateien.
+\todo{hier Bayer-Matrix erklären und Bild?}
+Auf Grund der Menge an Bildern war es sinnvoll die Dateien in das png Dateiformat zu übertragen.
 Die Features, die für das Trainieren der Netze benutzt werden, sind die Koordinaten der Mittelpunkte der Objekte.
 Um diese zu bestimmten müssen zunächst die Dateien mittels \textit{Demosaicing} rekonstruiert werden um gewöhnliche RGB Bilder zu erhalten.
 [Reference Debayer script?]
@@ -47,8 +79,14 @@ Auf diesen kann dann eine Segmentierung vorgenommen werden.
 Hierzu wurde die Computer Vision Library OpenCV benutzt.
 Das Ergebnis des Segmentierungsscripts [Reference segement.py] ist ein CSV File für jedes Batch.
 Eine Zeile repräsentiert ein Bild aus dem Batch, also einen Zeitschritt.
-Zu Beginn jeder Zeile steht zunächst die Frame Nummer, gefolgt von der Anzahl der detektierten Partikel. 
-Die X- und Y-Koordinaten von der detektierten Partikeln sind dann links angehängt
+Zu Beginn jeder Zeile steht zunächst die Frame Nummer, gefolgt von der Anzahl der detektierten Partikel
+und den X- und Y-Koordinaten der detektierten Partikel.
+\todo{TODO: Verifizieren}
+Die Mittelpunkte in diesem CSV File werden nun mittels des in MATLAB implementierten TrackSort Algorithmus einzelnen Tracks zugeordnet,
+die dann wiederum in einem neuen CSV File gespeichert werden.
+Die einzelnen Tracks werden als Spaltenpaare dargestellt mit jeweils einer Spalte für die X- und Y-Koordinaten zu einem jeweiligen Zeitpunkt.
+Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{tableTracks} zu sehen.
+
 
 \begin{table}[ht]
 \begin{adjustbox}{width=1\textwidth}
@@ -61,6 +99,7 @@ Die X- und Y-Koordinaten von der detektierten Partikeln sind dann links angehän
     \end{tabular}
 \end{adjustbox}
 \caption{Beispielhafter Ausschnitt aus einem CSV File} 
+\label{tableTracks}
 \end{table} 
 
 \subsection{Menge}
@@ -96,3 +135,10 @@ Menge in gecleanten Daten:
 8426 Weizenkörner
 
 
+\section{Daten Postprocessing}
+
+[FilterTracksByAngle] [FilterByVectorLengthChange]
+
+\section{Data Augmentation}
+
+[Spiegeln]
