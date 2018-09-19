@@ -1,0 +1,955 @@
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-17_10.03.02
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec-leaky
+INFO:root:/home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec-leaky does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 213.5474, 'loss': 104243.164, 'rmse': 14.613261, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 36.680294, 'loss': 17905.486, 'rmse': 6.056426, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 15.038217, 'loss': 7340.9053, 'rmse': 3.877914, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 12.671231, 'loss': 6185.4614, 'rmse': 3.5596673, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 2.285656, 'loss': 1115.7429, 'rmse': 1.5118386, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 1.5861859, 'loss': 774.2967, 'rmse': 1.2594388, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 1.4552679, 'loss': 710.38904, 'rmse': 1.2063448, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.83558416, 'loss': 407.8904, 'rmse': 0.9141029, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.8984335, 'loss': 438.5703, 'rmse': 0.9478573, 'global_step': 40500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.6379583, 'loss': 311.41934, 'rmse': 0.7987229, 'global_step': 45500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.95287335, 'loss': 465.1451, 'rmse': 0.9761523, 'global_step': 50500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.99113744, 'loss': 483.82373, 'rmse': 0.99555886, 'global_step': 55500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 1.1269205, 'loss': 550.10626, 'rmse': 1.061565, 'global_step': 60500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.5916514, 'loss': 288.81464, 'rmse': 0.76918876, 'global_step': 65500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.576278, 'loss': 281.3101, 'rmse': 0.75912976, 'global_step': 70500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.90831083, 'loss': 443.39194, 'rmse': 0.9530534, 'global_step': 75500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.62143743, 'loss': 303.35468, 'rmse': 0.78831303, 'global_step': 80500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.59343433, 'loss': 289.68497, 'rmse': 0.7703469, 'global_step': 85500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 2.5316062, 'loss': 1235.8036, 'rmse': 1.5911022, 'global_step': 90500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.506136, 'loss': 247.07028, 'rmse': 0.71143234, 'global_step': 95500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 1.4958017, 'loss': 730.1756, 'rmse': 1.2230297, 'global_step': 100500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 1.4721978, 'loss': 718.6534, 'rmse': 1.2133416, 'global_step': 105500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.5348663, 'loss': 261.09497, 'rmse': 0.73134553, 'global_step': 110500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.48011327, 'loss': 234.36728, 'rmse': 0.6929021, 'global_step': 115500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.67009234, 'loss': 327.10556, 'rmse': 0.81859165, 'global_step': 120500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.49029005, 'loss': 239.33508, 'rmse': 0.7002072, 'global_step': 125500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.4321444, 'loss': 210.9513, 'rmse': 0.6573769, 'global_step': 130500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.48887637, 'loss': 238.64499, 'rmse': 0.69919693, 'global_step': 135500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.5408523, 'loss': 264.01703, 'rmse': 0.7354266, 'global_step': 140500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 0.5436562, 'loss': 265.38577, 'rmse': 0.73733044, 'global_step': 145500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.7381768, 'loss': 360.341, 'rmse': 0.85917217, 'global_step': 150500}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.4837964, 'loss': 236.1652, 'rmse': 0.69555473, 'global_step': 155500}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 0.98348325, 'loss': 480.08734, 'rmse': 0.99170727, 'global_step': 160500}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 0.45938882, 'loss': 224.25066, 'rmse': 0.6777823, 'global_step': 165500}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 1.5061814, 'loss': 735.24243, 'rmse': 1.2272658, 'global_step': 170500}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 0.66318214, 'loss': 323.73236, 'rmse': 0.81435996, 'global_step': 175500}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 0.44624704, 'loss': 217.8355, 'rmse': 0.66801727, 'global_step': 180500}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 0.5970061, 'loss': 291.42853, 'rmse': 0.7726617, 'global_step': 185500}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-17_10.49.06
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec-leaky
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.7825921, 'loss': 382.02234, 'rmse': 0.88464236, 'global_step': 187000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.51840633, 'loss': 253.06006, 'rmse': 0.7200044, 'global_step': 192000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.454761, 'loss': 221.99158, 'rmse': 0.6743597, 'global_step': 197000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.6407347, 'loss': 312.77463, 'rmse': 0.800459, 'global_step': 202000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.7280265, 'loss': 355.38614, 'rmse': 0.8532447, 'global_step': 207000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.5505462, 'loss': 268.74915, 'rmse': 0.741988, 'global_step': 212000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.44750375, 'loss': 218.44894, 'rmse': 0.66895723, 'global_step': 217000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.41995925, 'loss': 205.0031, 'rmse': 0.6480426, 'global_step': 222000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.5461426, 'loss': 266.59952, 'rmse': 0.7390146, 'global_step': 227000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.66417146, 'loss': 324.2153, 'rmse': 0.81496716, 'global_step': 232000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.58367777, 'loss': 284.9223, 'rmse': 0.7639881, 'global_step': 237000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.46983325, 'loss': 229.34909, 'rmse': 0.6854438, 'global_step': 242000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 1.1077245, 'loss': 540.7357, 'rmse': 1.052485, 'global_step': 247000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.83588725, 'loss': 408.03836, 'rmse': 0.9142687, 'global_step': 252000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.42098486, 'loss': 205.50375, 'rmse': 0.64883345, 'global_step': 257000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.53305346, 'loss': 260.21005, 'rmse': 0.7301051, 'global_step': 262000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.4689969, 'loss': 228.94084, 'rmse': 0.68483347, 'global_step': 267000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.4516701, 'loss': 220.48276, 'rmse': 0.67206407, 'global_step': 272000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.60927415, 'loss': 297.41718, 'rmse': 0.78056014, 'global_step': 277000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.62380916, 'loss': 304.51245, 'rmse': 0.7898159, 'global_step': 282000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.5832251, 'loss': 284.70132, 'rmse': 0.7636917, 'global_step': 287000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 1.1058384, 'loss': 539.81506, 'rmse': 1.0515885, 'global_step': 292000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.4427699, 'loss': 216.13814, 'rmse': 0.66540956, 'global_step': 297000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.88079244, 'loss': 429.95883, 'rmse': 0.9385054, 'global_step': 302000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.68029493, 'loss': 332.08597, 'rmse': 0.82479995, 'global_step': 307000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.5334014, 'loss': 260.3799, 'rmse': 0.73034334, 'global_step': 312000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.5132464, 'loss': 250.54123, 'rmse': 0.7164122, 'global_step': 317000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.52459806, 'loss': 256.08255, 'rmse': 0.72429144, 'global_step': 322000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.5127098, 'loss': 250.2793, 'rmse': 0.7160376, 'global_step': 327000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 0.4881292, 'loss': 238.28027, 'rmse': 0.69866246, 'global_step': 332000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.63866746, 'loss': 311.76553, 'rmse': 0.79916674, 'global_step': 337000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.4312811, 'loss': 210.52986, 'rmse': 0.6567199, 'global_step': 342000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 0.4657809, 'loss': 227.37094, 'rmse': 0.68248147, 'global_step': 347000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 0.41621023, 'loss': 203.17302, 'rmse': 0.64514357, 'global_step': 352000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 0.71229655, 'loss': 347.70758, 'rmse': 0.8439766, 'global_step': 357000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 1.2895882, 'loss': 629.5125, 'rmse': 1.1356003, 'global_step': 362000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 0.60694444, 'loss': 296.27994, 'rmse': 0.7790664, 'global_step': 367000}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 0.979617, 'loss': 478.20004, 'rmse': 0.98975605, 'global_step': 372000}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 0.4827738, 'loss': 235.66605, 'rmse': 0.6948193, 'global_step': 377000}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 1.4644961, 'loss': 714.8938, 'rmse': 1.2101637, 'global_step': 382000}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 0.5462231, 'loss': 266.6388, 'rmse': 0.7390691, 'global_step': 387000}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 0.664247, 'loss': 324.25217, 'rmse': 0.81501347, 'global_step': 392000}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 0.61678743, 'loss': 301.08478, 'rmse': 0.78535813, 'global_step': 397000}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 0.48450235, 'loss': 236.50981, 'rmse': 0.696062, 'global_step': 402000}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 0.60830474, 'loss': 296.94394, 'rmse': 0.77993894, 'global_step': 407000}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 0.48181447, 'loss': 235.19772, 'rmse': 0.6941286, 'global_step': 412000}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 1.4972707, 'loss': 730.8927, 'rmse': 1.2236302, 'global_step': 417000}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 0.48890263, 'loss': 238.6578, 'rmse': 0.6992157, 'global_step': 422000}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 0.440862, 'loss': 215.20679, 'rmse': 0.6639744, 'global_step': 427000}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 0.8291516, 'loss': 404.75034, 'rmse': 0.9105776, 'global_step': 432000}
+INFO:root:Training completed. final average loss: 0.543, best average loss during training: 0.416
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-17_17.44.38
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec-leaky
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.7859607, 'loss': 383.6667, 'rmse': 0.8865442, 'global_step': 437000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.4449305, 'loss': 217.19283, 'rmse': 0.6670311, 'global_step': 442000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.55869263, 'loss': 272.7258, 'rmse': 0.74745744, 'global_step': 447000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.5352616, 'loss': 261.28793, 'rmse': 0.7316157, 'global_step': 452000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.4267055, 'loss': 208.2963, 'rmse': 0.653227, 'global_step': 457000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.69203424, 'loss': 337.8165, 'rmse': 0.83188593, 'global_step': 462000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.75501764, 'loss': 368.56186, 'rmse': 0.8689175, 'global_step': 467000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.54090035, 'loss': 264.0405, 'rmse': 0.73545927, 'global_step': 472000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.5651592, 'loss': 275.88248, 'rmse': 0.75177073, 'global_step': 477000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.45764285, 'loss': 223.39836, 'rmse': 0.67649305, 'global_step': 482000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.4496436, 'loss': 219.49353, 'rmse': 0.6705547, 'global_step': 487000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.55772674, 'loss': 272.2543, 'rmse': 0.74681103, 'global_step': 492000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.59536606, 'loss': 290.62796, 'rmse': 0.77159965, 'global_step': 497000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.56555355, 'loss': 276.07498, 'rmse': 0.75203294, 'global_step': 502000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.46523312, 'loss': 227.10355, 'rmse': 0.68208, 'global_step': 507000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.4210747, 'loss': 205.5476, 'rmse': 0.64890265, 'global_step': 512000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.46457788, 'loss': 226.78369, 'rmse': 0.6815995, 'global_step': 517000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.40204328, 'loss': 196.25743, 'rmse': 0.63406885, 'global_step': 522000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.74422956, 'loss': 363.29565, 'rmse': 0.8626874, 'global_step': 527000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.41378316, 'loss': 201.98825, 'rmse': 0.6432598, 'global_step': 532000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.42017868, 'loss': 205.11023, 'rmse': 0.6482119, 'global_step': 537000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 0.4349299, 'loss': 212.31104, 'rmse': 0.65949214, 'global_step': 542000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.4351446, 'loss': 212.41585, 'rmse': 0.6596549, 'global_step': 547000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.4500507, 'loss': 219.69226, 'rmse': 0.6708582, 'global_step': 552000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.46698177, 'loss': 227.95715, 'rmse': 0.68336064, 'global_step': 557000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.5493127, 'loss': 268.147, 'rmse': 0.74115634, 'global_step': 562000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.5083552, 'loss': 248.1536, 'rmse': 0.71299034, 'global_step': 567000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.45134756, 'loss': 220.32532, 'rmse': 0.67182404, 'global_step': 572000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.66308516, 'loss': 323.68503, 'rmse': 0.8143004, 'global_step': 577000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 0.48134208, 'loss': 234.96713, 'rmse': 0.69378823, 'global_step': 582000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.40055352, 'loss': 195.5302, 'rmse': 0.63289297, 'global_step': 587000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.3902992, 'loss': 190.52457, 'rmse': 0.6247393, 'global_step': 592000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 0.5268566, 'loss': 257.18506, 'rmse': 0.72584885, 'global_step': 597000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 0.55098104, 'loss': 268.9614, 'rmse': 0.74228096, 'global_step': 602000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 0.47285974, 'loss': 230.82649, 'rmse': 0.687648, 'global_step': 607000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 0.42623913, 'loss': 208.06863, 'rmse': 0.65286994, 'global_step': 612000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 0.45432913, 'loss': 221.78076, 'rmse': 0.6740394, 'global_step': 617000}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 0.41288283, 'loss': 201.54875, 'rmse': 0.6425596, 'global_step': 622000}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 0.43820104, 'loss': 213.90784, 'rmse': 0.6619676, 'global_step': 627000}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 0.5263469, 'loss': 256.93625, 'rmse': 0.7254977, 'global_step': 632000}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 0.423388, 'loss': 206.67685, 'rmse': 0.65068275, 'global_step': 637000}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 0.5241336, 'loss': 255.85583, 'rmse': 0.7239707, 'global_step': 642000}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 0.47107616, 'loss': 229.95584, 'rmse': 0.68634987, 'global_step': 647000}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 0.39632222, 'loss': 193.46469, 'rmse': 0.6295413, 'global_step': 652000}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 0.44543073, 'loss': 217.43701, 'rmse': 0.66740596, 'global_step': 657000}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 0.41647622, 'loss': 203.30287, 'rmse': 0.6453497, 'global_step': 662000}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 0.39534032, 'loss': 192.98538, 'rmse': 0.62876093, 'global_step': 667000}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 0.39314166, 'loss': 191.9121, 'rmse': 0.6270101, 'global_step': 672000}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 0.39145383, 'loss': 191.08818, 'rmse': 0.62566274, 'global_step': 677000}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 0.39041963, 'loss': 190.58334, 'rmse': 0.62483567, 'global_step': 682000}
+INFO:root:Training completed. final average loss: 0.420, best average loss during training: 0.390
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-18_09.35.09
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec-leaky
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.39957994, 'loss': 195.05495, 'rmse': 0.63212335, 'global_step': 687000}
+INFO:root:reached cancel Threshold. finishing training
+INFO:root:Training completed. final average loss: 0.400, best average loss during training: 0.400
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-18_09.36.12
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec-leaky
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.399580
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec-leaky_highestLoss_2018-09-18_09.36.12.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec-leaky_2018-09-18_09.36.12.png
+INFO:root:
+       NNpixelErrorTotal        ...          CApixelErrorTotal
+count        9763.000000        ...                9763.000000
+mean            0.747657        ...                   2.089596
+std             0.490096        ...                   1.167131
+min             0.015747        ...                   0.000000
+25%             0.451484        ...                   1.118034
+50%             0.694163        ...                   2.000000
+75%             0.982766        ...                   3.000000
+max            23.139546        ...                  13.038405
+
+[8 rows x 3 columns]
+INFO:root:number of predictions with error > 3: 7
+INFO:matplotlib.backends._backend_tk:Could not load matplotlib icon: can't use "pyimage28" as iconphoto: not a photo image
+          X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+26568  1802.0  1803.0  1805.0  1806.0   ...     855.0   943.0  1031.0  1119.0
+39359   894.0   892.0   890.0   888.0   ...     787.0   878.0   969.0  1059.0
+78627   926.0   920.0   915.0   909.0   ...     146.0   209.0   271.0   332.0
+13382  1702.0  1701.0  1699.0  1698.0   ...    1003.0  1092.0  1182.0  1271.0
+80839  1837.0  1837.0  1837.0  1837.0   ...    1415.0  1476.0  1534.0  1592.0
+85190   540.0   539.0   537.0   535.0   ...     223.0   287.0   350.0   415.0
+77191   947.0   945.0   944.0   942.0   ...     609.0   672.0   737.0   801.0
+85723  1676.0  1676.0  1676.0  1675.0   ...     294.0   385.0   474.0   565.0
+77726   873.0   872.0   871.0   870.0   ...    1188.0  1254.0  1318.0  1382.0
+75745  1649.0  1650.0  1651.0  1651.0   ...     404.0   467.0   530.0   593.0
+
+[10 rows x 10 columns]
+       LabelX  LabelY
+26568  1809.0  1207.0
+39359   884.0  1150.0
+78627   897.0   393.0
+13382  1696.0  1361.0
+80839  1835.0  1650.0
+85190   532.0   478.0
+77191   939.0   865.0
+85723  1675.0   654.0
+77726   869.0  1446.0
+75745  1652.0   655.0
+predicted: 
+[1809.21 1206.89]
+[ 884.25 1148.88]
+[897.79 394.47]
+[1695.5  1358.95]
+[1836.15 1650.16]
+[532.14 478.2 ]
+[938.84 865.02]
+[1674.34  654.75]
+[ 868.87 1445.6 ]
+[1652.57  655.63]
+time: 0.20s
+MSE (tensorflow): 0.597875
+INFO:root:Tensorflow 1.8.0
+usage: DNNRegressor-Example.py [-h] [--training] [--plot] [--single] [--fake]
+                               [--plotNo PLOTNO] [--hyperparams HYPERPARAMS]
+                               [--save [SAVE [SAVE ...]]]
+                               [--load [LOAD [LOAD ...]]] [--dispWeights]
+                               [--overrideModel OVERRIDEMODEL]
+                               [--overrideInput OVERRIDEINPUT]
+                               [--progressPlot] [--debug]
+                               [--tensorboard_debug_address TENSORBOARD_DEBUG_ADDRESS]
+                               [--lossAna] [--custom]
+                               [--separator [SEPARATOR [SEPARATOR ...]]]
+                               [--augment] [--target TARGET]
+DNNRegressor-Example.py: error: unrecognized arguments: --weights
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-18_09.37.56
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec-leaky
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.399580
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec-leaky_highestLoss_2018-09-18_09.37.56.png
+          X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+84482  1651.0  1654.0  1657.0  1659.0   ...     192.0   252.0   314.0   375.0
+15470  1140.0  1137.0  1135.0  1133.0   ...     672.0   766.0   860.0   954.0
+17187   994.0   992.0   990.0   988.0   ...     384.0   477.0   570.0   664.0
+22643  1448.0  1442.0  1437.0  1431.0   ...    1166.0  1259.0  1352.0  1444.0
+72182   646.0   646.0   646.0   645.0   ...     848.0   940.0  1031.0  1123.0
+46419  1065.0  1065.0  1064.0  1064.0   ...     847.0   940.0  1031.0  1123.0
+43014   704.0   702.0   699.0   696.0   ...     242.0   335.0   429.0   523.0
+70326  1134.0  1134.0  1134.0  1134.0   ...     384.0   478.0   572.0   665.0
+69655   694.0   695.0   696.0   697.0   ...    1036.0  1128.0  1218.0  1309.0
+78717  1500.0  1492.0  1484.0  1476.0   ...     332.0   391.0   449.0   507.0
+
+[10 rows x 10 columns]
+       LabelX  LabelY
+84482  1664.0   436.0
+15470  1129.0  1047.0
+17187   983.0   757.0
+22643  1421.0  1537.0
+72182   645.0  1213.0
+46419  1064.0  1213.0
+43014   691.0   616.0
+70326  1135.0   759.0
+69655   700.0  1399.0
+78717  1460.0   565.0
+predicted: 
+[1664.68  435.51]
+[1128.76 1046.76]
+[983.32 756.54]
+[1420.32 1536.2 ]
+[ 644.77 1213.08]
+[1063.47 1214.43]
+[691.23 616.22]
+[1134.15  758.47]
+[ 699.36 1399.13]
+[1460.12  565.37]
+time: 0.18s
+MSE (tensorflow): 0.315710
+name: 
+beta1_power
+
+value: 
+0.0
+name: 
+beta2_power
+
+value: 
+0.0
+name: 
+dense/bias
+
+value: 
+[ 0.89 -0.03 -0.31  0.   -0.06 -0.1  -1.43  0.   -0.09  0.   -0.03  0.11
+ -0.11  0.    0.73 -0.03]
+name: 
+dense/bias/Adam
+
+value: 
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+name: 
+dense/bias/Adam_1
+
+value: 
+[0.   0.   0.04 0.   0.   0.   0.   0.   0.01 0.   0.   0.   0.   0.
+ 0.   0.  ]
+name: 
+dense/kernel
+
+value: 
+[[-5.09e-01 -4.53e-01 -1.01e-01 -2.85e-01 -4.71e-01 -2.94e-01 -1.47e-01
+   8.31e-02 -3.58e-01 -1.66e-01 -2.40e-01 -4.05e-01 -1.25e-01  1.56e-01
+   4.87e-01 -1.22e-01]
+ [-3.44e-01 -4.72e-01 -3.73e-01 -2.54e-01 -6.94e-02 -3.54e-01 -5.22e-03
+  -2.32e-01 -2.56e-02 -2.84e-01  4.80e-02 -5.00e-01  1.49e-01  5.77e-02
+   2.08e-01  4.02e-01]
+ [ 3.74e-01 -2.75e-01  7.40e-02 -2.64e-01  5.98e-02  3.18e-01 -4.22e-01
+  -1.41e-01 -3.61e-02 -2.26e-01 -4.85e-01 -3.50e-01  3.54e-01 -1.13e-02
+  -4.68e-01  8.35e-02]
+ [-1.81e-01  3.14e-01  7.24e-01 -4.25e-01 -9.81e-02 -4.88e-02 -4.63e-01
+   2.15e-01  5.61e-01 -1.56e-01  3.44e-02  1.32e-01 -8.12e-02 -2.73e-01
+  -5.56e-01 -2.65e-01]
+ [-2.53e-02 -1.91e-01  3.28e-01  3.09e-01 -2.47e-01 -1.15e-01 -1.25e-01
+  -7.74e-02  8.82e-01  4.32e-02  2.72e-01  2.11e-01 -2.13e-01 -1.59e-01
+  -7.63e-01 -2.00e-01]
+ [-8.45e-02  7.13e-02 -6.97e-01  3.23e-01  2.26e-02  1.02e-01 -5.45e-01
+   1.64e-01  6.20e-01 -9.75e-02  1.63e-01 -6.89e-01  6.43e-02  5.69e-02
+  -4.96e-01 -3.46e-01]
+ [-3.85e-01 -5.95e-02  2.41e-01 -3.44e-01  2.44e-01  1.96e-01 -5.63e-01
+  -2.91e-01 -1.25e-01 -3.15e-01  2.58e-02  1.89e-01  3.36e-02  8.99e-02
+   2.57e-01 -3.39e-01]
+ [-2.03e-01 -1.57e-01  2.83e-01 -2.45e-01 -5.92e-02  2.76e-01  3.03e-01
+  -1.46e-01 -4.41e-01  2.48e-01 -2.96e-01  4.81e-02 -5.53e-01 -1.08e-01
+  -5.95e-02 -1.29e-02]
+ [ 8.14e-03  1.25e-01  6.13e-01 -1.98e-01 -3.53e-01 -4.70e-01 -1.40e-01
+  -6.36e-02 -3.38e-01 -1.16e-01 -2.43e-01 -2.54e-01 -3.78e-03 -3.34e-01
+   3.96e-01  4.27e-01]
+ [ 3.87e-01 -5.96e-04  4.42e-01 -4.36e-01  4.04e-02 -2.25e-02  4.62e-01
+  -4.10e-01 -6.00e-01 -4.52e-01  2.49e-01  1.54e-01 -2.60e-01  2.83e-01
+   8.46e-01 -3.71e-01]]
+name: 
+dense/kernel/Adam
+
+value: 
+[[0.   0.   2.7  0.   0.   0.   0.   0.   2.32 0.   0.   0.   0.   0.
+  2.34 0.  ]
+ [0.   0.   2.64 0.   0.   0.   0.   0.   2.34 0.   0.   0.   0.   0.
+  2.32 0.  ]
+ [0.   0.   2.66 0.   0.   0.   0.   0.   2.34 0.   0.   0.   0.   0.
+  2.34 0.  ]
+ [0.   0.   2.67 0.   0.   0.   0.   0.   2.36 0.   0.   0.   0.   0.
+  2.32 0.  ]
+ [0.   0.   2.58 0.   0.   0.   0.   0.   2.36 0.   0.   0.   0.   0.
+  2.34 0.  ]
+ [0.   0.   1.96 0.   0.   0.   0.   0.   1.35 0.   0.   0.   0.   0.
+  2.93 0.  ]
+ [0.   0.   2.02 0.   0.   0.   0.   0.   1.58 0.   0.   0.   0.   0.
+  3.15 0.  ]
+ [0.   0.   2.   0.   0.   0.   0.   0.   1.77 0.   0.   0.   0.   0.
+  3.33 0.  ]
+ [0.   0.   1.99 0.   0.   0.   0.   0.   2.03 0.   0.   0.   0.   0.
+  3.54 0.  ]
+ [0.   0.   1.91 0.   0.   0.   0.   0.   2.25 0.   0.   0.   0.   0.
+  3.75 0.  ]]
+name: 
+dense/kernel/Adam_1
+
+value: 
+[[    0.       0.   62295.65     0.       0.       0.       0.       0.
+  16824.81     0.       0.       0.       0.       0.    1381.56     0.  ]
+ [    0.       0.   62285.27     0.       0.       0.       0.       0.
+  16821.46     0.       0.       0.       0.       0.    1378.51     0.  ]
+ [    0.       0.   62274.43     0.       0.       0.       0.       0.
+  16817.05     0.       0.       0.       0.       0.    1378.99     0.  ]
+ [    0.       0.   62262.29     0.       0.       0.       0.       0.
+  16812.06     0.       0.       0.       0.       0.    1376.25     0.  ]
+ [    0.       0.   62247.92     0.       0.       0.       0.       0.
+  16806.37     0.       0.       0.       0.       0.    1375.26     0.  ]
+ [    0.       0.   20230.81     0.       0.       0.       0.       0.
+   2955.09     0.       0.       0.       0.       0.    1684.74     0.  ]
+ [    0.       0.   25720.46     0.       0.       0.       0.       0.
+   3904.83     0.       0.       0.       0.       0.    2028.75     0.  ]
+ [    0.       0.   31868.74     0.       0.       0.       0.       0.
+   4987.3      0.       0.       0.       0.       0.    2401.41     0.  ]
+ [    0.       0.   38667.73     0.       0.       0.       0.       0.
+   6202.23     0.       0.       0.       0.       0.    2807.71     0.  ]
+ [    0.       0.   46113.53     0.       0.       0.       0.       0.
+   7548.73     0.       0.       0.       0.       0.    3243.24     0.  ]]
+name: 
+dense_1/bias
+
+value: 
+[-0.19 -0.19 -0.62  0.14  0.   -0.02 -0.13  0.   -0.14  0.   -0.08 -0.1
+  0.21 -0.36 -0.12 -0.11]
+name: 
+dense_1/bias/Adam
+
+value: 
+[ 0.  0.  0.  0.  0.  0.  0.  0. -0.  0. -0.  0.  0.  0.  0.  0.]
+name: 
+dense_1/bias/Adam_1
+
+value: 
+[0.   0.   0.   0.   0.   0.   0.   0.   0.02 0.   0.02 0.   0.01 0.
+ 0.02 0.  ]
+name: 
+dense_1/kernel
+
+value: 
+[[ 2.25e-01  1.47e-01 -1.14e-01  2.13e-01 -2.98e-01 -9.79e-02 -2.72e-02
+  -3.35e-01  3.90e-02  3.52e-01 -1.63e-01  3.22e-01 -1.59e-01  2.23e-01
+   1.04e-01 -4.86e-01]
+ [-1.62e-01 -2.27e-01  1.85e-01 -1.83e-01  2.47e-01 -4.07e-02  1.78e-01
+   4.13e-01  3.03e-01  2.52e-01  2.86e-01 -1.51e-01  2.36e-01  1.59e-01
+  -1.05e-01 -1.49e-01]
+ [-1.93e-01 -1.40e-01 -4.10e-02 -8.82e-02 -3.66e-01 -6.29e-05 -3.22e-01
+  -2.18e-01  2.77e-01 -3.65e-01  5.35e-01 -1.80e-01  3.26e-01 -1.35e-01
+   4.91e-01 -2.70e-01]
+ [ 4.02e-01  4.09e-01 -1.66e-01 -4.17e-01 -9.81e-02  1.16e-01 -2.75e-01
+   2.69e-01  2.24e-01  2.46e-01 -1.12e-01  7.63e-02 -3.51e-01 -2.77e-01
+  -3.24e-02 -1.52e-01]
+ [-2.88e-01 -3.09e-01  1.78e-01  2.68e-01 -9.43e-02  3.07e-01 -3.71e-02
+  -2.36e-01  3.15e-01  3.03e-01 -2.76e-01 -3.00e-01 -1.24e-01  1.70e-01
+  -3.59e-01 -3.09e-01]
+ [-3.49e-01 -1.15e-01  1.15e-01  2.89e-01  2.36e-01 -1.65e-01 -9.09e-02
+   4.01e-01 -1.24e-01 -3.24e-01  4.57e-02  1.97e-01  1.22e-01 -2.87e-02
+  -1.14e-01  1.58e-01]
+ [-2.04e-01 -4.07e-01 -5.08e-01 -2.23e-01 -2.78e-02  3.45e-02 -5.91e-01
+  -1.43e-01 -1.73e-01 -1.11e-01  1.91e-01 -8.24e-01 -3.16e-01 -6.36e-01
+   1.31e-01  1.94e-01]
+ [ 4.30e-01 -2.01e-01  1.92e-01  3.45e-01  6.36e-02 -1.71e-01  2.68e-01
+  -2.84e-01 -1.03e-01  2.84e-01  1.60e-01 -1.93e-01  5.43e-02 -3.71e-01
+   3.50e-01  2.12e-01]
+ [-7.30e-02 -3.97e-02 -2.67e-01  6.40e-02 -3.53e-01  5.71e-01 -2.84e-02
+  -2.98e-01  6.09e-01  8.28e-02  4.68e-02  1.40e-01 -3.07e-01 -5.11e-02
+  -3.62e-01 -3.51e-01]
+ [-2.72e-01  2.22e-02  2.12e-01 -2.34e-01  1.85e-01 -4.78e-02  2.48e-01
+   2.03e-01 -2.83e-01 -4.30e-01  4.25e-01  5.91e-04  2.45e-01  2.32e-01
+   2.64e-01  1.72e-01]
+ [ 2.62e-01 -3.57e-01 -5.97e-02  2.39e-01 -4.27e-01 -4.06e-01  3.83e-01
+  -2.79e-01  3.09e-01 -9.59e-02 -9.86e-02 -1.05e-02  4.26e-01  3.78e-01
+  -2.82e-01 -2.00e-01]
+ [ 9.36e-02 -3.53e-01  2.99e-01  3.63e-01 -1.85e-01 -2.37e-02  7.46e-03
+  -3.95e-01 -5.00e-02  8.67e-02  7.47e-02  3.99e-01  1.97e-01 -3.45e-01
+  -4.65e-02 -2.65e-01]
+ [ 4.43e-01  2.89e-01 -1.61e-01  1.13e-01  2.32e-01 -2.15e-01  1.61e-01
+  -5.81e-02 -1.23e-01 -2.01e-01  1.78e-01  4.31e-01  1.59e-02 -1.54e-01
+   6.03e-02  2.89e-02]
+ [ 3.63e-01  3.97e-02  7.46e-02  8.94e-04 -3.10e-01  1.92e-01  2.33e-01
+   2.59e-01  2.46e-01  2.90e-01 -2.20e-01  2.39e-01 -1.89e-01 -9.80e-02
+  -4.09e-01  2.99e-03]
+ [-2.15e-01  2.34e-02 -1.32e-01 -3.17e+00 -1.80e-01 -2.51e+01  2.44e-01
+   1.80e-01 -2.94e-01 -2.91e-01 -5.59e-01 -6.86e-02  1.04e+00 -1.79e-01
+   8.87e-02 -2.41e-01]
+ [ 2.78e-01  3.17e-01 -7.10e-02  1.81e-01  2.35e-01  3.39e-01  1.37e-01
+   6.93e-02  2.38e-01 -2.06e-01 -4.03e-01 -1.26e-02  4.31e-01  1.15e-01
+  -3.36e-01 -2.19e-01]]
+name: 
+dense_1/kernel/Adam
+
+value: 
+[[ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  2.54e+00  0.00e+00
+   0.00e+00  7.73e-01  0.00e+00  1.39e+00  0.00e+00  2.61e+00  0.00e+00
+   3.40e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  2.49e-01  0.00e+00
+   0.00e+00  6.18e-01  0.00e+00  6.43e-01  0.00e+00  2.27e-01  0.00e+00
+   5.71e-01  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  6.57e-11  0.00e+00
+   0.00e+00 -8.21e-01  0.00e+00 -3.80e-01  0.00e+00  6.79e-01  0.00e+00
+   3.42e-01  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]]
+name: 
+dense_1/kernel/Adam_1
+
+value: 
+[[0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 1.37e+04 0.00e+00 0.00e+00
+  6.25e+04 0.00e+00 6.78e+04 0.00e+00 3.18e+04 0.00e+00 7.03e+04 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 1.17e+03 0.00e+00 0.00e+00
+  2.81e+03 0.00e+00 2.86e+03 0.00e+00 1.31e+03 0.00e+00 2.84e+03 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 1.58e-15 0.00e+00 0.00e+00
+  3.75e+02 0.00e+00 3.86e+02 0.00e+00 2.24e+02 0.00e+00 4.27e+02 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]]
+name: 
+dense_2/bias
+
+value: 
+[-0.08  0.45 -0.1   0.08  0.    0.    0.94 -0.13  0.3  -0.18  0.24  0.22
+  0.28 -0.05  0.29 -0.11]
+name: 
+dense_2/bias/Adam
+
+value: 
+[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. -0.  0.  0.  0.]
+name: 
+dense_2/bias/Adam_1
+
+value: 
+[0.01 0.   0.   0.   0.   0.   0.   0.   0.01 0.   0.02 0.01 0.02 0.
+ 0.   0.  ]
+name: 
+dense_2/kernel
+
+value: 
+[[-3.83e-02  1.69e-03 -1.50e-01  3.72e-01  1.61e-01 -2.70e-01 -1.97e-01
+   1.11e-01 -2.56e-01 -1.63e-02  1.64e-01 -3.72e-01  4.27e-01 -2.53e-01
+   1.03e-01 -2.35e-01]
+ [ 1.78e-01 -1.38e+00  3.39e-01  2.80e-01  8.35e-02 -3.08e-01  3.53e-01
+   7.57e-02 -2.97e-01  1.93e-02  2.44e-01  3.18e-01  1.55e-01  1.98e-01
+   3.76e-01 -1.58e-01]
+ [ 2.06e-01 -2.79e-01 -1.12e-01 -2.29e-01  3.73e-01 -2.11e-01 -5.10e-01
+  -8.35e-02 -9.12e-02 -4.52e-01  4.05e-01 -8.54e-02  2.32e-01 -2.16e-01
+  -2.59e-01 -2.25e-01]
+ [ 1.86e-01  2.31e-01 -4.37e-02 -6.72e-02 -1.34e-01 -1.66e-01  6.40e-01
+  -9.52e-02  2.76e-01  9.83e-02 -2.04e-01  4.03e-02 -2.39e-01 -3.42e-02
+   1.53e-01 -3.70e-01]
+ [ 3.84e-01  3.14e-01  2.25e-01  3.93e-02 -2.67e-01  4.06e-01  1.28e-01
+  -4.14e-01 -3.86e-01  4.38e-02  4.21e-01  1.93e-01  3.41e-02 -3.72e-02
+  -4.58e-02 -3.78e-01]
+ [-1.01e-01 -2.17e-03 -1.38e-01  2.08e-01  3.72e-02 -3.69e-01 -2.55e+00
+  -5.25e-01  9.07e-03 -5.90e-01 -3.13e-01  4.36e-02  6.24e-01 -3.98e-01
+  -4.83e-01 -1.61e-01]
+ [-4.27e-02 -8.16e-01  2.27e-01  2.86e-01  1.52e-01 -2.79e-01 -1.18e-01
+  -2.87e-01  2.73e-01 -4.80e-01  4.78e-02 -3.80e-01  1.46e-01  7.43e-02
+   3.31e-01 -1.41e-01]
+ [-1.77e-01  2.20e-02 -1.58e-02 -2.23e-01  4.49e-02 -3.40e-01 -2.11e-01
+   3.14e-01  2.73e-01 -3.86e-01 -8.19e-02  1.91e-02  1.42e-01 -1.14e-01
+  -1.64e-02 -3.91e-01]
+ [-2.54e-01 -9.63e-02 -3.49e-01 -1.61e-01  1.10e-01 -8.93e-04 -1.36e-01
+   1.51e-01  6.10e-01  9.15e-02  8.08e-02 -1.33e-01  6.23e-01  1.80e-01
+   4.84e-01  2.15e-01]
+ [-1.48e-01 -3.22e-01 -1.39e-01  3.24e-01 -2.98e-01 -2.12e-01  2.72e-01
+  -4.31e-01 -2.07e-01 -1.39e-01 -2.00e-01  1.76e-01  6.23e-02  1.09e-01
+  -2.58e-01 -1.14e-01]
+ [ 4.46e-01 -3.09e-01  5.88e-02 -5.92e-02 -3.86e-01 -1.22e-01 -4.72e-01
+  -2.62e-01  2.67e-02  1.28e-01  1.44e-01  4.73e-01  5.64e-01 -1.12e-01
+   1.72e-01 -4.53e-01]
+ [ 4.19e-01 -1.74e-02  2.22e-01  5.58e-02 -2.94e-01  3.88e-01  1.09e-01
+  -3.85e-01 -3.96e-01 -4.10e-01 -2.48e-01  3.42e-01  5.75e-02  1.66e-01
+   3.27e-02 -4.93e-01]
+ [-5.47e-02 -1.18e-01 -5.20e-01 -2.92e-01 -6.67e-02 -1.88e-01  3.20e-01
+  -2.82e-01  3.06e-01 -4.12e-01  6.23e-01 -1.21e-01 -9.89e-02 -2.22e-01
+  -3.62e-01 -4.07e-01]
+ [ 1.32e-01  4.18e-01  3.65e-01 -2.43e-01  1.60e-01 -7.68e-02  1.48e-01
+   1.53e-01 -1.41e-01 -3.53e-03 -2.98e-01 -2.03e-01 -2.69e-02 -2.72e-01
+   8.75e-02  1.52e-01]
+ [ 3.40e-01  2.20e-01 -1.60e-01  9.96e-02  4.95e-02 -3.45e-01  3.77e-01
+   9.35e-02  4.13e-01 -3.00e-01  2.97e-01  2.97e-01  1.74e-01 -3.69e-01
+  -2.21e-01 -1.55e-01]
+ [-3.06e-01  2.99e-01 -2.88e-01 -2.42e-01  1.89e-01 -1.54e-01 -3.42e-01
+  -4.04e-01  7.56e-02  1.60e-01 -1.48e-01  1.06e-01 -1.09e-01 -2.51e-01
+   3.41e-01 -2.17e-01]]
+name: 
+dense_2/kernel/Adam
+
+value: 
+[[ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 9.11e-02  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  1.53e-12
+   0.00e+00  2.98e-01  0.00e+00  1.72e-01  2.26e-01  3.24e-01  0.00e+00
+   1.85e-02  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 4.29e-01  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  4.02e-01
+   0.00e+00  8.57e-01  0.00e+00  7.88e-01  6.96e-01  7.03e-01  0.00e+00
+   1.29e-01  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 6.53e-01  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  7.81e-01
+   0.00e+00  1.06e+00  0.00e+00  1.19e+00  8.97e-01  7.08e-01  0.00e+00
+   2.13e-01  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 1.04e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  1.02e+00
+   0.00e+00  2.34e-01  0.00e+00  1.82e+00  4.41e-01 -1.10e+00  0.00e+00
+   1.19e-01  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]
+ [ 8.34e-01  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  9.53e-01
+   0.00e+00  6.61e-01  0.00e+00  1.49e+00  6.74e-01 -1.62e-01  0.00e+00
+   1.82e-01  0.00e+00]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00
+   0.00e+00  0.00e+00]]INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec-leaky_2018-09-18_09.37.56.png
+INFO:root:
+       NNpixelErrorTotal        ...          CApixelErrorTotal
+count        9763.000000        ...                9763.000000
+mean            0.747657        ...                   2.089596
+std             0.490096        ...                   1.167131
+min             0.015747        ...                   0.000000
+25%             0.451484        ...                   1.118034
+50%             0.694163        ...                   2.000000
+75%             0.982766        ...                   3.000000
+max            23.139546        ...                  13.038405
+
+[8 rows x 3 columns]
+INFO:root:number of predictions with error > 3: 7
+INFO:matplotlib.backends._backend_tk:Could not load matplotlib icon: can't use "pyimage28" as iconphoto: not a photo image
+
+name: 
+dense_2/kernel/Adam_1
+
+value: 
+[[0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [2.61e+02 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 4.03e-13 0.00e+00
+  6.16e+02 0.00e+00 8.39e+02 3.91e+02 8.63e+02 0.00e+00 1.01e+01 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [2.68e+03 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 3.20e+01 0.00e+00
+  6.53e+03 0.00e+00 8.66e+03 4.17e+03 8.66e+03 0.00e+00 7.49e+01 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [4.76e+03 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 1.21e+02 0.00e+00
+  1.16e+04 0.00e+00 1.53e+04 7.46e+03 1.51e+04 0.00e+00 1.09e+02 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [2.14e+03 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 2.21e+02 0.00e+00
+  5.21e+03 0.00e+00 6.91e+03 3.36e+03 6.62e+03 0.00e+00 2.05e+01 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]
+ [3.34e+03 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 1.83e+02 0.00e+00
+  8.19e+03 0.00e+00 1.08e+04 5.27e+03 1.05e+04 0.00e+00 5.40e+01 0.00e+00]
+ [0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+  0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00]]
+name: 
+dense_3/bias
+
+value: 
+[0.62 0.19]
+name: 
+dense_3/bias/Adam
+
+value: 
+[-0.  0.]
+name: 
+dense_3/bias/Adam_1
+
+value: 
+[0.04 0.04]
+name: 
+dense_3/kernel
+
+value: 
+[[-0.05  0.39]
+ [-0.   -0.01]
+ [-0.44 -0.04]
+ [ 0.01 -0.03]
+ [-0.43  0.04]
+ [-0.48 -0.42]
+ [-0.15  0.18]
+ [ 0.1  -0.26]
+ [ 0.41  0.33]
+ [-0.12  0.01]
+ [-0.08  0.7 ]
+ [ 0.26  0.33]
+ [ 0.69 -0.04]
+ [-0.33  0.34]
+ [ 0.07 -0.05]
+ [-0.37  0.07]]
+name: 
+dense_3/kernel/Adam
+
+value: 
+[[ 0.21  1.05]
+ [ 0.    0.  ]
+ [ 0.    0.  ]
+ [ 0.    0.  ]
+ [ 0.    0.  ]
+ [ 0.    0.  ]
+ [-0.88  0.73]
+ [ 0.    0.  ]
+ [ 0.22  2.42]
+ [ 0.    0.  ]
+ [-0.82  2.41]
+ [ 0.55  1.03]
+ [ 1.73  2.1 ]
+ [ 0.    0.  ]
+ [ 0.19  0.11]
+ [ 0.    0.  ]]
+name: 
+dense_3/kernel/Adam_1
+
+value: 
+[[ 7444.4   7600.76]
+ [    0.       0.  ]
+ [    0.       0.  ]
+ [    0.       0.  ]
+ [    0.       0.  ]
+ [    0.       0.  ]
+ [  365.94   352.74]
+ [    0.       0.  ]
+ [34312.71 34737.79]
+ [    0.       0.  ]
+ [20334.47 20936.13]
+ [ 9840.58  9934.4 ]
+ [51549.44 51225.18]
+ [    0.       0.  ]
+ [  265.01   253.63]
+ [    0.       0.  ]]
+name: 
+global_step
+
+value: 
+687000

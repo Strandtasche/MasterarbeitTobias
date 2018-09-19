@@ -623,3 +623,189 @@ predicted:
 [1134.05 1609.44]
 time: 0.19s
 MSE (tensorflow): 0.765134
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-13_09.52.44
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedZyl-augm
+INFO:root:loading data from store
+INFO:root:Train: ((419168, 10), (419168, 2))
+INFO:root:Test: ((23288, 10), (23288, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.173808
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedZyl-augm_highestLoss_2018-09-13_09.52.44.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedZyl-augm_2018-09-13_09.52.44.png
+INFO:root:
+       NNpixelErrorX        ...          CApixelErrorTotal
+count   23288.000000        ...               23288.000000
+mean       -0.431881        ...                   2.598111
+std         1.088149        ...                   4.396343
+min       -30.247696        ...                   0.000000
+25%        -0.887604        ...                   1.414214
+50%        -0.421753        ...                   2.061553
+75%         0.046997        ...                   3.162278
+max        32.247925        ...                 142.411376
+
+[8 rows x 9 columns]
+INFO:root:number of predictions with error > 3: 541
+INFO:matplotlib.backends._backend_tk:Could not load matplotlib icon: can't use "pyimage28" as iconphoto: not a photo image
+           X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+180424  1458.0  1460.0  1461.0  1462.0   ...    1136.0  1215.0  1294.0  1372.0
+17123   1769.0  1769.0  1769.0  1769.0   ...     422.0   502.0   581.0   661.0
+173210  1563.0  1562.0  1561.0  1560.0   ...     792.0   868.0   945.0  1021.0
+153418   858.0   860.0   862.0   864.0   ...     802.0   881.0   960.0  1038.0
+193766  1504.0  1503.0  1503.0  1502.0   ...     262.0   339.0   416.0   493.0
+185136   741.0   741.0   741.0   742.0   ...    1090.0  1171.0  1251.0  1333.0
+199910  1565.0  1568.0  1570.0  1572.0   ...     825.0   904.0   983.0  1063.0
+86322    511.0   510.0   510.0   508.0   ...     727.0   804.0   881.0   958.0
+25124    283.0   286.0   289.0   292.0   ...     572.0   649.0   727.0   804.0
+196805  1538.0  1538.0  1539.0  1539.0   ...     335.0   415.0   493.0   572.0
+
+[10 rows x 10 columns]
+        LabelX  LabelY
+180424  1465.0  1450.0
+17123   1769.0   741.0
+173210  1558.0  1099.0
+153418   867.0  1117.0
+193766  1501.0   570.0
+185136   744.0  1412.0
+199910  1575.0  1142.0
+86322    506.0  1035.0
+25124    298.0   881.0
+196805  1540.0   650.0
+predicted: 
+[1465.48 1450.84]
+[1769.48  740.22]
+[1558.47 1097.88]
+[ 867.57 1117.15]
+[1501.64  570.34]
+[ 743.47 1412.68]
+[1576.64 1142.03]
+[ 506.13 1035.46]
+[298.14 882.39]
+[1540.6  650.6]
+time: 0.19s
+MSE (tensorflow): 0.521911
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-13_09.54.20
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedZyl-augm
+INFO:root:loading data from store
+INFO:root:Train: ((419168, 10), (419168, 2))
+INFO:root:Test: ((23288, 10), (23288, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.173808
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedZyl-augm_highestLoss_2018-09-13_09.54.20.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedZyl-augm_2018-09-13_09.54.20.png
+INFO:root:
+       NNpixelErrorX        ...          CApixelErrorTotal
+count   23288.000000        ...               23288.000000
+mean       -0.431881        ...                   2.598111
+std         1.088149        ...                   4.396343
+min       -30.247696        ...                   0.000000
+25%        -0.887604        ...                   1.414214
+50%        -0.421753        ...                   2.061553
+75%         0.046997        ...                   3.162278
+max        32.247925        ...                 142.411376
+
+[8 rows x 9 columns]
+INFO:root:number of predictions with error > 3: 541
+INFO:matplotlib.backends._backend_tk:Could not load matplotlib icon: can't use "pyimage28" as iconphoto: not a photo image
+           X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+50133   1209.0  1207.0  1205.0  1203.0   ...     390.0   469.0   548.0   627.0
+202922   323.0   324.0   325.0   325.0   ...     904.0   982.0  1061.0  1140.0
+195810   799.0   799.0   800.0   800.0   ...     609.0   689.0   769.0   848.0
+57493   1334.0  1334.0  1334.0  1333.0   ...     401.0   480.0   558.0   637.0
+114497   796.0   795.0   795.0   795.0   ...     495.0   574.0   655.0   734.0
+199310  2077.0  2077.0  2077.0  2078.0   ...    1277.0  1357.0  1435.0  1514.0
+209186  1238.0  1238.0  1238.0  1239.0   ...    1008.0  1088.0  1167.0  1247.0
+153500  1428.0  1429.0  1429.0  1429.0   ...     347.0   426.0   505.0   586.0
+67644   1148.0  1149.0  1149.0  1149.0   ...    1238.0  1317.0  1394.0  1472.0
+84690   1898.0  1898.0  1898.0  1897.0   ...    1322.0  1400.0  1478.0  1556.0
+
+[10 rows x 10 columns]
+        LabelX  LabelY
+50133   1200.0   706.0
+202922   327.0  1217.0
+195810   800.0   928.0
+57493   1331.0   716.0
+114497   796.0   814.0
+199310  2078.0  1592.0
+209186  1239.0  1326.0
+153500  1430.0   665.0
+67644   1149.0  1548.0
+84690   1897.0  1629.0
+predicted: 
+[1200.41  705.75]
+[ 327.25 1218.74]
+[800.87 928.21]
+[1333.11  715.79]
+[795.68 814.23]
+[2078.68 1591.65]
+[1239.68 1325.81]
+[1430.55  665.36]
+[1149.79 1549.82]
+[1897.55 1633.97]
+time: 0.19s
+MSE (tensorflow): 1.960116
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-13_10.05.56
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedZyl-augm
+INFO:root:loading data from store
+INFO:root:Train: ((419168, 10), (419168, 2))
+INFO:root:Test: ((23288, 10), (23288, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.173808
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedZyl-augm_highestLoss_2018-09-13_10.05.56.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedZyl-augm_2018-09-13_10.05.56.png
+INFO:root:
+       NNpixelErrorTotal        ...          CApixelErrorTotal
+count       23288.000000        ...               23288.000000
+mean            1.228979        ...                   2.598111
+std             2.199417        ...                   4.396343
+min             0.010135        ...                   0.000000
+25%             0.631314        ...                   1.414214
+50%             0.977879        ...                   2.061553
+75%             1.408216        ...                   3.162278
+max            65.441428        ...                 142.411376
+
+[8 rows x 3 columns]
+INFO:root:number of predictions with error > 3: 541
+INFO:matplotlib.backends._backend_tk:Could not load matplotlib icon: can't use "pyimage28" as iconphoto: not a photo image
+           X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+46641   1029.0  1029.0  1030.0  1030.0   ...     377.0   455.0   534.0   613.0
+165050  1135.0  1137.0  1139.0  1140.0   ...    1081.0  1159.0  1236.0  1314.0
+228607   670.0   672.0   674.0   675.0   ...     458.0   536.0   613.0   691.0
+156194   629.0   627.0   626.0   624.0   ...     632.0   712.0   792.0   873.0
+20465    145.0   145.0   145.0   145.0   ...     679.0   757.0   836.0   913.0
+208038  1017.0  1018.0  1019.0  1019.0   ...    1147.0  1223.0  1301.0  1377.0
+104890  1897.0  1891.0  1886.0  1879.0   ...     684.0   764.0   845.0   925.0
+108895  1155.0  1155.0  1156.0  1156.0   ...     465.0   545.0   626.0   706.0
+4436    1410.0  1411.0  1412.0  1413.0   ...     389.0   471.0   553.0   635.0
+103272  1227.0  1228.0  1229.0  1229.0   ...     809.0   888.0   966.0  1046.0
+
+[10 rows x 10 columns]
+        LabelX  LabelY
+46641   1032.0   693.0
+165050  1143.0  1392.0
+228607   679.0   770.0
+156194   621.0   952.0
+20465    146.0   992.0
+208038  1021.0  1454.0
+104890  1868.0  1006.0
+108895  1157.0   786.0
+4436    1413.0   717.0
+103272  1232.0  1125.0
+predicted: 
+[1031.45  692.21]
+[1143.75 1391.37]
+[678.86 769.2 ]
+[621.56 953.46]
+[146.24 991.84]
+[1021.55 1454.56]
+[1868.08 1005.48]
+[1156.86  786.81]
+[1414.8   716.54]
+[1231.51 1124.59]
+time: 0.19s
+MSE (tensorflow): 0.525034

@@ -1,0 +1,231 @@
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-14_11.48.23
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedKug-Aug2-dec
+INFO:root:/home/hornberger/MasterarbeitTobias/models/cleanedKug-Aug2-dec does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((176706, 10), (176706, 2))
+INFO:root:Test: ((9818, 10), (9818, 2))
+INFO:root:Train the DNN Regressor...
+
+Traceback (most recent call last):
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 517, in make_tensor_proto
+    str_values = [compat.as_bytes(x) for x in proto_values]
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 517, in <listcomp>
+    str_values = [compat.as_bytes(x) for x in proto_values]
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/util/compat.py", line 67, in as_bytes
+    (bytes_or_text,))
+TypeError: Expected binary or unicode string, got <function get_global_step at 0x7f3e617b1ea0>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 461, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 334, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 843, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 856, in _train_model_default
+    features, labels, model_fn_lib.ModeKeys.TRAIN, self.config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 831, in _call_model_fn
+    model_fn_results = self._model_fn(features=features, **kwargs)
+  File "/home/hornberger/Projects/MasterarbeitTobias/implementation/customEstimator.py", line 50, in myCustomEstimator
+    decay_rate=0.96)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/learning_rate_decay.py", line 98, in exponential_decay
+    global_step = math_ops.cast(global_step, dtype)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 785, in cast
+    x = ops.convert_to_tensor(x, name="x")
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1014, in convert_to_tensor
+    as_ref=False)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1104, in internal_convert_to_tensor
+    ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/constant_op.py", line 235, in _constant_tensor_conversion_function
+    return constant(v, dtype=dtype, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/constant_op.py", line 214, in constant
+    value, dtype=dtype, shape=shape, verify_shape=verify_shape))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 521, in make_tensor_proto
+    "supported type." % (type(values), values))
+TypeError: Failed to convert object of type <class 'function'> to Tensor. Contents: <function get_global_step at 0x7f3e617b1ea0>. Consider casting elements to a supported type.
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-14_11.50.53
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedKug-Aug2-dec
+INFO:root:loading data from store
+INFO:root:Train: ((176706, 10), (176706, 2))
+INFO:root:Test: ((9818, 10), (9818, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 3703.5408, 'loss': 1818068.2, 'rmse': 60.856724, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 69.328445, 'loss': 34033.336, 'rmse': 8.32637, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 62.032078, 'loss': 30451.547, 'rmse': 7.8760448, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 58.99163, 'loss': 28958.99, 'rmse': 7.680601, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 56.501846, 'loss': 27736.756, 'rmse': 7.516771, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 54.496487, 'loss': 26752.324, 'rmse': 7.3821735, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 52.79057, 'loss': 25914.89, 'rmse': 7.265712, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 51.168217, 'loss': 25118.479, 'rmse': 7.1531963, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 49.704826, 'loss': 24400.098, 'rmse': 7.050165, 'global_step': 40500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 48.3828, 'loss': 23751.117, 'rmse': 6.955775, 'global_step': 45500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 47.130497, 'loss': 23136.361, 'rmse': 6.8651657, 'global_step': 50500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 45.910355, 'loss': 22537.395, 'rmse': 6.775718, 'global_step': 55500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 44.79096, 'loss': 21987.88, 'rmse': 6.6926045, 'global_step': 60500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 43.767994, 'loss': 21485.707, 'rmse': 6.6157384, 'global_step': 65500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 42.731415, 'loss': 20976.852, 'rmse': 6.536927, 'global_step': 70500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 41.81099, 'loss': 20525.014, 'rmse': 6.4661417, 'global_step': 75500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 40.872097, 'loss': 20064.113, 'rmse': 6.393129, 'global_step': 80500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 40.028027, 'loss': 19649.758, 'rmse': 6.326771, 'global_step': 85500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 39.200867, 'loss': 19243.707, 'rmse': 6.2610598, 'global_step': 90500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 38.398994, 'loss': 18850.066, 'rmse': 6.196692, 'global_step': 95500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 37.596752, 'loss': 18456.246, 'rmse': 6.131619, 'global_step': 100500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 36.859814, 'loss': 18094.482, 'rmse': 6.0712285, 'global_step': 105500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 36.139385, 'loss': 17740.824, 'rmse': 6.0116043, 'global_step': 110500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 35.450417, 'loss': 17402.61, 'rmse': 5.9540253, 'global_step': 115500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 34.794666, 'loss': 17080.701, 'rmse': 5.8987, 'global_step': 120500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 34.183105, 'loss': 16780.486, 'rmse': 5.846632, 'global_step': 125500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 33.56322, 'loss': 16476.184, 'rmse': 5.7933774, 'global_step': 130500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 33.002506, 'loss': 16200.932, 'rmse': 5.744781, 'global_step': 135500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 32.417446, 'loss': 15913.725, 'rmse': 5.693632, 'global_step': 140500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 31.88866, 'loss': 15654.144, 'rmse': 5.6470046, 'global_step': 145500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 31.338648, 'loss': 15384.143, 'rmse': 5.598093, 'global_step': 150500}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 30.830273, 'loss': 15134.581, 'rmse': 5.5525017, 'global_step': 155500}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 30.336082, 'loss': 14891.982, 'rmse': 5.50782, 'global_step': 160500}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 29.85592, 'loss': 14656.271, 'rmse': 5.464057, 'global_step': 165500}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 29.426477, 'loss': 14445.458, 'rmse': 5.424618, 'global_step': 170500}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 28.94568, 'loss': 14209.435, 'rmse': 5.380119, 'global_step': 175500}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 28.525623, 'loss': 14003.229, 'rmse': 5.3409386, 'global_step': 180500}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 28.093554, 'loss': 13791.125, 'rmse': 5.3003354, 'global_step': 185500}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 27.719934, 'loss': 13607.716, 'rmse': 5.264972, 'global_step': 190500}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 27.291887, 'loss': 13397.588, 'rmse': 5.224164, 'global_step': 195500}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 26.92445, 'loss': 13217.213, 'rmse': 5.1888776, 'global_step': 200500}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 26.538124, 'loss': 13027.564, 'rmse': 5.151517, 'global_step': 205500}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 26.178255, 'loss': 12850.905, 'rmse': 5.116469, 'global_step': 210500}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 25.843914, 'loss': 12686.777, 'rmse': 5.083691, 'global_step': 215500}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 25.508804, 'loss': 12522.271, 'rmse': 5.0506244, 'global_step': 220500}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 25.1668, 'loss': 12354.382, 'rmse': 5.016652, 'global_step': 225500}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 24.848904, 'loss': 12198.326, 'rmse': 4.9848676, 'global_step': 230500}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 24.53449, 'loss': 12043.981, 'rmse': 4.9532304, 'global_step': 235500}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 24.23684, 'loss': 11897.865, 'rmse': 4.9230924, 'global_step': 240500}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 23.946753, 'loss': 11755.461, 'rmse': 4.893542, 'global_step': 245500}
+INFO:root:Training completed. final average loss: 23.693, best average loss during training: 23.947
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-14_12.58.45
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedKug-Aug2-dec
+INFO:root:loading data from store
+INFO:root:Train: ((176706, 10), (176706, 2))
+INFO:root:Test: ((9818, 10), (9818, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 23.66345, 'loss': 11616.388, 'rmse': 4.864509, 'global_step': 250500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 23.390171, 'loss': 11482.235, 'rmse': 4.8363385, 'global_step': 255500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 23.13005, 'loss': 11354.542, 'rmse': 4.809371, 'global_step': 260500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 22.870522, 'loss': 11227.139, 'rmse': 4.7823133, 'global_step': 265500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 22.620897, 'loss': 11104.599, 'rmse': 4.756143, 'global_step': 270500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 22.385311, 'loss': 10988.949, 'rmse': 4.731312, 'global_step': 275500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 22.146215, 'loss': 10871.577, 'rmse': 4.7059765, 'global_step': 280500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 21.930422, 'loss': 10765.644, 'rmse': 4.682993, 'global_step': 285500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 21.694098, 'loss': 10649.632, 'rmse': 4.6576924, 'global_step': 290500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 21.474463, 'loss': 10541.813, 'rmse': 4.6340547, 'global_step': 295500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 21.265493, 'loss': 10439.23, 'rmse': 4.6114526, 'global_step': 300500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 21.064459, 'loss': 10340.543, 'rmse': 4.5896034, 'global_step': 305500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 20.865393, 'loss': 10242.821, 'rmse': 4.5678654, 'global_step': 310500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 20.68683, 'loss': 10155.165, 'rmse': 4.548278, 'global_step': 315500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 20.485199, 'loss': 10056.185, 'rmse': 4.5260577, 'global_step': 320500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 20.301085, 'loss': 9965.803, 'rmse': 4.5056725, 'global_step': 325500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 20.122763, 'loss': 9878.264, 'rmse': 4.4858403, 'global_step': 330500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 19.952404, 'loss': 9794.635, 'rmse': 4.466811, 'global_step': 335500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 19.802502, 'loss': 9721.049, 'rmse': 4.4500003, 'global_step': 340500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 19.619846, 'loss': 9631.383, 'rmse': 4.4294295, 'global_step': 345500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 19.46125, 'loss': 9553.527, 'rmse': 4.411491, 'global_step': 350500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 19.307669, 'loss': 9478.135, 'rmse': 4.394049, 'global_step': 355500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 19.159336, 'loss': 9405.318, 'rmse': 4.3771377, 'global_step': 360500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 19.021954, 'loss': 9337.877, 'rmse': 4.3614163, 'global_step': 365500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 18.869305, 'loss': 9262.941, 'rmse': 4.343881, 'global_step': 370500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 18.732538, 'loss': 9195.803, 'rmse': 4.32811, 'global_step': 375500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 18.595026, 'loss': 9128.299, 'rmse': 4.312195, 'global_step': 380500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 18.465414, 'loss': 9064.672, 'rmse': 4.29714, 'global_step': 385500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 18.337667, 'loss': 9001.961, 'rmse': 4.2822504, 'global_step': 390500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 18.221334, 'loss': 8944.854, 'rmse': 4.2686453, 'global_step': 395500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 18.092093, 'loss': 8881.408, 'rmse': 4.25348, 'global_step': 400500}

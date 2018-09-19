@@ -382,3 +382,159 @@ predicted:
 [1812.89  572.  ]
 time: 0.19s
 MSE (tensorflow): 0.564493
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-07_10.01.37
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm
+INFO:root:loading data from store
+INFO:root:Train: ((236416, 10), (236416, 2))
+INFO:root:Test: ((13135, 10), (13135, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.046583
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_highestLoss_2018-09-07_10.01.37.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_2018-09-07_10.01.37.png
+INFO:root:NNpixelErrorX.mean: 0.1197773521373968
+INFO:root:NNpixelErrorY.mean: -0.21426746381477207
+INFO:root:NNpixelErrorTotal.mean: 1.1367996204786504
+INFO:root:       NNpixelErrorX  NNpixelErrorY  NNpixelErrorTotal
+count   13135.000000   13135.000000       13135.000000
+mean        0.119777      -0.214267           1.136800
+std         0.899352       1.106449           0.894938
+min       -12.415283     -20.710327           0.009681
+25%        -0.302078      -0.859497           0.613374
+50%         0.102234      -0.224243           0.987479
+75%         0.571960       0.428406           1.443641
+max        10.251663      31.029541          31.515172
+INFO:root:number of predictions with error > 3: 322
+           X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+44870   1914.0  1914.0  1915.0  1915.0   ...     527.0   606.0   684.0   764.0
+101725  1759.0  1759.0  1759.0  1759.0   ...     461.0   540.0   620.0   699.0
+69828   1499.0  1499.0  1499.0  1500.0   ...     441.0   519.0   599.0   677.0
+83627   1008.0  1005.0  1003.0  1001.0   ...     156.0   237.0   317.0   397.0
+121338  1294.0  1294.0  1294.0  1294.0   ...    1298.0  1377.0  1458.0  1537.0
+95991   1661.0  1662.0  1662.0  1663.0   ...     885.0   963.0  1041.0  1120.0
+28548   1859.0  1860.0  1861.0  1862.0   ...     270.0   348.0   426.0   503.0
+78931    884.0   884.0   885.0   885.0   ...    1084.0  1162.0  1241.0  1320.0
+56762    974.0   975.0   976.0   978.0   ...    1227.0  1302.0  1379.0  1455.0
+107229  2024.0  2025.0  2026.0  2026.0   ...     293.0   372.0   451.0   530.0
+
+[10 rows x 10 columns]
+        LabelX  LabelY
+44870   1916.0   842.0
+101725  1759.0   780.0
+69828   1501.0   757.0
+83627    999.0   477.0
+121338  1294.0  1617.0
+95991   1664.0  1198.0
+28548   1863.0   582.0
+78931    886.0  1399.0
+56762    981.0  1532.0
+107229  2026.0   609.0
+predicted: 
+[1915.74  842.31]
+[1758.67  777.81]
+[1499.85  757.21]
+[999.9  477.15]
+[1293.45 1615.9 ]
+[1663.09 1197.12]
+[1862.09  581.33]
+[ 886.55 1399.17]
+[ 979.87 1530.97]
+[2026.23  608.6 ]
+time: 0.20s
+MSE (tensorflow): 0.726579
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-07_10.48.44
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleanedWeiz-augm
+INFO:root:loading data from store
+INFO:root:Train: ((236416, 10), (236416, 2))
+INFO:root:Test: ((13135, 10), (13135, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.046583
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_highestLoss_2018-09-07_10.48.44.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleanedWeiz-augm_2018-09-07_10.48.44.png
+INFO:root:NNpixelErrorX.mean: 0.1197773521373968
+INFO:root:NNpixelErrorY.mean: -0.21426746381477207
+INFO:root:NNpixelErrorTotal.mean: 1.1367996204786504
+INFO:root:       NNpixelErrorX        ...          CApixelErrorTotal
+count   13135.000000        ...                1300.000000
+mean        0.119777        ...                 765.630276
+std         0.899352        ...                 381.164994
+min       -12.415283        ...                   1.000000
+25%        -0.302078        ...                 486.155369
+50%         0.102234        ...                 735.326217
+75%         0.571960        ...                1004.005960
+max        10.251663        ...                2061.182428
+
+[8 rows x 9 columns]
+INFO:root:number of predictions with error > 3: 322
+/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/numpy/lib/function_base.py:4291: RuntimeWarning: Invalid value encountered in percentile
+  interpolation=interpolation)
+/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/matplotlib/cbook/__init__.py:1872: RuntimeWarning: invalid value encountered in less_equal
+  wiskhi = np.compress(x <= hival, x)
+/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/matplotlib/cbook/__init__.py:1879: RuntimeWarning: invalid value encountered in greater_equal
+  wisklo = np.compress(x >= loval, x)
+/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/matplotlib/cbook/__init__.py:1887: RuntimeWarning: invalid value encountered in less
+  np.compress(x < stats['whislo'], x),
+/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/matplotlib/cbook/__init__.py:1888: RuntimeWarning: invalid value encountered in greater
+  np.compress(x > stats['whishi'], x)
+/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/numpy/core/_methods.py:29: RuntimeWarning: invalid value encountered in reduce
+  return umr_minimum(a, axis, None, out, keepdims)
+/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/numpy/core/_methods.py:26: RuntimeWarning: invalid value encountered in reduce
+  return umr_maximum(a, axis, None, out, keepdims)
+           X_0     X_1     X_2     X_3   ...      Y_1     Y_2     Y_3     Y_4
+112683  1620.0  1621.0  1621.0  1621.0   ...    431.0   510.0   590.0   670.0
+118223  1306.0  1308.0  1308.0  1309.0   ...    621.0   699.0   777.0   855.0
+110517   193.0   194.0   194.0   195.0   ...    956.0  1036.0  1114.0  1193.0
+66449    446.0   446.0   446.0   447.0   ...    801.0   879.0   957.0  1036.0
+129112   953.0   956.0   958.0   959.0   ...    633.0   709.0   788.0   865.0
+26714    232.0   233.0   233.0   235.0   ...    826.0   905.0   984.0  1063.0
+38269    313.0   313.0   313.0   313.0   ...    524.0   602.0   681.0   759.0
+100495   965.0   965.0   965.0   966.0   ...    353.0   431.0   510.0   588.0
+17241    659.0   659.0   659.0   660.0   ...    856.0   935.0  1014.0  1093.0
+59720    659.0   658.0   657.0   656.0   ...    610.0   689.0   768.0   846.0
+
+[10 rows x 10 columns]
+        LabelX  LabelY
+112683  1622.0   749.0
+118223  1311.0   933.0
+110517   196.0  1271.0
+66449    448.0  1114.0
+129112   961.0   943.0
+26714    235.0  1142.0
+38269    314.0   838.0
+100495   966.0   667.0
+17241    662.0  1172.0
+59720    654.0   925.0
+predicted: 
+[1621.69  749.64]
+[1309.98  934.44]
+[ 196.03 1270.39]
+[ 447.79 1113.7 ]
+[960.08 943.57]
+[ 236.41 1141.29]
+[313.87 839.88]
+[965.99 667.41]
+[ 661.19 1172.8 ]
+[655.15 925.54]
+time: 0.19s
+MSE (tensorflow): 0.720221
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 458, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 441, in main
+    evaluateResultNextStep(X_test, y_test, totalPredictions)
+  File "/home/hornberger/Projects/MasterarbeitTobias/implementation/MaUtil.py", line 430, in evaluateResultNextStep
+    plt.hist(pandasLost['NNpixelErrorTotal'], bins=40)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/matplotlib/pyplot.py", line 3132, in hist
+    stacked=stacked, normed=normed, data=data, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/matplotlib/axes/_axes.py", line 6530, in hist
+    m, bins = np.histogram(x[i], bins, weights=w[i], **hist_kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/numpy/lib/function_base.py", line 667, in histogram
+    'max must be larger than min in range parameter.')
+ValueError: max must be larger than min in range parameter.

@@ -319,3 +319,127 @@ predicted:
 [ 998.91 1571.41]
 time: 0.19s
 MSE (tensorflow): 0.306844
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-17_09.53.16
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.390307
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec_highestLoss_2018-09-17_09.53.16.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec_2018-09-17_09.53.16.png
+INFO:root:
+       NNpixelErrorTotal        ...          CApixelErrorTotal
+count        9763.000000        ...                9763.000000
+mean            0.763735        ...                   2.089596
+std             0.444234        ...                   1.167131
+min             0.006118        ...                   0.000000
+25%             0.455942        ...                   1.118034
+50%             0.719885        ...                   2.000000
+75%             1.010646        ...                   3.000000
+max            17.575898        ...                  13.038405
+
+[8 rows x 3 columns]
+INFO:root:number of predictions with error > 3: 5
+INFO:matplotlib.backends._backend_tk:Could not load matplotlib icon: can't use "pyimage28" as iconphoto: not a photo image
+          X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+92608  1464.0  1464.0  1465.0  1466.0   ...     311.0   402.0   495.0   587.0
+79589  1328.0  1331.0  1334.0  1337.0   ...    1026.0  1089.0  1153.0  1216.0
+44072  1377.0  1377.0  1378.0  1378.0   ...     838.0   931.0  1024.0  1116.0
+66739  1741.0  1741.0  1740.0  1739.0   ...     663.0   753.0   843.0   932.0
+30546  1229.0  1229.0  1230.0  1230.0   ...     923.0  1014.0  1105.0  1195.0
+96292  1555.0  1557.0  1559.0  1561.0   ...     632.0   723.0   815.0   906.0
+52991  1360.0  1361.0  1362.0  1363.0   ...    1206.0  1297.0  1387.0  1478.0
+21011  1549.0  1547.0  1544.0  1542.0   ...    1246.0  1339.0  1429.0  1520.0
+72287  1872.0  1871.0  1869.0  1868.0   ...    1150.0  1239.0  1328.0  1417.0
+66384  1520.0  1522.0  1523.0  1525.0   ...     769.0   862.0   954.0  1047.0
+
+[10 rows x 10 columns]
+       LabelX  LabelY
+92608  1468.0   680.0
+79589  1344.0  1278.0
+44072  1380.0  1208.0
+66739  1738.0  1021.0
+30546  1231.0  1286.0
+96292  1565.0   998.0
+52991  1365.0  1567.0
+21011  1538.0  1610.0
+72287  1864.0  1505.0
+66384  1528.0  1139.0
+predicted: 
+[1467.82  679.39]
+[1344.16 1279.34]
+[1379.76 1209.05]
+[1738.34 1021.73]
+[1231.86 1286.55]
+[1565.11  997.66]
+[1365.29 1567.76]
+[1537.85 1610.76]
+[1864.74 1504.31]
+[1528.31 1139.61]
+time: 0.17s
+MSE (tensorflow): 0.396529
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-17_09.58.28
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/cleaned2Kug-Aug-dec
+INFO:root:loading data from store
+INFO:root:Train: ((175722, 10), (175722, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.390307
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec_highestLoss_2018-09-17_09.58.28.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/cleaned2Kug-Aug-dec_2018-09-17_09.58.28.png
+INFO:root:
+       NNpixelErrorTotal        ...          CApixelErrorTotal
+count        9763.000000        ...                9763.000000
+mean            0.763735        ...                   2.089596
+std             0.444234        ...                   1.167131
+min             0.006118        ...                   0.000000
+25%             0.455942        ...                   1.118034
+50%             0.719885        ...                   2.000000
+75%             1.010646        ...                   3.000000
+max            17.575898        ...                  13.038405
+
+[8 rows x 3 columns]
+INFO:root:number of predictions with error > 3: 5
+INFO:matplotlib.backends._backend_tk:Could not load matplotlib icon: can't use "pyimage28" as iconphoto: not a photo image
+          X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+39319   843.0   844.0   846.0   848.0   ...     705.0   797.0   890.0   983.0
+57332  1783.0  1783.0  1783.0  1783.0   ...     398.0   488.0   578.0   668.0
+30622  1257.0  1256.0  1255.0  1254.0   ...     795.0   888.0   979.0  1071.0
+93150   594.0   593.0   592.0   591.0   ...     904.0   994.0  1084.0  1175.0
+57182  1631.0  1631.0  1632.0  1632.0   ...     897.0   988.0  1080.0  1171.0
+78937  1147.0  1147.0  1147.0  1147.0   ...     535.0   597.0   657.0   719.0
+62456  1761.0  1756.0  1751.0  1746.0   ...    1123.0  1215.0  1305.0  1396.0
+39396  1316.0  1317.0  1317.0  1318.0   ...     741.0   833.0   924.0  1016.0
+8626   1422.0  1422.0  1421.0  1420.0   ...     550.0   641.0   733.0   824.0
+76899  1437.0  1440.0  1444.0  1447.0   ...     800.0   862.0   924.0   986.0
+
+[10 rows x 10 columns]
+       LabelX  LabelY
+39319   852.0  1076.0
+57332  1782.0   758.0
+30622  1253.0  1162.0
+93150   589.0  1265.0
+57182  1632.0  1263.0
+78937  1146.0   780.0
+62456  1735.0  1486.0
+39396  1318.0  1106.0
+8626   1419.0   917.0
+76899  1454.0  1049.0
+predicted: 
+[ 851.95 1075.65]
+[1782.87  758.13]
+[1253.16 1162.34]
+[ 589.44 1265.19]
+[1632.58 1262.49]
+[1146.91  780.73]
+[1736.32 1486.48]
+[1318.78 1106.52]
+[1419.6   916.48]
+[1453.56 1048.38]
+time: 0.17s
+MSE (tensorflow): 0.362963
