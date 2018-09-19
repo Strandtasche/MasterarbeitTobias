@@ -11,8 +11,10 @@ import argparse
 from segment_parameters import SegmentParameters
 import csv
 
-WIDTH = 2300
-HEIGHT = 1700
+WIDTH = 2320
+HEIGHT = 1728
+
+FLOATPRECISION = 4
 
 font                   = cv2.FONT_HERSHEY_SIMPLEX
 lineType               = 2
@@ -20,8 +22,8 @@ lineType               = 2
 def get_centroid(cnt):
     M = cv2.moments(cnt)
     
-    cx = int(M['m10']/M['m00'])
-    cy = int(M['m01']/M['m00'])
+    cx = (M['m10']/M['m00'])
+    cy = (M['m01']/M['m00'])
     
     return np.array([cx, cy])
 
@@ -119,6 +121,7 @@ def writeToCSV(data, target):
     with open(target + '.csv', 'w') as csvfile:
         counter = 0
         writer = csv.writer(csvfile, delimiter=',')
+        formatString = '{:.' + str(FLOATPRECISION) + 'f}'
         maxDetecNum = len(max(data, key=len))
         columnCount = 2 + 2 * maxDetecNum
         header = ['FrameNr', 'NumberMidPoints']
@@ -133,9 +136,10 @@ def writeToCSV(data, target):
             for k in elem:
                 row.append(k[0])
                 row.append(k[1])
-            if len(row) < columnCount:
-                row = row + (['NaN'] * (columnCount - len(row)))
-            writer.writerow(row)
+            precRow = [formatString.format(tid) for tid in row]
+            if len(precRow) < columnCount:
+                precRow = precRow + (['NaN'] * (columnCount - len(row)))
+            writer.writerow(precRow)
             counter = counter + 1
         
 
@@ -160,5 +164,5 @@ def main():
     print('Done.')
 
 if __name__ == "__main__":
-    main()  
+    main()
 
