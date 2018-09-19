@@ -12,7 +12,7 @@ from segment_parameters import SegmentParameters
 import csv
 
 WIDTH = 2320
-HEIGHT = 1728
+HEIGHT = 1700
 
 FLOATPRECISION = 4
 
@@ -90,7 +90,7 @@ def segment(dataset, display):
         hulls = [c for c in contours if cv2.contourArea(c) > paras.min_area]
         hulls = [h for h in hulls if is_valid_rect(h)]
         
-        # print("Hulls length: {}".format(len(hulls)))
+        # print("Hulls size: {}".format([cv2.contourArea(c) for c in hulls]))
         
         centroids = [get_centroid(h) for h in hulls]
         
@@ -103,7 +103,7 @@ def segment(dataset, display):
             
             cv2.imshow('frame', show_frame)
             
-            k = cv2.waitKey(30) & 0xff
+            k = cv2.waitKey(50) & 0xff
             if k == 27:
                 break
         print(counter)
