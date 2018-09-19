@@ -19,6 +19,7 @@ FLOATPRECISION = 4
 font                   = cv2.FONT_HERSHEY_SIMPLEX
 lineType               = 2
 
+
 def get_centroid(cnt):
     M = cv2.moments(cnt)
     
@@ -26,6 +27,7 @@ def get_centroid(cnt):
     cy = (M['m01']/M['m00'])
     
     return np.array([cx, cy])
+
 
 def is_valid_rect(cnt):
     x, y, w, h = cv2.boundingRect(cnt)
@@ -40,6 +42,7 @@ def is_valid_rect(cnt):
         return False
     
     return True
+
 
 def segment(dataset, display):
     cap = cv2.VideoCapture(dataset)

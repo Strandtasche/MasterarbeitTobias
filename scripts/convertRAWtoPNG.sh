@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-targetPrefix='/media/hornberger/Elements/Daten_Tobias_September2018-pngVersion/'
+targetPrefix='/media/hornberger/data/test2/'
 
 set -e
 
@@ -19,9 +19,9 @@ for D in *; do
                     mkdir "${targetPrefix}$D2"
                 fi
 
-                echo "mogrify -format png -path ${targetPrefix}$D2 \"$D2/*.bmp\""
-                mogrify -format png -path ${targetPrefix}$D2 "$D2/*.bmp"
+                mogrify -format png -size 2320x1728 -depth 8 -path ${targetPrefix}$D2 "gray:$D2/*.raw"
             fi
         done
     fi
+
 done
