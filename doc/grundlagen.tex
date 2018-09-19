@@ -16,7 +16,7 @@ Als Kalman-Filter bezeichnet man ein mathematisches Verfahren mit dem Messfehler
 [vergangene, aktuelle und zukünftige Systemzustände schätzen]
 [Einschränkung Linearität (Extended Kalman) und Gauß rauschen]
 
-Der Zustand des Systems zum Zeitschritt $t$ wird als $y_t$ und die Messung im Zeitschritt $t$ als $z_t$ bezeichnet.
+Der Zustand des Systems zum Zeitschritt \(t\) wird als \(y_t\) und die Messung im Zeitschritt \(t\) als \(z_t\) bezeichnet.
 
 \begin{equation}
 	y_t = A y_{t-1} + w, 	w \sim N(0, Q)
@@ -26,8 +26,8 @@ Der Zustand des Systems zum Zeitschritt $t$ wird als $y_t$ und die Messung im Ze
 	z_t = H y_{t} + v, 	v \sim N(0, R)
 \end{equation}
 
-Dabei ist $A$ die Zustandsübergangsmatrix, die den Übergang von einem Zustand in den nächsten beschreibt.
-$H$ ist die Messmatrix, die beschreibt wie Messungen aus dem Zustand entstehen und Q und R sind die Kovarianzmatrizen des Systemrauschens beziehungsweise des Messrauschens. 
+Dabei ist \(A\) die Zustandsübergangsmatrix, die den Übergang von einem Zustand in den nächsten beschreibt.
+\(H\) ist die Messmatrix, die beschreibt wie Messungen aus dem Zustand entstehen und Q und R sind die Kovarianzmatrizen des Systemrauschens beziehungsweise des Messrauschens. 
 
 Das Kalman-Filter funktioniert mittels abwechselnd ausgeführter \textit{predict} und \textit{update} Schritte.
 

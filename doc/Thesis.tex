@@ -1,5 +1,5 @@
 
-\documentclass[german,algorithms,reviews,examples]{isasthesis}
+\documentclass[german]{isasthesis}
 
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
@@ -21,7 +21,7 @@
 \usepackage{todonotes}
 \usepackage{microtype}
 
-\usepackage[style=numeric, sorting=none, backend=bibtex]{biblatex}
+\usepackage[style=ieee-alphabetic, sorting=none, backend=bibtex]{biblatex}
 
 \addbibresource{sources.bib}
 
@@ -67,9 +67,9 @@
     \maketoc
 
 
-    \input{grundlagen}
-    \input{relatedWork}
-    \input{datensammeln}
+    \include{grundlagen}
+    \include{relatedWork}
+    \include{datensammeln}
 
 
 
