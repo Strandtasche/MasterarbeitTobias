@@ -113,9 +113,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \ifenglish{}{
-	\RequirePackage[ngerman]{babel}
-	\RequirePackage{ngerman}
-	\RequirePackage{bibgerm}
+%	\RequirePackage[ngerman]{babel}
+%	\RequirePackage{ngerman}
+%	\RequirePackage{bibgerm}
 }
 
 
