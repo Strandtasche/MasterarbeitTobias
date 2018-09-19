@@ -243,6 +243,7 @@ def main(argv):
 				"optimizer": tf.train.AdamOptimizer,
 				"hidden_units": hidden_layers,
 				"dropout": dropout,
+				"activation": tf.nn.relu,
 				"decaying_learning_rate": True,
 				"decay_steps": 10000
 			})

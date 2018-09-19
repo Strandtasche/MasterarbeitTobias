@@ -7,9 +7,10 @@ def myCustomEstimator(features, labels, mode, params):
 	# Input Layer
 	top = tf.feature_column.input_layer(features, params["feature_columns"])
 
+	activationFunc = params.get("activation", tf.nn.relu)
 	# basierend auf hidden Units wird die Netztopologie aufgebaut
 	for units in params.get("hidden_units", [20]):
-		top = tf.layers.dense(inputs=top, units=units, activation=tf.nn.relu)
+		top = tf.layers.dense(inputs=top, units=units, activation=activationFunc)
 		if "dropout" in params.keys() and params["dropout"] != 0:
 			top = tf.layers.dropout(inputs=top, rate=params["dropout"], training=mode == tf.estimator.ModeKeys.TRAIN)
 
