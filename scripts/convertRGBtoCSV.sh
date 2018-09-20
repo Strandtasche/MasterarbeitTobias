@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-targetPrefix='/media/hornberger/data/DatenTobiasH-Juli2018-pngVersion-debayered-csved/'
+targetPrefix='/media/hornberger/data/Daten_Hornberger_September2018-pngVersion-debayered-csved/'
+#targetPrefix='/media/hornberger/data/Daten-Kronauer-September2018-pngVersion-debayered-csved/'
 
 for D in *; do
     if [ -d "${D}" ]; then
         #check if folder exists:
         if [ ! -d "${targetPrefix}$D" ]; then
             echo "creating folder ${targetPrefix}$D"
-            mkdir "${targetPrefix}$D"
+            mkdir -p "${targetPrefix}$D"
         fi
         for D2 in ${D}/*; do
             if [ -d "${D2}" ]; then

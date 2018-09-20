@@ -18,15 +18,15 @@ class SegmentParameters:
             self.min_area = min_area
     
     def __init__(self):
-        self.plates = self.Parameters(5, 20, 38, 255, 0, 255, 3000)
-        self.pfeffer = self.Parameters(10, 140, int(0.15*255), 255, int(0.2*255), int(0.6 * 255), 1000)
-        self.kugel = self.Parameters(-40, 140, int(0.15*255), 255, int(0.2*255), int(0.6 * 255), 1000)
+        self.plates = self.Parameters(0, 20, 38, 255, int(0.1*255), 255, 2000)
+        self.pfeffer = self.Parameters(0, 180, int(0.15*255), 255, int(0.1*255), int(0.6 * 255), 1000)
+        self.kugel = self.Parameters(-40, 140, int(0.3*255), 255, int(0.2*255), int(0.6 * 255), 1500)
         self.weizen = self.Parameters(0, 255, int(0.15*255), 255, int(0.2*255), int(0.6 * 255), 1000)
         self.zylinder = self.Parameters(int(60/360 * 255), int(200/360 * 255), int(0.15*255), 255, int(0.2*255), int(0.6 * 255), 1000)
         
     
     def get_parameters(self, dataset):
-        if 'quader' in dataset:
+        if 'plaettchen' in dataset:
             return self.plates
         if 'Pfeffer' in dataset:
             return self.pfeffer

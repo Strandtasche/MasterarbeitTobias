@@ -86,9 +86,16 @@ def segment(dataset, display):
         # print(seg[1100:1140])
         
         # OPTIONAL - KANN BEI TRENNUNG VON SICH BERÜHRENDEN OBJEKTEN HELFEN!
-        #        seg = cv2.erode(seg, kernel, iterations=3)
-        #        seg = cv2.dilate(seg, kernel, iterations=3)
-        
+        if "Pfeffer" in dataset:
+            kernel = np.ones((5,5), np.uint8)
+            seg = cv2.erode(seg, kernel, iterations=3)
+            seg = cv2.dilate(seg, kernel, iterations=3)
+
+        # if "plaettchen" in dataset:
+        #     kernel = np.ones((2,2), np.uint8)
+        #     seg = cv2.erode(seg, kernel, iterations=3)
+        #     seg = cv2.dilate(seg, kernel, iterations=3)
+
         _, contours, _ = cv2.findContours(seg, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         hulls = [c for c in contours if cv2.contourArea(c) > paras.min_area]
         hulls = [h for h in hulls if is_valid_rect(h)]
@@ -106,10 +113,11 @@ def segment(dataset, display):
             
             cv2.imshow('frame', show_frame)
             
-            k = cv2.waitKey(50) & 0xff
+            k = cv2.waitKey(0) & 0xff
             if k == 27:
                 break
-        print(counter)
+        if (counter % 25) == 0:
+            print(counter)
         counter = counter + 1
     
     np.save(dataset, np.array(all_centroids))
