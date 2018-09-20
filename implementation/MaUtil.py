@@ -454,26 +454,31 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions):
 # hist = pandasLost.hist(bins=10)
 # plt.show()
 
+def _getRelIndices(columns, separator, direction):
+	if not separator:
+		if direction:
+			relIndices = [i for i in range(int((len(columns) - 2) / 2))]
+			relIndices.append(len(columns) - 2)
+		else:
+			relIndices = [i for i in range(int((len(columns) - 2) / 2), len(columns) - 2)]
+			relIndices.append(len(columns) - 1)
+	else:
+		if direction:
+			relIndices = [i for i in range(int((len(columns) - 2) / 2))]
+			relIndices.append(len(columns) - 2)
+		else:
+			relIndices = [i for i in range(int((len(columns) - 2) / 2), len(columns) - 2)]
+			relIndices.append(len(columns) - 2)
 
-def mirrorSingleFeature(points, midpoint, separator, direction=True):
+	return relIndices
+
+
+def mirrorSingleFeature(points, midpoint, relIndices):
 	"""helper function for Data Augmentation instance - mirror input
 	given an array of points and a line to mirror them on, returns an array of mirrored coordinates"""
 	
 	newpoints = points
-	if not separator:
-		if direction:
-			relIndices = [i for i in range(int((len(points) - 2) / 2))]
-			relIndices.append(len(points) - 2)
-		else:
-			relIndices = [i for i in range(int((len(points) - 2) / 2), len(points) - 2)]
-			relIndices.append(len(points) - 1)
-	else:
-		if direction:
-			relIndices = [i for i in range(int((len(points) - 2) / 2))]
-			relIndices.append(len(points) - 2)
-		else:
-			relIndices = [i for i in range(int((len(points) - 2) / 2), len(points) - 2)]
-			relIndices.append(len(points) - 2)
+	
 	
 	# print(relIndices)
 	for i in relIndices:
@@ -485,14 +490,20 @@ def mirrorSingleFeature(points, midpoint, separator, direction=True):
 	return newpoints
 
 
-def augmentData(featuresTrain, labelsTrain, midpoint, separator, direction=True):
+def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, direction=True):
 	"""applies the mirror input data augmentation to some data"""
 	
 	oldDf = pd.concat([featuresTrain, labelsTrain], axis=1, sort=False)
 	newDf = oldDf.copy()
 	newDf.index += oldDf.index.max()
+	
+	relIndices = _getRelIndices(newDf.columns, separator, direction)
+	# sizeBefore = newDf.shape
+	newDf = newDf[(newDf.iloc[:,relIndices] > (midpoint - augmentRange)).any(axis=1) & (newDf.iloc[:,relIndices] < (midpoint + augmentRange)).any(axis=1)]
+	# sizeAfter = newDf.shape
+	# print("before: {}, after: {}".format(sizeBefore, sizeAfter))
 	# newDf.apply(lambda x: pd.Series(mirrorSingleFeature(x, midpoint, separator, direction)), axis=1, result_type='broadcast')
-	newDf.apply(lambda x: pd.Series(mirrorSingleFeature(x, midpoint, separator, direction)), axis=1,
+	newDf.apply(lambda x: pd.Series(mirrorSingleFeature(x, midpoint, relIndices)), axis=1,
 				result_type='broadcast')
 	
 	assert pd.DataFrame.equals(oldDf, newDf) == False

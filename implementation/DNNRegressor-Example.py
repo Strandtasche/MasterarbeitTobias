@@ -134,6 +134,9 @@ def main(argv):
 			predictionCutOff = args.separator[1]
 	else:
 		separator = False
+		
+	if cancelThreshold is not None and not TRAINING:
+		logging.warning("target parameter is not useful when not in training")
 	
 
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
@@ -144,7 +147,11 @@ def main(argv):
 		EPOCHS = hyper_params.train.epochs
 		BATCH_SIZE = hyper_params.train.batch_size
 		FEATURE_SIZE = hyper_params.arch.feature_size
-		FAKE_DATA_AMOUNT = hyper_params.data.numberFakeLines
+		if FAKE:
+			FAKE_DATA_AMOUNT = hyper_params.data.numberFakeLines
+		if augment:
+			MIDPOINT = hyper_params.data.augmentMidpoint
+			MIRRORRANGE = hyper_params.data.augmentRange
 		hidden_layers = hyper_params.arch.hidden_layers
 		dropout = hyper_params.arch.dropout_rate
 		optimizer = hyper_params.train.optimizer
