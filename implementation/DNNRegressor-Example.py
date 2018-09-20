@@ -90,7 +90,7 @@ def main(argv):
 	maximumLossAnalysis = args.lossAna
 	cancelThreshold = args.target
 	
-	MIDPOINT = 1123
+	# MIDPOINT = 1123
 
 	saveLoc = None
 	if args.save is not None and args.load is not None:
@@ -190,7 +190,7 @@ def main(argv):
 		# TODO: find Augmentation MIDPOINT from data or as argument?
 		if augment:
 			logging.info("applying augmentation to Training Set...")
-			X_train, y_train = augmentData(X_train, y_train, MIDPOINT, separator, direction=True)
+			X_train, y_train = augmentData(X_train, y_train, MIDPOINT, MIRRORRANGE, separator, direction=True)
 			logging.info("done!")
 
 	# Network Design

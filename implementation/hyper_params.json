@@ -5,8 +5,8 @@
         "feature_size": 5
     },
     "problem": {
-        "data_path": "/home/hornberger/MasterarbeitTobias/data/simulated/output",
-        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/simulated/",
+        "data_path": "/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen",
+        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/weizen/",
         "imagePath": "/home/hornberger/MasterarbeitTobias/images/"
     },
     "train": {
@@ -17,6 +17,8 @@
     },
     "data": {
         "numberFakeLines": 500,
-        "testSize": 0.1
+        "testSize": 0.1,
+        "augmentMidpoint": 1123,
+        "augmentRange": 1000
     }
 }
