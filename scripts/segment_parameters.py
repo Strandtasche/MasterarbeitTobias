@@ -22,13 +22,13 @@ class SegmentParameters:
         self.pfeffer = self.Parameters(0, 180, int(0.15*255), 255, int(0.1*255), int(0.6 * 255), 1000)
         self.kugel = self.Parameters(-40, 140, int(0.3*255), 255, int(0.2*255), int(0.6 * 255), 1500)
         self.weizen = self.Parameters(0, 255, int(0.15*255), 255, int(0.2*255), int(0.6 * 255), 1000)
-        self.zylinder = self.Parameters(int(60/360 * 255), int(200/360 * 255), int(0.15*255), 255, int(0.2*255), int(0.6 * 255), 1000)
+        self.zylinder = self.Parameters(50, 100, int(0.15*255), 255, int(0.2*255), int(0.6 * 255), 1500)
         
     
     def get_parameters(self, dataset):
         if 'plaettchen' in dataset:
             return self.plates
-        if 'Pfeffer' in dataset:
+        if 'pfeffer' in dataset.lower():
             return self.pfeffer
         if 'kugel' in dataset:
             return self.kugel

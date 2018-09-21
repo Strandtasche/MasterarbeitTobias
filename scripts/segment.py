@@ -86,7 +86,7 @@ def segment(dataset, display):
         # print(seg[1100:1140])
         
         # OPTIONAL - KANN BEI TRENNUNG VON SICH BERÜHRENDEN OBJEKTEN HELFEN!
-        if "Pfeffer" in dataset:
+        if "pfeffer" in dataset.lower() or "zylinder" in dataset.lower():
             kernel = np.ones((5,5), np.uint8)
             seg = cv2.erode(seg, kernel, iterations=3)
             seg = cv2.dilate(seg, kernel, iterations=3)
