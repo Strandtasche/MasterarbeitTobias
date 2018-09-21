@@ -2,7 +2,8 @@
     "arch": {
         "dropout_rate": 0.0,
         "hidden_layers": [16, 16, 16],
-        "feature_size": 5
+        "feature_size": 5,
+        "activation": "linear"
     },
     "problem": {
         "data_path": "/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen",
@@ -13,7 +14,8 @@
         "batch_size": 1000,
         "epochs": 500,
         "steps_per_epoch": 200,
-        "learning_rate": 0.01
+        "learning_rate": 0.01,
+        "optimizer": "Adam"
     },
     "data": {
         "numberFakeLines": 500,

@@ -147,6 +147,7 @@ def main(argv):
 		EPOCHS = hyper_params.train.epochs
 		BATCH_SIZE = hyper_params.train.batch_size
 		FEATURE_SIZE = hyper_params.arch.feature_size
+		ACTIVATION = hyper_params.arch.activation # "leaky_relu", "relu", "linear", TODO: "sigmoid", "tanh"
 		if FAKE:
 			FAKE_DATA_AMOUNT = hyper_params.data.numberFakeLines
 		if augment:
@@ -154,7 +155,7 @@ def main(argv):
 			MIRRORRANGE = hyper_params.data.augmentRange
 		hidden_layers = hyper_params.arch.hidden_layers
 		dropout = hyper_params.arch.dropout_rate
-		optimizer = hyper_params.train.optimizer
+		optimizer = hyper_params.train.optimizer # "Adam", "Adagrad"
 		learningRate = hyper_params.train.learning_rate
 		if overrideInputPath is None:
 			dataFolder = hyper_params.problem.data_path
@@ -187,7 +188,7 @@ def main(argv):
 			y_train = pd.concat([y_train, y_test])
 			y_test = y_train
 		
-		# TODO: find Augmentation MIDPOINT from data or as argument?
+		# ExTODO: find Augmentation MIDPOINT from data or as argument? - from Argument
 		if augment:
 			logging.info("applying augmentation to Training Set...")
 			X_train, y_train = augmentData(X_train, y_train, MIDPOINT, MIRRORRANGE, separator, direction=True)
@@ -208,34 +209,40 @@ def main(argv):
 
 	logging.info("time: {}".format(time_stamp))
 	logging.info('Saving to %s' % MODEL_PATH)
+	
+	if optimizer == 'Adagrad':
+		opti = tf.train.AdagradOptimizer
+	elif optimizer == 'Adam':
+		opti = tf.train.AdamOptimizer
+	# elif optimizer == 'GradientDescent':
+	# 	opti = tf.train.GradientDescentOptimizer
+	else:
+		logging.error("No (or wrong) optimizer given in hyperparameter file")
+		sys.exit(-1)
 
+	if ACTIVATION == 'relu':
+		acti = tf.nn.relu
+	elif ACTIVATION == 'leaky_relu':
+		acti = tf.nn.leaky_relu
+	elif ACTIVATION == 'linear':
+		acti = None
+	else:
+		logging.error("No (or wrong) activation function given in hyperparameter file")
+		sys.exit(-1)
+	
 	if not usingCustomEstimator:
 		# Validation and Test Configuration
 		test_config = estimator.RunConfig(save_checkpoints_steps=200,
 										  save_checkpoints_secs=None, save_summary_steps=100)
-		if optimizer == 'Adagrad':
-			opti = tf.train.AdagradOptimizer(learning_rate=learningRate)
-		elif optimizer == 'Adam':
-			opti = tf.train.AdamOptimizer(learning_rate=learningRate)
-		else:
-			logging.error("No (or wrong) optimizer given in hyperparameter file")
-			sys.exit(-1)
 		
 		regressor = estimator.DNNRegressor(feature_columns=my_feature_columns,
 										   label_dimension=2,
 										   hidden_units=hidden_layers,
 										   model_dir=MODEL_PATH,
 										   dropout=dropout,
+										   activation_fn=acti,
 										   config=test_config,
-										   optimizer=opti
-										   							#tf.train.AdagradOptimizer(learning_rate=learningRate)
-										   							#tf.train.AdamOptimizer(learning_rate=learningRate)
-										   
-										   									#learning_rate=tf.train.exponential_decay(
-            																	# learning_rate=learningRate,
-            																	# global_step=None,
-            																	# decay_steps=10000,
-            																	# decay_rate=0.96))
+										   optimizer=opti(learning_rate=learningRate)
 										   )
 	else:
 		test_config = estimator.RunConfig(save_checkpoints_steps=200,
@@ -247,10 +254,10 @@ def main(argv):
 			params={
 				"feature_columns": my_feature_columns,
 				"learning_rate": learningRate,
-				"optimizer": tf.train.AdamOptimizer,
+				"optimizer": opti,
 				"hidden_units": hidden_layers,
 				"dropout": dropout,
-				"activation": tf.nn.relu,
+				"activation": acti,
 				"decaying_learning_rate": True,
 				"decay_steps": 10000
 			})
