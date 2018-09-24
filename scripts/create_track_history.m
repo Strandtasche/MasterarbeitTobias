@@ -10,13 +10,14 @@ function[] = create_track_history(source_path, dest_path)
     disp('starting script')
 
     %Set magic Parameters, so the tracking works well
-    allParam=getDefaultParam([60;0]);
+    allParam=getDefaultParam([85;0]);
     allParam.score.looseStep=35;
     allParam.association.useOrientation=false;
-    allParam.initial.PositionCov=6000*eye(2);
-    allParam.meas.PositionCov=4000*eye(2);
+    allParam.initial.PositionCov=50*eye(2);
+    allParam.meas.PositionCov=50*eye(2);
     allParam.association.tryToUseMex=false;
     %allParam.association.distanceMetricPos='Euclidean';
+    allParam.general.rotateBy=pi;
     disp('parameters set!')
 
     %files = dir('*_data.csv');
@@ -26,7 +27,7 @@ function[] = create_track_history(source_path, dest_path)
     for file = files'
         
         disp(strcat('Processing : ', file.name))
-        trackHistory=tracksortAlgorithm([0,2450;0,1750],1300,1450,allParam,file.name);
+        trackHistory=tracksortAlgorithm([0,2320;0,1728],1300,1450,allParam,file.name);
         
         trackHistory_nothingDeleted = trackHistory;
         %These numbers in this command should be fitted for the input data, but
