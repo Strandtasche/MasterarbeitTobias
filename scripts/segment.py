@@ -11,7 +11,7 @@ import argparse
 from segment_parameters import SegmentParameters
 import csv
 
-WIDTH = 2320
+WIDTH = 2300
 HEIGHT = 1700
 
 FLOATPRECISION = 4
@@ -44,7 +44,7 @@ def is_valid_rect(cnt):
     return True
 
 
-def segment(dataset, display):
+def segment(dataset, display, open):
     cap = cv2.VideoCapture(dataset)
     segment_parameters = SegmentParameters()
     paras = segment_parameters.get_parameters(dataset)
@@ -86,7 +86,7 @@ def segment(dataset, display):
         # print(seg[1100:1140])
         
         # OPTIONAL - KANN BEI TRENNUNG VON SICH BERÜHRENDEN OBJEKTEN HELFEN!
-        if "pfeffer" in dataset.lower() or "zylinder" in dataset.lower():
+        if open: #("pfeffer" in dataset.lower() or "zylinder" in dataset.lower()) and open:
             kernel = np.ones((5,5), np.uint8)
             seg = cv2.erode(seg, kernel, iterations=3)
             seg = cv2.dilate(seg, kernel, iterations=3)
@@ -160,7 +160,7 @@ def main():
     parser.add_argument('-i', type=str, help='dataset', required=True)
     parser.add_argument('-nd', action="store_true", help='no display')
     parser.add_argument('-o', type=str, help='output Target', required=True)
-	
+    parser.add_argument('-morph', action="store_true", help='use morphological operation open')
     
     args = parser.parse_args()
     display = True
@@ -169,7 +169,7 @@ def main():
     
     print('Processing...')
     
-    data = segment(args.i, display)
+    data = segment(args.i, display, args.morph)
     writeToCSV(data, args.o)
     
     print('Done.')

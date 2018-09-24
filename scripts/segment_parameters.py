@@ -26,15 +26,15 @@ class SegmentParameters:
         
     
     def get_parameters(self, dataset):
-        if 'plaettchen' in dataset:
+        if 'plaettchen' in dataset.lower():
             return self.plates
         if 'pfeffer' in dataset.lower():
             return self.pfeffer
-        if 'kugel' in dataset:
+        if 'kugel' in dataset.lower():
             return self.kugel
-        if 'weizen' in dataset:
+        if 'weizen' in dataset.lower():
             return self.weizen
-        if 'zylinder' in dataset:
+        if 'zylinder' in dataset.lower():
             return self.zylinder
         # return self.pfeffer
         
