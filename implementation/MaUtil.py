@@ -139,7 +139,7 @@ def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 	plt.close()
 
 
-def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath, name=None):
+def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath, lim, name=None):
 	"""plot a certain number of next step prediction examples (from pandas dataframe)
 	with features, labels and prection and save to .png file"""
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
@@ -168,8 +168,8 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 		for k in range(numberPrint):
 			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'b+', label='prediction')
 	plt.plot()
-	plt.xlim(100, 2250)
-	plt.ylim(0, 1750)
+	plt.xlim(lim[0], lim[1])
+	plt.ylim(lim[2], lim[3])
 	plt.xlabel('x-Coordinate (px)')
 	plt.ylabel('y-Coordinate (px)')
 	
@@ -223,7 +223,7 @@ def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath):
 	plt.close()
 
 
-def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_predicted, savePath, name=None):
+def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_predicted, savePath, lim, name=None):
 	"""plot a certain number of next step prediction examples (from pandas dataframe)
 		with features, labels and prection and save to .png file"""
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
@@ -270,8 +270,8 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 			sys.exit(-1)
 	
 	plt.plot()
-	plt.xlim(100, 2250)
-	plt.ylim(0, 1750)
+	plt.xlim(lim[0], lim[1])
+	plt.ylim(lim[2], lim[3])
 	
 	plt.title('%s DNNRegressor Separator' % savePath.split('/')[-1])
 	plt.tight_layout()
@@ -433,7 +433,7 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions):
 	
 	reducedRelColumns = [relevantColumns[2], relevantColumns[5], relevantColumns[8]]
 	
-	logging.info("\n{}".format(pandasLost[reducedRelColumns].describe()))
+	_printPDfull(pandasLost[reducedRelColumns].describe())
 
 	logging.info("number of predictions with error > 3: {}".format((pandasLost['NNpixelErrorTotal'] > 3).sum()))
 	
@@ -453,6 +453,12 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions):
 
 # hist = pandasLost.hist(bins=10)
 # plt.show()
+def _printPDfull(dataframe):
+	pd.set_option('display.max_colwidth', -1)
+	pd.set_option('display.max_columns', None)
+	logging.info("\n{}".format(dataframe))
+	pd.reset_option('display.max_columns')
+	pd.reset_option('display.max_colwidth')
 
 def _getRelIndices(columns, separator, direction):
 	if not separator:
@@ -539,7 +545,7 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions):
 	
 	relevantColumns = ['NNpixelErrorPosBalken', 'NNerrorTime']
 	
-	logging.info("\n{}".format(pandasLost[relevantColumns].describe()))
+	_printPDfull(pandasLost[relevantColumns].describe())
 
 	# logging.info("number of predictions with error > 3: {}".format((pandasLost['NNpixelErrorTotal'] > 3).sum()))
 	

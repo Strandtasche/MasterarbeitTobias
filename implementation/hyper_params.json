@@ -3,12 +3,16 @@
         "dropout_rate": 0.0,
         "hidden_layers": [16, 16, 16],
         "feature_size": 5,
-        "activation": "linear"
+        "activation": "leaky_relu"
     },
     "problem": {
-        "data_path": "/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen",
-        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/weizen/",
-        "imagePath": "/home/hornberger/MasterarbeitTobias/images/"
+        "data_path": "/home/hornberger/MasterarbeitTobias/data/simulated/SpheresDownsampled",
+        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/simulated/",
+        "imagePath": "/home/hornberger/MasterarbeitTobias/images/",
+        "separator": 0,
+        "separatorPosition": 1550,
+        "predictionCutOff": 1300
+
     },
     "train": {
         "batch_size": 1000,
@@ -21,6 +25,8 @@
         "numberFakeLines": 500,
         "testSize": 0.1,
         "augmentMidpoint": 1123,
-        "augmentRange": 1000
+        "augmentRange": 1000,
+        "direction": "x",
+        "limits": [0.388, 0.788, 0, 0.18]
     }
 }

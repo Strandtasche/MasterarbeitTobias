@@ -30,7 +30,7 @@ import loadDataExample as ld
 import customEstimator as cE
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-np.set_printoptions(precision=2)
+np.set_printoptions(precision=5)
 
 parser = argparse.ArgumentParser()
 parser.register("type", "bool", lambda v: v.lower() == "true")
@@ -143,27 +143,48 @@ def main(argv):
 
 	try:
 		hyper_params = load_params(hyperParamFile)
+		
 		STEPS_PER_EPOCH = hyper_params.train.steps_per_epoch
 		EPOCHS = hyper_params.train.epochs
 		BATCH_SIZE = hyper_params.train.batch_size
+		
 		FEATURE_SIZE = hyper_params.arch.feature_size
 		ACTIVATION = hyper_params.arch.activation # "leaky_relu", "relu", "linear", TODO: "sigmoid", "tanh"
+		dropout = hyper_params.arch.dropout_rate
+		hidden_layers = hyper_params.arch.hidden_layers
+		
 		if FAKE:
 			FAKE_DATA_AMOUNT = hyper_params.data.numberFakeLines
 		if augment:
 			MIDPOINT = hyper_params.data.augmentMidpoint
 			MIRRORRANGE = hyper_params.data.augmentRange
-		hidden_layers = hyper_params.arch.hidden_layers
-		dropout = hyper_params.arch.dropout_rate
+		testSize = hyper_params.data.testSize
+		limits = hyper_params.data.limits
+		
+		elementsDirection = hyper_params.data.direction
+		if elementsDirection == "y":
+			elementsDirectionBool = True
+		elif elementsDirection == "x":
+			elementsDirectionBool = False
+		
 		optimizer = hyper_params.train.optimizer # "Adam", "Adagrad"
 		learningRate = hyper_params.train.learning_rate
+		
 		if overrideInputPath is None:
 			dataFolder = hyper_params.problem.data_path
 		else:
 			dataFolder = overrideInputPath
-		testSize = hyper_params.data.testSize
+		
 		baseModelPath = hyper_params.problem.modelBasePath
 		baseImagePath = hyper_params.problem.imagePath
+		if args.separator is None:
+			if hyper_params.problem.separator == 1:
+				separator = True
+				separatorPosition = hyper_params.problem.separatorPosition
+				predictionCutOff = hyper_params.problem.predictionCutOff
+			else:
+				separator = False
+		
 	except AttributeError as err:
 		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
 		logging.error("AttributeError: {0}".format(err))
@@ -376,7 +397,7 @@ def main(argv):
 		
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
 
-		logging.info("Training completed. final average loss: {:.3f}, best average loss during training: {:.3f}".format(
+		logging.info("Training completed. final average loss: {}, best average loss during training: {}".format(
 						eval_dict['average_loss'], min(epochInterm)))
 
 		if progressPlot:
@@ -392,7 +413,7 @@ def main(argv):
 		try:
 			# Prediction
 			eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
-			logging.info('Error on whole Test set:\nMSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
+			logging.info('Error on whole Test set:\nMSE (tensorflow): {}'.format(eval_dict['average_loss']))
 			averageLoss = eval_dict['average_loss']
 
 		except ValueError as err:
@@ -427,13 +448,13 @@ def main(argv):
 		print("time: {:.2f}s".format((endTime - startTime)))
 
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(x_pred2, y_vals2, batch_size=BATCH_SIZE))
-		print('MSE (tensorflow): {0:f}'.format(eval_dict['average_loss']))
+		print('MSE (tensorflow): {}'.format(eval_dict['average_loss']))
 
 		if maximumLossAnalysis:
 			if not separator:
 				printDF = prepareMaximumLossAnalysisNextStep(X_test, y_test, numberPrint, regressor, BATCH_SIZE)
 				plotDataNextStepPandas(numberPrint, printDF[columnNames], printDF[['LabelX', 'LabelY']],
-								   printDF[['PredictionX', 'PredictionY']], baseImagePath,
+								   printDF[['PredictionX', 'PredictionY']], baseImagePath, limits,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
 			else:
 				printDF = prepareMaximumLossAnalysisSeparator(X_test, y_test, numberPrint, regressor, BATCH_SIZE)
@@ -450,7 +471,7 @@ def main(argv):
 		# # Final Plot
 		if WITHPLOT:
 			if not separator:
-				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath,
+				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath, limits,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 	
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=BATCH_SIZE))
