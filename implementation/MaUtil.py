@@ -348,6 +348,36 @@ def prepareEvaluationNextStepCVCA(features):
 	return constantVelAndAccel
 
 
+def prepareEvaluationSeparatorCVCA(features):
+	"""a helper function for evaluation.
+	returns a pandas dataframe with CA and CV predictions for separation, with the correct corresponding index"""
+	
+	locPredCV = []
+	locPredCA = []
+	timePredCV = []
+	timePredCA = []
+	
+	for index, row in features.iterrows():
+		locSepCV, timeSepCV = predictionConstantVelSeparator(row.values)
+		locSepCA, timeSepCA = predictionConcentAccelNextStep(row.values)
+		locPredCV.append(locSepCV)
+		timePredCV.append(timeSepCV)
+		locPredCA.append(locSepCA)
+		timePredCA.append(timeSepCA)
+	
+	dataInp = {'CV_Prediction_Loc': locSepCV, 'CV_Prediction_Time': timePredCV,
+			   'CA_Prediction_Loc': locSepCA, 'CA_Prediction_Time': timePredCA}
+	
+	constantVelAndAccel = pd.DataFrame(data=dataInp, index=features.index)
+	
+	assert constantVelAndAccel['CV_Prediction_Loc'].head().iloc[0] == locPredCV[0]
+	assert constantVelAndAccel['CV_Prediction_Time'].head().iloc[0] == timePredCV[0]
+	assert constantVelAndAccel['CA_Prediction_Loc'].head().iloc[0] == locPredCA[0]
+	assert constantVelAndAccel['CA_Prediction_Time'].head().iloc[0] == timePredCA[0]
+	
+	return constantVelAndAccel
+
+
 def predictionConstantVelNextStep(array):
 	"""a helper function for the helper function for evaluation.
 	given one set of features, returns a tuple of x and y coordinate of a prediction made with the CV model"""
@@ -384,6 +414,40 @@ def predictionConcentAccelNextStep(array):
 	nextY = array[indexLastY] + v_y + a_y
 	
 	return nextX, nextY
+
+
+def predictionConstantVelSeparator(array, separatorPosition, direction):
+	
+	assert len(array) >= 4  # assume featuresize >= 2
+	indexLastX = int((len(array)) / 2) - 1  # assuming 2 labels and 2*(featureSize) length)
+	indexLastY = int(len(array) - 1)
+	
+	v_x = array[indexLastX] - array[indexLastX - 1]
+	v_y = array[indexLastY] - array[indexLastY - 1]
+	
+	xLast = np.transpose(np.array([[array[indexLastX], v_x, array[indexLastY], v_y]]))
+	
+	A = np.zeros((4,4))
+	A[0,1] = 1
+	A[2,3] = 1
+	
+	x_dot = np.matmul(A, xLast)
+	
+	# x(t) = xPredTo
+	
+	
+	if direction: # moving along x axis:
+		locInd = 2
+		tarInd = 0
+	else:  #moving along y axis
+		locInd = 0
+		tarInd = 2
+	
+	deltaT = (separatorPosition - xLast[locInd]) / x_dot[locInd]
+	
+	intersectionPoint = xLast[tarInd] + deltaT * x_dot[tarInd]
+	
+	return intersectionPoint, deltaT
 
 
 def evaluateResultNextStep(X_test, y_test, totalPredictions):
@@ -451,14 +515,13 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions):
 	plt.show()
 
 
-# hist = pandasLost.hist(bins=10)
-# plt.show()
 def _printPDfull(dataframe):
 	pd.set_option('display.max_colwidth', -1)
 	pd.set_option('display.max_columns', None)
 	logging.info("\n{}".format(dataframe))
 	pd.reset_option('display.max_columns')
 	pd.reset_option('display.max_colwidth')
+
 
 def _getRelIndices(columns, separator, direction):
 	if not separator:

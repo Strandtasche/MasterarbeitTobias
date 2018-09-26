@@ -212,7 +212,7 @@ def main(argv):
 		# ExTODO: find Augmentation MIDPOINT from data or as argument? - from Argument
 		if augment:
 			logging.info("applying augmentation to Training Set...")
-			X_train, y_train = augmentData(X_train, y_train, MIDPOINT, MIRRORRANGE, separator, direction=True)
+			X_train, y_train = augmentData(X_train, y_train, MIDPOINT, MIRRORRANGE, separator, direction=elementsDirectionBool)
 			logging.info("done!")
 
 	# Network Design
@@ -266,8 +266,9 @@ def main(argv):
 										   optimizer=opti(learning_rate=learningRate)
 										   )
 	else:
-		test_config = estimator.RunConfig(save_checkpoints_steps=200,
-		                                  save_checkpoints_secs=None)
+		test_config = estimator.RunConfig(save_checkpoints_steps=1000,
+		                                  save_checkpoints_secs=None,
+										  save_summary_steps=500)
 		regressor = estimator.Estimator(
 			model_fn=cE.myCustomEstimator,
 			config=test_config,
