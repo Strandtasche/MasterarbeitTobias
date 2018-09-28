@@ -61,8 +61,11 @@ Infolge dessen gab verschiedene Forschungsbestrebungen in dem Feld, wie [Example
 Nachdem jedoch Marvin Minsky und Seymour Papert zeigten, dass einzelne Perzeptrons nicht in der Lage sind linear nicht separierbare Probleme zu lösen sank das Interesse an dem Feld.
 
 \subsection{Perzeptron}
-Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron.
+Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt beschrieben wurde \todo{Quelle}.
 Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert $o$ ausgibt.
+
+\todo{Darstellung des Perzeptrons}
+
 Die einzelnen Eingaben $x_i$ haben jeweils eine Gewichtung $w_i$.
 Es existiert ein sogenannter Schwellwert oder \textit{bias}, der normalerweise 
 durch eine zusätzliche Eingabe $x_{m+1}$ mit dem Wert $+1$ und dem dazugehörigen Gewicht $w_{m+1}$ modelliert wird.
@@ -79,6 +82,9 @@ Beim Lernen werden die Gewichte der einzelnen Eingaben so an gepasst, dass die g
 Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen Operatoren AND, OR und NOT genutzt werden
 
 Letztendlich ist ein solches Perzeptron jedoch nur ein linearer Klassifikator und kann somit zum Beispiel den XOR Operator nicht auflösen.
+
+\todo{Linear Trennbares / Nicht-linear Trennbares Problem (AND vs XOR)}
+
 Um solche, nicht linear-separierbare Probleme zu lösen müssen mehrere Schichten an Neuronen kombiniert werden.
 
 \subsection{Aktivierungsfunktionen}
@@ -153,13 +159,19 @@ Operation auf diese an und gibt das Ergebnis zurück.
 			\end{cases}
 		\end{equation*}
 		Abbildung \ref{reluoutput} zeigt den Plot einer \textit{Rectified Linear Unit}, oder kurz ReLU.
-		Die Aktivierung von ReLus ist ein einfacher Schwellwert, der weit weniger rechenintensiv ist, als die aufwendigen Exponenzialfunktionen von Sigmoid und tanh.
+		Die Aktivierung von ReLUs ist ein einfacher Schwellwert, der weit weniger rechenintensiv ist, als die aufwendigen Exponenzialfunktionen von Sigmoid und tanh.
 		In der Praxis hat sich gezeigt zudem gezeigt, dass ReLus deutlich schneller konvergieren als Sigmoid- oder tanh-Neuronen. 
 		Krizhevsky et al. haben in ihrem Paper\cite{NIPS2012_4824} einen Geschwindigkeitsgewinn um Faktor 6 feststellen können.
 		Ein Problem, das mit ReLUs jedoch existiert ist, dass einzelne Neuronen während dem Training "absterben" können.
 		Diese Neuronen sind dann für jeden beliebigen Input inaktiv und können nie wieder etwas zur Ausgabe des Netzes beitragen.
 		Durch die Wahl einer geeigneten Lernrate oder den Einsatz sogenannter Leaky ReLUs lässt sich dies jedoch vermeiden.
-		
+		Leaky ReLUs haben im Gegensatz zu normalen ReLUs eine kleine positive Steigung im negativen Bereich.
+		\begin{equation}
+			f(x) = \begin{cases}
+				x &\text{, falls } x  >  0\\
+				0.01 x &\text{, falls } x  \leq  0
+			\end{cases}
+		\end{equation} 
 
 		\begin{figure}
 			\centering
@@ -202,8 +214,9 @@ Die Eingabe wird in ein Input Layer
 
 \subsection{Backpropagation}
 
-[ein Absatz über lernen mit dem Backpropagation Algorithmus]
+\todo{ein Absatz über lernen mit dem Backpropagation Algorithmus}
+Der Backpropagation Algorithmus ist 
 
 \subsection{Rekurrente neuronale Netze}
 
-[Text über rekurrente Netzwerke]
+\todo{Text über rekurrente Netzwerke - Do I really need that?}
