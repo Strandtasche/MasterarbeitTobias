@@ -268,7 +268,7 @@ def main(argv):
 	else:
 		test_config = estimator.RunConfig(save_checkpoints_steps=1000,
 		                                  save_checkpoints_secs=None,
-										  save_summary_steps=500)
+										  save_summary_steps=100)
 		regressor = estimator.Estimator(
 			model_fn=cE.myCustomEstimator,
 			config=test_config,

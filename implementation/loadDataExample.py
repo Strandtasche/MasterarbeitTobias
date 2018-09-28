@@ -526,7 +526,7 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 	return newDf
 
 
-def loadRawMeasSeparation(input, featureSize=5, testSize=0.1, separatorPosY=1550, predictionCutOff=1300):
+def loadRawMeasSeparation(input, featureSize=5, testSize=0.1, separatorPosY=1550, predictionCutOff=1300, direction=True):
 	"""loads all the raw measurement data from input into a pandas Dataframe and """
 	
 	# if input[:5] == "/home":
@@ -550,7 +550,7 @@ def loadRawMeasSeparation(input, featureSize=5, testSize=0.1, separatorPosY=1550
 	dataFrameList = []
 	
 	for elem in fileList:
-		dataFrameList.append(prepareRawMeasSeparation(elem, featureSize, separatorPosY, predictionCutOff))
+		dataFrameList.append(prepareRawMeasSeparation(elem, featureSize, separatorPosY, predictionCutOff, direction))
 	
 	newDf = pd.concat(dataFrameList, ignore_index=True)
 	

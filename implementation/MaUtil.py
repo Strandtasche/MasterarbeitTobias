@@ -417,6 +417,9 @@ def predictionConcentAccelNextStep(array):
 
 
 def predictionConstantVelSeparator(array, separatorPosition, direction):
+	"""a helper function for the helper function for evaluation.
+	given one set of features, returns a tuple of predictions for location and time until intersection with the separator
+	made with the CV model"""
 	
 	assert len(array) >= 4  # assume featuresize >= 2
 	indexLastX = int((len(array)) / 2) - 1  # assuming 2 labels and 2*(featureSize) length)
@@ -443,11 +446,74 @@ def predictionConstantVelSeparator(array, separatorPosition, direction):
 		locInd = 0
 		tarInd = 2
 	
+	assert x_dot[locInd] != 0
+	
 	deltaT = (separatorPosition - xLast[locInd]) / x_dot[locInd]
 	
 	intersectionPoint = xLast[tarInd] + deltaT * x_dot[tarInd]
 	
 	return intersectionPoint, deltaT
+
+
+
+def predictionConstantAccelSeparator(array, separatorPosition, direction):
+	"""a helper function for the helper function for evaluation.
+	given one set of features, returns a tuple of predictions for location and time to intersection
+	made with the CA model"""
+	
+	assert len(array) >= 6  # assume featuresize >= 3
+	
+	indexLastX = int((len(array)) / 2) - 1  # assuming 2 labels and 2*(featureSize) length)
+	indexLastY = int(len(array) - 1)
+	
+	v_x = array[indexLastX] - array[indexLastX - 1]
+	v_y = array[indexLastY] - array[indexLastY - 1]
+	a_x = v_x - (array[indexLastX - 1] - array[indexLastX - 2])
+	a_y = v_y - (array[indexLastY - 1] - array[indexLastY - 2])
+	
+	# t_delta = 1  # 1 time unit between observations
+	# nextX = array[indexLastX] + t_delta * v_x + 0.5 * t_delta ** 2 * a_x
+	# nextY = array[indexLastY] + v_y + a_y
+
+	xLast = np.transpose(np.array([[array[indexLastX], v_x, a_x, array[indexLastY], v_y, a_y]]))
+	
+	A_h = np.zeros((3,3))
+	A_x = A_h.copy()
+	A_x[0,1] = 1
+	A_x[1,2] = 1
+	
+	A_0 = np.concatenate((A_x, A_h), axis=0)
+	A_1 = np.concatenate((A_h, A_x), axis=0)
+	
+	A = np.concatenate((A_0, A_1), axis=1)
+	
+	x_dot = np.matmul(A, xLast)
+	
+	
+	if direction: # moving along x axis:
+		locInd = 3
+		tarInd = 0
+	else:  #moving along y axis
+		locInd = 0
+		tarInd = 3
+		
+	if x_dot[locInd + 1] == 0:
+		return predictionConstantVelSeparator(array, separatorPosition, direction)
+	else:
+	
+		a = x_dot[locInd + 1]
+		b = x_dot[locInd]
+		c = xLast[locInd] - separatorPosition
+
+		d = (b ** 2) - (4 * a * c)
+		divident = 2 * a
+		divisor = (-b + d ** 0.5)
+		
+		deltaT = divident/divisor
+	
+		return deltaT
+	
+	
 
 
 def evaluateResultNextStep(X_test, y_test, totalPredictions):
@@ -538,7 +604,6 @@ def _getRelIndices(columns, separator, direction):
 		else:
 			relIndices = [i for i in range(int((len(columns) - 2) / 2), len(columns) - 2)]
 			relIndices.append(len(columns) - 2)
-
 	return relIndices
 
 
