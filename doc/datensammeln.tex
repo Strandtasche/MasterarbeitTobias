@@ -37,33 +37,34 @@ ein Paar aus einem geometrischen Körper und einem echten Objekt, das grob desse
 
 Die Kugeln bestehen aus Holz und haben einen Durchmesser von 5mm.
 Die Zylinder bestehen ebenfalls aus Holz. Sie haben eine Länge von 1cm und einen Durchmesser von 3mm.
+Die Schüttgüter sind in Abbildung \ref{schuettgueterSchuessel} in Schüsseln 
+und in Abbildung \ref{schuettgueterBand} auf dem Förderband zu sehen.
 \todo{TODO: Details}
 
 \begin{figure}[h]
-    \centering
-    \begin{subfigure}[t]{0.4\textwidth}
-        \includegraphics[width=\textwidth]{kugel_001_00084_debayer}
-        \caption{Kugeln}
-    \end{subfigure}
-    \quad
-    \begin{subfigure}[t]{0.4\textwidth}
-        \includegraphics[width=\textwidth]{Pfeffer_003_00020_debayer}
-        \caption{Pfeffer}
-    \end{subfigure}
-    \vskip\baselineskip
-    \begin{subfigure}[t]{0.4\textwidth}
-        \includegraphics[width=\textwidth]{zylinder_001_00009_debayer}
-        \caption{Zylinder}
-    \end{subfigure}
-    \quad
-    \begin{subfigure}[t]{0.4\textwidth}
-        \includegraphics[width=\textwidth]{weizen_004_00016_debayer}
-        \caption{Weizen}
-    \end{subfigure}
-    \caption{Verschiedene Schüttgüter}
-    \label{schuettgueterSchuessel}
+	\centering
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{kugel_001_00084_debayer}
+		\caption{Kugeln}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{Pfeffer_003_00020_debayer}
+		\caption{Pfeffer}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{zylinder_001_00009_debayer}
+		\caption{Zylinder}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{weizen_004_00016_debayer}
+		\caption{Weizen}
+	\end{subfigure}
+	\caption{Verschiedene Schüttgüter}
+	\label{schuettgueterSchuessel}
 \end{figure}
-
 
 
 \subsection{Pipeline}
@@ -74,7 +75,34 @@ Die Bonito Kamera schreibt sie in Form einer Bayer-Matrix in Bitmap Dateien.
 Auf Grund der Menge an Bildern war es sinnvoll die Dateien in das png Dateiformat zu übertragen.
 Die Features, die für das Trainieren der Netze benutzt werden, sind die Koordinaten der Mittelpunkte der Objekte.
 Um diese zu bestimmten müssen zunächst die Dateien mittels \textit{Demosaicing} rekonstruiert werden um gewöhnliche RGB Bilder zu erhalten.
-[Reference Debayer script?]
+\todo{[Reference Debayer script?]}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{KugelnCropped}
+		\caption{Kugeln}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{PfefferCropped}
+		\caption{Pfeffer}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{ZylinderCropped}
+		\caption{Zylinder}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{WeizenCropped}
+		\caption{Weizen}
+	\end{subfigure}
+	\caption{Verschiedene Schüttgüter auf dem Förderband}
+	\label{schuettgueterBand}
+\end{figure}
+
+
 Auf diesen kann dann eine Segmentierung vorgenommen werden.
 Hierzu wurde die Computer Vision Library OpenCV benutzt.
 Das Ergebnis des Segmentierungsscripts [Reference segement.py] ist ein CSV File für jedes Batch.
