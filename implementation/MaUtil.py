@@ -329,7 +329,7 @@ def prepareEvaluationNextStepCVCA(features):
 	
 	for index, row in features.iterrows():
 		xnextCV, ynextCV = predictionConstantVelNextStep(row.values)
-		xnextCA, ynextCA = predictionConcentAccelNextStep(row.values)
+		xnextCA, ynextCA = predictionConstantAccelNextStep(row.values)
 		xpredCV.append(xnextCV)
 		ypredCV.append(ynextCV)
 		xpredCA.append(xnextCA)
@@ -348,7 +348,7 @@ def prepareEvaluationNextStepCVCA(features):
 	return constantVelAndAccel
 
 
-def prepareEvaluationSeparatorCVCA(features):
+def prepareEvaluationSeparatorCVCA(features, separatorPosition, direction):
 	"""a helper function for evaluation.
 	returns a pandas dataframe with CA and CV predictions for separation, with the correct corresponding index"""
 	
@@ -358,15 +358,15 @@ def prepareEvaluationSeparatorCVCA(features):
 	timePredCA = []
 	
 	for index, row in features.iterrows():
-		locSepCV, timeSepCV = predictionConstantVelSeparator(row.values)
-		locSepCA, timeSepCA = predictionConcentAccelNextStep(row.values)
+		locSepCV, timeSepCV = predictionConstantVelSeparator(row.values, separatorPosition, direction)
+		locSepCA, timeSepCA = predictionConstantAccelSeparator(row.values, separatorPosition, direction)
 		locPredCV.append(locSepCV)
 		timePredCV.append(timeSepCV)
 		locPredCA.append(locSepCA)
 		timePredCA.append(timeSepCA)
 	
-	dataInp = {'CV_Prediction_Loc': locSepCV, 'CV_Prediction_Time': timePredCV,
-			   'CA_Prediction_Loc': locSepCA, 'CA_Prediction_Time': timePredCA}
+	dataInp = {'CV_Prediction_Loc': locPredCV, 'CV_Prediction_Time': timePredCV,
+			   'CA_Prediction_Loc': locPredCA, 'CA_Prediction_Time': timePredCA}
 	
 	constantVelAndAccel = pd.DataFrame(data=dataInp, index=features.index)
 	
@@ -395,7 +395,7 @@ def predictionConstantVelNextStep(array):
 	return nextX, nextY
 
 
-def predictionConcentAccelNextStep(array):
+def predictionConstantAccelNextStep(array):
 	"""a helper function for the helper function for evaluation.
 	given one set of features, returns a tuple of x and y coordinate of a prediction made with the CA model"""
 	
@@ -455,7 +455,6 @@ def predictionConstantVelSeparator(array, separatorPosition, direction):
 	return intersectionPoint, deltaT
 
 
-
 def predictionConstantAccelSeparator(array, separatorPosition, direction):
 	"""a helper function for the helper function for evaluation.
 	given one set of features, returns a tuple of predictions for location and time to intersection
@@ -489,6 +488,8 @@ def predictionConstantAccelSeparator(array, separatorPosition, direction):
 	
 	x_dot = np.matmul(A, xLast)
 	
+	# print("x vel: {}, x acc: {}".format(v_x, a_x))
+	
 	
 	if direction: # moving along x axis:
 		locInd = 3
@@ -500,33 +501,35 @@ def predictionConstantAccelSeparator(array, separatorPosition, direction):
 	if x_dot[locInd + 1] == 0:
 		return predictionConstantVelSeparator(array, separatorPosition, direction)
 	else:
-	
-		a = x_dot[locInd + 1]
+
+		a = 0.5 * x_dot[locInd + 1]
 		b = x_dot[locInd]
-		c = xLast[locInd] - separatorPosition
-
-		d = (b ** 2) - (4 * a * c)
-		divident = 2 * a
-		divisor = (-b + d ** 0.5)
+		c = -1 * (separatorPosition - xLast[locInd])
 		
-		deltaT = divident/divisor
+		# print("a: {}, b: {}, c: {}".format(a,b,c))
+		tempVal = b**2 - 4*a * c
+		if tempVal < 0:
+			logging.warning("negative value in sqrt: {}".format(tempVal))
+		
+		deltaT = (-b + tempVal**0.5)/(2*a)
 	
-		return deltaT
+		intersectionPoint = xLast[tarInd] + deltaT * x_dot[tarInd] + 0.5 * deltaT **2 * x_dot[tarInd + 1]
+		
+		return intersectionPoint, deltaT
 	
 	
-
-
 def evaluateResultNextStep(X_test, y_test, totalPredictions):
-	"""function to evaluate the result of this nets nextStep prediction.
-	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
+	"""function to evaluate the result of this nets nextStep prediction. no return value,
+	but writes a description of the error distribution and shows some plots for better visualisation"""
 	
 	xPredL = [p[0] for p in totalPredictions]
 	yPredL = [p[1] for p in totalPredictions]
 	pandasLost = pd.DataFrame(data={'NNPredictionX': xPredL, 'NNPredictionY': yPredL}, index=y_test.index)
 	
-	caCvDf = prepareEvaluationNextStepCVCA(X_test)
+	caCvDfnextStep = prepareEvaluationNextStepCVCA(X_test)
+	
 
-	pandasLost = pd.concat([X_test, y_test, pandasLost, caCvDf], axis=1)
+	pandasLost = pd.concat([X_test, y_test, pandasLost, caCvDfnextStep], axis=1)
 	
 	pandasLost['NNpixelErrorX'] = pandasLost.apply(
 		lambda row: (row['LabelX'] - row['NNPredictionX']), axis=1)
@@ -654,7 +657,7 @@ def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, d
 	return augmentedFeatureDf, augmentedLabelDf
 
 
-def evaluateResultSeparator(X_test, y_test, totalPredictions):
+def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, direction):
 	"""function to evaluate the result of this nets nextStep prediction.
 	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
 	
@@ -662,9 +665,9 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions):
 	timePredL = [p[1] for p in totalPredictions]
 	pandasLost = pd.DataFrame(data={'NNPredictionPosBalken': xPredL, 'NNPredictionTime': timePredL}, index=y_test.index)
 	
-	caCvDf = prepareEvaluationNextStepCVCA(X_test)
+	caCvDfSeparator = prepareEvaluationSeparatorCVCA(X_test, separatorPosition, direction)
 	
-	pandasLost = pd.concat([X_test, y_test, pandasLost, caCvDf], axis=1)
+	pandasLost = pd.concat([X_test, y_test, pandasLost, caCvDfSeparator], axis=1)
 	
 	pandasLost['NNpixelErrorPosBalken'] = pandasLost.apply(
 		lambda row: (row['LabelPosBalken'] - row['NNPredictionPosBalken']), axis=1)
