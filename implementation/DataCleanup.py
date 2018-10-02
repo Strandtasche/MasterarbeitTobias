@@ -118,7 +118,7 @@ def filterTracksByAngleDifference(dataFrame, THRESHOLD=0.3, display=True):
 			angles.append(angle_between(vecs[k], vecs[k+1]))
 			
 			
-		# print("track: {}, angles: {}".format(trackNo, max(angles)))
+		#print("track: {}, angles: {}".format(trackNo, max(angles)))
 		
 		if max(angles) > THRESHOLD:
 			logging.info("track: {}, angles: {}".format(trackNo, max(angles)))
@@ -237,8 +237,10 @@ def cleanUpFolder(path, target):
 		logging.info("Write to " + target + "/" + basename )
 		df = pd.read_csv(elem)
 		dropIndicesAngle = filterTracksByAngleDifference(df, THRESHOLD=0.3, display=False)
+		logging.info("dropping: {} tracks from angle".format(len(dropIndicesAngle)))
 		df.drop(df.columns[dropIndicesAngle], axis=1, inplace=True)
 		dropIndicesLength = filterTracksByVectorLength(df, THRESHOLD=10, display=False)
+		logging.info("dropping: {} tracks from length".format(len(dropIndicesLength)))
 		df.drop(df.columns[dropIndicesLength], axis=1, inplace=True)
 		df.to_csv(os.path.join(target, basename), index=False, na_rep="NaN", encoding='utf-8')
 
