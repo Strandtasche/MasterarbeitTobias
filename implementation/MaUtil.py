@@ -453,6 +453,21 @@ def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, d
 	return augmentedFeatureDf, augmentedLabelDf
 
 
+def _getMedianAccel(X_test, separator, direction):
+	if not direction: # moving along x axis
+		relCols = X_test.columns[0:int(len(X_test.columns)/2)]
+		# print("x axis")
+	else: # moving along y axis
+		relCols = X_test.columns[int(len(X_test.columns)/2):len(X_test.columns)]
+		# print("y axis")
+		
+	X_test['accel'] = X_test.apply(
+		lambda row: (row[relCols[-1]] - row[relCols[-2]]) - (row[relCols[-2]] - row[relCols[-3]]), axis=1
+	)
+	
+	return X_test['accel'].median()
+
+
 def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, direction):
 	"""function to evaluate the result of this nets nextStep prediction.
 	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
@@ -461,7 +476,8 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	timePredL = [p[1] for p in totalPredictions]
 	pandasLost = pd.DataFrame(data={'NNPredictionPosBalken': xPredL, 'NNPredictionTime': timePredL}, index=y_test.index)
 	
-	caCvDfSeparator = prepareEvaluationSeparatorCVCA(X_test, separatorPosition, direction)
+	medianAccel = _getMedianAccel(X_test.sample(frac=0.05), True, direction)
+	caCvDfSeparator = prepareEvaluationSeparatorCVCA(X_test, medianAccel, separatorPosition, direction)
 	
 	pandasLost = pd.concat([X_test, y_test, pandasLost, caCvDfSeparator], axis=1)
 	
@@ -473,14 +489,15 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	pandasLost['CVpixelErrorPosBalken'] = pandasLost.apply(
 		lambda row: (row['LabelPosBalken'] - row['CV_Prediction_Loc']), axis=1)
 	
-	relevantColumns = ['NNpixelErrorPosBalken', 'NNerrorTime']
+	relevantColumns = ['NNpixelErrorPosBalken', 'NNerrorTime', 'CVpixelErrorPosBalken']
+	# logging.info("\n{}".format(pandasLost[relevantColumns]))
 	
 	_printPDfull(pandasLost[relevantColumns].describe())
 
 	# logging.info("number of predictions with error > 3: {}".format((pandasLost['NNpixelErrorTotal'] > 3).sum()))
 	
 	fig1, ax1 = plt.subplots()
-	ax1.boxplot([pandasLost['NNpixelErrorPosBalken'], pandasLost['NNerrorTime']], showfliers=False)
+	ax1.boxplot([pandasLost['NNpixelErrorPosBalken'], pandasLost['NNerrorTime'], pandasLost['CVpixelErrorPosBalken']], showfliers=False)
 	# plt.show()
 	fig2, ax2 = plt.subplots()
 	ax2.hist([pandasLost['NNpixelErrorPosBalken'], pandasLost['NNerrorTime']],
