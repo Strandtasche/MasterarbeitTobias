@@ -2,6 +2,12 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 import locale
+import pandas as pd
+import random
+
+import sys
+sys.path.insert(0, '/home/hornberger/MasterarbeitTobias/implementation')
+import loadDataExample as ld
 
 
 def sigmoid(x):
@@ -63,7 +69,7 @@ def plotPieChart():
 	# legWedges = wedges
 	# for w in legWedges:
 	# 	w.set_linewidth(0)
-		
+	
 	ax.legend(wedges, labels,
 			  title="Schüttgüter",
 			  loc="center left",
@@ -97,6 +103,64 @@ def plot( show_axes=False):
 	plt.show()
 	return
 
-plot()
+def plotParticleSpeed(inputFile, direction, displayTotal):
+	
+	df = pd.read_csv(inputFile)
+	
+	numberTracks = (df.shape[1]) / 2
+	
+	assert numberTracks == int(numberTracks)
+	
+	numberTracks = int(numberTracks)
+
+	print("Number of Tracks: {}".format(numberTracks))
+
+	plt.axis([0, 20, 80, 100])
+	
+	for i in range(numberTracks):
+		trackNo = int(''.join([s for s in df.iloc[:,2*i].name if s.isdigit()]))
+		
+		if direction:
+			a = df.iloc[:, (2 * i)].values
+			b = df.iloc[:, (2 * i + 1)].values
+		else:
+			a = df.iloc[:, (2 * i + 1)].values
+			b = df.iloc[:, (2 * i)].values
+		
+		a = ld._removeNans(a)
+		b = ld._removeNans(b)
+		
+		if np.isnan(a).any() or np.isnan(b).any():
+			logging.warning("skipping track {}: NaN values in track".format(trackNo))
+			continue
+		
+		assert len(a) == len(b)
+		
+		if len(a) <= 3:
+			print("skipping track {}. too few points".format(trackNo))
+			continue
+		
+		vels = []
+		time = [i for i in range(len(b)-1)]
+		
+		for i in range(1, len(b)):
+			vel = b[i] - b[i-1]
+			vels.append(vel)
+			
+			
+		plt.title("Track {}".format(trackNo))
+		
+		if random.random() < 0.03:
+			features = plt.plot(time, vels, '-o')
+			if not displayTotal:
+				plt.pause(3)
+				f = features.pop(0).remove()
+	
+	plt.show()
+	plt.close()
+	
+
+plotParticleSpeed('/home/hornberger/Projects/MasterarbeitTobias/'
+				  'data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_004_trackHistory_NothingDeleted.csv', True, True)
 #plotPieChart()
 # plotFnct()

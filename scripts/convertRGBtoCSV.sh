@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-targetPrefix='/media/hornberger/data/Daten_Hornberger_September2018-pngVersion-debayered-csved/'
+targetPrefix='/media/hornberger/data/DatenTobiasH-Juli2018-pngVersion-debayered-csved-v2/'
 #targetPrefix='/media/hornberger/data/Daten-Kronauer-September2018-pngVersion-debayered-csved/'
 
 for D in *; do
@@ -16,6 +16,10 @@ for D in *; do
                 files=( ${D2}/*.png )
                 origin="${files[0]//00000/\%05d}"
                 #| sed -e 's/00000/%05d/g'
+
+                #if [[ $origin = *"ylinder"* ]]; then
+                #    origin="$origin -morph"
+                #fi
                 echo "python ~/MasterarbeitTobias/scripts/segment.py -i "$origin" -o "${targetPrefix}$D2"" -nd
                 python ~/MasterarbeitTobias/scripts/segment.py -i "$origin" -o "${targetPrefix}$D2" -nd
                 #python ~/MasterarbeitTobias/scripts/debayer.py -i "$D2" -o "${targetPrefix}$D2/"
