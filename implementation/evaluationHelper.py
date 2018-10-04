@@ -196,7 +196,8 @@ def predictionAverageAccelSeparator(array, medianAccel, separatorPosition, direc
 		tempVal = b**2 - 4*a * c
 		if tempVal < 0:
 			# logging.warning("negative value in sqrt: {}".format(array)) #because negative accelaration along movement axis
-			return np.nan, np.nan
+			# return np.nan, np.nan
+			return predictionConstantVelSeparator(array, separatorPosition, direction)
 		#negative accelaration can lead to not hitting the separator at all
 		
 		deltaT1 = (-b + tempVal**0.5)/(2*a)
@@ -204,6 +205,10 @@ def predictionAverageAccelSeparator(array, medianAccel, separatorPosition, direc
 		
 		if deltaT1 <= 0 and deltaT2 <= 0:
 			deltaT = np.nan
+			# TODO: This will probably never happen, but I think i should catch this
+			logging.warning("both intersections with separator lie in the past - something is very wrong")
+			return predictionConstantVelSeparator(array, separatorPosition, direction)
+		
 		else:
 			deltaT = min(i for i in [deltaT1, deltaT2] if i > 0)
 		
@@ -266,14 +271,20 @@ def predictionConstantAccelSeparator(array, separatorPosition, direction):
 		tempVal = b**2 - 4*a * c
 		if tempVal < 0:
 			# logging.warning("negative value in sqrt: {}".format(array)) #because negative accelaration along movement axis
-			return np.nan, np.nan
+			return predictionConstantVelSeparator(array, separatorPosition, direction)
+			# return np.nan, np.nan
+			# logging.warning("no intersection with separator - ")
 			#negative accelaration can lead to not hitting the separator at all
+			# exTODO: instead go with CV for prediction
 			
 		deltaT1 = (-b + tempVal**0.5)/(2*a)
 		deltaT2 = (-b - tempVal**0.5)/(2*a)
 	
 		if deltaT1 <= 0 and deltaT2 <= 0:
 			deltaT = np.nan
+			# TODO: This will probably never happen, but I think i should catch this
+			logging.warning("both intersections with separator lie in the past - something is very wrong")
+			return predictionConstantVelSeparator(array, separatorPosition, direction) # Dirty hack
 		else:
 			deltaT = min(i for i in [deltaT1, deltaT2] if i > 0)
 	
