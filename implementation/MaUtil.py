@@ -176,13 +176,13 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 	plt.ylabel('y-Coordinate (px)')
 	
 	plt.title('%s DNNRegressor NextStep' % savePath.split('/')[-1])
-	plt.tight_layout()
 	
 	handles, labels = plt.gca().get_legend_handles_labels()
 	by_label = OrderedDict(zip(labels, handles))
 	plt.legend(by_label.values(), by_label.keys(), loc=4)
 	
 	logging.info("Saving Image to file {}".format(output))
+	# plt.tight_layout()
 	plt.savefig(output, dpi=900)
 	# plt.show()
 	plt.close()
@@ -276,10 +276,10 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	plt.ylim(lim[2], lim[3])
 	
 	plt.title('%s DNNRegressor Separator' % savePath.split('/')[-1])
-	plt.tight_layout()
-	plt.xlabel('x-Coordinate (px)')
-	plt.ylabel('y-Coordinate (px)')
+	plt.xlabel('x-Coordinate (px)', labelpad=None)
+	plt.ylabel('y-Coordinate (px)', labelpad=None)
 	logging.info("Saving Image to file {}".format(output))
+	# plt.tight_layout()
 	plt.savefig(output, dpi=900)
 	# plt.show()
 	plt.close()
@@ -468,6 +468,22 @@ def _getMedianAccel(X_test, separator, direction):
 	return X_test['accel'].median()
 
 
+def _getOptimalAccel(X_test, y_test, separatorPosition, direction):
+	if not direction: # moving along x axis
+		relCols = X_test.columns[0:int(len(X_test.columns)/2)]
+	# print("x axis")
+	else: # moving along y axis
+		relCols = X_test.columns[int(len(X_test.columns)/2):len(X_test.columns)]
+	# print("y axis")
+	tempDf = pd.concat([X_test, y_test], axis=1)
+	
+	tempDf['optAc'] = tempDf.apply(
+		lambda row: (separatorPosition - row[relCols[-1]] - row['LabelTime'] * (row[relCols[-1]] - row[relCols[-2]]))/(0.5 * row['LabelTime'] ** 2)
+		, axis=1)
+	
+	return tempDf['optAc'].median()
+
+
 def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, direction):
 	"""function to evaluate the result of this nets nextStep prediction.
 	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
@@ -476,7 +492,9 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	timePredL = [p[1] for p in totalPredictions]
 	pandasLost = pd.DataFrame(data={'NNPredictionPosBalken': xPredL, 'NNPredictionTime': timePredL}, index=y_test.index)
 	
-	medianAccel = _getMedianAccel(X_test.sample(frac=0.05), True, direction)
+	tempDf = X_test.sample(frac=0.05)
+	medianAccel = _getMedianAccel(tempDf, True, direction)
+	optimalAccel = _getOptimalAccel(tempDf, y_test.loc[tempDf.index], separatorPosition, direction)
 	caCvDfSeparator = prepareEvaluationSeparatorCVCA(X_test, medianAccel, separatorPosition, direction)
 	
 	pandasLost = pd.concat([X_test, y_test, pandasLost, caCvDfSeparator], axis=1)
@@ -488,21 +506,56 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	
 	pandasLost['CVpixelErrorPosBalken'] = pandasLost.apply(
 		lambda row: (row['LabelPosBalken'] - row['CV_Prediction_Loc']), axis=1)
+	pandasLost['CVerrorTime'] = pandasLost.apply(
+		lambda row: (row['LabelTime'] - row['CV_Prediction_Time'] * 100), axis=1) # factor 100 because of scaling
 	
-	relevantColumns = ['NNpixelErrorPosBalken', 'NNerrorTime', 'CVpixelErrorPosBalken']
+	pandasLost['CApixelErrorPosBalken'] = pandasLost.apply(
+		lambda row: (row['LabelPosBalken'] - row['CA_Prediction_Loc']), axis=1)
+	pandasLost['CAerrorTime'] = pandasLost.apply(
+		lambda row: (row['LabelTime'] - row['CA_Prediction_Time'] * 100), axis=1) # factor 100 because of scaling
+	
+	pandasLost['AApixelErrorPosBalken'] = pandasLost.apply(
+		lambda row: (row['LabelPosBalken'] - row['AA_Prediction_Loc']), axis=1)
+	pandasLost['AAerrorTime'] = pandasLost.apply(
+		lambda row: (row['LabelTime'] - (row['AA_Prediction_Time'] * 100)), axis=1) # factor 100 because of scaling
+	
+	
+	relevantColumnsLoc = ['NNpixelErrorPosBalken', 'CVpixelErrorPosBalken', 'CApixelErrorPosBalken', 'AApixelErrorPosBalken']
+	relevantColumnsTime = ['NNerrorTime', 'CVerrorTime', 'CAerrorTime', 'AAerrorTime']
 	# logging.info("\n{}".format(pandasLost[relevantColumns]))
 	
-	_printPDfull(pandasLost[relevantColumns].describe())
+	_printPDfull(pandasLost[relevantColumnsLoc].describe())
+	_printPDfull(pandasLost[relevantColumnsTime].describe())
 
 	# logging.info("number of predictions with error > 3: {}".format((pandasLost['NNpixelErrorTotal'] > 3).sum()))
 	
 	fig1, ax1 = plt.subplots()
-	ax1.boxplot([pandasLost['NNpixelErrorPosBalken'], pandasLost['NNerrorTime'], pandasLost['CVpixelErrorPosBalken']], showfliers=False)
+	ax1.boxplot([pandasLost[i] for i in relevantColumnsLoc], showfliers=False, labels=relevantColumnsLoc)
+	xtickNames = plt.setp(ax1, xticklabels=relevantColumnsLoc)
+	plt.setp(xtickNames, rotation=45, fontsize=8)
+	ax1.set_title('Boxplot Location Error')
+	fig1.tight_layout()
+
 	# plt.show()
 	fig2, ax2 = plt.subplots()
-	ax2.hist([pandasLost['NNpixelErrorPosBalken'], pandasLost['NNerrorTime']],
-			 bins=40, label=['NNpixelErrorPosBalken', 'NNerrorTime'])
+	ax2.hist([pandasLost[i] for i in relevantColumnsLoc],
+			 bins=40, label=relevantColumnsLoc)
+	ax2.set_title('Histogram Location Error')
 	# # plt.yscale('log')
 	# ax.style.use('seaborn-muted')
+	
+	fig3, ax3 = plt.subplots()
+	ax3.boxplot([pandasLost[i] for i in relevantColumnsTime], showfliers=False)
+	xtickNamesAx3 = plt.setp(ax3, xticklabels=relevantColumnsTime)
+	plt.setp(xtickNamesAx3, rotation=45, fontsize=8)
+	ax3.set_title('Boxplot Time Error')
+	fig3.tight_layout()
+	
+	fig4, ax4 = plt.subplots()
+	ax4.hist([pandasLost[i] for i in relevantColumnsTime],
+			 bins=40, label=relevantColumnsTime)
+	ax4.set_title('Histogram Time Error')
+	
 	plt.legend(loc=1)
+	plt.tight_layout()
 	plt.show()
