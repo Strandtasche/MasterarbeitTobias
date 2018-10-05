@@ -495,7 +495,7 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	tempDf = X_test.sample(frac=0.05)
 	medianAccel = _getMedianAccel(tempDf, True, direction)
 	optimalAccel = _getOptimalAccel(tempDf, y_test.loc[tempDf.index], separatorPosition, direction)
-	caCvDfSeparator = prepareEvaluationSeparatorCVCA(X_test, medianAccel, separatorPosition, direction)
+	caCvDfSeparator = prepareEvaluationSeparatorCVCA(X_test, medianAccel, optimalAccel, separatorPosition, direction)
 	
 	pandasLost = pd.concat([X_test, y_test, pandasLost, caCvDfSeparator], axis=1)
 	
@@ -505,7 +505,7 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 		lambda row: (row['LabelTime'] - row['NNPredictionTime']), axis=1)
 	
 	pandasLost['CVpixelErrorPosBalken'] = pandasLost.apply(
-		lambda row: (row['LabelPosBalken'] - row['CV_Prediction_Loc']), axis=1)
+		lambda row: (row['LabelPosBalken'] - row['CV_Prediction_Loc']), axis=1) # TODO: Handle Scaling!
 	pandasLost['CVerrorTime'] = pandasLost.apply(
 		lambda row: (row['LabelTime'] - row['CV_Prediction_Time'] * 100), axis=1) # factor 100 because of scaling
 	
@@ -519,9 +519,14 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	pandasLost['AAerrorTime'] = pandasLost.apply(
 		lambda row: (row['LabelTime'] - (row['AA_Prediction_Time'] * 100)), axis=1) # factor 100 because of scaling
 	
+	pandasLost['IApixelErrorPosBalken'] = pandasLost.apply(
+		lambda row: (row['LabelPosBalken'] - row['IA_Prediction_Loc']), axis=1)
+	pandasLost['IAerrorTime'] = pandasLost.apply(
+		lambda row: (row['LabelTime'] - (row['IA_Prediction_Time'] * 100)), axis=1) # factor 100 because of scaling
 	
-	relevantColumnsLoc = ['NNpixelErrorPosBalken', 'CVpixelErrorPosBalken', 'CApixelErrorPosBalken', 'AApixelErrorPosBalken']
-	relevantColumnsTime = ['NNerrorTime', 'CVerrorTime', 'CAerrorTime', 'AAerrorTime']
+	relevantColumnsLoc = ['NNpixelErrorPosBalken', 'CVpixelErrorPosBalken', 'CApixelErrorPosBalken',
+						  'AApixelErrorPosBalken', 'IApixelErrorPosBalken']
+	relevantColumnsTime = ['NNerrorTime', 'CVerrorTime', 'CAerrorTime', 'AAerrorTime', 'IAerrorTime']
 	# logging.info("\n{}".format(pandasLost[relevantColumns]))
 	
 	_printPDfull(pandasLost[relevantColumnsLoc].describe())
