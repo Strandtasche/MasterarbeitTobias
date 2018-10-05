@@ -198,7 +198,7 @@ def main(argv):
 			# (X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
 			(X_train, y_train), (X_test, y_test) = ld.loadRawMeasNextStep(dataFolder, FEATURE_SIZE, testSize)
 		elif separator:
-			(X_train, y_train), (X_test, y_test) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize, separatorPosition, predictionCutOff)
+			(X_train, y_train), (X_test, y_test) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize, separatorPosition, predictionCutOff, elementsDirectionBool)
 		else:
 			(X_train, y_train), (X_test, y_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 			
@@ -253,6 +253,7 @@ def main(argv):
 	
 	if not usingCustomEstimator:
 		# Validation and Test Configuration
+		logging.info("using premade Estimator")
 		test_config = estimator.RunConfig(save_checkpoints_steps=200,
 										  save_checkpoints_secs=None, save_summary_steps=100)
 		
@@ -266,6 +267,7 @@ def main(argv):
 										   optimizer=opti(learning_rate=learningRate)
 										   )
 	else:
+		logging.info("using custom estimator")
 		test_config = estimator.RunConfig(save_checkpoints_steps=1000,
 		                                  save_checkpoints_secs=None,
 										  save_summary_steps=100)
