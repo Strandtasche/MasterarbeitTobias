@@ -1,0 +1,2515 @@
+INFO:root:Tensorflow 1.8.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/ 
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 499, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 201, in main
+    (X_train, y_train), (X_test, y_test) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize, separatorPosition, predictionCutOff)
+  File "/home/hornberger/Projects/MasterarbeitTobias/implementation/loadDataExample.py", line 549, in loadRawMeasSeparation
+    assert len(fileList) > 0, "no files found input location " + folder
+AssertionError: no files found input location /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/ 
+INFO:root:Tensorflow 1.8.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 5: Not enough elements for features
+WARNING:root:skipping track 14: highest Value smaller than separator
+WARNING:root:skipping track 15: highest Value smaller than separator
+WARNING:root:skipping track 74: highest Value smaller than separator
+WARNING:root:skipping track 105: highest Value smaller than separator
+WARNING:root:skipping track 107: highest Value smaller than separator
+WARNING:root:skipping track 108: highest Value smaller than separator
+WARNING:root:skipping track 112: highest Value smaller than separator
+WARNING:root:skipping track 113: Not enough elements for features
+WARNING:root:skipping track 114: highest Value smaller than separator
+WARNING:root:skipping track 119: Not enough elements for features
+WARNING:root:skipping track 129: highest Value smaller than separator
+WARNING:root:skipping track 143: highest Value smaller than separator
+WARNING:root:skipping track 157: highest Value smaller than separator
+WARNING:root:skipping track 171: highest Value smaller than separator
+WARNING:root:skipping track 172: highest Value smaller than separator
+WARNING:root:skipping track 183: highest Value smaller than separator
+WARNING:root:skipping track 184: highest Value smaller than separator
+WARNING:root:skipping track 185: highest Value smaller than separator
+WARNING:root:skipping track 242: highest Value smaller than separator
+WARNING:root:skipping track 243: highest Value smaller than separator
+WARNING:root:skipping track 246: highest Value smaller than separator
+WARNING:root:skipping track 247: highest Value smaller than separator
+WARNING:root:skipping track 270: highest Value smaller than separator
+WARNING:root:skipping track 281: highest Value smaller than separator
+WARNING:root:skipping track 286: highest Value smaller than separator
+WARNING:root:skipping track 287: highest Value smaller than separator
+WARNING:root:skipping track 309: highest Value smaller than separator
+WARNING:root:skipping track 313: NaN values in track
+WARNING:root:skipping track 317: NaN values in track
+WARNING:root:skipping track 367: NaN values in track
+WARNING:root:skipping track 368: NaN values in track
+WARNING:root:skipping track 382: highest Value smaller than separator
+WARNING:root:skipping track 387: highest Value smaller than separator
+WARNING:root:skipping track 401: Not enough elements for features
+WARNING:root:skipping track 404: highest Value smaller than separator
+WARNING:root:skipping track 406: NaN values in track
+WARNING:root:skipping track 407: NaN values in track
+WARNING:root:skipping track 410: highest Value smaller than separator
+WARNING:root:skipping track 411: highest Value smaller than separator
+WARNING:root:skipping track 418: highest Value smaller than separator
+WARNING:root:skipping track 441: NaN values in track
+WARNING:root:skipping track 442: NaN values in track
+WARNING:root:skipping track 447: highest Value smaller than separator
+WARNING:root:skipping track 455: NaN values in track
+WARNING:root:skipping track 472: Not enough elements for features
+WARNING:root:skipping track 492: highest Value smaller than separator
+WARNING:root:skipping track 496: NaN values in track
+WARNING:root:skipping track 500: highest Value smaller than separator
+WARNING:root:skipping track 527: highest Value smaller than separator
+WARNING:root:skipping track 537: highest Value smaller than separator
+WARNING:root:skipping track 555: NaN values in track
+WARNING:root:skipping track 557: NaN values in track
+WARNING:root:skipping track 561: highest Value smaller than separator
+WARNING:root:skipping track 562: highest Value smaller than separator
+WARNING:root:skipping track 571: highest Value smaller than separator
+WARNING:root:skipping track 572: highest Value smaller than separator
+WARNING:root:skipping track 573: highest Value smaller than separator
+WARNING:root:skipping track 578: NaN values in track
+WARNING:root:skipping track 579: NaN values in track
+WARNING:root:skipping track 583: highest Value smaller than separator
+WARNING:root:skipping track 587: NaN values in track
+WARNING:root:skipping track 588: NaN values in track
+WARNING:root:skipping track 591: NaN values in track
+WARNING:root:skipping track 592: highest Value smaller than separator
+WARNING:root:skipping track 599: highest Value smaller than separator
+WARNING:root:skipping track 600: highest Value smaller than separator
+WARNING:root:skipping track 668: highest Value smaller than separator
+WARNING:root:skipping track 671: highest Value smaller than separator
+WARNING:root:skipping track 683: highest Value smaller than separator
+WARNING:root:skipping track 684: highest Value smaller than separator
+WARNING:root:skipping track 720: highest Value smaller than separator
+WARNING:root:skipping track 723: highest Value smaller than separator
+WARNING:root:skipping track 724: highest Value smaller than separator
+WARNING:root:skipping track 729: highest Value smaller than separator
+WARNING:root:skipping track 734: highest Value smaller than separator
+WARNING:root:skipping track 735: highest Value smaller than separator
+WARNING:root:skipping track 762: highest Value smaller than separator
+WARNING:root:skipping track 766: highest Value smaller than separator
+WARNING:root:skipping track 794: highest Value smaller than separator
+WARNING:root:skipping track 852: highest Value smaller than separator
+WARNING:root:skipping track 878: highest Value smaller than separator
+WARNING:root:skipping track 883: highest Value smaller than separator
+WARNING:root:skipping track 884: highest Value smaller than separator
+WARNING:root:skipping track 893: Not enough elements for features
+WARNING:root:skipping track 928: highest Value smaller than separator
+WARNING:root:skipping track 929: highest Value smaller than separator
+WARNING:root:skipping track 932: highest Value smaller than separator
+WARNING:root:skipping track 939: Not enough elements for features
+WARNING:root:skipping track 944: NaN values in track
+WARNING:root:skipping track 952: NaN values in track
+WARNING:root:skipping track 974: highest Value smaller than separator
+WARNING:root:skipping track 1014: highest Value smaller than separator
+WARNING:root:skipping track 1063: highest Value smaller than separator
+WARNING:root:skipping track 1102: NaN values in track
+WARNING:root:skipping track 1103: NaN values in track
+WARNING:root:skipping track 1126: highest Value smaller than separator
+WARNING:root:skipping track 1131: highest Value smaller than separator
+WARNING:root:skipping track 1150: highest Value smaller than separator
+WARNING:root:skipping track 1151: highest Value smaller than separator
+WARNING:root:skipping track 1155: highest Value smaller than separator
+WARNING:root:skipping track 1165: highest Value smaller than separator
+WARNING:root:skipping track 1186: highest Value smaller than separator
+WARNING:root:skipping track 1195: Not enough elements for features
+WARNING:root:skipping track 1196: Not enough elements for features
+WARNING:root:skipping track 1204: highest Value smaller than separator
+WARNING:root:skipping track 1216: highest Value smaller than separator
+WARNING:root:skipping track 1235: highest Value smaller than separator
+WARNING:root:skipping track 1239: NaN values in track
+WARNING:root:skipping track 1244: NaN values in track
+WARNING:root:skipping track 1245: NaN values in track
+WARNING:root:skipping track 1322: highest Value smaller than separator
+WARNING:root:skipping track 1329: NaN values in track
+WARNING:root:skipping track 1330: Not enough elements for features
+WARNING:root:skipping track 1331: Not enough elements for features
+WARNING:root:skipping track 1334: highest Value smaller than separator
+WARNING:root:skipping track 1378: highest Value smaller than separator
+WARNING:root:skipping track 1379: highest Value smaller than separator
+WARNING:root:skipping track 1381: highest Value smaller than separator
+WARNING:root:skipping track 1382: highest Value smaller than separator
+WARNING:root:skipping track 1384: highest Value smaller than separator
+WARNING:root:skipping track 1388: Not enough elements for features
+WARNING:root:skipping track 1398: highest Value smaller than separator
+WARNING:root:skipping track 1417: highest Value smaller than separator
+WARNING:root:skipping track 1418: highest Value smaller than separator
+WARNING:root:skipping track 1420: highest Value smaller than separator
+WARNING:root:skipping track 1427: NaN values in track
+WARNING:root:skipping track 1443: highest Value smaller than separator
+WARNING:root:skipping track 1464: highest Value smaller than separator
+WARNING:root:skipping track 1465: highest Value smaller than separator
+WARNING:root:skipping track 1491: highest Value smaller than separator
+WARNING:root:skipping track 1492: highest Value smaller than separator
+WARNING:root:skipping track 1497: highest Value smaller than separator
+WARNING:root:skipping track 1524: highest Value smaller than separator
+WARNING:root:skipping track 1565: highest Value smaller than separator
+WARNING:root:skipping track 1567: highest Value smaller than separator
+WARNING:root:skipping track 1569: NaN values in track
+WARNING:root:skipping track 1570: NaN values in track
+WARNING:root:skipping track 1601: NaN values in track
+WARNING:root:skipping track 1610: Not enough elements for features
+WARNING:root:skipping track 1647: highest Value smaller than separator
+WARNING:root:skipping track 1652: Not enough elements for features
+WARNING:root:skipping track 1668: highest Value smaller than separator
+WARNING:root:skipping track 1673: highest Value smaller than separator
+WARNING:root:skipping track 1686: highest Value smaller than separator
+WARNING:root:skipping track 1713: highest Value smaller than separator
+WARNING:root:skipping track 1719: highest Value smaller than separator
+WARNING:root:skipping track 1721: Not enough elements for features
+WARNING:root:skipping track 1733: highest Value smaller than separator
+WARNING:root:skipping track 1736: NaN values in track
+WARNING:root:skipping track 1757: highest Value smaller than separator
+WARNING:root:skipping track 1758: highest Value smaller than separator
+WARNING:root:skipping track 1763: Not enough elements for features
+WARNING:root:skipping track 1764: Not enough elements for features
+WARNING:root:skipping track 1772: highest Value smaller than separator
+WARNING:root:skipping track 1775: highest Value smaller than separator
+WARNING:root:skipping track 1787: highest Value smaller than separator
+WARNING:root:skipping track 1788: highest Value smaller than separator
+WARNING:root:skipping track 1850: highest Value smaller than separator
+WARNING:root:skipping track 1855: Not enough elements for features
+WARNING:root:skipping track 1856: Not enough elements for features
+WARNING:root:skipping track 1863: highest Value smaller than separator
+WARNING:root:skipping track 1864: highest Value smaller than separator
+WARNING:root:skipping track 1865: highest Value smaller than separator
+WARNING:root:skipping track 1866: highest Value smaller than separator
+WARNING:root:skipping track 1867: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_002_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 13: highest Value smaller than separator
+WARNING:root:skipping track 35: highest Value smaller than separator
+WARNING:root:skipping track 66: highest Value smaller than separator
+WARNING:root:skipping track 149: highest Value smaller than separator
+WARNING:root:skipping track 165: highest Value smaller than separator
+WARNING:root:skipping track 209: NaN values in track
+WARNING:root:skipping track 234: highest Value smaller than separator
+WARNING:root:skipping track 238: highest Value smaller than separator
+WARNING:root:skipping track 257: highest Value smaller than separator
+WARNING:root:skipping track 274: highest Value smaller than separator
+WARNING:root:skipping track 275: highest Value smaller than separator
+WARNING:root:skipping track 277: highest Value smaller than separator
+WARNING:root:skipping track 280: NaN values in track
+WARNING:root:skipping track 287: highest Value smaller than separator
+WARNING:root:skipping track 294: Not enough elements for features
+WARNING:root:skipping track 324: highest Value smaller than separator
+WARNING:root:skipping track 383: highest Value smaller than separator
+WARNING:root:skipping track 413: highest Value smaller than separator
+WARNING:root:skipping track 421: NaN values in track
+WARNING:root:skipping track 422: NaN values in track
+WARNING:root:skipping track 432: highest Value smaller than separator
+WARNING:root:skipping track 433: highest Value smaller than separator
+WARNING:root:skipping track 434: highest Value smaller than separator
+WARNING:root:skipping track 443: Not enough elements for features
+WARNING:root:skipping track 461: NaN values in track
+WARNING:root:skipping track 462: NaN values in track
+WARNING:root:skipping track 481: NaN values in track
+WARNING:root:skipping track 482: highest Value smaller than separator
+WARNING:root:skipping track 483: highest Value smaller than separator
+WARNING:root:skipping track 488: highest Value smaller than separator
+WARNING:root:skipping track 522: NaN values in track
+WARNING:root:skipping track 532: NaN values in track
+WARNING:root:skipping track 533: NaN values in track
+WARNING:root:skipping track 574: highest Value smaller than separator
+WARNING:root:skipping track 604: highest Value smaller than separator
+WARNING:root:skipping track 614: highest Value smaller than separator
+WARNING:root:skipping track 650: highest Value smaller than separator
+WARNING:root:skipping track 688: highest Value smaller than separator
+WARNING:root:skipping track 706: highest Value smaller than separator
+WARNING:root:skipping track 710: highest Value smaller than separator
+WARNING:root:skipping track 749: highest Value smaller than separator
+WARNING:root:skipping track 750: NaN values in track
+WARNING:root:skipping track 774: highest Value smaller than separator
+WARNING:root:skipping track 781: highest Value smaller than separator
+WARNING:root:skipping track 799: highest Value smaller than separator
+WARNING:root:skipping track 808: highest Value smaller than separator
+WARNING:root:skipping track 829: NaN values in track
+WARNING:root:skipping track 833: highest Value smaller than separator
+WARNING:root:skipping track 840: NaN values in track
+WARNING:root:skipping track 841: NaN values in track
+WARNING:root:skipping track 881: highest Value smaller than separator
+WARNING:root:skipping track 902: highest Value smaller than separator
+WARNING:root:skipping track 906: Not enough elements for features
+WARNING:root:skipping track 920: NaN values in track
+WARNING:root:skipping track 925: highest Value smaller than separator
+WARNING:root:skipping track 927: highest Value smaller than separator
+WARNING:root:skipping track 928: highest Value smaller than separator
+WARNING:root:skipping track 944: NaN values in track
+WARNING:root:skipping track 953: Not enough elements for features
+WARNING:root:skipping track 954: Not enough elements for features
+WARNING:root:skipping track 995: highest Value smaller than separator
+WARNING:root:skipping track 1019: highest Value smaller than separator
+WARNING:root:skipping track 1025: highest Value smaller than separator
+WARNING:root:skipping track 1028: highest Value smaller than separator
+WARNING:root:skipping track 1048: highest Value smaller than separator
+WARNING:root:skipping track 1050: highest Value smaller than separator
+WARNING:root:skipping track 1051: highest Value smaller than separator
+WARNING:root:skipping track 1052: highest Value smaller than separator
+WARNING:root:skipping track 1074: highest Value smaller than separator
+WARNING:root:skipping track 1087: NaN values in track
+WARNING:root:skipping track 1088: NaN values in track
+WARNING:root:skipping track 1128: highest Value smaller than separator
+WARNING:root:skipping track 1160: highest Value smaller than separator
+WARNING:root:skipping track 1182: highest Value smaller than separator
+WARNING:root:skipping track 1185: highest Value smaller than separator
+WARNING:root:skipping track 1188: highest Value smaller than separator
+WARNING:root:skipping track 1212: highest Value smaller than separator
+WARNING:root:skipping track 1213: highest Value smaller than separator
+WARNING:root:skipping track 1225: highest Value smaller than separator
+WARNING:root:skipping track 1227: NaN values in track
+WARNING:root:skipping track 1229: NaN values in track
+WARNING:root:skipping track 1234: highest Value smaller than separator
+WARNING:root:skipping track 1235: highest Value smaller than separator
+WARNING:root:skipping track 1237: highest Value smaller than separator
+WARNING:root:skipping track 1242: highest Value smaller than separator
+WARNING:root:skipping track 1254: highest Value smaller than separator
+WARNING:root:skipping track 1255: highest Value smaller than separator
+WARNING:root:skipping track 1256: highest Value smaller than separator
+WARNING:root:skipping track 1263: highest Value smaller than separator
+WARNING:root:skipping track 1265: highest Value smaller than separator
+WARNING:root:skipping track 1312: highest Value smaller than separator
+WARNING:root:skipping track 1313: highest Value smaller than separator
+WARNING:root:skipping track 1329: highest Value smaller than separator
+WARNING:root:skipping track 1337: highest Value smaller than separator
+WARNING:root:skipping track 1346: Not enough elements for features
+WARNING:root:skipping track 1364: NaN values in track
+WARNING:root:skipping track 1365: NaN values in track
+WARNING:root:skipping track 1373: Not enough elements for features
+WARNING:root:skipping track 1400: highest Value smaller than separator
+WARNING:root:skipping track 1401: NaN values in track
+WARNING:root:skipping track 1402: highest Value smaller than separator
+WARNING:root:skipping track 1415: Not enough elements for features
+WARNING:root:skipping track 1416: Not enough elements for features
+WARNING:root:skipping track 1424: highest Value smaller than separator
+WARNING:root:skipping track 1464: highest Value smaller than separator
+WARNING:root:skipping track 1519: highest Value smaller than separator
+WARNING:root:skipping track 1520: highest Value smaller than separator
+WARNING:root:skipping track 1551: NaN values in track
+WARNING:root:skipping track 1564: highest Value smaller than separator
+WARNING:root:skipping track 1577: highest Value smaller than separator
+WARNING:root:skipping track 1583: highest Value smaller than separator
+WARNING:root:skipping track 1586: NaN values in track
+WARNING:root:skipping track 1587: NaN values in track
+WARNING:root:skipping track 1593: Not enough elements for features
+WARNING:root:skipping track 1664: highest Value smaller than separator
+WARNING:root:skipping track 1665: highest Value smaller than separator
+WARNING:root:skipping track 1666: highest Value smaller than separator
+WARNING:root:skipping track 1667: highest Value smaller than separator
+WARNING:root:skipping track 1668: highest Value smaller than separator
+WARNING:root:skipping track 1669: highest Value smaller than separator
+WARNING:root:skipping track 1670: highest Value smaller than separator
+WARNING:root:skipping track 1671: highest Value smaller than separator
+WARNING:root:skipping track 1672: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_003_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 12: highest Value smaller than separator
+WARNING:root:skipping track 32: highest Value smaller than separator
+WARNING:root:skipping track 82: NaN values in track
+WARNING:root:skipping track 83: NaN values in track
+WARNING:root:skipping track 197: highest Value smaller than separator
+WARNING:root:skipping track 210: highest Value smaller than separator
+WARNING:root:skipping track 222: highest Value smaller than separator
+WARNING:root:skipping track 229: highest Value smaller than separator
+WARNING:root:skipping track 232: highest Value smaller than separator
+WARNING:root:skipping track 235: highest Value smaller than separator
+WARNING:root:skipping track 240: highest Value smaller than separator
+WARNING:root:skipping track 241: highest Value smaller than separator
+WARNING:root:skipping track 249: highest Value smaller than separator
+WARNING:root:skipping track 256: highest Value smaller than separator
+WARNING:root:skipping track 262: Not enough elements for features
+WARNING:root:skipping track 263: highest Value smaller than separator
+WARNING:root:skipping track 288: NaN values in track
+WARNING:root:skipping track 291: NaN values in track
+WARNING:root:skipping track 327: highest Value smaller than separator
+WARNING:root:skipping track 356: highest Value smaller than separator
+WARNING:root:skipping track 370: highest Value smaller than separator
+WARNING:root:skipping track 383: NaN values in track
+WARNING:root:skipping track 385: NaN values in track
+WARNING:root:skipping track 391: highest Value smaller than separator
+WARNING:root:skipping track 402: highest Value smaller than separator
+WARNING:root:skipping track 445: highest Value smaller than separator
+WARNING:root:skipping track 466: highest Value smaller than separator
+WARNING:root:skipping track 467: highest Value smaller than separator
+WARNING:root:skipping track 476: highest Value smaller than separator
+WARNING:root:skipping track 477: NaN values in track
+WARNING:root:skipping track 479: NaN values in track
+WARNING:root:skipping track 519: NaN values in track
+WARNING:root:skipping track 520: NaN values in track
+WARNING:root:skipping track 526: NaN values in track
+WARNING:root:skipping track 568: highest Value smaller than separator
+WARNING:root:skipping track 574: Not enough elements for features
+WARNING:root:skipping track 580: highest Value smaller than separator
+WARNING:root:skipping track 592: highest Value smaller than separator
+WARNING:root:skipping track 593: highest Value smaller than separator
+WARNING:root:skipping track 598: highest Value smaller than separator
+WARNING:root:skipping track 599: highest Value smaller than separator
+WARNING:root:skipping track 602: Not enough elements for features
+WARNING:root:skipping track 606: highest Value smaller than separator
+WARNING:root:skipping track 607: highest Value smaller than separator
+WARNING:root:skipping track 613: Not enough elements for features
+WARNING:root:skipping track 617: highest Value smaller than separator
+WARNING:root:skipping track 619: highest Value smaller than separator
+WARNING:root:skipping track 655: highest Value smaller than separator
+WARNING:root:skipping track 668: NaN values in track
+WARNING:root:skipping track 669: NaN values in track
+WARNING:root:skipping track 674: NaN values in track
+WARNING:root:skipping track 675: NaN values in track
+WARNING:root:skipping track 687: highest Value smaller than separator
+WARNING:root:skipping track 695: highest Value smaller than separator
+WARNING:root:skipping track 709: NaN values in track
+WARNING:root:skipping track 716: Not enough elements for features
+WARNING:root:skipping track 717: Not enough elements for features
+WARNING:root:skipping track 718: NaN values in track
+WARNING:root:skipping track 724: NaN values in track
+WARNING:root:skipping track 744: highest Value smaller than separator
+WARNING:root:skipping track 801: NaN values in track
+WARNING:root:skipping track 808: highest Value smaller than separator
+WARNING:root:skipping track 823: highest Value smaller than separator
+WARNING:root:skipping track 845: highest Value smaller than separator
+WARNING:root:skipping track 867: highest Value smaller than separator
+WARNING:root:skipping track 874: Not enough elements for features
+WARNING:root:skipping track 894: highest Value smaller than separator
+WARNING:root:skipping track 938: NaN values in track
+WARNING:root:skipping track 940: NaN values in track
+WARNING:root:skipping track 953: highest Value smaller than separator
+WARNING:root:skipping track 972: NaN values in track
+WARNING:root:skipping track 977: highest Value smaller than separator
+WARNING:root:skipping track 981: highest Value smaller than separator
+WARNING:root:skipping track 987: highest Value smaller than separator
+WARNING:root:skipping track 991: NaN values in track
+WARNING:root:skipping track 999: NaN values in track
+WARNING:root:skipping track 1000: highest Value smaller than separator
+WARNING:root:skipping track 1002: highest Value smaller than separator
+WARNING:root:skipping track 1008: Not enough elements for features
+WARNING:root:skipping track 1014: highest Value smaller than separator
+WARNING:root:skipping track 1031: highest Value smaller than separator
+WARNING:root:skipping track 1069: highest Value smaller than separator
+WARNING:root:skipping track 1072: highest Value smaller than separator
+WARNING:root:skipping track 1077: NaN values in track
+WARNING:root:skipping track 1078: NaN values in track
+WARNING:root:skipping track 1082: Not enough elements for features
+WARNING:root:skipping track 1083: Not enough elements for features
+WARNING:root:skipping track 1094: highest Value smaller than separator
+WARNING:root:skipping track 1095: highest Value smaller than separator
+WARNING:root:skipping track 1120: NaN values in track
+WARNING:root:skipping track 1148: highest Value smaller than separator
+WARNING:root:skipping track 1177: NaN values in track
+WARNING:root:skipping track 1178: NaN values in track
+WARNING:root:skipping track 1184: highest Value smaller than separator
+WARNING:root:skipping track 1195: NaN values in track
+WARNING:root:skipping track 1204: Not enough elements for features
+WARNING:root:skipping track 1205: Not enough elements for features
+WARNING:root:skipping track 1218: highest Value smaller than separator
+WARNING:root:skipping track 1238: NaN values in track
+WARNING:root:skipping track 1239: NaN values in track
+WARNING:root:skipping track 1241: NaN values in track
+WARNING:root:skipping track 1242: NaN values in track
+WARNING:root:skipping track 1286: highest Value smaller than separator
+WARNING:root:skipping track 1295: highest Value smaller than separator
+WARNING:root:skipping track 1296: highest Value smaller than separator
+WARNING:root:skipping track 1298: highest Value smaller than separator
+WARNING:root:skipping track 1352: highest Value smaller than separator
+WARNING:root:skipping track 1355: highest Value smaller than separator
+WARNING:root:skipping track 1357: NaN values in track
+WARNING:root:skipping track 1358: NaN values in track
+WARNING:root:skipping track 1360: highest Value smaller than separator
+WARNING:root:skipping track 1365: highest Value smaller than separator
+WARNING:root:skipping track 1368: highest Value smaller than separator
+WARNING:root:skipping track 1385: highest Value smaller than separator
+WARNING:root:skipping track 1386: highest Value smaller than separator
+WARNING:root:skipping track 1393: Not enough elements for features
+WARNING:root:skipping track 1395: highest Value smaller than separator
+WARNING:root:skipping track 1416: highest Value smaller than separator
+WARNING:root:skipping track 1417: highest Value smaller than separator
+WARNING:root:skipping track 1418: highest Value smaller than separator
+WARNING:root:skipping track 1419: highest Value smaller than separator
+WARNING:root:skipping track 1420: highest Value smaller than separator
+WARNING:root:skipping track 1421: highest Value smaller than separator
+WARNING:root:skipping track 1422: highest Value smaller than separator
+WARNING:root:skipping track 1423: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_004_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 3: Not enough elements for features
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 6: highest Value smaller than separator
+WARNING:root:skipping track 23: highest Value smaller than separator
+WARNING:root:skipping track 27: Not enough elements for features
+WARNING:root:skipping track 28: Not enough elements for features
+WARNING:root:skipping track 61: highest Value smaller than separator
+WARNING:root:skipping track 62: highest Value smaller than separator
+WARNING:root:skipping track 66: Not enough elements for features
+WARNING:root:skipping track 93: highest Value smaller than separator
+WARNING:root:skipping track 100: highest Value smaller than separator
+WARNING:root:skipping track 101: highest Value smaller than separator
+WARNING:root:skipping track 107: Not enough elements for features
+WARNING:root:skipping track 110: highest Value smaller than separator
+WARNING:root:skipping track 120: highest Value smaller than separator
+WARNING:root:skipping track 124: highest Value smaller than separator
+WARNING:root:skipping track 131: highest Value smaller than separator
+WARNING:root:skipping track 137: highest Value smaller than separator
+WARNING:root:skipping track 139: highest Value smaller than separator
+WARNING:root:skipping track 140: highest Value smaller than separator
+WARNING:root:skipping track 143: Not enough elements for features
+WARNING:root:skipping track 150: highest Value smaller than separator
+WARNING:root:skipping track 163: highest Value smaller than separator
+WARNING:root:skipping track 164: NaN values in track
+WARNING:root:skipping track 206: NaN values in track
+WARNING:root:skipping track 207: NaN values in track
+WARNING:root:skipping track 209: highest Value smaller than separator
+WARNING:root:skipping track 210: highest Value smaller than separator
+WARNING:root:skipping track 214: highest Value smaller than separator
+WARNING:root:skipping track 218: highest Value smaller than separator
+WARNING:root:skipping track 245: highest Value smaller than separator
+WARNING:root:skipping track 275: highest Value smaller than separator
+WARNING:root:skipping track 338: NaN values in track
+WARNING:root:skipping track 356: highest Value smaller than separator
+WARNING:root:skipping track 362: highest Value smaller than separator
+WARNING:root:skipping track 379: highest Value smaller than separator
+WARNING:root:skipping track 381: highest Value smaller than separator
+WARNING:root:skipping track 418: highest Value smaller than separator
+WARNING:root:skipping track 419: highest Value smaller than separator
+WARNING:root:skipping track 421: highest Value smaller than separator
+WARNING:root:skipping track 467: NaN values in track
+WARNING:root:skipping track 491: highest Value smaller than separator
+WARNING:root:skipping track 510: highest Value smaller than separator
+WARNING:root:skipping track 522: highest Value smaller than separator
+WARNING:root:skipping track 526: highest Value smaller than separator
+WARNING:root:skipping track 535: NaN values in track
+WARNING:root:skipping track 538: NaN values in track
+WARNING:root:skipping track 600: highest Value smaller than separator
+WARNING:root:skipping track 602: Not enough elements for features
+WARNING:root:skipping track 603: Not enough elements for features
+WARNING:root:skipping track 607: highest Value smaller than separator
+WARNING:root:skipping track 629: highest Value smaller than separator
+WARNING:root:skipping track 660: highest Value smaller than separator
+WARNING:root:skipping track 667: highest Value smaller than separator
+WARNING:root:skipping track 678: highest Value smaller than separator
+WARNING:root:skipping track 696: highest Value smaller than separator
+WARNING:root:skipping track 717: highest Value smaller than separator
+WARNING:root:skipping track 740: highest Value smaller than separator
+WARNING:root:skipping track 759: highest Value smaller than separator
+WARNING:root:skipping track 765: highest Value smaller than separator
+WARNING:root:skipping track 769: Not enough elements for features
+WARNING:root:skipping track 770: Not enough elements for features
+WARNING:root:skipping track 774: highest Value smaller than separator
+WARNING:root:skipping track 811: highest Value smaller than separator
+WARNING:root:skipping track 840: highest Value smaller than separator
+WARNING:root:skipping track 841: highest Value smaller than separator
+WARNING:root:skipping track 842: highest Value smaller than separator
+WARNING:root:skipping track 843: highest Value smaller than separator
+WARNING:root:skipping track 844: highest Value smaller than separator
+WARNING:root:skipping track 848: highest Value smaller than separator
+WARNING:root:skipping track 852: highest Value smaller than separator
+WARNING:root:skipping track 857: highest Value smaller than separator
+WARNING:root:skipping track 858: highest Value smaller than separator
+WARNING:root:skipping track 881: highest Value smaller than separator
+WARNING:root:skipping track 883: highest Value smaller than separator
+WARNING:root:skipping track 915: highest Value smaller than separator
+WARNING:root:skipping track 916: highest Value smaller than separator
+WARNING:root:skipping track 919: highest Value smaller than separator
+WARNING:root:skipping track 953: highest Value smaller than separator
+WARNING:root:skipping track 1047: highest Value smaller than separator
+WARNING:root:skipping track 1065: highest Value smaller than separator
+WARNING:root:skipping track 1066: highest Value smaller than separator
+WARNING:root:skipping track 1091: highest Value smaller than separator
+WARNING:root:skipping track 1095: highest Value smaller than separator
+WARNING:root:skipping track 1137: highest Value smaller than separator
+WARNING:root:skipping track 1169: highest Value smaller than separator
+WARNING:root:skipping track 1178: highest Value smaller than separator
+WARNING:root:skipping track 1179: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_005_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 2: Not enough elements for features
+WARNING:root:skipping track 3: Not enough elements for features
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 32: highest Value smaller than separator
+WARNING:root:skipping track 43: highest Value smaller than separator
+WARNING:root:skipping track 50: NaN values in track
+WARNING:root:skipping track 68: highest Value smaller than separator
+WARNING:root:skipping track 72: highest Value smaller than separator
+WARNING:root:skipping track 80: NaN values in track
+WARNING:root:skipping track 90: Not enough elements for features
+WARNING:root:skipping track 119: highest Value smaller than separator
+WARNING:root:skipping track 124: NaN values in track
+WARNING:root:skipping track 136: highest Value smaller than separator
+WARNING:root:skipping track 140: highest Value smaller than separator
+WARNING:root:skipping track 142: highest Value smaller than separator
+WARNING:root:skipping track 143: highest Value smaller than separator
+WARNING:root:skipping track 145: NaN values in track
+WARNING:root:skipping track 148: NaN values in track
+WARNING:root:skipping track 153: highest Value smaller than separator
+WARNING:root:skipping track 158: Not enough elements for features
+WARNING:root:skipping track 162: highest Value smaller than separator
+WARNING:root:skipping track 163: highest Value smaller than separator
+WARNING:root:skipping track 167: highest Value smaller than separator
+WARNING:root:skipping track 189: highest Value smaller than separator
+WARNING:root:skipping track 195: highest Value smaller than separator
+WARNING:root:skipping track 196: highest Value smaller than separator
+WARNING:root:skipping track 210: highest Value smaller than separator
+WARNING:root:skipping track 221: highest Value smaller than separator
+WARNING:root:skipping track 222: highest Value smaller than separator
+WARNING:root:skipping track 235: Not enough elements for features
+WARNING:root:skipping track 236: highest Value smaller than separator
+WARNING:root:skipping track 268: highest Value smaller than separator
+WARNING:root:skipping track 269: highest Value smaller than separator
+WARNING:root:skipping track 287: highest Value smaller than separator
+WARNING:root:skipping track 288: highest Value smaller than separator
+WARNING:root:skipping track 300: Not enough elements for features
+WARNING:root:skipping track 318: highest Value smaller than separator
+WARNING:root:skipping track 320: highest Value smaller than separator
+WARNING:root:skipping track 326: NaN values in track
+WARNING:root:skipping track 328: NaN values in track
+WARNING:root:skipping track 332: NaN values in track
+WARNING:root:skipping track 348: highest Value smaller than separator
+WARNING:root:skipping track 359: highest Value smaller than separator
+WARNING:root:skipping track 361: highest Value smaller than separator
+WARNING:root:skipping track 371: highest Value smaller than separator
+WARNING:root:skipping track 386: highest Value smaller than separator
+WARNING:root:skipping track 397: highest Value smaller than separator
+WARNING:root:skipping track 409: highest Value smaller than separator
+WARNING:root:skipping track 411: NaN values in track
+WARNING:root:skipping track 412: NaN values in track
+WARNING:root:skipping track 418: NaN values in track
+WARNING:root:skipping track 419: NaN values in track
+WARNING:root:skipping track 425: NaN values in track
+WARNING:root:skipping track 443: highest Value smaller than separator
+WARNING:root:skipping track 460: NaN values in track
+WARNING:root:skipping track 461: NaN values in track
+WARNING:root:skipping track 465: highest Value smaller than separator
+WARNING:root:skipping track 467: highest Value smaller than separator
+WARNING:root:skipping track 473: highest Value smaller than separator
+WARNING:root:skipping track 479: NaN values in track
+WARNING:root:skipping track 498: highest Value smaller than separator
+WARNING:root:skipping track 528: highest Value smaller than separator
+WARNING:root:skipping track 530: highest Value smaller than separator
+WARNING:root:skipping track 534: highest Value smaller than separator
+WARNING:root:skipping track 540: highest Value smaller than separator
+WARNING:root:skipping track 542: highest Value smaller than separator
+WARNING:root:skipping track 543: highest Value smaller than separator
+WARNING:root:skipping track 544: highest Value smaller than separator
+WARNING:root:skipping track 553: highest Value smaller than separator
+WARNING:root:skipping track 557: highest Value smaller than separator
+WARNING:root:skipping track 559: highest Value smaller than separator
+WARNING:root:skipping track 560: highest Value smaller than separator
+WARNING:root:skipping track 568: highest Value smaller than separator
+WARNING:root:skipping track 571: highest Value smaller than separator
+WARNING:root:skipping track 573: highest Value smaller than separator
+WARNING:root:skipping track 574: NaN values in track
+WARNING:root:skipping track 577: highest Value smaller than separator
+WARNING:root:skipping track 585: highest Value smaller than separator
+WARNING:root:skipping track 586: highest Value smaller than separator
+WARNING:root:skipping track 610: NaN values in track
+WARNING:root:skipping track 611: highest Value smaller than separator
+WARNING:root:skipping track 613: highest Value smaller than separator
+WARNING:root:skipping track 623: highest Value smaller than separator
+WARNING:root:skipping track 671: highest Value smaller than separator
+WARNING:root:skipping track 673: NaN values in track
+WARNING:root:skipping track 677: highest Value smaller than separator
+WARNING:root:skipping track 678: highest Value smaller than separator
+WARNING:root:skipping track 687: highest Value smaller than separator
+WARNING:root:skipping track 729: highest Value smaller than separator
+WARNING:root:skipping track 732: highest Value smaller than separator
+WARNING:root:skipping track 737: highest Value smaller than separator
+WARNING:root:skipping track 739: highest Value smaller than separator
+WARNING:root:skipping track 745: Not enough elements for features
+WARNING:root:skipping track 746: NaN values in track
+WARNING:root:skipping track 749: highest Value smaller than separator
+WARNING:root:skipping track 767: highest Value smaller than separator
+WARNING:root:skipping track 793: NaN values in track
+WARNING:root:skipping track 794: highest Value smaller than separator
+WARNING:root:skipping track 800: highest Value smaller than separator
+WARNING:root:skipping track 804: highest Value smaller than separator
+WARNING:root:skipping track 834: highest Value smaller than separator
+WARNING:root:skipping track 835: highest Value smaller than separator
+WARNING:root:skipping track 845: highest Value smaller than separator
+WARNING:root:skipping track 855: highest Value smaller than separator
+WARNING:root:skipping track 887: highest Value smaller than separator
+WARNING:root:skipping track 892: highest Value smaller than separator
+WARNING:root:skipping track 896: highest Value smaller than separator
+WARNING:root:skipping track 898: Not enough elements for features
+WARNING:root:skipping track 904: Not enough elements for features
+WARNING:root:skipping track 905: Not enough elements for features
+WARNING:root:skipping track 915: highest Value smaller than separator
+WARNING:root:skipping track 916: highest Value smaller than separator
+WARNING:root:skipping track 920: highest Value smaller than separator
+WARNING:root:skipping track 922: Not enough elements for features
+WARNING:root:skipping track 944: highest Value smaller than separator
+WARNING:root:skipping track 948: highest Value smaller than separator
+WARNING:root:skipping track 951: highest Value smaller than separator
+WARNING:root:skipping track 955: NaN values in track
+WARNING:root:skipping track 968: highest Value smaller than separator
+WARNING:root:skipping track 978: highest Value smaller than separator
+WARNING:root:skipping track 983: highest Value smaller than separator
+WARNING:root:skipping track 993: highest Value smaller than separator
+WARNING:root:skipping track 997: highest Value smaller than separator
+WARNING:root:skipping track 1001: highest Value smaller than separator
+WARNING:root:skipping track 1004: NaN values in track
+WARNING:root:skipping track 1018: highest Value smaller than separator
+WARNING:root:skipping track 1019: highest Value smaller than separator
+WARNING:root:skipping track 1020: highest Value smaller than separator
+WARNING:root:skipping track 1023: NaN values in track
+WARNING:root:skipping track 1030: Not enough elements for features
+WARNING:root:skipping track 1035: NaN values in track
+WARNING:root:skipping track 1036: NaN values in track
+WARNING:root:skipping track 1048: highest Value smaller than separator
+WARNING:root:skipping track 1051: highest Value smaller than separator
+WARNING:root:skipping track 1055: highest Value smaller than separator
+WARNING:root:skipping track 1056: highest Value smaller than separator
+WARNING:root:skipping track 1064: highest Value smaller than separator
+WARNING:root:skipping track 1065: highest Value smaller than separator
+WARNING:root:skipping track 1071: NaN values in track
+WARNING:root:skipping track 1072: NaN values in track
+WARNING:root:skipping track 1076: NaN values in track
+WARNING:root:skipping track 1077: NaN values in track
+WARNING:root:skipping track 1090: highest Value smaller than separator
+WARNING:root:skipping track 1098: highest Value smaller than separator
+WARNING:root:skipping track 1121: highest Value smaller than separator
+WARNING:root:skipping track 1129: Not enough elements for features
+WARNING:root:skipping track 1130: Not enough elements for features
+WARNING:root:skipping track 1143: NaN values in track
+WARNING:root:skipping track 1145: NaN values in track
+WARNING:root:skipping track 1146: highest Value smaller than separator
+WARNING:root:skipping track 1164: highest Value smaller than separator
+WARNING:root:skipping track 1182: highest Value smaller than separator
+WARNING:root:skipping track 1185: highest Value smaller than separator
+WARNING:root:skipping track 1191: highest Value smaller than separator
+WARNING:root:skipping track 1199: highest Value smaller than separator
+WARNING:root:skipping track 1208: highest Value smaller than separator
+WARNING:root:skipping track 1210: highest Value smaller than separator
+WARNING:root:skipping track 1211: highest Value smaller than separator
+WARNING:root:skipping track 1222: highest Value smaller than separator
+WARNING:root:skipping track 1230: highest Value smaller than separator
+WARNING:root:skipping track 1256: highest Value smaller than separator
+WARNING:root:skipping track 1257: NaN values in track
+WARNING:root:skipping track 1284: highest Value smaller than separator
+WARNING:root:skipping track 1296: highest Value smaller than separator
+WARNING:root:skipping track 1299: highest Value smaller than separator
+WARNING:root:skipping track 1300: highest Value smaller than separator
+WARNING:root:skipping track 1309: highest Value smaller than separator
+WARNING:root:skipping track 1311: NaN values in track
+WARNING:root:skipping track 1313: highest Value smaller than separator
+WARNING:root:skipping track 1314: highest Value smaller than separator
+WARNING:root:skipping track 1331: Not enough elements for features
+WARNING:root:skipping track 1332: Not enough elements for features
+WARNING:root:skipping track 1342: highest Value smaller than separator
+WARNING:root:skipping track 1353: highest Value smaller than separator
+WARNING:root:skipping track 1427: NaN values in track
+WARNING:root:skipping track 1428: highest Value smaller than separator
+WARNING:root:skipping track 1432: NaN values in track
+WARNING:root:skipping track 1433: NaN values in track
+WARNING:root:skipping track 1434: highest Value smaller than separator
+WARNING:root:skipping track 1435: highest Value smaller than separator
+WARNING:root:skipping track 1439: NaN values in track
+WARNING:root:skipping track 1440: highest Value smaller than separator
+WARNING:root:skipping track 1452: highest Value smaller than separator
+WARNING:root:skipping track 1458: highest Value smaller than separator
+WARNING:root:skipping track 1462: NaN values in track
+WARNING:root:skipping track 1463: NaN values in track
+WARNING:root:skipping track 1493: highest Value smaller than separator
+WARNING:root:skipping track 1496: highest Value smaller than separator
+WARNING:root:skipping track 1528: highest Value smaller than separator
+WARNING:root:skipping track 1529: highest Value smaller than separator
+WARNING:root:skipping track 1531: highest Value smaller than separator
+WARNING:root:skipping track 1533: highest Value smaller than separator
+WARNING:root:skipping track 1542: highest Value smaller than separator
+WARNING:root:skipping track 1546: highest Value smaller than separator
+WARNING:root:skipping track 1564: highest Value smaller than separator
+WARNING:root:skipping track 1566: highest Value smaller than separator
+WARNING:root:skipping track 1578: Not enough elements for features
+WARNING:root:skipping track 1592: highest Value smaller than separator
+WARNING:root:skipping track 1593: highest Value smaller than separator
+WARNING:root:skipping track 1605: highest Value smaller than separator
+WARNING:root:skipping track 1622: highest Value smaller than separator
+WARNING:root:skipping track 1625: highest Value smaller than separator
+WARNING:root:skipping track 1626: highest Value smaller than separator
+WARNING:root:skipping track 1629: highest Value smaller than separator
+WARNING:root:skipping track 1630: highest Value smaller than separator
+WARNING:root:skipping track 1632: highest Value smaller than separator
+WARNING:root:skipping track 1634: highest Value smaller than separator
+WARNING:root:skipping track 1638: Not enough elements for features
+WARNING:root:skipping track 1639: Not enough elements for features
+WARNING:root:skipping track 1659: highest Value smaller than separator
+WARNING:root:skipping track 1660: highest Value smaller than separator
+WARNING:root:skipping track 1679: highest Value smaller than separator
+WARNING:root:skipping track 1699: highest Value smaller than separator
+WARNING:root:skipping track 1700: highest Value smaller than separator
+WARNING:root:skipping track 1711: Not enough elements for features
+WARNING:root:skipping track 1733: highest Value smaller than separator
+WARNING:root:skipping track 1745: highest Value smaller than separator
+WARNING:root:skipping track 1751: NaN values in track
+WARNING:root:skipping track 1752: NaN values in track
+WARNING:root:skipping track 1755: highest Value smaller than separator
+WARNING:root:skipping track 1769: highest Value smaller than separator
+WARNING:root:skipping track 1793: highest Value smaller than separator
+WARNING:root:skipping track 1795: highest Value smaller than separator
+WARNING:root:skipping track 1797: highest Value smaller than separator
+WARNING:root:skipping track 1802: highest Value smaller than separator
+WARNING:root:skipping track 1823: highest Value smaller than separator
+WARNING:root:skipping track 1842: NaN values in track
+WARNING:root:skipping track 1859: highest Value smaller than separator
+WARNING:root:skipping track 1865: NaN values in track
+WARNING:root:skipping track 1866: NaN values in track
+WARNING:root:skipping track 1878: highest Value smaller than separator
+WARNING:root:skipping track 1879: highest Value smaller than separator
+WARNING:root:skipping track 1880: highest Value smaller than separator
+WARNING:root:skipping track 1884: highest Value smaller than separator
+WARNING:root:skipping track 1885: highest Value smaller than separator
+WARNING:root:skipping track 1903: highest Value smaller than separator
+WARNING:root:skipping track 1904: highest Value smaller than separator
+WARNING:root:skipping track 1910: Not enough elements for features
+WARNING:root:skipping track 1935: NaN values in track
+WARNING:root:skipping track 1939: highest Value smaller than separator
+WARNING:root:skipping track 1971: NaN values in track
+WARNING:root:skipping track 1972: highest Value smaller than separator
+WARNING:root:skipping track 2001: NaN values in track
+WARNING:root:skipping track 2002: NaN values in track
+WARNING:root:skipping track 2017: highest Value smaller than separator
+WARNING:root:skipping track 2028: NaN values in track
+WARNING:root:skipping track 2055: NaN values in track
+WARNING:root:skipping track 2057: NaN values in track
+WARNING:root:skipping track 2116: highest Value smaller than separator
+WARNING:root:skipping track 2125: Not enough elements for features
+WARNING:root:skipping track 2162: highest Value smaller than separator
+WARNING:root:skipping track 2208: highest Value smaller than separator
+WARNING:root:skipping track 2212: highest Value smaller than separator
+WARNING:root:skipping track 2216: highest Value smaller than separator
+WARNING:root:skipping track 2220: highest Value smaller than separator
+WARNING:root:skipping track 2244: highest Value smaller than separator
+WARNING:root:skipping track 2245: highest Value smaller than separator
+WARNING:root:skipping track 2250: highest Value smaller than separator
+WARNING:root:skipping track 2260: NaN values in track
+WARNING:root:skipping track 2270: highest Value smaller than separator
+WARNING:root:skipping track 2271: highest Value smaller than separator
+WARNING:root:skipping track 2281: highest Value smaller than separator
+WARNING:root:skipping track 2291: highest Value smaller than separator
+WARNING:root:skipping track 2292: highest Value smaller than separator
+WARNING:root:skipping track 2319: NaN values in track
+WARNING:root:skipping track 2375: highest Value smaller than separator
+WARNING:root:skipping track 2397: highest Value smaller than separator
+WARNING:root:skipping track 2398: NaN values in track
+WARNING:root:skipping track 2407: highest Value smaller than separator
+WARNING:root:skipping track 2409: highest Value smaller than separator
+WARNING:root:skipping track 2460: highest Value smaller than separator
+WARNING:root:skipping track 2461: highest Value smaller than separator
+WARNING:root:skipping track 2463: highest Value smaller than separator
+WARNING:root:skipping track 2464: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_006_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 62: highest Value smaller than separator
+WARNING:root:skipping track 70: NaN values in track
+WARNING:root:skipping track 137: highest Value smaller than separator
+WARNING:root:skipping track 138: highest Value smaller than separator
+WARNING:root:skipping track 140: highest Value smaller than separator
+WARNING:root:skipping track 201: highest Value smaller than separator
+WARNING:root:skipping track 202: highest Value smaller than separator
+WARNING:root:skipping track 203: highest Value smaller than separator
+WARNING:root:skipping track 215: NaN values in track
+WARNING:root:skipping track 216: NaN values in track
+WARNING:root:skipping track 265: highest Value smaller than separator
+WARNING:root:skipping track 287: highest Value smaller than separator
+WARNING:root:skipping track 307: highest Value smaller than separator
+WARNING:root:skipping track 390: highest Value smaller than separator
+WARNING:root:skipping track 431: highest Value smaller than separator
+WARNING:root:skipping track 444: highest Value smaller than separator
+WARNING:root:skipping track 445: highest Value smaller than separator
+WARNING:root:skipping track 450: NaN values in track
+WARNING:root:skipping track 458: highest Value smaller than separator
+WARNING:root:skipping track 519: NaN values in track
+WARNING:root:skipping track 520: highest Value smaller than separator
+WARNING:root:skipping track 557: highest Value smaller than separator
+WARNING:root:skipping track 575: highest Value smaller than separator
+WARNING:root:skipping track 608: highest Value smaller than separator
+WARNING:root:skipping track 615: NaN values in track
+WARNING:root:skipping track 646: highest Value smaller than separator
+WARNING:root:skipping track 655: highest Value smaller than separator
+WARNING:root:skipping track 657: NaN values in track
+WARNING:root:skipping track 658: NaN values in track
+WARNING:root:skipping track 709: highest Value smaller than separator
+WARNING:root:skipping track 756: highest Value smaller than separator
+WARNING:root:skipping track 765: NaN values in track
+WARNING:root:skipping track 783: highest Value smaller than separator
+WARNING:root:skipping track 846: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_007_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 10: highest Value smaller than separator
+WARNING:root:skipping track 24: NaN values in track
+WARNING:root:skipping track 27: NaN values in track
+WARNING:root:skipping track 28: NaN values in track
+WARNING:root:skipping track 41: highest Value smaller than separator
+WARNING:root:skipping track 44: highest Value smaller than separator
+WARNING:root:skipping track 57: NaN values in track
+WARNING:root:skipping track 60: highest Value smaller than separator
+WARNING:root:skipping track 68: highest Value smaller than separator
+WARNING:root:skipping track 78: Not enough elements for features
+WARNING:root:skipping track 79: Not enough elements for features
+WARNING:root:skipping track 91: highest Value smaller than separator
+WARNING:root:skipping track 93: highest Value smaller than separator
+WARNING:root:skipping track 99: Not enough elements for features
+WARNING:root:skipping track 104: highest Value smaller than separator
+WARNING:root:skipping track 108: highest Value smaller than separator
+WARNING:root:skipping track 112: NaN values in track
+WARNING:root:skipping track 119: NaN values in track
+WARNING:root:skipping track 122: NaN values in track
+WARNING:root:skipping track 131: NaN values in track
+WARNING:root:skipping track 176: NaN values in track
+WARNING:root:skipping track 177: highest Value smaller than separator
+WARNING:root:skipping track 182: NaN values in track
+WARNING:root:skipping track 183: NaN values in track
+WARNING:root:skipping track 187: NaN values in track
+WARNING:root:skipping track 200: highest Value smaller than separator
+WARNING:root:skipping track 202: Not enough elements for features
+WARNING:root:skipping track 211: highest Value smaller than separator
+WARNING:root:skipping track 214: NaN values in track
+WARNING:root:skipping track 215: NaN values in track
+WARNING:root:skipping track 223: NaN values in track
+WARNING:root:skipping track 224: NaN values in track
+WARNING:root:skipping track 228: NaN values in track
+WARNING:root:skipping track 244: highest Value smaller than separator
+WARNING:root:skipping track 263: highest Value smaller than separator
+WARNING:root:skipping track 311: NaN values in track
+WARNING:root:skipping track 313: highest Value smaller than separator
+WARNING:root:skipping track 357: NaN values in track
+WARNING:root:skipping track 358: highest Value smaller than separator
+WARNING:root:skipping track 387: highest Value smaller than separator
+WARNING:root:skipping track 400: highest Value smaller than separator
+WARNING:root:skipping track 409: Not enough elements for features
+WARNING:root:skipping track 414: NaN values in track
+WARNING:root:skipping track 415: NaN values in track
+WARNING:root:skipping track 417: highest Value smaller than separator
+WARNING:root:skipping track 418: highest Value smaller than separator
+WARNING:root:skipping track 423: highest Value smaller than separator
+WARNING:root:skipping track 426: highest Value smaller than separator
+WARNING:root:skipping track 427: highest Value smaller than separator
+WARNING:root:skipping track 432: highest Value smaller than separator
+WARNING:root:skipping track 467: highest Value smaller than separator
+WARNING:root:skipping track 475: highest Value smaller than separator
+WARNING:root:skipping track 482: highest Value smaller than separator
+WARNING:root:skipping track 486: highest Value smaller than separator
+WARNING:root:skipping track 488: highest Value smaller than separator
+WARNING:root:skipping track 494: NaN values in track
+WARNING:root:skipping track 527: NaN values in track
+WARNING:root:skipping track 528: NaN values in track
+WARNING:root:skipping track 529: highest Value smaller than separator
+WARNING:root:skipping track 530: highest Value smaller than separator
+WARNING:root:skipping track 559: highest Value smaller than separator
+WARNING:root:skipping track 569: Not enough elements for features
+WARNING:root:skipping track 570: Not enough elements for features
+WARNING:root:skipping track 580: highest Value smaller than separator
+WARNING:root:skipping track 592: NaN values in track
+WARNING:root:skipping track 593: NaN values in track
+WARNING:root:skipping track 600: highest Value smaller than separator
+WARNING:root:skipping track 628: NaN values in track
+WARNING:root:skipping track 632: highest Value smaller than separator
+WARNING:root:skipping track 641: NaN values in track
+WARNING:root:skipping track 642: NaN values in track
+WARNING:root:skipping track 665: highest Value smaller than separator
+WARNING:root:skipping track 667: highest Value smaller than separator
+WARNING:root:skipping track 670: highest Value smaller than separator
+WARNING:root:skipping track 679: highest Value smaller than separator
+WARNING:root:skipping track 686: highest Value smaller than separator
+WARNING:root:skipping track 694: NaN values in track
+WARNING:root:skipping track 695: highest Value smaller than separator
+WARNING:root:skipping track 696: highest Value smaller than separator
+WARNING:root:skipping track 700: highest Value smaller than separator
+WARNING:root:skipping track 710: highest Value smaller than separator
+WARNING:root:skipping track 731: NaN values in track
+WARNING:root:skipping track 733: highest Value smaller than separator
+WARNING:root:skipping track 735: NaN values in track
+WARNING:root:skipping track 738: highest Value smaller than separator
+WARNING:root:skipping track 740: highest Value smaller than separator
+WARNING:root:skipping track 751: NaN values in track
+WARNING:root:skipping track 752: NaN values in track
+WARNING:root:skipping track 773: NaN values in track
+WARNING:root:skipping track 776: NaN values in track
+WARNING:root:skipping track 782: Not enough elements for features
+WARNING:root:skipping track 783: Not enough elements for features
+WARNING:root:skipping track 784: highest Value smaller than separator
+WARNING:root:skipping track 834: highest Value smaller than separator
+WARNING:root:skipping track 851: highest Value smaller than separator
+WARNING:root:skipping track 868: highest Value smaller than separator
+WARNING:root:skipping track 871: NaN values in track
+WARNING:root:skipping track 904: highest Value smaller than separator
+WARNING:root:skipping track 923: highest Value smaller than separator
+WARNING:root:skipping track 932: highest Value smaller than separator
+WARNING:root:skipping track 942: highest Value smaller than separator
+WARNING:root:skipping track 952: NaN values in track
+WARNING:root:skipping track 972: highest Value smaller than separator
+WARNING:root:skipping track 973: highest Value smaller than separator
+WARNING:root:skipping track 979: highest Value smaller than separator
+WARNING:root:skipping track 980: highest Value smaller than separator
+WARNING:root:skipping track 1001: highest Value smaller than separator
+WARNING:root:skipping track 1004: highest Value smaller than separator
+WARNING:root:skipping track 1005: highest Value smaller than separator
+WARNING:root:skipping track 1019: NaN values in track
+WARNING:root:skipping track 1052: NaN values in track
+WARNING:root:skipping track 1071: highest Value smaller than separator
+WARNING:root:skipping track 1073: highest Value smaller than separator
+WARNING:root:skipping track 1092: highest Value smaller than separator
+WARNING:root:skipping track 1096: NaN values in track
+WARNING:root:skipping track 1098: highest Value smaller than separator
+WARNING:root:skipping track 1104: highest Value smaller than separator
+WARNING:root:skipping track 1108: Not enough elements for features
+WARNING:root:skipping track 1124: highest Value smaller than separator
+WARNING:root:skipping track 1159: highest Value smaller than separator
+WARNING:root:skipping track 1162: highest Value smaller than separator
+WARNING:root:skipping track 1174: highest Value smaller than separator
+WARNING:root:skipping track 1179: highest Value smaller than separator
+WARNING:root:skipping track 1181: highest Value smaller than separator
+WARNING:root:skipping track 1216: NaN values in track
+WARNING:root:skipping track 1217: NaN values in track
+WARNING:root:skipping track 1234: NaN values in track
+WARNING:root:skipping track 1246: highest Value smaller than separator
+WARNING:root:skipping track 1247: highest Value smaller than separator
+WARNING:root:skipping track 1258: highest Value smaller than separator
+WARNING:root:skipping track 1267: highest Value smaller than separator
+WARNING:root:skipping track 1276: highest Value smaller than separator
+WARNING:root:skipping track 1314: highest Value smaller than separator
+WARNING:root:skipping track 1325: highest Value smaller than separator
+WARNING:root:skipping track 1332: highest Value smaller than separator
+WARNING:root:skipping track 1333: highest Value smaller than separator
+WARNING:root:skipping track 1337: highest Value smaller than separator
+WARNING:root:skipping track 1338: highest Value smaller than separator
+WARNING:root:skipping track 1360: NaN values in track
+WARNING:root:skipping track 1377: highest Value smaller than separator
+WARNING:root:skipping track 1385: NaN values in track
+WARNING:root:skipping track 1386: NaN values in track
+WARNING:root:skipping track 1412: highest Value smaller than separator
+WARNING:root:skipping track 1484: highest Value smaller than separator
+WARNING:root:skipping track 1503: highest Value smaller than separator
+WARNING:root:skipping track 1513: highest Value smaller than separator
+WARNING:root:skipping track 1514: highest Value smaller than separator
+WARNING:root:skipping track 1528: highest Value smaller than separator
+WARNING:root:skipping track 1544: highest Value smaller than separator
+WARNING:root:skipping track 1566: highest Value smaller than separator
+WARNING:root:skipping track 1592: NaN values in track
+WARNING:root:skipping track 1593: highest Value smaller than separator
+WARNING:root:skipping track 1606: highest Value smaller than separator
+WARNING:root:skipping track 1609: highest Value smaller than separator
+WARNING:root:skipping track 1633: highest Value smaller than separator
+WARNING:root:skipping track 1635: highest Value smaller than separator
+WARNING:root:skipping track 1646: highest Value smaller than separator
+WARNING:root:skipping track 1647: highest Value smaller than separator
+WARNING:root:skipping track 1651: highest Value smaller than separator
+WARNING:root:skipping track 1656: highest Value smaller than separator
+WARNING:root:skipping track 1667: highest Value smaller than separator
+WARNING:root:skipping track 1671: highest Value smaller than separator
+WARNING:root:skipping track 1674: highest Value smaller than separator
+WARNING:root:skipping track 1677: Not enough elements for features
+WARNING:root:skipping track 1687: highest Value smaller than separator
+WARNING:root:skipping track 1690: highest Value smaller than separator
+WARNING:root:skipping track 1702: highest Value smaller than separator
+WARNING:root:skipping track 1705: highest Value smaller than separator
+WARNING:root:skipping track 1711: NaN values in track
+WARNING:root:skipping track 1729: highest Value smaller than separator
+WARNING:root:skipping track 1730: highest Value smaller than separator
+WARNING:root:skipping track 1731: highest Value smaller than separator
+WARNING:root:skipping track 1732: highest Value smaller than separator
+WARNING:root:skipping track 1737: NaN values in track
+WARNING:root:skipping track 1739: NaN values in track
+WARNING:root:skipping track 1740: Not enough elements for features
+WARNING:root:skipping track 1748: highest Value smaller than separator
+WARNING:root:skipping track 1768: NaN values in track
+WARNING:root:skipping track 1811: highest Value smaller than separator
+WARNING:root:skipping track 1817: highest Value smaller than separator
+WARNING:root:skipping track 1836: highest Value smaller than separator
+WARNING:root:skipping track 1886: highest Value smaller than separator
+WARNING:root:skipping track 1896: Not enough elements for features
+WARNING:root:skipping track 1897: Not enough elements for features
+WARNING:root:skipping track 1909: highest Value smaller than separator
+WARNING:root:skipping track 1930: highest Value smaller than separator
+WARNING:root:skipping track 1960: highest Value smaller than separator
+WARNING:root:skipping track 1961: highest Value smaller than separator
+WARNING:root:skipping track 1982: highest Value smaller than separator
+WARNING:root:skipping track 1992: highest Value smaller than separator
+WARNING:root:skipping track 1994: highest Value smaller than separator
+WARNING:root:skipping track 2003: highest Value smaller than separator
+WARNING:root:skipping track 2004: highest Value smaller than separator
+WARNING:root:skipping track 2019: NaN values in track
+WARNING:root:skipping track 2020: NaN values in track
+WARNING:root:skipping track 2029: NaN values in track
+WARNING:root:skipping track 2099: highest Value smaller than separator
+WARNING:root:skipping track 2125: NaN values in track
+WARNING:root:skipping track 2149: NaN values in track
+WARNING:root:skipping track 2151: NaN values in track
+WARNING:root:skipping track 2159: highest Value smaller than separator
+WARNING:root:skipping track 2160: highest Value smaller than separator
+WARNING:root:skipping track 2161: Not enough elements for features
+WARNING:root:skipping track 2169: highest Value smaller than separator
+WARNING:root:skipping track 2170: Not enough elements for features
+WARNING:root:skipping track 2185: NaN values in track
+WARNING:root:skipping track 2204: highest Value smaller than separator
+WARNING:root:skipping track 2207: highest Value smaller than separator
+WARNING:root:skipping track 2208: highest Value smaller than separator
+WARNING:root:skipping track 2242: highest Value smaller than separator
+WARNING:root:skipping track 2264: NaN values in track
+WARNING:root:skipping track 2317: highest Value smaller than separator
+WARNING:root:skipping track 2379: highest Value smaller than separator
+WARNING:root:skipping track 2394: NaN values in track
+WARNING:root:skipping track 2419: highest Value smaller than separator
+WARNING:root:skipping track 2450: highest Value smaller than separator
+WARNING:root:skipping track 2460: highest Value smaller than separator
+WARNING:root:skipping track 2461: highest Value smaller than separator
+WARNING:root:skipping track 2462: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_008_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 34: highest Value smaller than separator
+WARNING:root:skipping track 35: highest Value smaller than separator
+WARNING:root:skipping track 54: NaN values in track
+WARNING:root:skipping track 65: highest Value smaller than separator
+WARNING:root:skipping track 68: highest Value smaller than separator
+WARNING:root:skipping track 85: highest Value smaller than separator
+WARNING:root:skipping track 132: NaN values in track
+WARNING:root:skipping track 134: NaN values in track
+WARNING:root:skipping track 135: NaN values in track
+WARNING:root:skipping track 211: highest Value smaller than separator
+WARNING:root:skipping track 212: highest Value smaller than separator
+WARNING:root:skipping track 217: Not enough elements for features
+WARNING:root:skipping track 221: highest Value smaller than separator
+WARNING:root:skipping track 226: highest Value smaller than separator
+WARNING:root:skipping track 229: highest Value smaller than separator
+WARNING:root:skipping track 232: Not enough elements for features
+WARNING:root:skipping track 264: highest Value smaller than separator
+WARNING:root:skipping track 265: NaN values in track
+WARNING:root:skipping track 267: highest Value smaller than separator
+WARNING:root:skipping track 297: highest Value smaller than separator
+WARNING:root:skipping track 313: highest Value smaller than separator
+WARNING:root:skipping track 314: highest Value smaller than separator
+WARNING:root:skipping track 315: highest Value smaller than separator
+WARNING:root:skipping track 326: NaN values in track
+WARNING:root:skipping track 327: NaN values in track
+WARNING:root:skipping track 334: Not enough elements for features
+WARNING:root:skipping track 351: highest Value smaller than separator
+WARNING:root:skipping track 358: NaN values in track
+WARNING:root:skipping track 359: NaN values in track
+WARNING:root:skipping track 372: NaN values in track
+WARNING:root:skipping track 402: highest Value smaller than separator
+WARNING:root:skipping track 403: highest Value smaller than separator
+WARNING:root:skipping track 446: highest Value smaller than separator
+WARNING:root:skipping track 450: highest Value smaller than separator
+WARNING:root:skipping track 474: highest Value smaller than separator
+WARNING:root:skipping track 493: highest Value smaller than separator
+WARNING:root:skipping track 499: Not enough elements for features
+WARNING:root:skipping track 538: highest Value smaller than separator
+WARNING:root:skipping track 539: highest Value smaller than separator
+WARNING:root:skipping track 568: highest Value smaller than separator
+WARNING:root:skipping track 578: highest Value smaller than separator
+WARNING:root:skipping track 589: highest Value smaller than separator
+WARNING:root:skipping track 590: highest Value smaller than separator
+WARNING:root:skipping track 596: highest Value smaller than separator
+WARNING:root:skipping track 617: NaN values in track
+WARNING:root:skipping track 618: NaN values in track
+WARNING:root:skipping track 663: highest Value smaller than separator
+WARNING:root:skipping track 669: highest Value smaller than separator
+WARNING:root:skipping track 689: highest Value smaller than separator
+WARNING:root:skipping track 695: NaN values in track
+WARNING:root:skipping track 696: NaN values in track
+WARNING:root:skipping track 697: highest Value smaller than separator
+WARNING:root:skipping track 705: NaN values in track
+WARNING:root:skipping track 706: NaN values in track
+WARNING:root:skipping track 725: highest Value smaller than separator
+WARNING:root:skipping track 738: highest Value smaller than separator
+WARNING:root:skipping track 739: highest Value smaller than separator
+WARNING:root:skipping track 747: highest Value smaller than separator
+WARNING:root:skipping track 760: highest Value smaller than separator
+WARNING:root:skipping track 763: highest Value smaller than separator
+WARNING:root:skipping track 765: highest Value smaller than separator
+WARNING:root:skipping track 776: highest Value smaller than separator
+WARNING:root:skipping track 777: highest Value smaller than separator
+WARNING:root:skipping track 780: NaN values in track
+WARNING:root:skipping track 813: NaN values in track
+WARNING:root:skipping track 863: highest Value smaller than separator
+WARNING:root:skipping track 864: NaN values in track
+WARNING:root:skipping track 885: highest Value smaller than separator
+WARNING:root:skipping track 897: highest Value smaller than separator
+WARNING:root:skipping track 899: highest Value smaller than separator
+WARNING:root:skipping track 900: highest Value smaller than separator
+WARNING:root:skipping track 905: highest Value smaller than separator
+WARNING:root:skipping track 971: NaN values in track
+WARNING:root:skipping track 986: highest Value smaller than separator
+WARNING:root:skipping track 987: NaN values in track
+WARNING:root:skipping track 990: NaN values in track
+WARNING:root:skipping track 991: NaN values in track
+WARNING:root:skipping track 994: highest Value smaller than separator
+WARNING:root:skipping track 1001: highest Value smaller than separator
+WARNING:root:skipping track 1014: highest Value smaller than separator
+WARNING:root:skipping track 1015: highest Value smaller than separator
+WARNING:root:skipping track 1023: NaN values in track
+WARNING:root:skipping track 1033: highest Value smaller than separator
+WARNING:root:skipping track 1034: highest Value smaller than separator
+WARNING:root:skipping track 1039: highest Value smaller than separator
+WARNING:root:skipping track 1040: highest Value smaller than separator
+WARNING:root:skipping track 1046: Not enough elements for features
+WARNING:root:skipping track 1065: highest Value smaller than separator
+WARNING:root:skipping track 1066: highest Value smaller than separator
+WARNING:root:skipping track 1067: NaN values in track
+WARNING:root:skipping track 1091: highest Value smaller than separator
+WARNING:root:skipping track 1096: NaN values in track
+WARNING:root:skipping track 1097: NaN values in track
+WARNING:root:skipping track 1107: NaN values in track
+WARNING:root:skipping track 1108: NaN values in track
+WARNING:root:skipping track 1128: highest Value smaller than separator
+WARNING:root:skipping track 1142: highest Value smaller than separator
+WARNING:root:skipping track 1165: highest Value smaller than separator
+WARNING:root:skipping track 1174: highest Value smaller than separator
+WARNING:root:skipping track 1179: NaN values in track
+WARNING:root:skipping track 1258: highest Value smaller than separator
+WARNING:root:skipping track 1286: highest Value smaller than separator
+WARNING:root:skipping track 1291: highest Value smaller than separator
+WARNING:root:skipping track 1306: highest Value smaller than separator
+WARNING:root:skipping track 1313: highest Value smaller than separator
+WARNING:root:skipping track 1318: highest Value smaller than separator
+WARNING:root:skipping track 1319: Not enough elements for features
+WARNING:root:skipping track 1320: Not enough elements for features
+WARNING:root:skipping track 1333: highest Value smaller than separator
+WARNING:root:skipping track 1377: highest Value smaller than separator
+WARNING:root:skipping track 1411: highest Value smaller than separator
+WARNING:root:skipping track 1431: highest Value smaller than separator
+WARNING:root:skipping track 1434: highest Value smaller than separator
+WARNING:root:skipping track 1482: highest Value smaller than separator
+WARNING:root:skipping track 1495: NaN values in track
+WARNING:root:skipping track 1511: Not enough elements for features
+WARNING:root:skipping track 1512: NaN values in track
+WARNING:root:skipping track 1513: NaN values in track
+WARNING:root:skipping track 1514: NaN values in track
+WARNING:root:skipping track 1523: Not enough elements for features
+WARNING:root:skipping track 1524: Not enough elements for features
+WARNING:root:skipping track 1527: NaN values in track
+WARNING:root:skipping track 1528: NaN values in track
+WARNING:root:skipping track 1531: highest Value smaller than separator
+WARNING:root:skipping track 1564: highest Value smaller than separator
+WARNING:root:skipping track 1565: highest Value smaller than separator
+WARNING:root:skipping track 1566: highest Value smaller than separator
+WARNING:root:skipping track 1572: highest Value smaller than separator
+WARNING:root:skipping track 1584: NaN values in track
+WARNING:root:skipping track 1589: highest Value smaller than separator
+WARNING:root:skipping track 1596: Not enough elements for features
+WARNING:root:skipping track 1616: highest Value smaller than separator
+WARNING:root:skipping track 1639: highest Value smaller than separator
+WARNING:root:skipping track 1686: highest Value smaller than separator
+WARNING:root:skipping track 1700: highest Value smaller than separator
+WARNING:root:skipping track 1713: NaN values in track
+WARNING:root:skipping track 1714: highest Value smaller than separator
+WARNING:root:skipping track 1745: highest Value smaller than separator
+WARNING:root:skipping track 1746: highest Value smaller than separator
+WARNING:root:skipping track 1754: highest Value smaller than separator
+WARNING:root:skipping track 1788: NaN values in track
+WARNING:root:skipping track 1789: NaN values in track
+WARNING:root:skipping track 1793: NaN values in track
+WARNING:root:skipping track 1798: NaN values in track
+WARNING:root:skipping track 1813: highest Value smaller than separator
+WARNING:root:skipping track 1815: NaN values in track
+WARNING:root:skipping track 1844: highest Value smaller than separator
+WARNING:root:skipping track 1845: highest Value smaller than separator
+WARNING:root:skipping track 1846: highest Value smaller than separator
+WARNING:root:skipping track 1847: highest Value smaller than separator
+WARNING:root:skipping track 1848: highest Value smaller than separator
+WARNING:root:skipping track 1849: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_009_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 6: Not enough elements for features
+WARNING:root:skipping track 7: Not enough elements for features
+WARNING:root:skipping track 8: Not enough elements for features
+WARNING:root:skipping track 22: NaN values in track
+WARNING:root:skipping track 23: highest Value smaller than separator
+WARNING:root:skipping track 24: highest Value smaller than separator
+WARNING:root:skipping track 40: highest Value smaller than separator
+WARNING:root:skipping track 113: NaN values in track
+WARNING:root:skipping track 114: NaN values in track
+WARNING:root:skipping track 115: highest Value smaller than separator
+WARNING:root:skipping track 119: highest Value smaller than separator
+WARNING:root:skipping track 124: Not enough elements for features
+WARNING:root:skipping track 178: NaN values in track
+WARNING:root:skipping track 193: highest Value smaller than separator
+WARNING:root:skipping track 194: highest Value smaller than separator
+WARNING:root:skipping track 201: highest Value smaller than separator
+WARNING:root:skipping track 202: highest Value smaller than separator
+WARNING:root:skipping track 207: highest Value smaller than separator
+WARNING:root:skipping track 235: highest Value smaller than separator
+WARNING:root:skipping track 240: NaN values in track
+WARNING:root:skipping track 241: NaN values in track
+WARNING:root:skipping track 246: highest Value smaller than separator
+WARNING:root:skipping track 247: highest Value smaller than separator
+WARNING:root:skipping track 267: highest Value smaller than separator
+WARNING:root:skipping track 268: highest Value smaller than separator
+WARNING:root:skipping track 276: NaN values in track
+WARNING:root:skipping track 277: NaN values in track
+WARNING:root:skipping track 278: highest Value smaller than separator
+WARNING:root:skipping track 285: highest Value smaller than separator
+WARNING:root:skipping track 294: highest Value smaller than separator
+WARNING:root:skipping track 302: highest Value smaller than separator
+WARNING:root:skipping track 304: highest Value smaller than separator
+WARNING:root:skipping track 320: NaN values in track
+WARNING:root:skipping track 369: highest Value smaller than separator
+WARNING:root:skipping track 373: highest Value smaller than separator
+WARNING:root:skipping track 377: NaN values in track
+WARNING:root:skipping track 412: highest Value smaller than separator
+WARNING:root:skipping track 413: NaN values in track
+WARNING:root:skipping track 423: highest Value smaller than separator
+WARNING:root:skipping track 425: highest Value smaller than separator
+WARNING:root:skipping track 432: highest Value smaller than separator
+WARNING:root:skipping track 455: highest Value smaller than separator
+WARNING:root:skipping track 470: highest Value smaller than separator
+WARNING:root:skipping track 471: highest Value smaller than separator
+WARNING:root:skipping track 476: highest Value smaller than separator
+WARNING:root:skipping track 477: highest Value smaller than separator
+WARNING:root:skipping track 479: highest Value smaller than separator
+WARNING:root:skipping track 524: highest Value smaller than separator
+WARNING:root:skipping track 551: highest Value smaller than separator
+WARNING:root:skipping track 554: highest Value smaller than separator
+WARNING:root:skipping track 557: highest Value smaller than separator
+WARNING:root:skipping track 558: highest Value smaller than separator
+WARNING:root:skipping track 565: highest Value smaller than separator
+WARNING:root:skipping track 567: highest Value smaller than separator
+WARNING:root:skipping track 571: highest Value smaller than separator
+WARNING:root:skipping track 590: highest Value smaller than separator
+WARNING:root:skipping track 603: highest Value smaller than separator
+WARNING:root:skipping track 612: highest Value smaller than separator
+WARNING:root:skipping track 613: highest Value smaller than separator
+WARNING:root:skipping track 614: highest Value smaller than separator
+WARNING:root:skipping track 622: highest Value smaller than separator
+WARNING:root:skipping track 626: highest Value smaller than separator
+WARNING:root:skipping track 629: highest Value smaller than separator
+WARNING:root:skipping track 635: highest Value smaller than separator
+WARNING:root:skipping track 646: highest Value smaller than separator
+WARNING:root:skipping track 654: NaN values in track
+WARNING:root:skipping track 655: NaN values in track
+WARNING:root:skipping track 663: highest Value smaller than separator
+WARNING:root:skipping track 687: highest Value smaller than separator
+WARNING:root:skipping track 701: NaN values in track
+WARNING:root:skipping track 706: NaN values in track
+WARNING:root:skipping track 707: NaN values in track
+WARNING:root:skipping track 743: NaN values in track
+WARNING:root:skipping track 746: highest Value smaller than separator
+WARNING:root:skipping track 759: Not enough elements for features
+WARNING:root:skipping track 760: Not enough elements for features
+WARNING:root:skipping track 782: highest Value smaller than separator
+WARNING:root:skipping track 784: highest Value smaller than separator
+WARNING:root:skipping track 785: highest Value smaller than separator
+WARNING:root:skipping track 788: highest Value smaller than separator
+WARNING:root:skipping track 802: NaN values in track
+WARNING:root:skipping track 812: highest Value smaller than separator
+WARNING:root:skipping track 813: highest Value smaller than separator
+WARNING:root:skipping track 814: highest Value smaller than separator
+WARNING:root:skipping track 839: NaN values in track
+WARNING:root:skipping track 854: highest Value smaller than separator
+WARNING:root:skipping track 872: NaN values in track
+WARNING:root:skipping track 885: highest Value smaller than separator
+WARNING:root:skipping track 905: highest Value smaller than separator
+WARNING:root:skipping track 907: highest Value smaller than separator
+WARNING:root:skipping track 910: Not enough elements for features
+WARNING:root:skipping track 911: Not enough elements for features
+WARNING:root:skipping track 912: NaN values in track
+WARNING:root:skipping track 913: NaN values in track
+WARNING:root:skipping track 925: highest Value smaller than separator
+WARNING:root:skipping track 943: highest Value smaller than separator
+WARNING:root:skipping track 950: highest Value smaller than separator
+WARNING:root:skipping track 957: highest Value smaller than separator
+WARNING:root:skipping track 967: highest Value smaller than separator
+WARNING:root:skipping track 968: highest Value smaller than separator
+WARNING:root:skipping track 985: highest Value smaller than separator
+WARNING:root:skipping track 1005: highest Value smaller than separator
+WARNING:root:skipping track 1009: highest Value smaller than separator
+WARNING:root:skipping track 1021: highest Value smaller than separator
+WARNING:root:skipping track 1023: highest Value smaller than separator
+WARNING:root:skipping track 1031: highest Value smaller than separator
+WARNING:root:skipping track 1032: Not enough elements for features
+WARNING:root:skipping track 1038: highest Value smaller than separator
+WARNING:root:skipping track 1048: highest Value smaller than separator
+WARNING:root:skipping track 1058: highest Value smaller than separator
+WARNING:root:skipping track 1071: highest Value smaller than separator
+WARNING:root:skipping track 1082: NaN values in track
+WARNING:root:skipping track 1083: NaN values in track
+WARNING:root:skipping track 1119: highest Value smaller than separator
+WARNING:root:skipping track 1120: highest Value smaller than separator
+WARNING:root:skipping track 1141: highest Value smaller than separator
+WARNING:root:skipping track 1145: highest Value smaller than separator
+WARNING:root:skipping track 1148: Not enough elements for features
+WARNING:root:skipping track 1149: Not enough elements for features
+WARNING:root:skipping track 1150: highest Value smaller than separator
+WARNING:root:skipping track 1151: highest Value smaller than separator
+WARNING:root:skipping track 1160: highest Value smaller than separator
+WARNING:root:skipping track 1165: NaN values in track
+WARNING:root:skipping track 1166: NaN values in track
+WARNING:root:skipping track 1175: highest Value smaller than separator
+WARNING:root:skipping track 1183: NaN values in track
+WARNING:root:skipping track 1184: NaN values in track
+WARNING:root:skipping track 1205: highest Value smaller than separator
+WARNING:root:skipping track 1240: highest Value smaller than separator
+WARNING:root:skipping track 1259: highest Value smaller than separator
+WARNING:root:skipping track 1271: highest Value smaller than separator
+WARNING:root:skipping track 1275: highest Value smaller than separator
+WARNING:root:skipping track 1292: NaN values in track
+WARNING:root:skipping track 1302: highest Value smaller than separator
+WARNING:root:skipping track 1324: highest Value smaller than separator
+WARNING:root:skipping track 1349: highest Value smaller than separator
+WARNING:root:skipping track 1351: highest Value smaller than separator
+WARNING:root:skipping track 1357: highest Value smaller than separator
+WARNING:root:skipping track 1358: highest Value smaller than separator
+WARNING:root:skipping track 1363: highest Value smaller than separator
+WARNING:root:skipping track 1381: highest Value smaller than separator
+WARNING:root:skipping track 1395: highest Value smaller than separator
+WARNING:root:skipping track 1399: highest Value smaller than separator
+WARNING:root:skipping track 1400: highest Value smaller than separator
+WARNING:root:skipping track 1401: highest Value smaller than separator
+WARNING:root:skipping track 1410: NaN values in track
+WARNING:root:skipping track 1431: Not enough elements for features
+WARNING:root:skipping track 1432: NaN values in track
+WARNING:root:skipping track 1462: NaN values in track
+WARNING:root:skipping track 1473: highest Value smaller than separator
+WARNING:root:skipping track 1475: highest Value smaller than separator
+WARNING:root:skipping track 1483: highest Value smaller than separator
+WARNING:root:skipping track 1548: highest Value smaller than separator
+WARNING:root:skipping track 1551: Not enough elements for features
+WARNING:root:skipping track 1557: highest Value smaller than separator
+WARNING:root:skipping track 1573: NaN values in track
+WARNING:root:skipping track 1594: NaN values in track
+WARNING:root:skipping track 1620: highest Value smaller than separator
+WARNING:root:skipping track 1621: highest Value smaller than separator
+WARNING:root:skipping track 1624: highest Value smaller than separator
+WARNING:root:skipping track 1625: highest Value smaller than separator
+WARNING:root:skipping track 1639: highest Value smaller than separator
+WARNING:root:skipping track 1670: highest Value smaller than separator
+WARNING:root:skipping track 1675: highest Value smaller than separator
+WARNING:root:skipping track 1681: NaN values in track
+WARNING:root:skipping track 1686: NaN values in track
+WARNING:root:skipping track 1709: NaN values in track
+WARNING:root:skipping track 1741: highest Value smaller than separator
+WARNING:root:skipping track 1762: highest Value smaller than separator
+WARNING:root:skipping track 1763: highest Value smaller than separator
+WARNING:root:skipping track 1770: highest Value smaller than separator
+WARNING:root:skipping track 1777: highest Value smaller than separator
+WARNING:root:skipping track 1783: NaN values in track
+WARNING:root:skipping track 1790: Not enough elements for features
+WARNING:root:skipping track 1809: highest Value smaller than separator
+WARNING:root:skipping track 1840: highest Value smaller than separator
+WARNING:root:skipping track 1842: highest Value smaller than separator
+WARNING:root:skipping track 1843: highest Value smaller than separator
+WARNING:root:skipping track 1862: highest Value smaller than separator
+WARNING:root:skipping track 1863: highest Value smaller than separator
+WARNING:root:skipping track 1864: highest Value smaller than separator
+WARNING:root:skipping track 1881: NaN values in track
+WARNING:root:skipping track 1922: highest Value smaller than separator
+WARNING:root:skipping track 1925: highest Value smaller than separator
+WARNING:root:skipping track 1932: highest Value smaller than separator
+WARNING:root:skipping track 1933: highest Value smaller than separator
+WARNING:root:skipping track 1934: Not enough elements for features
+WARNING:root:skipping track 1937: highest Value smaller than separator
+WARNING:root:skipping track 1939: NaN values in track
+WARNING:root:skipping track 1948: highest Value smaller than separator
+WARNING:root:skipping track 1965: highest Value smaller than separator
+WARNING:root:skipping track 1969: NaN values in track
+WARNING:root:skipping track 1970: NaN values in track
+WARNING:root:skipping track 1981: NaN values in track
+WARNING:root:skipping track 1994: highest Value smaller than separator
+WARNING:root:skipping track 2014: highest Value smaller than separator
+WARNING:root:skipping track 2022: NaN values in track
+WARNING:root:skipping track 2037: NaN values in track
+WARNING:root:skipping track 2039: highest Value smaller than separator
+WARNING:root:skipping track 2040: highest Value smaller than separator
+WARNING:root:skipping track 2043: NaN values in track
+WARNING:root:skipping track 2055: highest Value smaller than separator
+WARNING:root:skipping track 2061: highest Value smaller than separator
+WARNING:root:skipping track 2063: NaN values in track
+WARNING:root:skipping track 2064: NaN values in track
+WARNING:root:skipping track 2088: highest Value smaller than separator
+WARNING:root:skipping track 2102: highest Value smaller than separator
+WARNING:root:skipping track 2103: highest Value smaller than separator
+WARNING:root:skipping track 2108: highest Value smaller than separator
+WARNING:root:skipping track 2117: highest Value smaller than separator
+WARNING:root:skipping track 2126: highest Value smaller than separator
+WARNING:root:skipping track 2130: highest Value smaller than separator
+WARNING:root:skipping track 2145: highest Value smaller than separator
+WARNING:root:skipping track 2215: highest Value smaller than separator
+WARNING:root:skipping track 2217: highest Value smaller than separator
+WARNING:root:skipping track 2218: highest Value smaller than separator
+WARNING:root:skipping track 2219: highest Value smaller than separator
+WARNING:root:skipping track 2220: highest Value smaller than separator
+WARNING:root:skipping track 2221: highest Value smaller than separator
+WARNING:root:skipping track 2222: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_010_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 5: Not enough elements for features
+WARNING:root:skipping track 22: highest Value smaller than separator
+WARNING:root:skipping track 82: highest Value smaller than separator
+WARNING:root:skipping track 161: highest Value smaller than separator
+WARNING:root:skipping track 162: highest Value smaller than separator
+WARNING:root:skipping track 163: highest Value smaller than separator
+WARNING:root:skipping track 188: highest Value smaller than separator
+WARNING:root:skipping track 189: highest Value smaller than separator
+WARNING:root:skipping track 224: highest Value smaller than separator
+WARNING:root:skipping track 226: Not enough elements for features
+WARNING:root:skipping track 227: Not enough elements for features
+WARNING:root:skipping track 242: highest Value smaller than separator
+WARNING:root:skipping track 243: highest Value smaller than separator
+WARNING:root:skipping track 246: highest Value smaller than separator
+WARNING:root:skipping track 276: highest Value smaller than separator
+WARNING:root:skipping track 277: highest Value smaller than separator
+WARNING:root:skipping track 303: highest Value smaller than separator
+WARNING:root:skipping track 335: NaN values in track
+WARNING:root:skipping track 350: highest Value smaller than separator
+WARNING:root:skipping track 355: highest Value smaller than separator
+WARNING:root:skipping track 356: highest Value smaller than separator
+WARNING:root:skipping track 358: highest Value smaller than separator
+WARNING:root:skipping track 361: highest Value smaller than separator
+WARNING:root:skipping track 371: highest Value smaller than separator
+WARNING:root:skipping track 374: highest Value smaller than separator
+WARNING:root:skipping track 403: highest Value smaller than separator
+WARNING:root:skipping track 407: highest Value smaller than separator
+WARNING:root:skipping track 409: highest Value smaller than separator
+WARNING:root:skipping track 413: NaN values in track
+WARNING:root:skipping track 414: NaN values in track
+WARNING:root:skipping track 416: highest Value smaller than separator
+WARNING:root:skipping track 420: highest Value smaller than separator
+WARNING:root:skipping track 440: highest Value smaller than separator
+WARNING:root:skipping track 447: highest Value smaller than separator
+WARNING:root:skipping track 465: highest Value smaller than separator
+WARNING:root:skipping track 466: highest Value smaller than separator
+WARNING:root:skipping track 467: highest Value smaller than separator
+WARNING:root:skipping track 471: NaN values in track
+WARNING:root:skipping track 472: highest Value smaller than separator
+WARNING:root:skipping track 474: highest Value smaller than separator
+WARNING:root:skipping track 508: highest Value smaller than separator
+WARNING:root:skipping track 526: highest Value smaller than separator
+WARNING:root:skipping track 533: highest Value smaller than separator
+WARNING:root:skipping track 558: highest Value smaller than separator
+WARNING:root:skipping track 559: highest Value smaller than separator
+WARNING:root:skipping track 566: Not enough elements for features
+WARNING:root:skipping track 568: highest Value smaller than separator
+WARNING:root:skipping track 572: NaN values in track
+WARNING:root:skipping track 573: NaN values in track
+WARNING:root:skipping track 593: highest Value smaller than separator
+WARNING:root:skipping track 612: NaN values in track
+WARNING:root:skipping track 624: highest Value smaller than separator
+WARNING:root:skipping track 625: highest Value smaller than separator
+WARNING:root:skipping track 629: highest Value smaller than separator
+WARNING:root:skipping track 633: highest Value smaller than separator
+WARNING:root:skipping track 636: Not enough elements for features
+WARNING:root:skipping track 637: Not enough elements for features
+WARNING:root:skipping track 646: highest Value smaller than separator
+WARNING:root:skipping track 661: highest Value smaller than separator
+WARNING:root:skipping track 693: NaN values in track
+WARNING:root:skipping track 696: NaN values in track
+WARNING:root:skipping track 704: NaN values in track
+WARNING:root:skipping track 755: NaN values in track
+WARNING:root:skipping track 766: Not enough elements for features
+WARNING:root:skipping track 767: Not enough elements for features
+WARNING:root:skipping track 778: NaN values in track
+WARNING:root:skipping track 786: highest Value smaller than separator
+WARNING:root:skipping track 787: highest Value smaller than separator
+WARNING:root:skipping track 792: highest Value smaller than separator
+WARNING:root:skipping track 799: highest Value smaller than separator
+WARNING:root:skipping track 814: highest Value smaller than separator
+WARNING:root:skipping track 819: highest Value smaller than separator
+WARNING:root:skipping track 827: Not enough elements for features
+WARNING:root:skipping track 828: Not enough elements for features
+WARNING:root:skipping track 843: highest Value smaller than separator
+WARNING:root:skipping track 844: highest Value smaller than separator
+WARNING:root:skipping track 860: highest Value smaller than separator
+WARNING:root:skipping track 861: NaN values in track
+WARNING:root:skipping track 862: NaN values in track
+WARNING:root:skipping track 864: highest Value smaller than separator
+WARNING:root:skipping track 869: NaN values in track
+WARNING:root:skipping track 881: NaN values in track
+WARNING:root:skipping track 883: highest Value smaller than separator
+WARNING:root:skipping track 886: NaN values in track
+WARNING:root:skipping track 887: NaN values in track
+WARNING:root:skipping track 892: highest Value smaller than separator
+WARNING:root:skipping track 905: highest Value smaller than separator
+WARNING:root:skipping track 909: highest Value smaller than separator
+WARNING:root:skipping track 910: highest Value smaller than separator
+WARNING:root:skipping track 930: highest Value smaller than separator
+WARNING:root:skipping track 935: NaN values in track
+WARNING:root:skipping track 936: NaN values in track
+WARNING:root:skipping track 939: highest Value smaller than separator
+WARNING:root:skipping track 955: NaN values in track
+WARNING:root:skipping track 958: highest Value smaller than separator
+WARNING:root:skipping track 991: highest Value smaller than separator
+WARNING:root:skipping track 1008: highest Value smaller than separator
+WARNING:root:skipping track 1009: highest Value smaller than separator
+WARNING:root:skipping track 1013: Not enough elements for features
+WARNING:root:skipping track 1027: highest Value smaller than separator
+WARNING:root:skipping track 1028: NaN values in track
+WARNING:root:skipping track 1029: NaN values in track
+WARNING:root:skipping track 1030: NaN values in track
+WARNING:root:skipping track 1039: Not enough elements for features
+WARNING:root:skipping track 1040: Not enough elements for features
+WARNING:root:skipping track 1050: NaN values in track
+WARNING:root:skipping track 1056: Not enough elements for features
+WARNING:root:skipping track 1057: Not enough elements for features
+WARNING:root:skipping track 1092: highest Value smaller than separator
+WARNING:root:skipping track 1112: highest Value smaller than separator
+WARNING:root:skipping track 1155: highest Value smaller than separator
+WARNING:root:skipping track 1157: NaN values in track
+WARNING:root:skipping track 1158: NaN values in track
+WARNING:root:skipping track 1166: NaN values in track
+WARNING:root:skipping track 1170: highest Value smaller than separator
+WARNING:root:skipping track 1171: NaN values in track
+WARNING:root:skipping track 1189: highest Value smaller than separator
+WARNING:root:skipping track 1209: highest Value smaller than separator
+WARNING:root:skipping track 1211: highest Value smaller than separator
+WARNING:root:skipping track 1212: highest Value smaller than separator
+WARNING:root:skipping track 1226: highest Value smaller than separator
+WARNING:root:skipping track 1227: highest Value smaller than separator
+WARNING:root:skipping track 1248: highest Value smaller than separator
+WARNING:root:skipping track 1261: NaN values in track
+WARNING:root:skipping track 1289: highest Value smaller than separator
+WARNING:root:skipping track 1290: highest Value smaller than separator
+WARNING:root:skipping track 1291: highest Value smaller than separator
+WARNING:root:skipping track 1295: highest Value smaller than separator
+WARNING:root:skipping track 1301: highest Value smaller than separator
+WARNING:root:skipping track 1302: highest Value smaller than separator
+WARNING:root:skipping track 1305: Not enough elements for features
+WARNING:root:skipping track 1309: NaN values in track
+WARNING:root:skipping track 1310: highest Value smaller than separator
+WARNING:root:skipping track 1314: highest Value smaller than separator
+WARNING:root:skipping track 1320: highest Value smaller than separator
+WARNING:root:skipping track 1321: highest Value smaller than separator
+WARNING:root:skipping track 1327: Not enough elements for features
+WARNING:root:skipping track 1343: highest Value smaller than separator
+WARNING:root:skipping track 1367: highest Value smaller than separator
+WARNING:root:skipping track 1404: highest Value smaller than separator
+WARNING:root:skipping track 1441: highest Value smaller than separator
+WARNING:root:skipping track 1444: NaN values in track
+WARNING:root:skipping track 1445: NaN values in track
+WARNING:root:skipping track 1447: highest Value smaller than separator
+WARNING:root:skipping track 1455: Not enough elements for features
+WARNING:root:skipping track 1484: NaN values in track
+WARNING:root:skipping track 1485: NaN values in track
+WARNING:root:skipping track 1490: highest Value smaller than separator
+WARNING:root:skipping track 1494: highest Value smaller than separator
+WARNING:root:skipping track 1496: highest Value smaller than separator
+WARNING:root:skipping track 1500: NaN values in track
+WARNING:root:skipping track 1501: NaN values in track
+WARNING:root:skipping track 1522: NaN values in track
+WARNING:root:skipping track 1524: highest Value smaller than separator
+WARNING:root:skipping track 1530: Not enough elements for features
+WARNING:root:skipping track 1540: highest Value smaller than separator
+WARNING:root:skipping track 1541: highest Value smaller than separator
+WARNING:root:skipping track 1548: highest Value smaller than separator
+WARNING:root:skipping track 1567: highest Value smaller than separator
+WARNING:root:skipping track 1573: highest Value smaller than separator
+WARNING:root:skipping track 1604: highest Value smaller than separator
+WARNING:root:skipping track 1610: highest Value smaller than separator
+WARNING:root:skipping track 1611: NaN values in track
+WARNING:root:skipping track 1622: highest Value smaller than separator
+WARNING:root:skipping track 1627: highest Value smaller than separator
+WARNING:root:skipping track 1628: highest Value smaller than separator
+WARNING:root:skipping track 1664: highest Value smaller than separator
+WARNING:root:skipping track 1665: highest Value smaller than separator
+WARNING:root:skipping track 1671: Not enough elements for features
+WARNING:root:skipping track 1685: highest Value smaller than separator
+WARNING:root:skipping track 1703: highest Value smaller than separator
+WARNING:root:skipping track 1709: Not enough elements for features
+WARNING:root:skipping track 1710: Not enough elements for features
+WARNING:root:skipping track 1739: highest Value smaller than separator
+WARNING:root:skipping track 1748: highest Value smaller than separator
+WARNING:root:skipping track 1757: Not enough elements for features
+WARNING:root:skipping track 1758: Not enough elements for features
+WARNING:root:skipping track 1766: highest Value smaller than separator
+WARNING:root:skipping track 1768: NaN values in track
+WARNING:root:skipping track 1786: highest Value smaller than separator
+WARNING:root:skipping track 1787: highest Value smaller than separator
+WARNING:root:skipping track 1789: highest Value smaller than separator
+WARNING:root:skipping track 1790: highest Value smaller than separator
+WARNING:root:skipping track 1791: highest Value smaller than separator
+WARNING:root:skipping track 1792: highest Value smaller than separator
+WARNING:root:skipping track 1795: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_011_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 34: highest Value smaller than separator
+WARNING:root:skipping track 38: Not enough elements for features
+WARNING:root:skipping track 53: highest Value smaller than separator
+WARNING:root:skipping track 68: NaN values in track
+WARNING:root:skipping track 69: NaN values in track
+WARNING:root:skipping track 77: NaN values in track
+WARNING:root:skipping track 78: NaN values in track
+WARNING:root:skipping track 122: highest Value smaller than separator
+WARNING:root:skipping track 123: highest Value smaller than separator
+WARNING:root:skipping track 131: highest Value smaller than separator
+WARNING:root:skipping track 132: highest Value smaller than separator
+WARNING:root:skipping track 134: highest Value smaller than separator
+WARNING:root:skipping track 186: highest Value smaller than separator
+WARNING:root:skipping track 202: highest Value smaller than separator
+WARNING:root:skipping track 274: highest Value smaller than separator
+WARNING:root:skipping track 275: highest Value smaller than separator
+WARNING:root:skipping track 281: Not enough elements for features
+WARNING:root:skipping track 358: highest Value smaller than separator
+WARNING:root:skipping track 378: NaN values in track
+WARNING:root:skipping track 383: NaN values in track
+WARNING:root:skipping track 384: NaN values in track
+WARNING:root:skipping track 385: highest Value smaller than separator
+WARNING:root:skipping track 394: NaN values in track
+WARNING:root:skipping track 400: highest Value smaller than separator
+WARNING:root:skipping track 403: highest Value smaller than separator
+WARNING:root:skipping track 447: highest Value smaller than separator
+WARNING:root:skipping track 448: highest Value smaller than separator
+WARNING:root:skipping track 487: highest Value smaller than separator
+WARNING:root:skipping track 497: NaN values in track
+WARNING:root:skipping track 552: highest Value smaller than separator
+WARNING:root:skipping track 595: highest Value smaller than separator
+WARNING:root:skipping track 598: highest Value smaller than separator
+WARNING:root:skipping track 605: highest Value smaller than separator
+WARNING:root:skipping track 618: highest Value smaller than separator
+WARNING:root:skipping track 620: NaN values in track
+WARNING:root:skipping track 631: highest Value smaller than separator
+WARNING:root:skipping track 634: Not enough elements for features
+WARNING:root:skipping track 644: highest Value smaller than separator
+WARNING:root:skipping track 665: NaN values in track
+WARNING:root:skipping track 666: NaN values in track
+WARNING:root:skipping track 671: highest Value smaller than separator
+WARNING:root:skipping track 717: highest Value smaller than separator
+WARNING:root:skipping track 718: highest Value smaller than separator
+WARNING:root:skipping track 722: highest Value smaller than separator
+WARNING:root:skipping track 725: NaN values in track
+WARNING:root:skipping track 726: NaN values in track
+WARNING:root:skipping track 734: Not enough elements for features
+WARNING:root:skipping track 735: highest Value smaller than separator
+WARNING:root:skipping track 743: highest Value smaller than separator
+WARNING:root:skipping track 746: NaN values in track
+WARNING:root:skipping track 756: highest Value smaller than separator
+WARNING:root:skipping track 758: highest Value smaller than separator
+WARNING:root:skipping track 765: Not enough elements for features
+WARNING:root:skipping track 766: Not enough elements for features
+WARNING:root:skipping track 767: highest Value smaller than separator
+WARNING:root:skipping track 773: NaN values in track
+WARNING:root:skipping track 775: highest Value smaller than separator
+WARNING:root:skipping track 776: highest Value smaller than separator
+WARNING:root:skipping track 819: highest Value smaller than separator
+WARNING:root:skipping track 820: highest Value smaller than separator
+WARNING:root:skipping track 870: highest Value smaller than separator
+WARNING:root:skipping track 873: highest Value smaller than separator
+WARNING:root:skipping track 879: highest Value smaller than separator
+WARNING:root:skipping track 890: highest Value smaller than separator
+WARNING:root:skipping track 911: highest Value smaller than separator
+WARNING:root:skipping track 926: highest Value smaller than separator
+WARNING:root:skipping track 935: NaN values in track
+WARNING:root:skipping track 938: highest Value smaller than separator
+WARNING:root:skipping track 945: Not enough elements for features
+WARNING:root:skipping track 958: highest Value smaller than separator
+WARNING:root:skipping track 959: highest Value smaller than separator
+WARNING:root:skipping track 963: NaN values in track
+WARNING:root:skipping track 964: highest Value smaller than separator
+WARNING:root:skipping track 982: NaN values in track
+WARNING:root:skipping track 1045: highest Value smaller than separator
+WARNING:root:skipping track 1082: highest Value smaller than separator
+WARNING:root:skipping track 1119: highest Value smaller than separator
+WARNING:root:skipping track 1146: highest Value smaller than separator
+WARNING:root:skipping track 1156: Not enough elements for features
+WARNING:root:skipping track 1161: highest Value smaller than separator
+WARNING:root:skipping track 1163: highest Value smaller than separator
+WARNING:root:skipping track 1208: highest Value smaller than separator
+WARNING:root:skipping track 1218: highest Value smaller than separator
+WARNING:root:skipping track 1219: highest Value smaller than separator
+WARNING:root:skipping track 1220: highest Value smaller than separator
+WARNING:root:skipping track 1221: highest Value smaller than separator
+WARNING:root:skipping track 1225: highest Value smaller than separator
+WARNING:root:skipping track 1248: highest Value smaller than separator
+WARNING:root:skipping track 1262: NaN values in track
+WARNING:root:skipping track 1263: NaN values in track
+WARNING:root:skipping track 1268: highest Value smaller than separator
+WARNING:root:skipping track 1269: highest Value smaller than separator
+WARNING:root:skipping track 1273: Not enough elements for features
+WARNING:root:skipping track 1282: highest Value smaller than separator
+WARNING:root:skipping track 1283: highest Value smaller than separator
+WARNING:root:skipping track 1296: highest Value smaller than separator
+WARNING:root:skipping track 1303: highest Value smaller than separator
+WARNING:root:skipping track 1305: highest Value smaller than separator
+WARNING:root:skipping track 1311: Not enough elements for features
+WARNING:root:skipping track 1316: highest Value smaller than separator
+WARNING:root:skipping track 1317: highest Value smaller than separator
+WARNING:root:skipping track 1344: highest Value smaller than separator
+WARNING:root:skipping track 1345: NaN values in track
+WARNING:root:skipping track 1377: NaN values in track
+WARNING:root:skipping track 1378: highest Value smaller than separator
+WARNING:root:skipping track 1381: highest Value smaller than separator
+WARNING:root:skipping track 1384: highest Value smaller than separator
+WARNING:root:skipping track 1385: highest Value smaller than separator
+WARNING:root:skipping track 1386: highest Value smaller than separator
+WARNING:root:skipping track 1387: highest Value smaller than separator
+WARNING:root:skipping track 1388: highest Value smaller than separator
+INFO:root:time: 2018-10-03_00.47.45
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Sept28/Zylinder-Resegmented-sep
+INFO:root:/home/hornberger/MasterarbeitTobias/models/Sept28/Zylinder-Resegmented-sep does not exist. Creating folder
+INFO:root:storing data in data.h5
+INFO:root:Train: ((144156, 10), (144156, 2))
+INFO:root:Test: ((16018, 10), (16018, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 2209.1804, 'loss': 8846663.0, 'rmse': 47.00192, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 2111.8794, 'loss': 8457021.0, 'rmse': 45.95519, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 1840.1917, 'loss': 7369047.5, 'rmse': 42.897453, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 1811.79, 'loss': 7255313.0, 'rmse': 42.56513, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 1728.4386, 'loss': 6921532.5, 'rmse': 41.574493, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 1672.0155, 'loss': 6695586.0, 'rmse': 40.890285, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 1695.554, 'loss': 6789846.0, 'rmse': 41.177105, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 1497.1271, 'loss': 5995245.5, 'rmse': 38.692726, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 1485.0565, 'loss': 5946909.0, 'rmse': 38.53643, 'global_step': 40500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 1242.2961, 'loss': 4974775.0, 'rmse': 35.246223, 'global_step': 45500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 809.30237, 'loss': 3240851.2, 'rmse': 28.44824, 'global_step': 50500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 773.0625, 'loss': 3095728.8, 'rmse': 27.804, 'global_step': 55500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 665.8053, 'loss': 2666217.2, 'rmse': 25.803204, 'global_step': 60500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 839.3298, 'loss': 3361096.0, 'rmse': 28.97119, 'global_step': 65500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 2810.7693, 'loss': 11255726.0, 'rmse': 53.01669, 'global_step': 70500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 219.86559, 'loss': 880451.75, 'rmse': 14.827866, 'global_step': 75500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 683.2448, 'loss': 2736053.8, 'rmse': 26.138952, 'global_step': 80500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 216.52171, 'loss': 867061.2, 'rmse': 14.714677, 'global_step': 85500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 379.42676, 'loss': 1519414.5, 'rmse': 19.47888, 'global_step': 90500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 505.12732, 'loss': 2022782.4, 'rmse': 22.475039, 'global_step': 95500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 329.59668, 'loss': 1319869.9, 'rmse': 18.154799, 'global_step': 100500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 97.88265, 'loss': 391971.1, 'rmse': 9.893566, 'global_step': 105500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 139.96295, 'loss': 560481.6, 'rmse': 11.830594, 'global_step': 110500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 904.5689, 'loss': 3622346.2, 'rmse': 30.076052, 'global_step': 115500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 152.37126, 'loss': 610170.7, 'rmse': 12.343876, 'global_step': 120500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 294.33267, 'loss': 1178655.1, 'rmse': 17.156126, 'global_step': 125500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 125.48865, 'loss': 502519.28, 'rmse': 11.202171, 'global_step': 130500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 161.71281, 'loss': 647578.94, 'rmse': 12.716636, 'global_step': 135500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 944.079, 'loss': 3780564.2, 'rmse': 30.725868, 'global_step': 140500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 157.57747, 'loss': 631019.0, 'rmse': 12.552986, 'global_step': 145500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 151.0177, 'loss': 604750.4, 'rmse': 12.288926, 'global_step': 150500}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 146.71075, 'loss': 587503.2, 'rmse': 12.112421, 'global_step': 155500}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 120.26576, 'loss': 481604.25, 'rmse': 10.966575, 'global_step': 160500}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 99.91277, 'loss': 400100.7, 'rmse': 9.995638, 'global_step': 165500}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 121.098526, 'loss': 484939.06, 'rmse': 11.0044775, 'global_step': 170500}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 72.89369, 'loss': 291902.78, 'rmse': 8.53778, 'global_step': 175500}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 84.64333, 'loss': 338954.22, 'rmse': 9.200181, 'global_step': 180500}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 107.686745, 'loss': 431231.56, 'rmse': 10.377222, 'global_step': 185500}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 108.59396, 'loss': 434864.53, 'rmse': 10.420843, 'global_step': 190500}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 154.23442, 'loss': 617631.75, 'rmse': 12.419115, 'global_step': 195500}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 80.83027, 'loss': 323684.8, 'rmse': 8.990565, 'global_step': 200500}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 60.52744, 'loss': 242382.12, 'rmse': 7.779938, 'global_step': 205500}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 157.49918, 'loss': 630705.44, 'rmse': 12.549868, 'global_step': 210500}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 89.49892, 'loss': 358398.4, 'rmse': 9.460386, 'global_step': 215500}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 64.33705, 'loss': 257637.73, 'rmse': 8.021038, 'global_step': 220500}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 219.85605, 'loss': 880413.56, 'rmse': 14.827543, 'global_step': 225500}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 80.22242, 'loss': 321250.7, 'rmse': 8.9566965, 'global_step': 230500}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 75.51953, 'loss': 302417.97, 'rmse': 8.690197, 'global_step': 235500}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 80.159515, 'loss': 320998.78, 'rmse': 8.953185, 'global_step': 240500}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 63.698456, 'loss': 255080.47, 'rmse': 7.981131, 'global_step': 245500}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 80.72718, 'loss': 323272.0, 'rmse': 8.984831, 'global_step': 250500}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 510.48712, 'loss': 2044245.6, 'rmse': 22.593962, 'global_step': 255500}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 64.64012, 'loss': 258851.38, 'rmse': 8.039908, 'global_step': 260500}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 163.34384, 'loss': 654110.44, 'rmse': 12.780604, 'global_step': 265500}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 59.468616, 'loss': 238142.08, 'rmse': 7.71159, 'global_step': 270500}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 59.200943, 'loss': 237070.17, 'rmse': 7.694215, 'global_step': 275500}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 78.84235, 'loss': 315724.22, 'rmse': 8.879321, 'global_step': 280500}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 109.03193, 'loss': 436618.38, 'rmse': 10.441835, 'global_step': 285500}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 71.844955, 'loss': 287703.12, 'rmse': 8.47614, 'global_step': 290500}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 59.887238, 'loss': 239818.44, 'rmse': 7.7386847, 'global_step': 295500}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 61.50475, 'loss': 246295.77, 'rmse': 7.8424964, 'global_step': 300500}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 56.082195, 'loss': 224581.16, 'rmse': 7.488805, 'global_step': 305500}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 64.48321, 'loss': 258223.02, 'rmse': 8.030144, 'global_step': 310500}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 60.009583, 'loss': 240308.38, 'rmse': 7.7465854, 'global_step': 315500}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 59.349743, 'loss': 237666.05, 'rmse': 7.7038784, 'global_step': 320500}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 52.37371, 'loss': 209730.53, 'rmse': 7.2369685, 'global_step': 325500}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 48.728165, 'loss': 195131.92, 'rmse': 6.980556, 'global_step': 330500}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 48.98656, 'loss': 196166.69, 'rmse': 6.99904, 'global_step': 335500}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 46.324387, 'loss': 185506.0, 'rmse': 6.806202, 'global_step': 340500}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 49.557312, 'loss': 198452.25, 'rmse': 7.0396953, 'global_step': 345500}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 53.56327, 'loss': 214494.11, 'rmse': 7.318693, 'global_step': 350500}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 51.873695, 'loss': 207728.22, 'rmse': 7.2023396, 'global_step': 355500}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 54.41942, 'loss': 217922.56, 'rmse': 7.3769517, 'global_step': 360500}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 46.96117, 'loss': 188056.0, 'rmse': 6.852822, 'global_step': 365500}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 46.051086, 'loss': 184411.58, 'rmse': 6.786095, 'global_step': 370500}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 47.236496, 'loss': 189158.53, 'rmse': 6.8728814, 'global_step': 375500}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 52.945774, 'loss': 212021.34, 'rmse': 7.276385, 'global_step': 380500}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 46.43095, 'loss': 185932.73, 'rmse': 6.814026, 'global_step': 385500}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 52.186375, 'loss': 208980.34, 'rmse': 7.224014, 'global_step': 390500}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 46.709, 'loss': 187046.19, 'rmse': 6.8343983, 'global_step': 395500}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 45.16462, 'loss': 180861.72, 'rmse': 6.720463, 'global_step': 400500}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 47.590244, 'loss': 190575.16, 'rmse': 6.898568, 'global_step': 405500}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 53.061638, 'loss': 212485.33, 'rmse': 7.284342, 'global_step': 410500}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 45.95794, 'loss': 184038.56, 'rmse': 6.7792287, 'global_step': 415500}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 45.904373, 'loss': 183824.06, 'rmse': 6.7752767, 'global_step': 420500}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 49.901146, 'loss': 199829.14, 'rmse': 7.0640745, 'global_step': 425500}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 44.21023, 'loss': 177039.88, 'rmse': 6.6490774, 'global_step': 430500}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 45.403534, 'loss': 181818.45, 'rmse': 6.7382145, 'global_step': 435500}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 45.922268, 'loss': 183895.72, 'rmse': 6.776597, 'global_step': 440500}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 45.071205, 'loss': 180487.64, 'rmse': 6.713509, 'global_step': 445500}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 45.538437, 'loss': 182358.67, 'rmse': 6.748217, 'global_step': 450500}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 49.017418, 'loss': 196290.25, 'rmse': 7.001244, 'global_step': 455500}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 46.93428, 'loss': 187948.33, 'rmse': 6.8508596, 'global_step': 460500}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 46.294456, 'loss': 185386.16, 'rmse': 6.804003, 'global_step': 465500}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 50.179195, 'loss': 200942.6, 'rmse': 7.0837274, 'global_step': 470500}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 43.996532, 'loss': 176184.11, 'rmse': 6.632988, 'global_step': 475500}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 43.32803, 'loss': 173507.1, 'rmse': 6.582403, 'global_step': 480500}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 45.363346, 'loss': 181657.52, 'rmse': 6.735232, 'global_step': 485500}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 46.234592, 'loss': 185146.42, 'rmse': 6.7996025, 'global_step': 490500}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 43.05171, 'loss': 172400.56, 'rmse': 6.56138, 'global_step': 495500}
+INFO:root:Progress: epoch 1000
+INFO:root:eval: {'average_loss': 44.147697, 'loss': 176789.45, 'rmse': 6.6443734, 'global_step': 500500}
+INFO:root:Progress: epoch 1010
+INFO:root:eval: {'average_loss': 42.942623, 'loss': 171963.73, 'rmse': 6.553062, 'global_step': 505500}
+INFO:root:Progress: epoch 1020
+INFO:root:eval: {'average_loss': 45.63347, 'loss': 182739.22, 'rmse': 6.7552547, 'global_step': 510500}
+INFO:root:Progress: epoch 1030
+INFO:root:eval: {'average_loss': 47.75, 'loss': 191214.88, 'rmse': 6.9101377, 'global_step': 515500}
+INFO:root:Progress: epoch 1040
+INFO:root:eval: {'average_loss': 43.560974, 'loss': 174439.92, 'rmse': 6.600074, 'global_step': 520500}
+INFO:root:Progress: epoch 1050
+INFO:root:eval: {'average_loss': 43.05213, 'loss': 172402.27, 'rmse': 6.5614123, 'global_step': 525500}
+INFO:root:Progress: epoch 1060
+INFO:root:eval: {'average_loss': 42.90379, 'loss': 171808.23, 'rmse': 6.5500984, 'global_step': 530500}
+INFO:root:Progress: epoch 1070
+INFO:root:eval: {'average_loss': 44.655598, 'loss': 178823.34, 'rmse': 6.6824846, 'global_step': 535500}
+INFO:root:Progress: epoch 1080
+INFO:root:eval: {'average_loss': 44.19979, 'loss': 176998.06, 'rmse': 6.6482925, 'global_step': 540500}
+INFO:root:Progress: epoch 1090
+INFO:root:eval: {'average_loss': 42.58068, 'loss': 170514.34, 'rmse': 6.5253873, 'global_step': 545500}
+INFO:root:Progress: epoch 1100
+INFO:root:eval: {'average_loss': 44.209145, 'loss': 177035.5, 'rmse': 6.648996, 'global_step': 550500}
+INFO:root:Progress: epoch 1110
+INFO:root:eval: {'average_loss': 42.938396, 'loss': 171946.81, 'rmse': 6.5527396, 'global_step': 555500}
+INFO:root:Progress: epoch 1120
+INFO:root:eval: {'average_loss': 45.652504, 'loss': 182815.45, 'rmse': 6.756664, 'global_step': 560500}
+INFO:root:Progress: epoch 1130
+INFO:root:eval: {'average_loss': 42.61478, 'loss': 170650.89, 'rmse': 6.528, 'global_step': 565500}
+INFO:root:Progress: epoch 1140
+INFO:root:eval: {'average_loss': 43.029163, 'loss': 172310.28, 'rmse': 6.559662, 'global_step': 570500}
+INFO:root:Progress: epoch 1150
+INFO:root:eval: {'average_loss': 43.03568, 'loss': 172336.38, 'rmse': 6.5601583, 'global_step': 575500}
+INFO:root:Progress: epoch 1160
+INFO:root:eval: {'average_loss': 44.995922, 'loss': 180186.19, 'rmse': 6.7079, 'global_step': 580500}
+INFO:root:Progress: epoch 1170
+INFO:root:eval: {'average_loss': 42.02711, 'loss': 168297.56, 'rmse': 6.482832, 'global_step': 585500}
+INFO:root:Progress: epoch 1180
+INFO:root:eval: {'average_loss': 47.503815, 'loss': 190229.03, 'rmse': 6.892301, 'global_step': 590500}
+INFO:root:Progress: epoch 1190
+INFO:root:eval: {'average_loss': 43.237736, 'loss': 173145.52, 'rmse': 6.5755405, 'global_step': 595500}
+INFO:root:Progress: epoch 1200
+INFO:root:eval: {'average_loss': 43.413544, 'loss': 173849.53, 'rmse': 6.5888953, 'global_step': 600500}
+INFO:root:Progress: epoch 1210
+INFO:root:eval: {'average_loss': 42.140495, 'loss': 168751.61, 'rmse': 6.491571, 'global_step': 605500}
+INFO:root:Progress: epoch 1220
+INFO:root:eval: {'average_loss': 42.599323, 'loss': 170588.98, 'rmse': 6.526816, 'global_step': 610500}
+INFO:root:Progress: epoch 1230
+INFO:root:eval: {'average_loss': 43.72043, 'loss': 175078.45, 'rmse': 6.6121426, 'global_step': 615500}
+INFO:root:Progress: epoch 1240
+INFO:root:eval: {'average_loss': 44.68669, 'loss': 178947.86, 'rmse': 6.6848106, 'global_step': 620500}
+INFO:root:Progress: epoch 1250
+INFO:root:eval: {'average_loss': 42.092537, 'loss': 168559.55, 'rmse': 6.487876, 'global_step': 625500}
+INFO:root:Progress: epoch 1260
+INFO:root:eval: {'average_loss': 51.42587, 'loss': 205934.89, 'rmse': 7.171183, 'global_step': 630500}
+INFO:root:Progress: epoch 1270
+INFO:root:eval: {'average_loss': 42.77973, 'loss': 171311.44, 'rmse': 6.5406218, 'global_step': 635500}
+INFO:root:Progress: epoch 1280
+INFO:root:eval: {'average_loss': 42.710487, 'loss': 171034.14, 'rmse': 6.535326, 'global_step': 640500}
+INFO:root:Progress: epoch 1290
+INFO:root:eval: {'average_loss': 43.81977, 'loss': 175476.27, 'rmse': 6.6196504, 'global_step': 645500}
+INFO:root:Progress: epoch 1300
+INFO:root:eval: {'average_loss': 42.332542, 'loss': 169520.67, 'rmse': 6.506346, 'global_step': 650500}
+INFO:root:Progress: epoch 1310
+INFO:root:eval: {'average_loss': 42.092175, 'loss': 168558.11, 'rmse': 6.4878483, 'global_step': 655500}
+INFO:root:Progress: epoch 1320
+INFO:root:eval: {'average_loss': 42.038734, 'loss': 168344.11, 'rmse': 6.4837284, 'global_step': 660500}
+INFO:root:Progress: epoch 1330
+INFO:root:eval: {'average_loss': 42.86164, 'loss': 171639.44, 'rmse': 6.5468802, 'global_step': 665500}
+INFO:root:Progress: epoch 1340
+INFO:root:eval: {'average_loss': 43.267883, 'loss': 173266.23, 'rmse': 6.5778327, 'global_step': 670500}
+INFO:root:Progress: epoch 1350
+INFO:root:eval: {'average_loss': 41.8472, 'loss': 167577.11, 'rmse': 6.468941, 'global_step': 675500}
+INFO:root:Progress: epoch 1360
+INFO:root:eval: {'average_loss': 41.68187, 'loss': 166915.05, 'rmse': 6.4561496, 'global_step': 680500}
+INFO:root:Progress: epoch 1370
+INFO:root:eval: {'average_loss': 42.00155, 'loss': 168195.2, 'rmse': 6.48086, 'global_step': 685500}
+INFO:root:Progress: epoch 1380
+INFO:root:eval: {'average_loss': 41.571507, 'loss': 166473.1, 'rmse': 6.447597, 'global_step': 690500}
+INFO:root:Progress: epoch 1390
+INFO:root:eval: {'average_loss': 42.605625, 'loss': 170614.22, 'rmse': 6.5272985, 'global_step': 695500}
+INFO:root:Progress: epoch 1400
+INFO:root:eval: {'average_loss': 41.766716, 'loss': 167254.81, 'rmse': 6.4627175, 'global_step': 700500}
+INFO:root:Progress: epoch 1410
+INFO:root:eval: {'average_loss': 41.58251, 'loss': 166517.17, 'rmse': 6.4484506, 'global_step': 705500}
+INFO:root:Progress: epoch 1420
+INFO:root:eval: {'average_loss': 41.996464, 'loss': 168174.86, 'rmse': 6.480468, 'global_step': 710500}
+INFO:root:Progress: epoch 1430
+INFO:root:eval: {'average_loss': 41.354202, 'loss': 165602.9, 'rmse': 6.430723, 'global_step': 715500}
+INFO:root:Progress: epoch 1440
+INFO:root:eval: {'average_loss': 42.111847, 'loss': 168636.89, 'rmse': 6.489364, 'global_step': 720500}
+INFO:root:Progress: epoch 1450
+INFO:root:eval: {'average_loss': 42.00112, 'loss': 168193.48, 'rmse': 6.4808273, 'global_step': 725500}
+INFO:root:Progress: epoch 1460
+INFO:root:eval: {'average_loss': 41.516247, 'loss': 166251.81, 'rmse': 6.4433103, 'global_step': 730500}
+INFO:root:Progress: epoch 1470
+INFO:root:eval: {'average_loss': 41.341423, 'loss': 165551.73, 'rmse': 6.4297295, 'global_step': 735500}
+INFO:root:Progress: epoch 1480
+INFO:root:eval: {'average_loss': 41.306084, 'loss': 165410.22, 'rmse': 6.426981, 'global_step': 740500}
+INFO:root:Progress: epoch 1490
+INFO:root:eval: {'average_loss': 41.439217, 'loss': 165943.34, 'rmse': 6.43733, 'global_step': 745500}
+INFO:root:Training completed. final average loss: 41.82537078857422, best average loss during training: 41.30608367919922
+INFO:root:Tensorflow 1.8.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 5: Not enough elements for features
+WARNING:root:skipping track 14: highest Value smaller than separator
+WARNING:root:skipping track 15: highest Value smaller than separator
+WARNING:root:skipping track 74: highest Value smaller than separator
+WARNING:root:skipping track 105: highest Value smaller than separator
+WARNING:root:skipping track 107: highest Value smaller than separator
+WARNING:root:skipping track 108: highest Value smaller than separator
+WARNING:root:skipping track 112: highest Value smaller than separator
+WARNING:root:skipping track 113: Not enough elements for features
+WARNING:root:skipping track 114: highest Value smaller than separator
+WARNING:root:skipping track 119: Not enough elements for features
+WARNING:root:skipping track 129: highest Value smaller than separator
+WARNING:root:skipping track 143: highest Value smaller than separator
+WARNING:root:skipping track 157: highest Value smaller than separator
+WARNING:root:skipping track 171: highest Value smaller than separator
+WARNING:root:skipping track 172: highest Value smaller than separator
+WARNING:root:skipping track 183: highest Value smaller than separator
+WARNING:root:skipping track 184: highest Value smaller than separator
+WARNING:root:skipping track 185: highest Value smaller than separator
+WARNING:root:skipping track 242: highest Value smaller than separator
+WARNING:root:skipping track 243: highest Value smaller than separator
+WARNING:root:skipping track 246: highest Value smaller than separator
+WARNING:root:skipping track 247: highest Value smaller than separator
+WARNING:root:skipping track 270: highest Value smaller than separator
+WARNING:root:skipping track 281: highest Value smaller than separator
+WARNING:root:skipping track 286: highest Value smaller than separator
+WARNING:root:skipping track 287: highest Value smaller than separator
+WARNING:root:skipping track 309: highest Value smaller than separator
+WARNING:root:skipping track 313: NaN values in track
+WARNING:root:skipping track 317: NaN values in track
+WARNING:root:skipping track 367: NaN values in track
+WARNING:root:skipping track 368: NaN values in track
+WARNING:root:skipping track 382: highest Value smaller than separator
+WARNING:root:skipping track 387: highest Value smaller than separator
+WARNING:root:skipping track 401: Not enough elements for features
+WARNING:root:skipping track 404: highest Value smaller than separator
+WARNING:root:skipping track 406: NaN values in track
+WARNING:root:skipping track 407: NaN values in track
+WARNING:root:skipping track 410: highest Value smaller than separator
+WARNING:root:skipping track 411: highest Value smaller than separator
+WARNING:root:skipping track 418: highest Value smaller than separator
+WARNING:root:skipping track 441: NaN values in track
+WARNING:root:skipping track 442: NaN values in track
+WARNING:root:skipping track 447: highest Value smaller than separator
+WARNING:root:skipping track 455: NaN values in track
+WARNING:root:skipping track 472: Not enough elements for features
+WARNING:root:skipping track 492: highest Value smaller than separator
+WARNING:root:skipping track 496: NaN values in track
+WARNING:root:skipping track 500: highest Value smaller than separator
+WARNING:root:skipping track 527: highest Value smaller than separator
+WARNING:root:skipping track 537: highest Value smaller than separator
+WARNING:root:skipping track 555: NaN values in track
+WARNING:root:skipping track 557: NaN values in track
+WARNING:root:skipping track 561: highest Value smaller than separator
+WARNING:root:skipping track 562: highest Value smaller than separator
+WARNING:root:skipping track 571: highest Value smaller than separator
+WARNING:root:skipping track 572: highest Value smaller than separator
+WARNING:root:skipping track 573: highest Value smaller than separator
+WARNING:root:skipping track 578: NaN values in track
+WARNING:root:skipping track 579: NaN values in track
+WARNING:root:skipping track 583: highest Value smaller than separator
+WARNING:root:skipping track 587: NaN values in track
+WARNING:root:skipping track 588: NaN values in track
+WARNING:root:skipping track 591: NaN values in track
+WARNING:root:skipping track 592: highest Value smaller than separator
+WARNING:root:skipping track 599: highest Value smaller than separator
+WARNING:root:skipping track 600: highest Value smaller than separator
+WARNING:root:skipping track 668: highest Value smaller than separator
+WARNING:root:skipping track 671: highest Value smaller than separator
+WARNING:root:skipping track 683: highest Value smaller than separator
+WARNING:root:skipping track 684: highest Value smaller than separator
+WARNING:root:skipping track 720: highest Value smaller than separator
+WARNING:root:skipping track 723: highest Value smaller than separator
+WARNING:root:skipping track 724: highest Value smaller than separator
+WARNING:root:skipping track 729: highest Value smaller than separator
+WARNING:root:skipping track 734: highest Value smaller than separator
+WARNING:root:skipping track 735: highest Value smaller than separator
+WARNING:root:skipping track 762: highest Value smaller than separator
+WARNING:root:skipping track 766: highest Value smaller than separator
+WARNING:root:skipping track 794: highest Value smaller than separator
+WARNING:root:skipping track 852: highest Value smaller than separator
+WARNING:root:skipping track 878: highest Value smaller than separator
+WARNING:root:skipping track 883: highest Value smaller than separator
+WARNING:root:skipping track 884: highest Value smaller than separator
+WARNING:root:skipping track 893: Not enough elements for features
+WARNING:root:skipping track 928: highest Value smaller than separator
+WARNING:root:skipping track 929: highest Value smaller than separator
+WARNING:root:skipping track 932: highest Value smaller than separator
+WARNING:root:skipping track 939: Not enough elements for features
+WARNING:root:skipping track 944: NaN values in track
+WARNING:root:skipping track 952: NaN values in track
+WARNING:root:skipping track 974: highest Value smaller than separator
+WARNING:root:skipping track 1014: highest Value smaller than separator
+WARNING:root:skipping track 1063: highest Value smaller than separator
+WARNING:root:skipping track 1102: NaN values in track
+WARNING:root:skipping track 1103: NaN values in track
+WARNING:root:skipping track 1126: highest Value smaller than separator
+WARNING:root:skipping track 1131: highest Value smaller than separator
+WARNING:root:skipping track 1150: highest Value smaller than separator
+WARNING:root:skipping track 1151: highest Value smaller than separator
+WARNING:root:skipping track 1155: highest Value smaller than separator
+WARNING:root:skipping track 1165: highest Value smaller than separator
+WARNING:root:skipping track 1186: highest Value smaller than separator
+WARNING:root:skipping track 1195: Not enough elements for features
+WARNING:root:skipping track 1196: Not enough elements for features
+WARNING:root:skipping track 1204: highest Value smaller than separator
+WARNING:root:skipping track 1216: highest Value smaller than separator
+WARNING:root:skipping track 1235: highest Value smaller than separator
+WARNING:root:skipping track 1239: NaN values in track
+WARNING:root:skipping track 1244: NaN values in track
+WARNING:root:skipping track 1245: NaN values in track
+WARNING:root:skipping track 1322: highest Value smaller than separator
+WARNING:root:skipping track 1329: NaN values in track
+WARNING:root:skipping track 1330: Not enough elements for features
+WARNING:root:skipping track 1331: Not enough elements for features
+WARNING:root:skipping track 1334: highest Value smaller than separator
+WARNING:root:skipping track 1378: highest Value smaller than separator
+WARNING:root:skipping track 1379: highest Value smaller than separator
+WARNING:root:skipping track 1381: highest Value smaller than separator
+WARNING:root:skipping track 1382: highest Value smaller than separator
+WARNING:root:skipping track 1384: highest Value smaller than separator
+WARNING:root:skipping track 1388: Not enough elements for features
+WARNING:root:skipping track 1398: highest Value smaller than separator
+WARNING:root:skipping track 1417: highest Value smaller than separator
+WARNING:root:skipping track 1418: highest Value smaller than separator
+WARNING:root:skipping track 1420: highest Value smaller than separator
+WARNING:root:skipping track 1427: NaN values in track
+WARNING:root:skipping track 1443: highest Value smaller than separator
+WARNING:root:skipping track 1464: highest Value smaller than separator
+WARNING:root:skipping track 1465: highest Value smaller than separator
+WARNING:root:skipping track 1491: highest Value smaller than separator
+WARNING:root:skipping track 1492: highest Value smaller than separator
+WARNING:root:skipping track 1497: highest Value smaller than separator
+WARNING:root:skipping track 1524: highest Value smaller than separator
+WARNING:root:skipping track 1565: highest Value smaller than separator
+WARNING:root:skipping track 1567: highest Value smaller than separator
+WARNING:root:skipping track 1569: NaN values in track
+WARNING:root:skipping track 1570: NaN values in track
+WARNING:root:skipping track 1601: NaN values in track
+WARNING:root:skipping track 1610: Not enough elements for features
+WARNING:root:skipping track 1647: highest Value smaller than separator
+WARNING:root:skipping track 1652: Not enough elements for features
+WARNING:root:skipping track 1668: highest Value smaller than separator
+WARNING:root:skipping track 1673: highest Value smaller than separator
+WARNING:root:skipping track 1686: highest Value smaller than separator
+WARNING:root:skipping track 1713: highest Value smaller than separator
+WARNING:root:skipping track 1719: highest Value smaller than separator
+WARNING:root:skipping track 1721: Not enough elements for features
+WARNING:root:skipping track 1733: highest Value smaller than separator
+WARNING:root:skipping track 1736: NaN values in track
+WARNING:root:skipping track 1757: highest Value smaller than separator
+WARNING:root:skipping track 1758: highest Value smaller than separator
+WARNING:root:skipping track 1763: Not enough elements for features
+WARNING:root:skipping track 1764: Not enough elements for features
+WARNING:root:skipping track 1772: highest Value smaller than separator
+WARNING:root:skipping track 1775: highest Value smaller than separator
+WARNING:root:skipping track 1787: highest Value smaller than separator
+WARNING:root:skipping track 1788: highest Value smaller than separator
+WARNING:root:skipping track 1850: highest Value smaller than separator
+WARNING:root:skipping track 1855: Not enough elements for features
+WARNING:root:skipping track 1856: Not enough elements for features
+WARNING:root:skipping track 1863: highest Value smaller than separator
+WARNING:root:skipping track 1864: highest Value smaller than separator
+WARNING:root:skipping track 1865: highest Value smaller than separator
+WARNING:root:skipping track 1866: highest Value smaller than separator
+WARNING:root:skipping track 1867: highest Value smaller than separator
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-10-03_10.25.14
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Sept28/Zylinder-Resegmented-sep
+INFO:root:loading data from store
+INFO:root:Train: ((144156, 10), (144156, 2))
+INFO:root:Test: ((16018, 10), (16018, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 41.329956, 'loss': 165505.81, 'rmse': 6.428838, 'global_step': 750500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 41.25005, 'loss': 165185.83, 'rmse': 6.4226203, 'global_step': 755500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 41.518906, 'loss': 166262.45, 'rmse': 6.4435167, 'global_step': 760500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 41.34088, 'loss': 165549.56, 'rmse': 6.4296875, 'global_step': 765500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 42.04503, 'loss': 168369.31, 'rmse': 6.484214, 'global_step': 770500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 41.223255, 'loss': 165078.53, 'rmse': 6.4205337, 'global_step': 775500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 41.621178, 'loss': 166672.0, 'rmse': 6.4514475, 'global_step': 780500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 41.391907, 'loss': 165753.89, 'rmse': 6.4336543, 'global_step': 785500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 41.55389, 'loss': 166402.56, 'rmse': 6.446231, 'global_step': 790500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 41.69747, 'loss': 166977.52, 'rmse': 6.457358, 'global_step': 795500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 41.51941, 'loss': 166264.47, 'rmse': 6.443556, 'global_step': 800500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 41.65889, 'loss': 166823.03, 'rmse': 6.45437, 'global_step': 805500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 41.241734, 'loss': 165152.52, 'rmse': 6.4219728, 'global_step': 810500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 41.029568, 'loss': 164302.9, 'rmse': 6.4054327, 'global_step': 815500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 41.229378, 'loss': 165103.05, 'rmse': 6.4210105, 'global_step': 820500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 41.670593, 'loss': 166869.89, 'rmse': 6.4552765, 'global_step': 825500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 41.188446, 'loss': 164939.12, 'rmse': 6.4178224, 'global_step': 830500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 40.945107, 'loss': 163964.67, 'rmse': 6.398836, 'global_step': 835500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 41.18729, 'loss': 164934.5, 'rmse': 6.4177327, 'global_step': 840500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 42.40983, 'loss': 169830.16, 'rmse': 6.512283, 'global_step': 845500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 40.98819, 'loss': 164137.2, 'rmse': 6.402202, 'global_step': 850500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 40.875633, 'loss': 163686.48, 'rmse': 6.3934054, 'global_step': 855500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 41.166576, 'loss': 164851.56, 'rmse': 6.4161186, 'global_step': 860500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 41.351646, 'loss': 165592.67, 'rmse': 6.4305243, 'global_step': 865500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 41.036415, 'loss': 164330.33, 'rmse': 6.405967, 'global_step': 870500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 41.02089, 'loss': 164268.16, 'rmse': 6.404755, 'global_step': 875500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 40.907207, 'loss': 163812.9, 'rmse': 6.395874, 'global_step': 880500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 41.32047, 'loss': 165467.81, 'rmse': 6.4281, 'global_step': 885500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 40.8966, 'loss': 163770.44, 'rmse': 6.395045, 'global_step': 890500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 40.88228, 'loss': 163713.06, 'rmse': 6.393925, 'global_step': 895500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 41.201164, 'loss': 164990.06, 'rmse': 6.418813, 'global_step': 900500}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 41.114277, 'loss': 164642.12, 'rmse': 6.4120417, 'global_step': 905500}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 41.019302, 'loss': 164261.81, 'rmse': 6.404631, 'global_step': 910500}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 40.881824, 'loss': 163711.27, 'rmse': 6.3938894, 'global_step': 915500}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 40.944313, 'loss': 163961.5, 'rmse': 6.398774, 'global_step': 920500}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 40.9572, 'loss': 164013.11, 'rmse': 6.399781, 'global_step': 925500}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 40.735867, 'loss': 163126.78, 'rmse': 6.3824654, 'global_step': 930500}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 40.78837, 'loss': 163337.02, 'rmse': 6.386577, 'global_step': 935500}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 40.73714, 'loss': 163131.88, 'rmse': 6.3825655, 'global_step': 940500}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 40.88282, 'loss': 163715.25, 'rmse': 6.3939676, 'global_step': 945500}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 40.748146, 'loss': 163175.95, 'rmse': 6.3834276, 'global_step': 950500}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 40.730087, 'loss': 163103.64, 'rmse': 6.382013, 'global_step': 955500}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 40.898155, 'loss': 163776.67, 'rmse': 6.3951664, 'global_step': 960500}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 40.800526, 'loss': 163385.7, 'rmse': 6.387529, 'global_step': 965500}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 40.732708, 'loss': 163114.12, 'rmse': 6.382218, 'global_step': 970500}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 40.730053, 'loss': 163103.5, 'rmse': 6.38201, 'global_step': 975500}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 41.66353, 'loss': 166841.6, 'rmse': 6.454729, 'global_step': 980500}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 40.68914, 'loss': 162939.66, 'rmse': 6.378804, 'global_step': 985500}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 40.65202, 'loss': 162791.02, 'rmse': 6.3758936, 'global_step': 990500}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 40.697933, 'loss': 162974.88, 'rmse': 6.379493, 'global_step': 995500}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 40.909836, 'loss': 163823.44, 'rmse': 6.3960795, 'global_step': 1000500}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 40.643364, 'loss': 162756.34, 'rmse': 6.375215, 'global_step': 1005500}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 41.219906, 'loss': 165065.11, 'rmse': 6.420273, 'global_step': 1010500}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 40.731415, 'loss': 163108.95, 'rmse': 6.382117, 'global_step': 1015500}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 40.673656, 'loss': 162877.66, 'rmse': 6.37759, 'global_step': 1020500}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 40.59859, 'loss': 162577.06, 'rmse': 6.371702, 'global_step': 1025500}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 40.664165, 'loss': 162839.66, 'rmse': 6.376846, 'global_step': 1030500}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 40.84859, 'loss': 163578.19, 'rmse': 6.39129, 'global_step': 1035500}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 40.683697, 'loss': 162917.86, 'rmse': 6.3783774, 'global_step': 1040500}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 40.704746, 'loss': 163002.16, 'rmse': 6.3800273, 'global_step': 1045500}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 40.60663, 'loss': 162609.25, 'rmse': 6.372333, 'global_step': 1050500}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 40.624767, 'loss': 162681.88, 'rmse': 6.373756, 'global_step': 1055500}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 40.68051, 'loss': 162905.11, 'rmse': 6.3781276, 'global_step': 1060500}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 40.564144, 'loss': 162439.11, 'rmse': 6.3689985, 'global_step': 1065500}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 40.835007, 'loss': 163523.78, 'rmse': 6.3902273, 'global_step': 1070500}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 40.577255, 'loss': 162491.61, 'rmse': 6.370028, 'global_step': 1075500}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 40.595158, 'loss': 162563.31, 'rmse': 6.371433, 'global_step': 1080500}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 40.553368, 'loss': 162395.95, 'rmse': 6.3681526, 'global_step': 1085500}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 40.560303, 'loss': 162423.72, 'rmse': 6.368697, 'global_step': 1090500}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 40.63304, 'loss': 162715.02, 'rmse': 6.3744054, 'global_step': 1095500}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 40.662975, 'loss': 162834.89, 'rmse': 6.376753, 'global_step': 1100500}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 40.590416, 'loss': 162544.34, 'rmse': 6.371061, 'global_step': 1105500}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 40.61769, 'loss': 162653.55, 'rmse': 6.373201, 'global_step': 1110500}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 40.65456, 'loss': 162801.19, 'rmse': 6.376093, 'global_step': 1115500}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 40.591972, 'loss': 162550.55, 'rmse': 6.371183, 'global_step': 1120500}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 40.585945, 'loss': 162526.42, 'rmse': 6.37071, 'global_step': 1125500}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 40.718967, 'loss': 163059.1, 'rmse': 6.3811417, 'global_step': 1130500}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 40.583233, 'loss': 162515.56, 'rmse': 6.370497, 'global_step': 1135500}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 40.534546, 'loss': 162320.6, 'rmse': 6.3666744, 'global_step': 1140500}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 40.53683, 'loss': 162329.73, 'rmse': 6.366854, 'global_step': 1145500}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 40.568714, 'loss': 162457.42, 'rmse': 6.3693576, 'global_step': 1150500}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 40.55371, 'loss': 162397.33, 'rmse': 6.36818, 'global_step': 1155500}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 40.624146, 'loss': 162679.39, 'rmse': 6.3737073, 'global_step': 1160500}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 40.502243, 'loss': 162191.23, 'rmse': 6.364137, 'global_step': 1165500}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 40.55561, 'loss': 162404.94, 'rmse': 6.3683286, 'global_step': 1170500}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 40.526142, 'loss': 162286.95, 'rmse': 6.3660145, 'global_step': 1175500}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 40.545605, 'loss': 162364.88, 'rmse': 6.367543, 'global_step': 1180500}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 40.50497, 'loss': 162202.16, 'rmse': 6.3643517, 'global_step': 1185500}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 40.478962, 'loss': 162098.0, 'rmse': 6.362308, 'global_step': 1190500}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 40.490517, 'loss': 162144.28, 'rmse': 6.363216, 'global_step': 1195500}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 40.502857, 'loss': 162193.69, 'rmse': 6.3641853, 'global_step': 1200500}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 40.4614, 'loss': 162027.67, 'rmse': 6.3609276, 'global_step': 1205500}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 40.53297, 'loss': 162314.28, 'rmse': 6.366551, 'global_step': 1210500}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 40.44622, 'loss': 161966.89, 'rmse': 6.3597345, 'global_step': 1215500}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 40.47863, 'loss': 162096.67, 'rmse': 6.362282, 'global_step': 1220500}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 40.46607, 'loss': 162046.38, 'rmse': 6.3612947, 'global_step': 1225500}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 40.448242, 'loss': 161974.97, 'rmse': 6.3598933, 'global_step': 1230500}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 40.44367, 'loss': 161956.67, 'rmse': 6.359534, 'global_step': 1235500}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 40.567577, 'loss': 162452.86, 'rmse': 6.3692684, 'global_step': 1240500}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 40.44754, 'loss': 161972.17, 'rmse': 6.359838, 'global_step': 1245500}
+INFO:root:Progress: epoch 1000
+INFO:root:eval: {'average_loss': 40.47405, 'loss': 162078.33, 'rmse': 6.361922, 'global_step': 1250500}
+INFO:root:Progress: epoch 1010
+INFO:root:eval: {'average_loss': 40.47273, 'loss': 162073.05, 'rmse': 6.361818, 'global_step': 1255500}
+INFO:root:Progress: epoch 1020
+INFO:root:eval: {'average_loss': 40.53344, 'loss': 162316.16, 'rmse': 6.3665876, 'global_step': 1260500}
+INFO:root:Progress: epoch 1030
+INFO:root:eval: {'average_loss': 40.56396, 'loss': 162438.38, 'rmse': 6.368984, 'global_step': 1265500}
+INFO:root:Progress: epoch 1040
+INFO:root:eval: {'average_loss': 40.54517, 'loss': 162363.12, 'rmse': 6.367509, 'global_step': 1270500}
+INFO:root:Progress: epoch 1050
+INFO:root:eval: {'average_loss': 40.58877, 'loss': 162537.73, 'rmse': 6.3709316, 'global_step': 1275500}
+INFO:root:Progress: epoch 1060
+INFO:root:eval: {'average_loss': 40.47971, 'loss': 162101.0, 'rmse': 6.3623667, 'global_step': 1280500}
+INFO:root:Progress: epoch 1070
+INFO:root:eval: {'average_loss': 40.475735, 'loss': 162085.08, 'rmse': 6.3620543, 'global_step': 1285500}
+INFO:root:Progress: epoch 1080
+INFO:root:eval: {'average_loss': 40.57168, 'loss': 162469.28, 'rmse': 6.3695903, 'global_step': 1290500}
+INFO:root:Progress: epoch 1090
+INFO:root:eval: {'average_loss': 40.438255, 'loss': 161934.97, 'rmse': 6.359108, 'global_step': 1295500}
+INFO:root:Progress: epoch 1100
+INFO:root:eval: {'average_loss': 40.484245, 'loss': 162119.16, 'rmse': 6.362723, 'global_step': 1300500}
+INFO:root:Progress: epoch 1110
+INFO:root:eval: {'average_loss': 40.464382, 'loss': 162039.62, 'rmse': 6.361162, 'global_step': 1305500}
+INFO:root:Progress: epoch 1120
+INFO:root:eval: {'average_loss': 40.443325, 'loss': 161955.3, 'rmse': 6.3595066, 'global_step': 1310500}
+INFO:root:Progress: epoch 1130
+INFO:root:eval: {'average_loss': 40.548634, 'loss': 162377.0, 'rmse': 6.3677807, 'global_step': 1315500}
+INFO:root:Progress: epoch 1140
+INFO:root:eval: {'average_loss': 40.42663, 'loss': 161888.42, 'rmse': 6.358194, 'global_step': 1320500}
+INFO:root:Progress: epoch 1150
+INFO:root:eval: {'average_loss': 40.43779, 'loss': 161933.12, 'rmse': 6.3590713, 'global_step': 1325500}
+INFO:root:Progress: epoch 1160
+INFO:root:eval: {'average_loss': 40.464214, 'loss': 162038.95, 'rmse': 6.361149, 'global_step': 1330500}
+INFO:root:Progress: epoch 1170
+INFO:root:eval: {'average_loss': 40.39548, 'loss': 161763.7, 'rmse': 6.355744, 'global_step': 1335500}
+INFO:root:Progress: epoch 1180
+INFO:root:eval: {'average_loss': 40.36207, 'loss': 161629.9, 'rmse': 6.3531146, 'global_step': 1340500}
+INFO:root:Progress: epoch 1190
+INFO:root:eval: {'average_loss': 40.39941, 'loss': 161779.44, 'rmse': 6.356053, 'global_step': 1345500}
+INFO:root:Progress: epoch 1200
+INFO:root:eval: {'average_loss': 40.42308, 'loss': 161874.22, 'rmse': 6.357915, 'global_step': 1350500}
+INFO:root:Progress: epoch 1210
+INFO:root:eval: {'average_loss': 40.399883, 'loss': 161781.33, 'rmse': 6.35609, 'global_step': 1355500}
+INFO:root:Progress: epoch 1220
+INFO:root:eval: {'average_loss': 40.389355, 'loss': 161739.16, 'rmse': 6.355262, 'global_step': 1360500}
+INFO:root:Progress: epoch 1230
+INFO:root:eval: {'average_loss': 40.41644, 'loss': 161847.62, 'rmse': 6.3573923, 'global_step': 1365500}
+INFO:root:Progress: epoch 1240
+INFO:root:eval: {'average_loss': 40.379726, 'loss': 161700.61, 'rmse': 6.3545046, 'global_step': 1370500}
+INFO:root:Progress: epoch 1250
+INFO:root:eval: {'average_loss': 40.37282, 'loss': 161672.97, 'rmse': 6.353961, 'global_step': 1375500}
+INFO:root:Progress: epoch 1260
+INFO:root:eval: {'average_loss': 40.385475, 'loss': 161723.64, 'rmse': 6.3549566, 'global_step': 1380500}
+INFO:root:Progress: epoch 1270
+INFO:root:eval: {'average_loss': 40.40321, 'loss': 161794.66, 'rmse': 6.356352, 'global_step': 1385500}
+INFO:root:Progress: epoch 1280
+INFO:root:eval: {'average_loss': 40.397823, 'loss': 161773.08, 'rmse': 6.3559284, 'global_step': 1390500}
+INFO:root:Progress: epoch 1290
+INFO:root:eval: {'average_loss': 40.37354, 'loss': 161675.84, 'rmse': 6.3540177, 'global_step': 1395500}
+INFO:root:Progress: epoch 1300
+INFO:root:eval: {'average_loss': 40.39266, 'loss': 161752.4, 'rmse': 6.3555217, 'global_step': 1400500}
+INFO:root:Progress: epoch 1310
+INFO:root:eval: {'average_loss': 40.43507, 'loss': 161922.25, 'rmse': 6.3588576, 'global_step': 1405500}
+INFO:root:Progress: epoch 1320
+INFO:root:eval: {'average_loss': 40.449646, 'loss': 161980.61, 'rmse': 6.3600035, 'global_step': 1410500}
+INFO:root:Progress: epoch 1330
+INFO:root:eval: {'average_loss': 40.39302, 'loss': 161753.84, 'rmse': 6.3555503, 'global_step': 1415500}
+INFO:root:Progress: epoch 1340
+INFO:root:eval: {'average_loss': 40.433334, 'loss': 161915.28, 'rmse': 6.3587213, 'global_step': 1420500}
+INFO:root:Progress: epoch 1350
+INFO:root:eval: {'average_loss': 40.42626, 'loss': 161886.97, 'rmse': 6.358165, 'global_step': 1425500}
+INFO:root:Progress: epoch 1360
+INFO:root:eval: {'average_loss': 40.39663, 'loss': 161768.3, 'rmse': 6.3558345, 'global_step': 1430500}
+INFO:root:Progress: epoch 1370
+INFO:root:eval: {'average_loss': 40.37821, 'loss': 161694.53, 'rmse': 6.354385, 'global_step': 1435500}
+INFO:root:Progress: epoch 1380
+INFO:root:eval: {'average_loss': 40.36137, 'loss': 161627.11, 'rmse': 6.35306, 'global_step': 1440500}
+INFO:root:Progress: epoch 1390
+INFO:root:eval: {'average_loss': 40.36616, 'loss': 161646.31, 'rmse': 6.353437, 'global_step': 1445500}
+INFO:root:Progress: epoch 1400
+INFO:root:eval: {'average_loss': 40.35901, 'loss': 161617.66, 'rmse': 6.3528743, 'global_step': 1450500}
+INFO:root:Progress: epoch 1410
+INFO:root:eval: {'average_loss': 40.340702, 'loss': 161544.34, 'rmse': 6.3514333, 'global_step': 1455500}
+INFO:root:Progress: epoch 1420
+INFO:root:eval: {'average_loss': 40.356003, 'loss': 161605.62, 'rmse': 6.3526373, 'global_step': 1460500}
+INFO:root:Progress: epoch 1430
+INFO:root:eval: {'average_loss': 40.336487, 'loss': 161527.47, 'rmse': 6.3511014, 'global_step': 1465500}
+INFO:root:Progress: epoch 1440
+INFO:root:eval: {'average_loss': 40.338226, 'loss': 161534.42, 'rmse': 6.3512383, 'global_step': 1470500}
+INFO:root:Progress: epoch 1450
+INFO:root:eval: {'average_loss': 40.345695, 'loss': 161564.34, 'rmse': 6.351826, 'global_step': 1475500}
+INFO:root:Progress: epoch 1460
+INFO:root:eval: {'average_loss': 40.33708, 'loss': 161529.83, 'rmse': 6.3511477, 'global_step': 1480500}
+INFO:root:Progress: epoch 1470
+INFO:root:eval: {'average_loss': 40.324913, 'loss': 161481.11, 'rmse': 6.35019, 'global_step': 1485500}
+INFO:root:Progress: epoch 1480
+INFO:root:eval: {'average_loss': 40.328823, 'loss': 161496.77, 'rmse': 6.3504977, 'global_step': 1490500}
+INFO:root:Progress: epoch 1490
+INFO:root:eval: {'average_loss': 40.32933, 'loss': 161498.8, 'rmse': 6.350538, 'global_step': 1495500}
+INFO:root:Training completed. final average loss: 40.324283599853516, best average loss during training: 40.324913024902344

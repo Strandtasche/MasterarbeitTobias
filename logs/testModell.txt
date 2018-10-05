@@ -1,0 +1,847 @@
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 11, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+INFO:root:Tensorflow 1.8.0
+ERROR:root:Error in Parameters. Maybe mistake in hyperparameter file?
+ERROR:root:AttributeError: 'Dict2Obj' object has no attribute 'augmentMidpoint'
+INFO:root:Tensorflow 1.8.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_001_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_002_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_003_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_004_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_005_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_006_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_007_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_008_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_009_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_010_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_011_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_012_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_013_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_014_trackHistory_NothingDeleted_Clean.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/cleanedData2/Kugeln/kugeln_015_trackHistory_NothingDeleted_Clean.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:applying augmentation to Training Set...
+INFO:root:done!
+INFO:root:time: 2018-09-20_12.13.16
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:/home/hornberger/MasterarbeitTobias/models/testModell does not exist. Creating folder
+INFO:root:storing data in data.h5
+INFO:root:Train: ((175710, 10), (175710, 2))
+INFO:root:Test: ((9763, 10), (9763, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 713.2922, 'loss': 348193.56, 'rmse': 26.707531, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 32.43338, 'loss': 15832.3545, 'rmse': 5.695031, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 16.477657, 'loss': 8043.568, 'rmse': 4.059268, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 5.6039176, 'loss': 2735.5522, 'rmse': 2.3672595, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 1.3692216, 'loss': 668.3855, 'rmse': 1.1701374, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 1.1826059, 'loss': 577.28906, 'rmse': 1.0874768, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 2.0897691, 'loss': 1020.1208, 'rmse': 1.4456034, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.73832303, 'loss': 360.4124, 'rmse': 0.8592573, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 1.0096365, 'loss': 492.85406, 'rmse': 1.0048068, 'global_step': 40500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.6455439, 'loss': 315.12225, 'rmse': 0.80345744, 'global_step': 45500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 1.0723696, 'loss': 523.4772, 'rmse': 1.0355527, 'global_step': 50500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.704301, 'loss': 343.8045, 'rmse': 0.8392264, 'global_step': 55500}
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 11, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+INFO:root:Tensorflow 1.8.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_001_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_002_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_003_trackHistory_NothingDeleted.csv
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_004_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_005_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_006_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_007_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_008_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_009_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_010_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_011_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_012_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Weizen/weizen_013_trackHistory_NothingDeleted.csv
+INFO:root:applying augmentation to Training Set...
+INFO:root:done!
+INFO:root:time: 2018-09-21_12.25.02
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:/home/hornberger/MasterarbeitTobias/models/testModell does not exist. Creating folder
+INFO:root:storing data in data.h5
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 1198.0084, 'loss': 1130748.9, 'rmse': 34.61226, 'global_step': 200}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 7.1917005, 'loss': 6787.938, 'rmse': 2.6817346, 'global_step': 2200}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-21_12.28.57
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:/home/hornberger/MasterarbeitTobias/models/testModell does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 1172.7743, 'loss': 2213862.8, 'global_step': 200}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 4.4310284, 'loss': 8364.516, 'global_step': 2200}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 4.3196297, 'loss': 8154.2266, 'global_step': 4200}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 3.265196, 'loss': 6163.7573, 'global_step': 6200}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 4.750013, 'loss': 8966.667, 'global_step': 8200}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 15.01492, 'loss': 28343.879, 'global_step': 10200}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 2.820208, 'loss': 5323.747, 'global_step': 12200}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 3.1560416, 'loss': 5957.7046, 'global_step': 14200}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 6.922747, 'loss': 13068.169, 'global_step': 16200}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 3.9224956, 'loss': 7404.551, 'global_step': 18200}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 3.4456437, 'loss': 6504.3906, 'global_step': 20200}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-21_12.46.07
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:/home/hornberger/MasterarbeitTobias/models/testModell does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 1133.6964, 'loss': 2140094.8, 'global_step': 200}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 223.72115, 'loss': 422321.6, 'global_step': 2200}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 46.001987, 'loss': 86838.61, 'global_step': 4200}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 25.81678, 'loss': 48734.707, 'global_step': 6200}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 20.798002, 'loss': 39260.688, 'global_step': 8200}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-21_12.50.33
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:/home/hornberger/MasterarbeitTobias/models/testModell does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:Train the DNN Regressor...
+
+ERROR:tensorflow:Model diverged with loss = NaN.
+ERROR:tensorflow:Model diverged with loss = NaN.
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 476, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 349, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 843, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 859, in _train_model_default
+    saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1059, in _train_with_estimator_spec
+    _, loss = mon_sess.run([estimator_spec.train_op, estimator_spec.loss])
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 567, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1043, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1134, in run
+    raise six.reraise(*original_exc_info)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/six.py", line 693, in reraise
+    raise value
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1119, in run
+    return self._sess.run(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1199, in run
+    run_metadata=run_metadata))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/basic_session_run_hooks.py", line 623, in after_run
+    raise NanLossDuringTrainingError
+tensorflow.python.training.basic_session_run_hooks.NanLossDuringTrainingError: NaN loss during training.
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-21_13.03.17
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:loading data from store
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:Train the DNN Regressor...
+
+Traceback (most recent call last):
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1322, in _do_call
+    return fn(*args)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1307, in _run_fn
+    options, feed_dict, fetch_list, target_list, run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1409, in _call_tf_sessionrun
+    run_metadata)
+tensorflow.python.framework.errors_impl.NotFoundError: Key dnn/head/beta1_power not found in checkpoint
+	 [[Node: save/RestoreV2 = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, ..., DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[Node: save/RestoreV2/_3 = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_8_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 476, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 349, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 843, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 859, in _train_model_default
+    saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1056, in _train_with_estimator_spec
+    log_step_count_steps=self._config.log_step_count_steps) as mon_sess:
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 405, in MonitoredTrainingSession
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 816, in __init__
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 539, in __init__
+    self._sess = _RecoverableSession(self._coordinated_creator)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1002, in __init__
+    _WrappedSession.__init__(self, self._create_session())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1007, in _create_session
+    return self._sess_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 696, in create_session
+    self.tf_sess = self._session_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 467, in create_session
+    init_fn=self._scaffold.init_fn)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/session_manager.py", line 279, in prepare_session
+    config=config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/session_manager.py", line 207, in _restore_checkpoint
+    saver.restore(sess, ckpt.model_checkpoint_path)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1802, in restore
+    {self.saver_def.filename_tensor_name: save_path})
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 900, in run
+    run_metadata_ptr)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1135, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1316, in _do_run
+    run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1335, in _do_call
+    raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.NotFoundError: Key dnn/head/beta1_power not found in checkpoint
+	 [[Node: save/RestoreV2 = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, ..., DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[Node: save/RestoreV2/_3 = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_8_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+Caused by op 'save/RestoreV2', defined at:
+  File "DNNRegressor-Example.py", line 476, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 349, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 843, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 859, in _train_model_default
+    saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1056, in _train_with_estimator_spec
+    log_step_count_steps=self._config.log_step_count_steps) as mon_sess:
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 405, in MonitoredTrainingSession
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 816, in __init__
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 539, in __init__
+    self._sess = _RecoverableSession(self._coordinated_creator)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1002, in __init__
+    _WrappedSession.__init__(self, self._create_session())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1007, in _create_session
+    return self._sess_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 696, in create_session
+    self.tf_sess = self._session_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 458, in create_session
+    self._scaffold.finalize()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 214, in finalize
+    self._saver.build()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1347, in build
+    self._build(self._filename, build_save=True, build_restore=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1384, in _build
+    build_save=build_save, build_restore=build_restore)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 829, in _build_internal
+    restore_sequentially, reshape)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 525, in _AddShardedRestoreOps
+    name="restore_shard"))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 472, in _AddRestoreOps
+    restore_sequentially)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 886, in bulk_restore
+    return io_ops.restore_v2(filename_tensor, names, slices, dtypes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/ops/gen_io_ops.py", line 1463, in restore_v2
+    shape_and_slices=shape_and_slices, dtypes=dtypes, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 787, in _apply_op_helper
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3392, in create_op
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1718, in __init__
+    self._traceback = self._graph._extract_stack()  # pylint: disable=protected-access
+
+NotFoundError (see above for traceback): Key dnn/head/beta1_power not found in checkpoint
+	 [[Node: save/RestoreV2 = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, ..., DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[Node: save/RestoreV2/_3 = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_8_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-21_13.03.30
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:/home/hornberger/MasterarbeitTobias/models/testModell does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 779.8589, 'loss': 1472150.8, 'global_step': 200}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 18.77213, 'loss': 35436.414, 'global_step': 2200}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 5.2803383, 'loss': 9967.7705, 'global_step': 4200}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 4.0065055, 'loss': 7563.137, 'global_step': 6200}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 3.8969357, 'loss': 7356.3013, 'global_step': 8200}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 3.4516249, 'loss': 6515.681, 'global_step': 10200}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 4.4380136, 'loss': 8377.701, 'global_step': 12200}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 3.1167512, 'loss': 5883.5356, 'global_step': 14200}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 4.431727, 'loss': 8365.834, 'global_step': 16200}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 4.7983675, 'loss': 9057.946, 'global_step': 18200}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 2.4781482, 'loss': 4678.036, 'global_step': 20200}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 2.4236355, 'loss': 4575.1313, 'global_step': 22200}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 2.6590433, 'loss': 5019.514, 'global_step': 24200}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 3.0746164, 'loss': 5803.997, 'global_step': 26200}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 5.6059804, 'loss': 10582.489, 'global_step': 28200}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 3.6073284, 'loss': 6809.6055, 'global_step': 30200}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 2.2191796, 'loss': 4189.177, 'global_step': 32200}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 2.5376813, 'loss': 4790.4175, 'global_step': 34200}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 3.0268424, 'loss': 5713.8135, 'global_step': 36200}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 62.141376, 'loss': 117305.164, 'global_step': 38200}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 2.1623993, 'loss': 4081.9922, 'global_step': 40200}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 2.1560094, 'loss': 4069.93, 'global_step': 42200}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 4.6740565, 'loss': 8823.283, 'global_step': 44200}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 1.826741, 'loss': 3448.365, 'global_step': 46200}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 4.726733, 'loss': 8922.722, 'global_step': 48200}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 4.1316586, 'loss': 7799.391, 'global_step': 50200}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 5.427033, 'loss': 10244.6875, 'global_step': 52200}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 3.2211406, 'loss': 6080.5933, 'global_step': 54200}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 10.138661, 'loss': 19138.895, 'global_step': 56200}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 3.0465279, 'loss': 5750.974, 'global_step': 58200}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 7.3856497, 'loss': 13941.997, 'global_step': 60200}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 2.867621, 'loss': 5413.249, 'global_step': 62200}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 3.5140405, 'loss': 6633.5044, 'global_step': 64200}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 2.9160647, 'loss': 5504.697, 'global_step': 66200}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 2.9115338, 'loss': 5496.144, 'global_step': 68200}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 3.33948, 'loss': 6303.984, 'global_step': 70200}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 3.0054696, 'loss': 5673.468, 'global_step': 72200}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 1.9314841, 'loss': 3646.09, 'global_step': 74200}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 7.9385023, 'loss': 14985.624, 'global_step': 76200}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 2.352465, 'loss': 4440.7817, 'global_step': 78200}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 2.6997938, 'loss': 5096.439, 'global_step': 80200}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 1.8349605, 'loss': 3463.881, 'global_step': 82200}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 2.5682876, 'loss': 4848.193, 'global_step': 84200}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 1.7573369, 'loss': 3317.3499, 'global_step': 86200}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 4.009436, 'loss': 7568.6694, 'global_step': 88200}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 2.9303763, 'loss': 5531.7134, 'global_step': 90200}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-21_13.57.02
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:loading data from store
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 7.1741776, 'loss': 13542.798, 'global_step': 91001}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 4.9102144, 'loss': 9269.081, 'global_step': 93001}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 2.867241, 'loss': 5412.5317, 'global_step': 95001}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 2.4985845, 'loss': 4716.614, 'global_step': 97001}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 5.9040556, 'loss': 11145.17, 'global_step': 99001}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 1.8991259, 'loss': 3585.0073, 'global_step': 101001}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 2.2935567, 'loss': 4329.5796, 'global_step': 103001}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 2.4796832, 'loss': 4680.933, 'global_step': 105001}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 2.7305677, 'loss': 5154.5317, 'global_step': 107001}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 2.3086033, 'loss': 4357.9834, 'global_step': 109001}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 2.1608982, 'loss': 4079.1582, 'global_step': 111001}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 2.3025537, 'loss': 4346.5635, 'global_step': 113001}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 4.1343174, 'loss': 7804.41, 'global_step': 115001}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 2.7880743, 'loss': 5263.0874, 'global_step': 117001}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 2.2814646, 'loss': 4306.753, 'global_step': 119001}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 4.770142, 'loss': 9004.665, 'global_step': 121001}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 2.6740682, 'loss': 5047.8765, 'global_step': 123001}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 1.7427506, 'loss': 3289.8152, 'global_step': 125001}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 3.3172033, 'loss': 6261.932, 'global_step': 127001}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 3.7631018, 'loss': 7103.661, 'global_step': 129001}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 1.6475146, 'loss': 3110.0369, 'global_step': 131001}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 2.7703815, 'loss': 5229.6885, 'global_step': 133001}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 3.2509274, 'loss': 6136.822, 'global_step': 135001}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 2.1729934, 'loss': 4101.9907, 'global_step': 137001}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 1.8541802, 'loss': 3500.1624, 'global_step': 139001}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 2.5398421, 'loss': 4794.496, 'global_step': 141001}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 3.8131077, 'loss': 7198.058, 'global_step': 143001}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 4.486021, 'loss': 8468.326, 'global_step': 145001}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 1.8279185, 'loss': 3450.588, 'global_step': 147001}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 1.8148615, 'loss': 3425.94, 'global_step': 149001}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 2.5520232, 'loss': 4817.4907, 'global_step': 151001}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 2.3221216, 'loss': 4383.5024, 'global_step': 153001}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 2.5918174, 'loss': 4892.6104, 'global_step': 155001}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 2.8402395, 'loss': 5361.561, 'global_step': 157001}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 4.8330173, 'loss': 9123.356, 'global_step': 159001}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 2.5463462, 'loss': 4806.774, 'global_step': 161001}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 2.8585577, 'loss': 5396.14, 'global_step': 163001}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 2.4073756, 'loss': 4544.437, 'global_step': 165001}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 2.026139, 'loss': 3824.7717, 'global_step': 167001}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 2.6435246, 'loss': 4990.219, 'global_step': 169001}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 2.0249374, 'loss': 3822.5032, 'global_step': 171001}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 2.9081488, 'loss': 5489.754, 'global_step': 173001}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 1.577942, 'loss': 2978.7036, 'global_step': 175001}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 1.660805, 'loss': 3135.1252, 'global_step': 177001}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 2.193913, 'loss': 4141.481, 'global_step': 179001}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 2.4394014, 'loss': 4604.893, 'global_step': 181001}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 2.3428402, 'loss': 4422.613, 'global_step': 183001}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 3.1370564, 'loss': 5921.866, 'global_step': 185001}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 3.6842973, 'loss': 6954.901, 'global_step': 187001}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 13.232079, 'loss': 24978.385, 'global_step': 189001}
+INFO:root:Training completed. final average loss: 2.586, best average loss during training: 1.578
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-21_15.46.21
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:loading data from store
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 2.585864
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/testModell_highestLoss_2018-09-21_15.46.21.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/testModell_2018-09-21_15.46.21.png
+INFO:root:
+       NNpixelErrorTotal        ...          CApixelErrorTotal
+count       13214.000000        ...               13214.000000
+mean            1.852906        ...                   2.025697
+std             1.318560        ...                   2.841642
+min             0.034023        ...                   0.000000
+25%             1.244082        ...                   1.118034
+50%             1.722964        ...                   1.802776
+75%             2.250125        ...                   2.500000
+max            69.714045        ...                 152.460651
+
+[8 rows x 3 columns]
+INFO:root:number of predictions with error > 3: 1041
+INFO:matplotlib.backends._backend_tk:Could not load matplotlib icon: can't use "pyimage28" as iconphoto: not a photo image
+           X_0     X_1     X_2     X_3   ...       Y_1     Y_2     Y_3     Y_4
+100540   718.0   718.0   718.0   719.0   ...     219.0   298.0   376.0   454.0
+19356    430.0   430.0   431.0   431.0   ...     760.0   839.0   916.0   994.0
+100589  1090.0  1091.0  1091.0  1091.0   ...     361.0   440.0   518.0   596.0
+31414    673.0   671.0   670.0   669.0   ...     755.0   835.0   915.0   994.0
+58551   1692.0  1693.0  1694.0  1694.0   ...     747.0   825.0   904.0   983.0
+71549   1702.0  1702.0  1702.0  1702.0   ...    1014.0  1091.0  1169.0  1247.0
+17877   1270.0  1268.0  1267.0  1267.0   ...     456.0   533.0   611.0   690.0
+119826  1339.0  1339.0  1339.0  1339.0   ...    1064.0  1143.0  1222.0  1302.0
+77526    349.0   349.0   350.0   350.0   ...     658.0   736.0   814.0   893.0
+8091    1670.0  1671.0  1672.0  1672.0   ...     289.0   368.0   445.0   525.0
+
+[10 rows x 10 columns]
+        LabelX  LabelY
+100540   722.0   531.0
+19356    432.0  1074.0
+100589  1092.0   675.0
+31414    669.0  1075.0
+58551   1694.0  1064.0
+71549   1702.0  1325.0
+17877   1265.0   768.0
+119826  1340.0  1381.0
+77526    351.0   971.0
+8091    1672.0   603.0
+predicted: 
+[718.57 532.79]
+[ 430.81 1071.81]
+[1090.84  674.13]
+[ 668.65 1072.21]
+[1693.3  1059.93]
+[1701.46 1322.74]
+[1265.88  766.78]
+[1338.55 1378.72]
+[349.77 970.68]
+[1671.51  602.13]
+time: 0.19s
+MSE (tensorflow): 3.287153
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-21_16.21.40
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:/home/hornberger/MasterarbeitTobias/models/testModell does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 1542.9792, 'loss': 2912704.0, 'global_step': 200}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 5.107653, 'loss': 9641.79, 'global_step': 2200}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 3.5158508, 'loss': 6636.922, 'global_step': 4200}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 3.1346705, 'loss': 5917.3623, 'global_step': 6200}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 13.035956, 'loss': 24608.16, 'global_step': 8200}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 2.7799633, 'loss': 5247.7764, 'global_step': 10200}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 3.0305178, 'loss': 5720.7515, 'global_step': 12200}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 2.508387, 'loss': 4735.118, 'global_step': 14200}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 6.5123935, 'loss': 12293.538, 'global_step': 16200}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 4.711141, 'loss': 8893.288, 'global_step': 18200}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 11.018804, 'loss': 20800.354, 'global_step': 20200}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 3.3395216, 'loss': 6304.0625, 'global_step': 22200}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 2.1157305, 'loss': 3993.8948, 'global_step': 24200}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 4.7594595, 'loss': 8984.5, 'global_step': 26200}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 5.290601, 'loss': 9987.143, 'global_step': 28200}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 2.1591775, 'loss': 4075.9102, 'global_step': 30200}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 4.0834575, 'loss': 7708.4014, 'global_step': 32200}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 4.537563, 'loss': 8565.622, 'global_step': 34200}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 2.8329039, 'loss': 5347.7134, 'global_step': 36200}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 4.86369, 'loss': 9181.257, 'global_step': 38200}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 2.0404136, 'loss': 3851.718, 'global_step': 40200}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 3.550961, 'loss': 6703.1997, 'global_step': 42200}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 2.835791, 'loss': 5353.1636, 'global_step': 44200}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 4.837298, 'loss': 9131.437, 'global_step': 46200}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 4.141961, 'loss': 7818.8394, 'global_step': 48200}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 2.8375847, 'loss': 5356.5493, 'global_step': 50200}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 3.248306, 'loss': 6131.874, 'global_step': 52200}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 3.4808655, 'loss': 6570.8794, 'global_step': 54200}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 3.130282, 'loss': 5909.078, 'global_step': 56200}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 8.295511, 'loss': 15659.555, 'global_step': 58200}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 2.7541165, 'loss': 5198.985, 'global_step': 60200}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 2.5437841, 'loss': 4801.9375, 'global_step': 62200}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 2.725289, 'loss': 5144.567, 'global_step': 64200}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 3.4310331, 'loss': 6476.81, 'global_step': 66200}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 2.1907697, 'loss': 4135.5474, 'global_step': 68200}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 2.9443617, 'loss': 5558.114, 'global_step': 70200}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 3.5351071, 'loss': 6673.2725, 'global_step': 72200}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 2.781495, 'loss': 5250.668, 'global_step': 74200}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 2.1336746, 'loss': 4027.7678, 'global_step': 76200}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 3.5770786, 'loss': 6752.5024, 'global_step': 78200}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 2.984153, 'loss': 5633.228, 'global_step': 80200}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 3.817261, 'loss': 7205.898, 'global_step': 82200}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 3.4844573, 'loss': 6577.6597, 'global_step': 84200}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 3.898389, 'loss': 7359.0444, 'global_step': 86200}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 4.12708, 'loss': 7790.7476, 'global_step': 88200}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 8.055039, 'loss': 15205.614, 'global_step': 90200}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 3.1814513, 'loss': 6005.6714, 'global_step': 92200}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 4.6954465, 'loss': 8863.662, 'global_step': 94200}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 5.256078, 'loss': 9921.974, 'global_step': 96200}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 6.298638, 'loss': 11890.029, 'global_step': 98200}
+INFO:root:Training completed. final average loss: 4.412, best average loss during training: 2.040
+python3: can't open file 'DNNRegressor-Example.py': [Errno 2] No such file or directory
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-24_09.42.30
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:loading data from store
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 4.8370733, 'loss': 9131.013, 'global_step': 100200}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 3.831845, 'loss': 7233.4287, 'global_step': 102200}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 14.432775, 'loss': 27244.955, 'global_step': 104200}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 3.787729, 'loss': 7150.15, 'global_step': 106200}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 6.4342833, 'loss': 12146.088, 'global_step': 108200}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 3.5130286, 'loss': 6631.594, 'global_step': 110200}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 3.2697458, 'loss': 6172.346, 'global_step': 112200}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 2.7121906, 'loss': 5119.841, 'global_step': 114200}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 4.2132607, 'loss': 7953.432, 'global_step': 116200}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 4.2635703, 'loss': 8048.4023, 'global_step': 118200}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 3.7363007, 'loss': 7053.068, 'global_step': 120200}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 3.29923, 'loss': 6228.004, 'global_step': 122200}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 6.802338, 'loss': 12840.87, 'global_step': 124200}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 4.784135, 'loss': 9031.08, 'global_step': 126200}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 9.475444, 'loss': 17886.932, 'global_step': 128200}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 6.1561756, 'loss': 11621.101, 'global_step': 130200}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 3.9256375, 'loss': 7410.482, 'global_step': 132200}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 3.674516, 'loss': 6936.4365, 'global_step': 134200}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 2.71483, 'loss': 5124.823, 'global_step': 136200}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 4.3020945, 'loss': 8121.1255, 'global_step': 138200}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 4.083611, 'loss': 7708.691, 'global_step': 140200}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 4.45856, 'loss': 8416.487, 'global_step': 142200}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 3.6511369, 'loss': 6892.303, 'global_step': 144200}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 3.9984415, 'loss': 7547.915, 'global_step': 146200}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 10.57186, 'loss': 19956.652, 'global_step': 148200}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 6.767713, 'loss': 12775.509, 'global_step': 150200}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 3.7344291, 'loss': 7049.535, 'global_step': 152200}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 4.022472, 'loss': 7593.2773, 'global_step': 154200}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 3.617339, 'loss': 6828.5024, 'global_step': 156200}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 29.27237, 'loss': 55257.87, 'global_step': 158200}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 4.2538667, 'loss': 8030.085, 'global_step': 160200}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 2.9341373, 'loss': 5538.813, 'global_step': 162200}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 2.8591387, 'loss': 5397.2373, 'global_step': 164200}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 4.881316, 'loss': 9214.53, 'global_step': 166200}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 2.347954, 'loss': 4432.2666, 'global_step': 168200}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 3.8389812, 'loss': 7246.8994, 'global_step': 170200}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 2.9918268, 'loss': 5647.7144, 'global_step': 172200}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 4.143344, 'loss': 7821.449, 'global_step': 174200}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-09-24_12.49.40
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/testModell
+INFO:root:loading data from store
+INFO:root:Train: ((237411, 10), (237411, 2))
+INFO:root:Test: ((13214, 10), (13214, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 4.5155873, 'loss': 8524.139, 'global_step': 175201}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 4.0529237, 'loss': 7650.7617, 'global_step': 177201}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 3.1561482, 'loss': 5957.9062, 'global_step': 179201}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 3.736684, 'loss': 7053.792, 'global_step': 181201}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 4.5043244, 'loss': 8502.877, 'global_step': 183201}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 16.879803, 'loss': 31864.244, 'global_step': 185201}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 10.784323, 'loss': 20357.72, 'global_step': 187201}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 6.3452024, 'loss': 11977.93, 'global_step': 189201}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 3.472649, 'loss': 6555.3696, 'global_step': 191201}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 3.5402405, 'loss': 6682.9624, 'global_step': 193201}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 2.2511075, 'loss': 4249.4478, 'global_step': 195201}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 13.5026045, 'loss': 25489.06, 'global_step': 197201}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 3.8793352, 'loss': 7323.0767, 'global_step': 199201}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 5.585664, 'loss': 10544.138, 'global_step': 201201}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 3.8884878, 'loss': 7340.354, 'global_step': 203201}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 2.7070303, 'loss': 5110.1, 'global_step': 205201}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 3.6703103, 'loss': 6928.497, 'global_step': 207201}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 5.0066657, 'loss': 9451.154, 'global_step': 209201}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 3.5418737, 'loss': 6686.046, 'global_step': 211201}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 3.2450151, 'loss': 6125.661, 'global_step': 213201}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 47.612263, 'loss': 89878.35, 'global_step': 215201}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 2.9947557, 'loss': 5653.243, 'global_step': 217201}

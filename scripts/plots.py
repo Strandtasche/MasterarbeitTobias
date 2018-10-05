@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import locale
 import pandas as pd
+import os
 import random
 
 import sys
@@ -115,7 +116,9 @@ def plotParticleSpeed(inputFile, direction, displayTotal):
 
 	print("Number of Tracks: {}".format(numberTracks))
 
-	plt.axis([0, 20, 80, 100])
+	#plt.axis([0, 20, 80, 100])
+	plt.xlabel("Time in Zeitschritt")
+	plt.ylabel("speed in pixel/Zeitschritt")
 	
 	for i in range(numberTracks):
 		trackNo = int(''.join([s for s in df.iloc[:,2*i].name if s.isdigit()]))
@@ -131,7 +134,7 @@ def plotParticleSpeed(inputFile, direction, displayTotal):
 		b = ld._removeNans(b)
 		
 		if np.isnan(a).any() or np.isnan(b).any():
-			logging.warning("skipping track {}: NaN values in track".format(trackNo))
+			print("skipping track {}: NaN values in track".format(trackNo))
 			continue
 		
 		assert len(a) == len(b)
@@ -148,9 +151,9 @@ def plotParticleSpeed(inputFile, direction, displayTotal):
 			vels.append(vel)
 			
 			
-		plt.title("Track {}".format(trackNo))
+		plt.title("Track {}".format(os.path.basename(inputFile)))
 		
-		if random.random() < 0.03:
+		if random.random() < 6 * 1/numberTracks:
 			features = plt.plot(time, vels, '-o')
 			if not displayTotal:
 				plt.pause(3)
@@ -160,7 +163,15 @@ def plotParticleSpeed(inputFile, direction, displayTotal):
 	plt.close()
 	
 
-plotParticleSpeed('/home/hornberger/Projects/MasterarbeitTobias/'
-				  'data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_004_trackHistory_NothingDeleted.csv', True, True)
+# plotParticleSpeed('/home/hornberger/Projects/MasterarbeitTobias/'
+# 				  'data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_004_trackHistory_NothingDeleted.csv', True, True)
 #plotPieChart()
+
+inputFile = '/home/hornberger/Projects/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_007_trackHistory_NothingDeleted.csv'
+
+inputFile2 = '/home/hornberger/Projects/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_007_trackHistory_NothingDeleted.csv'
+
+inputFile3 = '/home/hornberger/Projects/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-BandVorne-Sept/kugeln_rot-002_trackHistory_NothingDeleted.csv'
+
+plotParticleSpeed(inputFile, True, True)
 # plotFnct()
