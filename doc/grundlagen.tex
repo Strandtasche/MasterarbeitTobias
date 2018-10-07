@@ -42,7 +42,7 @@ Das Kalman-Filter funktioniert mittels abwechselnd ausgeführter \textit{predict
 
 \section{TableSort System}
 
-[Absatz über das TableSort System]
+[Viel stuff über das TableSort System]
 
 \begin{figure}
 	\missingfigure{Bild von TablesortSystem}
@@ -61,7 +61,7 @@ Infolge dessen gab verschiedene Forschungsbestrebungen in dem Feld, wie [Example
 Nachdem jedoch Marvin Minsky und Seymour Papert zeigten, dass einzelne Perzeptrons nicht in der Lage sind linear nicht separierbare Probleme zu lösen sank das Interesse an dem Feld.
 
 \subsection{Perzeptron}
-Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt beschrieben wurde \todo{Quelle}.
+Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt beschrieben wurde \ref{}.
 Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert $o$ ausgibt.
 
 \todo{Darstellung des Perzeptrons}
@@ -210,13 +210,24 @@ Als Feedforward Netz bezeichnet man ein neuronales Netz, zwischen dessen Knoten 
 Die Informationen wandert in der Verarbeitungsrichtung von den Eingabeknoten zu den Ausgabeknoten.
 Für gewöhnlich sind die einzelnen Knoten in Schichten, sogenannten Layern, organisiert.
 Die Neuronen eines einzelnen Layers sind meist 
-Die Eingabe wird in ein Input Layer 
+Die Eingabe wird in ein Input Layer eingeben.
+
+~~~~~~~~~~
+- Outputlayer: Verschiedene Aktivierungsfunktionen:
+. Linear für regression, z.B. Softmax für Wahrscheinlichkeitsverteilung Softmax
+[One Hot encoding?]
 
 \subsection{Backpropagation}
 
 \todo{ein Absatz über lernen mit dem Backpropagation Algorithmus}
-Der Backpropagation Algorithmus ist 
+Der Backpropagation Algorithmus ist ein Verfahren mit denen künstliche neuronale Netze in der Lage sind komplizierte Zielfunktionen einzulernen.
+Es ist eine Methode, bei der effizient der Gradient der Fehlerfunktion in Abhängigkeit vom Gewicht der einzelnen Kanten im Netz bestimmt werden kann,
+was dann für einen Gradientenabstieg verwendet werden kann. 
+
+
+- Nur supervised learning: Gradient der Fehlerfunktion wird benötigt => Tatsächliches Ergebnis muss bekannt sein.
+- "Finden einer Funktion, die am besten die Inputs auf die outputs mapt"
 
 \subsection{Rekurrente neuronale Netze}
 
-\todo{Text über rekurrente Netzwerke - Do I really need that?}
+\todo{Text über rekurrente Netzwerke - Do I really need that now that I wont use them?}
