@@ -460,12 +460,15 @@ def _getMedianAccel(X_test, separator, direction):
 	else: # moving along y axis
 		relCols = X_test.columns[int(len(X_test.columns)/2):len(X_test.columns)]
 		# print("y axis")
-		
-	X_test['accel'] = X_test.apply(
-		lambda row: (row[relCols[-1]] - row[relCols[-2]]) - (row[relCols[-2]] - row[relCols[-3]]), axis=1
-	)
+
+	accel = (X_test.loc[:, relCols[-1]] - X_test.loc[:, relCols[-2]]) - (X_test.loc[:, relCols[-2]] - X_test.loc[:, relCols[-3]])
 	
-	return X_test['accel'].median()
+	return accel.median()
+	# X_test['accel'] = X_test.apply(
+	# 	lambda row: (row[relCols[-1]] - row[relCols[-2]]) - (row[relCols[-2]] - row[relCols[-3]]), axis=1
+	# )
+	#
+	# return X_test['accel'].median()
 
 
 def _getOptimalAccel(X_test, y_test, separatorPosition, direction):
@@ -484,7 +487,7 @@ def _getOptimalAccel(X_test, y_test, separatorPosition, direction):
 	return tempDf['optAc'].median()
 
 
-def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, direction):
+def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, predictionCutOff, direction):
 	"""function to evaluate the result of this nets nextStep prediction.
 	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
 	
@@ -492,12 +495,30 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	timePredL = [p[1] for p in totalPredictions]
 	pandasLost = pd.DataFrame(data={'NNPredictionPosBalken': xPredL, 'NNPredictionTime': timePredL}, index=y_test.index)
 	
-	tempDf = X_test.sample(frac=0.05)
-	medianAccel = _getMedianAccel(tempDf, True, direction)
-	optimalAccel = _getOptimalAccel(tempDf, y_test.loc[tempDf.index], separatorPosition, direction)
-	caCvDfSeparator = prepareEvaluationSeparatorCVCA(X_test, medianAccel, optimalAccel, separatorPosition, direction)
+	comboAlign = pd.concat([X_test, y_test], axis=1)
 	
-	pandasLost = pd.concat([X_test, y_test, pandasLost, caCvDfSeparator], axis=1)
+	thresholdPoint = predictionCutOff - 100  # TODO: SUPER TEMPORARY, DO NOT USE IN FINAL SITUATION!
+	
+	if direction:
+		columnNameLast = X_test.columns[-1]
+		columnNamePenultimate = X_test.columns[-2]
+	else:
+		columnNameLast = X_test.columns[int(len(X_test.columns)/2)]
+		columnNamePenultimate = X_test.columns[int(len(X_test.columns)/2)-1]
+	comboAlign = comboAlign[(comboAlign[columnNameLast] > thresholdPoint) & (comboAlign[columnNamePenultimate] < thresholdPoint)]
+	
+	logging.info("Evaluation on {} data points".format(comboAlign.shape[0]))
+	
+	tempDf = comboAlign.sample(frac=0.05)
+	
+	assert tempDf.shape[0] != 0
+	
+	medianAccel = _getMedianAccel(tempDf[X_test.columns], True, direction)
+	optimalAccel = _getOptimalAccel(tempDf[X_test.columns], tempDf[y_test.columns].loc[tempDf.index], separatorPosition, direction)
+	caCvDfSeparator = prepareEvaluationSeparatorCVCA(comboAlign[X_test.columns], medianAccel, optimalAccel, separatorPosition, direction)
+	
+	pandasLost = pd.concat([comboAlign, pandasLost, caCvDfSeparator], axis=1)
+	pandasLost.dropna(inplace=True)
 	
 	pandasLost['NNpixelErrorPosBalken'] = pandasLost.apply(
 		lambda row: (row['LabelPosBalken'] - row['NNPredictionPosBalken']), axis=1)

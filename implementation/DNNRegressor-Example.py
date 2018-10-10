@@ -487,7 +487,7 @@ def main(argv):
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
 				
-				evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, elementsDirectionBool)
+				evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, predictionCutOff, elementsDirectionBool)
 
 
 # except:
