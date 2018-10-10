@@ -524,6 +524,10 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	pandasLost['IAerrorTime'] = pandasLost.apply(
 		lambda row: (row['LabelTime'] - (row['IA_Prediction_Time'] * 100)), axis=1) # factor 100 because of scaling
 	
+	
+	# TODO: optional: change adding of new column from pandas apply to...
+	# something like '	accel = (X_test.iloc[:,relCols[-1]] - X_test.iloc[:,relCols[-2]])'
+	
 	relevantColumnsLoc = ['NNpixelErrorPosBalken', 'CVpixelErrorPosBalken', 'CApixelErrorPosBalken',
 						  'AApixelErrorPosBalken', 'IApixelErrorPosBalken']
 	relevantColumnsTime = ['NNerrorTime', 'CVerrorTime', 'CAerrorTime', 'AAerrorTime', 'IAerrorTime']
@@ -533,8 +537,10 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	_printPDfull(pandasLost[relevantColumnsTime].describe())
 
 	# logging.info("number of predictions with error > 3: {}".format((pandasLost['NNpixelErrorTotal'] > 3).sum()))
-	
+	plt.rc('grid', linestyle=":")
 	fig1, ax1 = plt.subplots()
+	# ax1.grid(True)
+	ax1.yaxis.grid(True)
 	ax1.boxplot([pandasLost[i] for i in relevantColumnsLoc], showfliers=False, labels=relevantColumnsLoc)
 	xtickNames = plt.setp(ax1, xticklabels=relevantColumnsLoc)
 	plt.setp(xtickNames, rotation=45, fontsize=8)
@@ -546,10 +552,13 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	ax2.hist([pandasLost[i] for i in relevantColumnsLoc],
 			 bins=40, label=relevantColumnsLoc)
 	ax2.set_title('Histogram Location Error')
+	ax2.legend(loc=1)
 	# # plt.yscale('log')
 	# ax.style.use('seaborn-muted')
 	
 	fig3, ax3 = plt.subplots()
+	# ax3.grid(True)
+	ax3.yaxis.grid(True)
 	ax3.boxplot([pandasLost[i] for i in relevantColumnsTime], showfliers=False)
 	xtickNamesAx3 = plt.setp(ax3, xticklabels=relevantColumnsTime)
 	plt.setp(xtickNamesAx3, rotation=45, fontsize=8)
@@ -561,6 +570,6 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 			 bins=40, label=relevantColumnsTime)
 	ax4.set_title('Histogram Time Error')
 	
-	plt.legend(loc=1)
+	ax4.legend(loc=1)
 	plt.tight_layout()
 	plt.show()
