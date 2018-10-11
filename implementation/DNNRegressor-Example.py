@@ -182,6 +182,7 @@ def main(argv):
 				separator = True
 				separatorPosition = hyper_params.problem.separatorPosition
 				predictionCutOff = hyper_params.problem.predictionCutOff
+				thresholdPoint = hyper_params.problem.thresholdPoint
 			else:
 				separator = False
 		
@@ -192,27 +193,29 @@ def main(argv):
 	except Exception as e:
 		logging.error("Some kind of error? not sure: {}".format(e))
 		sys.exit(1)
+		
+
 
 	if loading is None:
 		if not FAKE and not separator:
-			# (X_train, y_train), (X_test, y_test) = ld.loadData(FEATURE_SIZE)
-			(X_train, y_train), (X_test, y_test) = ld.loadRawMeasNextStep(dataFolder, FEATURE_SIZE, testSize)
+			# (F_train, L_train), (F_test, L_test) = ld.loadData(FEATURE_SIZE)
+			(F_train, L_train), (F_test, L_test) = ld.loadRawMeasNextStep(dataFolder, FEATURE_SIZE, testSize)
 		elif separator:
-			(X_train, y_train), (X_test, y_test) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize, separatorPosition, predictionCutOff, elementsDirectionBool)
+			(F_train, L_train), (F_test, L_test) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize, separatorPosition, predictionCutOff, elementsDirectionBool)
 		else:
-			(X_train, y_train), (X_test, y_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
+			(F_train, L_train), (F_test, L_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 			
 		# TODO: ziemlich hässlicher Hack - das könnte man noch schöner machen
 		if singleData:
-			X_train = pd.concat([X_train, X_test])
-			X_test = X_train
-			y_train = pd.concat([y_train, y_test])
-			y_test = y_train
+			F_train = pd.concat([F_train, F_test])
+			F_test = F_train
+			L_train = pd.concat([L_train, L_test])
+			L_test = L_train
 		
 		# ExTODO: find Augmentation MIDPOINT from data or as argument? - from Argument
 		if augment:
 			logging.info("applying augmentation to Training Set...")
-			X_train, y_train = augmentData(X_train, y_train, MIDPOINT, MIRRORRANGE, separator, direction=elementsDirectionBool)
+			F_train, L_train = augmentData(F_train, L_train, MIDPOINT, MIRRORRANGE, separator, direction=elementsDirectionBool)
 			logging.info("done!")
 
 	# Network Design
@@ -307,11 +310,11 @@ def main(argv):
 			saveLoc = MODEL_PATH + '/data.h5'
 
 		with pd.HDFStore(saveLoc) as store:
-			store['xtrain'] = X_train
-			store['ytrain'] = y_train
+			store['xtrain'] = F_train
+			store['ytrain'] = L_train
 
-			store['xtest'] = X_test
-			store['ytest'] = y_test
+			store['xtest'] = F_test
+			store['ytest'] = L_test
 
 	if loading is not None:
 		try:
@@ -321,11 +324,11 @@ def main(argv):
 			logging.info("loading data from store")
 
 			with pd.HDFStore(loadLoc) as store:
-				X_train = store['xtrain']
-				y_train = store['ytrain']
+				F_train = store['xtrain']
+				L_train = store['ytrain']
 
-				X_test = store['xtest']
-				y_test = store['ytest']
+				F_test = store['xtest']
+				L_test = store['ytest']
 
 		except Exception as e:
 			logging.error("Error while loading from stored data: {}".format(e))
@@ -334,9 +337,9 @@ def main(argv):
 	#Plot progress Vars:
 	if progressPlot:
 		pos = [int(i * EPOCHS/10) for i in range(1, 10)]
-		debugVisualizerIndex = random.randint(1, X_test.shape[0])
-		featureVals = X_test.iloc[[debugVisualizerIndex]]
-		labelVals = y_test.iloc[[debugVisualizerIndex]]
+		debugVisualizerIndex = random.randint(1, F_test.shape[0])
+		featureVals = F_test.iloc[[debugVisualizerIndex]]
+		labelVals = L_test.iloc[[debugVisualizerIndex]]
 		predictions = []
 
 	hooks = None
@@ -355,8 +358,8 @@ def main(argv):
 		hooks = [tf_debug.TensorBoardDebugHook(tensorboardDebugAddress)]
 	# hooks = [debug_hook]
 
-	logging.info("Train: ({}, {})".format(X_train.shape, y_train.shape))
-	logging.info("Test: ({}, {})".format(X_test.shape, y_test.shape))
+	logging.info("Train: ({}, {})".format(F_train.shape, L_train.shape))
+	logging.info("Test: ({}, {})".format(F_test.shape, L_test.shape))
 
 	# Train it
 	if TRAINING:
@@ -370,7 +373,7 @@ def main(argv):
 
 			# Fit the DNNRegressor (This is where the magic happens!!!)
 			# regressor.train(input_fn=training_input_fn(batch_size=BATCH_SIZE), steps=STEPS_PER_EPOCH)
-			regressor.train(input_fn=lambda: training_input_fn_Slices(X_train, y_train, BATCH_SIZE),
+			regressor.train(input_fn=lambda: training_input_fn_Slices(F_train, L_train, BATCH_SIZE),
 			                steps=STEPS_PER_EPOCH, hooks=hooks)
 
 			# Thats it -----------------------------
@@ -382,7 +385,7 @@ def main(argv):
 				logging.info("Progress: epoch " + str(epoch))
 				# logging.info("Progress: global step: {}".format(tf.train.get_global_step()))
 
-				eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
+				eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(F_test, L_test, BATCH_SIZE))
 				logging.info("eval: " + str(eval_dict))
 
 				avgLoss = eval_dict['average_loss']
@@ -398,7 +401,7 @@ def main(argv):
 				debug_predicted = [p['predictions'] for p in debug_pred]
 				predictions.append(debug_predicted)
 		
-		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
+		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(F_test, L_test, BATCH_SIZE))
 
 		logging.info("Training completed. final average loss: {}, best average loss during training: {}".format(
 						eval_dict['average_loss'], min(epochInterm)))
@@ -415,7 +418,7 @@ def main(argv):
 		logging.info('No training today, just prediction')
 		try:
 			# Prediction
-			eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(X_test, y_test, BATCH_SIZE))
+			eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(F_test, L_test, BATCH_SIZE))
 			logging.info('Error on whole Test set:\nMSE (tensorflow): {}'.format(eval_dict['average_loss']))
 			averageLoss = eval_dict['average_loss']
 
@@ -428,15 +431,15 @@ def main(argv):
 			logging.error("Unknown Error while trying to evaluate: {}".format(e))
 			sys.exit(1)
 
-		assert numberPrint < y_test.shape[0]
+		assert numberPrint < L_test.shape[0]
 
-		sampleIndex = random.randint(0, y_test.shape[0] - numberPrint)
+		sampleIndex = random.randint(0, L_test.shape[0] - numberPrint)
 
-		# x_pred2 = X_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
-		# y_vals2 = y_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
+		# x_pred2 = F_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
+		# y_vals2 = L_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
 		
-		x_pred2 = X_test.sample(n=numberPrint, random_state=sampleIndex)
-		y_vals2 = y_test.sample(n=numberPrint, random_state=sampleIndex)
+		x_pred2 = F_test.sample(n=numberPrint, random_state=sampleIndex)
+		y_vals2 = L_test.sample(n=numberPrint, random_state=sampleIndex)
 
 		print(x_pred2)
 		print(y_vals2)
@@ -455,12 +458,12 @@ def main(argv):
 
 		if maximumLossAnalysis:
 			if not separator:
-				printDF = prepareMaximumLossAnalysisNextStep(X_test, y_test, numberPrint, regressor, BATCH_SIZE)
+				printDF = prepareMaximumLossAnalysisNextStep(F_test, L_test, numberPrint, regressor, BATCH_SIZE)
 				plotDataNextStepPandas(numberPrint, printDF[columnNames], printDF[['LabelX', 'LabelY']],
 								   printDF[['PredictionX', 'PredictionY']], baseImagePath, limits,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
 			else:
-				printDF = prepareMaximumLossAnalysisSeparator(X_test, y_test, numberPrint, regressor, BATCH_SIZE)
+				printDF = prepareMaximumLossAnalysisSeparator(F_test, L_test, numberPrint, regressor, BATCH_SIZE)
 				plotDataSeparatorPandas(numberPrint, printDF[columnNames], printDF[['LabelPosBalken']],
 										separatorPosition, printDF[['PredictionIntersect']], baseImagePath, limits,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
@@ -477,17 +480,22 @@ def main(argv):
 				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath, limits,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 	
-				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=BATCH_SIZE))
+				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
-				evaluateResultNextStep(X_test, y_test, totalPredictions)
+				evaluateResultNextStep(F_test, L_test, totalPredictions)
 			
 			else:
 				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted, baseImagePath, limits,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
-				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=BATCH_SIZE))
+				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
+			
+				filteredFeatures = filterDataForIntersection(F_train, thresholdPoint, elementsDirectionBool)
+				medianAccel = getMedianAccel(filteredFeatures, separator, elementsDirectionBool)
+				optimalAccel = getOptimalAccel(filteredFeatures, L_train.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
 				
-				evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, predictionCutOff, elementsDirectionBool)
+				evaluateResultSeparator(F_test, L_test, totalPredictions, separatorPosition, thresholdPoint,
+										medianAccel, optimalAccel, elementsDirectionBool)
 
 
 # except:

@@ -453,7 +453,7 @@ def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, d
 	return augmentedFeatureDf, augmentedLabelDf
 
 
-def _getMedianAccel(X_test, separator, direction):
+def getMedianAccel(X_test, separator, direction):
 	if not direction: # moving along x axis
 		relCols = X_test.columns[0:int(len(X_test.columns)/2)]
 		# print("x axis")
@@ -471,7 +471,8 @@ def _getMedianAccel(X_test, separator, direction):
 	# return X_test['accel'].median()
 
 
-def _getOptimalAccel(X_test, y_test, separatorPosition, direction):
+def getOptimalAccel(X_test, y_test, separatorPosition, direction):
+	logging.info("getting optimal accel for {} examples".format(X_test.shape[0]))
 	if not direction: # moving along x axis
 		relCols = X_test.columns[0:int(len(X_test.columns)/2)]
 	# print("x axis")
@@ -487,34 +488,42 @@ def _getOptimalAccel(X_test, y_test, separatorPosition, direction):
 	return tempDf['optAc'].median()
 
 
-def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, predictionCutOff, direction):
+def filterDataForIntersection(dataSet, thresholdPoint, direction):
+	if direction:
+		columnNameLast = dataSet.columns[-1]
+		columnNamePenultimate = dataSet.columns[-2]
+	else:
+		columnNameLast = dataSet.columns[int(len(dataSet.columns)/2)]
+		columnNamePenultimate = dataSet.columns[int(len(dataSet.columns)/2)-1]
+	dataSet = dataSet[(dataSet[columnNameLast] > thresholdPoint) & (dataSet[columnNamePenultimate] < thresholdPoint)]
+	
+	return dataSet
+
+
+def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, thresholdPoint, medianAccel, optimalAccel, direction):
 	"""function to evaluate the result of this nets nextStep prediction.
-	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
+	no return value, but writes a description of the error distribution and shows some plots for better visualisation
+	:rtype: object"""
 	
 	xPredL = [p[0] for p in totalPredictions]
 	timePredL = [p[1] for p in totalPredictions]
 	pandasLost = pd.DataFrame(data={'NNPredictionPosBalken': xPredL, 'NNPredictionTime': timePredL}, index=y_test.index)
 	
-	comboAlign = pd.concat([X_test, y_test], axis=1)
 	
-	thresholdPoint = predictionCutOff - 100  # TODO: SUPER TEMPORARY, DO NOT USE IN FINAL SITUATION!
+	# thresholdPoint = predictionCutOff - 100  # TODO: SUPER TEMPORARY, DO NOT USE IN FINAL SITUATION!
 	
-	if direction:
-		columnNameLast = X_test.columns[-1]
-		columnNamePenultimate = X_test.columns[-2]
-	else:
-		columnNameLast = X_test.columns[int(len(X_test.columns)/2)]
-		columnNamePenultimate = X_test.columns[int(len(X_test.columns)/2)-1]
-	comboAlign = comboAlign[(comboAlign[columnNameLast] > thresholdPoint) & (comboAlign[columnNamePenultimate] < thresholdPoint)]
+	filteredFeatures = filterDataForIntersection(X_test, thresholdPoint, direction)
+	
+	comboAlign = pd.concat([filteredFeatures, y_test.loc[filteredFeatures.index]], axis=1)
 	
 	logging.info("Evaluation on {} data points".format(comboAlign.shape[0]))
 	
 	tempDf = comboAlign.sample(frac=0.05)
-	
-	assert tempDf.shape[0] != 0
-	
-	medianAccel = _getMedianAccel(tempDf[X_test.columns], True, direction)
-	optimalAccel = _getOptimalAccel(tempDf[X_test.columns], tempDf[y_test.columns].loc[tempDf.index], separatorPosition, direction)
+	#
+	# assert tempDf.shape[0] != 0
+	#
+	# medianAccel = _getMedianAccel(tempDf[X_test.columns], True, direction)
+	# altOptimalAccel = getOptimalAccel(tempDf[X_test.columns], tempDf[y_test.columns].loc[tempDf.index], separatorPosition, direction)
 	caCvDfSeparator = prepareEvaluationSeparatorCVCA(comboAlign[X_test.columns], medianAccel, optimalAccel, separatorPosition, direction)
 	
 	pandasLost = pd.concat([comboAlign, pandasLost, caCvDfSeparator], axis=1)
@@ -549,8 +558,7 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	# TODO: optional: change adding of new column from pandas apply to...
 	# something like '	accel = (X_test.iloc[:,relCols[-1]] - X_test.iloc[:,relCols[-2]])'
 	
-	relevantColumnsLoc = ['NNpixelErrorPosBalken', 'CVpixelErrorPosBalken', 'CApixelErrorPosBalken',
-						  'AApixelErrorPosBalken', 'IApixelErrorPosBalken']
+	relevantColumnsLoc = ['NNpixelErrorPosBalken', 'CVpixelErrorPosBalken', 'CApixelErrorPosBalken']
 	relevantColumnsTime = ['NNerrorTime', 'CVerrorTime', 'CAerrorTime', 'AAerrorTime', 'IAerrorTime']
 	# logging.info("\n{}".format(pandasLost[relevantColumns]))
 	
