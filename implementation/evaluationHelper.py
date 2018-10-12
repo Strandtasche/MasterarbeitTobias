@@ -35,26 +35,35 @@ def prepareEvaluationNextStepCVCA(features):
 	return constantVelAndAccel
 
 
-def prepareEvaluationSeparatorCVCA(features, medianAccel, optimalAccel, separatorPosition, direction):
+def prepareEvaluationSeparatorCVCA(features, configDict, separatorPosition, direction):
 	"""a helper function for evaluation.
 	returns a pandas dataframe with CA and CV predictions for separation, with the correct corresponding index"""
 	
+	medianAccel = configDict['medAc']
+	optimalAccel = configDict['optAc']
+	cvBias = configDict['cvBias']
+	
 	locPredCV = []
+	locPredCVBC = []
 	locPredCA = []
 	locPredAA = []
 	locPredIA = []
 	timePredCV = []
+	timePredCVBC = []
 	timePredCA = []
 	timePredAA = []
 	timePredIA = []
 	
 	for index, row in features.iterrows():
 		locSepCV, timeSepCV = predictionConstantVelSeparator(row.values, separatorPosition, direction)
+		locSepCVBC, timeSepCVBC = predictionConstantVelBiasCorrectedSeparator(row.values, cvBias, separatorPosition, direction)
 		locSepCA, timeSepCA = predictionConstantAccelSeparator(row.values, separatorPosition, direction)
 		locSepAA, timeSepAA = predictionAverageAccelSeparator(row.values, medianAccel, separatorPosition, direction)
 		locSepIA, timeSepIA = predictionIdenticalAccelSeparator(row.values, optimalAccel, separatorPosition, direction)
 		locPredCV.append(locSepCV)
 		timePredCV.append(timeSepCV)
+		locPredCVBC.append(locSepCVBC)
+		timePredCVBC.append(timeSepCVBC)
 		locPredCA.append(locSepCA)
 		timePredCA.append(timeSepCA)
 		locPredAA.append(locSepAA)
@@ -64,6 +73,7 @@ def prepareEvaluationSeparatorCVCA(features, medianAccel, optimalAccel, separato
 		
 	
 	dataInp = {'CV_Prediction_Loc': locPredCV, 'CV_Prediction_Time': timePredCV,
+			   'CVBC_Prediction_Loc': locPredCVBC, 'CVBC_Prediction_Time': timePredCVBC,
 			   'CA_Prediction_Loc': locPredCA, 'CA_Prediction_Time': timePredCA,
 			   'AA_Prediction_Loc': locPredAA, 'AA_Prediction_Time': timePredAA,
 			   'IA_Prediction_Loc': locPredIA, 'IA_Prediction_Time': timePredIA
@@ -73,6 +83,8 @@ def prepareEvaluationSeparatorCVCA(features, medianAccel, optimalAccel, separato
 	
 	assert constantVelAndAccel['CV_Prediction_Loc'].head().iloc[0] == locPredCV[0]
 	assert constantVelAndAccel['CV_Prediction_Time'].head().iloc[0] == timePredCV[0]
+	assert constantVelAndAccel['CVBC_Prediction_Loc'].head().iloc[0] == locPredCVBC[0]
+	assert constantVelAndAccel['CVBC_Prediction_Time'].head().iloc[0] == timePredCVBC[0]
 	assert constantVelAndAccel['CA_Prediction_Loc'].head().iloc[0] == locPredCA[0]
 	assert constantVelAndAccel['CA_Prediction_Time'].head().iloc[0] == timePredCA[0]
 	assert constantVelAndAccel['AA_Prediction_Loc'].head().iloc[0] == locPredAA[0]
@@ -224,8 +236,8 @@ def predictionAverageAccelSeparator(array, medianAccel, separatorPosition, direc
 		intersectionPoint = xLast[tarInd] + deltaT * x_dot[tarInd] + 0.5 * deltaT **2 * x_dot[tarInd + 1]
 		
 		return intersectionPoint[0], deltaT[0]
-		
-		
+
+
 def predictionConstantAccelSeparator(array, separatorPosition, direction):
 	"""a helper function for the helper function for evaluation.
 	given one set of features, returns a tuple of predictions for location and time to intersection
@@ -367,3 +379,44 @@ def predictionIdenticalAccelSeparator(array, optimalAccel, separatorPosition, di
 		intersectionPoint = xLast[tarInd] + deltaT * x_dot[tarInd] + 0.5 * deltaT **2 * x_dot[tarInd + 1]
 		
 		return intersectionPoint[0], deltaT[0]
+
+
+def predictionConstantVelBiasCorrectedSeparator(array, cvBias, separatorPosition, direction):
+	"""a helper function for the helper function for evaluation.
+	given one set of features, returns a tuple of predictions for location and time until intersection with the separator
+	made with the CV model"""
+	
+	assert len(array) >= 4  # assume featuresize >= 2
+	indexLastX = int((len(array)) / 2) - 1  # assuming 2 labels and 2*(featureSize) length)
+	indexLastY = int(len(array) - 1)
+	
+	v_x = array[indexLastX] - array[indexLastX - 1]
+	v_y = array[indexLastY] - array[indexLastY - 1]
+	
+	xLast = np.transpose(np.array([[array[indexLastX], v_x, array[indexLastY], v_y]]))
+	
+	A = np.zeros((4,4))
+	A[0,1] = 1
+	A[2,3] = 1
+	
+	x_dot = np.matmul(A, xLast)
+	
+	# x(t) = xPredTo
+	
+	
+	if direction: # moving along x axis:
+		locInd = 2
+		tarInd = 0
+	else:  #moving along y axis
+		locInd = 0
+		tarInd = 2
+	
+	assert x_dot[locInd] != 0
+	
+	deltaT = (separatorPosition - xLast[locInd]) / x_dot[locInd]
+	
+	deltaT = deltaT + (cvBias /100) # TODO: Hier ist der faktor 100 auch noch drin
+	
+	intersectionPoint = xLast[tarInd] + deltaT * x_dot[tarInd]
+	
+	return intersectionPoint[0], deltaT[0]

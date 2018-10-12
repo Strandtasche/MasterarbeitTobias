@@ -14,8 +14,6 @@ import argparse
 from starttf.utils.hyperparams import load_params
 from tensorflow.python import debug as tf_debug
 
-import pandas as pd
-
 from MaUtil import *
 import shutil
 import numpy as np
@@ -169,6 +167,7 @@ def main(argv):
 		
 		optimizer = hyper_params.train.optimizer # "Adam", "Adagrad"
 		learningRate = hyper_params.train.learning_rate
+		decaySteps = hyper_params.train.decay_steps
 		
 		if overrideInputPath is None:
 			dataFolder = hyper_params.problem.data_path
@@ -286,7 +285,7 @@ def main(argv):
 				"dropout": dropout,
 				"activation": acti,
 				"decaying_learning_rate": True,
-				"decay_steps": 10000
+				"decay_steps": decaySteps
 			})
 
 	if not os.path.exists(MODEL_PATH):
@@ -493,9 +492,12 @@ def main(argv):
 				filteredFeatures = filterDataForIntersection(F_train, thresholdPoint, elementsDirectionBool)
 				medianAccel = getMedianAccel(filteredFeatures, separator, elementsDirectionBool)
 				optimalAccel = getOptimalAccel(filteredFeatures, L_train.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
+				bias = getCVBias(filteredFeatures, L_train.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
+				
+				configDict = {'medAc': medianAccel, 'optAc': optimalAccel, 'cvBias': bias}
 				
 				evaluateResultSeparator(F_test, L_test, totalPredictions, separatorPosition, thresholdPoint,
-										medianAccel, optimalAccel, elementsDirectionBool)
+										configDict, elementsDirectionBool)
 
 
 # except:

@@ -10,7 +10,7 @@ import pandas as pd
 import tensorflow as tf
 from adjustText import adjust_text
 
-from evaluationHelper import prepareEvaluationNextStepCVCA, prepareEvaluationSeparatorCVCA
+from evaluationHelper import prepareEvaluationNextStepCVCA, prepareEvaluationSeparatorCVCA, predictionConstantVelSeparator
 
 
 def genModelPath(hyperparams, fake, usingCustomestimator, separator):
@@ -499,17 +499,36 @@ def filterDataForIntersection(dataSet, thresholdPoint, direction):
 	
 	return dataSet
 
+def getCVBias(dataSetFeatures, dataSetLabels, separatorPosition, direction):
+	
+	# locPredCV = []
+	timePredCV = []
+	for index, row in dataSetFeatures.iterrows():
+		_, timeSepCV = predictionConstantVelSeparator(row.values, separatorPosition, direction)
+		# locPredCV.append(locSepCV)
+		timePredCV.append(timeSepCV)
+		
+	dataInp = {'CV_Prediction_Time': timePredCV}
+	constantVel = pd.DataFrame(data=dataInp, index=dataSetFeatures.index)
+	
+	timeError = dataSetLabels['LabelTime'] - constantVel['CV_Prediction_Time'] * 100
+	
+	return timeError.median()
+	
 
-def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, thresholdPoint, medianAccel, optimalAccel, direction):
+
+def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, thresholdPoint, configDict, direction):
 	"""function to evaluate the result of this nets nextStep prediction.
-	no return value, but writes a description of the error distribution and shows some plots for better visualisation
-	:rtype: object"""
+	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
 	
 	xPredL = [p[0] for p in totalPredictions]
 	timePredL = [p[1] for p in totalPredictions]
 	pandasLost = pd.DataFrame(data={'NNPredictionPosBalken': xPredL, 'NNPredictionTime': timePredL}, index=y_test.index)
-	
-	
+
+	# medianAccel = configDict['medAc']
+	# optimalAccel = configDict['optAc']
+	# cvBias = configDict['cvBias']
+	# logging.info("cvBias: {}".format(cvBias))
 	# thresholdPoint = predictionCutOff - 100  # TODO: SUPER TEMPORARY, DO NOT USE IN FINAL SITUATION!
 	
 	filteredFeatures = filterDataForIntersection(X_test, thresholdPoint, direction)
@@ -524,7 +543,7 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	#
 	# medianAccel = _getMedianAccel(tempDf[X_test.columns], True, direction)
 	# altOptimalAccel = getOptimalAccel(tempDf[X_test.columns], tempDf[y_test.columns].loc[tempDf.index], separatorPosition, direction)
-	caCvDfSeparator = prepareEvaluationSeparatorCVCA(comboAlign[X_test.columns], medianAccel, optimalAccel, separatorPosition, direction)
+	caCvDfSeparator = prepareEvaluationSeparatorCVCA(comboAlign[X_test.columns], configDict, separatorPosition, direction)
 	
 	pandasLost = pd.concat([comboAlign, pandasLost, caCvDfSeparator], axis=1)
 	pandasLost.dropna(inplace=True)
@@ -538,6 +557,10 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 		lambda row: (row['LabelPosBalken'] - row['CV_Prediction_Loc']), axis=1) # TODO: Handle Scaling!
 	pandasLost['CVerrorTime'] = pandasLost.apply(
 		lambda row: (row['LabelTime'] - row['CV_Prediction_Time'] * 100), axis=1) # factor 100 because of scaling
+	pandasLost['CVBCpixelErrorPosBalken'] = pandasLost.apply(
+		lambda row: (row['LabelPosBalken'] - row['CVBC_Prediction_Loc']), axis=1) # TODO: Handle Scaling!
+	pandasLost['CVBCerrorTime'] = pandasLost.apply(
+		lambda row: (row['LabelTime'] - row['CVBC_Prediction_Time'] * 100), axis=1) # factor 100 because of scaling
 	
 	pandasLost['CApixelErrorPosBalken'] = pandasLost.apply(
 		lambda row: (row['LabelPosBalken'] - row['CA_Prediction_Loc']), axis=1)
@@ -558,8 +581,8 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	# TODO: optional: change adding of new column from pandas apply to...
 	# something like '	accel = (X_test.iloc[:,relCols[-1]] - X_test.iloc[:,relCols[-2]])'
 	
-	relevantColumnsLoc = ['NNpixelErrorPosBalken', 'CVpixelErrorPosBalken', 'CApixelErrorPosBalken']
-	relevantColumnsTime = ['NNerrorTime', 'CVerrorTime', 'CAerrorTime', 'AAerrorTime', 'IAerrorTime']
+	relevantColumnsLoc = ['NNpixelErrorPosBalken', 'CVpixelErrorPosBalken', 'CVBCpixelErrorPosBalken', 'CApixelErrorPosBalken']
+	relevantColumnsTime = ['NNerrorTime', 'CVerrorTime', 'CVBCerrorTime', 'CAerrorTime', 'AAerrorTime', 'IAerrorTime']
 	# logging.info("\n{}".format(pandasLost[relevantColumns]))
 	
 	_printPDfull(pandasLost[relevantColumnsLoc].describe())
