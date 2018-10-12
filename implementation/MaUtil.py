@@ -141,7 +141,7 @@ def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 	plt.close()
 
 
-def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath, lim, name=None):
+def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath, lim, units, name=None):
 	"""plot a certain number of next step prediction examples (from pandas dataframe)
 	with features, labels and prection and save to .png file"""
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
@@ -172,8 +172,10 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 	plt.plot()
 	plt.xlim(lim[0], lim[1])
 	plt.ylim(lim[2], lim[3])
-	plt.xlabel('x-Coordinate (px)')
-	plt.ylabel('y-Coordinate (px)')
+	# plt.xlabel('x-Coordinate (px)')
+	# plt.ylabel('y-Coordinate (px)')
+	plt.xlabel('x-Coordinate in {}'.format(units['loc']))
+	plt.ylabel('y-Coordinate in {}'.format(units['loc'])) # a little bit hacky
 	
 	plt.title('%s DNNRegressor NextStep' % savePath.split('/')[-1])
 	
@@ -188,7 +190,7 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 	plt.close()
 
 
-def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath):
+def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath, units):
 	"""plot the different locations of prediction during training"""
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 	
@@ -217,15 +219,15 @@ def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath):
 	plt.plot()
 	plt.title('%s DNNRegressor' % savePath.split('/')[-1])
 	plt.tight_layout()
-	plt.xlabel('x-Coordinate (px)')
-	plt.ylabel('y-Coordinate (px)')
+	plt.xlabel('x-Coordinate in {}'.format(units['loc']))
+	plt.ylabel('y-Coordinate in {}'.format(units['loc'])) # a little bit hacky
 	logging.info("Saving debug image to file {}".format(savePath + '_' + time_stamp + '.png', ))
 	plt.savefig(savePath + '_' + time_stamp + '.png', dpi=300)
 	# plt.show()
 	plt.close()
 
 
-def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_predicted, savePath, lim, name=None):
+def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_predicted, savePath, lim, units, name=None):
 	"""plot a certain number of next step prediction examples (from pandas dataframe)
 		with features, labels and prection and save to .png file"""
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
@@ -276,8 +278,8 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	plt.ylim(lim[2], lim[3])
 	
 	plt.title('%s DNNRegressor Separator' % savePath.split('/')[-1])
-	plt.xlabel('x-Coordinate (px)', labelpad=None)
-	plt.ylabel('y-Coordinate (px)', labelpad=None)
+	plt.xlabel('x-Coordinate in {}'.format(units['loc']), labelpad=None)
+	plt.ylabel('y-Coordinate in {}'.format(units['loc']), labelpad=None) # a little bit hacky
 	logging.info("Saving Image to file {}".format(output))
 	# plt.tight_layout()
 	plt.savefig(output, dpi=900)
@@ -517,7 +519,7 @@ def getCVBias(dataSetFeatures, dataSetLabels, separatorPosition, direction):
 	
 
 
-def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, thresholdPoint, configDict, direction):
+def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, thresholdPoint, configDict, units, direction):
 	"""function to evaluate the result of this nets nextStep prediction.
 	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
 	
@@ -597,6 +599,7 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	xtickNames = plt.setp(ax1, xticklabels=relevantColumnsLoc)
 	plt.setp(xtickNames, rotation=45, fontsize=8)
 	ax1.set_title('Boxplot Location Error')
+	ax1.set_ylabel('error in {}'.format(units['loc']))  # a little bit hacky
 	fig1.tight_layout()
 
 	# plt.show()
@@ -604,6 +607,7 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	ax2.hist([pandasLost[i] for i in relevantColumnsLoc],
 			 bins=40, label=relevantColumnsLoc)
 	ax2.set_title('Histogram Location Error')
+	ax2.set_ylabel('# of elements in bin')  # a little bit hacky
 	ax2.legend(loc=1)
 	# # plt.yscale('log')
 	# ax.style.use('seaborn-muted')
@@ -615,13 +619,14 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	xtickNamesAx3 = plt.setp(ax3, xticklabels=relevantColumnsTime)
 	plt.setp(xtickNamesAx3, rotation=45, fontsize=8)
 	ax3.set_title('Boxplot Time Error')
+	ax3.set_ylabel('error in {}'.format(units['time']))  # a little bit hacky
 	fig3.tight_layout()
 	
 	fig4, ax4 = plt.subplots()
 	ax4.hist([pandasLost[i] for i in relevantColumnsTime],
 			 bins=40, label=relevantColumnsTime)
 	ax4.set_title('Histogram Time Error')
-	
+	ax4.set_ylabel('# of elements in bin')  # a little bit hacky
 	ax4.legend(loc=1)
 	plt.tight_layout()
 	plt.show()

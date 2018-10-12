@@ -164,6 +164,10 @@ def main(argv):
 			elementsDirectionBool = True
 		elif elementsDirection == "x":
 			elementsDirectionBool = False
+			
+		unitLocDirection = hyper_params.data.unitLoc
+		unitTimeDirection = hyper_params.data.unitTime
+		units = {'loc': unitLocDirection, 'time':unitTimeDirection}
 		
 		optimizer = hyper_params.train.optimizer # "Adam", "Adagrad"
 		learningRate = hyper_params.train.learning_rate
@@ -410,7 +414,7 @@ def main(argv):
 				savePath = '/home/hornberger/testFake'
 			else:
 				savePath = '/home/hornberger/testReal'
-			plotTrainDataPandas(featureVals, labelVals, predictions, savePath)
+			plotTrainDataPandas(featureVals, labelVals, predictions, savePath, units)
 
 	# Now it's trained. We can try to predict some values.
 	else:
@@ -459,12 +463,12 @@ def main(argv):
 			if not separator:
 				printDF = prepareMaximumLossAnalysisNextStep(F_test, L_test, numberPrint, regressor, BATCH_SIZE)
 				plotDataNextStepPandas(numberPrint, printDF[columnNames], printDF[['LabelX', 'LabelY']],
-								   printDF[['PredictionX', 'PredictionY']], baseImagePath, limits,
+								   printDF[['PredictionX', 'PredictionY']], baseImagePath, limits, units,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
 			else:
 				printDF = prepareMaximumLossAnalysisSeparator(F_test, L_test, numberPrint, regressor, BATCH_SIZE)
 				plotDataSeparatorPandas(numberPrint, printDF[columnNames], printDF[['LabelPosBalken']],
-										separatorPosition, printDF[['PredictionIntersect']], baseImagePath, limits,
+										separatorPosition, printDF[['PredictionIntersect']], baseImagePath, limits, units,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
 			# print(printDF)
 
@@ -476,7 +480,7 @@ def main(argv):
 		# # Final Plot
 		if WITHPLOT:
 			if not separator:
-				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath, limits,
+				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath, limits, units,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 	
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
@@ -484,7 +488,8 @@ def main(argv):
 				evaluateResultNextStep(F_test, L_test, totalPredictions)
 			
 			else:
-				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted, baseImagePath, limits,
+				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted,
+										baseImagePath, limits, units,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
@@ -497,7 +502,7 @@ def main(argv):
 				configDict = {'medAc': medianAccel, 'optAc': optimalAccel, 'cvBias': bias}
 				
 				evaluateResultSeparator(F_test, L_test, totalPredictions, separatorPosition, thresholdPoint,
-										configDict, elementsDirectionBool)
+										configDict, units, elementsDirectionBool)
 
 
 # except:
