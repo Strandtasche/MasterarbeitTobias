@@ -1,0 +1,69 @@
+\chapter{Implementierung}
+
+\section{Argumente}
+
+
+
+\section{Hyperparameter}
+
+\begin{lstlisting}[language=json,firstnumber=1, caption={Beispiel eines Hyperparameter Files in JSON}, captionpos=b, label=lst-hyperparam]
+    {
+        "arch": {
+            "dropout_rate": 0.0,
+            "hidden_layers": [16, 16, 16],
+            "feature_size": 5,
+            "activation": "leaky_relu"
+        },
+        "problem": {
+            "data_path": "/home/hornberger/MasterarbeitTobias/data/simulated/SpheresDownsampled",
+            "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/simulated/",
+            "imagePath": "/home/hornberger/MasterarbeitTobias/images/",
+            "separator": 0,
+            "separatorPosition": 1550,
+            "predictionCutOff": 1300
+
+        },
+        "train": {
+            "batch_size": 1000,
+            "epochs": 500,
+            "steps_per_epoch": 200,
+            "learning_rate": 0.01,
+            "optimizer": "Adam"
+        },
+        "data": {
+            "numberFakeLines": 500,
+            "testSize": 0.1,
+            "augmentMidpoint": 1123,
+            "augmentRange": 1000,
+            "direction": "x",
+            "limits": [0.388, 0.788, 0.0, 0.18]
+        }
+    }
+
+    
+\end{lstlisting}
+    
+
+\todo{Example Hyperparameter File}
+
+% Architektur:
+%     - Dropout (wird eigentlich nicht benutzt weil es regression kaputt macht), relikt vergangener Zeiten
+%     - Hidden Layer: ein Array an Zahlen repräsentiert die Architektur der Hidden Layers. Jede Zahl ist ein FC Layer mit so vielen neuronen
+%     - FeatureSize: Wie viele Positionen bekommt das Netz als Input ( => Größe des Inputlayers = 2x FeatureSize)
+%     - Activation: Aktivierungsfunktionen für die neuronen der Hidden Layers
+%         % - optionen: "relu", "leaky_relu", "linear"
+
+% Problem:
+%     - DataPath: wo liegen die CSV Dateien zum die Daten rausladen
+%     - ModelPath: wo soll das Netz hingespeichert werden/Hergeladen - mit Checkpoints usw.
+%     - ImagePath: wo sollen Bilder hingespeichert werden, z.B. von Plot
+%     - separator: 0 oder 1, jenachdem ob es den nächsten Schritt (0) oder zum Düsenbalken (1) prädizieren soll
+
+%     Falls Separator 1:
+%     - separationPosition: Koordinate des Düsenbalken und ziel der Prädiktion
+%     - ThresholdCutoff \todo{verify}
+%     - predictionCutOff: Koordinate hinter der keine FeatureTupel mehr genommen werden
+
+% Train:
+
+
