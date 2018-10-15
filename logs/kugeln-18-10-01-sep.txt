@@ -8985,3 +8985,54 @@ predicted:
 [ 879.5904 1661.1757]
 time: 0.18s
 MSE (tensorflow): 11.891633987426758
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-10-09_09.26.14
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Sept28/kugeln-Resegmented-sep
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((122452, 10), (122452, 2))
+INFO:root:Test: ((6803, 10), (6803, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 9.040907859802246
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/kugeln-Resegmented-sep_2018-10-09_09.26.14.png
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CApixelErrorPosBalken  \
+count  6803.000000            6803.000000            6803.000000             
+mean   0.125716               0.065629              -0.024421                
+std    2.488821               3.261889               20.235060               
+min   -23.947919             -23.306753             -359.078653              
+25%   -1.046018              -1.320029              -4.416090                
+50%    0.101421               0.044745               0.100528                
+75%    1.250953               1.453425               4.659226                
+max    35.353174              72.264220              304.572130              
+
+       AApixelErrorPosBalken  IApixelErrorPosBalken  
+count  6803.000000            6803.000000            
+mean   0.125692              -0.393034               
+std    19.622892              15.387128              
+min   -346.955009            -265.736091             
+25%   -4.398150              -4.386413               
+50%    0.050493              -0.140498               
+75%    4.651386               3.918604               
+max    410.121161             311.196697             
+INFO:root:
+       NNerrorTime  CVerrorTime  CAerrorTime  AAerrorTime  IAerrorTime
+count  6803.000000  6803.000000  6803.000000  6803.000000  6803.000000
+mean   0.021810     407.245901   399.588844   402.385308   464.181633 
+std    3.445862     9.127969     76.445803    7.168853     53.362981  
+min   -24.837021    373.966333  -583.456965   351.442320   406.754523 
+25%   -1.897013     401.990449   376.278254   398.572027   429.538607 
+50%   -0.007117     405.397307   403.485792   401.995108   453.590403 
+75%    1.781349     410.086751   430.270667   405.758596   481.090454 
+max    41.008078    535.139638   1043.666676  506.815026   816.785351 
+             X_0        X_1        X_2    ...         Y_2       Y_3       Y_4
+47458  1433.2155  1431.1602  1429.2045    ...     686.152  779.1511  871.6961
+
+[1 rows x 10 columns]
+       LabelPosBalken    LabelTime
+47458     1408.496778  1139.314548
+predicted: 
+[1408.1774 1137.1947]
+time: 0.17s
+MSE (tensorflow): 2.2979576587677

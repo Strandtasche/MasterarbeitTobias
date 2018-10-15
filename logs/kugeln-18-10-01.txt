@@ -670,3 +670,35 @@ INFO:root:Progress: epoch 1250
 INFO:root:eval: {'average_loss': 0.12295149, 'loss': 614.4501, 'rmse': 0.3506444, 'global_step': 1201002}
 INFO:root:Progress: epoch 1260
 INFO:root:eval: {'average_loss': 0.12346737, 'loss': 617.0282, 'rmse': 0.35137925, 'global_step': 1206002}
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-10-09_09.33.22
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Sept28/kugeln-Resegmented-augmn
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((179902, 10), (179902, 2))
+INFO:root:Test: ((9995, 10), (9995, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.12346411496400833
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/kugeln-Resegmented-augmn_2018-10-09_09.33.22.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  9995.000000        9995.000000        9995.000000      
+mean   0.413456           0.816636           1.525779         
+std    0.275663           0.471453           0.844368         
+min    0.003739           0.008563           0.009654         
+25%    0.224498           0.451865           0.857258         
+50%    0.364217           0.772619           1.509834         
+75%    0.536056           1.110656           2.099573         
+max    5.860363           6.880006           7.977318         
+INFO:root:number of predictions with error > 3: 2
+            X_0       X_1       X_2    ...          Y_2       Y_3       Y_4
+26345  804.9491  803.5623  802.0631    ...     571.6922  663.2351  755.3865
+
+[1 rows x 10 columns]
+         LabelX    LabelY
+26345  798.4014  847.0587
+predicted: 
+[798.41174 847.3026 ]
+time: 0.18s
+MSE (tensorflow): 0.029795946553349495
