@@ -376,8 +376,19 @@ def main(argv):
 
 			# Fit the DNNRegressor (This is where the magic happens!!!)
 			# regressor.train(input_fn=training_input_fn(batch_size=BATCH_SIZE), steps=STEPS_PER_EPOCH)
-			regressor.train(input_fn=lambda: training_input_fn_Slices(F_train, L_train, BATCH_SIZE),
-			                steps=STEPS_PER_EPOCH, hooks=hooks)
+			
+			# regressor.train(input_fn=lambda: training_input_fn_Slices(F_train, L_train, BATCH_SIZE),
+			#                 steps=STEPS_PER_EPOCH, hooks=hooks)
+			# tempDict1 = F_train.to_dict("list")
+			# for key in tempDict1:
+			# 	tempDict1[key] = np.array(tempDict1[key])
+			#
+			# tempDict2 = L_train.to_dict("list")
+			# for key in tempDict2:
+			# 	tempDict2[key] = np.array(tempDict2[key])
+			
+			regressor.train(input_fn=estimator.inputs.pandas_input_fn(F_train, y=L_train, batch_size=BATCH_SIZE, shuffle=True),
+							steps=STEPS_PER_EPOCH, hooks=hooks)
 
 			# Thats it -----------------------------
 			# Start Tensorboard in Terminal:

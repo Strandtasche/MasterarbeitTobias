@@ -5,7 +5,8 @@ def myCustomEstimator(features, labels, mode, params):
 	"""Modell funktion für Custom Estimator (DNN Regression)"""
 
 	# Input Layer
-	top = tf.feature_column.input_layer(features, params["feature_columns"])
+	featureColumns = params.get("feature_columns")
+	top = tf.feature_column.input_layer(features, featureColumns)
 
 	activationFunc = params.get("activation", tf.nn.relu)
 	# basierend auf hidden Units wird die Netztopologie aufgebaut
