@@ -322,7 +322,7 @@ def prepareMaximumLossAnalysisSeparator(X_test, y_test, numberPrint, regressor, 
 	return printDF
 
 
-def evaluateResultNextStep(X_test, y_test, totalPredictions):
+def evaluateResultNextStep(X_test, y_test, totalPredictions, units):
 	"""function to evaluate the result of this nets nextStep prediction. no return value,
 	but writes a description of the error distribution and shows some plots for better visualisation"""
 	
@@ -370,8 +370,12 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions):
 	
 	# TODO: Maybe save column total Pixelerror of current prediction so it can be compared to other schüttgüter
 	
+	plt.rc('grid', linestyle=":")
 	fig1, ax1 = plt.subplots()
 	ax1.boxplot([pandasLost['NNpixelErrorTotal'], pandasLost['CVpixelErrorTotal'], pandasLost['CApixelErrorTotal']], showfliers=False)
+	ax1.yaxis.grid(True)
+	ax1.set_title('Boxplot Location Error')
+	ax1.set_ylabel('error in {}'.format(units['loc']))  # a little bit hacky
 	# plt.show()
 	fig2, ax2 = plt.subplots()
 	ax2.hist([pandasLost['NNpixelErrorTotal'], pandasLost['CVpixelErrorTotal'], pandasLost['CApixelErrorTotal']],

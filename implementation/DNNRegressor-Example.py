@@ -260,7 +260,7 @@ def main(argv):
 	if not usingCustomEstimator:
 		# Validation and Test Configuration
 		logging.info("using premade Estimator")
-		test_config = estimator.RunConfig(save_checkpoints_steps=200,
+		test_config = estimator.RunConfig(save_checkpoints_steps=5000,
 										  save_checkpoints_secs=None, save_summary_steps=100)
 		
 		regressor = estimator.DNNRegressor(feature_columns=my_feature_columns,
@@ -274,7 +274,7 @@ def main(argv):
 										   )
 	else:
 		logging.info("using custom estimator")
-		test_config = estimator.RunConfig(save_checkpoints_steps=1000,
+		test_config = estimator.RunConfig(save_checkpoints_steps=5000,
 		                                  save_checkpoints_secs=None,
 										  save_summary_steps=100)
 		regressor = estimator.Estimator(
@@ -485,7 +485,7 @@ def main(argv):
 	
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
-				evaluateResultNextStep(F_test, L_test, totalPredictions)
+				evaluateResultNextStep(F_test, L_test, totalPredictions, units)
 			
 			else:
 				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted,
