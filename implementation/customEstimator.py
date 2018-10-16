@@ -36,7 +36,7 @@ def myCustomEstimator(features, labels, mode, params):
 	MSE = tf.metrics.mean_squared_error(tf.cast(labels, tf.float32), output_layer)
 	tf.summary.scalar('error', MSE[1])
 	
-	regularization = True # TODO: eventuell in params?
+	regularization = params.get("l1regularization", False) #Default: deactivate
 	
 	if regularization:
 		l1_regularizer = tf.contrib.layers.l1_regularizer(scale=0.005, scope=None)
@@ -68,7 +68,7 @@ def myCustomEstimator(features, labels, mode, params):
 			optimizer = params.get("optimizer", tf.train.AdamOptimizer)
 			optimizer = optimizer(params.get("learning_rate", None))
 		
-		if regularization:
+		if not regularization:
 			train_op = optimizer.minimize(loss=average_loss, global_step=tf.train.get_global_step())
 		else:
 			train_op = optimizer.minimize(loss=regularized_loss, global_step=tf.train.get_global_step())

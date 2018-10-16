@@ -289,7 +289,8 @@ def main(argv):
 				"dropout": dropout,
 				"activation": acti,
 				"decaying_learning_rate": True,
-				"decay_steps": decaySteps
+				"decay_steps": decaySteps,
+				"l1regularization": True
 			})
 
 	if not os.path.exists(MODEL_PATH):
