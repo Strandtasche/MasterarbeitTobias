@@ -260,7 +260,7 @@ def main(argv):
 	if not usingCustomEstimator:
 		# Validation and Test Configuration
 		logging.info("using premade Estimator")
-		test_config = estimator.RunConfig(save_checkpoints_steps=5000,
+		test_config = estimator.RunConfig(save_checkpoints_steps=50000,
 										  save_checkpoints_secs=None, save_summary_steps=100)
 		
 		regressor = estimator.DNNRegressor(feature_columns=my_feature_columns,
@@ -274,7 +274,7 @@ def main(argv):
 										   )
 	else:
 		logging.info("using custom estimator")
-		test_config = estimator.RunConfig(save_checkpoints_steps=5000,
+		test_config = estimator.RunConfig(save_checkpoints_steps=50000,
 		                                  save_checkpoints_secs=None,
 										  save_summary_steps=100)
 		regressor = estimator.Estimator(

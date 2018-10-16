@@ -56,8 +56,9 @@ def training_input_fn_Slices(features, labels, batch_size):
 	dataset = dataset.shuffle(2500).repeat().batch(batch_size)
 	
 	# Return the dataset.
-	
 	return dataset
+	# iterator = dataset.make_one_shot_iterator()
+	# return iterator.get_next()
 
 
 # kopiert aus Stackoverflow thread "https://stackoverflow.com/questions/20677795/how-do-i-compute-the-intersection-point-of-two-lines-in-python"f

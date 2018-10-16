@@ -9,7 +9,8 @@ def myCustomEstimator(features, labels, mode, params):
 
 	activationFunc = params.get("activation", tf.nn.relu)
 	# basierend auf hidden Units wird die Netztopologie aufgebaut
-	for units in params.get("hidden_units", [20]):
+	arch = params.get("hidden_units", None)
+	for units in arch:
 		top = tf.layers.dense(inputs=top, units=units, activation=activationFunc)
 		if "dropout" in params.keys() and params["dropout"] != 0:
 			top = tf.layers.dropout(inputs=top, rate=params["dropout"], training=mode == tf.estimator.ModeKeys.TRAIN)
@@ -34,7 +35,20 @@ def myCustomEstimator(features, labels, mode, params):
 
 	MSE = tf.metrics.mean_squared_error(tf.cast(labels, tf.float32), output_layer)
 	tf.summary.scalar('error', MSE[1])
-
+	
+	regularization = True # TODO: eventuell in params?
+	
+	if regularization:
+		l1_regularizer = tf.contrib.layers.l1_regularizer(scale=0.005, scope=None)
+		trainVar = tf.trainable_variables()
+		weights = [v for v in trainVar if "kernel" in v.name]
+		
+		assert len(weights) == (len(arch) + 1)
+		
+		regularization_penalty = tf.contrib.layers.apply_regularization(l1_regularizer, weights)
+		regularized_loss = average_loss + regularization_penalty
+	
+	
 	# Pre-made estimators use the total_loss instead of the average,
 	# so report total_loss for compatibility.
 	batch_size = tf.shape(labels)[0]
@@ -54,8 +68,10 @@ def myCustomEstimator(features, labels, mode, params):
 			optimizer = params.get("optimizer", tf.train.AdamOptimizer)
 			optimizer = optimizer(params.get("learning_rate", None))
 		
-		train_op = optimizer.minimize(
-			loss=average_loss, global_step=tf.train.get_global_step())
+		if regularization:
+			train_op = optimizer.minimize(loss=average_loss, global_step=tf.train.get_global_step())
+		else:
+			train_op = optimizer.minimize(loss=regularized_loss, global_step=tf.train.get_global_step())
 
 		return tf.estimator.EstimatorSpec(
 			mode=mode, loss=total_loss, train_op=train_op)
