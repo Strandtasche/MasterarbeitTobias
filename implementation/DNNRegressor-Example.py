@@ -475,7 +475,7 @@ def main(argv):
 		# displaying weights in Net - (a bit redundant after implementation of debugger
 		if displayWeights:
 			for variable in regressor.get_variable_names():
-				print("name: \n{}\n\nvalue: \n{}".format(variable, regressor.get_variable_value(variable)))
+				print("name: \n{}\nvalue: \n{}\n".format(variable, regressor.get_variable_value(variable)))
 
 		# # Final Plot
 		if WITHPLOT:
