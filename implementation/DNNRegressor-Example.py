@@ -290,7 +290,8 @@ def main(argv):
 				"activation": acti,
 				"decaying_learning_rate": True,
 				"decay_steps": decaySteps,
-				"l1regularization": True
+				"l1regularization": False,
+				"l2regularization": False
 			})
 
 	if not os.path.exists(MODEL_PATH):
@@ -477,6 +478,10 @@ def main(argv):
 		if displayWeights:
 			for variable in regressor.get_variable_names():
 				print("name: \n{}\nvalue: \n{}\n".format(variable, regressor.get_variable_value(variable)))
+
+			weights = regressor.get_variable_value('dense/kernel')
+			plt.imshow(weights, cmap='coolwarm')
+			plt.show()
 
 		# # Final Plot
 		if WITHPLOT:

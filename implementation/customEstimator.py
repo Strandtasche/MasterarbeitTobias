@@ -36,16 +36,25 @@ def myCustomEstimator(features, labels, mode, params):
 	MSE = tf.metrics.mean_squared_error(tf.cast(labels, tf.float32), output_layer)
 	tf.summary.scalar('error', MSE[1])
 	
-	regularization = params.get("l1regularization", False) #Default: deactivate
+	l1Regularization = params.get("l1regularization", False) #Default: deactivate
+	l2Regularization = params.get("l2regularization", False) #Default: deactivate
+	
+	regularization = l1Regularization or l2Regularization
 	
 	if regularization:
-		l1_regularizer = tf.contrib.layers.l1_regularizer(scale=0.005, scope=None)
+		if l1Regularization and l2Regularization:
+			raise ValueError('L1 and L2 regularization are both activated')
+		elif l1Regularization:
+			regularizer = tf.contrib.layers.l1_regularizer(scale=0.005, scope=None)
+		elif l2Regularization:
+			regularizer = tf.contrib.layers.l2_regularizer(scale=0.005, scope=None)
+			
 		trainVar = tf.trainable_variables()
 		weights = [v for v in trainVar if "kernel" in v.name]
 		
 		assert len(weights) == (len(arch) + 1)
 		
-		regularization_penalty = tf.contrib.layers.apply_regularization(l1_regularizer, weights)
+		regularization_penalty = tf.contrib.layers.apply_regularization(regularizer, weights)
 		regularized_loss = average_loss + regularization_penalty
 	
 	
