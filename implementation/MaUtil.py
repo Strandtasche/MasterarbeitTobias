@@ -379,8 +379,8 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions, units):
 	ax1.set_ylabel('error in {}'.format(units['loc']))  # a little bit hacky
 	# plt.show()
 	fig2, ax2 = plt.subplots()
-	ax2.hist([pandasLost['NNpixelErrorTotal'], pandasLost['CVpixelErrorTotal'], pandasLost['CApixelErrorTotal']],
-			 bins=40, label=['NNpixelErrorTotal', 'CVpixelErrorTotal', 'CApixelErrorTotal'])
+	ax2.hist([pandasLost[i] for i in reducedRelColumns],
+			 bins=40, label=reducedRelColumns)
 	# # plt.yscale('log')
 	# ax.style.use('seaborn-muted')
 	plt.legend(loc=1)

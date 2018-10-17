@@ -204,7 +204,9 @@ def main(argv):
 			# (F_train, L_train), (F_test, L_test) = ld.loadData(FEATURE_SIZE)
 			(F_train, L_train), (F_test, L_test) = ld.loadRawMeasNextStep(dataFolder, FEATURE_SIZE, testSize)
 		elif separator:
-			(F_train, L_train), (F_test, L_test) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize, separatorPosition, predictionCutOff, elementsDirectionBool)
+			(F_train, L_train), (F_test, L_test) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize,
+																			separatorPosition, predictionCutOff,
+																			elementsDirectionBool)
 		else:
 			(F_train, L_train), (F_test, L_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 			
@@ -277,6 +279,20 @@ def main(argv):
 		test_config = estimator.RunConfig(save_checkpoints_steps=50000,
 		                                  save_checkpoints_secs=None,
 										  save_summary_steps=100)
+		
+		useRatioScaling = True
+		
+		if separator and useRatioScaling:
+			medianDim1 = L_train.iloc[:,0].median()
+			medianDim2 = L_train.iloc[:,1].median()
+			ratio = medianDim1 / medianDim2
+			
+			scaleDim1 = 1.0
+			scaleDim2 = ratio
+			
+		else:
+			scaleDim1 = 1.0
+			scaleDim2 = 1.0
 		regressor = estimator.Estimator(
 			model_fn=cE.myCustomEstimator,
 			config=test_config,
@@ -292,8 +308,8 @@ def main(argv):
 				"decay_steps": decaySteps,
 				"l1regularization": False,
 				"l2regularization": False,
-				"scaleDim1": 1.0,
-				"scaleDim2": 1.0
+				"scaleDim1": scaleDim1,
+				"scaleDim2": scaleDim2
 			})
 
 	if not os.path.exists(MODEL_PATH):

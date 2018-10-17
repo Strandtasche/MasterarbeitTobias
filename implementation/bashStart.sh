@@ -4,25 +4,34 @@ echo "Starting Execution"
 dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "$dt"
 
-python DNNRegressor-Example.py --training --custom --augment --save /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugelnJuli-sep-augmn-v3.h5  --hyperparams hyperParamFolder/hyperKugeln-10-01-separator.json --overrideModel ~/MasterarbeitTobias/models/Sept28/kugeln-Resegmented-sep-aug-v4  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/kugeln-18-10-09-sep-aug-v4.txt
+#modelFolder="/home/hornberger/MasterarbeitTobias/models/FineTuning/Decay/Baseline"
+#python DNNRegressor-Example.py --training --custom --augment --save /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugelnFineTuningLayer.h5  --hyperparams /home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning/ConfigBaseline.json --overrideModel $modelfolder  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/Finetuning/Baseline.txt
+#(cd $modelFolder && bash /home/hornberger/MasterarbeitTobias/scripts/convertTFEVENTtoCSV.sh delete)
+
 
 dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "$dt"
 echo "finished hyperV1"
 
-python DNNRegressor-Example.py --training --custom --augment --load /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugelnJuli-sep-augmn-v3.h5  --hyperparams hyperParamFolder/hyperKugeln-10-01-separator.json --overrideModel ~/MasterarbeitTobias/models/Sept28/kugeln-Resegmented-sep-aug-v4  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/kugeln-18-10-09-sep-aug-v4.txt
+#python DNNRegressor-Example.py --training --custom --augment --load /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugelnFineTuningLayer.h5  --hyperparams /home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning/Config-1Layer.json --overrideModel ~/MasterarbeitTobias/models/FineTuning/layer/layer01  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/Finetuning/layer01.txt
+#(cd $modelFolder && bash /home/hornberger/MasterarbeitTobias/scripts/convertTFEVENTtoCSV.sh delete)
 
 dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "$dt"
 echo "finished hyperV2"
 
-python DNNRegressor-Example.py --training --custom --augment --load /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugelnJuli-sep-augmn-v3.h5  --hyperparams hyperParamFolder/hyperKugeln-10-01-separator-linear.json --overrideModel ~/MasterarbeitTobias/models/Sept28/kugeln-Resegmented-sep-aug-linearRegression-v2  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/kugeln-18-10-09-sep-aug-linear.txt
+modelFolder="/home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10"
+python DNNRegressor-Example.py --training --custom --augment --load /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugelnFineTuningLayer.h5  --hyperparams /home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning/Config-10Layer.json --overrideModel $modelFolder  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/Finetuning/layer10.txt
+(cd $modelFolder && bash /home/hornberger/MasterarbeitTobias/scripts/convertTFEVENTtoCSV.sh delete)
 
 dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "$dt"
 echo "finished hyperV3"
 
-python DNNRegressor-Example.py --training --custom --augment --load /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugelnJuli-sep-augmn-v3.h5  --hyperparams hyperParamFolder/hyperKugeln-10-01-separator-linear.json --overrideModel ~/MasterarbeitTobias/models/Sept28/kugeln-Resegmented-sep-aug-linearRegression-v2  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/kugeln-18-10-09-sep-aug-linear.txt
+
+modelFolder="/home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer15"
+python DNNRegressor-Example.py --training --custom --augment --load /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugelnFineTuningLayer.h5  --hyperparams /home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning/Config-5Layer.json --overrideModel $modelFolder  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/Finetuning/layer15.txt
+(cd $modelFolder && bash /home/hornberger/MasterarbeitTobias/scripts/convertTFEVENTtoCSV.sh delete)
 
 dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "$dt"
