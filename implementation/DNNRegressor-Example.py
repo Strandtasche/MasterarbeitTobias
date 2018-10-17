@@ -291,7 +291,9 @@ def main(argv):
 				"decaying_learning_rate": True,
 				"decay_steps": decaySteps,
 				"l1regularization": False,
-				"l2regularization": False
+				"l2regularization": False,
+				"scaleDim1": 1.0,
+				"scaleDim2": 1.0
 			})
 
 	if not os.path.exists(MODEL_PATH):

@@ -1,4 +1,5 @@
 import tensorflow as tf
+import numpy as np
 
 
 def myCustomEstimator(features, labels, mode, params):
@@ -27,11 +28,16 @@ def myCustomEstimator(features, labels, mode, params):
 			mode=mode, predictions={"predictions": output_layer})
 
 	# Calculate loss using mean squared error
-	# print(labels)
-	# print(output_layer)
+	
+	scaleDim1 = params.get("scaleDim1")
+	scaleDim2 = params.get("scaleDim2")
+	weights_per_output = tf.constant([[scaleDim1, scaleDim2]])
+	# print(weights_per_output.shape)
 
-	average_loss = tf.losses.mean_squared_error(tf.cast(labels, tf.float32), output_layer)
+	average_loss = tf.losses.mean_squared_error(tf.cast(labels, tf.float32), output_layer, weights=weights_per_output)
 	tf.summary.scalar("average_loss", average_loss)
+
+	
 
 	MSE = tf.metrics.mean_squared_error(tf.cast(labels, tf.float32), output_layer)
 	tf.summary.scalar('error', MSE[1])
