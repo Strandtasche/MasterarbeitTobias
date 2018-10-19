@@ -25,6 +25,14 @@
 
 \addbibresource{sources.bib}
 
+\usepackage{hyperref}
+
+
+\hypersetup{pdfauthor={Tobias Hornberger},
+            pdftitle={Bewegungsmodelle in der Schüttgutsortierung mittels ML},
+            pdfsubject={Thesis},
+            pdfkeywords={Neuronale Netze, Schüttgutsortierung, Tensorflow, TableSort}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Edit notation.tex if necessary
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,12 +108,13 @@
 
     \maketoc
 
-
+    \include{einleitung}
     \include{grundlagen}
     \include{relatedWork}
     \include{datensammeln}
     \include{implementation}
-
+    \include{evaluierung}
+    \include{fazit}
 
 
     \nocite{*}
