@@ -410,3 +410,118 @@ predicted:
 [ 727.93097 1310.4905 ]
 time: 0.18s
 MSE (tensorflow): 0.4991227686405182
+INFO:root:Tensorflow 1.11.0
+ERROR:root:Error in Parameters. Maybe mistake in hyperparameter file?
+ERROR:root:AttributeError: 'Dict2Obj' object has no attribute 'unitLoc'
+INFO:root:Tensorflow 1.11.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_001_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_002_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_003_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_004_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_005_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_006_trackHistory_NothingDeleted.csv
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-15_10.24.27
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Oct11/KugelnRuscheNext-noaugm-2
+INFO:root:using custom estimator
+INFO:root:/home/hornberger/MasterarbeitTobias/models/Oct11/KugelnRuscheNext-noaugm-2 does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((33169, 10), (33169, 2))
+INFO:root:Test: ((3686, 10), (3686, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 18.764538, 'loss': 17291.521, 'rmse': 4.331805, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 88.27662, 'loss': 81346.91, 'rmse': 9.395564, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 10.093314, 'loss': 9300.989, 'rmse': 3.1769977, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 17.015059, 'loss': 15679.377, 'rmse': 4.1249313, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 6.3802133, 'loss': 5879.3667, 'rmse': 2.5259085, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 5.9455113, 'loss': 5478.7886, 'rmse': 2.4383419, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 7.996842, 'loss': 7369.09, 'rmse': 2.8278687, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 77.8299, 'loss': 71720.26, 'rmse': 8.822125, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 11.347773, 'loss': 10456.973, 'rmse': 3.3686454, 'global_step': 40500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 5.460977, 'loss': 5032.2905, 'rmse': 2.3368733, 'global_step': 45500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 2.6720934, 'loss': 2462.3342, 'rmse': 1.6346539, 'global_step': 50500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 2.587638, 'loss': 2384.5083, 'rmse': 1.6086136, 'global_step': 55500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 9.816245, 'loss': 9045.67, 'rmse': 3.1330888, 'global_step': 60500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 5.7958274, 'loss': 5340.855, 'rmse': 2.4074526, 'global_step': 65500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 4.1771965, 'loss': 3849.2866, 'rmse': 2.0438192, 'global_step': 70500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 1.7384763, 'loss': 1602.0059, 'rmse': 1.3185129, 'global_step': 75500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 20.79462, 'loss': 19162.242, 'rmse': 4.560112, 'global_step': 80500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 2.240695, 'loss': 2064.8005, 'rmse': 1.4968951, 'global_step': 85500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 13.769552, 'loss': 12688.643, 'rmse': 3.7107348, 'global_step': 90500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 1.3901473, 'loss': 1281.0208, 'rmse': 1.1790451, 'global_step': 95500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 6.8221207, 'loss': 6286.584, 'rmse': 2.611919, 'global_step': 100500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 4.1888623, 'loss': 3860.0361, 'rmse': 2.0466712, 'global_step': 105500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 1.3525655, 'loss': 1246.3892, 'rmse': 1.1629986, 'global_step': 110500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 3.3240066, 'loss': 3063.072, 'rmse': 1.8231858, 'global_step': 115500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 17.955194, 'loss': 16545.71, 'rmse': 4.237357, 'global_step': 120500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 14.576593, 'loss': 13432.331, 'rmse': 3.8179305, 'global_step': 125500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 1.2783481, 'loss': 1177.9978, 'rmse': 1.1306405, 'global_step': 130500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 3.3399813, 'loss': 3077.7927, 'rmse': 1.8275616, 'global_step': 135500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 1.7532207, 'loss': 1615.5929, 'rmse': 1.3240924, 'global_step': 140500}
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-15_10.42.16
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/Oct11/KugelnRuscheNext-noaugm-2
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((33169, 10), (33169, 2))
+INFO:root:Test: ((3686, 10), (3686, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 16.492555618286133
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/KugelnRuscheNext-noaugm-2_2018-10-15_10.42.16.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  3686.000000        3686.000000        3686.000000      
+mean   5.596235           1.988744           2.806431         
+std    1.291400           1.214887           1.757605         
+min    1.683923           0.006519           0.053528         
+25%    4.675388           0.997490           1.443739         
+50%    5.629649           1.796958           2.526290         
+75%    6.464908           2.788736           3.818040         
+max    12.674981          8.118602           11.097427        
+INFO:root:number of predictions with error > 3: 3622
+           X_0       X_1       X_2    ...           Y_2        Y_3        Y_4
+5663  654.9219  656.6202  659.3408    ...      921.5953  1054.8319  1189.2769
+
+[1 rows x 10 columns]
+        LabelX    LabelY
+5663  667.8791  1325.811
+predicted: 
+[ 671.69824 1326.1931 ]
+time: 0.20s
+MSE (tensorflow): 7.365956783294678
