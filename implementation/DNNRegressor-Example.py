@@ -150,6 +150,19 @@ def main(argv):
 		ACTIVATION = hyper_params.arch.activation # "leaky_relu", "relu", "linear", TODO: "sigmoid", "tanh"
 		dropout = hyper_params.arch.dropout_rate
 		hidden_layers = hyper_params.arch.hidden_layers
+		regularization = hyper_params.arch.regularization
+		
+		if regularization == "no" or regularization is None:
+			l1regularization = False
+			l2regularization = False
+		elif regularization == "l1":
+			l1regularization = True
+			l2regularization = False
+		elif regularization == "l2":
+			l1regularization = False
+			l2regularization = True
+		else:
+			raise AttributeError('invalid string in hyper_params.arch.regularization')
 		
 		if FAKE:
 			FAKE_DATA_AMOUNT = hyper_params.data.numberFakeLines
@@ -306,8 +319,8 @@ def main(argv):
 				"activation": acti,
 				"decaying_learning_rate": True,
 				"decay_steps": decaySteps,
-				"l1regularization": False,
-				"l2regularization": False,
+				"l1regularization": l1regularization,
+				"l2regularization": l2regularization,
 				"scaleDim1": scaleDim1,
 				"scaleDim2": scaleDim2
 			})
