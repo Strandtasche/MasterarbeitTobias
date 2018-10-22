@@ -134,7 +134,7 @@ Operation auf diese an und gibt das Ergebnis zurück.
 
 	\item[TanH] \hfill \\
 		\begin{equation}
-			f(x) = tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}
+			f(x) = \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}
 		\end{equation}
 		\begin{equation}
 			f'(x) = 1 - f(x)^2
@@ -231,6 +231,37 @@ was dann für einen Gradientenabstieg verwendet werden kann.
 	\item "Finden einer Funktion, die am besten die Inputs auf die outputs mapt"
 \end{itemize}
 
-\subsection{Rekurrente neuronale Netze}
+\subsection{Overfitting}
 
-\todo{Text über rekurrente Netzwerke - Do I really need that now that I wont use them?}
+\todo{Absatz zu Overfitting}
+
+\subsection{Regularisierung}
+
+Als Regularisierung bezeichnet man eine Technik, die benutzt wird um ein Modell von Overfitting abzuhalten.
+Sie wird in der Hoffnung angewendet, dass das Modell mit Regularisierung besser generalisiert als ohne.
+
+Die Grundidee ist, dass zur loss function ein Regularisierungsterm hinzugefügt wird, 
+der die Kosten basierend auf der Komplexität des Systems erhöht.
+
+\begin{equation}
+	\min_f \sum\limits_{i=1}^{m} V(f(\vec{x}_i), \vec{y}_i) + \lambda R(f)
+\end{equation} 
+
+Dabei ist $V$ die loss function, beispielsweise \textit{Mean-Square-Error} oder \textit{Mean-Absolute-Error}.
+$n$ ist die Anzahl der Feature-Label-Paare,
+$x_i$ und $y_i$ sind die einzelnen Eingabefeatures und das dazugehörige Label.
+Die Funktion $f$ ist in unserem Fall das Neuronale Netz, das die Features entgegen nimmt.
+$\lambda$ ist ein Parameter, der die Gewichtung des Regularisierungsterm festlegt.
+Wählt man diesen Parameter zu klein, so kann es sein, dass das Modell immer noch overfittet.
+Wählt man ihn zu groß so kann es sein, dass das Modell das Problem nicht mehr korrekt abbildet und es zu Underfitting kommt.
+Der Regularisierungsterm $R$ wird so gewählt, dass er die Komplexität der Funktion $f$ wiederspiegelt.
+Beispiele für $R$ wären zum Beispiel die L1- oder die L2-Regularisierung die jeweils mit der L1 beziehungsweise mit der L2 Norm arbeiten.
+
+Ein gutes Maß für die Komplexität eines neuronalen Netzes sind die Gewichte zwischen den Neuronen.
+
+Formel für MSE mit L1 Regularisierung findet man in \ref{eqn:MSE-L1}.
+\begin{equation} \label{eqn:MSE-L1}
+	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j} \sum_{k} (|\mat{W}_{j,k}|)
+\end{equation} 
+
+\todo{absatz zu regularization - L1, L2, (L0 und warum man es nicht benutzt?)}
