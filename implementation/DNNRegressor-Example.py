@@ -217,7 +217,7 @@ def main(argv):
 			# (F_train, L_train), (F_test, L_test) = ld.loadData(FEATURE_SIZE)
 			(F_train, L_train), (F_test, L_test) = ld.loadRawMeasNextStep(dataFolder, FEATURE_SIZE, testSize)
 		elif separator:
-			(F_train, L_train), (F_test, L_test) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize,
+			(F_train, L_train), (F_test, L_test), (labelMeans, labelStds) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize,
 																			separatorPosition, predictionCutOff,
 																			elementsDirectionBool)
 		else:
@@ -233,7 +233,10 @@ def main(argv):
 		# ExTODO: find Augmentation MIDPOINT from data or as argument? - from Argument
 		if augment:
 			logging.info("applying augmentation to Training Set...")
-			F_train, L_train = augmentData(F_train, L_train, MIDPOINT, MIRRORRANGE, separator, direction=elementsDirectionBool)
+			if separator:
+				F_train, L_train = augmentData(F_train, L_train, MIDPOINT, MIRRORRANGE, separator, labelMeans, labelStds, direction=elementsDirectionBool)
+			else:
+				F_train, L_train = augmentData(F_train, L_train, MIDPOINT, MIRRORRANGE, separator, None, None, direction=elementsDirectionBool)
 			logging.info("done!")
 
 	# Network Design
@@ -299,6 +302,10 @@ def main(argv):
 			store['xtest'] = F_test
 			store['ytest'] = L_test
 
+			if separator:
+				store['labelMeans'] = labelMeans
+				store['labelStds'] = labelStds
+
 	if loading is not None:
 		try:
 			if loadLoc is None:
@@ -312,6 +319,10 @@ def main(argv):
 
 				F_test = store['xtest']
 				L_test = store['ytest']
+
+				if separator:
+					labelMeans = store['labelMeans']
+					labelStds = store['labelStds']
 
 		except Exception as e:
 			logging.error("Error while loading from stored data: {}".format(e))
@@ -346,11 +357,11 @@ def main(argv):
 										  save_checkpoints_secs=None,
 										  save_summary_steps=100)
 
-		useRatioScaling = True
+		useRatioScaling = False # Todo: überlegen ob es hierfür noch eine sinnvolle verwendung gibt
 
 		if separator and useRatioScaling:
-			medianDim1 = L_train.iloc[:,0].std()
-			medianDim2 = L_train.iloc[:,1].std()
+			medianDim1 = L_train.iloc[:,0].median()
+			medianDim2 = L_train.iloc[:,1].median()
 			ratio = medianDim1 / medianDim2
 
 			scaleDim1 = 1.0
@@ -432,6 +443,7 @@ def main(argv):
 						break
 
 			if progressPlot and epoch in pos:
+				# TODO: adapt or remove because of standardize and normalize
 				debug_pred = regressor.predict(input_fn=lambda: eval_input_fn(featureVals, labels=None, batch_size=BATCH_SIZE))
 				debug_predicted = [p['predictions'] for p in debug_pred]
 				predictions.append(debug_predicted)
@@ -477,7 +489,10 @@ def main(argv):
 		y_vals2 = L_test.sample(n=numberPrint, random_state=sampleIndex)
 
 		print(x_pred2)
-		print(y_vals2)
+		if separator:
+			print(y_vals2 * labelStds + labelMeans)
+		else:
+			print(y_vals2)
 
 		startTime = timer()
 		y_predGen = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=BATCH_SIZE))
@@ -498,7 +513,8 @@ def main(argv):
 								   printDF[['PredictionX', 'PredictionY']], baseImagePath, limits, units,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
 			else:
-				printDF = prepareMaximumLossAnalysisSeparator(F_test, L_test, numberPrint, regressor, BATCH_SIZE)
+				printDF = prepareMaximumLossAnalysisSeparator(F_test, L_test, numberPrint, regressor, BATCH_SIZE, labelMeans, labelStds)
+				# printDF['LabelPosBalken'] = printDF['LabelPosBalken'] * labelStds['LabelPosBalken'] + labelMeans['LabelPosBalken']
 				plotDataSeparatorPandas(numberPrint, printDF[columnNames], printDF[['LabelPosBalken']],
 										separatorPosition, printDF[['PredictionIntersect']], baseImagePath, limits, units,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
@@ -524,20 +540,27 @@ def main(argv):
 				evaluateResultNextStep(F_test, L_test, totalPredictions, units)
 
 			else:
-				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted,
+				y_vals2Denormalized = y_vals2['LabelPosBalken'] * labelStds['LabelPosBalken'] + labelMeans['LabelPosBalken']
+				# y_predictedCorr = list(map(lambda x: [v * labelStds[k] + labelMeans[k] for k,v in enumerate(x)], y_predicted))
+				y_predictedCorr = [[x * b + c for x, b, c in zip(x, labelStds, labelMeans)] for x in y_predicted] # Look, ye mighty, and despair!
+
+				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2Denormalized, separatorPosition, y_predictedCorr,
 										baseImagePath, limits, units,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
+				totalPredictionsCorr = [[x * b + c for x, b, c in zip(x, labelStds, labelMeans)] for x in totalPredictions] # Look, ye mighty, and despair!
 
+				L_trainDenormalized = L_train * labelStds + labelMeans
+				L_testDenormalized = L_test * labelStds + labelMeans
 				filteredFeatures = filterDataForIntersection(F_train, thresholdPoint, elementsDirectionBool)
 				medianAccel = getMedianAccel(filteredFeatures, separator, elementsDirectionBool)
-				optimalAccel = getOptimalAccel(filteredFeatures, L_train.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
-				bias = getCVBias(filteredFeatures, L_train.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
+				optimalAccel = getOptimalAccel(filteredFeatures, L_trainDenormalized.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
+				bias = getCVBias(filteredFeatures, L_trainDenormalized.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
 
 				configDict = {'medAc': medianAccel, 'optAc': optimalAccel, 'cvBias': bias}
 
-				evaluateResultSeparator(F_test, L_test, totalPredictions, separatorPosition, thresholdPoint,
+				evaluateResultSeparator(F_test, L_testDenormalized, totalPredictionsCorr, separatorPosition, thresholdPoint,
 										configDict, units, elementsDirectionBool)
 
 

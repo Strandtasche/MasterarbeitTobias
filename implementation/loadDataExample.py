@@ -175,10 +175,10 @@ def prepareRawMeasNextStep(inputFile, featureSize=5):
 
 		if sizeOld != newDf.shape[0]:
 			logging.info("removed(s) Row for Label NaN")
-	
+
 		sizeOld = newDf.shape[0]
 		newDf.dropna(axis=0, inplace=True)
-		
+
 		if sizeOld != newDf.shape[0]:
 			logging.info("removed Row(s) for Feature NaN")
 
@@ -384,56 +384,56 @@ def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1, numberOfEx
 def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predictionCutOff=1300, direction=True):
 	"""loads track data from a single csv file, extracts features and calculates Labels.
 	removes tracks that are incompatible with separator"""
-	
+
 	# dt = np.dtype([('features', float, (2 * featureSize,)), ('labels', float, (2,))])
-	
+
 	logging.info("Preparing Data from " + inputFile)
-	
+
 	df = pd.read_csv(inputFile)
 	df = _validateDF(df, featureSize)
-	
+
 	numberTracks = (df.shape[1]) / 2
-	
+
 	assert numberTracks == int(numberTracks)
-	
+
 	numberTracks = int(numberTracks)
-	
+
 	columnNames = genColumnNames(featureSize)
 	columnNames.append('LabelPosBalken')
 	columnNames.append('LabelTime')
-	
+
 	data = []
-	
+
 	for i in range(numberTracks):
 		trackNo = int(''.join([s for s in df.iloc[:,2*i].name if s.isdigit()]))
-		
+
 		if direction:
 			a = df.iloc[:, (2 * i)].values
 			b = df.iloc[:, (2 * i + 1)].values
 		else:
 			a = df.iloc[:, (2 * i + 1)].values
 			b = df.iloc[:, (2 * i)].values
-		
+
 		a = _removeNans(a)
 		b = _removeNans(b)
-		
+
 		if np.isnan(a).any() or np.isnan(b).any():
 			logging.warning("skipping track {}: NaN values in track".format(trackNo))
 			continue
-	
+
 		assert len(a) == len(b)
-		
-		
+
+
 		# sort out vanishing tracks
 		if max(b) < separatorPosY:
 			logging.warning("skipping track {}: highest Value smaller than separator".format(trackNo))
 			continue
-		
+
 		indexCut = bisect.bisect_left(b, predictionCutOff)
 		if indexCut - featureSize < 0:
 			logging.warning("skipping track {}: Not enough elements for features".format(trackNo))
 			continue
-		
+
 		# get position above separator
 		xLoc = -1
 		if separatorPosY not in b:
@@ -443,23 +443,23 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 			assert len(preLoc) == len(preLoc[0]) == 1
 			assert int(preLoc[0][0]) == preLoc[0][0]
 			preLoc = preLoc[0][0]
-			
+
 			postLoc = np.where(b == postVal)
 			assert len(postLoc) == len(postLoc[0]) == 1
 			assert int(postLoc[0][0]) == postLoc[0][0]
 			postLoc = postLoc[0][0]
-		
+
 			logging.debug("Track {}. positions: preloc {} - postloc {} \n preVal {} - postval {}".format(trackNo, preLoc, postLoc, preVal, postVal))
-			
+
 			if preLoc + 1 != postLoc:
 				logging.warning("skipping track {}: uncertain Error")
 				continue
-			
+
 			assert preLoc + 1 == postLoc
-			
+
 			L1 = _line([0, separatorPosY], [2000, separatorPosY])
 			L2 = _line([a[preLoc], b[preLoc]], [a[postLoc], b[postLoc]])
-			
+
 			R = _intersection(L1, L2)
 			if R:
 				logging.debug("intersection found! {}".format(R))
@@ -472,17 +472,17 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 			logging.debug("track {}: value in array!".format(trackNo))
 			xLoc = a[np.where(b == separatorPosY)]
 			additionalDistance = 0
-			
-		# remove items up to prediction phase
-		
 
-		
+		# remove items up to prediction phase
+
+
+
 		a = a[:indexCut]
 		b = b[:indexCut]
-		
-	
+
+
 		featureCount = len(a) - featureSize
-		
+
 		for k in range(featureCount):
 			temp = {}
 			temp['features'] = np.append(a[k:(k+ featureSize)], b[k:(k+featureSize)])
@@ -490,7 +490,7 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 				temp['labels'] = np.append(xLoc, (abs(preLoc - (k + featureSize - 1)) + additionalDistance) * 100)
 			else:
 				temp['labels'] = np.append(xLoc, (abs(preLoc - (k + featureSize - 1)) + additionalDistance)) # TODO: AHHHHH - is that ok?
-				
+
 			#TODO: factor 100 is A bit of a hacky solution - maybe fix. DOES NOT WORK WITH SIMULATED DATA!
 			data.append(temp)
 
@@ -532,16 +532,16 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 
 def loadRawMeasSeparation(input, featureSize=5, testSize=0.1, separatorPosY=1550, predictionCutOff=1300, direction=True):
 	"""loads all the raw measurement data from input into a pandas Dataframe and """
-	
+
 	# if input[:5] == "/home":
 	# 	folder = input
 	# else:
 	# 	folder = '/home/hornberger/Projects/MasterarbeitTobias/' + input
-	
+
 	folder = input
-	
+
 	# TODO: handle single file inputs? os.path.isDir() - make system agnostic
-	
+
 	fileList = []
 	if folder[-4:] != '.csv':
 		fileList = sorted(glob.glob(folder + '/*.csv'))
@@ -549,74 +549,81 @@ def loadRawMeasSeparation(input, featureSize=5, testSize=0.1, separatorPosY=1550
 	else:
 		fileList.append(folder)
 		logging.info("loading file {}".format(folder))
-	
+
 	assert len(fileList) > 0, "no files found input location " + folder
 	dataFrameList = []
-	
+
 	for elem in fileList:
 		dataFrameList.append(prepareRawMeasSeparation(elem, featureSize, separatorPosY, predictionCutOff, direction))
-	
+
 	newDf = pd.concat(dataFrameList, ignore_index=True)
-	
+
 	# Remove invalid rows: TODO: more sophisticated approach (forward/backwards fill?)
-	
+
 	if not pd.notnull(newDf).all().all():
 		raise ValueError("NaNs in labels or feature break Neural Network")
-	
+
 	labelDf = newDf[['LabelPosBalken', 'LabelTime']].copy()
 	featureDf = newDf.drop(['LabelPosBalken', 'LabelTime'], axis=1)
-	
+
+	# Normalization and Standardization
+
+	labelMeans = labelDf.mean()
+	labelStds = labelDf.std()
+
+	labelDf = (labelDf - labelMeans)/labelStds
+
 	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(featureDf, labelDf, test_size=testSize)
-	
-	return (trainFeatures, trainLabels), (testFeatures, testLabels)
+
+	return (trainFeatures, trainLabels), (testFeatures, testLabels), (labelMeans, labelStds)
 
 
 def _findSeparationLocation(inputFile, featureSize, separatorPosY):
 	"""deprecated helper function for finding separation location
 	 now directly implemented in LoadDataExample.prepareRawMeasSeparation()"""
-	
+
 	logging.info("Preparing Data from " + inputFile)
-	
+
 	df = pd.read_csv(inputFile)
 	df = _validateDF(df, featureSize)
-	
+
 	numberTracks = (df.shape[1]) / 2
-	
+
 	assert numberTracks == int(numberTracks)
-	
+
 	xLast = []
 	yLast = []
 	xSecondToLast = []
 	ySecondToLast = []
-	
+
 	data = []
-	
+
 	for i in range(numberTracks):
 		a = df.iloc[:, (2 * i)].values
 		b = df.iloc[:, (2 * i + 1)].values
-		
+
 		# a = a[~np.isnan(a)]   #Remove nans from columns
 		# b = b[~np.isnan(b)]   #Remove NaNs from Columns
-		
+
 		a = _removeNans(a)
 		b = _removeNans(b)
-		
+
 		assert len(a) == len(b)
-		
+
 		xLast.append(a[-1])
 		xSecondToLast.append(a[-2])
-		
+
 		yLast.append(b[-1])
 		ySecondToLast.append(b[-2])
-		
+
 	print("yLast: max - {}".format(max(yLast)))
 	print("yLast: min - {}".format(min(yLast)))
-	
+
 	tracksremoved = sum(i < separatorPosY for i in yLast)
 	tracksLostElement = sum(i > separatorPosY for i in ySecondToLast)
-	
+
 	print("Tracks removed by Separator Position: {}".format(tracksremoved))
 	print("Tracks elements wasted: {}".format(tracksLostElement))
-	
-	
+
+
 	return yLast
