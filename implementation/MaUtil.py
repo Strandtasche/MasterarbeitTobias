@@ -373,16 +373,24 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions, units):
 	
 	plt.rc('grid', linestyle=":")
 	fig1, ax1 = plt.subplots()
-	ax1.boxplot([pandasLost['NNpixelErrorTotal'], pandasLost['CVpixelErrorTotal'], pandasLost['CApixelErrorTotal']], showfliers=False)
+	ax1.boxplot([pandasLost[i] for i in reducedRelColumns], showfliers=False)
 	ax1.yaxis.grid(True)
+	xtickNames = plt.setp(ax1, xticklabels=reducedRelColumns)
+	plt.setp(xtickNames, rotation=45, fontsize=8)
 	ax1.set_title('Boxplot Location Error')
 	ax1.set_ylabel('error in {}'.format(units['loc']))  # a little bit hacky
+	
+	fig1.tight_layout()
+	
 	# plt.show()
 	fig2, ax2 = plt.subplots()
 	ax2.hist([pandasLost[i] for i in reducedRelColumns],
 			 bins=40, label=reducedRelColumns)
 	# # plt.yscale('log')
 	# ax.style.use('seaborn-muted')
+	ax2.set_title('Error Histogram')
+	ax2.set_ylabel('# of elements in bin')
+	ax2.set_xlabel('error in {}'.format(units['loc']))
 	plt.legend(loc=1)
 	plt.show()
 
