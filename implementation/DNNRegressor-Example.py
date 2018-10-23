@@ -87,7 +87,7 @@ def main(argv):
 
 	maximumLossAnalysis = args.lossAna
 	cancelThreshold = args.target
-	
+
 	# MIDPOINT = 1123
 
 	saveLoc = None
@@ -116,10 +116,10 @@ def main(argv):
 		elif len(args.load) == 1:
 			# custom save location
 			loadLoc = args.load[0]
-			
+
 	if args.separator is not None and FAKE:
 		parser.error('No fake data for separator training (yet)')
-		
+
 	if args.separator is not None and len(args.separator) not in (0, 2):
 		parser.error('Separator needs 2 Integers representing prediction Close off and separator position: given {}'.format(len(args.separator)))
 	elif args.separator is not None:
@@ -132,26 +132,26 @@ def main(argv):
 			predictionCutOff = args.separator[1]
 	else:
 		separator = False
-		
+
 	if cancelThreshold is not None and not TRAINING:
 		logging.warning("target parameter is not useful when not in training")
-	
+
 
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
 	try:
 		hyper_params = load_params(hyperParamFile)
-		
+
 		STEPS_PER_EPOCH = hyper_params.train.steps_per_epoch
 		EPOCHS = hyper_params.train.epochs
 		BATCH_SIZE = hyper_params.train.batch_size
-		
+
 		FEATURE_SIZE = hyper_params.arch.feature_size
 		ACTIVATION = hyper_params.arch.activation # "leaky_relu", "relu", "linear", TODO: "sigmoid", "tanh"
 		dropout = hyper_params.arch.dropout_rate
 		hidden_layers = hyper_params.arch.hidden_layers
 		regularization = hyper_params.arch.regularization
-		
+
 		if regularization == "no" or regularization is None:
 			l1regularization = False
 			l2regularization = False
@@ -163,7 +163,7 @@ def main(argv):
 			l2regularization = True
 		else:
 			raise AttributeError('invalid string in hyper_params.arch.regularization')
-		
+
 		if FAKE:
 			FAKE_DATA_AMOUNT = hyper_params.data.numberFakeLines
 		if augment:
@@ -171,26 +171,26 @@ def main(argv):
 			MIRRORRANGE = hyper_params.data.augmentRange
 		testSize = hyper_params.data.testSize
 		limits = hyper_params.data.limits
-		
+
 		elementsDirection = hyper_params.data.direction
 		if elementsDirection == "y":
 			elementsDirectionBool = True
 		elif elementsDirection == "x":
 			elementsDirectionBool = False
-			
+
 		unitLocDirection = hyper_params.data.unitLoc
 		unitTimeDirection = hyper_params.data.unitTime
 		units = {'loc': unitLocDirection, 'time':unitTimeDirection}
-		
+
 		optimizer = hyper_params.train.optimizer # "Adam", "Adagrad"
 		learningRate = hyper_params.train.learning_rate
 		decaySteps = hyper_params.train.decay_steps
-		
+
 		if overrideInputPath is None:
 			dataFolder = hyper_params.problem.data_path
 		else:
 			dataFolder = overrideInputPath
-		
+
 		baseModelPath = hyper_params.problem.modelBasePath
 		baseImagePath = hyper_params.problem.imagePath
 		if args.separator is None:
@@ -201,7 +201,7 @@ def main(argv):
 				thresholdPoint = hyper_params.problem.thresholdPoint
 			else:
 				separator = False
-		
+
 	except AttributeError as err:
 		logging.error("Error in Parameters. Maybe mistake in hyperparameter file?")
 		logging.error("AttributeError: {0}".format(err))
@@ -209,7 +209,7 @@ def main(argv):
 	except Exception as e:
 		logging.error("Some kind of error? not sure: {}".format(e))
 		sys.exit(1)
-		
+
 
 
 	if loading is None:
@@ -222,14 +222,14 @@ def main(argv):
 																			elementsDirectionBool)
 		else:
 			(F_train, L_train), (F_test, L_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
-			
+
 		# TODO: ziemlich hässlicher Hack - das könnte man noch schöner machen
 		if singleData:
 			F_train = pd.concat([F_train, F_test])
 			F_test = F_train
 			L_train = pd.concat([L_train, L_test])
 			L_test = L_train
-		
+
 		# ExTODO: find Augmentation MIDPOINT from data or as argument? - from Argument
 		if augment:
 			logging.info("applying augmentation to Training Set...")
@@ -251,7 +251,7 @@ def main(argv):
 
 	logging.info("time: {}".format(time_stamp))
 	logging.info('Saving to %s' % MODEL_PATH)
-	
+
 	if optimizer == 'Adagrad':
 		opti = tf.train.AdagradOptimizer
 	elif optimizer == 'Adam':
@@ -271,59 +271,6 @@ def main(argv):
 	else:
 		logging.error("No (or wrong) activation function given in hyperparameter file")
 		sys.exit(-1)
-	
-	if not usingCustomEstimator:
-		# Validation and Test Configuration
-		logging.info("using premade Estimator")
-		test_config = estimator.RunConfig(save_checkpoints_steps=50000,
-										  save_checkpoints_secs=None, save_summary_steps=100)
-		
-		regressor = estimator.DNNRegressor(feature_columns=my_feature_columns,
-										   label_dimension=2,
-										   hidden_units=hidden_layers,
-										   model_dir=MODEL_PATH,
-										   dropout=dropout,
-										   activation_fn=acti,
-										   config=test_config,
-										   optimizer=opti(learning_rate=learningRate)
-										   )
-	else:
-		logging.info("using custom estimator")
-		test_config = estimator.RunConfig(save_checkpoints_steps=50000,
-		                                  save_checkpoints_secs=None,
-										  save_summary_steps=100)
-		
-		useRatioScaling = True
-		
-		if separator and useRatioScaling:
-			medianDim1 = L_train.iloc[:,0].median()
-			medianDim2 = L_train.iloc[:,1].median()
-			ratio = medianDim1 / medianDim2
-			
-			scaleDim1 = 1.0
-			scaleDim2 = ratio
-			
-		else:
-			scaleDim1 = 1.0
-			scaleDim2 = 1.0
-		regressor = estimator.Estimator(
-			model_fn=cE.myCustomEstimator,
-			config=test_config,
-			model_dir=MODEL_PATH,
-			params={
-				"feature_columns": my_feature_columns,
-				"learning_rate": learningRate,
-				"optimizer": opti,
-				"hidden_units": hidden_layers,
-				"dropout": dropout,
-				"activation": acti,
-				"decaying_learning_rate": True,
-				"decay_steps": decaySteps,
-				"l1regularization": l1regularization,
-				"l2regularization": l2regularization,
-				"scaleDim1": scaleDim1,
-				"scaleDim2": scaleDim2
-			})
 
 	if not os.path.exists(MODEL_PATH):
 		os.makedirs(MODEL_PATH)
@@ -378,8 +325,61 @@ def main(argv):
 		labelVals = L_test.iloc[[debugVisualizerIndex]]
 		predictions = []
 
-	hooks = None
+	if not usingCustomEstimator:
+		# Validation and Test Configuration
+		logging.info("using premade Estimator")
+		test_config = estimator.RunConfig(save_checkpoints_steps=50000,
+										  save_checkpoints_secs=None, save_summary_steps=100)
 
+		regressor = estimator.DNNRegressor(feature_columns=my_feature_columns,
+										   label_dimension=2,
+										   hidden_units=hidden_layers,
+										   model_dir=MODEL_PATH,
+										   dropout=dropout,
+										   activation_fn=acti,
+										   config=test_config,
+										   optimizer=opti(learning_rate=learningRate)
+										   )
+	else:
+		logging.info("using custom estimator")
+		test_config = estimator.RunConfig(save_checkpoints_steps=50000,
+										  save_checkpoints_secs=None,
+										  save_summary_steps=100)
+
+		useRatioScaling = True
+
+		if separator and useRatioScaling:
+			medianDim1 = L_train.iloc[:,0].std()
+			medianDim2 = L_train.iloc[:,1].std()
+			ratio = medianDim1 / medianDim2
+
+			scaleDim1 = 1.0
+			scaleDim2 = ratio
+			logging.info("scaling loss between different dimensions. ScaleDim2-Ratio: {}".format(ratio))
+
+		else:
+			scaleDim1 = 1.0
+			scaleDim2 = 1.0
+		regressor = estimator.Estimator(
+			model_fn=cE.myCustomEstimator,
+			config=test_config,
+			model_dir=MODEL_PATH,
+			params={
+				"feature_columns": my_feature_columns,
+				"learning_rate": learningRate,
+				"optimizer": opti,
+				"hidden_units": hidden_layers,
+				"dropout": dropout,
+				"activation": acti,
+				"decaying_learning_rate": True,
+				"decay_steps": decaySteps,
+				"l1regularization": l1regularization,
+				"l2regularization": l2regularization,
+				"scaleDim1": scaleDim1,
+				"scaleDim2": scaleDim2
+			})
+
+	hooks = None
 
 	if DEBUG and tensorboardDebugAddress:
 		raise ValueError(
@@ -387,7 +387,6 @@ def main(argv):
 			"exclusive.")
 	if DEBUG:
 		hooks = [tf_debug.LocalCLIDebugHook()]
-
 
 	# Start tensorboard with debugger port argument: "tensorboard --logdir=./debug2 --debugger_port 6007"
 	elif tensorboardDebugAddress:
@@ -436,7 +435,7 @@ def main(argv):
 				debug_pred = regressor.predict(input_fn=lambda: eval_input_fn(featureVals, labels=None, batch_size=BATCH_SIZE))
 				debug_predicted = [p['predictions'] for p in debug_pred]
 				predictions.append(debug_predicted)
-		
+
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(F_test, L_test, BATCH_SIZE))
 
 		logging.info("Training completed. final average loss: {}, best average loss during training: {}".format(
@@ -473,13 +472,13 @@ def main(argv):
 
 		# x_pred2 = F_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
 		# y_vals2 = L_test.iloc[[sampleIndex + i for i in range(numberPrint)]]
-		
+
 		x_pred2 = F_test.sample(n=numberPrint, random_state=sampleIndex)
 		y_vals2 = L_test.sample(n=numberPrint, random_state=sampleIndex)
 
 		print(x_pred2)
 		print(y_vals2)
-		
+
 		startTime = timer()
 		y_predGen = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=BATCH_SIZE))
 		y_predicted = [p['predictions'] for p in y_predGen]
@@ -519,25 +518,25 @@ def main(argv):
 			if not separator:
 				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath, limits, units,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
-	
+
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
 				evaluateResultNextStep(F_test, L_test, totalPredictions, units)
-			
+
 			else:
 				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2['LabelPosBalken'], separatorPosition, y_predicted,
 										baseImagePath, limits, units,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
-			
+
 				filteredFeatures = filterDataForIntersection(F_train, thresholdPoint, elementsDirectionBool)
 				medianAccel = getMedianAccel(filteredFeatures, separator, elementsDirectionBool)
 				optimalAccel = getOptimalAccel(filteredFeatures, L_train.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
 				bias = getCVBias(filteredFeatures, L_train.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
-				
+
 				configDict = {'medAc': medianAccel, 'optAc': optimalAccel, 'cvBias': bias}
-				
+
 				evaluateResultSeparator(F_test, L_test, totalPredictions, separatorPosition, thresholdPoint,
 										configDict, units, elementsDirectionBool)
 
