@@ -285,16 +285,19 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	plt.close()
 
 
-def prepareMaximumLossAnalysisNextStep(X_test, y_test, numberPrint, regressor, batchSize):
+def prepareMaximumLossAnalysisNextStep(X_test, y_test, numberPrint, regressor, batchSize, labelMeans, labelStds):
 	"""a helper function for maximum loss analysis in nextStep-Prediction mode,
 	returns a pandas dataframe with features, labels, prediction by the net and the MSE of that prediction"""
 	totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(X_test, labels=None, batch_size=batchSize))
 	totalPredictions = [p['predictions'] for p in totalPredictGen]
 	xPredL = [p[0] for p in totalPredictions]
 	yPredL = [p[1] for p in totalPredictions]
+	xPredL = [e * labelStds['LabelX'] + labelMeans['LabelX'] for e in xPredL]
+	yPredL = [e * labelStds['LabelY'] + labelMeans['LabelY'] for e in yPredL]
 	pandasLost = pd.DataFrame(data={'PredictionX': xPredL, 'PredictionY': yPredL}, index=y_test.index,
 							  columns=['PredictionX', 'PredictionY'])
 	pandasLost = pd.concat([X_test, y_test, pandasLost], axis=1)
+	pandasLost[y_test.columns] = pandasLost[y_test.columns] * labelStds + labelMeans
 	pandasLost['MSE'] = pandasLost.apply(
 		lambda row: ((row['LabelX'] - row['PredictionX']) ** 2 + (row['LabelY'] - row['PredictionY']) ** 2) / 2, axis=1)
 	maximumLossAnalysisCount = numberPrint  # TODO: potenziell variable mit Arg? / separat?
@@ -441,8 +444,8 @@ def mirrorSingleFeature(points, midpoint, relIndices):
 def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, labelMeans, labelStds, direction=True):
 	"""applies the mirror input data augmentation to some data"""
 
-	if separator:
-		labelsTrain = labelsTrain * labelStds + labelMeans
+
+	labelsTrain = labelsTrain * labelStds + labelMeans
 
 	oldDf = pd.concat([featuresTrain, labelsTrain], axis=1, sort=False)
 	newDf = oldDf.copy()

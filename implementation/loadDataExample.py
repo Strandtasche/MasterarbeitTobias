@@ -225,9 +225,15 @@ def loadRawMeasNextStep(inputLoc, featureSize=5, testSize=0.1):
 	labelDf = newDf[['LabelX', 'LabelY']].copy()
 	featureDf = newDf.drop(['LabelX', 'LabelY'], axis=1)
 
+	# Normalization and Standardization
+	labelMeans = labelDf.mean()
+	labelStds = labelDf.std()
+
+	labelDf = (labelDf - labelMeans)/labelStds
+
 	trainFeatures, testFeatures, trainLabels, testLabels = train_test_split(featureDf, labelDf, test_size=testSize)
 
-	return (trainFeatures, trainLabels), (testFeatures, testLabels)
+	return (trainFeatures, trainLabels), (testFeatures, testLabels), (labelMeans, labelStds)
 
 
 def loadData(featureSize=5):
@@ -567,7 +573,6 @@ def loadRawMeasSeparation(input, featureSize=5, testSize=0.1, separatorPosY=1550
 	featureDf = newDf.drop(['LabelPosBalken', 'LabelTime'], axis=1)
 
 	# Normalization and Standardization
-
 	labelMeans = labelDf.mean()
 	labelStds = labelDf.std()
 

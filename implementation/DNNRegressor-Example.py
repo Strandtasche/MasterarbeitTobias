@@ -215,7 +215,7 @@ def main(argv):
 	if loading is None:
 		if not FAKE and not separator:
 			# (F_train, L_train), (F_test, L_test) = ld.loadData(FEATURE_SIZE)
-			(F_train, L_train), (F_test, L_test) = ld.loadRawMeasNextStep(dataFolder, FEATURE_SIZE, testSize)
+			(F_train, L_train), (F_test, L_test), (labelMeans, labelStds) = ld.loadRawMeasNextStep(dataFolder, FEATURE_SIZE, testSize)
 		elif separator:
 			(F_train, L_train), (F_test, L_test), (labelMeans, labelStds) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize,
 																			separatorPosition, predictionCutOff,
@@ -236,7 +236,7 @@ def main(argv):
 			if separator:
 				F_train, L_train = augmentData(F_train, L_train, MIDPOINT, MIRRORRANGE, separator, labelMeans, labelStds, direction=elementsDirectionBool)
 			else:
-				F_train, L_train = augmentData(F_train, L_train, MIDPOINT, MIRRORRANGE, separator, None, None, direction=elementsDirectionBool)
+				F_train, L_train = augmentData(F_train, L_train, MIDPOINT, MIRRORRANGE, separator, labelMeans, labelStds, direction=elementsDirectionBool)
 			logging.info("done!")
 
 	# Network Design
@@ -302,9 +302,8 @@ def main(argv):
 			store['xtest'] = F_test
 			store['ytest'] = L_test
 
-			if separator:
-				store['labelMeans'] = labelMeans
-				store['labelStds'] = labelStds
+			store['labelMeans'] = labelMeans
+			store['labelStds'] = labelStds
 
 	if loading is not None:
 		try:
@@ -320,9 +319,8 @@ def main(argv):
 				F_test = store['xtest']
 				L_test = store['ytest']
 
-				if separator:
-					labelMeans = store['labelMeans']
-					labelStds = store['labelStds']
+				labelMeans = store['labelMeans']
+				labelStds = store['labelStds']
 
 		except Exception as e:
 			logging.error("Error while loading from stored data: {}".format(e))
@@ -487,19 +485,21 @@ def main(argv):
 
 		x_pred2 = F_test.sample(n=numberPrint, random_state=sampleIndex)
 		y_vals2 = L_test.sample(n=numberPrint, random_state=sampleIndex)
+		y_vals2Denormalized = y_vals2.copy()
+		for k in L_test.columns:
+			y_vals2Denormalized[k] = y_vals2Denormalized[k] * labelStds[k] + labelMeans[k]
 
 		print(x_pred2)
-		if separator:
-			print(y_vals2 * labelStds + labelMeans)
-		else:
-			print(y_vals2)
+		print(y_vals2 * labelStds + labelMeans)
+
 
 		startTime = timer()
 		y_predGen = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=BATCH_SIZE))
 		y_predicted = [p['predictions'] for p in y_predGen]
 		endTime = timer()
 		print("predicted: ")
-		for i in y_predicted:
+		y_predictedCorr = [[x * b + c for x, b, c in zip(x, labelStds, labelMeans)] for x in y_predicted] # Look, ye mighty, and despair!
+		for i in y_predictedCorr:
 			print(i)
 		print("time: {:.2f}s".format((endTime - startTime)))
 
@@ -508,7 +508,7 @@ def main(argv):
 
 		if maximumLossAnalysis:
 			if not separator:
-				printDF = prepareMaximumLossAnalysisNextStep(F_test, L_test, numberPrint, regressor, BATCH_SIZE)
+				printDF = prepareMaximumLossAnalysisNextStep(F_test, L_test, numberPrint, regressor, BATCH_SIZE, labelMeans, labelStds)
 				plotDataNextStepPandas(numberPrint, printDF[columnNames], printDF[['LabelX', 'LabelY']],
 								   printDF[['PredictionX', 'PredictionY']], baseImagePath, limits, units,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
@@ -531,18 +531,20 @@ def main(argv):
 
 		# # Final Plot
 		if WITHPLOT:
+			L_trainDenormalized = L_train * labelStds + labelMeans
+			L_testDenormalized = L_test * labelStds + labelMeans
 			if not separator:
-				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, baseImagePath, limits, units,
+				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2Denormalized, y_predictedCorr, baseImagePath, limits, units,
 								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
-				evaluateResultNextStep(F_test, L_test, totalPredictions, units)
+				totalPredictionsCorr = [[x * b + c for x, b, c in zip(x, labelStds, labelMeans)] for x in totalPredictions] # Look, ye mighty, and despair!
+				evaluateResultNextStep(F_test, L_testDenormalized, totalPredictionsCorr, units)
 
 			else:
-				y_vals2Denormalized = y_vals2['LabelPosBalken'] * labelStds['LabelPosBalken'] + labelMeans['LabelPosBalken']
+				# y_vals2Denormalized = y_vals2['LabelPosBalken'] * labelStds['LabelPosBalken'] + labelMeans['LabelPosBalken']
 				# y_predictedCorr = list(map(lambda x: [v * labelStds[k] + labelMeans[k] for k,v in enumerate(x)], y_predicted))
-				y_predictedCorr = [[x * b + c for x, b, c in zip(x, labelStds, labelMeans)] for x in y_predicted] # Look, ye mighty, and despair!
 
 				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2Denormalized, separatorPosition, y_predictedCorr,
 										baseImagePath, limits, units,
@@ -551,8 +553,6 @@ def main(argv):
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
 				totalPredictionsCorr = [[x * b + c for x, b, c in zip(x, labelStds, labelMeans)] for x in totalPredictions] # Look, ye mighty, and despair!
 
-				L_trainDenormalized = L_train * labelStds + labelMeans
-				L_testDenormalized = L_test * labelStds + labelMeans
 				filteredFeatures = filterDataForIntersection(F_train, thresholdPoint, elementsDirectionBool)
 				medianAccel = getMedianAccel(filteredFeatures, separator, elementsDirectionBool)
 				optimalAccel = getOptimalAccel(filteredFeatures, L_trainDenormalized.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
