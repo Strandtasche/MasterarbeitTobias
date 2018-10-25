@@ -465,3 +465,63 @@ INFO:root:Train: ((179902, 10), (179902, 2))
 INFO:root:Test: ((9995, 10), (9995, 2))
 INFO:root:Train the DNN Regressor...
 
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-24_14.45.26
+INFO:root:Saving to ../models/FineTuning-NextStep/Baseline
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((179902, 10), (179902, 2))
+INFO:root:Test: ((9995, 10), (9995, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.11989346891641617
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline_highestLoss_2018-10-24_14.45.26.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline_2018-10-24_14.45.26.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  9995.000000        9995.000000        9995.000000      
+mean   0.411267           0.820678           1.536610         
+std    0.265809           0.463670           0.844509         
+min    0.005075           0.004554           0.009654         
+25%    0.226856           0.455865           0.859419         
+50%    0.362321           0.784374           1.524625         
+75%    0.539896           1.118376           2.118704         
+max    3.814235           5.186784           9.280940         
+INFO:root:number of predictions with error > 3: 2
+             X_0        X_1    ...            Y_3        Y_4
+41407  1462.7033  1457.0952    ...      1353.9527  1445.0800
+65605  1302.4230  1301.5350    ...       414.3595   507.3840
+38410   429.7777   426.7969    ...       335.1214   428.0762
+44802   436.7526   432.6345    ...      1228.0470  1318.0061
+66512  1360.0764  1361.6855    ...      1059.6570  1152.2816
+22621   923.1969   923.2836    ...       675.0839   767.3525
+21337  1654.5233  1653.0161    ...       727.4440   818.5091
+47592  1034.5843  1037.0625    ...      1229.2238  1319.9242
+40142   610.0064   610.8007    ...       366.6627   459.2887
+23550  1112.4908  1113.0887    ...      1208.4278  1299.3557
+
+[10 rows x 10 columns]
+          LabelX     LabelY
+41407  1434.6638  1534.3973
+65605  1297.2125   600.5949
+38410   415.6504   520.5527
+44802   417.1881  1407.4160
+66512  1368.4855  1245.6299
+22621   923.9772   859.7713
+21337  1646.9786   909.8397
+47592  1047.4295  1411.7572
+40142   615.7281   550.5756
+23550  1116.0122  1391.2042
+predicted: 
+[1434.7495 1534.4297]
+[1297.1593  600.2479]
+[415.5433 520.7139]
+[ 416.72623 1407.3943 ]
+[1368.4218 1245.0901]
+[924.20355 860.3107 ]
+[1647.1869  909.669 ]
+[1047.707  1411.7468]
+[615.43896 551.0812 ]
+[1116.0299 1391.0212]
+time: 0.20s
+MSE (tensorflow): 0.07716093957424164

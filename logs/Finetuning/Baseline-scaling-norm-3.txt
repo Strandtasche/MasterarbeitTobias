@@ -1,0 +1,252 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-24_10.14.24
+INFO:root:Saving to /media/hornberger/data2/models/TestRun
+INFO:root:/media/hornberger/data2/models/TestRun does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((76464, 10), (76464, 2))
+INFO:root:Test: ((8497, 10), (8497, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 215404.734375
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/TestRun_2018-10-24_10.14.24.png
+INFO:root:getting optimal accel for 6603 examples
+INFO:root:Evaluation on 789 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  789.000000             789.000000             789.000000                
+mean  -99879.391230           0.009148               0.019338                  
+std    12154.632506           0.725844               0.726744                  
+min   -135417.070548         -4.395977              -4.434919                  
+25%   -107287.112364         -0.388620              -0.388617                  
+50%   -99610.222435           0.022178               0.028278                  
+75%   -90554.035285           0.397283               0.393056                  
+max   -68363.533757           6.852882               6.840530                  
+
+       CApixelErrorPosBalken  
+count  789.000000             
+mean   0.090864               
+std    2.736750               
+min   -13.134766              
+25%   -0.730030               
+50%    0.070576               
+75%    0.787055               
+max    57.177764              
+INFO:root:
+        NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  789.000000    789.000000   789.000000     789.000000   789.000000    
+mean   35858.798428  1.755978     0.380599       0.634816     0.845763      
+std    13868.790458  2.469582     2.469582       14.259585    2.374615      
+min   -469.270273   -15.834459   -17.209838     -329.981677  -19.733182     
+25%    24067.635086  0.046204    -1.329175      -3.983261    -0.764212      
+50%    36087.060178  1.550314     0.174935       1.082491     0.715260      
+75%    48176.995671  3.163135     1.787756       5.741495     2.332503      
+max    61935.755203  16.537957    15.162578      60.480536    13.032131     
+
+       IAerrorTime  
+count  789.000000   
+mean  -1.643251     
+std    2.806611     
+min   -30.734885    
+25%   -3.012438     
+50%   -1.499041     
+75%    0.218741     
+max    6.395765     
+             X_0        X_1        X_2    ...          Y_2       Y_3       Y_4
+68849  1477.2782  1472.1202  1467.3456    ...     239.3442  298.6117  358.7954
+
+[1 rows x 10 columns]
+       LabelPosBalken    LabelTime
+68849     1363.595969  2044.371978
+predicted: 
+[ 45.45572 401.58536]
+time: 0.21s
+MSE (tensorflow): 110133.828125
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-24_10.14.41
+INFO:root:Saving to /media/hornberger/data2/models/TestRun
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((76464, 10), (76464, 2))
+INFO:root:Test: ((8497, 10), (8497, 2))
+INFO:root:Train the DNN Regressor...
+
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 583, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 428, in main
+    train_numpyFunc = estimator.inputs.numpy_input_fn(featuresTrain, labelsTrain, batch_size=BATCH_SIZE)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/inputs/numpy_io.py", line 145, in numpy_input_fn
+    'got {}'.format(shuffle))
+ValueError: shuffle must be provided and explicitly set as boolean (it is recommended to set it as True for training); got None
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-24_10.15.01
+INFO:root:Saving to /media/hornberger/data2/models/TestRun
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((76464, 10), (76464, 2))
+INFO:root:Test: ((8497, 10), (8497, 2))
+INFO:root:Train the DNN Regressor...
+
+Traceback (most recent call last):
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 527, in make_tensor_proto
+    str_values = [compat.as_bytes(x) for x in proto_values]
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 527, in <listcomp>
+    str_values = [compat.as_bytes(x) for x in proto_values]
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/util/compat.py", line 61, in as_bytes
+    (bytes_or_text,))
+TypeError: Expected binary or unicode string, got {'LabelPosBalken': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:11' shape=(?,) dtype=float64>, 'LabelTime': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:12' shape=(?,) dtype=float64>}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 583, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 429, in main
+    regressor.train(input_fn=train_numpyFunc, steps=STEPS_PER_EPOCH)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 356, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1181, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1211, in _train_model_default
+    features, labels, model_fn_lib.ModeKeys.TRAIN, self.config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1169, in _call_model_fn
+    model_fn_results = self._model_fn(features=features, **kwargs)
+  File "/home/hornberger/Projects/MasterarbeitTobias/implementation/customEstimator.py", line 37, in myCustomEstimator
+    average_loss = tf.losses.mean_squared_error(tf.cast(labels, tf.float32), output_layer, weights=weights_per_output)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 671, in cast
+    x = ops.convert_to_tensor(x, name="x")
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1048, in convert_to_tensor
+    as_ref=False)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1144, in internal_convert_to_tensor
+    ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/constant_op.py", line 228, in _constant_tensor_conversion_function
+    return constant(v, dtype=dtype, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/constant_op.py", line 207, in constant
+    value, dtype=dtype, shape=shape, verify_shape=verify_shape))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 531, in make_tensor_proto
+    "supported type." % (type(values), values))
+TypeError: Failed to convert object of type <class 'dict'> to Tensor. Contents: {'LabelPosBalken': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:11' shape=(?,) dtype=float64>, 'LabelTime': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:12' shape=(?,) dtype=float64>}. Consider casting elements to a supported type.
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-24_10.17.06
+INFO:root:Saving to /media/hornberger/data2/models/TestRun
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((76464, 10), (76464, 2))
+INFO:root:Test: ((8497, 10), (8497, 2))
+INFO:root:Train the DNN Regressor...
+
+Traceback (most recent call last):
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 527, in make_tensor_proto
+    str_values = [compat.as_bytes(x) for x in proto_values]
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 527, in <listcomp>
+    str_values = [compat.as_bytes(x) for x in proto_values]
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/util/compat.py", line 61, in as_bytes
+    (bytes_or_text,))
+TypeError: Expected binary or unicode string, got {'LabelPosBalken': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:11' shape=(?,) dtype=float64>, 'LabelTime': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:12' shape=(?,) dtype=float64>}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 583, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 429, in main
+    regressor.train(input_fn=train_numpyFunc, steps=STEPS_PER_EPOCH)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 356, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1181, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1211, in _train_model_default
+    features, labels, model_fn_lib.ModeKeys.TRAIN, self.config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1169, in _call_model_fn
+    model_fn_results = self._model_fn(features=features, **kwargs)
+  File "/home/hornberger/Projects/MasterarbeitTobias/implementation/customEstimator.py", line 37, in myCustomEstimator
+    average_loss = tf.losses.mean_squared_error(tf.cast(labels, tf.float32), output_layer, weights=weights_per_output)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 671, in cast
+    x = ops.convert_to_tensor(x, name="x")
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1048, in convert_to_tensor
+    as_ref=False)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1144, in internal_convert_to_tensor
+    ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/constant_op.py", line 228, in _constant_tensor_conversion_function
+    return constant(v, dtype=dtype, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/constant_op.py", line 207, in constant
+    value, dtype=dtype, shape=shape, verify_shape=verify_shape))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 531, in make_tensor_proto
+    "supported type." % (type(values), values))
+TypeError: Failed to convert object of type <class 'dict'> to Tensor. Contents: {'LabelPosBalken': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:11' shape=(?,) dtype=float64>, 'LabelTime': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:12' shape=(?,) dtype=float64>}. Consider casting elements to a supported type.
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-24_10.17.41
+INFO:root:Saving to /media/hornberger/data2/models/TestRun
+INFO:root:loading data from store
+INFO:root:using premade Estimator
+INFO:root:Train: ((76464, 10), (76464, 2))
+INFO:root:Test: ((8497, 10), (8497, 2))
+INFO:root:Train the DNN Regressor...
+
+Traceback (most recent call last):
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 527, in make_tensor_proto
+    str_values = [compat.as_bytes(x) for x in proto_values]
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 527, in <listcomp>
+    str_values = [compat.as_bytes(x) for x in proto_values]
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/util/compat.py", line 61, in as_bytes
+    (bytes_or_text,))
+TypeError: Expected binary or unicode string, got {'LabelPosBalken': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:11' shape=(?,) dtype=float64>, 'LabelTime': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:12' shape=(?,) dtype=float64>}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 583, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 429, in main
+    regressor.train(input_fn=train_numpyFunc, steps=STEPS_PER_EPOCH)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 356, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1181, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1211, in _train_model_default
+    features, labels, model_fn_lib.ModeKeys.TRAIN, self.config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1169, in _call_model_fn
+    model_fn_results = self._model_fn(features=features, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 549, in _model_fn
+    batch_norm=batch_norm)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/canned/dnn.py", line 219, in _dnn_model_fn
+    logits=logits)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/canned/head.py", line 239, in create_estimator_spec
+    regularization_losses))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/canned/head.py", line 1482, in _create_tpu_estimator_spec
+    features=features, mode=mode, logits=logits, labels=labels)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/canned/head.py", line 1381, in create_loss
+    expected_labels_dimension=self._logits_dimension)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/canned/head.py", line 305, in _check_dense_labels_match_logits_and_reshape
+    labels = sparse_tensor.convert_to_tensor_or_sparse_tensor(labels)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/sparse_tensor.py", line 279, in convert_to_tensor_or_sparse_tensor
+    value, dtype=dtype, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1144, in internal_convert_to_tensor
+    ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/constant_op.py", line 228, in _constant_tensor_conversion_function
+    return constant(v, dtype=dtype, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/constant_op.py", line 207, in constant
+    value, dtype=dtype, shape=shape, verify_shape=verify_shape))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/tensor_util.py", line 531, in make_tensor_proto
+    "supported type." % (type(values), values))
+TypeError: Failed to convert object of type <class 'dict'> to Tensor. Contents: {'LabelPosBalken': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:11' shape=(?,) dtype=float64>, 'LabelTime': <tf.Tensor 'random_shuffle_queue_DequeueUpTo:12' shape=(?,) dtype=float64>}. Consider casting elements to a supported type.
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-24_10.34.49
+INFO:root:Saving to /media/hornberger/data2/models/TestRun
+INFO:root:loading data from store
+INFO:root:using premade Estimator
+INFO:root:Train: ((76464, 10), (76464, 2))
+INFO:root:Test: ((8497, 10), (8497, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 18.907799, 'label/mean': -0.0072549153, 'loss': 35702.125, 'prediction/mean': -0.37455773, 'global_step': 500}
