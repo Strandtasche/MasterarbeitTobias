@@ -464,12 +464,10 @@ def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, l
 
 	newDf = pd.concat([oldDf, newDf])
 
-	if separator:
-		augmentedLabelDf = newDf[['LabelPosBalken', 'LabelTime']].copy()
-		augmentedFeatureDf = newDf.drop(['LabelPosBalken', 'LabelTime'], axis=1)
-	else:
-		augmentedLabelDf = newDf[['LabelX', 'LabelY']].copy()
-		augmentedFeatureDf = newDf.drop(['LabelX', 'LabelY'], axis=1)
+	augmentedLabelDf = newDf[labelsTrain.columns].copy()
+	augmentedFeatureDf = newDf.drop(labelsTrain.columns, axis=1)
+
+	augmentedLabelDf = (augmentedLabelDf - labelMeans)/labelStds
 
 	return augmentedFeatureDf, augmentedLabelDf
 
@@ -535,7 +533,6 @@ def getCVBias(dataSetFeatures, dataSetLabels, separatorPosition, direction):
 	timeError = dataSetLabels['LabelTime'] - constantVel['CV_Prediction_Time'] * 100
 
 	return timeError.median()
-
 
 
 def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, thresholdPoint, configDict, units, direction):
