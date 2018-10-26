@@ -449,7 +449,7 @@ def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, l
 
 	oldDf = pd.concat([featuresTrain, labelsTrain], axis=1, sort=False)
 	newDf = oldDf.copy()
-	newDf.index += oldDf.index.max()
+	newDf.index += (oldDf.index.max() + 1)
 
 	relIndices = _getRelIndices(newDf.columns, separator, direction)
 	# sizeBefore = newDf.shape
