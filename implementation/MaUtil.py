@@ -491,6 +491,7 @@ def getMedianAccel(X_test, separator, direction):
 
 
 def getOptimalAccel(X_test, y_test, separatorPosition, direction):
+	assert X_test.shape[0] != 0
 	logging.info("getting optimal accel for {} examples".format(X_test.shape[0]))
 	if not direction: # moving along x axis
 		relCols = X_test.columns[0:int(len(X_test.columns)/2)]
@@ -512,8 +513,8 @@ def filterDataForIntersection(dataSet, thresholdPoint, direction):
 		columnNameLast = dataSet.columns[-1]
 		columnNamePenultimate = dataSet.columns[-2]
 	else:
-		columnNameLast = dataSet.columns[int(len(dataSet.columns)/2)]
-		columnNamePenultimate = dataSet.columns[int(len(dataSet.columns)/2)-1]
+		columnNameLast = dataSet.columns[int(len(dataSet.columns)/2)-1]
+		columnNamePenultimate = dataSet.columns[int(len(dataSet.columns)/2)-2]
 	dataSet = dataSet[(dataSet[columnNameLast] > thresholdPoint) & (dataSet[columnNamePenultimate] < thresholdPoint)]
 
 	return dataSet

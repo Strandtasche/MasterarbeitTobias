@@ -491,10 +491,11 @@ def prepareRawMeasSeparation(inputFile, featureSize=5, separatorPosY=1550, predi
 
 		for k in range(featureCount):
 			temp = {}
-			temp['features'] = np.append(a[k:(k+ featureSize)], b[k:(k+featureSize)])
 			if direction:
+				temp['features'] = np.append(a[k:(k+ featureSize)], b[k:(k+featureSize)])
 				temp['labels'] = np.append(xLoc, (abs(preLoc - (k + featureSize - 1)) + additionalDistance) * 100)
 			else:
+				temp['features'] = np.append(b[k:(k+ featureSize)], a[k:(k+featureSize)]) # reverse switch from before, so x is x and y is y
 				temp['labels'] = np.append(xLoc, (abs(preLoc - (k + featureSize - 1)) + additionalDistance)) # TODO: AHHHHH - is that ok?
 
 			#TODO: factor 100 is A bit of a hacky solution - maybe fix. DOES NOT WORK WITH SIMULATED DATA!

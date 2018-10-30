@@ -326,6 +326,11 @@ def main(argv):
 			logging.error("Error while loading from stored data: {}".format(e))
 			sys.exit(1)
 
+	assert not F_train.index.duplicated().any()
+	assert not L_train.index.duplicated().any()
+	assert not F_test.index.duplicated().any()
+	assert not L_test.index.duplicated().any()
+
 	#Plot progress Vars:
 	if progressPlot:
 		pos = [int(i * EPOCHS/10) for i in range(1, 10)]
