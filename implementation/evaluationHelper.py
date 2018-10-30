@@ -415,7 +415,12 @@ def predictionConstantVelBiasCorrectedSeparator(array, cvBias, separatorPosition
 
 	deltaT = (separatorPosition - xLast[locInd]) / x_dot[locInd]
 
-	deltaT = deltaT - (cvBias /100) # TODO: Hier ist der faktor 100 auch noch drin
+	if direction:
+		correctionTerm = cvBias / 100
+	else:
+		correctionTerm = cvBias
+
+	deltaT = deltaT - correctionTerm
 
 	intersectionPoint = xLast[tarInd] + deltaT * x_dot[tarInd]
 

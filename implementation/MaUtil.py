@@ -553,9 +553,12 @@ def getCVBias(dataSetFeatures, dataSetLabels, separatorPosition, direction):
 	dataInp = {'CV_Prediction_Time': timePredCV}
 	constantVel = pd.DataFrame(data=dataInp, index=dataSetFeatures.index)
 
-	timeError = constantVel['CV_Prediction_Time'] * 100 - dataSetLabels['LabelTime']
+	if direction:
+		constantVel['CV_Prediction_Time'] *= 100
 
-	return timeError.median()
+	timeError = constantVel['CV_Prediction_Time'] - dataSetLabels['LabelTime']
+
+	return timeError.mean()
 
 
 def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, thresholdPoint, configDict, units, direction):
@@ -587,34 +590,39 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	pandasLost = pd.concat([comboAlign, pandasLost, caCvDfSeparator], axis=1)
 	pandasLost.dropna(inplace=True)
 
+	if direction:
+		scalingColumns = ['CV_Prediction_Time', 'CVBC_Prediction_Time', 'CA_Prediction_Time',
+						  'AA_Prediction_Time', 'IA_Prediction_Time']
+		pandasLost[scalingColumns] = pandasLost[scalingColumns] * 100
+
 	pandasLost['NNpixelErrorPosBalken'] = pandasLost.apply(
 		lambda row: (row['NNPredictionPosBalken'] - row['LabelPosBalken']), axis=1)
 	pandasLost['NNerrorTime'] = pandasLost.apply(
 		lambda row: (row['NNPredictionTime'] - row['LabelTime']), axis=1)
 
 	pandasLost['CVpixelErrorPosBalken'] = pandasLost.apply(
-		lambda row: (row['CV_Prediction_Loc'] - row['LabelPosBalken']), axis=1) # TODO: Handle Scaling!
+		lambda row: (row['CV_Prediction_Loc'] - row['LabelPosBalken']), axis=1)
 	pandasLost['CVerrorTime'] = pandasLost.apply(
-		lambda row: (row['CV_Prediction_Time'] * 100 - row['LabelTime']), axis=1) # factor 100 because of scaling
+		lambda row: (row['CV_Prediction_Time'] - row['LabelTime']), axis=1)
 	pandasLost['CVBCpixelErrorPosBalken'] = pandasLost.apply(
-		lambda row: (row['CVBC_Prediction_Loc'] - row['LabelPosBalken']), axis=1) # TODO: Handle Scaling!
+		lambda row: (row['CVBC_Prediction_Loc'] - row['LabelPosBalken']), axis=1)
 	pandasLost['CVBCerrorTime'] = pandasLost.apply(
-		lambda row: (row['CVBC_Prediction_Time'] * 100 - row['LabelTime']), axis=1)  # factor 100 because of scaling
+		lambda row: (row['CVBC_Prediction_Time'] - row['LabelTime']), axis=1)
 
 	pandasLost['CApixelErrorPosBalken'] = pandasLost.apply(
 		lambda row: (row['CA_Prediction_Loc'] - row['LabelPosBalken']), axis=1)
 	pandasLost['CAerrorTime'] = pandasLost.apply(
-		lambda row: (row['CA_Prediction_Time'] * 100 - row['LabelTime']), axis=1)  # factor 100 because of scaling
+		lambda row: (row['CA_Prediction_Time'] - row['LabelTime']), axis=1)
 
 	pandasLost['AApixelErrorPosBalken'] = pandasLost.apply(
 		lambda row: (row['AA_Prediction_Loc'] - row['LabelPosBalken']), axis=1)
 	pandasLost['AAerrorTime'] = pandasLost.apply(
-		lambda row: ((row['AA_Prediction_Time'] * 100) - row['LabelTime']), axis=1) # factor 100 because of scaling
+		lambda row: ((row['AA_Prediction_Time']) - row['LabelTime']), axis=1)
 
 	pandasLost['IApixelErrorPosBalken'] = pandasLost.apply(
 		lambda row: (row['IA_Prediction_Loc'] - row['LabelPosBalken']), axis=1)
 	pandasLost['IAerrorTime'] = pandasLost.apply(
-		lambda row: ((row['IA_Prediction_Time'] * 100) - row['LabelTime']), axis=1) # factor 100 because of scaling
+		lambda row: ((row['IA_Prediction_Time']) - row['LabelTime']), axis=1)
 
 
 	# TODO: optional: change adding of new column from pandas apply to...

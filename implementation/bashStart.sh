@@ -4,8 +4,8 @@ echo "Starting Execution"
 dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "$dt"
 
-modelFolder="/home/hornberger/MasterarbeitTobias/models/FineTuning/Decay/Baseline-scaling"
-python DNNRegressor-Example.py --training --custom --augment --load /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugelnFineTuningLayer.h5  --hyperparams /home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning/ConfigBaseline.json --overrideModel $modelfolder  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/Finetuning/Baseline.txt
+modelFolder="/home/hornberger/MasterarbeitTobias/models/FineTuning/Baseline-Rutsche-Augm/"
+python DNNRegressor-Example.py --training --custom --augment --save /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugelnRutsche-Sep-Augm.h5 --hyperparams /home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Sep/ConfigRutsche.json --overrideModel $modelfolder  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/Finetuning/BaselineRutsche.txt
 (cd $modelFolder && bash /home/hornberger/MasterarbeitTobias/scripts/convertTFEVENTtoCSV.sh delete)
 
 
@@ -13,7 +13,8 @@ dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "$dt"
 echo "finished hyperV1"
 
-#python DNNRegressor-Example.py --training --custom --augment --load /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugelnFineTuningLayer.h5  --hyperparams /home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning/Config-1Layer.json --overrideModel ~/MasterarbeitTobias/models/FineTuning/layer/layer01  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/Finetuning/layer01.txt
+#modelFolder="/home/hornberger/MasterarbeitTobias/models/FineTuning/Baseline-Rutsche-Augm/"
+#python DNNRegressor-Example.py --training --custom --augment --save /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugelnRutsche-Sep-Augm.h5 --hyperparams /home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Sep/ConfigRutsche.json --overrideModel $modelfolder  2>&1 | tee -a /home/hornberger/MasterarbeitTobias/logs/Finetuning/BaselineRutsche.txt
 #(cd $modelFolder && bash /home/hornberger/MasterarbeitTobias/scripts/convertTFEVENTtoCSV.sh delete)
 
 dt=$(date '+%d/%m/%Y %H:%M:%S');
