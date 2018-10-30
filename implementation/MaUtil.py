@@ -228,7 +228,7 @@ def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath, units):
 	plt.close()
 
 
-def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_predicted, savePath, lim, units, name=None):
+def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_predicted, savePath, lim, units, direction, name=None):
 	"""plot a certain number of next step prediction examples (from pandas dataframe)
 		with features, labels and prection and save to .png file"""
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
@@ -246,27 +246,49 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	ausgleichsgeradenY = []
 	ausgleichsgeradenX = []
 	for i in range(numberPrint):
-		p = np.poly1d(np.polyfit(y[i], x[i], 1))
-		p_y = [y[i][0], separatorPosition]
-		p_x = [p(y[i][0]), p(separatorPosition)]
+		if direction:
+			p = np.poly1d(np.polyfit(y[i], x[i], 1))
+			p_y = [y[i][0], separatorPosition]
+			p_x = [p(y[i][0]), p(separatorPosition)]
+		else:
+			p = np.poly1d(np.polyfit(x[i], y[i], 1))
+			p_y = [x[i][0], separatorPosition]
+			p_x = [p(x[i][0]), p(separatorPosition)]
 		ausgleichsgeradenY.append(p_y)
 		ausgleichsgeradenX.append(p_x)
 
 	assert len(x) == len(y)
 
 	for i in range(len(ausgleichsgeradenY)):
-		plt.plot(ausgleichsgeradenX[i], ausgleichsgeradenY[i], color='orange', linestyle='dashed',
+		if direction:
+			plt.plot(ausgleichsgeradenX[i], ausgleichsgeradenY[i], color='orange', linestyle='dashed',
 				 label='best fit straight line')
-	# plt.plot(ausgleichsgeradenX, ausgleichsgeradenY, label='best fit straight line')
+		else:
+			plt.plot(ausgleichsgeradenY[i], ausgleichsgeradenX[i], color='orange', linestyle='dashed',
+					 label='best fit straight line')
+
 	plt.plot(x, y, 'ro', label='feature', markersize=4)
-	plt.plot(x_t, y_t, 'gx', label='label')
+	# if direction: swap y_t and x_t
+	if direction:
+		plt.plot(x_t, y_t, 'gx', label='label')
+	else:
+		plt.plot(y_t, x_t, 'gx', label='label')
+
 	if isinstance(y_predicted, list):
 		for k in range(numberPrint):
-			plt.plot(y_predicted[k][0], separatorPosition, 'b+', label='prediction')
+			#if direction: swap separatorPosition and y_predicted
+			if direction:
+				plt.plot(y_predicted[k][0], separatorPosition, 'b+', label='prediction')
+			else:
+				plt.plot(separatorPosition, y_predicted[k][0], 'b+', label='prediction')
 	else:
 		if 'PredictionIntersect' in y_predicted:
 			for k in range(numberPrint):
-				plt.plot(y_predicted['PredictionIntersect'].iloc[k], separatorPosition, 'b+', label='prediction')
+				#if direction: swap separatorPosition and y_predicted['PredictionIntersect'].iloc[k]
+				if direction:
+					plt.plot(y_predicted['PredictionIntersect'].iloc[k], separatorPosition, 'b+', label='prediction')
+				else:
+					plt.plot(separatorPosition, y_predicted['PredictionIntersect'].iloc[k], 'b+', label='prediction')
 		else:
 			logging.error("weird error in plotting. terminating.")
 			sys.exit(-1)

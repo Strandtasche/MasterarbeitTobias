@@ -521,7 +521,7 @@ def main(argv):
 				printDF = prepareMaximumLossAnalysisSeparator(F_test, L_test, numberPrint, regressor, BATCH_SIZE, labelMeans, labelStds)
 				# printDF['LabelPosBalken'] = printDF['LabelPosBalken'] * labelStds['LabelPosBalken'] + labelMeans['LabelPosBalken']
 				plotDataSeparatorPandas(numberPrint, printDF[columnNames], printDF[['LabelPosBalken']],
-										separatorPosition, printDF[['PredictionIntersect']], baseImagePath, limits, units,
+										separatorPosition, printDF[['PredictionIntersect']], baseImagePath, limits, units, elementsDirectionBool,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
 			# print(printDF)
 
@@ -551,8 +551,8 @@ def main(argv):
 				# y_vals2Denormalized = y_vals2['LabelPosBalken'] * labelStds['LabelPosBalken'] + labelMeans['LabelPosBalken']
 				# y_predictedCorr = list(map(lambda x: [v * labelStds[k] + labelMeans[k] for k,v in enumerate(x)], y_predicted))
 
-				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2Denormalized, separatorPosition, y_predictedCorr,
-										baseImagePath, limits, units,
+				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2Denormalized['LabelPosBalken'], separatorPosition,
+										y_predictedCorr, baseImagePath, limits, units,  elementsDirectionBool,
 										baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
