@@ -1,0 +1,498 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 41: highest Value smaller than separator
+WARNING:root:skipping track 80: NaN values in track
+WARNING:root:skipping track 499: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_002_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 235: highest Value smaller than separator
+WARNING:root:skipping track 398: highest Value smaller than separator
+WARNING:root:skipping track 400: Not enough elements for features
+WARNING:root:skipping track 401: Not enough elements for features
+WARNING:root:skipping track 417: highest Value smaller than separator
+WARNING:root:skipping track 418: highest Value smaller than separator
+WARNING:root:skipping track 479: NaN values in track
+WARNING:root:skipping track 480: NaN values in track
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_003_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 2: Not enough elements for features
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_004_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 229: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_005_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_006_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 2: Not enough elements for features
+WARNING:root:skipping track 311: highest Value smaller than separator
+WARNING:root:skipping track 312: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_007_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_008_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_009_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_010_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_011_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 2: Not enough elements for features
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_012_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 86: highest Value smaller than separator
+WARNING:root:skipping track 87: highest Value smaller than separator
+WARNING:root:skipping track 369: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_013_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 132: highest Value smaller than separator
+WARNING:root:skipping track 294: NaN values in track
+WARNING:root:skipping track 295: NaN values in track
+WARNING:root:skipping track 296: NaN values in track
+WARNING:root:skipping track 301: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_014_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_015_trackHistory_NothingDeleted.csv
+INFO:root:applying augmentation to Training Set...
+INFO:root:done!
+INFO:root:time: 2018-10-26_11.37.10
+INFO:root:Saving to ../models/kugelnRutsche/Baseline
+INFO:root:../models/kugelnRutsche/Baseline does not exist. Creating folder
+INFO:root:storing data in data.h5
+INFO:root:using custom estimator
+INFO:root:Train: ((42546, 10), (42546, 2))
+INFO:root:Test: ((2364, 10), (2364, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.017581148, 'loss': 8.312367, 'rmse': 0.13259391, 'global_step': 5000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.0038175914, 'loss': 1.8049572, 'rmse': 0.06178666, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.0008208599, 'loss': 0.38810256, 'rmse': 0.028650653, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.0005237628, 'loss': 0.24763504, 'rmse': 0.022885865, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.00036156966, 'loss': 0.17095014, 'rmse': 0.019014984, 'global_step': 205000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.00029103545, 'loss': 0.13760157, 'rmse': 0.017059762, 'global_step': 255000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.0007452494, 'loss': 0.3523539, 'rmse': 0.027299257, 'global_step': 305000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.0002197951, 'loss': 0.103919126, 'rmse': 0.014825488, 'global_step': 355000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.00027747027, 'loss': 0.13118795, 'rmse': 0.016657438, 'global_step': 405000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.00018966573, 'loss': 0.08967396, 'rmse': 0.013771919, 'global_step': 455000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.00020562756, 'loss': 0.097220704, 'rmse': 0.01433972, 'global_step': 505000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.0001874177, 'loss': 0.08861108, 'rmse': 0.013690058, 'global_step': 555000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.00019981178, 'loss': 0.09447101, 'rmse': 0.01413548, 'global_step': 605000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.00018270686, 'loss': 0.086383805, 'rmse': 0.01351691, 'global_step': 655000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.00017265009, 'loss': 0.08162896, 'rmse': 0.013139638, 'global_step': 705000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.00018846503, 'loss': 0.08910627, 'rmse': 0.013728256, 'global_step': 755000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.00017577063, 'loss': 0.08310436, 'rmse': 0.013257852, 'global_step': 805000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.0001704541, 'loss': 0.0805907, 'rmse': 0.013055807, 'global_step': 855000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.00018047728, 'loss': 0.08532966, 'rmse': 0.013434183, 'global_step': 905000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.00017821325, 'loss': 0.08425923, 'rmse': 0.013349653, 'global_step': 955000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.00017578612, 'loss': 0.08311168, 'rmse': 0.013258436, 'global_step': 1005000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 0.00017171612, 'loss': 0.08118738, 'rmse': 0.0131040495, 'global_step': 1055000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.00022980843, 'loss': 0.108653426, 'rmse': 0.015159434, 'global_step': 1105000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.00017121193, 'loss': 0.08094899, 'rmse': 0.013084797, 'global_step': 1155000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.00018793887, 'loss': 0.0888575, 'rmse': 0.01370908, 'global_step': 1205000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.00019614177, 'loss': 0.092735834, 'rmse': 0.014005062, 'global_step': 1255000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.00017674016, 'loss': 0.08356275, 'rmse': 0.013294365, 'global_step': 1305000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.00016862481, 'loss': 0.07972582, 'rmse': 0.012985562, 'global_step': 1355000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.00018075928, 'loss': 0.08546299, 'rmse': 0.013444675, 'global_step': 1405000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 0.00017379844, 'loss': 0.0821719, 'rmse': 0.013183264, 'global_step': 1455000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.00017780683, 'loss': 0.08406706, 'rmse': 0.013334422, 'global_step': 1505000}
+INFO:root:Tensorflow 1.11.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 41: highest Value smaller than separator
+WARNING:root:skipping track 80: NaN values in track
+WARNING:root:skipping track 499: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_002_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 235: highest Value smaller than separator
+WARNING:root:skipping track 398: highest Value smaller than separator
+WARNING:root:skipping track 400: Not enough elements for features
+WARNING:root:skipping track 401: Not enough elements for features
+WARNING:root:skipping track 417: highest Value smaller than separator
+WARNING:root:skipping track 418: highest Value smaller than separator
+WARNING:root:skipping track 479: NaN values in track
+WARNING:root:skipping track 480: NaN values in track
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_003_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 2: Not enough elements for features
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_004_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 229: highest Value smaller than separator
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-26_13.02.37
+INFO:root:Saving to ../models/kugelnRutsche/Baseline
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((42546, 10), (42546, 2))
+INFO:root:Test: ((2364, 10), (2364, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.00017349512199871242
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline_2018-10-26_13.02.37.png
+INFO:root:getting optimal accel for 7604 examples
+             X_0        X_1        X_2    ...           Y_2       Y_3        Y_4
+13702  1529.1675  1530.7431  1532.9392    ...      868.9005  999.5873  1133.2032
+
+[1 rows x 10 columns]
+       LabelPosBalken   LabelTime
+13702     1539.002427  160.902893
+predicted: 
+[1538.8340541833131, 160.84952645900614]
+time: 0.20s
+MSE (tensorflow): 1.8415704516883125e-07
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 575, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 558, in main
+    optimalAccel = getOptimalAccel(filteredFeatures, L_trainDenormalized.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
+  File "/home/hornberger/Projects/MasterarbeitTobias/implementation/MaUtil.py", line 501, in getOptimalAccel
+    tempDf = pd.concat([X_test, y_test], axis=1)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/reshape/concat.py", line 226, in concat
+    return op.get_result()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/reshape/concat.py", line 423, in get_result
+    copy=self.copy)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 5425, in concatenate_block_managers
+    return BlockManager(blocks, axes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 3282, in __init__
+    self._verify_integrity()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 3493, in _verify_integrity
+    construction_error(tot_items, block.shape[1:], self.axes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 4843, in construction_error
+    passed, implied))
+ValueError: Shape of passed values is (12, 7605), indices imply (12, 7604)
+INFO:root:Tensorflow 1.11.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 41: highest Value smaller than separator
+WARNING:root:skipping track 80: NaN values in track
+WARNING:root:skipping track 499: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/kugeln_002_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 235: highest Value smaller than separator
+WARNING:root:skipping track 398: highest Value smaller than separator
+WARNING:root:skipping track 400: Not enough elements for features
+WARNING:root:skipping track 401: Not enough elements for features
+WARNING:root:skipping track 417: highest Value smaller than separator
+WARNING:root:skipping track 418: highest Value smaller than separator
+WARNING:root:skipping track 479: NaN values in track
+WARNING:root:skipping track 480: NaN values in track
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-26_13.25.20
+INFO:root:Saving to ../models/kugelnRutsche/Baseline
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((42546, 10), (42546, 2))
+INFO:root:Test: ((2364, 10), (2364, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.00016926913, 'loss': 0.08003045, 'rmse': 0.013010347, 'global_step': 1520000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.00017570655, 'loss': 0.083074056, 'rmse': 0.013255435, 'global_step': 1570000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.00016616314, 'loss': 0.07856193, 'rmse': 0.012890428, 'global_step': 1620000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.00018055679, 'loss': 0.08536725, 'rmse': 0.013437142, 'global_step': 1670000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.0001817432, 'loss': 0.08592819, 'rmse': 0.0134812165, 'global_step': 1720000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.00016847946, 'loss': 0.079657085, 'rmse': 0.012979964, 'global_step': 1770000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.00016811654, 'loss': 0.079485506, 'rmse': 0.012965976, 'global_step': 1820000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.00016655074, 'loss': 0.078745194, 'rmse': 0.012905454, 'global_step': 1870000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.00016688863, 'loss': 0.07890494, 'rmse': 0.012918538, 'global_step': 1920000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.0001675813, 'loss': 0.07923244, 'rmse': 0.0129453195, 'global_step': 1970000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.00016740474, 'loss': 0.07914896, 'rmse': 0.0129384985, 'global_step': 2020000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.00016600551, 'loss': 0.07848741, 'rmse': 0.012884312, 'global_step': 2070000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.0001652964, 'loss': 0.078152135, 'rmse': 0.012856765, 'global_step': 2120000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.00016634945, 'loss': 0.07865002, 'rmse': 0.012897653, 'global_step': 2170000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.00016712825, 'loss': 0.079018235, 'rmse': 0.012927809, 'global_step': 2220000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.00016663571, 'loss': 0.07878537, 'rmse': 0.012908746, 'global_step': 2270000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.00016378438, 'loss': 0.07743726, 'rmse': 0.012797827, 'global_step': 2320000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.00016396075, 'loss': 0.077520646, 'rmse': 0.012804716, 'global_step': 2370000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.00016362975, 'loss': 0.07736415, 'rmse': 0.0127917845, 'global_step': 2420000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.00016381673, 'loss': 0.077452555, 'rmse': 0.012799091, 'global_step': 2470000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.00016376538, 'loss': 0.07742827, 'rmse': 0.012797085, 'global_step': 2520000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 0.0001628101, 'loss': 0.07697661, 'rmse': 0.012759706, 'global_step': 2570000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.0001621921, 'loss': 0.07668442, 'rmse': 0.0127354665, 'global_step': 2620000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.00016254245, 'loss': 0.07685007, 'rmse': 0.012749214, 'global_step': 2670000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.00016255525, 'loss': 0.07685612, 'rmse': 0.012749716, 'global_step': 2720000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.0001626993, 'loss': 0.07692423, 'rmse': 0.012755363, 'global_step': 2770000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.00016261765, 'loss': 0.076885626, 'rmse': 0.012752162, 'global_step': 2820000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.00016289708, 'loss': 0.07701774, 'rmse': 0.012763114, 'global_step': 2870000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.00016335772, 'loss': 0.077235535, 'rmse': 0.012781147, 'global_step': 2920000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 0.00016300318, 'loss': 0.0770679, 'rmse': 0.012767269, 'global_step': 2970000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.00016300105, 'loss': 0.0770669, 'rmse': 0.012767186, 'global_step': 3020000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.00016237052, 'loss': 0.07676878, 'rmse': 0.012742469, 'global_step': 3070000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 0.00016212046, 'loss': 0.07665055, 'rmse': 0.012732653, 'global_step': 3120000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 0.00016161338, 'loss': 0.07641081, 'rmse': 0.012712725, 'global_step': 3170000}
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-30_11.42.20
+INFO:root:Saving to ../models/kugelnRutsche/Baseline
+INFO:root:loading data from store
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 580, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 329, in main
+    assert not F_train.index.duplicated().any()
+AssertionError
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-30_11.42.57
+INFO:root:Saving to ../models/kugelnRutsche/Baseline
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((42546, 10), (42546, 2))
+INFO:root:Test: ((2364, 10), (2364, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0001616133813513443
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline_highestLoss_2018-10-30_11.42.57.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline_2018-10-30_11.42.57.png
+INFO:root:getting optimal accel for 7604 examples
+             X_0        X_1        X_2    ...           Y_2       Y_3        Y_4
+9797   1779.5485  1781.6074  1782.2812    ...      377.4222  503.0727   629.9382
+273     866.6179   869.3357   871.7447    ...      348.3556  477.1092   605.4416
+9593   1205.0149  1206.6373  1207.6256    ...      383.2148  510.9007   641.0114
+15242   603.6563   605.5769   607.0313    ...      857.5377  988.8117  1120.0573
+7918   1215.6493  1217.1427  1218.7779    ...      559.2313  683.4020   811.5367
+7376   1386.0950  1387.7592  1389.4267    ...      678.9049  809.4615   942.4804
+14935  1431.5744  1434.1180  1436.3786    ...      377.7283  505.3828   633.3208
+2841    924.7116   925.5053   926.3423    ...      418.5728  545.4788   675.8849
+14611  1191.0735  1192.2226  1193.2009    ...      521.2354  652.9855   785.7148
+2464    835.2307   837.5992   839.5216    ...      607.9976  736.7401   867.5149
+
+[10 rows x 10 columns]
+       LabelPosBalken   LabelTime
+9797      1780.173220  544.250184
+273        895.964590  557.781945
+9593      1219.085900  532.240612
+15242      614.969961  172.303463
+7918      1225.909314  412.728405
+7376      1394.967638  304.836723
+14935     1447.835195  538.878505
+2841       937.777883  507.587829
+14611     1200.246951  417.948089
+2464       854.204466  359.490284
+predicted: 
+[1785.0262083500124, 549.9857949286321]
+[894.6990195527773, 559.6456683241666]
+[1218.3160357256522, 532.2173813116135]
+[614.453650466106, 172.39999491499356]
+[1225.8288447665718, 413.13323898052937]
+[1394.5801212160627, 303.2011170728485]
+[1449.8329684513594, 540.9716730236192]
+[936.3610530406531, 507.65500858128917]
+[1199.3238598780572, 417.5322386153528]
+[854.181134902801, 362.0569158502247]
+time: 0.20s
+MSE (tensorflow): 0.00014029174053575844
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 580, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 563, in main
+    optimalAccel = getOptimalAccel(filteredFeatures, L_trainDenormalized.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
+  File "/home/hornberger/Projects/MasterarbeitTobias/implementation/MaUtil.py", line 524, in getOptimalAccel
+    tempDf = pd.concat([X_test, y_test], axis=1)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/reshape/concat.py", line 226, in concat
+    return op.get_result()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/reshape/concat.py", line 423, in get_result
+    copy=self.copy)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 5425, in concatenate_block_managers
+    return BlockManager(blocks, axes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 3282, in __init__
+    self._verify_integrity()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 3493, in _verify_integrity
+    construction_error(tot_items, block.shape[1:], self.axes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 4843, in construction_error
+    passed, implied))
+ValueError: Shape of passed values is (12, 7605), indices imply (12, 7604)
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-30_11.49.53
+INFO:root:Saving to ../models/kugelnRutsche/Baseline
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((42546, 10), (42546, 2))
+INFO:root:Test: ((2364, 10), (2364, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0001616133813513443
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline_highestLoss_2018-10-30_11.49.53.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline_2018-10-30_11.49.53.png
+INFO:root:getting optimal accel for 7604 examples
+             X_0        X_1        X_2    ...           Y_2       Y_3        Y_4
+9797   1779.5485  1781.6074  1782.2812    ...      377.4222  503.0727   629.9382
+273     866.6179   869.3357   871.7447    ...      348.3556  477.1092   605.4416
+9593   1205.0149  1206.6373  1207.6256    ...      383.2148  510.9007   641.0114
+15242   603.6563   605.5769   607.0313    ...      857.5377  988.8117  1120.0573
+7918   1215.6493  1217.1427  1218.7779    ...      559.2313  683.4020   811.5367
+7376   1386.0950  1387.7592  1389.4267    ...      678.9049  809.4615   942.4804
+14935  1431.5744  1434.1180  1436.3786    ...      377.7283  505.3828   633.3208
+2841    924.7116   925.5053   926.3423    ...      418.5728  545.4788   675.8849
+14611  1191.0735  1192.2226  1193.2009    ...      521.2354  652.9855   785.7148
+2464    835.2307   837.5992   839.5216    ...      607.9976  736.7401   867.5149
+
+[10 rows x 10 columns]
+       LabelPosBalken   LabelTime
+9797      1780.173220  544.250184
+273        895.964590  557.781945
+9593      1219.085900  532.240612
+15242      614.969961  172.303463
+7918      1225.909314  412.728405
+7376      1394.967638  304.836723
+14935     1447.835195  538.878505
+2841       937.777883  507.587829
+14611     1200.246951  417.948089
+2464       854.204466  359.490284
+predicted: 
+[1785.0262083500124, 549.9857949286321]
+[894.6990195527773, 559.6456683241666]
+[1218.3160357256522, 532.2173813116135]
+[614.453650466106, 172.39999491499356]
+[1225.8288447665718, 413.13323898052937]
+[1394.5801212160627, 303.2011170728485]
+[1449.8329684513594, 540.9716730236192]
+[936.3610530406531, 507.65500858128917]
+[1199.3238598780572, 417.5322386153528]
+[854.181134902801, 362.0569158502247]
+time: 0.21s
+MSE (tensorflow): 0.00014029174053575844
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 580, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 563, in main
+    optimalAccel = getOptimalAccel(filteredFeatures, L_trainDenormalized.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
+  File "/home/hornberger/Projects/MasterarbeitTobias/implementation/MaUtil.py", line 524, in getOptimalAccel
+    tempDf = pd.concat([X_test, y_test], axis=1)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/reshape/concat.py", line 226, in concat
+    return op.get_result()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/reshape/concat.py", line 423, in get_result
+    copy=self.copy)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 5425, in concatenate_block_managers
+    return BlockManager(blocks, axes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 3282, in __init__
+    self._verify_integrity()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 3493, in _verify_integrity
+    construction_error(tot_items, block.shape[1:], self.axes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 4843, in construction_error
+    passed, implied))
+ValueError: Shape of passed values is (12, 7605), indices imply (12, 7604)
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-30_11.52.29
+INFO:root:Saving to ../models/kugelnRutsche/Baseline
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((42546, 10), (42546, 2))
+INFO:root:Test: ((2364, 10), (2364, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0001616133813513443
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline_highestLoss_2018-10-30_11.52.29.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline_2018-10-30_11.52.29.png
+INFO:root:getting optimal accel for 7604 examples
+             X_0        X_1        X_2    ...           Y_2       Y_3        Y_4
+9797   1779.5485  1781.6074  1782.2812    ...      377.4222  503.0727   629.9382
+273     866.6179   869.3357   871.7447    ...      348.3556  477.1092   605.4416
+9593   1205.0149  1206.6373  1207.6256    ...      383.2148  510.9007   641.0114
+15242   603.6563   605.5769   607.0313    ...      857.5377  988.8117  1120.0573
+7918   1215.6493  1217.1427  1218.7779    ...      559.2313  683.4020   811.5367
+7376   1386.0950  1387.7592  1389.4267    ...      678.9049  809.4615   942.4804
+14935  1431.5744  1434.1180  1436.3786    ...      377.7283  505.3828   633.3208
+2841    924.7116   925.5053   926.3423    ...      418.5728  545.4788   675.8849
+14611  1191.0735  1192.2226  1193.2009    ...      521.2354  652.9855   785.7148
+2464    835.2307   837.5992   839.5216    ...      607.9976  736.7401   867.5149
+
+[10 rows x 10 columns]
+       LabelPosBalken   LabelTime
+9797      1780.173220  544.250184
+273        895.964590  557.781945
+9593      1219.085900  532.240612
+15242      614.969961  172.303463
+7918      1225.909314  412.728405
+7376      1394.967638  304.836723
+14935     1447.835195  538.878505
+2841       937.777883  507.587829
+14611     1200.246951  417.948089
+2464       854.204466  359.490284
+predicted: 
+[1785.0262083500124, 549.9857949286321]
+[894.6990195527773, 559.6456683241666]
+[1218.3160357256522, 532.2173813116135]
+[614.453650466106, 172.39999491499356]
+[1225.8288447665718, 413.13323898052937]
+[1394.5801212160627, 303.2011170728485]
+[1449.8329684513594, 540.9716730236192]
+[936.3610530406531, 507.65500858128917]
+[1199.3238598780572, 417.5322386153528]
+[854.181134902801, 362.0569158502247]
+time: 0.20s
+MSE (tensorflow): 0.00014029174053575844
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 580, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 563, in main
+    optimalAccel = getOptimalAccel(filteredFeatures, L_trainDenormalized.loc[filteredFeatures.index], separatorPosition, elementsDirectionBool)
+  File "/home/hornberger/Projects/MasterarbeitTobias/implementation/MaUtil.py", line 524, in getOptimalAccel
+    tempDf = pd.concat([X_test, y_test], axis=1)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/reshape/concat.py", line 226, in concat
+    return op.get_result()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/reshape/concat.py", line 423, in get_result
+    copy=self.copy)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 5425, in concatenate_block_managers
+    return BlockManager(blocks, axes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 3282, in __init__
+    self._verify_integrity()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 3493, in _verify_integrity
+    construction_error(tot_items, block.shape[1:], self.axes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/pandas/core/internals.py", line 4843, in construction_error
+    passed, implied))
+ValueError: Shape of passed values is (12, 7605), indices imply (12, 7604)

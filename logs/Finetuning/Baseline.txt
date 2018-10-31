@@ -1778,3 +1778,168 @@ predicted:
 [1380.3633081767798, 689.6775896772849]
 time: 0.20s
 MSE (tensorflow): 2.5875357096083462e-05
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 11, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-25_14.55.00
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/Baseline-Norm-Augm
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((152927, 10), (152927, 2))
+INFO:root:Test: ((8497, 10), (8497, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 4.659255500882864e-05
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline-Norm-Augm_2018-10-25_14.55.00.png
+INFO:root:getting optimal accel for 13254 examples
+INFO:root:Evaluation on 765 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  765.000000             765.000000             765.000000                
+mean   0.009787              -0.044376              -0.035708                  
+std    0.786987               0.702217               0.701195                  
+min   -4.790138              -6.852882              -6.865341                  
+25%   -0.496044              -0.411271              -0.405254                  
+50%   -0.015373               0.001387               0.007831                  
+75%    0.500967               0.343737               0.350688                  
+max    3.143619               2.367301               2.338830                  
+
+       CApixelErrorPosBalken  
+count  765.000000             
+mean  -0.114628               
+std    1.822509               
+min   -16.791539              
+25%   -0.825478               
+50%   -0.067692               
+75%    0.759281               
+max    8.495692               
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  765.000000   765.000000   765.000000     765.000000   765.000000    
+mean   0.101586    -1.398964    -2.786222       0.144296    -0.552876      
+std    1.884488     2.113209     2.113209       7.497187     2.170155      
+min   -35.538603   -9.979852    -11.367109     -34.931372   -6.978541      
+25%   -0.619686    -2.815631    -4.202889      -4.685922    -2.029410      
+50%    0.230526    -1.466815    -2.854072      -0.678739    -0.773671      
+75%    0.942644     0.225788    -1.161469       4.699211     0.905845      
+max    9.198166     7.976368     6.589111       39.480220    11.363696     
+
+       IAerrorTime  
+count  765.000000   
+mean   1.937806     
+std    2.934844     
+min   -3.819771     
+25%    0.139345     
+50%    1.507505     
+75%    3.162295     
+max    21.630378    
+             X_0        X_1    ...            Y_3        Y_4
+28645  1031.4717  1031.8851    ...      1016.3829  1108.1953
+
+[1 rows x 10 columns]
+       LabelPosBalken   LabelTime
+28645     1038.506696  484.343112
+predicted: 
+[1037.1082979600728, 483.07466351621224]
+time: 0.21s
+MSE (tensorflow): 1.2033375242026523e-05
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-25_14.59.36
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/Baseline-Norm-Augm
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((152927, 10), (152927, 2))
+INFO:root:Test: ((8497, 10), (8497, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 4.659255500882864e-05
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Baseline-Norm-Augm_2018-10-25_14.59.36.png
+INFO:root:getting optimal accel for 13254 examples
+INFO:root:Evaluation on 765 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  765.000000             765.000000             765.000000                
+mean   0.009787              -0.044376              -0.053044                  
+std    0.786987               0.702217               0.704966                  
+min   -4.790138              -6.852882              -6.840423                  
+25%   -0.496044              -0.411271              -0.425269                  
+50%   -0.015373               0.001387              -0.021534                  
+75%    0.500967               0.343737               0.340016                  
+max    3.143619               2.367301               2.395772                  
+
+       CApixelErrorPosBalken  
+count  765.000000             
+mean  -0.114628               
+std    1.822509               
+min   -16.791539              
+25%   -0.825478               
+50%   -0.067692               
+75%    0.759281               
+max    8.495692               
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  765.000000   765.000000   765.000000     765.000000   765.000000    
+mean   0.101586    -1.398964    -0.011707       0.144296    -0.552876      
+std    1.884488     2.113209     2.113209       7.497187     2.170155      
+min   -35.538603   -9.979852    -8.592594      -34.931372   -6.978541      
+25%   -0.619686    -2.815631    -1.428374      -4.685922    -2.029410      
+50%    0.230526    -1.466815    -0.079557      -0.678739    -0.773671      
+75%    0.942644     0.225788     1.613045       4.699211     0.905845      
+max    9.198166     7.976368     9.363626       39.480220    11.363696     
+
+       IAerrorTime  
+count  765.000000   
+mean   1.937806     
+std    2.934844     
+min   -3.819771     
+25%    0.139345     
+50%    1.507505     
+75%    3.162295     
+max    21.630378    
+             X_0        X_1        X_2    ...          Y_2       Y_3       Y_4
+62400  1229.8592  1225.8798  1221.8038    ...     273.5411  365.6701  456.6587
+
+[1 rows x 10 columns]
+       LabelPosBalken   LabelTime
+62400     1165.399449  1211.54517
+predicted: 
+[1162.1185098084989, 1200.6832370408215]
+time: 0.20s
+MSE (tensorflow): 0.0004595638602040708
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-25_15.11.34
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/Baseline-Norm-Augm
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((152927, 10), (152927, 2))
+INFO:root:Test: ((8497, 10), (8497, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 4.7186488e-05, 'loss': 0.044549286, 'rmse': 0.006869242, 'global_step': 1931500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 4.7083584e-05, 'loss': 0.044452135, 'rmse': 0.0068617477, 'global_step': 1936500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 4.8158396e-05, 'loss': 0.045466878, 'rmse': 0.006939625, 'global_step': 1941500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 5.02228e-05, 'loss': 0.0474159, 'rmse': 0.0070868046, 'global_step': 1946500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 4.8411872e-05, 'loss': 0.045706186, 'rmse': 0.006957864, 'global_step': 1951500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 4.7325255e-05, 'loss': 0.044680297, 'rmse': 0.0068793353, 'global_step': 1956500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 4.8248687e-05, 'loss': 0.04555212, 'rmse': 0.0069461274, 'global_step': 1961500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 4.7245718e-05, 'loss': 0.04460521, 'rmse': 0.006873552, 'global_step': 1966500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 4.7641814e-05, 'loss': 0.044979166, 'rmse': 0.006902305, 'global_step': 1971500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 4.7334455e-05, 'loss': 0.044688985, 'rmse': 0.006880004, 'global_step': 1976500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 4.7249432e-05, 'loss': 0.044608716, 'rmse': 0.0068738223, 'global_step': 1981500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 4.7692265e-05, 'loss': 0.045026798, 'rmse': 0.0069059585, 'global_step': 1986500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 4.6686884e-05, 'loss': 0.044077605, 'rmse': 0.0068327803, 'global_step': 1991500}
