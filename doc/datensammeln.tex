@@ -105,6 +105,7 @@ Um diese zu bestimmten müssen zunächst die Dateien mittels \textit{Demosaicing
 
 Auf diesen kann dann eine Segmentierung vorgenommen werden.
 Hierzu wurde die Computer Vision Library OpenCV benutzt.
+\todo{Mehr details: Parameters...}
 Das Ergebnis des Segmentierungsscripts [Reference segement.py] ist ein CSV File für jedes Batch.
 Eine Zeile repräsentiert ein Bild aus dem Batch, also einen Zeitschritt.
 Zu Beginn jeder Zeile steht zunächst die Frame Nummer, gefolgt von der Anzahl der detektierten Partikel
@@ -183,3 +184,8 @@ Die synthetischen Beispiele müssen jedoch plausibel sein, da sie sonst die \tod
 - bei Bildern normalerweise Rotieren, Translation, Ausschnitte...
 - Hier: Spiegeln in einem Band - an der Mitte, nicht die Ränder mit nehmen - Kamera nicht perfekt zentriert
 - führt zu: Beinah verdoppelung der Feature-Label-paare fürs training.
+
+
+\section{Datenform}
+
+unterscheidung NextStep/Separator: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location...)
