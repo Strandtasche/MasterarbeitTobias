@@ -152,13 +152,13 @@ def main(argv):
 		hidden_layers = hyper_params.arch.hidden_layers
 		regularization = hyper_params.arch.regularization
 
-		if regularization == "no" or regularization is None:
+		if regularization is None or regularization.lower() == "no":
 			l1regularization = False
 			l2regularization = False
-		elif regularization == "l1":
+		elif regularization.lower() == "l1":
 			l1regularization = True
 			l2regularization = False
-		elif regularization == "l2":
+		elif regularization.lower() == "l2":
 			l1regularization = False
 			l2regularization = True
 		else:
@@ -173,9 +173,9 @@ def main(argv):
 		limits = hyper_params.data.limits
 
 		elementsDirection = hyper_params.data.direction
-		if elementsDirection == "y":
+		if elementsDirection.lower() == "y":
 			elementsDirectionBool = True
-		elif elementsDirection == "x":
+		elif elementsDirection.lower() == "x":
 			elementsDirectionBool = False
 
 		unitLocDirection = hyper_params.data.unitLoc
@@ -417,6 +417,7 @@ def main(argv):
 		# logging.info("test: {}".format(test))
 
 		epochInterm = []
+		startTimeTraining = timer()
 
 		for epoch in range(EPOCHS):
 
@@ -455,6 +456,14 @@ def main(argv):
 
 		logging.info("Training completed. final average loss: {}, best average loss during training: {}".format(
 						eval_dict['average_loss'], min(epochInterm)))
+
+		endTimeTraining = timer()
+		timeTotal = endTimeTraining - startTimeTraining
+		hours = timeTotal // 3600
+		timeTotal %= 3600
+		minutes = timeTotal // 60
+		timeTotal %= 60
+		logging.info("Total Training time: {}h {}min {}s".format(hours, minutes, int(timeTotal)))
 
 		if progressPlot:
 			if FAKE:
@@ -496,7 +505,6 @@ def main(argv):
 
 		print(x_pred2)
 		print(y_vals2 * labelStds + labelMeans)
-
 
 		startTime = timer()
 		y_predGen = regressor.predict(input_fn=lambda: eval_input_fn(x_pred2, labels=None, batch_size=BATCH_SIZE))
