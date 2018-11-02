@@ -67,6 +67,8 @@ parser.add_argument('--target', type=float, help="accuracy target.")
 def main(argv):
 	args = parser.parse_args(argv[1:])
 
+	logging.info("Cmdline Input: {}".format(argv))
+
 	TRAINING = args.training
 	WITHPLOT = args.plot
 	singleData = args.single
@@ -277,10 +279,14 @@ def main(argv):
 
 	if not os.path.exists(MODEL_PATH):
 		os.makedirs(MODEL_PATH)
-		logging.info("{} does not exist. Creating folder".format(MODEL_PATH))
+		logging.info("model folder {} does not exist. Creating folder".format(MODEL_PATH))
 	elif os.path.exists(MODEL_PATH) and not os.path.isdir(MODEL_PATH):
 		logging.error("There is a file in the place where one would like to save their files..")
 		sys.exit(1)
+
+	if not os.path.exists(baseImagePath):
+		os.makedirs(baseImagePath)
+		logging.info("image folder: {} does not exist. Creating folder".format(MODEL_PATH))
 
 	if not os.path.exists(MODEL_PATH + '/' + os.path.basename(hyperParamFile)):
 		shutil.copy2(hyperParamFile, MODEL_PATH + '/' + os.path.basename(MODEL_PATH + hyperParamFile))
@@ -463,7 +469,7 @@ def main(argv):
 		timeTotal %= 3600
 		minutes = timeTotal // 60
 		timeTotal %= 60
-		logging.info("Total Training time: {}h {}min {}s".format(hours, minutes, int(timeTotal)))
+		logging.info("Total Training time: {}h {}min {}s".format(int(hours), int(minutes), int(timeTotal)))
 
 		if progressPlot:
 			if FAKE:
@@ -524,13 +530,13 @@ def main(argv):
 				printDF = prepareMaximumLossAnalysisNextStep(F_test, L_test, numberPrint, regressor, BATCH_SIZE, labelMeans, labelStds)
 				plotDataNextStepPandas(numberPrint, printDF[columnNames], printDF[['LabelX', 'LabelY']],
 								   printDF[['PredictionX', 'PredictionY']], baseImagePath, limits, units,
-								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
+								   os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
 			else:
 				printDF = prepareMaximumLossAnalysisSeparator(F_test, L_test, numberPrint, regressor, BATCH_SIZE, labelMeans, labelStds)
 				# printDF['LabelPosBalken'] = printDF['LabelPosBalken'] * labelStds['LabelPosBalken'] + labelMeans['LabelPosBalken']
 				plotDataSeparatorPandas(numberPrint, printDF[columnNames], printDF[['LabelPosBalken']],
 										separatorPosition, printDF[['PredictionIntersect']], baseImagePath, limits, units, elementsDirectionBool,
-										baseImagePath + os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
+										os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
 			# print(printDF)
 
 		# displaying weights in Net - (a bit redundant after implementation of debugger
@@ -548,12 +554,12 @@ def main(argv):
 			L_testDenormalized = L_test * labelStds + labelMeans
 			if not separator:
 				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2Denormalized, y_predictedCorr, baseImagePath, limits, units,
-								   baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
+								   os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
 				totalPredictionsCorr = [[x * b + c for x, b, c in zip(x, labelStds, labelMeans)] for x in totalPredictions] # Look, ye mighty, and despair!
-				evaluateResultNextStep(F_test, L_testDenormalized, totalPredictionsCorr, units)
+				evaluateResultNextStep(F_test, L_testDenormalized, totalPredictionsCorr, units, baseImagePath)
 
 			else:
 				# y_vals2Denormalized = y_vals2['LabelPosBalken'] * labelStds['LabelPosBalken'] + labelMeans['LabelPosBalken']
@@ -561,7 +567,7 @@ def main(argv):
 
 				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2Denormalized['LabelPosBalken'], separatorPosition,
 										y_predictedCorr, baseImagePath, limits, units,  elementsDirectionBool,
-										baseImagePath + os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
+										os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
 				totalPredictionsCorr = [[x * b + c for x, b, c in zip(x, labelStds, labelMeans)] for x in totalPredictions] # Look, ye mighty, and despair!
@@ -574,7 +580,7 @@ def main(argv):
 				configDict = {'medAc': medianAccel, 'optAc': optimalAccel, 'cvBias': bias}
 
 				evaluateResultSeparator(F_test, L_testDenormalized, totalPredictionsCorr, separatorPosition, thresholdPoint,
-										configDict, units, elementsDirectionBool)
+										configDict, units, baseImagePath, elementsDirectionBool)
 
 
 # except:

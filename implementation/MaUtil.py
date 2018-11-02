@@ -148,9 +148,9 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
 	if name is None:
-		output = savePath + 'Pic_' + time_stamp + '.png'
+		output = savePath + '/' + 'Pic_' + time_stamp + '.png'
 	else:
-		output = name
+		output = savePath + '/' + name
 
 	x = x_pred2[[i for i in x_pred2.columns if i[0] == 'X']].head(numberPrint).values
 	y = x_pred2[[i for i in x_pred2.columns if i[0] == 'Y']].head(numberPrint).values
@@ -349,9 +349,11 @@ def prepareMaximumLossAnalysisSeparator(X_test, y_test, numberPrint, regressor, 
 	return printDF
 
 
-def evaluateResultNextStep(X_test, y_test, totalPredictions, units):
+def evaluateResultNextStep(X_test, y_test, totalPredictions, units, imageLoc):
 	"""function to evaluate the result of this nets nextStep prediction. no return value,
 	but writes a description of the error distribution and shows some plots for better visualisation"""
+
+	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
 	xPredL = [p[0] for p in totalPredictions]
 	yPredL = [p[1] for p in totalPredictions]
@@ -418,6 +420,8 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions, units):
 	ax2.set_ylabel('# of elements in bin')
 	ax2.set_xlabel('error in {}'.format(units['loc']))
 	plt.legend(loc=1)
+	fig1.savefig(imageLoc + '/evaluation_NextStep_LocationError_' + time_stamp + '.png', dpi=900)
+	fig2.savefig(imageLoc + '/evaluation_NextStep_ErrorHistogram_' + time_stamp + '.png', dpi=900)
 	plt.show()
 
 
@@ -561,10 +565,11 @@ def getCVBias(dataSetFeatures, dataSetLabels, separatorPosition, direction):
 	return timeError.mean()
 
 
-def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, thresholdPoint, configDict, units, direction):
+def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, thresholdPoint, configDict, units, imageLoc, direction):
 	"""function to evaluate the result of this nets nextStep prediction.
 	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
 
+	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 	xPredL = [p[0] for p in totalPredictions]
 	timePredL = [p[1] for p in totalPredictions]
 	pandasLost = pd.DataFrame(data={'NNPredictionPosBalken': xPredL, 'NNPredictionTime': timePredL}, index=y_test.index)
@@ -674,4 +679,9 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	ax4.set_ylabel('# of elements in bin')  # a little bit hacky
 	ax4.legend(loc=1)
 	plt.tight_layout()
+	logging.info("Saving evaluation images to {}".format(imageLoc))
+	fig1.savefig(imageLoc + '/evaluation_Separator_LocationErrorBoxplot_' + time_stamp + '.png', dpi=900)
+	fig2.savefig(imageLoc + '/evaluation_Separator_LocationErrorHistogram_' + time_stamp + '.png', dpi=900)
+	fig3.savefig(imageLoc + '/evaluation_Separator_TimeErrorBoxplot_' + time_stamp + '.png', dpi=900)
+	fig4.savefig(imageLoc + '/evaluation_Separator_TimeErrorHistogram_' + time_stamp + '.png', dpi=900)
 	plt.show()
