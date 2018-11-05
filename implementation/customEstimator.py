@@ -7,6 +7,19 @@ def myCustomEstimator(features, labels, mode, params):
 
 	# Input Layer
 	top = tf.feature_column.input_layer(features, params["feature_columns"])
+	l1Regularization = params.get("l1regularization", False) #Default: deactivate
+	l2Regularization = params.get("l2regularization", False) #Default: deactivate
+
+	regularization = l1Regularization or l2Regularization
+	if regularization:
+		if l1Regularization and l2Regularization:
+			raise ValueError('L1 and L2 regularization are both activated')
+		elif l1Regularization:
+			regularizer = tf.contrib.layers.l1_regularizer(scale=1e-7, scope=None)
+		elif l2Regularization:
+			regularizer = tf.contrib.layers.l2_regularizer(scale=1e-7, scope=None)
+	else:
+		regularizer=None
 
 	activationFunc = params.get("activation", tf.nn.relu)
 	# basierend auf hidden Units wird die Netztopologie aufgebaut
@@ -28,7 +41,7 @@ def myCustomEstimator(features, labels, mode, params):
 			mode=mode, predictions={"predictions": output_layer})
 
 	# Calculate loss using mean squared error
-	
+
 	scaleDim1 = params.get("scaleDim1")
 	scaleDim2 = params.get("scaleDim2")
 	weights_per_output = tf.constant([[scaleDim1, scaleDim2]])
@@ -37,33 +50,23 @@ def myCustomEstimator(features, labels, mode, params):
 	average_loss = tf.losses.mean_squared_error(tf.cast(labels, tf.float32), output_layer, weights=weights_per_output)
 	tf.summary.scalar("average_loss", average_loss)
 
-	
+
 
 	MSE = tf.metrics.mean_squared_error(tf.cast(labels, tf.float32), output_layer)
 	tf.summary.scalar('error', MSE[1])
-	
-	l1Regularization = params.get("l1regularization", False) #Default: deactivate
-	l2Regularization = params.get("l2regularization", False) #Default: deactivate
-	
-	regularization = l1Regularization or l2Regularization
-	
+
+
 	if regularization:
-		if l1Regularization and l2Regularization:
-			raise ValueError('L1 and L2 regularization are both activated')
-		elif l1Regularization:
-			regularizer = tf.contrib.layers.l1_regularizer(scale=0.005, scope=None)
-		elif l2Regularization:
-			regularizer = tf.contrib.layers.l2_regularizer(scale=0.005, scope=None)
-			
 		trainVar = tf.trainable_variables()
 		weights = [v for v in trainVar if "kernel" in v.name]
-		
+
 		assert len(weights) == (len(arch) + 1)
-		
+
 		regularization_penalty = tf.contrib.layers.apply_regularization(regularizer, weights)
 		regularized_loss = average_loss + regularization_penalty
-	
-	
+		# tf.summary.scalar('regularization', regularized_loss) #Borken
+
+
 	# Pre-made estimators use the total_loss instead of the average,
 	# so report total_loss for compatibility.
 	batch_size = tf.shape(labels)[0]
@@ -82,7 +85,7 @@ def myCustomEstimator(features, labels, mode, params):
 		else:
 			optimizer = params.get("optimizer", tf.train.AdamOptimizer)
 			optimizer = optimizer(params.get("learning_rate", None))
-		
+
 		if not regularization:
 			train_op = optimizer.minimize(loss=average_loss, global_step=tf.train.get_global_step())
 		else:
@@ -100,6 +103,9 @@ def myCustomEstimator(features, labels, mode, params):
 
 	# Add the rmse to the collection of evaluation metrics.
 	eval_metrics = {"rmse": rmse, "average_loss": MSE}
+
+	# if regularization:
+	# 	eval_metrics["regularized_loss"] = regularized_loss
 
 	return tf.estimator.EstimatorSpec(
 		mode=mode,

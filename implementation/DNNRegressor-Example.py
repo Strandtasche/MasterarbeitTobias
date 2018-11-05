@@ -36,7 +36,7 @@ parser.add_argument('--training', help='if training of eval', action="store_true
 parser.add_argument('--plot', help='plotting with matplotlib', action="store_true")
 parser.add_argument('--single', help='use all data in single set', action="store_true")
 parser.add_argument('--fake', help="use real data?", action="store_true")
-parser.add_argument('--plotNo', default=1, type=int, help="number of lines plotted")
+parser.add_argument('--plotNo', default=10, type=int, help="number of lines plotted")
 parser.add_argument('--hyperparams', default="hyper_params.json", type=str, help="hyper parameter file to be used.")
 
 parser.add_argument("--save", nargs='*', action="store", help="Store Data")
@@ -296,7 +296,7 @@ def main(argv):
 		# print("added another version of hyper param file")
 
 	if saving is not None:
-		logging.info("storing data in data.h5")
+		logging.info("storing data in {}".format(saveLoc))
 
 		if saveLoc is None:
 			saveLoc = MODEL_PATH + '/data.h5'
@@ -316,7 +316,7 @@ def main(argv):
 			if loadLoc is None:
 				loadLoc = MODEL_PATH + '/data.h5'
 
-			logging.info("loading data from store")
+			logging.info("loading data from {}.".format(loadLoc))
 
 			with pd.HDFStore(loadLoc) as store:
 				F_train = store['xtrain']
