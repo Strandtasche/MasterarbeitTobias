@@ -359,3 +359,83 @@ predicted:
 [0.7227483552674564, 0.12259731908363405]
 time: 0.20s
 MSE (tensorflow): 1.9621815283699107e-08
+INFO:root:Tensorflow 1.11.0
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_00001.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_00401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_00801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_01201.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_01601.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_02001.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_02401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_02801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_03201.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_03601.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_04401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_04801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_05201.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_05601.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_06001.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_06401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_06801.csv
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-11-02_12.15.19
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/Baseline-NextStep
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/Baseline-NextStep does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((363783, 10), (363783, 2))
+INFO:root:Test: ((20404, 10), (20404, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.5747504512073647e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-Baseline/Baseline-NextStep_highestLoss_2018-11-02_12.15.19.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-Baseline/Baseline-NextStep_2018-11-02_12.15.19.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  2.040400e+04       20404.000000       20404.000000     
+mean   1.967746e-05       0.000036           0.000032         
+std    5.283686e-05       0.000058           0.000060         
+min    4.297415e-08       0.000000           0.000000         
+25%    8.148872e-06       0.000010           0.000010         
+50%    1.318485e-05       0.000030           0.000020         
+75%    2.004155e-05       0.000040           0.000028         
+max    2.964982e-03       0.001869           0.001831         
+INFO:root:number of predictions with error > 3: 0
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+145189  0.66027  0.66723  0.67423    ...     0.092101  0.092115  0.092128
+102473  0.69311  0.70026  0.70742    ...     0.039466  0.039476  0.039485
+105846  0.47236  0.47827  0.48417    ...     0.095026  0.095048  0.095069
+14481   0.60447  0.61122  0.61800    ...     0.096866  0.096865  0.096863
+110205  0.57130  0.57786  0.58445    ...     0.124550  0.124500  0.124450
+189548  0.66460  0.67190  0.67924    ...     0.171930  0.172360  0.172770
+43468   0.65768  0.66469  0.67175    ...     0.127640  0.127630  0.127620
+81125   0.51400  0.52017  0.52638    ...     0.041876  0.041875  0.041875
+168270  0.51300  0.51917  0.52538    ...     0.097061  0.097091  0.097120
+22734   0.45963  0.46550  0.47139    ...     0.140690  0.140690  0.140690
+
+[10 rows x 10 columns]
+         LabelX    LabelY
+145189  0.69539  0.092140
+102473  0.72893  0.039494
+105846  0.50228  0.095090
+14481   0.63861  0.096861
+110205  0.60447  0.124390
+189548  0.70144  0.173160
+43468   0.69312  0.127610
+81125   0.54524  0.041875
+168270  0.54423  0.097150
+22734   0.48917  0.140690
+predicted: 
+[0.6953821636849666, 0.0921438186283054]
+[0.7289034123641557, 0.03949573747094873]
+[0.5022525262124321, 0.09508909541981606]
+[0.6385991215309363, 0.09686624112133033]
+[0.6044698129070895, 0.12440689561789559]
+[0.7013938725303845, 0.17318241314039856]
+[0.6931091519366123, 0.12761445685896572]
+[0.5452307341217077, 0.04187926703343116]
+[0.5442251125671863, 0.09714884501333088]
+[0.48919241188231555, 0.14069128237592524]
+time: 0.20s
+MSE (tensorflow): 5.066359420879962e-08

@@ -1,0 +1,122 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-11-02_11.21.13
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-FS10
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((332729, 20), (332729, 2))
+INFO:root:Test: ((18647, 20), (18647, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 6.346704708448669e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/NextStep-FS10_highestLoss_2018-11-02_11.21.13.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/NextStep-FS10_2018-11-02_11.21.13.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  1.864700e+04       18647.000000       18647.000000     
+mean   5.379950e-05       0.000032           0.000025         
+std    7.376295e-05       0.000036           0.000038         
+min    3.110466e-07       0.000000           0.000000         
+25%    3.541778e-05       0.000010           0.000010         
+50%    4.689053e-05       0.000030           0.000020         
+75%    5.897309e-05       0.000040           0.000025         
+max    2.313288e-03       0.001124           0.001485         
+INFO:root:number of predictions with error > 3: 0
+            X_0      X_1      X_2    ...          Y_7       Y_8       Y_9
+122524  0.57101  0.57755  0.58412    ...     0.100340  0.100320  0.100300
+111615  0.59740  0.60409  0.61083    ...     0.119910  0.119930  0.119950
+92478   0.57566  0.58219  0.58877    ...     0.041320  0.041291  0.041262
+138426  0.49529  0.50135  0.50744    ...     0.074736  0.074832  0.074926
+136471  0.53139  0.53766  0.54397    ...     0.130960  0.130960  0.130970
+11771   0.63068  0.63756  0.64447    ...     0.125810  0.125830  0.125850
+9723    0.41003  0.41528  0.42057    ...     0.032523  0.032523  0.032523
+57032   0.70230  0.70937  0.71645    ...     0.086821  0.086793  0.086766
+52653   0.40387  0.40910  0.41433    ...     0.083861  0.083999  0.084138
+13256   0.70962  0.71683  0.72404    ...     0.096843  0.096842  0.096841
+
+[10 rows x 20 columns]
+         LabelX    LabelY
+122524  0.63814  0.100280
+111615  0.66610  0.119980
+92478   0.64277  0.041233
+138426  0.55760  0.075021
+136471  0.59586  0.130970
+11771   0.70110  0.125870
+9723    0.46595  0.032523
+57032   0.77332  0.086740
+52653   0.45887  0.084276
+13256   0.78200  0.096840
+predicted: 
+[0.6381832423144018, 0.10028708775540145]
+[0.6661515343553598, 0.11998473368799559]
+[0.6428213447633653, 0.04123937301511997]
+[0.557664590174199, 0.07502378217378028]
+[0.5958999225393146, 0.13097806354701091]
+[0.7011457371442364, 0.125881283713785]
+[0.465961991697984, 0.03253267911114087]
+[0.7733977060991308, 0.08674885944955087]
+[0.45892315010030943, 0.08428261648848415]
+[0.7820615083695965, 0.09684821363785391]
+time: 0.23s
+MSE (tensorflow): 1.5693028387886443e-07
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--plotNo', '10', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS10-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-FS10.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-FS10']
+INFO:root:time: 2018-11-02_13.36.06
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-FS10
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-FS10 does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:using custom estimator
+INFO:root:Train: ((332729, 20), (332729, 2))
+INFO:root:Test: ((18647, 20), (18647, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 6.346704708448669e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-FS10/NextStep-FS10_highestLoss_2018-11-02_13.36.06.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-FS10/NextStep-FS10_2018-11-02_13.36.06.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  1.864700e+04       18647.000000       18647.000000     
+mean   5.379950e-05       0.000032           0.000025         
+std    7.376295e-05       0.000036           0.000038         
+min    3.110466e-07       0.000000           0.000000         
+25%    3.541778e-05       0.000010           0.000010         
+50%    4.689053e-05       0.000030           0.000020         
+75%    5.897309e-05       0.000040           0.000025         
+max    2.313288e-03       0.001124           0.001485         
+INFO:root:number of predictions with error > 3: 0
+            X_0      X_1      X_2    ...          Y_7       Y_8       Y_9
+117414  0.41479  0.42006  0.42571    ...     0.034700  0.034738  0.034776
+7467    0.50174  0.50784  0.51398    ...     0.094278  0.094292  0.094306
+6341    0.62373  0.63056  0.63743    ...     0.106610  0.106540  0.106480
+20849   0.53261  0.53891  0.54525    ...     0.081471  0.081463  0.081455
+134643  0.68768  0.69474  0.70181    ...     0.077920  0.077936  0.077952
+56405   0.41994  0.42558  0.43126    ...     0.099271  0.099327  0.099382
+86524   0.54506  0.55145  0.55788    ...     0.073809  0.073834  0.073859
+166779  0.59728  0.60397  0.61070    ...     0.125210  0.125170  0.125130
+34065   0.60986  0.61662  0.62342    ...     0.080298  0.080368  0.080433
+173972  0.64253  0.64945  0.65641    ...     0.045480  0.045480  0.045479
+
+[10 rows x 20 columns]
+         LabelX    LabelY
+117414  0.47140  0.034814
+7467    0.56454  0.094321
+6341    0.69373  0.106410
+20849   0.59737  0.081448
+134643  0.75859  0.077968
+56405   0.47725  0.099438
+86524   0.61070  0.073884
+166779  0.66597  0.125090
+34065   0.67924  0.080494
+173972  0.71318  0.045479
+predicted: 
+[0.47144840623056405, 0.03482125895359928]
+[0.5645805131685275, 0.094316031546822]
+[0.6937679743489861, 0.10640683945155718]
+[0.5974214303716048, 0.0814534278271444]
+[0.7586758007179956, 0.07797349849728075]
+[0.47728979071630484, 0.09944971120089983]
+[0.6107529370690501, 0.07388867368892904]
+[0.6660113313147581, 0.12510072656797527]
+[0.6792871386790023, 0.08050653214605727]
+[0.7132414352795604, 0.045480718398870086]
+time: 0.22s
+MSE (tensorflow): 1.5497703031996934e-07
