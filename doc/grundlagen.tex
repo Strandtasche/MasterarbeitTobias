@@ -9,6 +9,10 @@
 % 	- RNN
 % 	- LSTM
 
+In diesem Kapitel soll eine kurze Einführung in die für das Verständnis der restlichen Arbeit benötigten Themengebiete gegeben werden.
+Primär sollen zunächst allgemein neuronale Netze und einige ihrer speziellere Aspekte betrachtet werden 
+bevor ein kurzer Blick auf das bei den Experimenten verwendete Schüttgutsortiersystem \textit{TableSort} geworfen wird. 
+
 \section{Das Kalman-Filter}
 Als Kalman-Filter bezeichnet man ein mathematisches Verfahren mit dem Messfehler in realen Messwerten reduziert werden können und nicht messbare Systemgrößen geschätzt werden können. 
 
@@ -40,31 +44,24 @@ Das Kalman-Filter funktioniert mittels abwechselnd ausgeführter \textit{predict
 \end{equation}
 
 
-\section{TableSort System}
 
-[Viel stuff über das TableSort System]
 
-kleiner, experimenteller Bandsortierer \cite{doll2015}
-
-\begin{figure}
-	% \missingfigure{Bild von TablesortSystem}
-	\includegraphics[width=\textwidth]{TrackSortPic}
-	\caption{TableSort Schüttgutsortiersystem [TODO Quelle]}
-	% \todo{Quelle Bild!}
-	\label{tablesortsystemimage}
-\end{figure}
 
 \section{Neuronale Netze}
 
-Die Grundsteine des Feldes wurde 1943 von Warren McCulloch und Walter Pitts gelegt, 
-die in ihrem Paper ein Neuronenmodell vorschlugen, mit dem sich logische arithmetische Funktionen berechnen lassen. 
-Infolge dessen gab verschiedene Forschungsbestrebungen in dem Feld, wie [Examples: TODO!].
+Als Neuronale Netze  % beziehungsweise \textit{künstliche neuronale Netze}, wie sie manchmal korrekter genannt werden, 
+bezeichnet man in der Informatik Systeme aus künstlichen Neuronen, die heute eine wichtige Rolle im Feld des maschinellem Lernen einnehmen.
+Manchmal werden sie korrekter als \textit{künstliche neuronale Netze} bezeichnet um sie von \textit{natürlichen neuronalen Netzen} 
+wie dem menschlichen Gehirn zu unterscheiden, nach deren biologischem Vorbild sie inspiriert sind.
+  %sind vom biologischen Vorbild des menschliche Ge
 
-\todo{weniger historisch, mehr aktuell}
+Die Grundsteine des Feldes wurde bereits 1943 von Warren McCulloch und Walter Pitts gelegt, 
+die in ihrem Paper \cite{mcculloch1943logical} ein Neuronenmodell vorschlugen, mit dem sich logische arithmetische Funktionen berechnen lassen. 
+Nach einer Periode von relativ geringer Aufmerksamkeit der wissenschaftlichen Gemeinschaft während den 1970ern und folgenden Jahrzehnten 
+haben einige bahnbrechende Ergebnisse um das Jahr 2010, unter anderem im Feld der Spracherkennung, das Interesse an dem Feld wieder entfacht. 
 
-[Viele der Begrifflichkeiten, die wir heute noch verwenden wurden 1956 auf der Dartmouth Conference festlegt.]
 
-Nachdem jedoch Marvin Minsky und Seymour Papert zeigten, dass einzelne Perzeptrons nicht in der Lage sind linear nicht separierbare Probleme zu lösen sank das Interesse an dem Feld.
+% Nachdem jedoch Marvin Minsky und Seymour Papert zeigten, dass einzelne Perzeptrons nicht in der Lage sind linear nicht separierbare Probleme zu lösen sank das Interesse an dem Feld.
 
 \subsection{Perzeptron}
 Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt beschrieben wurde \cite{rosenblatt1958perceptron}.
@@ -88,7 +85,7 @@ Beim Lernen werden die Gewichte der einzelnen Eingaben so an gepasst, dass die g
 Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen Operatoren AND, OR und NOT genutzt werden
 
 Letztendlich ist ein solches Perzeptron jedoch nur ein linearer Klassifikator und kann somit zum Beispiel den XOR Operator nicht auflösen.
-
+Dies zeigten Marvin Minksy und Seymour Papert 1969 in einflussreichen Buch \textit{Perceptrons} \todo{quelle}
 \todo{Linear Trennbares / Nicht-linear Trennbares Problem (AND vs XOR)}
 
 Um solche, nicht linear-separierbare Probleme zu lösen müssen mehrere Schichten an Neuronen kombiniert werden.
@@ -238,6 +235,26 @@ was dann für einen Gradientenabstieg verwendet werden kann.
 \subsection{Overfitting}
 
 \todo{Absatz zu Overfitting}
+Overfitting:
+	Wenn das System schlechter darin wird zu generalisieren: (von bekanntem auf unbekanntes schließen/Schlechte Prediktion)
+	Erkennen die Performance auf dem Trainingsset weiterhin besser wird, aber die Performance auf dem Testset schlechter wird.
+	z.B. wenn Rauschen als teil der zugrundeliegenden Struktur interpretiert wird.
+
+Gegenteil von Underfitting, wenn das Modell nicht ausreichend komplex ist um die zugrundeliegende Struktur der Daten abzubilden. 
+Beispiel underfitting: Lineares Modell auf nicht-lineare Daten fitten.
+
+\begin{figure}
+	\missingfigure{Overfitting example}
+	% \includegraphics[width=\textwidth]{TrackSortPic}
+	\caption{Beispiel für Overfitting}
+	% \todo{Quelle Bild!}
+	\label{fig:overfitting}
+\end{figure}
+
+Methoden um Overfitting zu vermeiden:
+Mehr Trainingsdaten (z.B. durch Data-Augmentation)
+Regularisierung (L1, L2 (siehe unten), dropout für Classifier(?))
+
 
 \subsection{Regularisierung}
 
@@ -254,7 +271,7 @@ der die Kosten basierend auf der Komplexität des Systems erhöht.
 Dabei ist $V$ die loss function, beispielsweise \textit{Mean-Square-Error} oder \textit{Mean-Absolute-Error}.
 $n$ ist die Anzahl der Feature-Label-Paare,
 $x_i$ und $y_i$ sind die einzelnen Eingabefeatures und das dazugehörige Label.
-Die Funktion $f$ ist in unserem Fall das Neuronale Netz, das die Features entgegen nimmt.
+Die Funktion $f$ ist in unserem Fall das neuronale Netz, das die Features entgegen nimmt.
 $\lambda$ ist ein Parameter, der die Gewichtung des Regularisierungsterm festlegt.
 Wählt man diesen Parameter zu klein, so kann es sein, dass das Modell immer noch overfittet.
 Wählt man ihn zu groß so kann es sein, dass das Modell das Problem nicht mehr korrekt abbildet und es zu Underfitting kommt.
@@ -269,3 +286,18 @@ Formel für MSE mit L1 Regularisierung findet man in \ref{eqn:MSE-L1}.
 \end{equation} 
 
 \todo{absatz zu regularization - L1, L2, (L0 und warum man es nicht benutzt?)}
+
+
+\section{TableSort System}
+
+[Viel stuff über das TableSort System]
+
+kleiner, experimenteller Bandsortierer \cite{doll2015}
+
+\begin{figure}
+	% \missingfigure{Bild von TablesortSystem}
+	\includegraphics[width=\textwidth]{TrackSortPic}
+	\caption{TableSort Schüttgutsortiersystem [TODO Quelle]}
+	% \todo{Quelle Bild!}
+	\label{tablesortsystemimage}
+\end{figure}

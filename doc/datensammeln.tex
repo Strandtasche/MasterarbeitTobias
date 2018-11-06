@@ -1,8 +1,38 @@
-\chapter{Daten}
+\chapter{Datenverarbeitung}
 
 Wie bei jeder Anwendung von maschinellen Lernverfahren sind die zugrundeliegenden Daten von äußerster Wichtigkeit.
-Im Rahmen dieser Masterarbeit wurden zu Beginn existierende Aufnahmen und Track benutzt, 
-bevor dann selbst am TableSort Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht wurden.
+Im Rahmen dieser Masterarbeit wurden zweierlei Sorten von Daten benutzt:
+Einmal wurden am \textit{TableSort} Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht, 
+die dann über mehrere Arbeitsschritte in das richtige Format übersetzt werden.
+Zudem existieren der DEM Datensatz \todo{mehr details - was tut der überhaupt}
+
+
+
+\section{Datenformatierung}
+
+Zu beginn des Datenverarbeitungskapitel erstmal definieren wie unsere Feature-Label Paare aussehen.
+Features eigentlich immer gleich:
+die Positionen der letzten $n$ Zeitschritte (FeatureSize Hyperparameter)
+also ein $2n$ Tupel, mit jeweils $n$ X-Koordinaten und $n$ Y-Koordinaten
+
+
+Labels: Unterscheidung nach Anwendung:
+
+NextStep: Label ist 2-Tupel, X und Y Koordinate
+Separator: 
+	gegeben ist eine Stelle entlang der Bewegungsrichtung der Teilchen an der der Separator angebracht ist.
+	erstes element des Label ist die Koordinate entlang der orthogonalen Achse zur Bewegungsrichtung wo das Teilchen den Separator passiert
+	zweites Element ist die Anzahl von Zeitschritten , die das Teilchen noch bis zum Separator braucht.
+
+Important Point: Labels wurden normalisiert und Standardisiert ( $\frac{TrueVal - Mean}{Standard Diviation}$
+um auszugleichen, dass sich Position und Zeitschritte auf unterschiedlichen Skalen bewegen und dementsprechend unterschiedlich hohe gradienten haben.
+
+
+Es ist implementiert, dass die verschiedenen Dimensionen unterschiedlich stark gewichtet werden können - Je nach Schüttgut/präzision des Separators
+Aber für die evaluierung ist keine Gewichtung vorgenommen worden.
+
+potenziell: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location...)
+
 
 
 \section{Eigene Aufnahmen}
@@ -12,7 +42,7 @@ bevor dann selbst am TableSort Schüttgutsortierer des Fraunhofer IOSBs Aufnahme
 [Beschreibung von der Bonito Kamera, stats usw.]
 Zur Aufnahme der Trainingsdaten wurde eine Bonito CL-400 200 FPS Kamera benutzt, die in Abbildung \ref{pictureCam} zu sehen ist.
 Die ist, wie in Abbildung \ref{pictureCam} oberhalb des Förderbandes angebracht.
-Die Bilder, die von der Kamera aufgenommen werden haben eine Auflösung von 2320x1726 Pixeln.
+Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726 Pixeln.
 
 \begin{figure}
     \centering
@@ -72,10 +102,21 @@ und in Abbildung \ref{schuettgueterBand} auf dem Förderband zu sehen.
 Die Bilder wurden in Batches von je 3500 gesammelt.
 Die Bonito Kamera schreibt sie in Form einer Bayer-Matrix in Bitmap Dateien.
 \todo{hier Bayer-Matrix erklären und Bild?}
+
+\begin{figure}
+	% \missingfigure{bayer matrix}
+	\includegraphics[width=\textwidth]{1024px-Bayer_pattern_on_sensor}
+	\caption{Bayer Matrix [TODO: Quelle]}
+	% \todo{Quelle Bild!}
+	\label{fig:bayerPattern}
+\end{figure}
+
 Auf Grund der Menge an Bildern war es sinnvoll die Dateien in das png Dateiformat zu übertragen.
 Die Features, die für das Trainieren der Netze benutzt werden, sind die Koordinaten der Mittelpunkte der Objekte.
-Um diese zu bestimmten müssen zunächst die Dateien mittels \textit{Demosaicing} rekonstruiert werden um gewöhnliche RGB Bilder zu erhalten.
-\todo{[Reference Debayer script?]}
+Um diese zu bestimmten, müssen zunächst die Dateien mittels \textit{demosaicing} rekonstruiert werden um gewöhnliche RGB Bilder zu erhalten.
+Die Open Source Computer Vision Library OpenCV hat eine Methode implementiert, die ein Bild von einem Farbraum in einen anderen übertragen kann
+und die eingesetzt wurde um die einzelnen Bilder in RGB Farbbilder zu konvertieren.
+\todo{Skript ursprünglich von Georg, ein paar changes implementiert bezüglich input und output.}
 
 \begin{figure}[h]
 	\centering
@@ -104,7 +145,7 @@ Um diese zu bestimmten müssen zunächst die Dateien mittels \textit{Demosaicing
 
 
 Auf diesen kann dann eine Segmentierung vorgenommen werden.
-Hierzu wurde die Computer Vision Library OpenCV benutzt.
+Hierzu wurde erneut die Computer Vision Library OpenCV benutzt.
 \todo{Mehr details: Parameters...}
 Das Ergebnis des Segmentierungsscripts [Reference segement.py] ist ein CSV File für jedes Batch.
 Eine Zeile repräsentiert ein Bild aus dem Batch, also einen Zeitschritt.
@@ -141,6 +182,7 @@ Es wurden
 7056 Pfefferkörner in 13 Batches,
 17049 Zylinder in 11 Batches
 und 8549 Weizenkörner in 13 Batches aufgenommen.
+\todo{outdated: neue Zählung ist notwending}
 
 \begin{figure}
     \centering
@@ -185,7 +227,3 @@ Die synthetischen Beispiele müssen jedoch plausibel sein, da sie sonst die \tod
 - Hier: Spiegeln in einem Band - an der Mitte, nicht die Ränder mit nehmen - Kamera nicht perfekt zentriert
 - führt zu: Beinah verdoppelung der Feature-Label-paare fürs training.
 
-
-\section{Datenform}
-
-unterscheidung NextStep/Separator: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location...)
