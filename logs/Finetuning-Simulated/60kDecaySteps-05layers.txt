@@ -372,3 +372,87 @@ predicted:
 [0.5977183759125368, 0.10779922412347817]
 time: 0.23s
 MSE (tensorflow): 4.199027259232935e-08
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-60kDecay-05Layers.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-05Layers']
+INFO:root:time: 2018-11-05_11.07.27
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-05Layers
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-05Layers does not exist. Creating folder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((363825, 10), (363825, 2))
+INFO:root:Test: ((20404, 10), (20404, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 4.2703752001216344e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-60kDecay-05Layers/NextStep-60kDecaySteps-05Layers_highestLoss_2018-11-05_11.07.27.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-60kDecay-05Layers/NextStep-60kDecaySteps-05Layers_2018-11-05_11.07.27.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  2.040400e+04       20404.000000       20404.000000     
+mean   2.305664e-05       0.000037           0.000033         
+std    5.960321e-05       0.000061           0.000063         
+min    2.817022e-08       0.000000           0.000000         
+25%    7.250567e-06       0.000010           0.000010         
+50%    1.356817e-05       0.000030           0.000020         
+75%    2.396200e-05       0.000040           0.000028         
+max    2.841786e-03       0.001924           0.001551         
+INFO:root:number of predictions with error > 3: 0
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+171449  0.44308  0.44875  0.45442    ...     0.159580  0.159780  0.159990
+68672   0.54445  0.55082  0.55722    ...     0.044669  0.044669  0.044669
+87947   0.47173  0.47763  0.48352    ...     0.123800  0.123810  0.123820
+158349  0.44145  0.44702  0.45258    ...     0.141590  0.141680  0.141760
+167482  0.61840  0.62497  0.63157    ...     0.099630  0.099640  0.099650
+155031  0.72339  0.73060  0.73781    ...     0.092995  0.093084  0.093170
+104072  0.57814  0.58474  0.59137    ...     0.102050  0.102170  0.102280
+61779   0.48316  0.48915  0.49514    ...     0.105790  0.105940  0.106080
+10356   0.47215  0.47804  0.48396    ...     0.098269  0.098179  0.098089
+29935   0.42003  0.42564  0.43126    ...     0.058950  0.058885  0.058820
+
+[10 rows x 10 columns]
+         LabelX    LabelY
+171449  0.47184  0.160190
+68672   0.57667  0.044668
+87947   0.50159  0.123830
+158349  0.46969  0.141840
+167482  0.65161  0.099660
+155031  0.75951  0.093255
+104072  0.61150  0.102400
+61779   0.51341  0.106220
+10356   0.50204  0.097999
+29935   0.44814  0.058756
+predicted: 
+[0.47184366206611306, 0.16019628198950464]
+[0.5766584236371445, 0.04466828883636266]
+[0.5015790241079463, 0.12383420358322253]
+[0.4697166451988728, 0.1418475935837561]
+[0.6515714570580684, 0.09966011145549533]
+[0.7594883621386518, 0.09325326410548815]
+[0.6114834878940271, 0.10239800670566596]
+[0.513405091868846, 0.10622682700435923]
+[0.5020445832443727, 0.09800417020123828]
+[0.4481438611321551, 0.05874541349602441]
+time: 0.22s
+MSE (tensorflow): 2.4839343026883398e-08
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-60kDecay-05Layers.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-05Layers']
+INFO:root:time: 2018-11-06_10.17.53
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-05Layers
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((363825, 10), (363825, 2))
+INFO:root:Test: ((20404, 10), (20404, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 4.2703752001216344e-07
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-60kDecay-05Layers.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-05Layers']
+INFO:root:time: 2018-11-06_10.18.07
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-05Layers
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((363825, 10), (363825, 2))
+INFO:root:Test: ((20404, 10), (20404, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 4.2703752001216344e-07

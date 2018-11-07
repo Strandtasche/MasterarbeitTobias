@@ -1,0 +1,34 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-60kDecay-Retrain.json']
+INFO:root:time: 2018-11-07_13.22.18
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-Retrain
+INFO:root:model folder /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-Retrain does not exist. Creating folder
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-Retrain does not exist. Creating folder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((363825, 10), (363825, 2))
+INFO:root:Test: ((20404, 10), (20404, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.00017083384, 'loss': 0.08501692, 'rmse': 0.013070342, 'global_step': 5000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 4.6033238e-05, 'loss': 0.022908835, 'rmse': 0.00678478, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.00027639497, 'loss': 0.13755032, 'rmse': 0.01662513, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 2.6797368e-05, 'loss': 0.013335939, 'rmse': 0.0051766173, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 4.815467e-05, 'loss': 0.023964582, 'rmse': 0.0069393567, 'global_step': 205000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 7.1941813e-06, 'loss': 0.0035802457, 'rmse': 0.0026821971, 'global_step': 255000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 9.5251366e-05, 'loss': 0.047402654, 'rmse': 0.00975968, 'global_step': 305000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 1.1189083e-05, 'loss': 0.0055683427, 'rmse': 0.0033450087, 'global_step': 355000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 3.2800601e-06, 'loss': 0.0016323499, 'rmse': 0.0018110937, 'global_step': 405000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 2.9965681e-06, 'loss': 0.0014912677, 'rmse': 0.0017310599, 'global_step': 455000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 6.220748e-06, 'loss': 0.0030958084, 'rmse': 0.0024941429, 'global_step': 505000}
