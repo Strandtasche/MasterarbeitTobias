@@ -9,15 +9,16 @@ def myCustomEstimator(features, labels, mode, params):
 	top = tf.feature_column.input_layer(features, params["feature_columns"])
 	l1Regularization = params.get("l1regularization", False) #Default: deactivate
 	l2Regularization = params.get("l2regularization", False) #Default: deactivate
+	regularizationStrength = params.get("regularizationStrength", 0.0)
 
 	regularization = l1Regularization or l2Regularization
 	if regularization:
 		if l1Regularization and l2Regularization:
 			raise ValueError('L1 and L2 regularization are both activated')
 		elif l1Regularization:
-			regularizer = tf.contrib.layers.l1_regularizer(scale=1e-7, scope=None)
+			regularizer = tf.contrib.layers.l1_regularizer(scale=regularizationStrength, scope=None)
 		elif l2Regularization:
-			regularizer = tf.contrib.layers.l2_regularizer(scale=1e-7, scope=None)
+			regularizer = tf.contrib.layers.l2_regularizer(scale=regularizationStrength, scope=None)
 	else:
 		regularizer=None
 

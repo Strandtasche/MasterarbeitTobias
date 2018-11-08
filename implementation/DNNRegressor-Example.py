@@ -250,7 +250,7 @@ def main(argv):
 		my_feature_columns.append(tf.feature_column.numeric_column(key=key))
 
 	if not overrideModelPath:
-		MODEL_PATH = genModelPath(hyper_params, FAKE, usingCustomEstimator, separator)
+		MODEL_PATH = baseModelPath #genModelPath(hyper_params, FAKE, usingCustomEstimator, separator)
 	else:
 		MODEL_PATH = overrideModelPath
 
@@ -396,7 +396,8 @@ def main(argv):
 				"l1regularization": l1regularization,
 				"l2regularization": l2regularization,
 				"scaleDim1": scaleDim1,
-				"scaleDim2": scaleDim2
+				"scaleDim2": scaleDim2,
+				"regularizationStrength": 5e-08
 			})
 
 	hooks = None
