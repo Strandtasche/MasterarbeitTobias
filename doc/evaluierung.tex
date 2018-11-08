@@ -1,5 +1,7 @@
 \chapter{Evaluation}
 
+Im vorhergegangenen Kapitel wurde beschrieben, [wie die Netze designed wurde]
+Jetzt bewerten wie gut sie das eigentlich mache.
 
 \section{System}
 
@@ -12,6 +14,71 @@ SSD
 \todo{Stats verifizieren}
 
 \section{Next Step}
+
+Netz Variante 1: den nächsten Schritt vorhersagen
+
+
+definitions vergleichsmodelle:
+
+Notation aus Florian's Diss. Zustandsvector für CV.
+
+
+\begin{equation*} \label{eq:definitionCV}
+    \vx_t = 
+    \begin{bmatrix}
+        x_t \\
+        \dot{x}_t \\
+        y_t \\
+        \dot{y}_t
+       \end{bmatrix} 
+\end{equation*}
+
+
+Zustandsvector für CA:
+
+\begin{equation*} \label{eq:definitionCA}
+    \vx_t = 
+    \begin{bmatrix}
+        x_t \\
+        \dot{x}_t \\
+        \ddot{x}_t \\
+        y_t \\
+        \dot{y}_t \\
+        \ddot{y}_t
+       \end{bmatrix} 
+\end{equation*}
+
+
+\textbf{Constant Velocity Modell}
+
+\begin{equation*} \label{eq:speedCV}
+    \dot{\vx}(t) = \mat{A}\vx(t), \quad \mat{A} = 
+    \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1\\
+        0 & 0 & 0 & 0
+    \end{bmatrix} 
+\end{equation*}
+
+
+\textbf{Contant Acceleration Modell}
+
+\begin{align*} \label{eq:speedCV}
+    \dot{\vx}(t) = \mat{A}\vx(t), \quad \mat{A} = 
+    \begin{bmatrix}
+        \mat{A}_x & \boldsymbol{0} \\
+        \boldsymbol{0} & \mat{A}_y
+    \end{bmatrix} 
+    , \quad
+    \mat{A}_x = \mat{A}_y = 
+    \begin{bmatrix}
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        0 & 0 & 0
+    \end{bmatrix} 
+\end{align*}
+
 
 - CV, CA
 - Ergebnis Netz

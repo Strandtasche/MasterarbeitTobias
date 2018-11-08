@@ -65,14 +65,14 @@ haben einige bahnbrechende Ergebnisse um das Jahr 2010, unter anderem im Feld de
 
 \subsection{Perzeptron}
 Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt beschrieben wurde \cite{rosenblatt1958perceptron}.
-Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert $o$ ausgibt.
+Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(o\)ausgibt.
 
-\todo{Darstellung des Perzeptrons}
+\todo{Darstellung des Perzeptrons}F
 
-Die einzelnen Eingaben $x_i$ haben jeweils eine Gewichtung $w_i$.
+Die einzelnen Eingaben \(x_i\) haben jeweils eine Gewichtung \(w_i\).
 Es existiert ein sogenannter Schwellwert oder \textit{bias}, der normalerweise 
-durch eine zusätzliche Eingabe $x_{m+1}$ mit dem Wert $+1$ und dem dazugehörigen Gewicht $w_{m+1}$ modelliert wird.
-Den Ausgabewert $y$ erhält man dadurch, dass man die gewichteten Eingaben aufsummiert und in die Aktivierungsfunktion des Perzeptrons gibt.
+durch eine zusätzliche Eingabe \(x_{m+1}\)mit dem Wert \(+1\)und dem dazugehörigen Gewicht \(w_{m+1}\)modelliert wird.
+Den Ausgabewert \(y\)erhält man dadurch, dass man die gewichteten Eingaben aufsummiert und in die Aktivierungsfunktion des Perzeptrons gibt.
 Ein Überblick über verschiedene Aktivierungsfunktionen ist unter \ref{activationfuncs} zu finden.
 
 Mathematisch ist die Ausgabe eines Perzeptrons also wie folgt definiert:
@@ -112,16 +112,16 @@ Operation auf diese an und gibt das Ergebnis zurück.
 			f'(x) = f(x) * (1 - f(x))
 		\end{equation}
 		Die mathematische Form der Sigmoid Aktivierungsfunktion ist in Abbildung \ref{sigmoidFunc} zu sehen.
-		Sie bildet die reellen Zahlen $\mathbb{R}$ auf das Intervall $(0,1)$ ab. 
-		Für betragsmäßig größer werdende negative Zahlen nähert sich der Rückgabewert $0$ an,
-		ebenso wie für größer werdende positive Zahlen sich der Rückgabewert an $1$ annähert.
+		Sie bildet die reellen Zahlen \(\mathbb{R}\)auf das Intervall \((0,1)\)ab. 
+		Für betragsmäßig größer werdende negative Zahlen nähert sich der Rückgabewert \(0\)an,
+		ebenso wie für größer werdende positive Zahlen sich der Rückgabewert an \(1\)annähert.
 
 		Die Sigmoid Funktion ist eine historisch häufig genutze Funktion, da sie das Verhalten eines natürlichen Neurons,
 		der biologischen Motivation für künstliche Neuronen, gut nachbildet:
 		komplette Inaktivität eines Neurons bei Ausgabe 0 bis zum feuern mit maximaler Frequenz bei Ausgabe 1.
 
 		In der Praxis jedoch haben sich einige Nachteile der Sigmoid Funktion gezeigt, weshalb sie quasi nicht mehr genutzt wird.
-		Der gewichtigste von diesen ist, dass ihre Ableitung bei großen Beträgen beinah $0$ ist.
+		Der gewichtigste von diesen ist, dass ihre Ableitung bei großen Beträgen beinah \(0\)ist.
 		Dies führt dazu, dass während der Ausführung des Backpropagation-Algorithmus beinah keine Änderungen passieren und dementsprechend das Netz sehr langsam lernt.
 		
 		\begin{figure}
@@ -141,7 +141,7 @@ Operation auf diese an und gibt das Ergebnis zurück.
 			f'(x) = 1 - f(x)^2
 		\end{equation}
 		Die tanh Aktivierungsfunktion ist in Abbildung \ref{tanhfunction} dargestellt.
-		Im Gegensatz zur Sigmoid Funktion bildet sie die reellen Zahlen $\mathbb{R}$ auf das Intervall $(-1, 1)$ ab.
+		Im Gegensatz zur Sigmoid Funktion bildet sie die reellen Zahlen \(\mathbb{R}\)auf das Intervall \((-1, 1)\)ab.
 		Weil sie zentriert um den Nullpunkt ist, wird sie bei realen Anwendungen der Sigmoid Funktion vorgezogen.
 		Das Saturationsproblem der Sigmoid Funktion besteht jedoch immer noch.
 		\begin{figure}
@@ -268,15 +268,15 @@ der die Kosten basierend auf der Komplexität des Systems erhöht.
 	\min_f \sum\limits_{i=1}^{m} V(f(\vec{x}_i), \vec{y}_i) + \lambda R(f)
 \end{equation} 
 
-Dabei ist $V$ die loss function, beispielsweise \textit{Mean-Square-Error} oder \textit{Mean-Absolute-Error}.
-$n$ ist die Anzahl der Feature-Label-Paare,
-$x_i$ und $y_i$ sind die einzelnen Eingabefeatures und das dazugehörige Label.
-Die Funktion $f$ ist in unserem Fall das neuronale Netz, das die Features entgegen nimmt.
-$\lambda$ ist ein Parameter, der die Gewichtung des Regularisierungsterm festlegt.
+Dabei ist \(V\)die loss function, beispielsweise \textit{Mean-Square-Error} oder \textit{Mean-Absolute-Error}.
+\(n\)ist die Anzahl der Feature-Label-Paare,
+\(x_i\)und \(y_i\)sind die einzelnen Eingabefeatures und das dazugehörige Label.
+Die Funktion \(f\)ist in unserem Fall das neuronale Netz, das die Features entgegen nimmt.
+\(\lambda\)ist ein Parameter, der die Gewichtung des Regularisierungsterm festlegt.
 Wählt man diesen Parameter zu klein, so kann es sein, dass das Modell immer noch overfittet.
 Wählt man ihn zu groß so kann es sein, dass das Modell das Problem nicht mehr korrekt abbildet und es zu Underfitting kommt.
-Der Regularisierungsterm $R$ wird so gewählt, dass er die Komplexität der Funktion $f$ wiederspiegelt.
-Beispiele für $R$ wären zum Beispiel die L1- oder die L2-Regularisierung die jeweils mit der L1 beziehungsweise mit der L2 Norm arbeiten.
+Der Regularisierungsterm \(R\)wird so gewählt, dass er die Komplexität der Funktion \(f\)wiederspiegelt.
+Beispiele für \(R\)wären zum Beispiel die L1- oder die L2-Regularisierung die jeweils mit der L1 beziehungsweise mit der L2 Norm arbeiten.
 
 Ein gutes Maß für die Komplexität eines neuronalen Netzes sind die Gewichte zwischen den Neuronen.
 

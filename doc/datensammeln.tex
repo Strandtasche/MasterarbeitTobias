@@ -12,8 +12,8 @@ Zudem existieren der DEM Datensatz \todo{mehr details - was tut der überhaupt}
 
 Zu beginn des Datenverarbeitungskapitel erstmal definieren wie unsere Feature-Label Paare aussehen.
 Features eigentlich immer gleich:
-die Positionen der letzten $n$ Zeitschritte (FeatureSize Hyperparameter)
-also ein $2n$ Tupel, mit jeweils $n$ X-Koordinaten und $n$ Y-Koordinaten
+die Positionen der letzten \(n\) Zeitschritte (FeatureSize Hyperparameter)
+also ein \(2n\) Tupel, mit jeweils \(n\) X-Koordinaten und \(n\) Y-Koordinaten
 
 
 Labels: Unterscheidung nach Anwendung:
@@ -24,7 +24,7 @@ Separator:
 	erstes element des Label ist die Koordinate entlang der orthogonalen Achse zur Bewegungsrichtung wo das Teilchen den Separator passiert
 	zweites Element ist die Anzahl von Zeitschritten , die das Teilchen noch bis zum Separator braucht.
 
-Important Point: Labels wurden normalisiert und Standardisiert ( $\frac{TrueVal - Mean}{Standard Diviation}$
+Important Point: Labels wurden normalisiert und Standardisiert ( \(\frac{TrueVal - Mean}{Standard Diviation}\)
 um auszugleichen, dass sich Position und Zeitschritte auf unterschiedlichen Skalen bewegen und dementsprechend unterschiedlich hohe gradienten haben.
 
 
@@ -189,17 +189,14 @@ Es wurden
 und 8549 Weizenkörner in 13 Batches aufgenommen.
 \todo{outdated: neue Zählung ist notwending}
 
+\todo{Table mit Anzahl von Elementen in verschiedenen Batches}
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{img/scaledPieChart-trimmed}
     \caption{Verteilung Schüttgut Elemente nach Sorte}
     \label{piechartSchuettgut}
 \end{figure}
-
-Bei einer FeatureSize von 5 ergeben sich bei den Kugeln so 98.966 Feature-Label Paare.
-Die Pfefferkörner haben dann 105.101 Feature-Label Paare,
-bei den Zylindern kommt man auf 244.422 Feature-Label Paare
-und bei den Weizenkörner 132.140 Feature-Label Paare.
 
 
 Menge in gecleanten Daten:
@@ -214,9 +211,7 @@ Menge in gecleanten Daten:
 
 [FilterTracksByAngle] [FilterByVectorLengthChange]
 
-\section{Data Augmentation}
-
-[Spiegeln]
+[Data Augmentation: Spiegeln]
 
 Als Data Augmentation bezeichnet man Verfahren, die das eigene Set an Daten erweitern ohne zusätzliche Daten aufzunehmen
 in dem man aus den bestehenden Daten synthetische Daten generiert.
@@ -230,3 +225,30 @@ Die synthetischen Beispiele müssen jedoch plausibel sein, da sie sonst die \tod
 - Hier: Spiegeln in einem Band - an der Mitte, nicht die Ränder mit nehmen - Kamera nicht perfekt zentriert
 - führt zu: Beinah verdoppelung der Feature-Label-paare fürs training.
 
+\section{Trainingsbeispiele}
+
+Train - Test - Validation - Split:
+Train - test, 90\% zu 10\%.
+Validation nur für die sets auf denen das Hyperparameter Tuning gemacht wurde
+[ungefähres ]
+
+
+Features sind für NextStep und Separator gleich.
+(Unclear yet:Separator müssen insgesamt die Trainingsbeispiele gefiltert werden? Zumindest für die Evaluation? TODO!)
+
+Labels:
+Sehr straight forward für NextStep (Literally), einfach die nächste Zeile im Track jeweils für X und Y
+
+für separator slightly more complicated: 
+Element des Tracks vor und hinter der Separator position (entlang der Travel Achse)
+
+Schnittpunkt geometrisch bestimmen.
+Label für position ist position von Schnittpunkt orthogonal zum 
+
+\todo{table of size of different data sets - nu}
+
+OUTDATED:
+Bei einer FeatureSize von 5 ergeben sich bei den Kugeln so 98.966 Feature-Label Paare.
+Die Pfefferkörner haben dann 105.101 Feature-Label Paare,
+bei den Zylindern kommt man auf 244.422 Feature-Label Paare
+und bei den Weizenkörner 132.140 Feature-Label Paare.
