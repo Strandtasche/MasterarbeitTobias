@@ -22,6 +22,7 @@ import sys
 
 import os
 import logging
+import pickle
 from timeit import default_timer as timer
 
 import loadDataExample as ld
@@ -225,7 +226,7 @@ def main(argv):
 		else:
 			(F_train, L_train), (F_test, L_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 
-		# TODO: ziemlich hässlicher Hack - das könnte man noch schöner machen
+		# TODO: ziemlich unschön - das könnte man noch besser machen
 		if singleData:
 			F_train = pd.concat([F_train, F_test])
 			F_test = F_train
@@ -416,9 +417,23 @@ def main(argv):
 
 	logging.info("Train: ({}, {})".format(F_train.shape, L_train.shape))
 	logging.info("Test: ({}, {})".format(F_test.shape, L_test.shape))
+	logging.info("Means: \n{}".format(labelMeans))
+	logging.info("Stds: \n{}".format(labelStds))
+
 
 	# Train it
 	if TRAINING:
+
+		if not os.path.exists(MODEL_PATH + '/meanstd.pkl'):
+			with open(MODEL_PATH + "/meanstd.pkl", 'wb') as f:
+				pickle.dump([labelMeans, labelStds], f)
+		else:
+			with open(MODEL_PATH + "/meanstd.pkl", 'rb') as f:
+				[labelMeansTemp, labelStdsTemp] = pickle.load(f)
+
+				if not ((labelMeansTemp == labelMeans).all() and (labelStdsTemp == labelStds).all()): # does this work with float?
+					logging.warning("CAREFUL: LabelMeans or LabelStds do not match existing values! Training with new values")
+
 		logging.info('Train the DNN Regressor...\n')
 		# test = tf.train.get_or_create_global_step()
 		# logging.info("test: {}".format(test))
@@ -482,6 +497,28 @@ def main(argv):
 	# Now it's trained. We can try to predict some values.
 	else:
 		logging.info('No training today, just prediction')
+
+		if not os.path.exists(MODEL_PATH + '/meanstd.pkl'):
+			logging.warning("Careful: No prior LabelMeans or LabelStds found!")
+		else:
+			with open(MODEL_PATH + "/meanstd.pkl", 'rb') as f:
+				[labelMeansTemp, labelStdsTemp] = pickle.load(f)
+
+				if not ((labelMeansTemp == labelMeans).all() and (labelStdsTemp == labelStds).all()): # does this work with float?
+					logging.warning("evaluation on different dataset. replacing current labelMeans and labelStds")
+
+					L_test = L_test * labelStds + labelMeans
+
+					labelMeans = labelMeansTemp
+					labelStds = labelStdsTemp
+
+					logging.info("New labelMeans: \n{}".format(labelMeans))
+					logging.info("New labelStds: \n{}".format(labelStds))
+
+					L_test = (L_test - labelMeans) / labelStds
+
+
+
 		try:
 			# Prediction
 			eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(F_test, L_test, BATCH_SIZE))
