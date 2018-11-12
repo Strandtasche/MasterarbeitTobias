@@ -273,19 +273,33 @@ Dabei ist \(V\)die loss function, beispielsweise \textit{Mean-Square-Error} oder
 \(x_i\)und \(y_i\)sind die einzelnen Eingabefeatures und das dazugehörige Label.
 Die Funktion \(f\)ist in unserem Fall das neuronale Netz, das die Features entgegen nimmt.
 \(\lambda\)ist ein Parameter, der die Gewichtung des Regularisierungsterm festlegt.
-Wählt man diesen Parameter zu klein, so kann es sein, dass das Modell immer noch overfittet.
+Wählt man diesen Parameter zu klein, so kann es sein, dass das Modell trotz Regularisierung noch immer overfittet.
 Wählt man ihn zu groß so kann es sein, dass das Modell das Problem nicht mehr korrekt abbildet und es zu Underfitting kommt.
 Der Regularisierungsterm \(R\)wird so gewählt, dass er die Komplexität der Funktion \(f\)wiederspiegelt.
-Beispiele für \(R\)wären zum Beispiel die L1- oder die L2-Regularisierung die jeweils mit der L1 beziehungsweise mit der L2 Norm arbeiten.
-
 Ein gutes Maß für die Komplexität eines neuronalen Netzes sind die Gewichte zwischen den Neuronen.
+Beispiele für \(R\) wären zum Beispiel die L1- oder die L2-Regularisierung. % die jeweils mit der L1 beziehungsweise mit der L2-Norm arbeiten.
+Der entscheidende Unterschied zwischen den beiden ist der unterschiedliche Strafterm zu sehen in \ref{eqn:MSE-L1} für L1 und \ref{eqn:MSE-L2} für L2. 
+Die Fehlerfunktionen sind jeweils MSE mit 
 
-Formel für MSE mit L1 Regularisierung findet man in \ref{eqn:MSE-L1}.
 \begin{equation} \label{eqn:MSE-L1}
 	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j} \sum_{k} (|\mat{W}_{j,k}|)
 \end{equation} 
 
-\todo{absatz zu regularization - L1, L2, (L0 und warum man es nicht benutzt?)}
+\begin{equation} \label{eqn:MSE-L2}
+	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j} \sum_{k} (\mat{W}_{j,k}^2:w_)
+\end{equation} 
+
+
+Ein Regressionsmodell, dass L1-Regularisierung verwendet wird auch als Lasso Regression bezeichnet, 
+während ein Modell mit L2-Regularisierung als Ridge Regression beschrieben werden kann.
+Vergleicht man die beiden Ansätze, so schrumpft die L1 Norm weniger wichtige Gewichte auf 0, was zu dünn besetzten Gewichtsvektoren führt.
+Dies kann eine wünschenswerte Eigenschaft sein.
+Im Gegensatz dazu hat die L2-Regularisierung, den Vorteil, dass sie effizienter berechnen kann.
+Der Strafterm von L2 hat eine geschlossene Form und kann in Form einer Matrix angewendet werden, während die Funktion von L1 auf Grund des Betrags eine nicht-differenzierbar ist.
+
+
+\todo{absatz zu (L0 und warum man es nicht benutzt?)}
+
 
 
 \section{TableSort System}
@@ -305,4 +319,4 @@ kleiner, experimenteller Bandsortierer \cite{doll2015}
 
 \section{Tensorflow}
 
-Was ist Tensorflow, wo kommt es her.
+Was ist Tensorflow, wo kommt es her. [Ist das kapitel necessary?]

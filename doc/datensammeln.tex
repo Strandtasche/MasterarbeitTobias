@@ -213,11 +213,25 @@ Menge in gecleanten Daten:
 
 [Data Augmentation: Spiegeln]
 
-Als Data Augmentation bezeichnet man Verfahren, die das eigene Set an Daten erweitern ohne zusätzliche Daten aufzunehmen
-in dem man aus den bestehenden Daten synthetische Daten generiert.
-\todo{nur Trainingsset}
-Ausreichend viele Datenpunkte zu haben ist notwendig um mit neuronalen Netzen eine gute Performance zu erzielen.
-Die synthetischen Beispiele müssen jedoch plausibel sein, da sie sonst die \todo{performance verschlechtern}
+Als Data Augmentation bezeichnet man Verfahren, die die eigenen Daten erweitern ohne zusätzliche Daten aufzunehmen.
+Man generiert aus den bestehenden Daten zusätzliche, synthetische Daten, die dann im Trainingsset eingesetzt werden können.
+Ausreichend viele Trainingsbeispiele zu haben ist notwendig um mit neuronalen Netzen eine gute Performance zu erzielen.
+Die synthetischen Beispiele müssen jedoch plausibel sein, da sie sonst die Qualität der Ausgabe des Netzes negativ beeinträchtigen können.
+
+Für Netze, die in der Bilderkennnug eingesetzt werden gibt es einige weit verbreitete Techniken,
+zum Beispiel Rotation, Translation, Spiegeln und das Ausschneiden von Teilbildern.
+
+Für den gegebenen Fall mit den Mittelpunkten von Schüttgut Partikeln als Features resultiert von diesen Techniken nur das Spiegeln in sinnvollen Daten.
+gespiegelt wird entlang der Bewegungsrichtung.
+
+\begin{figure}
+	\missingfigure{Visualisierung Dataaugmentation}
+	% \includegraphics[width=\textwidth]{TrackSortPic}
+	\caption{Visualisierung Data Augmentation durch Spiegelung}
+	% \todo{Quelle Bild!}
+	\label{fig:dataAugm}
+\end{figure}
+
 
 ~~~
 

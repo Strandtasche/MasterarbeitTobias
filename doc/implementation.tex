@@ -2,12 +2,17 @@
 
 \section{Software}
 
+requirements.txt kann im Anhang gefunden werden mit der vollständigen Liste.
+
+Virtual Python environment.
 Implementiert in Tensorflow. (angefangen in version 1.8, später nach 1.11 upgedatet)
 Datenhandling: mit Pandas. Da Data Science ein wichtiger Part der Arbeit war, sehr wichtig
 erwähnen:
 Matplotlib für Visualisierung (die meisten selbstgemachten grafiken hier in der Arbeit)
 OpenCV für Bilderdinge in der Pipeline (wie oben erwähnt)
 MATLAB, für Tracksort und die Ursprünglichen implementation der Vergleichsdinge für evaluationen 
+
+
 
 
 \section{Code Struktur}
@@ -101,7 +106,8 @@ Suchen auf Simulierten Daten, weil da mehr Trainingbeispiele sind und Ergebnis a
 Aktueller Stand:
 NextStep: kein Overfitting gefunden => L1 und L2 Regularisierung haben keinen positiven Effekt
 Adam Optimizer ist am besten
-Learning Rate Decay ist eine gute Idee. 
+leaky_relu reigns supreme
+Learning Rate Decay ist eine gute Idee. (Höherer Wert => langsamerer Zerfall)
 
 Separator: TODO
 
@@ -109,7 +115,7 @@ Separator: TODO
 
 Input layer: \(2 * FeatureSize\) Neuronen
 
-N hiddenlayer (as determined by Hyperparameter tuning) mit jeweils m Neuronen.
+\(N\) hiddenlayer (as determined by Hyperparameter tuning) mit jeweils \(m\) Neuronen.
 Fully connected!
 
 Output layer:
