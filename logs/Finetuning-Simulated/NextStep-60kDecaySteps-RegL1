@@ -1,0 +1,61 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-60kDecay-RegL1.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-RegL1']
+INFO:root:time: 2018-11-09_11.00.48
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-60kDecaySteps-RegL1
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((363825, 10), (363825, 2))
+INFO:root:Test: ((20404, 10), (20404, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 5.579146886702802e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-60kDecay/NextStep-60kDecaySteps-RegL1_highestLoss_2018-11-09_11.00.48.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-60kDecay/NextStep-60kDecaySteps-RegL1_2018-11-09_11.00.48.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  2.040400e+04       20404.000000       20404.000000     
+mean   5.038073e-05       0.000037           0.000033         
+std    7.026230e-05       0.000061           0.000063         
+min    2.847041e-07       0.000000           0.000000         
+25%    1.871461e-05       0.000010           0.000010         
+50%    3.174879e-05       0.000030           0.000020         
+75%    5.324725e-05       0.000040           0.000028         
+max    2.490199e-03       0.001924           0.001551         
+INFO:root:number of predictions with error > 3: 0
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+152844  0.42637  0.43205  0.43772    ...     0.047218  0.047136  0.047054
+29515   0.40443  0.40964  0.41484    ...     0.042069  0.042068  0.042068
+193214  0.41090  0.41643  0.42196    ...     0.037304  0.037137  0.036971
+20274   0.63641  0.64329  0.65022    ...     0.041439  0.041439  0.041438
+104975  0.45452  0.46020  0.46607    ...     0.081929  0.081950  0.081972
+139333  0.57713  0.58371  0.59032    ...     0.088151  0.088168  0.088185
+152991  0.63102  0.63790  0.64482    ...     0.048836  0.048908  0.048977
+144165  0.60323  0.60996  0.61672    ...     0.068264  0.068264  0.068264
+46215   0.74312  0.75031  0.75752    ...     0.041652  0.041652  0.041653
+179085  0.71496  0.72213  0.72931    ...     0.097885  0.097906  0.097926
+
+[10 rows x 10 columns]
+         LabelX    LabelY
+152844  0.45475  0.046972
+29515   0.43125  0.042068
+193214  0.43971  0.036805
+20274   0.67123  0.041438
+104975  0.48376  0.081994
+139333  0.61038  0.088202
+152991  0.66583  0.049042
+144165  0.63723  0.068264
+46215   0.77917  0.041653
+179085  0.75090  0.097946
+predicted: 
+[0.4548268882865071, 0.04696841173629605]
+[0.43100840621281156, 0.042061296200113736]
+[0.4395387809903622, 0.036804697737599305]
+[0.6711761002730179, 0.041426797814435604]
+[0.48376203593152134, 0.08198576308971023]
+[0.6103755587773103, 0.08819242191695804]
+[0.6657794786307791, 0.04903640140367328]
+[0.6371962773437712, 0.06825399607451126]
+[0.7791664199968906, 0.04163916591169695]
+[0.7509088617393795, 0.09793348720651057]
+time: 0.17s
+MSE (tensorflow): 4.4925877773493994e-07

@@ -272,3 +272,77 @@ predicted:
 [0.6039059340798967, 0.12954575570911314]
 time: 0.19s
 MSE (tensorflow): 1.5226973459903093e-07
+INFO:root:Tensorflow 1.11.0
+usage: DNNRegressor-Example.py [-h] [--training] [--plot] [--single] [--fake]
+                               [--plotNo PLOTNO] [--hyperparams HYPERPARAMS]
+                               [--save [SAVE [SAVE ...]]]
+                               [--load [LOAD [LOAD ...]]] [--dispWeights]
+                               [--overrideModel OVERRIDEMODEL]
+                               [--overrideInput OVERRIDEINPUT]
+                               [--progressPlot] [--debug]
+                               [--tensorboard_debug_address TENSORBOARD_DEBUG_ADDRESS]
+                               [--lossAna] [--custom]
+                               [--separator [SEPARATOR [SEPARATOR ...]]]
+                               [--augment] [--target TARGET]
+DNNRegressor-Example.py: error: argument --overrideModel: expected one argument
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-60kDecay-RegL2.json', '--overrideModel', '../models/simulated/NextStep/NextStep-60kDecaySteps-RegL2']
+INFO:root:time: 2018-11-09_11.04.13
+INFO:root:Saving to ../models/simulated/NextStep/NextStep-60kDecaySteps-RegL2
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((363825, 10), (363825, 2))
+INFO:root:Test: ((20404, 10), (20404, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 6.54653376841452e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-60kDecay/NextStep-60kDecaySteps-RegL2_highestLoss_2018-11-09_11.04.13.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-60kDecay/NextStep-60kDecaySteps-RegL2_2018-11-09_11.04.13.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  2.040400e+04       20404.000000       20404.000000     
+mean   3.868300e-05       0.000037           0.000033         
+std    6.414101e-05       0.000061           0.000063         
+min    4.602840e-07       0.000000           0.000000         
+25%    2.252625e-05       0.000010           0.000010         
+50%    2.793079e-05       0.000030           0.000020         
+75%    3.587354e-05       0.000040           0.000028         
+max    2.863622e-03       0.001924           0.001551         
+INFO:root:number of predictions with error > 3: 0
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+187648  0.47661  0.48247  0.48843    ...     0.092456  0.092456  0.092456
+6569    0.53187  0.53815  0.54446    ...     0.098228  0.098228  0.098228
+45385   0.57804  0.58463  0.59126    ...     0.032156  0.032153  0.032150
+187429  0.55648  0.56271  0.56898    ...     0.100360  0.100590  0.100810
+162717  0.54994  0.55632  0.56273    ...     0.090776  0.091200  0.091623
+178820  0.48902  0.49502  0.50106    ...     0.118640  0.118650  0.118660
+19221   0.53900  0.54535  0.55175    ...     0.049361  0.049363  0.049365
+25086   0.63591  0.64279  0.64970    ...     0.044722  0.044723  0.044723
+136301  0.43569  0.44118  0.44667    ...     0.149060  0.149070  0.149090
+184482  0.70352  0.71072  0.71793    ...     0.095473  0.095596  0.095716
+
+[10 rows x 10 columns]
+         LabelX    LabelY
+187648  0.50649  0.092456
+6569    0.56364  0.098228
+45385   0.61138  0.032148
+187429  0.58802  0.101040
+162717  0.58221  0.092044
+178820  0.51945  0.118670
+19221   0.57116  0.049367
+25086   0.67066  0.044723
+136301  0.46331  0.149100
+184482  0.73961  0.095833
+predicted: 
+[0.5065119770636392, 0.0924350914368734]
+[0.5636504726861437, 0.09820953216534624]
+[0.6113953619653317, 0.03212635425677552]
+[0.5880380127678252, 0.10100785738433508]
+[0.5822314242532314, 0.09199815510217024]
+[0.5194535797426281, 0.11865233279088748]
+[0.5711722468209129, 0.04934604930090512]
+[0.6706795377585517, 0.044702801633500884]
+[0.4632775643046141, 0.1490838724141876]
+[0.7396273739199101, 0.09580914758008686]
+time: 0.17s
+MSE (tensorflow): 2.4667525622135145e-07
