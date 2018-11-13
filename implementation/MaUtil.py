@@ -586,7 +586,7 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 
 	logging.info("Evaluation on {} data points".format(comboAlign.shape[0]))
 
-	tempDf = comboAlign.sample(frac=0.05)
+	# tempDf = comboAlign.sample(frac=0.05)
 	# assert tempDf.shape[0] != 0
 	# medianAccel = _getMedianAccel(tempDf[X_test.columns], True, direction)
 	# altOptimalAccel = getOptimalAccel(tempDf[X_test.columns], tempDf[y_test.columns].loc[tempDf.index], separatorPosition, direction)
