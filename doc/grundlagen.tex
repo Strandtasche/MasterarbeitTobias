@@ -243,12 +243,30 @@ Overfitting:
 Gegenteil von Underfitting, wenn das Modell nicht ausreichend komplex ist um die zugrundeliegende Struktur der Daten abzubilden. 
 Beispiel underfitting: Lineares Modell auf nicht-lineare Daten fitten.
 
-\begin{figure}
-	\missingfigure{Overfitting example}
-	% \includegraphics[width=\textwidth]{TrackSortPic}
-	\caption{Beispiel für Overfitting}
-	% \todo{Quelle Bild!}
-	\label{fig:overfitting}
+% \begin{figure}
+% 	\missingfigure{Overfitting example}
+% 	% \includegraphics[width=\textwidth]{TrackSortPic}
+% 	\caption{Beispiel für Overfitting}
+% 	% \todo{Quelle Bild!}
+% 	\label{fig:overfitting}
+% \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{plotUnderfitting}
+		\caption{Underfitting}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{plotPassendesModell}
+		\caption{Passendes Modell}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{plotOverfitting}
+        \caption{Overfitting}
+    \end{subfigure}
+    % \caption{Häufig verwendete Aktivierungsfunktionen}
+    \label{fig:overfitting}
 \end{figure}
 
 Methoden um Overfitting zu vermeiden:
@@ -316,6 +334,28 @@ kleiner, experimenteller Bandsortierer \cite{doll2015}
 	\label{fig:tablesortsystem}
 \end{figure}
 
+
+% \begin{figure}
+% 	% \missingfigure{Bild von TablesortSystem}
+% 	\includegraphics[width=\textwidth]{Aufbau-correct}
+% 	\caption{Schematische Darstellung Sortierung [TODO Quelle]}
+% 	% \todo{Quelle Bild!}
+% 	\label{fig:tablesortSchema}
+% \end{figure}
+
+\begin{figure}
+    \centering
+    \def\svgwidth{\columnwidth}
+	\input{img/Aufbau-moved.pdf_tex}
+	\caption{lololol}
+\end{figure}
+
+% \begin{figure}
+% 	\centering
+% 	\def\svgwidth{\textwidth}\footnotesize
+% 	\input{img/AufbauGerm.pdf_tex}
+% 	\caption{test123}
+% \end{figure}
 
 \section{Tensorflow}
 
