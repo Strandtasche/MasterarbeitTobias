@@ -65,14 +65,14 @@ haben einige bahnbrechende Ergebnisse um das Jahr 2010, unter anderem im Feld de
 
 \subsection{Perzeptron}
 Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt beschrieben wurde \cite{rosenblatt1958perceptron}.
-Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(o\)ausgibt.
+Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(o\) ausgibt.
 
 \todo{Darstellung des Perzeptrons}F
 
 Die einzelnen Eingaben \(x_i\) haben jeweils eine Gewichtung \(w_i\).
 Es existiert ein sogenannter Schwellwert oder \textit{bias}, der normalerweise 
-durch eine zusätzliche Eingabe \(x_{m+1}\)mit dem Wert \(+1\)und dem dazugehörigen Gewicht \(w_{m+1}\)modelliert wird.
-Den Ausgabewert \(y\)erhält man dadurch, dass man die gewichteten Eingaben aufsummiert und in die Aktivierungsfunktion des Perzeptrons gibt.
+durch eine zusätzliche Eingabe \(x_{m+1}\) mit dem Wert \(+1\) und dem dazugehörigen Gewicht \(w_{m+1}\) modelliert wird.
+Den Ausgabewert \(y\) erhält man dadurch, dass man die gewichteten Eingaben aufsummiert und in die Aktivierungsfunktion des Perzeptrons gibt.
 Ein Überblick über verschiedene Aktivierungsfunktionen ist unter \ref{activationfuncs} zu finden.
 
 Mathematisch ist die Ausgabe eines Perzeptrons also wie folgt definiert:
@@ -112,16 +112,16 @@ Operation auf diese an und gibt das Ergebnis zurück.
 			f'(x) = f(x) * (1 - f(x))
 		\end{equation}
 		Die mathematische Form der Sigmoid Aktivierungsfunktion ist in Abbildung \ref{sigmoidFunc} zu sehen.
-		Sie bildet die reellen Zahlen \(\mathbb{R}\)auf das Intervall \((0,1)\)ab. 
-		Für betragsmäßig größer werdende negative Zahlen nähert sich der Rückgabewert \(0\)an,
-		ebenso wie für größer werdende positive Zahlen sich der Rückgabewert an \(1\)annähert.
+		Sie bildet die reellen Zahlen \(\mathbb{R}\) auf das Intervall \((0,1)\) ab. 
+		Für betragsmäßig größer werdende negative Zahlen nähert sich der Rückgabewert \(0\) an,
+		ebenso wie für größer werdende positive Zahlen sich der Rückgabewert an \(1\) annähert.
 
 		Die Sigmoid Funktion ist eine historisch häufig genutze Funktion, da sie das Verhalten eines natürlichen Neurons,
 		der biologischen Motivation für künstliche Neuronen, gut nachbildet:
 		komplette Inaktivität eines Neurons bei Ausgabe 0 bis zum feuern mit maximaler Frequenz bei Ausgabe 1.
 
 		In der Praxis jedoch haben sich einige Nachteile der Sigmoid Funktion gezeigt, weshalb sie quasi nicht mehr genutzt wird.
-		Der gewichtigste von diesen ist, dass ihre Ableitung bei großen Beträgen beinah \(0\)ist.
+		Der gewichtigste von diesen ist, dass ihre Ableitung bei großen Beträgen beinah \(0\) ist.
 		Dies führt dazu, dass während der Ausführung des Backpropagation-Algorithmus beinah keine Änderungen passieren und dementsprechend das Netz sehr langsam lernt.
 		
 		\begin{figure}
@@ -141,7 +141,7 @@ Operation auf diese an und gibt das Ergebnis zurück.
 			f'(x) = 1 - f(x)^2
 		\end{equation}
 		Die tanh Aktivierungsfunktion ist in Abbildung \ref{tanhfunction} dargestellt.
-		Im Gegensatz zur Sigmoid Funktion bildet sie die reellen Zahlen \(\mathbb{R}\)auf das Intervall \((-1, 1)\)ab.
+		Im Gegensatz zur Sigmoid Funktion bildet sie die reellen Zahlen \(\mathbb{R}\) auf das Intervall \((-1, 1)\) ab.
 		Weil sie zentriert um den Nullpunkt ist, wird sie bei realen Anwendungen der Sigmoid Funktion vorgezogen.
 		Das Saturationsproblem der Sigmoid Funktion besteht jedoch immer noch.
 		\begin{figure}
@@ -262,7 +262,7 @@ Beispiel underfitting: Lineares Modell auf nicht-lineare Daten fitten.
 		\caption{Passendes Modell}
 	\end{subfigure}
 	\quad
-    \begin{subfigure}[t]{\textwidth}
+    \begin{subfigure}[t]{0.8\textwidth}
         \includegraphics[width=\textwidth]{plotOverfitting}
         \caption{Overfitting}
     \end{subfigure}
@@ -287,25 +287,25 @@ der die Kosten basierend auf der Komplexität des Systems erhöht.
 	\min_f \sum\limits_{i=1}^{m} V(f(\vec{x}_i), \vec{y}_i) + \lambda R(f)
 \end{equation} 
 
-Dabei ist \(V\)die loss function, beispielsweise \textit{Mean-Square-Error} oder \textit{Mean-Absolute-Error}.
-\(n\)ist die Anzahl der Feature-Label-Paare,
-\(x_i\)und \(y_i\)sind die einzelnen Eingabefeatures und das dazugehörige Label.
-Die Funktion \(f\)ist in unserem Fall das neuronale Netz, das die Features entgegen nimmt.
-\(\lambda\)ist ein Parameter, der die Gewichtung des Regularisierungsterm festlegt.
+Dabei ist \(V\) die loss function, beispielsweise \textit{Mean-Square-Error} oder \textit{Mean-Absolute-Error}.
+\(n\) ist die Anzahl der Feature-Label-Paare,
+\(x_i\) und \(y_i\) sind die einzelnen Eingabefeatures und das dazugehörige Label.
+Die Funktion \(f\) ist in unserem Fall das neuronale Netz, das die Features entgegen nimmt.
+\(\lambda\) ist ein Parameter, der die Gewichtung des Regularisierungsterm festlegt.
 Wählt man diesen Parameter zu klein, so kann es sein, dass das Modell trotz Regularisierung noch immer overfittet.
 Wählt man ihn zu groß so kann es sein, dass das Modell das Problem nicht mehr korrekt abbildet und es zu Underfitting kommt.
-Der Regularisierungsterm \(R\)wird so gewählt, dass er die Komplexität der Funktion \(f\)wiederspiegelt.
+Der Regularisierungsterm \(R\) wird so gewählt, dass er die Komplexität der Funktion \(f\) wiederspiegelt.
 Ein gutes Maß für die Komplexität eines neuronalen Netzes sind die Gewichte zwischen den Neuronen.
 Beispiele für \(R\) wären zum Beispiel die L1- oder die L2-Regularisierung. % die jeweils mit der L1 beziehungsweise mit der L2-Norm arbeiten.
-Der entscheidende Unterschied zwischen den beiden ist der unterschiedliche Strafterm zu sehen in \ref{eqn:MSE-L1} für L1 und \ref{eqn:MSE-L2} für L2. 
-Die Fehlerfunktionen sind jeweils MSE mit 
+Der entscheidende Unterschied zwischen den beiden ist der unterschiedliche Strafterm, zu sehen in \ref{eqn:MSE-L1} für L1 und \ref{eqn:MSE-L2} für L2. 
+Die Fehlerfunktionen sind jeweils MSE mit dazugehörigen Strafterm.
 
 \begin{equation} \label{eqn:MSE-L1}
 	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j} \sum_{k} (|\mat{W}_{j,k}|)
 \end{equation} 
 
 \begin{equation} \label{eqn:MSE-L2}
-	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j} \sum_{k} (\mat{W}_{j,k}^2:w_)
+	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j} \sum_{k} (\mat{W}_{j,k}^2)
 \end{equation} 
 
 
@@ -326,6 +326,11 @@ Der Strafterm von L2 hat eine geschlossene Form und kann in Form einer Matrix an
 [Viel stuff über das TableSort System]
 
 kleiner, experimenteller Bandsortierer \cite{doll2015}
+Gedacht für Experimente, wenn es zu aufwendig ist das mit dem großen großen zu machen und zum Mitnehmen auf Messen.
+2 Modi: mit Förderband und mit Rutsche
+Mit Flächenkamera für TrackSort als auch die Zeilenkamera sind dargestellt. 
+Die Zeilenkamera wird zurzeit in industriellen Schüttgutsortieranlagen verwendet, ist aber nicht optimal (Siehe all die Literatur)
+\todo[inline]{Quellen! Florian?}
 
 \begin{figure}
 	% \missingfigure{Bild von TablesortSystem}
@@ -351,7 +356,7 @@ kleiner, experimenteller Bandsortierer \cite{doll2015}
 	\input{img/Aufbau-moved.pdf_tex}
 	\caption{lololol}
 	\label{fig:aufbau_tablesort}
-	\caption{Schematische Darstellung nach \cite{Pfaff2017} des optischen Bandsortierers TableSort. Sowohl die Flächenkamera für TrackSort als auch die Zeilenkamera sind dargestellt. Die Zeilenkamera wird zurzeit in industriellen Schüttgutsortieranlagen verwendet.}
+	\caption{Schematische Darstellung nach \cite{Pfaff2017} des optischen Bandsortierers TableSort.}
 \end{figure}
 
 % \begin{figure}
