@@ -4,15 +4,14 @@
 
 requirements.txt kann im Anhang gefunden werden mit der vollständigen Liste.
 
-Virtual Python environment.
-Implementiert in Tensorflow. (angefangen in version 1.8, später nach 1.11 upgedatet)
-Datenhandling: mit Pandas. Da Data Science ein wichtiger Part der Arbeit war, sehr wichtig
-erwähnen:
-Matplotlib für Visualisierung (die meisten selbstgemachten grafiken hier in der Arbeit)
-OpenCV für Bilderdinge in der Pipeline (wie oben erwähnt)
-MATLAB, für Tracksort und die Ursprünglichen implementation der Vergleichsdinge für evaluationen 
-
-
+\begin{itemize}
+    \item Virtual Python environment.
+    \item Implementiert in Tensorflow. (angefangen in version 1.8, später nach 1.11 upgedatet)
+    \item Datenhandling: mit Pandas. Da Data Science ein wichtiger Part der Arbeit war, sehr wichtig erwähnen
+    \item Matplotlib für Visualisierung (die meisten selbstgemachten grafiken hier in der Arbeit)
+    \item OpenCV für Bilderdinge in der Pipeline (wie oben erwähnt)
+    \item MATLAB, für Tracksort und die Ursprünglichen implementation der Vergleichsdinge für evaluationen 
+\end{itemize}
 
 
 \section{Code Struktur}
@@ -20,6 +19,7 @@ MATLAB, für Tracksort und die Ursprünglichen implementation der Vergleichsding
 
 \section{Hyperparameter}
 
+\noindent\begin{minipage}{\textwidth}
 \begin{lstlisting}[language=json,firstnumber=1, caption={Beispiel eines Hyperparameter Files in JSON}, captionpos=b, label=lst-hyperparam]
     {
         "arch": {
@@ -59,9 +59,10 @@ MATLAB, für Tracksort und die Ursprünglichen implementation der Vergleichsding
 
     
 \end{lstlisting}
+\end{minipage}
     
 
-\todo{Example Hyperparameter File}
+\todo[inline]{Example Hyperparameter File - sicherstellen dass es keinen Zeilenumbruch gibt. Eigene Figure?}
 
 \begin{itemize}
 \item Architektur:

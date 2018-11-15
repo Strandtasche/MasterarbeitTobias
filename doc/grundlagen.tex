@@ -13,12 +13,14 @@ In diesem Kapitel soll eine kurze Einführung in die für das Verständnis der r
 Primär sollen zunächst allgemein neuronale Netze und einige ihrer speziellere Aspekte betrachtet werden 
 bevor ein kurzer Blick auf das bei den Experimenten verwendete Schüttgutsortiersystem \textit{TableSort} geworfen wird. 
 
-\section{Das Kalman-Filter}
+\color{blue}
+\section{\textcolor{black}{Das Kalman-Filter}}
+\todo[inline]{Entscheiden, ob diese Section komplett weg soll}
 Als Kalman-Filter bezeichnet man ein mathematisches Verfahren mit dem Messfehler in realen Messwerten reduziert werden können und nicht messbare Systemgrößen geschätzt werden können. 
 
 
-[vergangene, aktuelle und zukünftige Systemzustände schätzen]
-[Einschränkung Linearität (Extended Kalman) und Gauß rauschen]
+\todo{vergangene, aktuelle und zukünftige Systemzustände schätzen}
+\todo{Einschränkung Linearität (Extended Kalman) und Gauß rauschen}
 
 Der Zustand des Systems zum Zeitschritt \(t\) wird als \(y_t\) und die Messung im Zeitschritt \(t\) als \(z_t\) bezeichnet.
 
@@ -47,7 +49,7 @@ Das Kalman-Filter funktioniert mittels abwechselnd ausgeführter \textit{predict
 
 
 
-\section{Neuronale Netze}
+\section{\textcolor{black}{Neuronale Netze}}
 
 Als Neuronale Netze  % beziehungsweise \textit{künstliche neuronale Netze}, wie sie manchmal korrekter genannt werden, 
 bezeichnet man in der Informatik Systeme aus künstlichen Neuronen, die heute eine wichtige Rolle im Feld des maschinellem Lernen einnehmen.
@@ -63,17 +65,17 @@ haben einige bahnbrechende Ergebnisse um das Jahr 2010, unter anderem im Feld de
 
 % Nachdem jedoch Marvin Minsky und Seymour Papert zeigten, dass einzelne Perzeptrons nicht in der Lage sind linear nicht separierbare Probleme zu lösen sank das Interesse an dem Feld.
 
-\subsection{Perzeptron}
+\subsection{\textcolor{black}{Perzeptron}}
 Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt beschrieben wurde \cite{rosenblatt1958perceptron}.
 Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(o\) ausgibt.
 
-\todo{Darstellung des Perzeptrons}F
+\todo{Darstellung des Perzeptrons}
 
 Die einzelnen Eingaben \(x_i\) haben jeweils eine Gewichtung \(w_i\).
 Es existiert ein sogenannter Schwellwert oder \textit{bias}, der normalerweise 
 durch eine zusätzliche Eingabe \(x_{m+1}\) mit dem Wert \(+1\) und dem dazugehörigen Gewicht \(w_{m+1}\) modelliert wird.
 Den Ausgabewert \(y\) erhält man dadurch, dass man die gewichteten Eingaben aufsummiert und in die Aktivierungsfunktion des Perzeptrons gibt.
-Ein Überblick über verschiedene Aktivierungsfunktionen ist unter \ref{activationfuncs} zu finden.
+Ein Überblick über verschiedene Aktivierungsfunktionen ist unter \ref{sec:activationfuncs} zu finden.
 
 Mathematisch ist die Ausgabe eines Perzeptrons also wie folgt definiert:
 
@@ -85,13 +87,14 @@ Beim Lernen werden die Gewichte der einzelnen Eingaben so an gepasst, dass die g
 Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen Operatoren AND, OR und NOT genutzt werden
 
 Letztendlich ist ein solches Perzeptron jedoch nur ein linearer Klassifikator und kann somit zum Beispiel den XOR Operator nicht auflösen.
-Dies zeigten Marvin Minksy und Seymour Papert 1969 in einflussreichen Buch \textit{Perceptrons} \todo{quelle}
+Dies zeigten Marvin Minksy und Seymour Papert 1969 in einflussreichen Buch \textit{Perceptrons: an introduction to computational geometry} \todo{quelle}
 \todo{Linear Trennbares / Nicht-linear Trennbares Problem (AND vs XOR)}
 
-Um solche, nicht linear-separierbare Probleme zu lösen müssen mehrere Schichten an Neuronen kombiniert werden.
+Solche, nicht linear-separierbare Probleme zu lösen müssen mehrere Schichten an Neuronen kombiniert werden.
 
-\subsection{Aktivierungsfunktionen}
-\label{activationfuncs}
+\subsection{\textcolor{black}{Aktivierungsfunktionen}}
+\label{sec:activationfuncs}
+\todo[inline]{Entscheiden, ob diese Section weg soll, oder auf nur ReLU reduziert werden sollte}
 Es gibt verschiedene Aktivierungsfunktionen, die für den Einsatz in neuronalen Netzen in Frage kommen.
 Sie sind von essenzieller Wichtigkeit, da ohne eine Nicht-Linearität das Netz in eine einfache Regression kollabiert.
 
@@ -187,54 +190,64 @@ Operation auf diese an und gibt das Ergebnis zurück.
 
 \end{description}
 
-\begin{figure}[h]
-    \centering
-    \begin{subfigure}[t]{0.3\textwidth}
-		\includegraphics[width=\textwidth]{Sigmoid}
-		\caption{Sigmoid Funktion}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.3\textwidth}
-		\includegraphics[width=\textwidth]{Tanh}
-		\caption{TanH Funktion}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{ReLu}
-        \caption{ReLU}
-    \end{subfigure}
-    \caption{Häufig verwendete Aktivierungsfunktionen}
-    \label{eval:function}
-\end{figure}
+% \begin{figure}[h]
+%     \centering
+%     \begin{subfigure}[t]{0.3\textwidth}
+% 		\includegraphics[width=\textwidth]{Sigmoid}
+% 		\caption{Sigmoid Funktion}
+%     \end{subfigure}
+%     \begin{subfigure}[t]{0.3\textwidth}
+% 		\includegraphics[width=\textwidth]{Tanh}
+% 		\caption{TanH Funktion}
+%     \end{subfigure}
+%     \begin{subfigure}[t]{0.3\textwidth}
+%         \includegraphics[width=\textwidth]{ReLu}
+%         \caption{ReLU}
+%     \end{subfigure}
+%     \caption{Häufig verwendete Aktivierungsfunktionen}
+%     \label{eval:function}
+% \end{figure}
 
+\color{black}
 
 \subsection{Feedforward Netze}
 
-\textbf{absatz über Feedforward Netze. Basic}
+% \textbf{absatz über Feedforward Netze. Basic}
+\begin{itemize}
+	\item Definition (keine Kreise oder Schleifen)
+	\item Gegenstück zum RNN
+	\item grundlegende Architektur in Layern 
+	\item Aktivierungsfunktionen in Layern
+	\item Outputlayer: Verschiedene Aktivierungsfunktionen:
+	\item Linear für regression, z.B. Softmax für Wahrscheinlichkeitsverteilung Softmax
+	\item (One Hot encoding?)
+\end{itemize}
+
+\color{blue}
+
 Als Feedforward Netz bezeichnet man ein neuronales Netz, zwischen dessen Knoten keine Kreise oder Schleifen existieren.
+Das entsprechende Gegenstück bezeichnet man als \textit{Rekurrentes Neuronales Netz}
 Die Informationen wandert in der Verarbeitungsrichtung von den Eingabeknoten zu den Ausgabeknoten.
 Für gewöhnlich sind die einzelnen Knoten in Schichten, sogenannten Layern, organisiert.
 Die Neuronen eines einzelnen Layers sind meist 
 Die Eingabe wird in ein Input Layer eingeben.
 
-~~~~~~~~~~
-- Outputlayer: Verschiedene Aktivierungsfunktionen:
-. Linear für regression, z.B. Softmax für Wahrscheinlichkeitsverteilung Softmax
-[One Hot encoding?]
+\subsection{\textcolor{black}{Backpropagation}}
 
-\subsection{Backpropagation}
-
-\todo{ein Absatz über lernen mit dem Backpropagation Algorithmus}
+\todo[inline]{Entscheiden ob die Subsection weg sollte}
 Der Backpropagation Algorithmus ist ein Verfahren mit denen künstliche neuronale Netze in der Lage sind komplizierte Zielfunktionen einzulernen.
 Es ist eine Methode, bei der effizient der Gradient der Fehlerfunktion in Abhängigkeit vom Gewicht der einzelnen Kanten im Netz bestimmt werden kann,
 was dann für einen Gradientenabstieg verwendet werden kann. 
 
+\color{black}
 \begin{itemize}
-	\item Nur supervised learning: Gradient der Fehlerfunktion wird benötigt => Tatsächliches Ergebnis muss bekannt sein.
+	\item Definition und Beschreibung
+	\item Nur supervised learning: Gradient der Fehlerfunktion wird benötigt \(\rightarrow\) Tatsächliches Ergebnis muss bekannt sein.
 	\item "Finden einer Funktion, die am besten die Inputs auf die outputs mapt"
 \end{itemize}
 
 \subsection{Overfitting}
 
-\todo{Absatz zu Overfitting}
 Overfitting:
 	Wenn das System schlechter darin wird zu generalisieren: (von bekanntem auf unbekanntes schließen/Schlechte Prediktion)
 	Erkennen die Performance auf dem Trainingsset weiterhin besser wird, aber die Performance auf dem Testset schlechter wird.
@@ -270,24 +283,36 @@ Beispiel underfitting: Lineares Modell auf nicht-lineare Daten fitten.
     \label{fig:overfitting}
 \end{figure}
 
-Methoden um Overfitting zu vermeiden:
-Mehr Trainingsdaten (z.B. durch Data-Augmentation)
-Regularisierung (L1, L2 (siehe unten), dropout für Classifier(?))
+\begin{itemize}
+	\item Methoden um Overfitting zu vermeiden:
+	\item Mehr Trainingsdaten (z.B. durch Data-Augmentation)
+	\item Regularisierung (L1, L2 (siehe unten), dropout)
+\end{itemize}
 
 
 \subsection{Regularisierung}
 
+\begin{itemize}
+	\item Regularisierung Definition
+	\item Mathematische Formel Darstellung
+	\item L1 und L2 Regularisierung
+	\item L0 - warum nicht?
+	\item (Maybe Dropout)
+	\item Early Stopping? (das internet sagt, es ist eine art von Regularisierung und falls ich sie verwenden sollte, sollte ich sie hier erwähnen)
+\end{itemize}
+
+\color{blue}
 Als Regularisierung bezeichnet man eine Technik, die benutzt wird um ein Modell von Overfitting abzuhalten.
 Sie wird in der Hoffnung angewendet, dass das Modell mit Regularisierung besser generalisiert als ohne.
 
-Die Grundidee ist, dass zur loss function ein Regularisierungsterm hinzugefügt wird, 
+Die Grundidee ist, dass zur Loss Funktion ein Regularisierungsterm \(R\) hinzugefügt wird, 
 der die Kosten basierend auf der Komplexität des Systems erhöht.
 
 \begin{equation}
 	\min_f \sum\limits_{i=1}^{m} V(f(\vec{x}_i), \vec{y}_i) + \lambda R(f)
 \end{equation} 
 
-Dabei ist \(V\) die loss function, beispielsweise \textit{Mean-Square-Error} oder \textit{Mean-Absolute-Error}.
+Dabei ist \(V\) die Loss Funktion, beispielsweise \textit{Mean-Square-Error} oder \textit{Mean-Absolute-Error}.
 \(n\) ist die Anzahl der Feature-Label-Paare,
 \(x_i\) und \(y_i\) sind die einzelnen Eingabefeatures und das dazugehörige Label.
 Die Funktion \(f\) ist in unserem Fall das neuronale Netz, das die Features entgegen nimmt.
@@ -320,22 +345,22 @@ Der Strafterm von L2 hat eine geschlossene Form und kann in Form einer Matrix an
 \todo{absatz zu (L0 und warum man es nicht benutzt?)}
 
 
-
+\color{black}
 \section{TableSort System}
 
-[Viel stuff über das TableSort System]
+\todo[inline]{Viel stuff über das TableSort System}
 
-kleiner, experimenteller Bandsortierer \cite{doll2015}
+\begin{itemize}
+	\item kleiner, experimenteller Bandsortierer \cite{doll2015}
+	\item Entstanden in Kooperation zwischen dem Fraunhofer IOSB, Abteilung Sichtprüfsysteme, und dem Institut für Intelligente Sensor Aktor Systeme des Karlsruher Institut für Technologie.
+	\item Im Rahmen des \textit{TrackSort} Projekts
+	\item Gedacht für Experimente, wenn es zu aufwendig ist das mit dem großen großen zu machen und zum Mitnehmen auf Messen.
+	\item 2 Modi: mit Förderband und mit Rutsche
+	\item Mit Flächenkamera für TrackSort als auch die Zeilenkamera sind dargestellt.
+	\item Ringlicht (Refence später)
+	\item Die Zeilenkamera wird zurzeit in industriellen Schüttgutsortieranlagen verwendet, ist aber nicht optimal (Siehe all die Literatur)
 
-Entstanden in Kooperation zwischen dem Fraunhofer IOSB, Abteilung Sichtprüfsysteme, und dem Institut für Intelligente Sensor Aktor Systeme
-des Karlsruher Institut für Technologie.
-Im Rahmen des \textit{TrackSort} Projekts
-
-Gedacht für Experimente, wenn es zu aufwendig ist das mit dem großen großen zu machen und zum Mitnehmen auf Messen.
-2 Modi: mit Förderband und mit Rutsche
-Mit Flächenkamera für TrackSort als auch die Zeilenkamera sind dargestellt.
-Ringlicht! 
-Die Zeilenkamera wird zurzeit in industriellen Schüttgutsortieranlagen verwendet, ist aber nicht optimal (Siehe all die Literatur)
+\end{itemize}
 
 \begin{figure}
 	% \missingfigure{Bild von TablesortSystem}
@@ -372,4 +397,5 @@ Die Zeilenkamera wird zurzeit in industriellen Schüttgutsortieranlagen verwende
 
 \section{Tensorflow}
 
-Was ist Tensorflow, wo kommt es her. \todo[inline]{Ist das kapitel necessary?}
+\todo[inline]{Ist das kapitel necessary? Stattdessen kurze einführung am Anfang von Implementationkapitel?}
+Was ist Tensorflow, wo kommt es her. was kann es so, was kann es nicht?
