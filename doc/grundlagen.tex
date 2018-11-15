@@ -301,11 +301,11 @@ Der entscheidende Unterschied zwischen den beiden ist der unterschiedliche Straf
 Die Fehlerfunktionen sind jeweils MSE mit dazugehörigen Strafterm.
 
 \begin{equation} \label{eqn:MSE-L1}
-	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j} \sum_{k} (|\mat{W}_{j,k}|)
+	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j, k} (|\mat{W}_{j,k}|)
 \end{equation} 
 
 \begin{equation} \label{eqn:MSE-L2}
-	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j} \sum_{k} (\mat{W}_{j,k}^2)
+	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j, k} (\mat{W}_{j,k}^2)
 \end{equation} 
 
 
@@ -326,11 +326,16 @@ Der Strafterm von L2 hat eine geschlossene Form und kann in Form einer Matrix an
 [Viel stuff über das TableSort System]
 
 kleiner, experimenteller Bandsortierer \cite{doll2015}
+
+Entstanden in Kooperation zwischen dem Fraunhofer IOSB, Abteilung Sichtprüfsysteme, und dem Institut für Intelligente Sensor Aktor Systeme
+des Karlsruher Institut für Technologie.
+Im Rahmen des \textit{TrackSort} Projekts
+
 Gedacht für Experimente, wenn es zu aufwendig ist das mit dem großen großen zu machen und zum Mitnehmen auf Messen.
 2 Modi: mit Förderband und mit Rutsche
-Mit Flächenkamera für TrackSort als auch die Zeilenkamera sind dargestellt. 
+Mit Flächenkamera für TrackSort als auch die Zeilenkamera sind dargestellt.
+Ringlicht! 
 Die Zeilenkamera wird zurzeit in industriellen Schüttgutsortieranlagen verwendet, ist aber nicht optimal (Siehe all die Literatur)
-\todo[inline]{Quellen! Florian?}
 
 \begin{figure}
 	% \missingfigure{Bild von TablesortSystem}
@@ -354,9 +359,8 @@ Die Zeilenkamera wird zurzeit in industriellen Schüttgutsortieranlagen verwende
     \centering
     \def\svgwidth{\columnwidth}
 	\input{img/Aufbau-moved.pdf_tex}
-	\caption{lololol}
 	\label{fig:aufbau_tablesort}
-	\caption{Schematische Darstellung nach \cite{Pfaff2017} des optischen Bandsortierers TableSort.}
+	\caption{Schematische Darstellung des optischen Bandsortierers TableSort nach \cite{Pfaff2017}.}
 \end{figure}
 
 % \begin{figure}

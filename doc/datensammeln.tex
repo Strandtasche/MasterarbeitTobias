@@ -41,8 +41,8 @@ potenziell: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location
 
 [Beschreibung von der Bonito Kamera, stats usw.]
 Zur Aufnahme der Daten wurde eine Bonito CL-400 200 FPS Kamera benutzt, die in Abbildung \ref{pictureCam} zu sehen ist.
-Die ist, wie in Abbildung \ref{pictureCam} oberhalb des Förderbandes angebracht.
-Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726 Pixeln.
+Die ist, wie in Abbildung \ref{fig:tablesortsystem} oberhalb des Förderbandes angebracht.
+Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726 Pixeln \cite{alliedvisiontechnologiesgmbh2014}.
 
 \begin{figure}
     \centering
@@ -53,7 +53,7 @@ Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 232
 
 \subsection{Schüttgüter-Typen}
 
-Aufgenommen wurden vier verschiedene Schüttgüter, die in Abbildung \ref{schuettgueterSchuessel} zu sehen sind.
+Aufgenommen wurden vier verschiedene Schüttgüter, die in Abbildung \ref{fig:schuettgueterSchuessel} zu sehen sind.
 
 \begin{itemize}
     \item Kugeln
@@ -92,20 +92,20 @@ und in Abbildung \ref{schuettgueterBand} auf dem Förderband zu sehen.
 		\includegraphics[width=\textwidth]{weizen_004_00016_debayer}
 		\caption{Weizen}
 	\end{subfigure}
-	\caption{Verschiedene Schüttgüter}
+	\caption{Verschiedene Schüttgüter auf dem Förderband}
 	\label{schuettgueterSchuessel}
 \end{figure}
 
 
 \section{Datenpipeline}
 
-Die Bilder wurden prinzipiell in Batches von je 3500 gesammelt.
-Die Bonito Kamera schreibt sie in Form einer Bayer-Matrix in Bitmap Dateien.
+Die Bonito Kamera nimmt Bilder in Form einer Bayer-Matrix auf, wie sie in \ref{fig:bayerPattern} zu sehen ist.
+Diese werden dann in Batches von je 3500 gesammelt und in Bitmap Dateien geschrieben.
 \todo{hier Bayer-Matrix erklären und Bild?}
 
 \begin{figure}
 	% \missingfigure{bayer matrix}
-	\includegraphics[width=\textwidth]{1024px-Bayer_pattern_on_sensor}
+	\includegraphics[width=0.6\textwidth]{1024px-Bayer_pattern_on_sensor}
 	\caption{Bayer Matrix [TODO: Quelle]}
 	% \todo{Quelle Bild!}
 	\label{fig:bayerPattern}
@@ -139,7 +139,7 @@ und die eingesetzt wurde um die einzelnen Bilder in RGB Farbbilder zu konvertier
 		\includegraphics[width=\textwidth]{WeizenCropped}
 		\caption{Weizen}
 	\end{subfigure}
-	\caption{Verschiedene Schüttgüter auf dem Förderband}
+	\caption{Verschiedene gesammelte Schüttgüter}
 	\label{schuettgueterBand}
 \end{figure}
 
@@ -147,7 +147,13 @@ und die eingesetzt wurde um die einzelnen Bilder in RGB Farbbilder zu konvertier
 Auf diesen kann dann eine Segmentierung vorgenommen werden.
 Hierzu wurde erneut die Computer Vision Library OpenCV benutzt.
 \todo{Mehr details: Parameters...}
-Das Ergebnis des Segmentierungsscripts [Reference segement.py] ist ein CSV File für jedes Batch.
+Für jede Sorte von Schüttgut wurde ein eigenes Parameterprofil von Hand angepasst.
+Diese bestehen aus einem oberen und unteren Grenzwert in jedem Kanal des HSV-Raums und einer minimalen Fläche, die ein Teilchen umfassen muss.
+Entsprechend der durch das Profil festgelegten Parameter werden für die einzelnen Bilder Masken angelegt,
+ob die HSV-Werte der einzelnen Pixel innerhalb oder außerhalb der Grenzwerte liegen. 
+Mit diesen Masken werden dann alle möglichen Konturen von Schüttgutpartikeln extrahiert, bevor diese nocheinmal bezüglich ihrer Sinnhaftigkeit gefiltert werden. 
+Im letzten Schritt wird nun der gewichtete Mittelpunkt der einzelnen Konturen bestimmt und abgespeichert.
+Das Ergebnis von diesem Segmentierungsscripts ist ein CSV File für jedes Batch.
 Eine Zeile repräsentiert ein Bild aus dem Batch, also einen Zeitschritt.
 Zu Beginn jeder Zeile steht zunächst die Frame Nummer, gefolgt von der Anzahl der detektierten Partikel
 und den X- und Y-Koordinaten der detektierten Partikel.
@@ -177,6 +183,12 @@ Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{tableTracks} zu sehen
 \section{Simulierte Daten}
 
 Die DEM Daten, wo sie herkommen, was der unterschied ist zu den selbstaufgenommenen Daten. Vorteile und Nachteile...
+\todo[inline]{Quelle}
+
+Original: 1000Hz, downsampled auf 200Hz, 
+
+Nicht ganz so viele Partikel, aber dafür sehr lange tracks - Informationen auf dem gesamten Band, nicht nur auf dem Part wo die Kamera drauf schaut.
+
 
 \subsection{Menge}
 
@@ -218,11 +230,12 @@ Man generiert aus den bestehenden Daten zusätzliche, synthetische Daten, die da
 Ausreichend viele Trainingsbeispiele zu haben ist notwendig um mit neuronalen Netzen eine gute Performance zu erzielen.
 Die synthetischen Beispiele müssen jedoch plausibel sein, da sie sonst die Qualität der Ausgabe des Netzes negativ beeinträchtigen können.
 
-Für Netze, die in der Bilderkennnug eingesetzt werden gibt es einige weit verbreitete Techniken,
+Für Netze, die in der Bilderkennnung eingesetzt werden gibt es einige weit verbreitete Techniken,
 zum Beispiel Rotation, Translation, Spiegeln und das Ausschneiden von Teilbildern.
 
 Für den gegebenen Fall mit den Mittelpunkten von Schüttgut Partikeln als Features resultiert von diesen Techniken nur das Spiegeln in sinnvollen Daten.
-gespiegelt wird entlang der Bewegungsrichtung.
+gespiegelt wird an der Mittellinie entlang der Bewegungsrichtung.
+Tracks, die [zu nah an den Rand kommen] werden ausgenommen, da zumindest bei den selbst aufgenommenen Daten, die Kamera nicht perfekt zentriert ist.
 
 \begin{figure}
 	\missingfigure{Visualisierung Dataaugmentation}
