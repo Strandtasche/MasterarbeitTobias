@@ -62,6 +62,7 @@ parser.add_argument('--custom', help="use custom estimator", action="store_true"
 
 parser.add_argument('--separator', nargs='*', type=int, help='turn on prediction for separator')
 parser.add_argument('--augment', help="activate dataAugmentation on training data", action="store_true")
+parser.add_argument('--filter', help="filter training data as well as test data for intersection position", action="store_true")
 parser.add_argument('--target', type=float, help="accuracy target.")
 
 
@@ -79,6 +80,7 @@ def main(argv):
 	saving = args.save
 	loading = args.load
 	augment = args.augment
+	filterBool = args.filter
 	overrideModelPath = args.overrideModel
 	overrideInputPath = args.overrideInput
 	usingCustomEstimator = args.custom
@@ -223,6 +225,12 @@ def main(argv):
 			(F_train, L_train), (F_test, L_test), (labelMeans, labelStds) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize,
 																			separatorPosition, predictionCutOff,
 																			elementsDirectionBool)
+			if filterBool:
+				F_train = filterDataForIntersection(F_train, thresholdPoint, elementsDirectionBool)
+				F_test = filterDataForIntersection(F_test, thresholdPoint, elementsDirectionBool)
+				L_train = L_train.loc[F_train.index]
+				L_test = L_test.loc[F_test.index]
+
 		else:
 			(F_train, L_train), (F_test, L_test) = ld.loadFakeDataPandas(FEATURE_SIZE, FAKE_DATA_AMOUNT, testSize)
 

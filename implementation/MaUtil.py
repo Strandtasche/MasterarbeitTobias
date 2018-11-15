@@ -474,6 +474,7 @@ def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, l
 	labelsTrain = labelsTrain * labelStds + labelMeans
 
 	oldDf = pd.concat([featuresTrain, labelsTrain], axis=1, sort=False)
+	origSize = oldDf.shape[0]
 	newDf = oldDf.copy()
 	newDf.index += (oldDf.index.max() + 1)
 
@@ -485,6 +486,7 @@ def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, l
 	# newDf.apply(lambda x: pd.Series(mirrorSingleFeature(x, midpoint, separator, direction)), axis=1, result_type='broadcast')
 	newDf.apply(lambda x: pd.Series(mirrorSingleFeature(x, midpoint, relIndices)), axis=1,
 				result_type='broadcast')
+	newSize = newDf.shape[0]
 
 	assert pd.DataFrame.equals(oldDf, newDf) == False
 
@@ -494,6 +496,8 @@ def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, l
 	augmentedFeatureDf = newDf.drop(labelsTrain.columns, axis=1)
 
 	augmentedLabelDf = (augmentedLabelDf - labelMeans)/labelStds
+
+	logging.info("Augmented. Original Size: {}. Increased by {}".format(origSize, newSize))
 
 	return augmentedFeatureDf, augmentedLabelDf
 
