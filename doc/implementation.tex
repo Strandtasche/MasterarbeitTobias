@@ -13,11 +13,18 @@ requirements.txt kann im Anhang gefunden werden mit der vollständigen Liste.
     \item MATLAB, für Tracksort und die Ursprünglichen implementation der Vergleichsdinge für evaluationen 
 \end{itemize}
 
+\todo[inline]{Aufpassen dass das nicht zu viel wird}
 
 \section{Code Struktur}
 
 
 \section{Hyperparameter}
+
+Hyperparameter sind die Variablen, die die Struktur des Netzes bestimmen (Eg: Anzahl Layers, FeatureSize) 
+sowie die Variablen, die festlegen wie das Netz trainiert (z.B. Lernrate, Anzahl Epochen)
+ determine how the network is trained(Eg: Learning Rate).
+
+Hyperparameters are set before training(before optimizing the weights and bias).
 
 \noindent\begin{minipage}{\textwidth}
 \begin{lstlisting}[language=json,firstnumber=1, caption={Beispiel eines Hyperparameter Files in JSON}, captionpos=b, label=lst-hyperparam]
@@ -61,13 +68,10 @@ requirements.txt kann im Anhang gefunden werden mit der vollständigen Liste.
 \end{lstlisting}
 \end{minipage}
     
-
-\todo[inline]{Example Hyperparameter File - sicherstellen dass es keinen Zeilenumbruch gibt. Eigene Figure?}
-
 \begin{itemize}
 \item Architektur:
     \begin{itemize}
-        \item Dropout (wird eigentlich nicht benutzt weil es regression kaputt macht), relikt vergangener Zeiten
+        \item Dropout: Wahrscheinlichkeit für das zufälliges ausschalten von einzelnen Neuronen
         \item Hidden Layer: ein Array an Zahlen repräsentiert die Architektur der Hidden Layers. Jede Zahl ist ein FC Layer mit so vielen neuronen
         \item FeatureSize: Wie viele Positionen bekommt das Netz als Input ( => Größe des Inputlayers = 2x FeatureSize)
         \item Activation: Aktivierungsfunktionen für die neuronen der Hidden Layers
@@ -100,7 +104,7 @@ Hyperparametern für einen Lernalgorithmus zu wählen.
 
 Vorgehen bei dieser Arbeit: Jeweils für NextStep und für Separator getrennte Konfigurationen finden.
 
-Suchen auf Simulierten Daten, weil da mehr Trainingbeispiele sind und Ergebnis auf realen Daten verifizieren.
+Suchen auf Simulierten Daten und dann auf allen Daten verwenden.
 
 
 
@@ -109,8 +113,9 @@ NextStep: kein Overfitting gefunden => L1 und L2 Regularisierung haben keinen po
 Adam Optimizer ist am besten
 leaky\_relu reigns supreme
 Learning Rate Decay ist eine gute Idee. (Höherer Wert => langsamerer Zerfall)
+FeatureSize 5 ist gut, weniger wird schlechter und Mehr ist auch schlechter geworden (potenziell weil weniger Beispiele?)
 
-Separator: TODO
+Separator: 
 
 \subsection{Architektur des neuronalen Netzes}
 

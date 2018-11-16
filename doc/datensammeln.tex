@@ -171,7 +171,8 @@ Für jede Sorte von Schüttgut wurde ein eigenes Parameterprofil von Hand angepa
 Diese bestehen aus einem oberen und unteren Grenzwert in jedem Kanal des HSV-Raums und einer minimalen Fläche, die ein Teilchen umfassen muss.
 Entsprechend der durch das Profil festgelegten Parameter werden für die einzelnen Bilder Masken angelegt,
 ob die HSV-Werte der einzelnen Pixel innerhalb oder außerhalb der Grenzwerte liegen. 
-Mit diesen Masken werden dann alle möglichen Konturen von Schüttgutpartikeln extrahiert, bevor diese nocheinmal bezüglich ihrer Sinnhaftigkeit gefiltert werden. 
+Mit diesen Masken werden dann alle möglichen Konturen von Schüttgutpartikeln extrahiert, 
+bevor diese nocheinmal bezüglich ihrer Sinnhaftigkeit gefiltert werden. 
 Im letzten Schritt wird nun der gewichtete Mittelpunkt der einzelnen Konturen bestimmt und abgespeichert.
 Das Ergebnis von diesem Segmentierungsscripts ist ein CSV File für jedes Batch.
 Eine Zeile repräsentiert ein Bild aus dem Batch, also einen Zeitschritt.
@@ -252,7 +253,8 @@ und 8549 Weizenkörner in 13 Batches aufgenommen.
 
 \section{Daten Postprocessing}
 
-Cleanup : FilterTracksByAngle, FilterByVectorLengthChange \todo{Überlegen ob ich das überhaupt aufschreiben soll}
+Cleanup : FilterTracksByAngle, FilterByVectorLengthChange \todo{Überlegen ob ich da so viel aufschreiben soll - 
+minimaler unterschied nach Resegment (Bessere Tracksort zuordnung?)}
 
 
 \begin{itemize}
@@ -294,8 +296,15 @@ Validation nur für die sets auf denen das Hyperparameter Tuning gemacht wurde
 [ungefähres ]
 
 
-Features sind für NextStep und Separator gleich.
-(Unclear yet:Separator müssen insgesamt die Trainingsbeispiele gefiltert werden? Zumindest für die Evaluation? TODO!)
+Features:
+NextStep einfach alle \(n\)--Tupel, die ein Track hergibt, sodass es noch ein Label geben würde
+Separator: Muss unterschieden werden - Filtern oder nicht filtern, danach ob es das letzte mögliche Tupel vor der prediction Phase ist.
+Mit filtern besseres ergebnis, aber auch deutlich weniger Trainingsbeispiele (Overfitting wird mehr zur Gefahr)
+Ohne Filtern: Flexibler und mehr Trainingsbeispiele - man könnte im Nachhinen den PredictionCutOff verlegen 
+und einfach das Netz weiter verwenden ohne neu zu trainieren.
+Maybe ein Mittelding, das man nicht alle tupel nimmt aber auch nicht nur die letzten? Ausblick, zukunft
+\todo[inline]{Example: Gegeben ein Track, was für Features würden da rausfallen}
+
 
 Labels:
 Sehr straight forward für NextStep (Literally), einfach die nächste Zeile im Track jeweils für X und Y
@@ -317,6 +326,9 @@ der Strecke zwischen dem Element vor und dem element hinter. siehe \ref{fig:Schn
 \end{figure}
 
 \todo{table of size of different data sets - number of pictures...}
+
+Verhältnis: Anzahl Feature-Label-Paare für verschiedene Beispiele und verschiedene Settings
+(FeatureSize, Filter Ja/Nein, Augmentation Ja/Nein) Als Tabelle?
 
 OUTDATED:
 Bei einer FeatureSize von 5 ergeben sich bei den Kugeln so 98.966 Feature-Label Paare.
