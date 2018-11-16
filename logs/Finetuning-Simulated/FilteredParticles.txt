@@ -1,0 +1,520 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--save', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/SepSimFinetuning/filteredParticles.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_00001.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_00401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_00801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_01201.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_01601.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_02001.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_02401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_02801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_03201.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_03601.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_04401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_04801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_05201.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_05601.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_06001.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_06401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_06801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_07201.csv
+INFO:root:applying augmentation to Training Set...
+INFO:root:done!
+INFO:root:time: 2018-11-13_11.23.53
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks
+INFO:root:model folder /home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks does not exist. Creating folder
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks does not exist. Creating folder
+INFO:root:storing data in /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5
+INFO:root:using custom estimator
+INFO:root:Train: ((61526, 10), (61526, 2))
+INFO:root:Test: ((353, 10), (3274, 2))
+INFO:root:Means: 
+LabelPosBalken     0.090363
+LabelTime         25.282105
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken     0.037641
+LabelTime         12.487556
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+ERROR:tensorflow:Model diverged with loss = NaN.
+ERROR:tensorflow:Model diverged with loss = NaN.
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 638, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 455, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 356, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1181, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1215, in _train_model_default
+    saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1409, in _train_with_estimator_spec
+    _, loss = mon_sess.run([estimator_spec.train_op, estimator_spec.loss])
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 671, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1148, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1239, in run
+    raise six.reraise(*original_exc_info)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/six.py", line 693, in reraise
+    raise value
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1224, in run
+    return self._sess.run(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1304, in run
+    run_metadata=run_metadata))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/basic_session_run_hooks.py", line 752, in after_run
+    raise NanLossDuringTrainingError
+tensorflow.python.training.basic_session_run_hooks.NanLossDuringTrainingError: NaN loss during training.
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--save', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/SepSimFinetuning/filteredParticles.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_00001.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_00401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_00801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_01201.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_01601.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_02001.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_02401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_02801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_03201.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_03601.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_04401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_04801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_05201.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_05601.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_06001.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_06401.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_06801.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_07201.csv
+INFO:root:applying augmentation to Training Set...
+INFO:root:done!
+INFO:root:time: 2018-11-13_12.02.35
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks
+INFO:root:storing data in /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5
+INFO:root:using custom estimator
+INFO:root:Train: ((6245, 10), (6245, 2))
+INFO:root:Test: ((361, 10), (361, 2))
+INFO:root:Means: 
+LabelPosBalken     0.090363
+LabelTime         25.282105
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken     0.037641
+LabelTime         12.487556
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.002905121, 'loss': 1.0487487, 'rmse': 0.053899176, 'global_step': 5000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.004323227, 'loss': 1.5606849, 'rmse': 0.06575125, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.0014991458, 'loss': 0.54119164, 'rmse': 0.038718805, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.0019510356, 'loss': 0.7043238, 'rmse': 0.04417053, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.00082827226, 'loss': 0.29900628, 'rmse': 0.028779719, 'global_step': 205000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.0007938717, 'loss': 0.2865877, 'rmse': 0.028175728, 'global_step': 255000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.0027609107, 'loss': 0.9966887, 'rmse': 0.05254437, 'global_step': 305000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.0021790212, 'loss': 0.7866267, 'rmse': 0.04667999, 'global_step': 355000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.0011797507, 'loss': 0.42589, 'rmse': 0.034347497, 'global_step': 405000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.0007003615, 'loss': 0.2528305, 'rmse': 0.026464343, 'global_step': 455000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.0006544064, 'loss': 0.2362407, 'rmse': 0.025581367, 'global_step': 505000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.0008206741, 'loss': 0.29626337, 'rmse': 0.02864741, 'global_step': 555000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.0010371933, 'loss': 0.3744268, 'rmse': 0.032205485, 'global_step': 605000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.00065530266, 'loss': 0.23656426, 'rmse': 0.02559888, 'global_step': 655000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.00065762224, 'loss': 0.23740163, 'rmse': 0.025644146, 'global_step': 705000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.0009153361, 'loss': 0.33043632, 'rmse': 0.030254522, 'global_step': 755000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.0006323903, 'loss': 0.22829291, 'rmse': 0.025147373, 'global_step': 805000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.00074844394, 'loss': 0.27018827, 'rmse': 0.027357703, 'global_step': 855000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.00066114543, 'loss': 0.2386735, 'rmse': 0.025712749, 'global_step': 905000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.0007007089, 'loss': 0.2529559, 'rmse': 0.026470907, 'global_step': 955000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.00064060604, 'loss': 0.23125878, 'rmse': 0.025310196, 'global_step': 1005000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 0.00068340066, 'loss': 0.24670763, 'rmse': 0.026141932, 'global_step': 1055000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.00078263663, 'loss': 0.28253183, 'rmse': 0.027975643, 'global_step': 1105000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.0006553388, 'loss': 0.23657732, 'rmse': 0.025599586, 'global_step': 1155000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.0006797956, 'loss': 0.2454062, 'rmse': 0.02607289, 'global_step': 1205000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.0007516677, 'loss': 0.27135205, 'rmse': 0.027416559, 'global_step': 1255000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.00068029895, 'loss': 0.24558792, 'rmse': 0.026082542, 'global_step': 1305000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.0006448088, 'loss': 0.23277599, 'rmse': 0.025393086, 'global_step': 1355000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.0006631358, 'loss': 0.23939201, 'rmse': 0.025751423, 'global_step': 1405000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 0.0007427325, 'loss': 0.26812643, 'rmse': 0.02725312, 'global_step': 1455000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.00072942546, 'loss': 0.2633226, 'rmse': 0.027007878, 'global_step': 1505000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.0007023551, 'loss': 0.2535502, 'rmse': 0.026501983, 'global_step': 1555000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 0.0006403129, 'loss': 0.23115297, 'rmse': 0.025304405, 'global_step': 1605000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 0.00064941176, 'loss': 0.23443764, 'rmse': 0.025483558, 'global_step': 1655000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 0.000682525, 'loss': 0.24639152, 'rmse': 0.02612518, 'global_step': 1705000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 0.00064854446, 'loss': 0.23412456, 'rmse': 0.025466535, 'global_step': 1755000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 0.0006078754, 'loss': 0.21944302, 'rmse': 0.02465513, 'global_step': 1805000}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 0.0006333726, 'loss': 0.2286475, 'rmse': 0.025166895, 'global_step': 1855000}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 0.00066096405, 'loss': 0.23860802, 'rmse': 0.025709221, 'global_step': 1905000}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 0.00065016275, 'loss': 0.23470876, 'rmse': 0.02549829, 'global_step': 1955000}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 0.0006300154, 'loss': 0.22743556, 'rmse': 0.025100108, 'global_step': 2005000}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 0.0006221864, 'loss': 0.22460929, 'rmse': 0.024943665, 'global_step': 2055000}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 0.00061882247, 'loss': 0.22339492, 'rmse': 0.024876142, 'global_step': 2105000}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 0.000619019, 'loss': 0.22346584, 'rmse': 0.024880093, 'global_step': 2155000}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 0.00062439096, 'loss': 0.22540514, 'rmse': 0.024987817, 'global_step': 2205000}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 0.00065848074, 'loss': 0.23771155, 'rmse': 0.02566088, 'global_step': 2255000}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 0.0006272889, 'loss': 0.2264513, 'rmse': 0.025045736, 'global_step': 2305000}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 0.00063624006, 'loss': 0.22968267, 'rmse': 0.025223799, 'global_step': 2355000}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 0.0006448057, 'loss': 0.23277487, 'rmse': 0.025393026, 'global_step': 2405000}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 0.0006781126, 'loss': 0.24479866, 'rmse': 0.026040595, 'global_step': 2455000}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 0.000630158, 'loss': 0.22748704, 'rmse': 0.025102949, 'global_step': 2505000}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 0.00065268483, 'loss': 0.23561922, 'rmse': 0.025547696, 'global_step': 2555000}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 0.00064496876, 'loss': 0.23283373, 'rmse': 0.025396235, 'global_step': 2605000}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 0.0006537212, 'loss': 0.23599336, 'rmse': 0.025567973, 'global_step': 2655000}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 0.0006641754, 'loss': 0.23976731, 'rmse': 0.0257716, 'global_step': 2705000}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 0.0006683075, 'loss': 0.241259, 'rmse': 0.025851643, 'global_step': 2755000}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 0.0006761466, 'loss': 0.24408892, 'rmse': 0.026002819, 'global_step': 2805000}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 0.0006623912, 'loss': 0.23912323, 'rmse': 0.025736962, 'global_step': 2855000}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 0.0006574352, 'loss': 0.23733412, 'rmse': 0.025640499, 'global_step': 2905000}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 0.0006632899, 'loss': 0.23944765, 'rmse': 0.025754416, 'global_step': 2955000}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 0.0006854953, 'loss': 0.24746381, 'rmse': 0.026181966, 'global_step': 3005000}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 0.00066473027, 'loss': 0.23996763, 'rmse': 0.025782363, 'global_step': 3055000}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 0.00067583215, 'loss': 0.2439754, 'rmse': 0.025996773, 'global_step': 3105000}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 0.00067045086, 'loss': 0.24203277, 'rmse': 0.025893066, 'global_step': 3155000}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 0.0006943503, 'loss': 0.25066045, 'rmse': 0.026350528, 'global_step': 3205000}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 0.00069869275, 'loss': 0.25222808, 'rmse': 0.026432797, 'global_step': 3255000}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 0.00068130926, 'loss': 0.24595265, 'rmse': 0.026101902, 'global_step': 3305000}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 0.00069778686, 'loss': 0.25190106, 'rmse': 0.026415655, 'global_step': 3355000}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 0.00068743905, 'loss': 0.2481655, 'rmse': 0.026219059, 'global_step': 3405000}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 0.00069563126, 'loss': 0.2511229, 'rmse': 0.026374822, 'global_step': 3455000}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 0.00069750106, 'loss': 0.25179788, 'rmse': 0.026410246, 'global_step': 3505000}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 0.00070141815, 'loss': 0.25321195, 'rmse': 0.0264843, 'global_step': 3555000}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 0.00070030463, 'loss': 0.25280997, 'rmse': 0.02646327, 'global_step': 3605000}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 0.0006866896, 'loss': 0.24789493, 'rmse': 0.026204763, 'global_step': 3655000}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 0.00069916155, 'loss': 0.25239733, 'rmse': 0.026441664, 'global_step': 3705000}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 0.00070125295, 'loss': 0.2531523, 'rmse': 0.026481181, 'global_step': 3755000}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 0.0006958258, 'loss': 0.2511931, 'rmse': 0.02637851, 'global_step': 3805000}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 0.0006998983, 'loss': 0.25266328, 'rmse': 0.02645559, 'global_step': 3855000}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 0.00069910404, 'loss': 0.25237656, 'rmse': 0.026440576, 'global_step': 3905000}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 0.00070765876, 'loss': 0.25546482, 'rmse': 0.026601857, 'global_step': 3955000}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 0.0007078407, 'loss': 0.2555305, 'rmse': 0.026605276, 'global_step': 4005000}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 0.0007110412, 'loss': 0.25668588, 'rmse': 0.026665356, 'global_step': 4055000}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 0.00069760805, 'loss': 0.2518365, 'rmse': 0.026412271, 'global_step': 4105000}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 0.0007058051, 'loss': 0.25479564, 'rmse': 0.026566992, 'global_step': 4155000}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 0.00071179034, 'loss': 0.2569563, 'rmse': 0.026679398, 'global_step': 4205000}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 0.0007100164, 'loss': 0.25631592, 'rmse': 0.026646134, 'global_step': 4255000}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 0.0007085527, 'loss': 0.25578752, 'rmse': 0.026618654, 'global_step': 4305000}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 0.00071646774, 'loss': 0.25864485, 'rmse': 0.026766915, 'global_step': 4355000}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 0.00072190387, 'loss': 0.2606073, 'rmse': 0.026868269, 'global_step': 4405000}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 0.0007178951, 'loss': 0.25916013, 'rmse': 0.026793564, 'global_step': 4455000}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 0.0007108616, 'loss': 0.25662103, 'rmse': 0.026661988, 'global_step': 4505000}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 0.0007136062, 'loss': 0.25761184, 'rmse': 0.026713409, 'global_step': 4555000}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 0.00071912707, 'loss': 0.25960487, 'rmse': 0.026816545, 'global_step': 4605000}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 0.000718538, 'loss': 0.25939223, 'rmse': 0.02680556, 'global_step': 4655000}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 0.00072751363, 'loss': 0.26263243, 'rmse': 0.026972461, 'global_step': 4705000}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 0.00071939453, 'loss': 0.25970143, 'rmse': 0.026821531, 'global_step': 4755000}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 0.0007299908, 'loss': 0.26352668, 'rmse': 0.027018342, 'global_step': 4805000}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 0.0007373347, 'loss': 0.26617783, 'rmse': 0.027153907, 'global_step': 4855000}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 0.0007355703, 'loss': 0.2655409, 'rmse': 0.0271214, 'global_step': 4905000}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 0.0007248803, 'loss': 0.2616818, 'rmse': 0.0269236, 'global_step': 4955000}
+INFO:root:Training completed. final average loss: 0.0007266026805154979, best average loss during training: 0.0006078754086047411
+INFO:root:Total Training time: 4h 33min 45s
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--save', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/SepSimFinetuning/filteredParticles.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/SpheresDownsampled/gtSpheres_tracksorted_downsampled_00001.csv
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/SepSimFinetuning/filteredParticles.json']
+INFO:root:time: 2018-11-14_09.48.31
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((6245, 10), (6245, 2))
+INFO:root:Test: ((361, 10), (361, 2))
+INFO:root:Means: 
+LabelPosBalken     0.090363
+LabelTime         25.282105
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken     0.037641
+LabelTime         12.487556
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0007266026805154979
+INFO:root:Saving Image to file FilteredTracks_highestLoss_2018-11-14_09.48.31.png
+INFO:root:Saving Image to file FilteredTracks_2018-11-14_09.48.31.png
+INFO:root:getting optimal accel for 6245 examples
+INFO:root:Evaluation on 361 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  361.000000             361.000000             3.610000e+02              
+mean   0.000107               0.000093               8.520926e-05              
+std    0.001336               0.001345               1.293552e-03              
+min   -0.004462              -0.005692              -5.033531e-03              
+25%    0.000016              -0.000119              -7.602760e-05              
+50%    0.000044               0.000002               1.290634e-15              
+75%    0.000076               0.000162               1.121790e-04              
+max    0.021998               0.021619               2.175530e-02              
+
+       CApixelErrorPosBalken  
+count  3.610000e+02           
+mean  -5.472446e-04           
+std    1.402663e-02           
+min   -2.637337e-01           
+25%   -1.694656e-04           
+50%    2.775558e-17           
+75%    2.234811e-04           
+max    2.178458e-02           
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  361.000000   361.000000   361.000000     361.000000   361.000000    
+mean  -0.000460     1.514191    -0.002087       0.059456     0.016421      
+std    0.171887     0.118558     0.118558       0.541623     0.074082      
+min   -0.755727     1.051649    -0.464629      -1.078468    -0.707544      
+25%   -0.023228     1.475476    -0.040802      -0.012580     0.007194      
+50%   -0.012986     1.513465    -0.002813       0.019476     0.018795      
+75%   -0.002283     1.543954     0.027675       0.350285     0.028089      
+max    2.163395     2.751323     1.235045       8.990294     0.898859      
+
+       IAerrorTime  
+count  361.000000   
+mean  -0.002316     
+std    0.074058     
+min   -0.729330     
+25%   -0.010841     
+50%    0.000235     
+75%    0.009375     
+max    0.876149     
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/FilteredTracks
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+21665   0.52618  0.53242  0.53871    ...     0.066127  0.066127  0.066127
+17700   0.52968  0.53586  0.54208    ...     0.063409  0.063413  0.063416
+11144   0.52582  0.53208  0.53837    ...     0.142880  0.142880  0.142880
+102896  0.52589  0.53212  0.53840    ...     0.027007  0.026947  0.026886
+4524    0.53067  0.53692  0.54321    ...     0.032500  0.032500  0.032500
+49175   0.52530  0.53153  0.53780    ...     0.147580  0.147580  0.147580
+65715   0.52885  0.53502  0.54122    ...     0.133260  0.133410  0.133570
+80622   0.52650  0.53277  0.53907    ...     0.134730  0.134700  0.134670
+33300   0.53099  0.53724  0.54352    ...     0.047519  0.047514  0.047510
+146736  0.52533  0.53157  0.53786    ...     0.042079  0.042052  0.042025
+
+[10 rows x 10 columns]
+        LabelPosBalken  LabelTime
+21665         0.066127  21.840559
+17700         0.063478  21.586158
+11144         0.142880  21.841004
+102896        0.025702  21.914566
+4524          0.032500  21.205882
+49175         0.147600  21.997203
+65715         0.136634  21.739377
+80622         0.134096  21.706128
+33300         0.047431  21.161064
+146736        0.041496  21.965084
+predicted: 
+[0.06616501496656749, 21.828810535416274]
+[0.0634975658895349, 21.563469206176528]
+[0.1429610012855928, 21.81739495583045]
+[0.02568958630196816, 21.885746268925953]
+[0.03260000783128945, 21.095812277436167]
+[0.14766218739088408, 21.967940377166343]
+[0.13665498149538371, 21.752101294227327]
+[0.13417661801829506, 21.685276573929016]
+[0.04742982195381573, 21.155885304285757]
+[0.04153135995534609, 21.952215206017506]
+time: 0.20s
+MSE (tensorflow): 6.148363354441244e-06
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/SepSimFinetuning/filteredParticles.json']
+INFO:root:time: 2018-11-15_13.36.01
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((6245, 10), (6245, 2))
+INFO:root:Test: ((361, 10), (361, 2))
+INFO:root:Means: 
+LabelPosBalken     0.090363
+LabelTime         25.282105
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken     0.037641
+LabelTime         12.487556
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0007266026805154979
+INFO:root:Saving Image to file FilteredTracks_highestLoss_2018-11-15_13.36.01.png
+INFO:root:Saving Image to file FilteredTracks_2018-11-15_13.36.01.png
+INFO:root:getting optimal accel for 6245 examples
+INFO:root:Evaluation on 361 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  361.000000             361.000000             3.610000e+02              
+mean   0.000107               0.000093               8.520926e-05              
+std    0.001336               0.001345               1.293552e-03              
+min   -0.004462              -0.005692              -5.033531e-03              
+25%    0.000016              -0.000119              -7.602760e-05              
+50%    0.000044               0.000002               1.290634e-15              
+75%    0.000076               0.000162               1.121790e-04              
+max    0.021998               0.021619               2.175530e-02              
+
+       CApixelErrorPosBalken  
+count  3.610000e+02           
+mean  -5.472446e-04           
+std    1.402663e-02           
+min   -2.637337e-01           
+25%   -1.694656e-04           
+50%    2.775558e-17           
+75%    2.234811e-04           
+max    2.178458e-02           
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  361.000000   361.000000   361.000000     361.000000   361.000000    
+mean  -0.000460     1.514191    -0.002087       0.059456     0.016421      
+std    0.171887     0.118558     0.118558       0.541623     0.074082      
+min   -0.755727     1.051649    -0.464629      -1.078468    -0.707544      
+25%   -0.023228     1.475476    -0.040802      -0.012580     0.007194      
+50%   -0.012986     1.513465    -0.002813       0.019476     0.018795      
+75%   -0.002283     1.543954     0.027675       0.350285     0.028089      
+max    2.163395     2.751323     1.235045       8.990294     0.898859      
+
+       IAerrorTime  
+count  361.000000   
+mean  -0.002316     
+std    0.074058     
+min   -0.729330     
+25%   -0.010841     
+50%    0.000235     
+75%    0.009375     
+max    0.876149     
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/FilteredTracks
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+5667    0.52531  0.53154  0.53781    ...     0.124310  0.124310  0.124310
+24873   0.52619  0.53244  0.53873    ...     0.121440  0.121440  0.121440
+4995    0.52497  0.53118  0.53743    ...     0.104570  0.104600  0.104620
+138485  0.52504  0.53126  0.53752    ...     0.043065  0.043102  0.043139
+125296  0.52744  0.53353  0.53966    ...     0.093622  0.093581  0.093541
+63187   0.52531  0.53155  0.53783    ...     0.148610  0.148620  0.148630
+61648   0.52664  0.53293  0.53925    ...     0.099741  0.099877  0.100010
+145710  0.52614  0.53241  0.53872    ...     0.106120  0.106090  0.106070
+122259  0.52522  0.53144  0.53770    ...     0.045955  0.045750  0.045545
+65715   0.52885  0.53502  0.54122    ...     0.133260  0.133410  0.133570
+
+[10 rows x 10 columns]
+        LabelPosBalken  LabelTime
+5667          0.124300  22.006983
+24873         0.121440  21.808659
+4995          0.105052  22.120448
+138485        0.043857  22.081232
+125296        0.092765  22.231429
+63187         0.148840  21.972067
+61648         0.102677  21.636996
+145710        0.105543  21.734353
+122259        0.041430  22.060224
+65715         0.136634  21.739377
+predicted: 
+[0.12438692523222752, 22.000996209792408]
+[0.12150865461832491, 21.79772937401934]
+[0.1050971808914454, 22.12504843560259]
+[0.043811874355030714, 22.044095102687855]
+[0.09281408357532137, 22.204356829423325]
+[0.14890321336354825, 21.944831588002813]
+[0.10262962480578666, 21.6286921577281]
+[0.1055993577653467, 21.728862249705674]
+[0.04163058064843232, 22.062478971775047]
+[0.13665498149538371, 21.752101294227327]
+time: 0.20s
+MSE (tensorflow): 3.4945089737448143e-06
