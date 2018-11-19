@@ -70,11 +70,19 @@ Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von
 Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(o\) ausgibt.
 
 \todo{Darstellung des Perzeptrons}
+\begin{figure}
+    \centering
+    \missingfigure{Grafik Neuron}
+	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
+	\caption{Einzelnes Neuron}
+	% \todo{Quelle Bild!}
+	\label{fig:singleNeuron}
+\end{figure}
 
 Die einzelnen Eingaben \(x_i\) haben jeweils eine Gewichtung \(w_i\).
 Es existiert ein sogenannter Schwellwert oder \textit{bias}, der normalerweise 
 durch eine zusätzliche Eingabe \(x_{m+1}\) mit dem Wert \(+1\) und dem dazugehörigen Gewicht \(w_{m+1}\) modelliert wird.
-Den Ausgabewert \(y\) erhält man dadurch, dass man die gewichteten Eingaben aufsummiert und in die Aktivierungsfunktion des Perzeptrons gibt.
+Den Ausgabewert \(y\) erhält man dadurch, dass man die gewichteten Eingaben aufsummiert und in die Aktivierungsfunktion \( \phi \)des Perzeptrons gibt.
 Ein Überblick über verschiedene Aktivierungsfunktionen ist unter \ref{sec:activationfuncs} zu finden.
 
 Mathematisch ist die Ausgabe eines Perzeptrons also wie folgt definiert:

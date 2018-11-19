@@ -177,7 +177,7 @@ bevor diese nocheinmal bezüglich ihrer Sinnhaftigkeit gefiltert werden.
 Im letzten Schritt wird nun der gewichtete Mittelpunkt der einzelnen Konturen bestimmt und abgespeichert.
 Das Ergebnis von diesem Segmentierungsscripts ist ein CSV File für jedes Batch.
 Eine Zeile repräsentiert ein Bild aus dem Batch, also einen Zeitschritt.
-\todo{CSV Tabelle mit State der da rauskommt}
+\todo[inline]{Table zwischenstand CSV, die da rauskommt.}
 Zu Beginn jeder Zeile steht zunächst die Frame Nummer, gefolgt von der Anzahl der detektierten Partikel
 und den X- und Y-Koordinaten der detektierten Partikel.
 \todo{TODO: Verifizieren}
@@ -188,8 +188,9 @@ Die einzelnen Tracks werden als Spaltenpaare dargestellt mit jeweils einer Spalt
 Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{tableTracks} zu sehen.
 
 
+
 \begin{table}[ht]
-\caption{Beispielhafter Ausschnitt aus einem CSV File} 
+\caption{Beispielhafter Ausschnitt aus einem CSV Output File des TableSort Algorithmus} 
 \begin{adjustbox}{width=1\textwidth}
 \begin{tabular}{c|c|c|c|c|c}%
     %\bfseries Person & \bfseries Matr.~No.% specify table head
@@ -203,6 +204,9 @@ Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{tableTracks} zu sehen
 \label{tableTracks}
 \end{table} 
 
+
+
+
 \color{black}
 \section{Simulierte Daten}
 
@@ -213,7 +217,15 @@ Original: 1000Hz, downsampled auf 200Hz,
 
 Nicht ganz so viele Partikel, aber dafür sehr lange tracks - Informationen auf dem gesamten Band, nicht nur auf dem Part wo die Kamera drauf schaut.
 
-Vergleich bezüglich der eignung für die verschiedenen Ansatze dann im Evaluations Kapitel
+Vergleich bezüglich der Eignung für die verschiedenen Ansätze dann im Evaluations Kapitel
+
+\begin{figure}
+    \centering
+    \missingfigure{DEM Simulationsgrafik}
+	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
+	\caption{Visualisierung der DEM Simulation [TODO: QUELLE!]}
+	\label{fig:DEMSimulation}
+\end{figure}
 
 
 \subsection{Menge}
@@ -323,8 +335,8 @@ der Strecke zwischen dem Element vor und dem element hinter. siehe \ref{fig:Schn
 	\centering
 	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
 	\includegraphics[width=\textwidth]{geometrie}
-	\caption{Geometrische Bestimmung der Labels}
-	% \todo{Quelle Bild!}
+	\caption{Geometrische Bestimmung der Labels [Vorlage aus Florians Diss - wie QUELLE?]}
+	% \todo{Quelle - test?}
 	\label{fig:Schnittpunkt}
 \end{figure}
 

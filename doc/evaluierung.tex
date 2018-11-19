@@ -5,7 +5,7 @@ Jetzt bewerten wie gut sie das eigentlich mache.
 
 \section{System}
 
-Trainiert wurde auf einem Ubuntu 18.04 Linux System.
+Trainiert und evaluiert wurde auf einem Ubuntu 18.04 Linux System.
 Intel i7-7700k CPU @ 4.20 GHz,
 NVidia GForce 1080Ti, 11GB GDDR5X,
 32GB RAM,
@@ -13,17 +13,21 @@ SSD
 
 \todo{Stats verifizieren}
 
-\section{Next Step}
+\section{Vergleichsmodelle}
 
-Netz Variante 1: den nächsten Schritt vorhersagen
-\(\Delta t \) ist immer 1.
+Notation und Definition nach Florian's Diss \cite{Pfaff2018}.
+Sei \(x(t)\) die Position des Partikels entlang der Bewegungsrichtung in Abhängigkeit von der Zeit
+(continuous-time equation).
+Sei \( y(t)\) die Position des Partikels orthogonal zur Bewegungsrichtung in Abhängigkeit von der Zeit.
+\(t^{\text{Last}}\) ist der Zeitpunkt der Beobachtung des letzten Features.
+Sei \(\Delta t =  t - t^{\text{Last}}\).
 
-definitions vergleichsmodelle:
 
-Notation aus Florian's Diss. Zustandsvector für CV.
+\subsection{Constant Velocity Modell}
 
+Zustandsvector für CV:
 
-\begin{equation*} \label{eq:definitionCV}
+ \begin{equation*} \label{eq:definitionCV}
     \vx_t = 
     \begin{bmatrix}
         x_t \\
@@ -33,6 +37,28 @@ Notation aus Florian's Diss. Zustandsvector für CV.
        \end{bmatrix} 
 \end{equation*}
 
+\begin{equation*} \label{eq:speedCV}
+    \dot{\vx}(t) = \mat{A}\vx(t), \quad \mat{A} = 
+    \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1\\
+        0 & 0 & 0 & 0
+    \end{bmatrix} 
+\end{equation*}
+
+Definition Positionsgleichungen:
+
+\begin{equation*}
+    x(t) = x^{\text{Last}} + (t - t^{\text{Last}})\dot{x}^{\text{Last}}
+\end{equation*}
+\begin{equation*}
+    x(t) = y^{\text{Last}} + (t - t^{\text{Last}})\dot{y}^{\text{Last}}
+\end{equation*}
+
+
+
+\subsection{Contant Acceleration Modell}
 
 Zustandsvector für CA:
 
@@ -49,21 +75,6 @@ Zustandsvector für CA:
 \end{equation*}
 
 
-\textbf{Constant Velocity Modell}
-
-\begin{equation*} \label{eq:speedCV}
-    \dot{\vx}(t) = \mat{A}\vx(t), \quad \mat{A} = 
-    \begin{bmatrix}
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 1\\
-        0 & 0 & 0 & 0
-    \end{bmatrix} 
-\end{equation*}
-
-
-\textbf{Contant Acceleration Modell}
-
 \begin{align*} \label{eq:speedCV}
     \dot{\vx}(t) = \mat{A}\vx(t), \quad \mat{A} = 
     \begin{bmatrix}
@@ -79,16 +90,62 @@ Zustandsvector für CA:
     \end{bmatrix} 
 \end{align*}
 
+Definition Positionsgleichungen:
+
+\begin{equation*}
+    x(t) = x^{\text{Last}} + (t - t^{\text{Last}})\dot{x}^{\text{Last}} 
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \ddot{x}^{\text{Last}}
+\end{equation*}
+\begin{equation*}
+    x(t) = y^{\text{Last}} + (t - t^{\text{Last}})\dot{y}^{\text{Last}}
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \ddot{y}^{\text{Last}}
+\end{equation*}
+
+Vergleich über Boxplots: Balken: 25\%-Quantil bis 75\%-Quantil.
+Roter Balken ist der Median. Der obere und der untere Whisker 
+gehen bis zum höchsten bzw. niedrigsten Wert, der nicht mehr als 2.7 Standardabweichungen vom Median abweicht
+Die Outlier werden nicht angezeigt.
+
+
+\section{Next Step}
+
+Netz Variante 1: den nächsten Schritt vorhersagen
+\(\Delta t \) ist immer 1.
+
+
+Für Nextstep gesucht: \(x(t^{\text{Last}} + 1)\)
+
+\todo[inline]{Latex Tabelle des pandas Dataframe mit den Spalten GroundtruthX, GroundtruthY, 
+NNPrädiktionX, NNPrädiktion, CV\_X, CV\_Y, CA\_X, CA\_Y}
+
+
+Evaluation nach Euklidischer Distanz zu Groundtruth:
+
+\begin{align*}
+    x\hitext{Err} &= x\hitext{Pred} - x\hitext{GT}, \\
+    y\hitext{Err} &= y\hitext{Pred} - y\hitext{GT}, \\
+    e\hitext{Total} &= \sqrt{x\hitext{Err}^2 + y\hitext{Err}^2}
+\end{align*}
+
+
+\begin{figure}
+    \centering
+    \missingfigure{Boxplots Result NeuralNets NextStep}
+	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
+	\caption{Architektur Neuronales Netz für die NextStep Prädiktion}
+	% \todo{Quelle Bild!}
+	\label{fig:boxplotErrorNNnextStep}
+\end{figure}
 
 - CV, CA
 - Ergebnis Netz
 - Ergebnis Lineare Regression
 
-- Zeit benötigt für evaluation?
 
 \section{Separator}
 
-- CV, CA, (AA?), IA
-- Ergebnis Netz
+CV, CA quasi wie oben.
+
+
 - Ergebnis Lineare Regression
 - Ergebnis ausgleichsgerade? Maybe

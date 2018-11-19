@@ -32,9 +32,11 @@ Vorgehen beschrieben in \ref{CodeStruktur}.
 
 Hyperparameter sind die Variablen, die die Struktur des Netzes bestimmen (Eg: Anzahl Layers, FeatureSize) 
 sowie die Variablen, die festlegen wie das Netz trainiert (z.B. Lernrate, Anzahl Epochen)
- determine how the network is trained(Eg: Learning Rate).
 
-Hyperparameters are set before training(before optimizing the weights and bias).
+Hyperparameter werden vor dem Beginn des Trainings festgelegt und bleiben während dem kompletten Training unverändert.
+
+
+Vorgehen bei dieser Arbeit: Jeweils für NextStep und für Separator getrennte Konfigurationen finden.
 
 \noindent\begin{minipage}{\textwidth}
 \begin{lstlisting}[language=json,firstnumber=1, caption={Beispiel eines Hyperparameter Files in JSON}, captionpos=b, label=lst-hyperparam]
@@ -112,18 +114,25 @@ Als Hyperparameter Optimierung oder auch Hyperparameter Tuning bezeicht man den 
 Hyperparametern für einen Lernalgorithmus zu wählen.
 
 
-Vorgehen bei dieser Arbeit: Jeweils für NextStep und für Separator getrennte Konfigurationen finden.
 
-Suchen auf Simulierten Daten und dann auf allen Daten verwenden.
+Vorgehen um optimale Hyperparameter zu finden: 
+Baseline wird (über den Daumen gepeilt).
+Training mehrere Modelle mit variierenden Werten für einen einzelnen Parameter, 
+während die restlichen Parameter unverändert bleiben.
 
+So viele modelle zu trainieren ist sehr zeitintensiv, deshalb:
+Suchen auf Simulierten Daten (Spheres) und dann auf allen Daten verwenden.
+
+Nicht optimal... Maybe ausblick?
 
 
 Aktueller Stand:
-NextStep: kein Overfitting gefunden => L1 und L2 Regularisierung haben keinen positiven Effekt
-Adam Optimizer ist am besten
-leaky\_relu reigns supreme
-Learning Rate Decay ist eine gute Idee. (Höherer Wert => langsamerer Zerfall)
+NextStep: kein Overfitting gefunden => L1 und L2 Regularisierung haben keinen positiven Effekt.\\
+Adam Optimizer ist am besten.\\
+leaky\_relu reigns supreme. \\
+Learning Rate Decay ist eine gute Idee. (Höherer Wert => langsamerer Zerfall). \\
 FeatureSize 5 ist gut, weniger wird schlechter und Mehr ist auch schlechter geworden (potenziell weil weniger Beispiele?)
+
 
 Separator: 
 
