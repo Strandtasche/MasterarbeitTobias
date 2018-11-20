@@ -376,3 +376,110 @@ INFO:root:Progress: epoch 0
 INFO:root:eval: {'average_loss': 0.0029121244, 'loss': 1.0512769, 'rmse': 0.053964105, 'global_step': 5000}
 INFO:root:Progress: epoch 10
 INFO:root:eval: {'average_loss': 0.0016812686, 'loss': 0.60693794, 'rmse': 0.041003276, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.004692184, 'loss': 1.6938784, 'rmse': 0.06849952, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.00071470666, 'loss': 0.2580091, 'rmse': 0.026733998, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.0012383602, 'loss': 0.44704804, 'rmse': 0.035190344, 'global_step': 205000}
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/SepSimFinetuning/filteredParticles-RegL2.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks-60kDecaySteps-05Layers']
+INFO:root:time: 2018-11-17_12.36.46
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks-60kDecaySteps-05Layers
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((6245, 10), (6245, 2))
+INFO:root:Test: ((361, 10), (361, 2))
+INFO:root:Means: 
+LabelPosBalken     0.090363
+LabelTime         25.282105
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken     0.037641
+LabelTime         12.487556
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0005856913630850613
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/FilteredTracks-RegL2/FilteredTracks-60kDecaySteps-05Layers_highestLoss_2018-11-17_12.36.46.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/FilteredTracks-RegL2/FilteredTracks-60kDecaySteps-05Layers_2018-11-17_12.36.46.png
+INFO:root:getting optimal accel for 6245 examples
+INFO:root:Evaluation on 361 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  361.000000             361.000000             3.610000e+02              
+mean  -0.000039               0.000093               8.520926e-05              
+std    0.001253               0.001345               1.293552e-03              
+min   -0.004672              -0.005692              -5.033531e-03              
+25%   -0.000124              -0.000119              -7.602760e-05              
+50%   -0.000098               0.000002               1.290634e-15              
+75%   -0.000068               0.000162               1.121790e-04              
+max    0.021858               0.021619               2.175530e-02              
+
+       CApixelErrorPosBalken  
+count  3.610000e+02           
+mean  -5.472446e-04           
+std    1.402663e-02           
+min   -2.637337e-01           
+25%   -1.694656e-04           
+50%    2.775558e-17           
+75%    2.234811e-04           
+max    2.178458e-02           
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  361.000000   361.000000   361.000000     361.000000   361.000000    
+mean   0.026225     1.514191    -0.002087       0.059456     0.016421      
+std    0.096896     0.118558     0.118558       0.541623     0.074082      
+min   -0.407747     1.051649    -0.464629      -1.078468    -0.707544      
+25%    0.002913     1.475476    -0.040802      -0.012580     0.007194      
+50%    0.019116     1.513465    -0.002813       0.019476     0.018795      
+75%    0.032309     1.543954     0.027675       0.350285     0.028089      
+max    1.075116     2.751323     1.235045       8.990294     0.898859      
+
+       IAerrorTime  
+count  361.000000   
+mean  -0.002316     
+std    0.074058     
+min   -0.729330     
+25%   -0.010841     
+50%    0.000235     
+75%    0.009375     
+max    0.876149     
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/FilteredTracks-RegL2
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+146266  0.52599  0.53224  0.53852    ...     0.148050  0.148050  0.148060
+104014  0.52831  0.53444  0.54062    ...     0.057783  0.057876  0.057969
+67210   0.52619  0.53247  0.53878    ...     0.045491  0.045491  0.045492
+129455  0.52506  0.53128  0.53753    ...     0.089004  0.089062  0.089120
+77367   0.52612  0.53238  0.53869    ...     0.084503  0.084509  0.084514
+69394   0.53075  0.53698  0.54324    ...     0.075710  0.075762  0.075814
+89676   0.52601  0.53228  0.53859    ...     0.103700  0.103820  0.103940
+104280  0.53019  0.53590  0.54166    ...     0.078610  0.079088  0.079560
+122730  0.52667  0.53294  0.53924    ...     0.072665  0.072621  0.072577
+93216   0.52988  0.53608  0.54231    ...     0.152550  0.152610  0.152660
+
+[10 rows x 10 columns]
+        LabelPosBalken  LabelTime
+146266        0.148160  21.856346
+104014        0.059791  21.950213
+67210         0.045496  21.727399
+129455        0.090268  22.109244
+77367         0.084614  21.760446
+69394         0.076787  21.272855
+89676         0.106341  21.757660
+104280        0.088721  23.344461
+122730        0.071727  21.682451
+93216         0.153755  21.500705
+predicted: 
+[0.14809346894367395, 21.86344059708479]
+[0.0596342521398366, 21.910709522230974]
+[0.04537155795791913, 21.761254152163485]
+[0.09012523510043566, 22.09999251491422]
+[0.08450561591626433, 21.78339905167691]
+[0.07670220366197937, 21.293575638249493]
+[0.1061301000757615, 21.793886840954737]
+[0.08845755386543801, 23.627568740059335]
+[0.07162429571840778, 21.70454208571161]
+[0.1536606957249656, 21.47407607037181]
+time: 0.17s
+MSE (tensorflow): 3.5373104765312746e-05
