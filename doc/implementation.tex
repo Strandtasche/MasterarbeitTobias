@@ -85,7 +85,7 @@ Vorgehen bei dieser Arbeit: Jeweils für NextStep und für Separator getrennte K
     \begin{itemize}
         \item Dropout: Wahrscheinlichkeit für das zufälliges ausschalten von einzelnen Neuronen
         \item Hidden Layer: ein Array an Zahlen repräsentiert die Architektur der Hidden Layers. Jede Zahl ist ein FC Layer mit so vielen neuronen
-        \item FeatureSize: Wie viele Positionen bekommt das Netz als Input ( => Größe des Inputlayers = 2x FeatureSize)
+        \item FeatureSize: Wie viele Positionen bekommt das Netz als Input ( \textrightarrow{} Größe des Inputlayers = 2x FeatureSize)
         \item Activation: Aktivierungsfunktionen für die neuronen der Hidden Layers
         % - optionen: "relu", "leaky_relu", "linear"
     \end{itemize}
@@ -127,10 +127,10 @@ Nicht optimal... Maybe ausblick?
 
 
 Aktueller Stand:
-NextStep: kein Overfitting gefunden => L1 und L2 Regularisierung haben keinen positiven Effekt.\\
+NextStep: kein Overfitting gefunden \textrightarrow L1 und L2 Regularisierung haben keinen positiven Effekt.\\
 Adam Optimizer ist am besten.\\
 leaky\_relu reigns supreme. \\
-Learning Rate Decay ist eine gute Idee. (Höherer Wert => langsamerer Zerfall). \\
+Learning Rate Decay ist eine gute Idee. (Höherer Wert \textrightarrow langsamerer Zerfall). \\
 FeatureSize 5 ist gut, weniger wird schlechter und Mehr ist auch schlechter geworden (potenziell weil weniger Beispiele?)
 
 

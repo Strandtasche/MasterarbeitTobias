@@ -175,34 +175,83 @@ ob die HSV-Werte der einzelnen Pixel innerhalb oder außerhalb der Grenzwerte li
 Mit diesen Masken werden dann alle möglichen Konturen von Schüttgutpartikeln extrahiert, 
 bevor diese nocheinmal bezüglich ihrer Sinnhaftigkeit gefiltert werden. 
 Im letzten Schritt wird nun der gewichtete Mittelpunkt der einzelnen Konturen bestimmt und abgespeichert.
-Das Ergebnis von diesem Segmentierungsscripts ist ein CSV File für jedes Batch.
-Eine Zeile repräsentiert ein Bild aus dem Batch, also einen Zeitschritt.
-\todo[inline]{Table zwischenstand CSV, die da rauskommt.}
+Das Ergebnis von diesem Segmentierungsscripts ist eine CSV Datei für jedes Batch.
+Ein Beispiel für einen Ausschnitt aus solch einer Datei ist in Tabelle \ref{table:Segmentierungsscript} zu sehen.
+Eine Zeile repräsentiert jeweils ein Bild aus dem Batch, also einen Zeitschritt.
 Zu Beginn jeder Zeile steht zunächst die Frame Nummer, gefolgt von der Anzahl der detektierten Partikel
-und den X- und Y-Koordinaten der detektierten Partikel.
-\todo{TODO: Verifizieren}
+und den X- und Y-Koordinaten der Mittelpunkte der detektierten Partikel.
+
+\begin{table}[]
+    \caption{Ausschnitt aus dem Ergebnis des Segmentierungsscripts}
+	\small
+	\centering
+    \begin{tabular}{@{}rcrrrrrr@{}}
+    \toprule
+    Frame   & \#MP & MP\_1\_x  & MP\_1\_y  & MP\_2\_x  & MP\_2\_y  & MP\_3\_x & MP\_3\_y \\ \midrule
+    636     & 1    & 1222.9975 & 92.7641   & NaN       & NaN       & NaN      & NaN      \\
+    637     & 1    & 1223.4063 & 182.9758  & NaN       & NaN       & NaN      & NaN      \\
+    638     & 1    & 1223.6052 & 273.2425  & NaN       & NaN       & NaN      & NaN      \\
+    639     & 1    & 1223.7067 & 364.0339  & NaN       & NaN       & NaN      & NaN      \\
+    640     & 1    & 1224.0704 & 453.9057  & NaN       & NaN       & NaN      & NaN      \\
+    641     & 2    & 1224.2051 & 544.5191  & 1692.4549 & 43.8822   & NaN      & NaN      \\
+    642     & 2    & 1224.5793 & 634.7288  & 1696.6901 & 135.9595  & NaN      & NaN      \\
+    643     & 2    & 1224.9082 & 726.0094  & 1700.451  & 229.1195  & NaN      & NaN      \\
+    644     & 2    & 1225.2296 & 815.9663  & 1704.1472 & 321.2075  & NaN      & NaN      \\
+    645     & 2    & 1225.4286 & 906.7078  & 1708.0593 & 414.2785  & NaN      & NaN      \\
+    646     & 2    & 1225.7588 & 996.0286  & 1711.5309 & 506.0545  & NaN      & NaN      \\
+    647     & 3    & 1226.0411  & 1086.5729 & 1714.8831 & 599.5417  & 961.8821 & 62.7111 \\
+    648     & 3    & 1226.2337 & 1175.9271 & 1718.1401 & 691.6325  & 958.5526 & 154.3124 \\
+    649     & 3    & 1226.2073 & 1265.7495 & 1721.6618 & 784.5927  & 955.3107 & 246.5241 \\
+    650     & 3    & 1226.2543 & 1354.9362 & 1724.9158 & 876.7192  & 952.4919 & 338.1123 \\
+    651     & 3    & 1226.2634 & 1444.5903 & 1728.3341 & 970.2909  & 949.2896 & 430.9692 \\
+    652     & 3    & 1226.0845 & 1533.0901 & 1732.1745 & 1062.4624 & 946.3455 & 522.8667 \\
+    653     & 3    & 1225.7319 & 1621.8461 & 1735.8759 & 1155.2937 & 943.3384 & 615.4545 \\
+    654     & 2    & 1739.6714 & 1247.1867 & 940.2511  & 707.7306  & NaN      & NaN      \\
+    655     & 2    & 1743.4279 & 1339.4146 & 937.2216  & 800.4557  & NaN      & NaN      \\
+    656     & 2    & 1747.1525 & 1430.2501 & 934.5311  & 891.7249  & NaN      & NaN      \\
+    657     & 2    & 1750.9771 & 1521.8102 & 931.6626  & 984.2284  & NaN      & NaN      \\
+    658     & 2    & 1754.1491 & 1612.5565 & 928.7587  & 1076.4749 & NaN      & NaN      \\
+    659     & 1    & 925.8463  & 1168.794  & NaN       & NaN       & NaN      & NaN      \\
+    660     & 1    & 922.8752  & 1260.7461 & NaN       & NaN       & NaN      & NaN      \\
+    661     & 1    & 920.2056  & 1352.8549 & NaN       & NaN       & NaN      & NaN      \\
+    662     & 1    & 917.4051  & 1444.3431 & NaN       & NaN       & NaN      & NaN      \\
+    663     & 1    & 914.6493  & 1535.5131 & NaN       & NaN       & NaN      & NaN      \\
+    664     & 1    & 911.8565  & 1626.5341 & NaN       & NaN       & NaN      & NaN      \\ \bottomrule
+    \end{tabular}
+    \normalsize
+    
+    \label{table:Segmentierungsscript}
+    \end{table}
+    
+
 Die Mittelpunkte in diesem CSV File werden nun mittels des in MATLAB implementierten TrackSort Algorithmus einzelnen Tracks zugeordnet,
 \todo{Mehr details: Tracksort trackzuweisung Assignment Problem. Referenz Tobi MA?}
 die dann wiederum in einem neuen CSV File gespeichert werden.
 Die einzelnen Tracks werden als Spaltenpaare dargestellt mit jeweils einer Spalte für die X- und Y-Koordinaten zu einem jeweiligen Zeitpunkt.
-Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{tableTracks} zu sehen.
+Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{table:table:tracksortCSV} zu sehen.
 
 
 
-\begin{table}[ht]
-\caption{Beispielhafter Ausschnitt aus einem CSV Output File des TableSort Algorithmus} 
-\begin{adjustbox}{width=1\textwidth}
-\begin{tabular}{c|c|c|c|c|c}%
-    %\bfseries Person & \bfseries Matr.~No.% specify table head
-    
-    \bfseries TrackID\_1\_X & \bfseries TrackID\_1\_Y & \bfseries TrackID\_2\_X  & \bfseries TrackID\_2\_Y & \bfseries TrackID\_3\_X & \bfseries TrackID\_3\_Y
-    \csvreader[head to column names]{docExample.csv}{}% use head of csv as column names
-    {\\\hline\csvcoli&\csvcolii&\csvcoliii&\csvcoliv&\csvcolv&\csvcolvi} % specify your coloumns here
+\begin{table}[]
+	\caption{Ausschnitt aus dem Ergebnis des \textit{TrackSort} Algorithmus}
+	\label{table:tracksortCSV}
+    \small
+    \centering
+    \begin{tabular}{@{}rrrrrr@{}}
+    \toprule
+    TrackID\_4\_X & TrackID\_4\_Y & TrackID\_5\_X & TrackID\_5\_Y & TrackID\_6\_X & TrackID\_6\_Y \\ \midrule
+    1036.4613     & 82.3719       & 1899.9239     & 83.2049       & 1654.4423     & 50.6811       \\
+    1033.0189     & 174.9809      & 1896.8142     & 171.3283      & 1655.3193     & 143.9749      \\
+    1029.6167     & 266.4979      & 1893.5937     & 259.8098      & 1656.0221     & 237.1573      \\
+    1026.3908     & 358.4831      & 1890.3912     & 348.1731      & 1656.8966     & 329.8636      \\
+    1023.0203     & 449.6429      & 1887.1035     & 436.4588      & 1657.6308     & 423.1592      \\
+    1019.5391     & 542.2334      & 1883.7761     & 525.1073      & NaN           & NaN           \\
+    NaN           & NaN           & 1880.2716     & 613.0896      & NaN           & NaN           \\
+    NaN           & NaN           & 1876.6054     & 701.9719      & NaN           & NaN           \\
+    NaN           & NaN           & NaN           & NaN           & NaN           & NaN           \\ \bottomrule
     \end{tabular}
-\end{adjustbox}
+\end{table}
 
-\label{tableTracks}
-\end{table} 
 
 
 
@@ -210,8 +259,8 @@ Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{tableTracks} zu sehen
 \color{black}
 \section{Simulierte Daten}
 
-Die DEM Daten, wo sie herkommen, was der unterschied ist zu den selbstaufgenommenen Daten. Vorteile und Nachteile...
-\todo[inline]{Quellen}
+Die DEM Daten, wo sie herkommen, was der unterschied ist zu den selbstaufgenommenen Daten. 
+Vorteile und Nachteile...\cite{pieper2016numerical}, \cite{pieper2017numerical} 
 
 Original: 1000Hz, downsampled auf 200Hz, 
 

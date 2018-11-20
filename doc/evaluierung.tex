@@ -15,7 +15,7 @@ SSD
 
 \section{Vergleichsmodelle}
 
-Notation und Definition nach Florian's Diss \cite{Pfaff2018}.
+Notation und Definition bei allen diesen Modellen nach Florian's Diss \cite{Pfaff2018}, mit Ausnahme von Average Acceleration.
 Sei \(x(t)\) die Position des Partikels entlang der Bewegungsrichtung in Abhängigkeit von der Zeit
 (continuous-time equation).
 Sei \( y(t)\) die Position des Partikels orthogonal zur Bewegungsrichtung in Abhängigkeit von der Zeit.
@@ -24,6 +24,7 @@ Sei \(\Delta t =  t - t^{\text{Last}}\).
 
 
 \subsection{Constant Velocity Modell}
+\todo[inline]{Soll }
 
 Zustandsvector für CV:
 
@@ -94,11 +95,11 @@ Definition Positionsgleichungen:
 
 \begin{equation*}
     x(t) = x^{\text{Last}} + (t - t^{\text{Last}})\dot{x}^{\text{Last}} 
-    + \frac{1}{2} (t - t^{\text{Last}})^2 \ddot{x}^{\text{Last}}
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{x}^{\text{Last}}
 \end{equation*}
 \begin{equation*}
-    x(t) = y^{\text{Last}} + (t - t^{\text{Last}})\dot{y}^{\text{Last}}
-    + \frac{1}{2} (t - t^{\text{Last}})^2 \ddot{y}^{\text{Last}}
+    y(t) = y^{\text{Last}} + (t - t^{\text{Last}})\dot{y}^{\text{Last}}
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{y}^{\text{Last}}
 \end{equation*}
 
 Vergleich über Boxplots: Balken: 25\%-Quantil bis 75\%-Quantil.
@@ -106,6 +107,45 @@ Roter Balken ist der Median. Der obere und der untere Whisker
 gehen bis zum höchsten bzw. niedrigsten Wert, der nicht mehr als 2.7 Standardabweichungen vom Median abweicht
 Die Outlier werden nicht angezeigt.
 
+
+\subsection{Bias-Corrected Constant Velocity Modell}
+
+Bias in der Zeit am Trainingsset bestimmen und neuen Wert für Ortsprädiktion benutzen.
+
+\begin{equation*}
+    t\hitext{Pred, CVBC} = t\hitext{Pred, CV} - t\hitext{Bias}
+\end{equation*}
+
+\subsection{Average Acceleration Modell}
+
+Für alle Elemente des Trainingssets: Bestimme die Beschleunigungen.
+Sei \(\ddot{x}\hitext{Median}\) der Median von all diesen Beschleunigungen.
+Benutze ihn als Beschleunigung wie im CA Modell
+
+(Basicly CV Modell + eine Beschleunigung basierend auf den Trainingsdaten)
+\todo[inline]{überhaupt erwähnen? Er ist way better als er irgendein right hat}
+
+\begin{equation*}
+    x(t) = x^{\text{Last}} + (t - t^{\text{Last}}) \: \dot{x}^{\text{Last}} 
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{x}^{\text{Median}}
+\end{equation*}
+
+\subsection{Identical Acceleration Modell}
+ 
+Upgrade zu CVBC: Correction Term, der den die Letzte Position des Partikels einbezieht.\\
+Annahme: Abweichungen bezüglich dem Zeit Label wird von einer zusätzlichen Beschleunigung verursacht.
+Für jedes Partikel \( i\) aus dem Trainingsset lösen wir die Gleichung 
+
+\begin{equation*}
+    x\hitext{PredTo} = x\hitext{Last, \(i\)} + (t\hitext{GT, \(i\)} - t\hitext{Last, \(i\)}) \: \dot{x}\hitext{Last, \(i\)}
+    + \frac{1}{2}(t\hitext{GT, \(i\)} - t\hitext{Last, \(i\)})^2 \: \ddot{x}\hitext{Optimal, \(i\)}
+\end{equation*}
+
+um herauszufinden mit welcher zusätzlichen Beschleunigung \(\ddot{x}\hitext{Optimal, \(i\)}\) es optimal die Zeit,
+die es noch braucht, vorhersagen würde.
+Nun sei \(\ddot{x}\hitext{Avg}\) der Durchschnitt von allen \(\ddot{x}\hitext{Optimal, \(i\)}\).
+
+\todo{fertig machen}
 
 \section{Next Step}
 
@@ -122,8 +162,8 @@ NNPrädiktionX, NNPrädiktion, CV\_X, CV\_Y, CA\_X, CA\_Y}
 Evaluation nach Euklidischer Distanz zu Groundtruth:
 
 \begin{align*}
-    x\hitext{Err} &= x\hitext{Pred} - x\hitext{GT}, \\
-    y\hitext{Err} &= y\hitext{Pred} - y\hitext{GT}, \\
+    x\hitext{Err} &= x\hitext{Pred} - x\hitext{GT} \\
+    y\hitext{Err} &= y\hitext{Pred} - y\hitext{GT} \\
     e\hitext{Total} &= \sqrt{x\hitext{Err}^2 + y\hitext{Err}^2}
 \end{align*}
 
@@ -132,7 +172,7 @@ Evaluation nach Euklidischer Distanz zu Groundtruth:
     \centering
     \missingfigure{Boxplots Result NeuralNets NextStep}
 	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
-	\caption{Architektur Neuronales Netz für die NextStep Prädiktion}
+	\caption{Evaluation für die NextStep Prädiktion}
 	% \todo{Quelle Bild!}
 	\label{fig:boxplotErrorNNnextStep}
 \end{figure}
@@ -145,7 +185,16 @@ Evaluation nach Euklidischer Distanz zu Groundtruth:
 \section{Separator}
 
 CV, CA quasi wie oben.
+zusätzlich: CVBC, AA und IA
 
-
+- Ergebnis NN
 - Ergebnis Lineare Regression
-- Ergebnis ausgleichsgerade? Maybe
+
+\begin{figure}
+    \centering
+    \missingfigure{Boxplots Result NeuralNets Separator}
+	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
+	\caption{Evaluation für die Separator Prädiktion}
+	% \todo{Quelle Bild!}
+	\label{fig:boxplotErrorNNSeparator}
+\end{figure}
