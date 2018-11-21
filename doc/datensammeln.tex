@@ -50,7 +50,7 @@ optional: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location..
 	\item Bandgeschwindigkeit
 \end{itemize}
 
-\color{blue}
+
 Zur Aufnahme der Daten wurde eine Bonito CL-400 200 FPS Kamera benutzt, die in Abbildung \ref{pictureCam} zu sehen ist.
 Die ist, wie in Abbildung \ref{fig:tablesortsystem} oberhalb des Förderbandes angebracht.
 Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726 Pixeln \cite{alliedvisiontechnologiesgmbh2014}.
@@ -108,7 +108,7 @@ und in Abbildung \ref{fig:schuettgueterBand} auf dem Förderband zu sehen.
 	\label{fig:schuettgueterBand}
 \end{figure}
 
-\color{black}
+
 \section{Datenpipeline}
 
 \begin{itemize}
@@ -120,7 +120,7 @@ und in Abbildung \ref{fig:schuettgueterBand} auf dem Förderband zu sehen.
 	\item Das ist dann der finale Punkt von wo es in meinen Code geladen wird und der rest dort passiert 
 \end{itemize}
 
-\color{blue}
+
 Die Bonito Kamera nimmt Bilder in Form einer Bayer-Matrix auf, wie sie in \ref{fig:bayerPattern} zu sehen ist.
 Diese werden dann in Batches von je 3500 gesammelt und in Bitmap Dateien geschrieben.
 \todo{hier Bayer-Matrix erklären und Bild?}
@@ -228,7 +228,7 @@ Die Mittelpunkte in diesem CSV File werden nun mittels des in MATLAB implementie
 \todo{Mehr details: Tracksort trackzuweisung Assignment Problem. Referenz Tobi MA?}
 die dann wiederum in einem neuen CSV File gespeichert werden.
 Die einzelnen Tracks werden als Spaltenpaare dargestellt mit jeweils einer Spalte für die X- und Y-Koordinaten zu einem jeweiligen Zeitpunkt.
-Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{table:table:tracksortCSV} zu sehen.
+Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{table:tracksortCSV} zu sehen.
 
 
 
@@ -256,13 +256,13 @@ Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{table:table:tracksort
 
 
 
-\color{black}
+
 \section{Simulierte Daten}
 
 Die DEM Daten, wo sie herkommen, was der unterschied ist zu den selbstaufgenommenen Daten. 
 Vorteile und Nachteile...\cite{pieper2016numerical}, \cite{pieper2017numerical} 
 
-Original: 1000Hz, downsampled auf 200Hz, 
+Original: 1000\si{\hertz}, downsampled auf 200 \si{\hertz}, 
 
 Nicht ganz so viele Partikel, aber dafür sehr lange tracks - Informationen auf dem gesamten Band, nicht nur auf dem Part wo die Kamera drauf schaut.
 
@@ -327,7 +327,7 @@ minimaler unterschied nach Resegment (Bessere Tracksort zuordnung?)}
 	\item führt zu: Beinah verdoppelung der Feature-Label-paare fürs training.
 \end{itemize}
 
-\color{blue}
+
 Als Data Augmentation bezeichnet man Verfahren, die die eigenen Daten erweitern ohne zusätzliche Daten aufzunehmen.
 Man generiert aus den bestehenden Daten zusätzliche, synthetische Daten, die dann im Trainingsset eingesetzt werden können.
 Ausreichend viele Trainingsbeispiele zu haben ist notwendig um mit neuronalen Netzen eine gute Performance zu erzielen.
@@ -350,7 +350,7 @@ Tracks, die [zu nah an den Rand kommen] werden ausgenommen, da zumindest bei den
 \end{figure}
 
 
-\color{black}
+
 \section{Trainingsbeispiele}
 
 Train - Test - Validation - Split:
