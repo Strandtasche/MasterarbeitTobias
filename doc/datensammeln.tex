@@ -4,21 +4,20 @@ Wie bei jeder Anwendung von maschinellen Lernverfahren sind die zugrundeliegende
 Im Rahmen dieser Masterarbeit wurden zweierlei Sorten von Daten benutzt:
 Einmal wurden am \textit{TableSort} Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht, 
 die dann über mehrere Arbeitsschritte in das richtige Datenformat übersetzt wurden.
-Zudem existieren der DEM Datensatz \todo{mehr Details - Quellen lesen}
+Zudem existieren simulierte Datensatze, die mit der \textit{Diskrete-Elemente-Methode} (DEM) simuliert wurden. 
 
 
 
 \section{Datenformatierung}
 
-
+\color{blue}
 \begin{itemize}
 	\item Zu Beginn des Datenverarbeitungskapitel erstmal definieren wie unsere Feature-Label Paare aussehen.
 	\item Features eigentlich immer gleich:
 	\item die Positionen der letzten \(n\) Zeitschritte (FeatureSize Hyperparameter)
 	\item also ein \(2n\) Tupel, mit jeweils \(n\) X-Koordinaten und \(n\) Y-Koordinaten
-
+	% \item \(n\) \textit{n} \(n\) \(n\) \textit{n}
 \end{itemize}
-
 
 Labels: Unterscheidung nach Anwendung:
 
@@ -28,7 +27,7 @@ Separator:
 	erstes element des Label ist die Koordinate entlang der orthogonalen Achse zur Bewegungsrichtung wo das Teilchen den Separator passiert
 	zweites Element ist die Anzahl von Zeitschritten , die das Teilchen noch bis zum Separator braucht.
 
-Important Point: Labels wurden normalisiert und Standardisiert ( \(\frac{TrueVal - Mean}{Standard Diviation}\)
+Important Point: Labels wurden normalisiert und Standardisiert ( \(\frac{TrueVal - Mean}{Standard Diviation}\))
 um auszugleichen, dass sich Position und Zeitschritte auf unterschiedlichen Skalen bewegen und dementsprechend unterschiedlich hohe gradienten haben.
 
 
@@ -36,6 +35,21 @@ Es ist implementiert, dass die verschiedenen Dimensionen unterschiedlich stark g
 Aber für die evaluierung ist keine Gewichtung vorgenommen worden.
 
 optional: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location...)
+\color{black}
+
+Welches Format die Daten annehmen unterscheidet sich leicht zwischen den beiden Anwendungen.
+Die Feature-Label Paare der unterschiedlichen Anwendungen unterscheiden sich nur in den Labeln.
+Die Eingangsdaten sind - abhängig von einem Hyperparameter - 
+in beiden Fällen die Position des Partikels zu den letzten \(n\) Zeitschritten.
+Deshalb muss kein Unterschied bezüglich der gespeicherten Tracks gemacht werden.
+
+Dieser Hyperparameter wird \textit{FeatureSize} genannt. 
+Die Features sind also ein \(2n\)-Tupel, bestehend aus \(n\) X-Koordinaten und \(n\) Y-Koordinaten.
+Was die Reihenfolge angeht, so ist sie für das neuronale Netz egal, solange sie konsistent zwischen Training und Evaluation bleibt.
+
+In der umgesetzten Implementierung ist es so, dass zuerst die X-Koordinaten 
+und dann die Y-Koordinaten in chronologischer Reihenfolge aufgereiht sind. 
+
 
 
 
@@ -43,12 +57,14 @@ optional: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location..
 
 \subsection{Versuchsaufbau}
 
+\color{blue}
 \begin{itemize}
 	\item Am TableSort System, einmal Band, einmal Rutsche
 	\item Beschreibung von der Bonito Kamera, stats usw.
 	\item Umrechengröße pixel zu mm
 	\item Bandgeschwindigkeit
 \end{itemize}
+\color{black}
 
 
 Zur Aufnahme der Daten wurde eine Bonito CL-400 200 FPS Kamera benutzt, die in Abbildung \ref{pictureCam} zu sehen ist.
@@ -111,6 +127,7 @@ und in Abbildung \ref{fig:schuettgueterBand} auf dem Förderband zu sehen.
 
 \section{Datenpipeline}
 
+\color{blue}
 \begin{itemize}
 	\item Beschreiben wie aus den Bildern die relevanten Features extrahiert werden.
 	\item Ursprungs: Bayer Matrix Bitmap
@@ -119,6 +136,7 @@ und in Abbildung \ref{fig:schuettgueterBand} auf dem Förderband zu sehen.
 	\item TrackSort Algorithmus zuweisung zu CSV No.2
 	\item Das ist dann der finale Punkt von wo es in meinen Code geladen wird und der rest dort passiert 
 \end{itemize}
+\color{black}
 
 
 Die Bonito Kamera nimmt Bilder in Form einer Bayer-Matrix auf, wie sie in \ref{fig:bayerPattern} zu sehen ist.
@@ -133,11 +151,11 @@ Diese werden dann in Batches von je 3500 gesammelt und in Bitmap Dateien geschri
 	\label{fig:bayerPattern}
 \end{figure}
 
-Auf Grund der Menge an Bildern wurden die Bilder zunächst in das png Dateiformat übertragen.
+Auf Grund der Menge an Bildern wurden die Bilder zunächst in das PNG-Dateiformat übertragen.
 Die Features, die für das Trainieren der Netze benutzt werden, sind die Koordinaten der Mittelpunkte der Objekte.
-Um diese zu bestimmten, müssen zunächst die Dateien mittels \textit{demosaicing} rekonstruiert werden um gewöhnliche RGB Bilder zu erhalten.
+Um diese zu bestimmten, müssen zunächst die Dateien mittels \textit{demosaicing} rekonstruiert werden um gewöhnliche RGB-Bilder zu erhalten.
 Die Open Source Computer Vision Library OpenCV hat eine Methode implementiert, die ein Bild von einem Farbraum in einen anderen übertragen kann.
-Diese wurde eingesetzt um die einzelnen Bilder in RGB Farbbilder zu konvertieren.
+Diese wurde eingesetzt um die einzelnen Bilder in RGB-Farbbilder zu konvertieren.
 \todo[inline]{Skript ursprünglich von Georg, ein paar changes implementiert (bezüglich input und output.)}
 
 \begin{figure}[h]
@@ -175,7 +193,7 @@ ob die HSV-Werte der einzelnen Pixel innerhalb oder außerhalb der Grenzwerte li
 Mit diesen Masken werden dann alle möglichen Konturen von Schüttgutpartikeln extrahiert, 
 bevor diese noch einmal bezüglich ihrer Sinnhaftigkeit gefiltert werden. 
 Im letzten Schritt wird nun der gewichtete Mittelpunkt der einzelnen Konturen bestimmt und abgespeichert.
-Das Ergebnis von diesem Segmentierungsscripts ist eine CSV Datei für jedes Batch.
+Das Ergebnis von diesem Segmentierungsscripts ist eine CSV-Datei für jedes Batch.
 Ein Beispiel für einen Ausschnitt aus solch einer Datei ist in Tabelle \ref{table:Segmentierungsscript} zu sehen.
 Eine Zeile repräsentiert jeweils ein Bild aus dem Batch, also einen Zeitschritt.
 Zu Beginn jeder Zeile steht zunächst die Frame Nummer, gefolgt von der Anzahl der detektierten Partikel
@@ -224,9 +242,9 @@ und den X- und Y-Koordinaten der Mittelpunkte der detektierten Partikel.
     \end{table}
     
 
-Die Mittelpunkte in diesem CSV File werden nun mittels des in MATLAB implementierten \textit{Predicve Tracking} Algorithmus einzelnen Tracks zugeordnet,
+Die Mittelpunkte in dieser CSV-Datei werden nun mittels des in MATLAB implementierten \textit{Predicve Tracking} Algorithmus einzelnen Tracks zugeordnet,
 \todo{Mehr details: Tracksort trackzuweisung Assignment Problem. Referenz Tobi MA?}
-die dann wiederum in einem neuen CSV File gespeichert werden.
+die dann wiederum in einer neuen CSV-Datei gespeichert werden.
 Die einzelnen Tracks werden als Spaltenpaare dargestellt mit jeweils einer Spalte für die X- und Y-Koordinaten zu einem jeweiligen Zeitpunkt.
 Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{table:tracksortCSV} zu sehen.
 Dies ist der Zustand in dem die Daten dann im Code geladen werden. 
@@ -318,15 +336,16 @@ und 8549 Weizenkörner in 13 Batches aufgenommen.
 Cleanup : FilterTracksByAngle, FilterByVectorLengthChange \todo{Überlegen ob ich da so viel aufschreiben soll - 
 minimaler unterschied nach Resegment (Bessere Tracksort zuordnung?)}
 
-
+\color{blue}
 \begin{itemize}
 	\item Data Augmentation: Definition und Beschreibung
 	\item bei Bildern normalerweise Rotieren, Translation, Ausschnitte...
 	\item Hier: Spiegeln
 	\item in einem Band - an der Mitte, nicht die Ränder mit nehmen - Kamera nicht perfekt zentriert
+	\item Band zentrierung filter
 	\item führt zu: Beinah verdoppelung der Feature-Label-paare fürs training.
 \end{itemize}
-
+\color{black}
 
 Als Data Augmentation bezeichnet man Verfahren, die die eigenen Daten erweitern ohne zusätzliche Daten aufzunehmen.
 Man generiert aus den bestehenden Daten zusätzliche, synthetische Daten, die dann im Trainingsset eingesetzt werden können.
@@ -384,7 +403,7 @@ der Strecke zwischen dem Element vor und dem element hinter. siehe \ref{fig:Schn
 	\centering
 	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
 	\includegraphics[width=\textwidth]{geometrie}
-	\caption{Geometrische Bestimmung der Labels [Vorlage aus Florians Diss - wie QUELLE?]}
+	\caption{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}}
 	% \todo{Quelle - test?}
 	\label{fig:Schnittpunkt}
 \end{figure}

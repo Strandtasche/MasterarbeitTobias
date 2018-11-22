@@ -55,6 +55,10 @@
 \def\secondsupervisor#1{\gdef\@secondsupervisor{#1}}
 \global\let\@secondsupervisor\@empty
 
+% 3rd Supervisor
+\def\thirdsupervisor#1{\gdef\@thirdsupervisor{#1}}
+\global\let\@thirdsupervisor\@empty
+
 % Discussant
 \def\discussant#1{\gdef\@discussant{#1}}
 \global\let\@discussant\@empty
@@ -214,13 +218,14 @@
 				\hline
 				& \\
 				Referent:  & Prof. Dr.-Ing. Uwe D. Hanebeck \\
-				\ifthenelse{\equal{\@discussant}{}}{}{			% Show only if discussant is present
-					Korreferent:  & \@discussant \\
-				}
+				Korreferent:  & \@discussant \\
 				& \\
 				Betreuer:  & \@firstsupervisor \\
 				\ifthenelse{\equal{\@secondsupervisor}{}}{}{	% Show only if 2nd supervisor is present
 					& \@secondsupervisor \\
+				}
+				\ifthenelse{\equal{\@thirdsupervisor}{}}{}{	% Show only if 3nd supervisor is present
+					& \@thirdsupervisor \\
 				}
 				& \\
 				\hline

@@ -38,9 +38,9 @@ Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt 
 \todo{Darstellung des Perzeptrons}
 \begin{figure}
     \centering
-    \missingfigure{Grafik Neuron}
-	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
-	\caption{Einzelnes Neuron}
+    % \missingfigure{Grafik Neuron}
+	\includegraphics[width=0.5\textwidth]{perceptron-2}
+	\caption{Schematischer Aufbau Neuron}
 	% \todo{Quelle Bild!}
 	\label{fig:singleNeuron}
 \end{figure}
@@ -54,7 +54,7 @@ Ein Überblick über verschiedene Aktivierungsfunktionen ist unter \ref{sec:acti
 Mathematisch ist die Ausgabe eines Perzeptrons also wie folgt definiert:
 
 \begin{equation}
-	y = \phi ( \sum_{i= 0}^{m} w_i x_i)
+	y = \phi \Big( \sum_{i= 0}^{m} w_i x_i \Big)
 \end{equation}
 
 Beim Lernen werden die Gewichte der einzelnen Eingaben so an gepasst, dass die gewünschte Ausgabe erreicht wird.
@@ -95,7 +95,7 @@ durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Line
 	
 	% \item[ReLU] \hfill \\
 \begin{equation}
-	f(x) = max(0, x)
+	f(x) = \max(0, x)
 \end{equation}
 \begin{equation*}
 	f'(x) = \begin{cases}
@@ -156,13 +156,12 @@ durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Line
 
 % \textbf{absatz über Feedforward Netze. Basic}
 \begin{itemize}
-	\item Definition (keine Kreise oder Schleifen)
+	\item Definition (keine Kreise oder Schleifen). (Kommentar Florian: \"Rückkopplung\")
 	\item Gegenstück zum RNN
 	\item grundlegende Architektur in Layern 
 	\item Aktivierungsfunktionen in Layern
 	\item Outputlayer: Verschiedene Aktivierungsfunktionen:
 	\item Linear für regression, z.B. Softmax für Wahrscheinlichkeitsverteilung Softmax
-	\item (One Hot encoding?)
 \end{itemize}
 
 
@@ -229,18 +228,19 @@ In Abbildung \ref{subfig:overfitting}
 \begin{figure}[h]
     \centering
 	
-	\begin{subfigure}[t]{0.4\textwidth}
+	\begin{subfigure}[t]{0.6\textwidth}
 		\includegraphics[width=\textwidth]{plotUnderfitting.pdf}
 		\caption{Underfitting}
 		\label{subfig:underfitting}
-    \end{subfigure}
-	\begin{subfigure}[t]{0.4\textwidth}
+	\end{subfigure}
+	% \quad
+	\begin{subfigure}[t]{0.6\textwidth}
 		\includegraphics[width=\textwidth]{plotPassendesModell.pdf}
 		\caption{Passendes Modell}
 		\label{subfig:rightfitting}
 	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{0.8\textwidth}
+	% \quad
+	\begin{subfigure}[t]{0.6\textwidth}
         \includegraphics[width=\textwidth]{plotOverfitting.pdf}
 		\caption{Overfitting}
 		\label{subfig:overfitting}
