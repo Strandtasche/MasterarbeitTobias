@@ -1,0 +1,37 @@
+{
+    "arch": {
+        "dropout_rate": 0.0,
+        "hidden_layers": [16, 16, 16],
+        "feature_size": 5,
+        "activation": "leaky_relu",
+        "regularization": "no"
+    },
+    "problem": {
+        "data_path": "/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/CuboidsDownsampled/",
+        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-45kDecaySteps-cuboid",
+        "imagePath": "/home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-cuboid",
+        "separator": 0,
+        "separatorPosition": 0.7,
+        "thresholdPoint": 0.55,
+        "predictionCutOff": 0.68
+
+    },
+    "train": {
+        "batch_size": 500,
+        "epochs": 3000,
+        "steps_per_epoch": 5000,
+        "learning_rate": 0.005,
+        "decay_steps": 45000,
+        "optimizer": "Adam"
+    },
+    "data": {
+        "numberFakeLines": 500,
+        "testSize": 0.1,
+        "augmentMidpoint": 0.09,
+        "augmentRange": 0.07,
+        "direction": "x",
+        "unitLoc": "m",
+        "unitTime": "Frames",
+        "limits": [0.388, 0.788, 0, 0.18]
+    }
+}

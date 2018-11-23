@@ -1,0 +1,32 @@
+{
+    "arch": {
+        "dropout_rate": 0.0,
+        "hidden_layers": [16, 16, 16],
+        "feature_size": 5,
+        "activation": "leaky_relu"
+    },
+    "problem": {
+        "data_path": "/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli",
+        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/Sept28",
+        "imagePath": "/home/hornberger/MasterarbeitTobias/images/",
+        "separator": 1,
+        "separatorPosition": 1550,
+        "predictionCutOff": 1300
+
+    },
+    "train": {
+        "batch_size": 5000,
+        "epochs": 1500,
+        "steps_per_epoch": 500,
+        "learning_rate": 0.005,
+        "optimizer": "Adam"
+    },
+    "data": {
+        "numberFakeLines": 500,
+        "testSize": 0.1,
+        "augmentMidpoint": 1123,
+        "augmentRange": 1000,
+        "direction": "y",
+        "limits": [0, 2350, 0, 1750]
+    }
+}

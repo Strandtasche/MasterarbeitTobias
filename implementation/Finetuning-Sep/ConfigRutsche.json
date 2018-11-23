@@ -1,0 +1,37 @@
+{
+    "arch": {
+        "dropout_rate": 0.0,
+        "hidden_layers": [16, 16, 16],
+        "feature_size": 5,
+        "activation": "leaky_relu",
+        "regularization": "no"
+    },
+    "problem": {
+        "data_path": "/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Rutsche-Sept/",
+        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/Sept28",
+        "imagePath": "/home/hornberger/MasterarbeitTobias/images/",
+        "separator": 1,
+        "separatorPosition": 1350,
+        "thresholdPoint": 1050,
+        "predictionCutOff": 1300
+
+    },
+    "train": {
+        "batch_size": 500,
+        "epochs": 1000,
+        "steps_per_epoch": 5000,
+        "learning_rate": 0.005,
+        "decay_steps": 15000,
+        "optimizer": "Adam"
+    },
+    "data": {
+        "numberFakeLines": 500,
+        "testSize": 0.1,
+        "augmentMidpoint": 1123,
+        "augmentRange": 1000,
+        "direction": "y",
+        "unitLoc": "px",
+        "unitTime": "1/100 Frames",
+        "limits": [0, 2350, 0, 1750]
+    }
+}

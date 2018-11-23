@@ -23,7 +23,7 @@ degrees = [1, 4, 17]
 
 X = np.sort(np.random.rand(n_samples))
 y = true_fun(X) + np.random.randn(n_samples) * 0.2
-titles = ['Underfitting', 'passendes Modell', 'Overfitting']
+titles = ['Underfitting', 'passendesModell', 'Overfitting']
 
 plt.figure() #figsize=(14, 5))
 for i in range(len(degrees)):
@@ -42,16 +42,16 @@ for i in range(len(degrees)):
 							 scoring="neg_mean_squared_error", cv=10)
 
 	X_test = np.linspace(0, 1, 100)
-	plt.plot(X_test, pipeline.predict(X_test[:, np.newaxis]), label="Model")
-	plt.plot(X_test, true_fun(X_test), label="True function")
-	plt.scatter(X, y, edgecolor='b', s=20, label="Samples")
-	plt.xlabel("Time")
-	plt.ylabel("Value")
+	plt.plot(X_test, pipeline.predict(X_test[:, np.newaxis]), label="Modell")
+	plt.plot(X_test, true_fun(X_test), label="Ursprungsfunktion")
+	plt.scatter(X, y, edgecolor='b', s=20, label="Stichproben")
+	plt.xlabel("x")
+	plt.ylabel("y")
 	plt.xlim((0, 1))
 	plt.ylim((-2, 2))
 	plt.legend(loc=1)
 	plt.show()
-	fig.savefig('/home/hornberger/Pictures/plot' + titles[i] + '.png', dpi=900)
+	fig.savefig('/home/hornberger/Pictures/plot' + titles[i] + '.pdf', format='pdf', dpi=1200)
 # plt.title(titles[i])
 
 plt.show()

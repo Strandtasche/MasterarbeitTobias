@@ -371,9 +371,9 @@ def main(argv):
 										   )
 	else:
 		logging.info("using custom estimator")
-		test_config = estimator.RunConfig(save_checkpoints_steps=50000,
+		test_config = estimator.RunConfig(save_checkpoints_steps=100000,
 										  save_checkpoints_secs=None,
-										  save_summary_steps=100)
+										  save_summary_steps=500)
 
 		useRatioScaling = False # Todo: überlegen ob es hierfür noch eine sinnvolle verwendung gibt
 
@@ -576,19 +576,19 @@ def main(argv):
 				printDF = prepareMaximumLossAnalysisNextStep(F_test, L_test, numberPrint, regressor, BATCH_SIZE, labelMeans, labelStds)
 				plotDataNextStepPandas(numberPrint, printDF[columnNames], printDF[['LabelX', 'LabelY']],
 								   printDF[['PredictionX', 'PredictionY']], baseImagePath, limits, units,
-								   os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
+								   os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.pdf')
 			else:
 				printDF = prepareMaximumLossAnalysisSeparator(F_test, L_test, numberPrint, regressor, BATCH_SIZE, labelMeans, labelStds)
 				# printDF['LabelPosBalken'] = printDF['LabelPosBalken'] * labelStds['LabelPosBalken'] + labelMeans['LabelPosBalken']
 				plotDataSeparatorPandas(numberPrint, printDF[columnNames], printDF[['LabelPosBalken']],
 										separatorPosition, printDF[['PredictionIntersect']], baseImagePath, limits, units, elementsDirectionBool,
-										os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.png')
+										os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.pdf')
 			# print(printDF)
 
 		# displaying weights in Net - (a bit redundant after implementation of debugger
 		if displayWeights:
 			for variable in regressor.get_variable_names():
-				print("name: \n{}\nvalue: \n{}\n".format(variable, regressor.get_variable_value(variable)))
+				logging.info("name: \n{}\nvalue: \n{}\n".format(variable, regressor.get_variable_value(variable)))
 
 			weights = regressor.get_variable_value('dense/kernel')
 			plt.imshow(weights, cmap='coolwarm')
@@ -600,7 +600,7 @@ def main(argv):
 			L_testDenormalized = L_test * labelStds + labelMeans
 			if not separator:
 				plotDataNextStepPandas(numberPrint, x_pred2, y_vals2Denormalized, y_predictedCorr, baseImagePath, limits, units,
-								   os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
+								   os.path.basename(MODEL_PATH) + '_' + time_stamp + '.pdf')
 
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
@@ -613,7 +613,7 @@ def main(argv):
 
 				plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2Denormalized['LabelPosBalken'], separatorPosition,
 										y_predictedCorr, baseImagePath, limits, units,  elementsDirectionBool,
-										os.path.basename(MODEL_PATH) + '_' + time_stamp + '.png')
+										os.path.basename(MODEL_PATH) + '_' + time_stamp + '.pdf')
 				totalPredictGen = regressor.predict(input_fn=lambda: eval_input_fn(F_test, labels=None, batch_size=BATCH_SIZE))
 				totalPredictions = [p['predictions'] for p in totalPredictGen]
 				totalPredictionsCorr = [[x * b + c for x, b, c in zip(x, labelStds, labelMeans)] for x in totalPredictions] # Look, ye mighty, and despair!

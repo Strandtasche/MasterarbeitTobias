@@ -1,0 +1,37 @@
+{
+    "arch": {
+        "dropout_rate": 0.0,
+        "hidden_layers": [16, 16, 16],
+        "feature_size": 5,
+        "activation": "leaky_relu",
+        "regularization": "no"
+    },
+    "problem": {
+        "data_path": "/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/",
+        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-SpheresReal",
+        "imagePath": "/home/hornberger/MasterarbeitTobias/images/Real-NextStep-45kDecay-Spheres",
+        "separator": 0,
+        "separatorPosition": 1550,
+        "thresholdPoint": 1200,
+        "predictionCutOff": 1500
+
+    },
+    "train": {
+        "batch_size": 500,
+        "epochs": 3000,
+        "steps_per_epoch": 5000,
+        "learning_rate": 0.005,
+        "decay_steps": 45000,
+        "optimizer": "Adam"
+    },
+    "data": {
+        "numberFakeLines": 500,
+        "testSize": 0.1,
+        "augmentMidpoint": 1123,
+        "augmentRange": 1000,
+        "direction": "x",
+        "unitLoc": "px",
+        "unitTime": "1/100 Frames",
+        "limits": [0, 2350, 0, 1750]
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "arch": {
+        "dropout_rate": 0.0,
+        "hidden_layers": [16, 16, 16],
+        "feature_size": 5,
+        "activation": "leaky_relu"
+    },
+    "problem": {
+        "data_path": "/home/hornberger/MasterarbeitTobias/data/simulated/SpheresDownsampled",
+        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/simulated/",
+        "imagePath": "/home/hornberger/MasterarbeitTobias/images/",
+        "separator": 1,
+        "separatorPosition": 0.788,
+        "thresholdPoint": 0.73,
+        "predictionCutOff": 0.638
+
+    },
+    "train": {
+        "batch_size": 5000,
+        "epochs": 1500,
+        "steps_per_epoch": 500,
+        "learning_rate": 0.005,
+        "optimizer": "Adam"
+    },
+    "data": {
+        "numberFakeLines": 500,
+        "testSize": 0.1,
+        "augmentMidpoint": 0.09,
+        "augmentRange": 0.07,
+        "direction": "x",
+        "limits": [0.388, 0.788, 0, 0.18]
+    }
+}

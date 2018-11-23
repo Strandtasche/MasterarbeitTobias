@@ -135,9 +135,9 @@ def plotDataNumpy(numberPrint, x_pred2, y_vals2, y_predicted, savePath):
 
 	plt.title('%s DNNRegressor' % MODEL_PATH.split('/')[-1])
 	plt.tight_layout()
-	plt.xlabel('x-Coordinate (px)')
-	plt.ylabel('y-Coordinate (px)')
-	plt.savefig(MODEL_PATH + '_' + time_stamp + '.png', dpi=300)
+	plt.xlabel('x-Koordinate (px)')
+	plt.ylabel('y-Koordinate (px)')
+	plt.savefig(MODEL_PATH + '_' + time_stamp + '.pdf', format='pdf', dpi=1200)
 	# plt.show()
 	plt.close()
 
@@ -148,7 +148,7 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
 	if name is None:
-		output = savePath + '/' + 'Pic_' + time_stamp + '.png'
+		output = savePath + '/' + 'Pic_' + time_stamp + '.pdf'
 	else:
 		output = savePath + '/' + name
 
@@ -162,21 +162,21 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 
 	assert len(x) == len(y)
 
-	plt.plot(x, y, 'ro', label='feature', markersize=4)
-	plt.plot(x_t, y_t, 'gx', label='label')
+	plt.plot(x, y, 'ro', label='Feature', markersize=4)
+	plt.plot(x_t, y_t, 'gx', label='Label')
 	if isinstance(y_predicted, list):
 		for k in range(numberPrint):
-			plt.plot(y_predicted[k][0], y_predicted[k][1], 'b+', label='prediction')
+			plt.plot(y_predicted[k][0], y_predicted[k][1], 'b+', label='Prädiktion')
 	else:
 		for k in range(numberPrint):
-			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'b+', label='prediction')
+			plt.plot(y_predicted['PredictionX'], y_predicted['PredictionY'], 'b+', label='Prädiktion')
 	plt.plot()
 	plt.xlim(lim[0], lim[1])
 	plt.ylim(lim[2], lim[3])
 	# plt.xlabel('x-Coordinate (px)')
 	# plt.ylabel('y-Coordinate (px)')
-	plt.xlabel('x-Coordinate in {}'.format(units['loc']))
-	plt.ylabel('y-Coordinate in {}'.format(units['loc'])) # a little bit hacky
+	plt.xlabel('x-Koordinate in {}'.format(units['loc']))
+	plt.ylabel('y-Koordinate in {}'.format(units['loc'])) # a little bit hacky
 
 	plt.title('%s DNNRegressor NextStep' % savePath.split('/')[-1])
 
@@ -186,7 +186,7 @@ def plotDataNextStepPandas(numberPrint, x_pred2, y_vals2, y_predicted, savePath,
 
 	logging.info("Saving Image to file {}".format(output))
 	# plt.tight_layout()
-	plt.savefig(output, dpi=900)
+	plt.savefig(output, format='pdf', dpi=1200)
 	# plt.show()
 	plt.close()
 
@@ -211,7 +211,7 @@ def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath, units):
 	total = len(y_predicted)
 	textArray = []
 	for elem in y_predicted:
-		plt.plot(elem[0][0], elem[0][1], 'b+', label='prediction')
+		plt.plot(elem[0][0], elem[0][1], 'b+', label='Prädiktion')
 		textLabel = "{:.2f}%".format(i / total * 100)
 		textArray.append(plt.text(elem[0][0], elem[0][1], textLabel, ha='center', va='center'))
 		i = i + 1
@@ -223,7 +223,7 @@ def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath, units):
 	plt.xlabel('x-Coordinate in {}'.format(units['loc']))
 	plt.ylabel('y-Coordinate in {}'.format(units['loc'])) # a little bit hacky
 	logging.info("Saving debug image to file {}".format(savePath + '_' + time_stamp + '.png', ))
-	plt.savefig(savePath + '_' + time_stamp + '.png', dpi=300)
+	plt.savefig(savePath + '_' + time_stamp + '.pdf', format='pdf', dpi=1200)
 	# plt.show()
 	plt.close()
 
@@ -234,9 +234,9 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
 	if name is None:
-		output = savePath + 'Pic_' + time_stamp + '.png'
+		output = savePath + '/' + 'Pic_' + time_stamp + '.pdf'
 	else:
-		output = name
+		output = savePath + '/' + name
 
 	x = x_pred2[[i for i in x_pred2.columns if i[0] == 'X']].head(numberPrint).values
 	y = x_pred2[[i for i in x_pred2.columns if i[0] == 'Y']].head(numberPrint).values
@@ -267,28 +267,28 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 			plt.plot(ausgleichsgeradenY[i], ausgleichsgeradenX[i], color='orange', linestyle='dashed',
 					 label='best fit straight line')
 
-	plt.plot(x, y, 'ro', label='feature', markersize=4)
+	plt.plot(x, y, 'ro', label='Feature', markersize=4)
 	# if direction: swap y_t and x_t
 	if direction:
-		plt.plot(x_t, y_t, 'gx', label='label')
+		plt.plot(x_t, y_t, 'gx', label='Label')
 	else:
-		plt.plot(y_t, x_t, 'gx', label='label')
+		plt.plot(y_t, x_t, 'gx', label='Label')
 
 	if isinstance(y_predicted, list):
 		for k in range(numberPrint):
 			#if direction: swap separatorPosition and y_predicted
 			if direction:
-				plt.plot(y_predicted[k][0], separatorPosition, 'b+', label='prediction')
+				plt.plot(y_predicted[k][0], separatorPosition, 'b+', label='Prädiktion')
 			else:
-				plt.plot(separatorPosition, y_predicted[k][0], 'b+', label='prediction')
+				plt.plot(separatorPosition, y_predicted[k][0], 'b+', label='Prädiktion')
 	else:
 		if 'PredictionIntersect' in y_predicted:
 			for k in range(numberPrint):
 				#if direction: swap separatorPosition and y_predicted['PredictionIntersect'].iloc[k]
 				if direction:
-					plt.plot(y_predicted['PredictionIntersect'].iloc[k], separatorPosition, 'b+', label='prediction')
+					plt.plot(y_predicted['PredictionIntersect'].iloc[k], separatorPosition, 'b+', label='Prädiktion')
 				else:
-					plt.plot(separatorPosition, y_predicted['PredictionIntersect'].iloc[k], 'b+', label='prediction')
+					plt.plot(separatorPosition, y_predicted['PredictionIntersect'].iloc[k], 'b+', label='Prädiktion')
 		else:
 			logging.error("weird error in plotting. terminating.")
 			sys.exit(-1)
@@ -302,7 +302,7 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	plt.ylabel('y-Coordinate in {}'.format(units['loc']), labelpad=None) # a little bit hacky
 	logging.info("Saving Image to file {}".format(output))
 	# plt.tight_layout()
-	plt.savefig(output, dpi=900)
+	plt.savefig(output, format='pdf', dpi=1200)
 	# plt.show()
 	plt.close()
 
@@ -420,8 +420,12 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions, units, imageLoc):
 	ax2.set_ylabel('# of elements in bin')
 	ax2.set_xlabel('error in {}'.format(units['loc']))
 	plt.legend(loc=1)
-	fig1.savefig(imageLoc + '/evaluation_NextStep_LocationError_' + time_stamp + '.png', dpi=900)
-	fig2.savefig(imageLoc + '/evaluation_NextStep_ErrorHistogram_' + time_stamp + '.png', dpi=900)
+	fig1.savefig(imageLoc + '/evaluation_NextStep_LocationError_' + time_stamp + '.pdf', format='pdf', dpi=1200)
+	fig2.savefig(imageLoc + '/evaluation_NextStep_ErrorHistogram_' + time_stamp + '.pdf', format='pdf', dpi=1200)
+
+
+	logging.info("Saving dataframe:")
+	pandasLost.to_pickle(imageLoc + '/pandasLostDataframe' + time_stamp + '.pkl')
 	plt.show()
 
 
@@ -684,8 +688,11 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	ax4.legend(loc=1)
 	plt.tight_layout()
 	logging.info("Saving evaluation images to {}".format(imageLoc))
-	fig1.savefig(imageLoc + '/evaluation_Separator_LocationErrorBoxplot_' + time_stamp + '.png', dpi=900)
-	fig2.savefig(imageLoc + '/evaluation_Separator_LocationErrorHistogram_' + time_stamp + '.png', dpi=900)
-	fig3.savefig(imageLoc + '/evaluation_Separator_TimeErrorBoxplot_' + time_stamp + '.png', dpi=900)
-	fig4.savefig(imageLoc + '/evaluation_Separator_TimeErrorHistogram_' + time_stamp + '.png', dpi=900)
+	fig1.savefig(imageLoc + '/evaluation_Separator_LocationErrorBoxplot_' + time_stamp + '.pdf', format='pdf', dpi=1200)
+	fig2.savefig(imageLoc + '/evaluation_Separator_LocationErrorHistogram_' + time_stamp + '.pdf', format='pdf', dpi=1200)
+	fig3.savefig(imageLoc + '/evaluation_Separator_TimeErrorBoxplot_' + time_stamp + '.pdf', format='pdf', dpi=1200)
+	fig4.savefig(imageLoc + '/evaluation_Separator_TimeErrorHistogram_' + time_stamp + '.pdf', format='pdf', dpi=1200)
+
+	logging.info("Saving dataframe:")
+	pandasLost.to_pickle(imageLoc + '/pandasLostDataframe' + time_stamp + '.pkl')
 	plt.show()

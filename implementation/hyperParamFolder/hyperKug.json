@@ -1,0 +1,23 @@
+{
+    "arch": {
+        "dropout_rate": 0.0,
+        "hidden_layers": [16, 16, 16],
+        "feature_size": 5
+    },
+    "problem": {
+        "data_path": "/home/hornberger/MasterarbeitTobias/data/cleanedData/Kugeln/",
+        "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/fineTuning/",
+        "imagePath": "/home/hornberger/MasterarbeitTobias/images/"
+    },
+    "train": {
+        "batch_size": 500,
+        "epochs": 500,
+        "steps_per_epoch": 500,
+        "optimizer": "Adam",
+        "learning_rate": 0.001
+    },
+    "data": {
+        "numberFakeLines": 500,
+        "testSize": 0.1
+    }
+}
