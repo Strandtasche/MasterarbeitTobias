@@ -658,3 +658,461 @@ predicted:
 [0.5830510797976121, 0.018592100032497255]
 time: 0.20s
 MSE (tensorflow): 3.243997355184547e-07
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-45kDecay-Batchsize250-cylinder.json']
+INFO:root:time: 2018-11-22_11.46.11
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-45kDecaySteps-Batchsize250-cylinder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((507244, 10), (507244, 2))
+INFO:root:Test: ((28400, 10), (28400, 2))
+INFO:root:Means: 
+LabelX    0.594530
+LabelY    0.090456
+dtype: float64
+INFO:root:Stds: 
+LabelX    0.110657
+LabelY    0.036005
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.09934733877526e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_highestLoss_2018-11-22_11.46.11.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_2018-11-22_11.46.11.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  2.840000e+04       2.840000e+04       2.840000e+04     
+mean   2.047565e-05       1.951758e-05       1.479416e-05     
+std    3.960153e-05       3.528598e-05       3.200408e-05     
+min    2.171213e-09       0.000000e+00       0.000000e+00     
+25%    1.267468e-06       1.110223e-16       1.110223e-16     
+50%    7.011176e-06       1.000000e-06       5.000000e-06     
+75%    3.042888e-05       3.162278e-05       2.022375e-05     
+max    1.619676e-03       1.259220e-03       1.338564e-03     
+INFO:root:number of predictions with error > 3: 0
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+246375  0.63398  0.63973  0.64548    ...     0.079282  0.079282  0.079282
+157622  0.70326  0.70901  0.71476    ...     0.156460  0.156460  0.156460
+96374   0.52194  0.52764  0.53337    ...     0.067571  0.067569  0.067568
+235017  0.73661  0.74236  0.74811    ...     0.097330  0.097330  0.097330
+267654  0.70311  0.70886  0.71461    ...     0.099156  0.099156  0.099156
+266599  0.48943  0.49493  0.50047    ...     0.111240  0.111390  0.111530
+126273  0.71912  0.72487  0.73062    ...     0.101740  0.101740  0.101740
+38760   0.74641  0.75216  0.75791    ...     0.097739  0.097739  0.097739
+277673  0.70939  0.71514  0.72089    ...     0.126880  0.126880  0.126880
+279061  0.48620  0.49176  0.49733    ...     0.111680  0.111740  0.111800
+
+[10 rows x 10 columns]
+         LabelX    LabelY
+246375  0.66273  0.079282
+157622  0.73201  0.156460
+96374   0.55062  0.067568
+235017  0.76536  0.097330
+267654  0.73186  0.099156
+266599  0.51719  0.111660
+126273  0.74787  0.101740
+38760   0.77516  0.097739
+277673  0.73814  0.126880
+279061  0.51413  0.111870
+predicted: 
+[0.6627281532130426, 0.07928171508320152]
+[0.7320090757792554, 0.15646064094927498]
+[0.5506141991309071, 0.06756917990028137]
+[0.7653580855118388, 0.09733013802306296]
+[0.731858958762502, 0.09915626567500387]
+[0.5172301565980388, 0.11165482081537094]
+[0.7478690045557801, 0.10174014232707831]
+[0.775158141210655, 0.09773895042287246]
+[0.7381408150702569, 0.1268797963047184]
+[0.514193037395246, 0.11185147388201316]
+time: 0.20s
+MSE (tensorflow): 3.735526377113274e-08
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-45kDecay-Batchsize250-cylinder.json']
+INFO:root:time: 2018-11-22_11.50.38
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-45kDecaySteps-Batchsize250-cylinder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((507244, 10), (507244, 2))
+INFO:root:Test: ((28400, 10), (28400, 2))
+INFO:root:Means: 
+LabelX    0.594530
+LabelY    0.090456
+dtype: float64
+INFO:root:Stds: 
+LabelX    0.110657
+LabelY    0.036005
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.09934733877526e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_highestLoss_2018-11-22_11.50.38.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_2018-11-22_11.50.38.png
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  2.840000e+04       2.840000e+04       2.840000e+04     
+mean   2.047565e-05       1.951758e-05       1.479416e-05     
+std    3.960153e-05       3.528598e-05       3.200408e-05     
+min    2.171213e-09       0.000000e+00       0.000000e+00     
+25%    1.267468e-06       1.110223e-16       1.110223e-16     
+50%    7.011176e-06       1.000000e-06       5.000000e-06     
+75%    3.042888e-05       3.162278e-05       2.022375e-05     
+max    1.619676e-03       1.259220e-03       1.338564e-03     
+INFO:root:number of predictions with error > 3: 0
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+144335  0.42670  0.43177  0.43684    ...     0.147160  0.146990  0.146840
+281043  0.53393  0.53960  0.54529    ...     0.056071  0.056081  0.056081
+129723  0.67978  0.68553  0.69128    ...     0.123470  0.123470  0.123470
+55817   0.57292  0.57862  0.58433    ...     0.048718  0.048723  0.048728
+113528  0.41744  0.42251  0.42765    ...     0.129350  0.129300  0.129260
+275092  0.66620  0.67195  0.67770    ...     0.131260  0.131260  0.131260
+220628  0.67879  0.68454  0.69029    ...     0.067441  0.067441  0.067441
+24484   0.55130  0.55707  0.56285    ...     0.073282  0.073284  0.073287
+36105   0.65852  0.66427  0.67002    ...     0.060939  0.060939  0.060939
+168086  0.39359  0.39825  0.40291    ...     0.079819  0.079723  0.079628
+
+[10 rows x 10 columns]
+         LabelX    LabelY
+144335  0.45239  0.146700
+281043  0.56252  0.056078
+129723  0.70853  0.123470
+55817   0.60149  0.048733
+113528  0.44338  0.129230
+275092  0.69495  0.131260
+220628  0.70754  0.067441
+24484   0.58023  0.073288
+36105   0.68727  0.060939
+168086  0.41702  0.079507
+predicted: 
+[0.452338184672219, 0.1466920428442399]
+[0.5624840096873407, 0.056090216239893076]
+[0.7085305105329573, 0.12347003578905405]
+[0.6015125443892572, 0.048727646461889505]
+[0.44334882682038207, 0.1292088759510327]
+[0.6949498342767542, 0.13126039010017482]
+[0.7075398701354038, 0.06744088059394493]
+[0.5802119026769716, 0.07328885049257833]
+[0.6872698846352872, 0.06093860547886641]
+[0.4170105060223245, 0.07954748804912254]
+time: 0.20s
+MSE (tensorflow): 1.1378682529539219e-07
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-45kDecay-Batchsize250-cylinder.json']
+INFO:root:time: 2018-11-22_11.57.25
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-45kDecaySteps-Batchsize250-cylinder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((507244, 10), (507244, 2))
+INFO:root:Test: ((28400, 10), (28400, 2))
+INFO:root:Means: 
+LabelX    0.594530
+LabelY    0.090456
+dtype: float64
+INFO:root:Stds: 
+LabelX    0.110657
+LabelY    0.036005
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.09934733877526e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_highestLoss_2018-11-22_11.57.25.eps
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_2018-11-22_11.57.25.eps
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  2.840000e+04       2.840000e+04       2.840000e+04     
+mean   2.047565e-05       1.951758e-05       1.479416e-05     
+std    3.960153e-05       3.528598e-05       3.200408e-05     
+min    2.171213e-09       0.000000e+00       0.000000e+00     
+25%    1.267468e-06       1.110223e-16       1.110223e-16     
+50%    7.011176e-06       1.000000e-06       5.000000e-06     
+75%    3.042888e-05       3.162278e-05       2.022375e-05     
+max    1.619676e-03       1.259220e-03       1.338564e-03     
+INFO:root:number of predictions with error > 3: 0
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+269670  0.59285  0.59860  0.60435    ...     0.060875  0.060875  0.060875
+248011  0.72328  0.72903  0.73478    ...     0.067507  0.067507  0.067507
+55289   0.65291  0.65866  0.66441    ...     0.046625  0.046625  0.046625
+56199   0.43141  0.43650  0.44163    ...     0.058444  0.058415  0.058430
+192033  0.41238  0.41710  0.42198    ...     0.062665  0.062691  0.062710
+222368  0.54259  0.54834  0.55409    ...     0.095353  0.095353  0.095353
+14055   0.59150  0.59725  0.60300    ...     0.051310  0.051310  0.051310
+268712  0.56322  0.56892  0.57464    ...     0.028100  0.028092  0.028084
+77494   0.41172  0.41637  0.42110    ...     0.158470  0.158800  0.159110
+243802  0.61192  0.61767  0.62342    ...     0.048126  0.048126  0.048126
+
+[10 rows x 10 columns]
+         LabelX    LabelY
+269670  0.62160  0.060875
+248011  0.75203  0.067507
+55289   0.68166  0.046625
+56199   0.45701  0.058457
+192033  0.43726  0.062708
+222368  0.57134  0.095353
+14055   0.62025  0.051310
+268712  0.59179  0.028076
+77494   0.43591  0.159410
+243802  0.64067  0.048126
+predicted: 
+[0.6216021981953904, 0.06087514041486455]
+[0.7520309394844138, 0.06750693808337926]
+[0.6816606132425775, 0.04662459712703945]
+[0.457168667977486, 0.05838893360556292]
+[0.43718895048221595, 0.06278805208341423]
+[0.5713465694465335, 0.09535431926287272]
+[0.6202521871574663, 0.05131024728869939]
+[0.5918139363984677, 0.028081424386515612]
+[0.4358843966709819, 0.1594401532692423]
+[0.6406707396963516, 0.04812643553469262]
+time: 0.20s
+MSE (tensorflow): 5.907976969865558e-07
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-45kDecay-Batchsize250-cylinder.json']
+INFO:root:time: 2018-11-22_12.09.56
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-45kDecaySteps-Batchsize250-cylinder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((507244, 10), (507244, 2))
+INFO:root:Test: ((28400, 10), (28400, 2))
+INFO:root:Means: 
+LabelX    0.594530
+LabelY    0.090456
+dtype: float64
+INFO:root:Stds: 
+LabelX    0.110657
+LabelY    0.036005
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.09934733877526e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_highestLoss_2018-11-22_12.09.56.eps
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_2018-11-22_12.09.56.eps
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  2.840000e+04       2.840000e+04       2.840000e+04     
+mean   2.047565e-05       1.951758e-05       1.479416e-05     
+std    3.960153e-05       3.528598e-05       3.200408e-05     
+min    2.171213e-09       0.000000e+00       0.000000e+00     
+25%    1.267468e-06       1.110223e-16       1.110223e-16     
+50%    7.011176e-06       1.000000e-06       5.000000e-06     
+75%    3.042888e-05       3.162278e-05       2.022375e-05     
+max    1.619676e-03       1.259220e-03       1.338564e-03     
+INFO:root:number of predictions with error > 3: 0
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+237189  0.73832  0.74407  0.74982    ...     0.108880  0.108880  0.108880
+183411  0.40656  0.41119  0.41594    ...     0.091909  0.091377  0.090891
+194758  0.39789  0.40245  0.40701    ...     0.080598  0.080684  0.080703
+134258  0.58854  0.59429  0.60004    ...     0.074669  0.074669  0.074669
+7914    0.74273  0.74848  0.75423    ...     0.078835  0.078835  0.078835
+13494   0.48273  0.48815  0.49361    ...     0.044129  0.044225  0.044331
+148306  0.61905  0.62480  0.63055    ...     0.067511  0.067511  0.067511
+48053   0.38828  0.39299  0.39765    ...     0.130670  0.130690  0.130690
+219444  0.53835  0.54401  0.54967    ...     0.052951  0.052880  0.052833
+74739   0.55787  0.56362  0.56937    ...     0.087922  0.087922  0.087922
+
+[10 rows x 10 columns]
+         LabelX    LabelY
+237189  0.76707  0.108880
+183411  0.43067  0.090425
+194758  0.42093  0.080706
+134258  0.61729  0.074669
+7914    0.77148  0.078835
+13494   0.51021  0.044437
+148306  0.64780  0.067511
+48053   0.41144  0.130690
+219444  0.56673  0.052803
+74739   0.58662  0.087921
+predicted: 
+[0.7670700263027215, 0.10887929031440668]
+[0.43064692212512623, 0.09042766635254991]
+[0.4210051884329073, 0.08078702579577995]
+[0.6172927185538931, 0.07466893933099761]
+[0.7714807491870644, 0.07883504211263082]
+[0.510176833375451, 0.0444032018543594]
+[0.6477998601402282, 0.06751161646702394]
+[0.4115314327803492, 0.13072028143863448]
+[0.5667217616242162, 0.05278706278199615]
+[0.5866260875307339, 0.08791996902314837]
+time: 0.21s
+MSE (tensorflow): 4.071446255693445e-07
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-45kDecay-Batchsize250-cylinder.json']
+INFO:root:time: 2018-11-22_12.22.00
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-45kDecaySteps-Batchsize250-cylinder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((507244, 10), (507244, 2))
+INFO:root:Test: ((28400, 10), (28400, 2))
+INFO:root:Means: 
+LabelX    0.594530
+LabelY    0.090456
+dtype: float64
+INFO:root:Stds: 
+LabelX    0.110657
+LabelY    0.036005
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.09934733877526e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_2018-11-22_12.22.00.pdf
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-45kDecay-Batchsize250-cylinder.json']
+INFO:root:time: 2018-11-22_12.22.14
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-45kDecaySteps-Batchsize250-cylinder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((507244, 10), (507244, 2))
+INFO:root:Test: ((28400, 10), (28400, 2))
+INFO:root:Means: 
+LabelX    0.594530
+LabelY    0.090456
+dtype: float64
+INFO:root:Stds: 
+LabelX    0.110657
+LabelY    0.036005
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 3.0994073e-07, 'loss': 7.7213306e-05, 'rmse': 0.0005567232, 'global_step': 13545000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 3.0994323e-07, 'loss': 7.721393e-05, 'rmse': 0.0005567254, 'global_step': 13595000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 3.099388e-07, 'loss': 7.7212826e-05, 'rmse': 0.00055672147, 'global_step': 13645000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 3.0993732e-07, 'loss': 7.7212455e-05, 'rmse': 0.00055672013, 'global_step': 13695000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 3.099258e-07, 'loss': 7.720959e-05, 'rmse': 0.0005567098, 'global_step': 13745000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 3.0992564e-07, 'loss': 7.7209545e-05, 'rmse': 0.00055670965, 'global_step': 13795000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 3.0993365e-07, 'loss': 7.7211545e-05, 'rmse': 0.00055671687, 'global_step': 13845000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 3.0992933e-07, 'loss': 7.721046e-05, 'rmse': 0.00055671297, 'global_step': 13895000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 3.0993115e-07, 'loss': 7.721092e-05, 'rmse': 0.0005567146, 'global_step': 13945000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 3.0993232e-07, 'loss': 7.721121e-05, 'rmse': 0.00055671565, 'global_step': 13995000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 3.0993002e-07, 'loss': 7.7210636e-05, 'rmse': 0.0005567136, 'global_step': 14045000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 3.0992982e-07, 'loss': 7.7210585e-05, 'rmse': 0.0005567134, 'global_step': 14095000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 3.099331e-07, 'loss': 7.721141e-05, 'rmse': 0.00055671635, 'global_step': 14145000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 3.099304e-07, 'loss': 7.721074e-05, 'rmse': 0.00055671396, 'global_step': 14195000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 3.0993036e-07, 'loss': 7.7210716e-05, 'rmse': 0.0005567139, 'global_step': 14245000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 3.0992592e-07, 'loss': 7.720962e-05, 'rmse': 0.0005567099, 'global_step': 14295000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 3.099295e-07, 'loss': 7.7210505e-05, 'rmse': 0.00055671314, 'global_step': 14345000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 3.099242e-07, 'loss': 7.720918e-05, 'rmse': 0.0005567084, 'global_step': 14395000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 3.0992172e-07, 'loss': 7.720857e-05, 'rmse': 0.00055670616, 'global_step': 14445000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 3.0992166e-07, 'loss': 7.7208555e-05, 'rmse': 0.0005567061, 'global_step': 14495000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 3.0991757e-07, 'loss': 7.720753e-05, 'rmse': 0.0005567024, 'global_step': 14545000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 3.0992038e-07, 'loss': 7.7208235e-05, 'rmse': 0.00055670494, 'global_step': 14595000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 3.099177e-07, 'loss': 7.720757e-05, 'rmse': 0.00055670255, 'global_step': 14645000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 3.099169e-07, 'loss': 7.720737e-05, 'rmse': 0.0005567018, 'global_step': 14695000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 3.099155e-07, 'loss': 7.720702e-05, 'rmse': 0.0005567005, 'global_step': 14745000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 3.099165e-07, 'loss': 7.720726e-05, 'rmse': 0.00055670145, 'global_step': 14795000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 3.0991765e-07, 'loss': 7.720756e-05, 'rmse': 0.0005567025, 'global_step': 14845000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 3.0991515e-07, 'loss': 7.720693e-05, 'rmse': 0.0005567002, 'global_step': 14895000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 3.0991401e-07, 'loss': 7.720665e-05, 'rmse': 0.00055669923, 'global_step': 14945000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 3.0991418e-07, 'loss': 7.720669e-05, 'rmse': 0.00055669935, 'global_step': 14995000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 3.0991424e-07, 'loss': 7.720671e-05, 'rmse': 0.0005566994, 'global_step': 15045000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 3.0991382e-07, 'loss': 7.72066e-05, 'rmse': 0.00055669906, 'global_step': 15095000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 3.0991296e-07, 'loss': 7.720639e-05, 'rmse': 0.00055669824, 'global_step': 15145000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 3.099123e-07, 'loss': 7.720623e-05, 'rmse': 0.00055669766, 'global_step': 15195000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 3.0991123e-07, 'loss': 7.720596e-05, 'rmse': 0.00055669673, 'global_step': 15245000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 3.0991131e-07, 'loss': 7.720598e-05, 'rmse': 0.0005566968, 'global_step': 15295000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 3.0990842e-07, 'loss': 7.720525e-05, 'rmse': 0.00055669417, 'global_step': 15345000}
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-45kDecay-Batchsize250-cylinder.json']
+INFO:root:time: 2018-11-22_14.35.43
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-45kDecaySteps-Batchsize250-cylinder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cylinders-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((507244, 10), (507244, 2))
+INFO:root:Test: ((28400, 10), (28400, 2))
+INFO:root:Means: 
+LabelX    0.594530
+LabelY    0.090456
+dtype: float64
+INFO:root:Stds: 
+LabelX    0.110657
+LabelY    0.036005
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.0990989330348384e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_highestLoss_2018-11-22_14.35.43.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay-Batchsize250-cylinder/NextStep-45kDecaySteps-Batchsize250-cylinder_2018-11-22_14.35.43.pdf
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  2.840000e+04       2.840000e+04       2.840000e+04     
+mean   2.053567e-05       1.951758e-05       1.479416e-05     
+std    3.957978e-05       3.528598e-05       3.200408e-05     
+min    3.801644e-09       0.000000e+00       0.000000e+00     
+25%    1.543265e-06       1.110223e-16       1.110223e-16     
+50%    6.841810e-06       1.000000e-06       5.000000e-06     
+75%    3.047779e-05       3.162278e-05       2.022375e-05     
+max    1.620114e-03       1.259220e-03       1.338564e-03     
+INFO:root:number of predictions with error > 3: 0
+INFO:root:Saving dataframe:
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+221221  0.59640  0.60216  0.60794    ...     0.072904  0.072899  0.072891
+282752  0.61950  0.62525  0.63100    ...     0.088265  0.088265  0.088265
+105449  0.43554  0.44059  0.44569    ...     0.028502  0.028315  0.028140
+279996  0.40264  0.40730  0.41197    ...     0.137550  0.137640  0.137710
+144047  0.69934  0.70509  0.71084    ...     0.143180  0.143190  0.143190
+253169  0.71548  0.72123  0.72698    ...     0.117720  0.117720  0.117720
+273608  0.65772  0.66347  0.66922    ...     0.076061  0.076061  0.076061
+9908    0.52646  0.53206  0.53769    ...     0.127120  0.127120  0.127110
+172932  0.53274  0.53837  0.54400    ...     0.113700  0.113600  0.113520
+85484   0.38885  0.39349  0.39813    ...     0.111130  0.110930  0.110730
+
+[10 rows x 10 columns]
+         LabelX    LabelY
+221221  0.62530  0.072881
+282752  0.64825  0.088265
+105449  0.46119  0.027976
+279996  0.42655  0.137780
+144047  0.72809  0.143190
+253169  0.74423  0.117720
+273608  0.68647  0.076061
+9908    0.55480  0.127110
+172932  0.56096  0.113450
+85484   0.41210  0.110520
+predicted: 
+[0.6252494612852142, 0.07289357750672032]
+[0.6482524471161777, 0.08826497030878964]
+[0.4611969486342614, 0.027966155880862882]
+[0.42657077023339485, 0.13780242289204295]
+[0.7280893331553314, 0.1431887404082525]
+[0.7442320570641199, 0.11771938592744388]
+[0.6864674775216145, 0.07606084538021479]
+[0.5547456984280027, 0.1271113376662742]
+[0.5609636263884428, 0.11343871425165714]
+[0.4120555495913907, 0.11053638667763685]
+time: 0.20s
+MSE (tensorflow): 7.727122408596188e-08
