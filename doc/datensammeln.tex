@@ -96,7 +96,7 @@ Im Code gibt es die Möglichkeit unterschiedliche Ausgaben unterschiedlich zu ge
 Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht gebrauch gemacht, beziehungsweise den beiden Elementen wird jeweils das Gewicht 1.0 zugewiesen.
 \todo{hier noch schreiben, warum man das tun wollen könnte, oder nicht?}
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
 	\includegraphics[width=\textwidth]{geometrie}
@@ -124,7 +124,7 @@ Die ist, wie in Abbildung~\ref{fig:tablesortsystem} oberhalb des Förderbandes a
 Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726 Pixeln~\cite{alliedvisiontechnologiesgmbh2014}.
 \todo[inline]{Umrechengröße pixel zu mm, im weiteren verlauf werden pixel benutzt}
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{img/banner-Bonito_cropped}
     \caption{Zur Aufnahme verwendete Kamera [TODO: Quelle Bild]}
@@ -157,30 +157,41 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[t]{0.4\textwidth}
+		\centering
 		\includegraphics[width=\textwidth]{kugel_001_00084_debayer}
-		\caption{Kugeln}
+		\caption{Kugeln auf dem Förderband}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{Pfeffer_003_00020_debayer}
-		\caption{Pfeffer}
+		\caption{Pfeffer auf dem Förderband}
 	\end{subfigure}
 	\vskip\baselineskip
 	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{zylinder_001_00009_debayer}
-		\caption{Zylinder}
+		\caption{Zylinder auf dem Förderband}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{weizen_004_00016_debayer}
-		\caption{Weizen}
+		\caption{Weizen auf dem Förderband}
 	\end{subfigure}
-	\caption{Verschiedene Schüttgüter auf dem Förderband}
+	\vskip\baselineskip
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{kugeln_rutsche_013_00043_debayer}
+		\caption{Kugeln auf der Rutsche}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{pfeffer_rutsche_005_00056_debayer}
+		\caption{Pfeffer auf der Rutsche}
+	\end{subfigure}
+	\caption{Verschiedene Schüttgüter auf dem Förderband bzw. der Rutsche}
 	\label{fig:schuettgueterBand}
 \end{figure}
 
 
-\section{Datenpipeline}
+\section{Datenpipeline} \label{sec:pipeline}
 
 \color{blue}
 \begin{itemize}
@@ -198,7 +209,7 @@ Die Bonito Kamera nimmt Bilder in Form einer Bayer-Matrix auf, wie sie in~\ref{f
 Diese werden dann in Batches von je 3500 gesammelt und in Bitmap Dateien geschrieben.
 \todo{Option Bayer-Matrix erklären}
 
-\begin{figure}
+\begin{figure}[h]
 	% \missingfigure{bayer matrix}
 	\centering
 	\includegraphics[width=0.6\textwidth]{1024px-Bayer_pattern_on_sensor}
@@ -333,17 +344,45 @@ Dies ist der Zustand in dem die Daten dann im eigentlichen Code geladen werden.
 \section{Simulierte Daten}
 
 \color{blue}
-Die DEM Daten, wo sie herkommen, was der unterschied ist zu den selbstaufgenommenen Daten. 
+Die DEM Daten, wo sie herkommen, was der unterschied ist zu den selbst aufgenommenen Daten. 
 Vorteile und Nachteile...\cite{pieper2016numerical}, \cite{pieper2017numerical} 
 
-Original: 1000\si{\hertz}, downsampled auf 200 \si{\hertz}, 
+Original: \SI{1000}{\hertz}, downsampled auf \SI{200}{\hertz}, 
 
 Nicht ganz so viele Partikel, aber dafür sehr lange tracks - Informationen auf dem gesamten Band, nicht nur auf dem Part wo die Kamera drauf schaut.
 
 Vergleich bezüglich der Eignung für die verschiedenen Ansätze dann im Evaluations Kapitel
 \color{black}
 
-\begin{figure}
+Neben den selbst aufgenommenen Daten wurde im Rahmen dieser Arbeit auch mit einigen simulierten Datensätzen gearbeitet.
+Diese Datensätze wurden basierend auf einer hochgenauen numerischen Simulation des \textit{TableSort} Systems mittels der Diskrete-Elemente-Methode erstellt.
+[interaktion Teilchen untereinander und mit dem Sortierer]
+In Abbildung~\ref{fig:DEMSimulation} ist das Modell des Schüttgutsortierers zu sehen.
+Die Simulation wird mit einem Zeitschritt von \SI{1e-5}{\second} durchgeführt.
+Die Positionsdaten in den Datensätzen waren ursprünglich mit einer Frequenz von \SI{1000}{\hertz} aufgelistet,
+um jedoch Vergleichbarkeit mit den realen Daten zu erhalten wurde diese Frequenz auf \SI{200}{\hertz} reduziert.
+
+
+Dennoch gibt es einige Unterschiede zwischen den selbst aufgenommenen Daten und denen, die simuliert wurden.
+Am wichtigsten ist dabei, dass die Positionen der Simulation eine absolut verlässliche Groundtruth sind.
+Das sind die Positionen der selbst aufgenommenen Daten nicht.
+Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann es zu Fehlern kommen, die sich durch die gesamte Pipeline fortpflanzen.
+Die Segmentierung kann an einigen Stellen nicht präzise sein, in dem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert und dadurch den Mittelpunkt verschiebt. 
+Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Predictive Tracking} Algorithmus die beiden Tracks vertauscht.  
+
+Desweiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
+während Messungen am realen \textit{TableSort} System darauf hindeuten, dass das Förderband dort nur eine Geschwindigkeit von 
+circa \SI{1.1}{\meter\per\second} hat.
+Ein weiterer Unterschied ist der Aufnahmebereich: Im Gegensatz zu den selbst aufgenommenen Daten, die nur Informationen 
+zu den Bewegungen der Partikel im Bereich auf den die Hochgeschwindigkeitskamera gerichtet ist beinhalten, 
+befinden sich in den DEM Datensätzen die Positionen der Teilchen über die gesamte Länge des Förderbandes.
+Das bedeutet auch, dass in den DEM Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden enthalten ist.
+Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, sprich mehr Messungen enthalten.
+Bei der NextStep Prädiktion sorgt das dafür, dass es eine deutlich größere Anzahl an Feature-Label-Paaren gibt.
+
+
+
+\begin{figure}[h]
     \centering
     % \missingfigure{DEM Simulationsgrafik}
 	\includegraphics[width=\textwidth]{DEM-SimOverview}
@@ -352,7 +391,7 @@ Vergleich bezüglich der Eignung für die verschiedenen Ansätze dann im Evaluat
 \end{figure}
 
 
-\subsection{Menge}
+\section{Menge}
 
 Insgesamt wurden 265451 Bilder aufgenommen.
 177951 Bilder auf dem Förderband
@@ -372,7 +411,7 @@ und 8549 Weizenkörner in 13 Batches aufgenommen.
 
 \todo[inline]{Table mit Anzahl von Elementen in verschiedenen Batches}
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{img/scaledPieChart-trimmed}
     \caption{Verteilung Schüttgut Elemente nach Sorte}
@@ -416,7 +455,7 @@ Für den gegebenen Fall mit den Mittelpunkten von Schüttgut Partikeln als Featu
 gespiegelt wird an der Mittellinie entlang der Bewegungsrichtung.
 Tracks, die [zu nah an den Rand kommen] werden ausgenommen, da zumindest bei den selbst aufgenommenen Daten, die Kamera nicht perfekt zentriert ist.
 
-\begin{figure}
+\begin{figure}[h]
 	% \missingfigure{Visualisierung Dataaugmentation}
 	\centering
 	\includegraphics[width=\textwidth]{augmentationImage}
