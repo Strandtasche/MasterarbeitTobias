@@ -39,7 +39,7 @@ optional: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location..
 
 Welches Format die Daten annehmen unterscheidet sich leicht zwischen den beiden Anwendungen.
 Die Feature-Label Paare der unterschiedlichen Anwendungen unterscheiden sich nur in den Labeln.
-Die Eingangsdaten sind - abhängig von einem Hyperparameter - 
+Die Eingangsdaten sind -- abhängig von einem Hyperparameter --
 in beiden Fällen die Position des Partikels zu den letzten \(n\) Zeitschritten.
 Deshalb muss kein Unterschied bezüglich der gespeicherten Tracks gemacht werden.
 
@@ -52,6 +52,58 @@ und dann die Y-Koordinaten in chronologischer Reihenfolge aufgereiht sind.
 
 
 
+Die Labels, die das NextStep-Netz benutzt, sind \(2\)-Tupel.
+Es handelt sich um die nächste Zeile in der Doppelspalte des dazugehörigen Tracks:
+Das erste Element ist die X-Koordinate der Position des Partikels im nächsten Zeitschritt und das Zweite ist die Y-Koordinate.
+
+Die Labels des Separator-Netzes sind ebenfalls \(2\)-Tupel.
+Im Gegensatz zu denen des NextStep-Netzes können diese nicht direkt aus der CSV-Datei ausgelesen werden, sondern müssen berechnet werden.
+Dies ist in Abbildung~\ref{fig:Schnittpunkt} dargestellt.
+Für jedes Partikel \(i\) müssen die Positionen \(f_n\) und \(f_{n+1}\) direkt vor 
+und direkt nach der Position des Druckluftdüsenarrays bestimmt werden.
+
+Das erste Element eines Labels ist die Koordinate entlang der Achse orthogonal zur Bewegungsrichtung des Förderbandes, wo das Teilchen den Druckluftdüsenarrays passiert.
+Diese erhalten wir in dem wir den Schnittpunkt zwischen der Strecke, die \(f_n\) und \(f_{n+1}\) verbindet und 
+einer gedachten Gerade orthogonal zur Bewegungsrichtung des Förderbandes bestimmen.
+Das zweite Element ist die Zeit, die das Partikel noch brauchen wird, bis es das Druckluftdüsenarray passiert.
+Sie wird in der Einheit Frames angegeben.
+Die ganzzahlige Komponente hiervon ist durch das Zählen von Elementen im Track zu bestimmen.
+Die Nachkommastelle wird bestimmt als das Verhältnis von der Distanz zwischen \(f_n\) und \(s\), 
+und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
+Dabei wird die angenommen, dass die Geschwindigkeit des Partikels zwischen \(f_n\) und \(f_{n+1}\) konstant ist.
+Dies ist zwar nur eine Approximation, diese ist jedoch ausreichend gut und wird auch in~\cite{Pfaff2018} getroffen wurde.
+\todo[inline]{Example: Gegeben ein Track, was für Features und Labels würden da rausfallen}
+
+
+Um zu verhindern, dass verschiedene Dimensionen basierend auf ihrer Skalierung beim Gradientenabstieg unterschiedlich 
+stark gewichtet werden, werden die Labels folgendermaßen standardisiert.
+Jedes Element \(e\) vom Typ 1 oder Typ 2 wird entsprechend seiner Spalte behandelt, vor dem Training angepasst
+
+\begin{equation*}
+	e_{\text{neu}} = \frac{e - \mu_{\text{Typ}}}{\sigma_{\text{Typ}}}
+\end{equation*}
+
+und Ausgaben des Netzes müssen umkehrt zurück in die ursprünglichen Skalierung gerechnet werden.
+\todo{überlegen wie ich klar mache, dass es sich um den durchschnitt und die Abweichung der jeweiligen Spalte handelt}
+
+Solch ein Ungleichgewicht würde zum Beispiel auftreten, wenn sich die Werte des einen Elements im Bereich zwischen 0 und 1700 bewegen, während die des Anderen zwischen 1 und 25,
+so wie es bei der Separator Anwendung der Fall sein kann.   
+Theoretisch wäre es möglich beim NextStep Fall darauf zu verzichten, aber im Sinne der Einheitlichkeit wurde 
+die Standardisierung für beide Fälle implementiert.
+
+
+Im Code gibt es die Möglichkeit unterschiedliche Ausgaben unterschiedlich zu gewichten, indem weighted Mean Squared Error als Fehlerfunktion verwendet werden kann. 
+Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht gebrauch gemacht, beziehungsweise den beiden Elementen wird jeweils das Gewicht 1.0 zugewiesen.
+\todo{hier noch schreiben, warum man das tun wollen könnte, oder nicht?}
+
+\begin{figure}
+	\centering
+	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
+	\includegraphics[width=\textwidth]{geometrie}
+	\caption{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}}
+	% \todo{Quelle - test?}
+	\label{fig:Schnittpunkt}
+\end{figure}
 
 \section{Eigene Aufnahmen}
 
@@ -67,9 +119,9 @@ und dann die Y-Koordinaten in chronologischer Reihenfolge aufgereiht sind.
 \color{black}
 
 
-Zur Aufnahme der Daten wurde eine Bonito CL-400 200 FPS Kamera benutzt, die in Abbildung \ref{pictureCam} zu sehen ist.
-Die ist, wie in Abbildung \ref{fig:tablesortsystem} oberhalb des Förderbandes angebracht.
-Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726 Pixeln \cite{alliedvisiontechnologiesgmbh2014}.
+Zur Aufnahme der Daten wurde eine Bonito CL-400 200 FPS Kamera benutzt, die in Abbildung~\ref{pictureCam} zu sehen ist.
+Die ist, wie in Abbildung~\ref{fig:tablesortsystem} oberhalb des Förderbandes angebracht.
+Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726 Pixeln~\cite{alliedvisiontechnologiesgmbh2014}.
 \todo[inline]{Umrechengröße pixel zu mm, im weiteren verlauf werden pixel benutzt}
 
 \begin{figure}
@@ -81,7 +133,7 @@ Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 232
 
 \subsection{Schüttgüter-Typen}
 
-Aufgenommen wurden vier verschiedene Schüttgüter, die in Abbildung \ref{fig:schuettgueterSchuessel} zu sehen sind.
+Aufgenommen wurden vier verschiedene Schüttgüter, die in Abbildung~\ref{fig:schuettgueterSchuessel} zu sehen sind, auf dem Förderband.
 
 \begin{itemize}
     \item Kugeln
@@ -93,11 +145,14 @@ Aufgenommen wurden vier verschiedene Schüttgüter, die in Abbildung \ref{fig:sc
 Die Kugeln und der Pfeffer sowie die Zylinder und die Weizenkörner bilden jeweils 
 ein Paar aus einem geometrischen Körper und einem echten Objekt, das grob dessen Form ähnelt.
 
-Die Kugeln bestehen aus Holz und haben einen Durchmesser von 5mm.
-Die Zylinder bestehen ebenfalls aus Holz. Sie haben eine Länge von 1cm und einen Durchmesser von 3mm.
-Die Schüttgüter sind in Abbildung \ref{fig:schuettgueterSchuessel} in Schüsseln 
-und in Abbildung \ref{fig:schuettgueterBand} auf dem Förderband zu sehen.
-\todo{TODO: Details}
+Die Kugeln bestehen aus Holz und haben einen Durchmesser von 5\si{\milli\metre}.
+Die Zylinder bestehen ebenfalls aus Holz. Sie haben eine Länge von 1\si{\centi\metre} und einen Durchmesser von 3\si{\milli\metre}.
+Die Schüttgüter sind in Abbildung~\ref{fig:schuettgueterSchuessel} in Schüsseln 
+und in Abbildung~\ref{fig:schuettgueterBand} auf dem Förderband zu sehen.
+\todo{Mehr Details?}
+
+Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration des \textit{TableSort} Systems aufgenommen.
+\todo[inline]{Bilder einfügen}
 
 \begin{figure}[h]
 	\centering
@@ -139,7 +194,7 @@ und in Abbildung \ref{fig:schuettgueterBand} auf dem Förderband zu sehen.
 \color{black}
 
 
-Die Bonito Kamera nimmt Bilder in Form einer Bayer-Matrix auf, wie sie in \ref{fig:bayerPattern} zu sehen ist.
+Die Bonito Kamera nimmt Bilder in Form einer Bayer-Matrix auf, wie sie in~\ref{fig:bayerPattern} zu sehen ist.
 Diese werden dann in Batches von je 3500 gesammelt und in Bitmap Dateien geschrieben.
 \todo{Option Bayer-Matrix erklären}
 
@@ -194,7 +249,7 @@ Mit diesen Masken werden dann alle möglichen Konturen von Schüttgutpartikeln e
 bevor diese noch einmal bezüglich ihrer Sinnhaftigkeit gefiltert werden. 
 Im letzten Schritt wird nun der gewichtete Mittelpunkt der einzelnen Konturen bestimmt und abgespeichert.
 Das Ergebnis von diesem Segmentierungsscripts ist eine CSV-Datei für jedes Batch.
-Ein Beispiel für einen Ausschnitt aus solch einer Datei ist in Tabelle \ref{table:Segmentierungsscript} zu sehen.
+Ein Beispiel für einen Ausschnitt aus solch einer Datei ist in Tabelle~\ref{table:Segmentierungsscript} zu sehen.
 Eine Zeile repräsentiert jeweils ein Bild aus dem Batch, also einen Zeitschritt.
 Zu Beginn jeder Zeile steht zunächst die Frame Nummer, gefolgt von der Anzahl der detektierten Partikel
 und den X- und Y-Koordinaten der Mittelpunkte der detektierten Partikel.
@@ -242,12 +297,12 @@ und den X- und Y-Koordinaten der Mittelpunkte der detektierten Partikel.
     \end{table}
     
 
-Die Mittelpunkte in dieser CSV-Datei werden nun mittels des in MATLAB implementierten \textit{Predicve Tracking} Algorithmus einzelnen Tracks zugeordnet,
+Die Mittelpunkte in dieser CSV-Datei werden nun mittels des in MATLAB implementierten \textit{Predictive Tracking} Algorithmus einzelnen Tracks zugeordnet,
 \todo{Mehr details: Tracksort trackzuweisung Assignment Problem. Referenz Tobi MA?}
 die dann wiederum in einer neuen CSV-Datei gespeichert werden.
 Die einzelnen Tracks werden als Spaltenpaare dargestellt mit jeweils einer Spalte für die X- und Y-Koordinaten zu einem jeweiligen Zeitpunkt.
 Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{table:tracksortCSV} zu sehen.
-Dies ist der Zustand in dem die Daten dann im Code geladen werden. 
+Dies ist der Zustand in dem die Daten dann im eigentlichen Code geladen werden. 
 
 
 \begin{table}[]
@@ -277,6 +332,7 @@ Dies ist der Zustand in dem die Daten dann im Code geladen werden.
 
 \section{Simulierte Daten}
 
+\color{blue}
 Die DEM Daten, wo sie herkommen, was der unterschied ist zu den selbstaufgenommenen Daten. 
 Vorteile und Nachteile...\cite{pieper2016numerical}, \cite{pieper2017numerical} 
 
@@ -285,12 +341,13 @@ Original: 1000\si{\hertz}, downsampled auf 200 \si{\hertz},
 Nicht ganz so viele Partikel, aber dafür sehr lange tracks - Informationen auf dem gesamten Band, nicht nur auf dem Part wo die Kamera drauf schaut.
 
 Vergleich bezüglich der Eignung für die verschiedenen Ansätze dann im Evaluations Kapitel
+\color{black}
 
 \begin{figure}
     \centering
     % \missingfigure{DEM Simulationsgrafik}
 	\includegraphics[width=\textwidth]{DEM-SimOverview}
-	\caption{Visualisierung der DEM Simulation [TODO: QUELLE!]}
+	\caption{Visualisierung der DEM Simulation~\cite{Pfaff2018}}
 	\label{fig:DEMSimulation}
 \end{figure}
 
@@ -385,7 +442,7 @@ Mit filtern besseres ergebnis, aber auch deutlich weniger Trainingsbeispiele (Ov
 Ohne Filtern: Flexibler und mehr Trainingsbeispiele - man könnte im Nachhinen den PredictionCutOff verlegen 
 und einfach das Netz weiter verwenden ohne neu zu trainieren.
 Maybe ein Mittelding, das man nicht alle tupel nimmt aber auch nicht nur die letzten? Ausblick, zukunft
-\todo[inline]{Example: Gegeben ein Track, was für Features würden da rausfallen}
+
 
 
 Labels:
@@ -399,14 +456,7 @@ Label für position ist die Position entlang der Achse orthogonal zur Bewegungsr
 der Strecke zwischen dem Element vor und dem element hinter. siehe \ref{fig:Schnittpunkt}
 
 
-\begin{figure}
-	\centering
-	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
-	\includegraphics[width=\textwidth]{geometrie}
-	\caption{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}}
-	% \todo{Quelle - test?}
-	\label{fig:Schnittpunkt}
-\end{figure}
+
 
 \todo{table of size of different data sets - number of pictures...}
 

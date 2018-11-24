@@ -29,12 +29,12 @@ Sei \(\Delta t =  t - t^{\text{Last}}\).
 Zustandsvector für CV:
 
  \begin{equation*} \label{eq:definitionCV}
-    \vx_t = 
+    \vx(t) = 
     \begin{bmatrix}
-        x_t \\
-        \dot{x}_t \\
-        y_t \\
-        \dot{y}_t
+        \mathsf{x}(t) \\
+        \dot{\mathsf{x}}(t) \\
+        \mathsf{y}(t) \\
+        \dot{\mathsf{y}}(t)
        \end{bmatrix} 
 \end{equation*}
 
@@ -66,12 +66,12 @@ Zustandsvector für CA:
 \begin{equation*} \label{eq:definitionCA}
     \vx_t = 
     \begin{bmatrix}
-        x_t \\
-        \dot{x}_t \\
-        \ddot{x}_t \\
-        y_t \\
-        \dot{y}_t \\
-        \ddot{y}_t
+        \mathsf{x}(t) \\
+        \dot{\mathsf{x}}(t) \\
+        \ddot{\mathsf{x}}(t) \\
+        \mathsf{y}(t) \\
+        \dot{\mathsf{y}}(t) \\
+        \ddot{\mathsf{y}}(t)
        \end{bmatrix} 
 \end{equation*}
 
@@ -94,12 +94,12 @@ Zustandsvector für CA:
 Definition Positionsgleichungen:
 
 \begin{equation*}
-    x(t) = x^{\text{Last}} + (t - t^{\text{Last}})\dot{x}^{\text{Last}} 
-    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{x}^{\text{Last}}
+    \mathsf{x}(t) = \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{x}}^{\text{Last}} 
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{\mathsf{x}}^{\text{Last}}
 \end{equation*}
 \begin{equation*}
-    y(t) = y^{\text{Last}} + (t - t^{\text{Last}})\dot{y}^{\text{Last}}
-    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{y}^{\text{Last}}
+    \mathsf{y}(t) = \mathsf{y}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{y}}^{\text{Last}}
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{\mathsf{y}}^{\text{Last}}
 \end{equation*}
 
 Vergleich über Boxplots: Balken: 25\%-Quantil bis 75\%-Quantil.
@@ -126,8 +126,8 @@ Benutze ihn als Beschleunigung wie im CA Modell
 \todo[inline]{überhaupt erwähnen? Er ist way better als er irgendein right hat}
 
 \begin{equation*}
-    x(t) = x^{\text{Last}} + (t - t^{\text{Last}}) \: \dot{x}^{\text{Last}} 
-    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{x}^{\text{Median}}
+    \mathsf{x}(t) =  \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}}) \: \dot{ \mathsf{x}}^{\text{Last}} 
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{ \mathsf{x}}^{\text{Median}}
 \end{equation*}
 
 \subsection{Identical Acceleration Modell}
@@ -137,13 +137,14 @@ Annahme: Abweichungen bezüglich dem Zeit Label wird von einer zusätzlichen Bes
 Für jedes Partikel \( i\) aus dem Trainingsset lösen wir die Gleichung 
 
 \begin{equation*}
-    x\hitext{PredTo} = x\hitext{Last, \(i\)} + (t\hitext{GT, \(i\)} - t\hitext{Last, \(i\)}) \: \dot{x}\hitext{Last, \(i\)}
-    + \frac{1}{2}(t\hitext{GT, \(i\)} - t\hitext{Last, \(i\)})^2 \: \ddot{x}\hitext{Optimal, \(i\)}
+    \mathsf{x}\hitext{PredTo} =  \mathsf{x}\hitext{Last, \(i\)} + (t\hitext{GT, \(i\)} - t\hitext{Last, \(i\)}) 
+    \: \dot{ \mathsf{x}}\hitext{Last, \(i\)}
+    + \frac{1}{2}(t\hitext{GT, \(i\)} - t\hitext{Last, \(i\)})^2 \: \ddot{ \mathsf{x}}\hitext{Optimal, \(i\)}
 \end{equation*}
 
-um herauszufinden mit welcher zusätzlichen Beschleunigung \(\ddot{x}\hitext{Optimal, \(i\)}\) es optimal die Zeit,
+um herauszufinden mit welcher zusätzlichen Beschleunigung \(\ddot{ \mathsf{x}}\hitext{Optimal, \(i\)}\) es optimal die Zeit,
 die es noch braucht, vorhersagen würde.
-Nun sei \(\ddot{x}\hitext{Avg}\) der Durchschnitt von allen \(\ddot{x}\hitext{Optimal, \(i\)}\).
+Nun sei \(\ddot{ \mathsf{x}}\hitext{Avg}\) der Durchschnitt von allen \(\ddot{ \mathsf{x}}\hitext{Optimal, \(i\)}\).
 
 \todo{fertig machen}
 
@@ -153,7 +154,7 @@ Netz Variante 1: den nächsten Schritt vorhersagen
 \(\Delta t \) ist immer 1.
 
 
-Für Nextstep gesucht: \(x(t^{\text{Last}} + 1)\)
+Für Nextstep gesucht: \( \mathsf{x}(t^{\text{Last}} + 1)\)
 
 \todo[inline]{Latex Tabelle des pandas Dataframe mit den Spalten GroundtruthX, GroundtruthY, 
 NNPrädiktionX, NNPrädiktion, CV\_X, CV\_Y, CA\_X, CA\_Y}
@@ -162,9 +163,9 @@ NNPrädiktionX, NNPrädiktion, CV\_X, CV\_Y, CA\_X, CA\_Y}
 Evaluation nach Euklidischer Distanz zu Groundtruth:
 
 \begin{align*}
-    x\hitext{Err} &= x\hitext{Pred} - x\hitext{GT} \\
-    y\hitext{Err} &= y\hitext{Pred} - y\hitext{GT} \\
-    e\hitext{Total} &= \sqrt{x\hitext{Err}^2 + y\hitext{Err}^2}
+    \mathsf{x}\hitext{Err} &=  \mathsf{x}\hitext{Pred} -  \mathsf{x}\hitext{GT} \\
+    \mathsf{y}\hitext{Err} &=  \mathsf{y}\hitext{Pred} -  \mathsf{y}\hitext{GT} \\
+    \mathsf{e}\hitext{Total} &= \sqrt{ \mathsf{x}\hitext{Err}^2 +  \mathsf{y}\hitext{Err}^2}
 \end{align*}
 
 
