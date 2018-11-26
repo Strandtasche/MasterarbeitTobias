@@ -483,3 +483,105 @@ predicted:
 [0.1536606957249656, 21.47407607037181]
 time: 0.17s
 MSE (tensorflow): 3.5373104765312746e-05
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/SepSimFinetuning/filteredParticles-RegL2.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks-60kDecaySteps-05Layers']
+INFO:root:time: 2018-11-26_09.59.32
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks-60kDecaySteps-05Layers
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS5-Augm-Filtered.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((6245, 10), (6245, 2))
+INFO:root:Test: ((361, 10), (361, 2))
+INFO:root:Means: 
+LabelPosBalken     0.090363
+LabelTime         25.282105
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken     0.037641
+LabelTime         12.487556
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0005856913630850613
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/FilteredTracks-RegL2/FilteredTracks-60kDecaySteps-05Layers_highestLoss_2018-11-26_09.59.32.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/FilteredTracks-RegL2/FilteredTracks-60kDecaySteps-05Layers_2018-11-26_09.59.32.pdf
+INFO:root:getting optimal accel for 6245 examples
+INFO:root:Evaluation on 361 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  361.000000             361.000000             3.610000e+02              
+mean  -0.000039               0.000093               8.520926e-05              
+std    0.001253               0.001345               1.293552e-03              
+min   -0.004672              -0.005692              -5.033531e-03              
+25%   -0.000124              -0.000119              -7.602760e-05              
+50%   -0.000098               0.000002               1.290634e-15              
+75%   -0.000068               0.000162               1.121790e-04              
+max    0.021858               0.021619               2.175530e-02              
+
+       CApixelErrorPosBalken  
+count  3.610000e+02           
+mean  -5.472446e-04           
+std    1.402663e-02           
+min   -2.637337e-01           
+25%   -1.694656e-04           
+50%    2.775558e-17           
+75%    2.234811e-04           
+max    2.178458e-02           
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  361.000000   361.000000   361.000000     361.000000   361.000000    
+mean   0.026225     1.514191    -0.002087       0.059456     0.016421      
+std    0.096896     0.118558     0.118558       0.541623     0.074082      
+min   -0.407747     1.051649    -0.464629      -1.078468    -0.707544      
+25%    0.002913     1.475476    -0.040802      -0.012580     0.007194      
+50%    0.019116     1.513465    -0.002813       0.019476     0.018795      
+75%    0.032309     1.543954     0.027675       0.350285     0.028089      
+max    1.075116     2.751323     1.235045       8.990294     0.898859      
+
+       IAerrorTime  
+count  361.000000   
+mean  -0.002316     
+std    0.074058     
+min   -0.729330     
+25%   -0.010841     
+50%    0.000235     
+75%    0.009375     
+max    0.876149     
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/FilteredTracks-RegL2
+INFO:root:Saving dataframe:
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+32138   0.52600  0.53225  0.53854    ...     0.115810  0.115800  0.115800
+116936  0.52492  0.53114  0.53740    ...     0.107850  0.107830  0.107800
+87313   0.52635  0.53262  0.53892    ...     0.090097  0.090307  0.090516
+96090   0.52704  0.53332  0.53964    ...     0.077523  0.077512  0.077501
+54663   0.53125  0.53732  0.54342    ...     0.072196  0.072124  0.072051
+66784   0.53062  0.53685  0.54312    ...     0.017894  0.017661  0.017429
+6649    0.52925  0.53559  0.54197    ...     0.104860  0.104990  0.105110
+141622  0.52587  0.53212  0.53841    ...     0.101830  0.101830  0.101830
+23769   0.52641  0.53270  0.53902    ...     0.052345  0.052345  0.052345
+43747   0.53111  0.53734  0.54360    ...     0.095276  0.095332  0.095388
+
+[10 rows x 10 columns]
+        LabelPosBalken  LabelTime
+32138         0.115790  21.850559
+116936        0.107339  22.099301
+87313         0.094148  21.681502
+96090         0.077296  21.591922
+54663         0.070684  21.797980
+66784         0.012931  21.278090
+6649          0.106585  21.417391
+141622        0.101820  21.854951
+23769         0.052346  21.659249
+43747         0.096430  21.212377
+predicted: 
+[0.11566643278613585, 21.869065767764834]
+[0.10727644190204307, 22.098127630344077]
+[0.09451614564201342, 21.777579986592343]
+[0.0771819558156519, 21.61422302038973]
+[0.07068889209587488, 21.75436289940249]
+[0.012896470751542682, 21.325946699850004]
+[0.1074865499760784, 21.13807381445797]
+[0.10174041902359697, 21.871258523679277]
+[0.052213872953247, 21.703374997702834]
+[0.09634907204902597, 21.23837118452834]
+time: 0.17s
+MSE (tensorflow): 6.622458749916404e-05
