@@ -1,6 +1,9 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
+# from matplotlib import rcParams
+# rcParams['font.family'] = 'sans-serif'
+# rcParams['font.sans-serif'] = ['Tahoma']
 from matplotlib import pyplot
 from math import cos, sin, atan
 
@@ -63,13 +66,14 @@ class Layer():
         pyplot.gca().add_line(line)
 
     def draw(self, layerType=0):
+        # csfont = {'fontname': 'Times New Roman'}
         if layerType == 0:
-            color = 'tab:green'
-        elif layerType == -1:
             color = 'tab:red'
+        elif layerType == -1:
+            color = 'tab:green'
         else:
             color = 'tab:blue'
-            
+
         for neuron in self.neurons:
             neuron.draw( self.neuron_radius, color)
             if self.previous_layer:
@@ -78,11 +82,11 @@ class Layer():
         # write Text
         x_text = self.number_of_neurons_in_widest_layer * self.horizontal_distance_between_neurons
         if layerType == 0:
-            pyplot.text(x_text, self.y, 'Input Layer', fontsize = 12)
+            pyplot.text(x_text, self.y, 'Output Layer', fontsize=12) #, **csfont)
         elif layerType == -1:
-            pyplot.text(x_text, self.y, 'Output Layer', fontsize = 12)
+            pyplot.text(x_text, self.y, 'Input Layer', fontsize=12)
         else:
-            pyplot.text(x_text, self.y, 'Hidden Layer '+str(layerType), fontsize = 12)
+            pyplot.text(x_text, self.y, 'Hidden Layer '+str(layerType), fontsize=12)
 
 class NeuralNetwork():
     def __init__(self, number_of_neurons_in_widest_layer):
@@ -103,7 +107,8 @@ class NeuralNetwork():
             layer.draw( i )
         pyplot.axis('scaled')
         pyplot.axis('off')
-        pyplot.title( 'Neural Network architecture', fontsize=15 )
+        # csfont = {'fontname': 'Comic Sans MS'}
+        pyplot.title( 'Neural Network architecture', fontsize=15)
         #pyplot.savefig('neuralNetImage.png', dpi=900)
         pyplot.show()
 
