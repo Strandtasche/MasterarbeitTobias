@@ -10,14 +10,14 @@ function[] = create_track_history(source_path, dest_path)
     disp('starting script')
 
     %Set magic Parameters, so the tracking works well
-    allParam=getDefaultParam([85;0]);
+    allParam=getDefaultParam([120;0]);
     allParam.score.looseStep=35;
     allParam.association.useOrientation=false;
     allParam.initial.PositionCov=50*eye(2);
     allParam.meas.PositionCov=50*eye(2);
     allParam.association.tryToUseMex=false;
     %allParam.association.distanceMetricPos='Euclidean';
-    allParam.general.rotateBy=pi;
+    allParam.general.rotateBy=0;
     disp('parameters set!')
 
     %files = dir('*_data.csv');

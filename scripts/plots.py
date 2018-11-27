@@ -10,7 +10,7 @@ import sys
 sys.path.insert(0, '/home/hornberger/MasterarbeitTobias/implementation')
 import loadDataExample as ld
 import matplotlib.patches as mpatches
-
+import matplotlib.ticker as tick
 
 def sigmoid(x):
 	a = []
@@ -189,6 +189,7 @@ def plotImagesPictures():
 	p4 = ax1.bar(ind, numImgWeiz, width, bottom=sumKPZ, edgecolor='k')
 
 	plt.ylabel('Anzahl Bilder')
+	ax1.get_yaxis().set_major_formatter(tick.FuncFormatter(lambda  x, p:format(int(x), ',')))
 	plt.xticks(ind, ('Band', 'Rutsche'))
 
 	pA = mpatches.Patch(color='C0', label='Kugeln')
@@ -206,7 +207,7 @@ def plotImagesTracks():
 
 	N = 3
 	numImgKugeln = (3713, 7712, 5132)
-	numImgPfeffer = (0, 7170, 5164)
+	numImgPfeffer = (0, 7170, 3609)
 	sumKP = [sum(x) for x in zip(numImgKugeln, numImgPfeffer)]
 	numImgZyl = (4427, 19200, 0)
 	sumKPZ = [sum(x) for x in zip(sumKP, numImgZyl)]
@@ -232,6 +233,7 @@ def plotImagesTracks():
 
 
 	plt.ylabel('Anzahl Tracks')
+	ax1.get_yaxis().set_major_formatter(tick.FuncFormatter(lambda  x, p:format(int(x), ',')))
 	plt.xticks(ind, ('DEM', 'Band', 'Rutsche'))
 
 	pA = mpatches.Patch(color='C0', label='Kugeln')
