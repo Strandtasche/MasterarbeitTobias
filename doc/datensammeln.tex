@@ -1,10 +1,12 @@
 \chapter{Datenverarbeitung}
 
-Wie bei jeder Anwendung von maschinellen Lernverfahren sind die zugrundeliegenden Daten von äußerster Wichtigkeit.
+% Wie bei jeder Anwendung von maschinellen Lernverfahren sind die zugrundeliegenden Daten von äußerster Wichtigkeit.
+Bei maschinellen Lernverfahren ist die Qualität und der Umfang der zugrundeliegenden Daten sehr wichtig,
+da diese die Güte des Ergebnisses stark beeinflussen kann.
 Im Rahmen dieser Masterarbeit wurden zweierlei Sorten von Daten benutzt:
 Einmal wurden am \textit{TableSort} Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht, 
 die dann über mehrere Arbeitsschritte in das richtige Datenformat übersetzt wurden.
-Zudem existieren simulierte Datensatze, die mit der \textit{Diskrete-Elemente-Methode} (DEM) simuliert wurden. 
+Zudem existieren Datensatze, die mit der \textit{Diskrete-Elemente-Methode} (DEM) simuliert wurden. 
 
 
 
@@ -37,7 +39,8 @@ Aber für die evaluierung ist keine Gewichtung vorgenommen worden.
 optional: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location...)
 \color{black}
 
-Welches Format die Daten annehmen unterscheidet sich leicht zwischen den beiden Anwendungen.
+Das Format, das die Daten annehmen, ist bei den beiden Anwendungen leicht unterschiedlich.
+%  unterscheidet sich leicht zwischen den beiden Anwendungen.
 Die Feature-Label Paare der unterschiedlichen Anwendungen unterscheiden sich nur in den Labeln.
 Die Eingangsdaten sind -- abhängig von einem Hyperparameter --
 in beiden Fällen die Position des Partikels zu den letzten \(n\) Zeitschritten.
@@ -75,7 +78,8 @@ Dies ist zwar nur eine Approximation, diese ist jedoch ausreichend gut und wird 
 \todo[inline]{Example: Gegeben ein Track, was für Features und Labels würden da rausfallen}
 
 
-Um zu verhindern, dass verschiedene Dimensionen basierend auf ihrer Skalierung beim Gradientenabstieg unterschiedlich 
+Um zu verhindern, dass verschiedene Dimensionen basierend auf ihrer Skalierung beim Training unterschiedlich 
+% Gradientenabstieg
 stark gewichtet werden, werden die Labels folgendermaßen standardisiert.
 Jedes Element \(e\) vom Typ 1 oder Typ 2 wird entsprechend seiner Spalte behandelt, vor dem Training angepasst
 
@@ -145,14 +149,13 @@ Aufgenommen wurden vier verschiedene Schüttgüter, die in Abbildung~\ref{fig:sc
 Die Kugeln und der Pfeffer sowie die Zylinder und die Weizenkörner bilden jeweils 
 ein Paar aus einem geometrischen Körper und einem echten Objekt, das grob dessen Form ähnelt.
 
-Die Kugeln bestehen aus Holz und haben einen Durchmesser von 5\si{\milli\metre}.
-Die Zylinder bestehen ebenfalls aus Holz. Sie haben eine Länge von 1\si{\centi\metre} und einen Durchmesser von 3\si{\milli\metre}.
+Die Kugeln bestehen aus Holz und haben einen Durchmesser von \SI{5}{\milli\metre}.
+Die Zylinder bestehen ebenfalls aus Holz. Sie haben eine Länge von \SI{1}{\centi\metre} und einen Durchmesser von \SI{3}{\milli\metre}.
 Die Schüttgüter sind in Abbildung~\ref{fig:schuettgueterSchuessel} in Schüsseln 
 und in Abbildung~\ref{fig:schuettgueterBand} auf dem Förderband zu sehen.
 \todo{Mehr Details?}
 
 Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration des \textit{TableSort} Systems aufgenommen.
-\todo[inline]{Bilder einfügen}
 
 \begin{figure}[h]
 	\centering
@@ -212,7 +215,7 @@ Diese werden dann in Batches von je 3500 gesammelt und in Bitmap Dateien geschri
 \begin{figure}[h]
 	% \missingfigure{bayer matrix}
 	\centering
-	\includegraphics[width=0.6\textwidth]{1024px-Bayer_pattern_on_sensor}
+	\includegraphics[width=0.6\textwidth]{BayerPattern.pdf}
 	\caption{Bayer Matrix [TODO: Quelle]}
 	\label{fig:bayerPattern}
 \end{figure}
@@ -220,7 +223,7 @@ Diese werden dann in Batches von je 3500 gesammelt und in Bitmap Dateien geschri
 Auf Grund der Menge an Bildern wurden die Bilder zunächst in das PNG-Dateiformat übertragen.
 Die Features, die für das Trainieren der Netze benutzt werden, sind die Koordinaten der Mittelpunkte der Objekte.
 Um diese zu bestimmten, müssen zunächst die Dateien mittels \textit{demosaicing} rekonstruiert werden um gewöhnliche RGB-Bilder zu erhalten.
-Die Open Source Computer Vision Library OpenCV hat eine Methode implementiert, die ein Bild von einem Farbraum in einen anderen übertragen kann.
+Die Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/} hat eine Methode implementiert, die ein Bild von einem Farbraum in einen anderen übertragen kann.
 Diese wurde eingesetzt um die einzelnen Bilder in RGB-Farbbilder zu konvertieren.
 \todo[inline]{Skript ursprünglich von Georg, ein paar changes implementiert (bezüglich input und output.)}
 
@@ -329,7 +332,7 @@ Dies ist der Zustand in dem die Daten dann im eigentlichen Code geladen werden.
     1029.6167     & 266.4979      & 1893.5937     & 259.8098      & 1656.0221     & 237.1573      \\
     1026.3908     & 358.4831      & 1890.3912     & 348.1731      & 1656.8966     & 329.8636      \\
     1023.0203     & 449.6429      & 1887.1035     & 436.4588      & 1657.6308     & 423.1592      \\
-    1019.5391     & 542.2334      & 1883.7761     & 525.1073      & NaN               & NaN           \\
+    1019.5391     & 542.2334      & 1883.7761     & 525.1073      & NaN           & NaN           \\
     NaN           & NaN           & 1880.2716     & 613.0896      & NaN           & NaN           \\
     NaN           & NaN           & 1876.6054     & 701.9719      & NaN           & NaN           \\
     NaN           & NaN           & NaN           & NaN           & NaN           & NaN           \\ \bottomrule
@@ -355,8 +358,8 @@ Vergleich bezüglich der Eignung für die verschiedenen Ansätze dann im Evaluat
 \color{black}
 
 Neben den selbst aufgenommenen Daten wurde im Rahmen dieser Arbeit auch mit einigen simulierten Datensätzen gearbeitet.
-Diese Datensätze wurden basierend auf einer hochgenauen numerischen Simulation des \textit{TableSort} Systems mittels der Diskrete-Elemente-Methode erstellt.
-[interaktion Teilchen untereinander und mit dem Sortierer]
+Diese Datensätze wurden basierend auf einer hochgenauen numerischen Simulation des \textit{TableSort} Systems mittels der Diskrete-Elemente-Methode erstellt~\cite{pieper2016numerical}\,\cite{pieper2017numerical}.
+\todo{interaktion Teilchen untereinander und mit dem Sortierer?}
 In Abbildung~\ref{fig:DEMSimulation} ist das Modell des Schüttgutsortierers zu sehen.
 Die Simulation wird mit einem Zeitschritt von \SI{1e-5}{\second} durchgeführt.
 Die Positionsdaten in den Datensätzen waren ursprünglich mit einer Frequenz von \SI{1000}{\hertz} aufgelistet,
@@ -364,7 +367,7 @@ um jedoch Vergleichbarkeit mit den realen Daten zu erhalten wurde diese Frequenz
 
 
 Dennoch gibt es einige Unterschiede zwischen den selbst aufgenommenen Daten und denen, die simuliert wurden.
-Am wichtigsten ist dabei, dass die Positionen der Simulation eine absolut verlässliche Groundtruth sind.
+Am wichtigsten ist dabei, dass die Positionen der Simulation eine absolut verlässliche Ground Truth sind.
 Das sind die Positionen der selbst aufgenommenen Daten nicht.
 Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann es zu Fehlern kommen, die sich durch die gesamte Pipeline fortpflanzen.
 Die Segmentierung kann an einigen Stellen nicht präzise sein, in dem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert und dadurch den Mittelpunkt verschiebt. 
@@ -380,7 +383,8 @@ Das bedeutet auch, dass in den DEM Datensätzen die Phase der Partikel bevor und
 Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, sprich mehr Messungen enthalten.
 Bei der NextStep Prädiktion sorgt das dafür, dass es eine deutlich größere Anzahl an Feature-Label-Paaren gibt.
 
-
+\todo[inline]{Einheit real: Pixel, Einheit simuliert: m}
+\todo[inline]{simulierte haben viel mehr Partikel gleichzeitig auf dem Band - mehr kollisionen...?}
 
 \begin{figure}[h]
     \centering
@@ -391,32 +395,7 @@ Bei der NextStep Prädiktion sorgt das dafür, dass es eine deutlich größere A
 \end{figure}
 
 
-\section{Menge}
 
-Insgesamt wurden 265451 Bilder aufgenommen.
-177951 Bilder auf dem Förderband
-87500 Bilder auf der Rutsche
-
-
-Anzahl separate Tracks.
-Anmerkung: Simulationsdaten sind die echte Wahrheit, während die werte von den Selbstgesammelten Daten hier 
-auf die Korrektheit des Outputs vom Tracksort Algorithmus beruhen. 
-
-Es wurden 
-7538 Kugeln in 15 Batches,
-7056 Pfefferkörner in 13 Batches,
-17049 Zylinder in 11 Batches
-und 8549 Weizenkörner in 13 Batches aufgenommen.
-\todo[inline]{das in eine Schöne Tabelle stecken und erzählen}
-
-\todo[inline]{Table mit Anzahl von Elementen in verschiedenen Batches}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{img/scaledPieChart-trimmed}
-    \caption{Verteilung Schüttgut Elemente nach Sorte}
-    \label{piechartSchuettgut}
-\end{figure}
 
 
 % Menge in gecleanten Daten:
@@ -429,10 +408,11 @@ und 8549 Weizenkörner in 13 Batches aufgenommen.
 
 \section{Daten Postprocessing}
 
+\color{blue}
+
 Cleanup : FilterTracksByAngle, FilterByVectorLengthChange \todo{Überlegen ob ich da so viel aufschreiben soll - 
 minimaler unterschied nach Resegment (Bessere Tracksort zuordnung?)}
 
-\color{blue}
 \begin{itemize}
 	\item Data Augmentation: Definition und Beschreibung
 	\item bei Bildern normalerweise Rotieren, Translation, Ausschnitte...
@@ -443,17 +423,20 @@ minimaler unterschied nach Resegment (Bessere Tracksort zuordnung?)}
 \end{itemize}
 \color{black}
 
-Als Data Augmentation bezeichnet man Verfahren, die die eigenen Daten erweitern ohne zusätzliche Daten aufzunehmen.
+Als Data Augmentation bezeichnet man Verfahren, die die eigenen Daten erweitert ohne zusätzliche Daten aufzunehmen.
 Man generiert aus den bestehenden Daten zusätzliche, synthetische Daten, die dann im Trainingsset eingesetzt werden können.
 Ausreichend viele Trainingsbeispiele zu haben ist notwendig um mit neuronalen Netzen eine gute Performance zu erzielen.
 Die synthetischen Beispiele müssen jedoch plausibel sein, da sie sonst die Qualität der Ausgabe des Netzes negativ beeinträchtigen können.
 
-Für Netze, die in der Bilderkennnung eingesetzt werden gibt es einige weit verbreitete Techniken,
+Für Netze, die in der Computervision eingesetzt werden gibt es einige weit verbreitete Techniken,
 zum Beispiel Rotation, Translation, Spiegeln und das Ausschneiden von Teilbildern.
 
-Für den gegebenen Fall mit den Mittelpunkten von Schüttgut Partikeln als Features resultiert von diesen Techniken nur das Spiegeln in sinnvollen Daten.
-gespiegelt wird an der Mittellinie entlang der Bewegungsrichtung.
-Tracks, die [zu nah an den Rand kommen] werden ausgenommen, da zumindest bei den selbst aufgenommenen Daten, die Kamera nicht perfekt zentriert ist.
+Für den gegebenen Fall mit den Mittelpunkten von Schüttgut Partikeln als Features resultiert von diesen Techniken nur das Spiegeln in zweifelsfrei sinnvollen Daten.
+Eine beispielhafte Darstellung der vorgenommenen Data Augmentation ist in Abbildung~\ref{fig:dataAugm} zu finden.
+Gespiegelt wird an der Mittellinie des Bands, beziehungsweise der Rutsche entlang der Bewegungsrichtung.
+Tracks, die eine gewisse Distanz zur Mittelinie überschreiten werden ausgenommen, da zumindest bei den selbst aufgenommenen Daten, 
+die Kamera nicht perfekt zentriert ist und es so nicht ausgeschlossen werden kann, 
+dass unrealistische Feature-Label-Paare den Trainingsset hinzugefügt werden.
 
 \begin{figure}[h]
 	% \missingfigure{Visualisierung Dataaugmentation}
@@ -466,39 +449,97 @@ Tracks, die [zu nah an den Rand kommen] werden ausgenommen, da zumindest bei den
 
 
 
-\section{Trainingsbeispiele}
+\section{Datenumfang}
 
-Train - Test - Validation - Split:
-Train - test, 90\% zu 10\%.
-Validation nur für die sets auf denen das Hyperparameter Tuning gemacht wurde
-[ungefähres ]
+Im Rahmen dieser Arbeit wurden insgesamt 247\,951 Bilder aufgenommen.
+177\,951 Bilder auf dem Förderband und 70\,000 Bilder auf der Rutsche.
+Die Verteilung dieser Bilder ist in Abbildung~\ref{fig:barPics} dargestellt.
+
+\begin{figure}[h]
+	% \missingfigure{Visualisierung Dataaugmentation}
+	\centering
+	\includegraphics[width=\textwidth]{ImagesAmountPictures}
+	\caption{Balkendiagramm Verteilung Bilder}
+	% \todo{Quelle Bild!}
+	\label{fig:barPics}
+\end{figure}
+
+Laut den Ergebnissen des \textit{Predictive Tracking} Algorithmus wurden auf dem Förderband 
+7712 Kugeln in 15 Batches,
+7170 Pfefferkörner in 13 Batches,
+19\,200 Zylinder in 11 Batches
+und 802 Weizenkörner in 13 Batches aufgenommen.
+Zudem wurden 5\,132 Kugeln und 3\,609 Pfefferkörner auf der Rutsche aufgenommen.
+
+Im DEM Datensatz sind die Tracks von 3713 Kugeln, 4357 Plättchen und 4427 Zylindern enthalten.
+Die Verteilung der Tracks ist in Abbildung~\ref{fig:barTracks} zu sehen.
+
+\begin{figure}[h]
+	% \missingfigure{Visualisierung Dataaugmentation}
+	\centering
+	\includegraphics[width=\textwidth]{ImagesAmountTracks}
+	\caption{Balkendiagramm Verteilung Tracks}
+	% \todo{Quelle Bild!}
+	\label{fig:barTracks}
+\end{figure}
+
+Die Feature-Label-Paare, die aus den Tracks extrahiert werden, 
+müssen in ein Set auf dem trainiert wird und ein Set auf dem getestet wird aufgeteilt werden.
+In manchen Situationen wird noch ein drittes Set, das so genannte Validation Set, benötigt.
+Dies ist zum Beispiel beim Hyperparameter Tuning der Fall.
+
+Dabei ist wichtig, dass das Testset eine gute Repräsentation des gesamten Datensets ist 
+und außerdem ausreichend groß ist um statistisch aussagekräftige Ergebnisse zu produzieren.
+
+Im Rahmen dieser Arbeit wurde meist ein 90:10 Split zwischen Trainings- und Testset verwendet.
+Es ist jedoch möglich beliebige andere Splits im Hyperparameter File festzulegen.
+\todo{Vorgriff zum nächsten Kapitel - hier wissen wir noch gar nicht, dass ich ein Hyperparameter File habe...}  
 
 
-Features:
-NextStep einfach alle \(n\)--Tupel, die ein Track hergibt, sodass es noch ein Label geben würde
-Separator: Muss unterschieden werden - Filtern oder nicht filtern, danach ob es das letzte mögliche Tupel vor der prediction Phase ist.
-Mit filtern besseres ergebnis, aber auch deutlich weniger Trainingsbeispiele (Overfitting wird mehr zur Gefahr)
-Ohne Filtern: Flexibler und mehr Trainingsbeispiele - man könnte im Nachhinen den PredictionCutOff verlegen 
-und einfach das Netz weiter verwenden ohne neu zu trainieren.
-Maybe ein Mittelding, das man nicht alle tupel nimmt aber auch nicht nur die letzten? Ausblick, zukunft
+
+
+% Train - Test - Validation - Split:
+% Train - test, 90\% zu 10\%.
+% Validation nur für die sets auf denen das Hyperparameter Tuning gemacht wurde
+% [ungefähres ]
+
+\todo[inline]{Table mit Anzahl von Elementen in verschiedenen Batches?}
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\textwidth]{img/scaledPieChart-trimmed}
+%     \caption{Verteilung Schüttgut Elemente nach Sorte}
+%     \label{piechartSchuettgut}
+% \end{figure}
 
 
 
-Labels:
-Sehr straight forward für NextStep (Literally), einfach die nächste Zeile im Track jeweils für X und Y
+% Features:
+% NextStep einfach alle \(n\)--Tupel, die ein Track hergibt, sodass es noch ein Label geben würde
+% Separator: Muss unterschieden werden - Filtern oder nicht filtern, danach ob es das letzte mögliche Tupel vor der prediction Phase ist.
+% Mit filtern besseres ergebnis, aber auch deutlich weniger Trainingsbeispiele (Overfitting wird mehr zur Gefahr)
+% Ohne Filtern: Flexibler und mehr Trainingsbeispiele - man könnte im Nachhinen den PredictionCutOff verlegen 
+% und einfach das Netz weiter verwenden ohne neu zu trainieren.
+% Maybe ein Mittelding, das man nicht alle tupel nimmt aber auch nicht nur die letzten? Ausblick, zukunft
 
-für separator slightly more complicated: 
-Element des Tracks vor und hinter der Separator position (entlang der Travel Achse)
 
-Schnittpunkt geometrisch bestimmen.
-Label für position ist die Position entlang der Achse orthogonal zur Bewegungsrichtung vom Schnittpunkt der Separatorlinie und 
-der Strecke zwischen dem Element vor und dem element hinter. siehe \ref{fig:Schnittpunkt}
+
+% Labels:
+% Sehr straight forward für NextStep (Literally), einfach die nächste Zeile im Track jeweils für X und Y
+
+% für separator slightly more complicated: 
+% Element des Tracks vor und hinter der Separator position (entlang der Travel Achse)
+
+% Schnittpunkt geometrisch bestimmen.
+% Label für position ist die Position entlang der Achse orthogonal zur Bewegungsrichtung vom Schnittpunkt der Separatorlinie und 
+% der Strecke zwischen dem Element vor und dem element hinter. siehe \ref{fig:Schnittpunkt}
 
 
 
 
 \todo{table of size of different data sets - number of pictures...}
 
+\color{blue}
 Verhältnis: Anzahl Feature-Label-Paare für verschiedene Beispiele und verschiedene Settings
 (FeatureSize, Filter Ja/Nein, Augmentation Ja/Nein) Als Tabelle?
 
@@ -507,3 +548,4 @@ Bei einer FeatureSize von 5 ergeben sich bei den Kugeln so 98.966 Feature-Label 
 Die Pfefferkörner haben dann 105.101 Feature-Label Paare,
 bei den Zylindern kommt man auf 244.422 Feature-Label Paare
 und bei den Weizenkörner 132.140 Feature-Label Paare.
+\color{black}
