@@ -48,7 +48,7 @@ Deshalb muss kein Unterschied bezüglich der gespeicherten Tracks gemacht werden
 
 Dieser Hyperparameter wird \textit{FeatureSize} genannt. 
 Die Features sind also ein \(2n\)-Tupel, bestehend aus \(n\) X-Koordinaten und \(n\) Y-Koordinaten.
-Was die Reihenfolge angeht, so ist sie für das neuronale Netz egal, solange sie konsistent zwischen Training und Evaluation bleibt.
+Was die Reihenfolge angeht, so ist sie für das neuronale Netz irrelevant, solange sie konsistent zwischen Training und Evaluation bleibt.
 
 In der umgesetzten Implementierung ist es so, dass zuerst die X-Koordinaten 
 und dann die Y-Koordinaten in chronologischer Reihenfolge aufgereiht sind. 
@@ -97,7 +97,7 @@ die Standardisierung für beide Fälle implementiert.
 
 
 Im Code gibt es die Möglichkeit unterschiedliche Ausgaben unterschiedlich zu gewichten, indem weighted Mean Squared Error als Fehlerfunktion verwendet werden kann. 
-Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht gebrauch gemacht, beziehungsweise den beiden Elementen wird jeweils das Gewicht 1.0 zugewiesen.
+Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht gebrauch gemacht, beziehungsweise den beiden Elementen wird jeweils das Gewicht~1.0 zugewiesen.
 \todo{hier noch schreiben, warum man das tun wollen könnte, oder nicht?}
 
 \begin{figure}[h]
@@ -123,9 +123,9 @@ Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht gebr
 \color{black}
 
 
-Zur Aufnahme der Daten wurde eine Bonito CL-400 200 FPS Kamera benutzt, die in Abbildung~\ref{pictureCam} zu sehen ist.
+Zur Aufnahme der Daten wurde eine Bonito~CL-400~200~FPS~Kamera benutzt, die in Abbildung~\ref{pictureCam} zu sehen ist.
 Die ist, wie in Abbildung~\ref{fig:tablesortsystem} oberhalb des Förderbandes angebracht.
-Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726 Pixeln~\cite{alliedvisiontechnologiesgmbh2014}.
+Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726~Pixeln~\cite{alliedvisiontechnologiesgmbh2014}.
 \todo[inline]{Umrechengröße pixel zu mm, im weiteren verlauf werden pixel benutzt}
 
 \begin{figure}[h]
@@ -210,13 +210,13 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 
 Die Bonito Kamera nimmt Bilder in Form einer Bayer-Matrix auf, wie sie in~\ref{fig:bayerPattern} zu sehen ist.
 Diese werden dann in Batches von je 3500 gesammelt und in Bitmap Dateien geschrieben.
-\todo{Option Bayer-Matrix erklären}
+\todo{Optionnal: Bayer-Matrix erklären}
 
 \begin{figure}[h]
 	% \missingfigure{bayer matrix}
 	\centering
 	\includegraphics[width=0.6\textwidth]{BayerPattern.pdf}
-	\caption{Bayer Matrix [TODO: Quelle]}
+	\caption{Bayer Matrix auf einem Sensor\cite{bayerPattern06}}
 	\label{fig:bayerPattern}
 \end{figure}
 
@@ -311,7 +311,7 @@ und den X- und Y-Koordinaten der Mittelpunkte der detektierten Partikel.
     \end{table}
     
 
-Die Mittelpunkte in dieser CSV-Datei werden nun mittels des in MATLAB implementierten \textit{Predictive Tracking} Algorithmus einzelnen Tracks zugeordnet,
+Die Mittelpunkte in dieser CSV-Datei werden nun mittels des in \textsc{Matlab} implementierten \textit{Predictive Tracking} Algorithmus einzelnen Tracks zugeordnet,
 \todo{Mehr details: Tracksort trackzuweisung Assignment Problem. Referenz Tobi MA?}
 die dann wiederum in einer neuen CSV-Datei gespeichert werden.
 Die einzelnen Tracks werden als Spaltenpaare dargestellt mit jeweils einer Spalte für die X- und Y-Koordinaten zu einem jeweiligen Zeitpunkt.
@@ -370,7 +370,7 @@ Dennoch gibt es einige Unterschiede zwischen den selbst aufgenommenen Daten und 
 Am wichtigsten ist dabei, dass die Positionen der Simulation eine absolut verlässliche Ground Truth sind.
 Das sind die Positionen der selbst aufgenommenen Daten nicht.
 Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann es zu Fehlern kommen, die sich durch die gesamte Pipeline fortpflanzen.
-Die Segmentierung kann an einigen Stellen nicht präzise sein, in dem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert und dadurch den Mittelpunkt verschiebt. 
+Die Segmentierung kann an einigen Stellen nicht präzise sein, in dem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
 Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Predictive Tracking} Algorithmus die beiden Tracks vertauscht.  
 
 Desweiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
@@ -419,7 +419,7 @@ minimaler unterschied nach Resegment (Bessere Tracksort zuordnung?)}
 	\item Hier: Spiegeln
 	\item in einem Band - an der Mitte, nicht die Ränder mit nehmen - Kamera nicht perfekt zentriert
 	\item Band zentrierung filter
-	\item führt zu: Beinah verdoppelung der Feature-Label-paare fürs training.
+	\item führt zu: Beinah Verdoppelung der Feature-Label-paare fürs training.
 \end{itemize}
 \color{black}
 
@@ -438,10 +438,13 @@ Tracks, die eine gewisse Distanz zur Mittelinie überschreiten werden ausgenomme
 die Kamera nicht perfekt zentriert ist und es so nicht ausgeschlossen werden kann, 
 dass unrealistische Feature-Label-Paare den Trainingsset hinzugefügt werden.
 
+Die Anwendung dieser Technik auf die vorhandenen Daten führt beinahe zu einer Verdoppelung 
+der benutzbaren Feature-Label-Paare im Trainingsset und hat einen positiven Effekt auf die Qualität des Ergebnisses.
+
 \begin{figure}[h]
 	% \missingfigure{Visualisierung Dataaugmentation}
 	\centering
-	\includegraphics[width=\textwidth]{augmentationImage}
+	\includegraphics[width=\textwidth]{augmentationImage.pdf}
 	\caption{Visualisierung Data Augmentation durch Spiegelung}
 	% \todo{Quelle Bild!}
 	\label{fig:dataAugm}
@@ -468,8 +471,8 @@ Laut den Ergebnissen des \textit{Predictive Tracking} Algorithmus wurden auf dem
 7712 Kugeln in 15 Batches,
 7170 Pfefferkörner in 13 Batches,
 19\,200 Zylinder in 11 Batches
-und 802 Weizenkörner in 13 Batches aufgenommen.
-Zudem wurden 5\,132 Kugeln und 3\,609 Pfefferkörner auf der Rutsche aufgenommen.
+und 8702 Weizenkörner in 13 Batches aufgenommen.
+Zudem wurden 5132 Kugeln und 3609 Pfefferkörner auf der Rutsche aufgenommen.
 
 Im DEM Datensatz sind die Tracks von 3713 Kugeln, 4357 Plättchen und 4427 Zylindern enthalten.
 Die Verteilung der Tracks ist in Abbildung~\ref{fig:barTracks} zu sehen.
@@ -492,7 +495,7 @@ Dabei ist wichtig, dass das Testset eine gute Repräsentation des gesamten Daten
 und außerdem ausreichend groß ist um statistisch aussagekräftige Ergebnisse zu produzieren.
 
 Im Rahmen dieser Arbeit wurde meist ein 90:10 Split zwischen Trainings- und Testset verwendet.
-Es ist jedoch möglich beliebige andere Splits im Hyperparameter File festzulegen.
+Es ist jedoch möglich beliebige andere Splits in der Hyperparameter Datei festzulegen.
 \todo{Vorgriff zum nächsten Kapitel - hier wissen wir noch gar nicht, dass ich ein Hyperparameter File habe...}  
 
 
