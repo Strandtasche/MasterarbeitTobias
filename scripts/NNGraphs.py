@@ -82,11 +82,11 @@ class Layer():
         # write Text
         x_text = self.number_of_neurons_in_widest_layer * self.horizontal_distance_between_neurons
         if layerType == 0:
-            pyplot.text(x_text, self.y, 'Output Layer', fontsize=12) #, **csfont)
+            pyplot.text(x_text, self.y, 'Output Layer', fontsize=11) #, **csfont)
         elif layerType == -1:
-            pyplot.text(x_text, self.y, 'Input Layer', fontsize=12)
+            pyplot.text(x_text, self.y, 'Input Layer', fontsize=11)
         else:
-            pyplot.text(x_text, self.y, 'Hidden Layer '+str(layerType), fontsize=12)
+            pyplot.text(x_text, self.y, 'Hidden Layer' , fontsize=11)
 
 class NeuralNetwork():
     def __init__(self, number_of_neurons_in_widest_layer):
@@ -108,8 +108,8 @@ class NeuralNetwork():
         pyplot.axis('scaled')
         pyplot.axis('off')
         # csfont = {'fontname': 'Comic Sans MS'}
-        pyplot.title( 'Neural Network architecture', fontsize=15)
-        #pyplot.savefig('neuralNetImage.png', dpi=900)
+        # pyplot.title( 'Neural Network architecture', fontsize=15)
+        # pyplot.savefig('/home/hornberger/Pictures/neuralNetImage.pdf', format='pdf', dpi=1200)
         pyplot.show()
 
 class DrawNN():

@@ -154,9 +154,15 @@ def validateAugmentation2(loadLoc, numberV):
 
 	(F_train, L_train), (F_test, L_test), (labelMeans, labelStds) = ld.loadRawMeasNextStep(loadLoc, 5, 0.1)
 
-	x_pred2 = F_train.sample(n=numberV, random_state=15)
-	y_vals2 = L_train.sample(n=numberV, random_state=15)
+	# x_pred2 = F_train.sample(n=numberV, random_state=15)
+	# y_vals2 = L_train.sample(n=numberV, random_state=15)
 
+	indexes = [506,1892,  5099]
+
+	x_pred2 = F_train.loc[indexes]
+	y_vals2 = L_train.loc[indexes]
+
+	# 506, 8357, 10433
 
 	augmentsF, augmentsL = augmentData(x_pred2, y_vals2, 1123,  1000,  False, labelMeans, labelStds, True)
 
@@ -209,8 +215,10 @@ def validateAugmentation2(loadLoc, numberV):
 
 	handles, labels = plt.gca().get_legend_handles_labels()
 	by_label = OrderedDict(zip(labels, handles))
-	plt.legend(by_label.values(), by_label.keys(), loc='best')
-	plt.savefig('augmentationImage.png', dpi=900)
+	plt.xlabel('x-Koordinate in px')
+	plt.ylabel('y-Koordinate in px')
+	plt.legend(by_label.values(), by_label.keys(), loc=4)
+	plt.savefig('/home/hornberger/Pictures/augmentationImage.pdf', format='pdf', dpi=1200)
 	plt.show()
 
 
@@ -219,13 +227,14 @@ def main(argv):
 	# args = parser.parse_args(argv[1:])
 
 	# print(args.separator)
+	print("lol")
 
 	loc = '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten/Kugeln/kugeln_001_trackHistory_NothingDeleted.csv'
-	validateAugmentation2(loc, 1)
+	validateAugmentation2(loc, 3)
 
-# if __name__ == '__main__':
-# 	tf.logging.set_verbosity(tf.logging.ERROR)
-# 	logging.basicConfig(level=logging.INFO)
-# 	os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-# 	logging.info('Tensorflow %s' % tf.__version__)
-# 	tf.app.run(main)
+if __name__ == '__main__':
+	tf.logging.set_verbosity(tf.logging.ERROR)
+	logging.basicConfig(level=logging.INFO)
+	os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+	logging.info('Tensorflow %s' % tf.__version__)
+	tf.app.run(main)
