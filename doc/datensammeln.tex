@@ -44,33 +44,37 @@ Das Format, das die Daten annehmen, ist bei den beiden Anwendungen leicht unters
 Die Feature-Label Paare der unterschiedlichen Anwendungen unterscheiden sich nur in den Labeln.
 Die Eingangsdaten sind -- abhängig von einem Hyperparameter --
 in beiden Fällen die Position des Partikels zu den letzten \(n\) Zeitschritten.
-Deshalb muss kein Unterschied bezüglich der gespeicherten Tracks gemacht werden.
+Deshalb muss beim Format der Features kein Unterschied zwischen der Art der Aufgabe gemacht werden.
 
 Dieser Hyperparameter wird \textit{FeatureSize} genannt. 
-Die Features sind also ein \(2n\)-Tupel, bestehend aus \(n\) X-Koordinaten und \(n\) Y-Koordinaten.
-Was die Reihenfolge angeht, so ist sie für das neuronale Netz irrelevant, solange sie konsistent zwischen Training und Evaluation bleibt.
-
+Die Features sind also ein \(2n\)-Tupel, bestehend aus \(n\) X-Koordinaten und \(n\) Y-Koordinaten 
+von den Mittelpunkten der \(n\) beobachteten Teilchen
+Was die Reihenfolge angeht, so ist sie für das neuronale Netz irrelevant, 
+solange sie konsistent zwischen Training und Evaluation bleibt. 
 In der umgesetzten Implementierung ist es so, dass zuerst die X-Koordinaten 
 und dann die Y-Koordinaten in chronologischer Reihenfolge aufgereiht sind. 
 
 
 
 Die Labels, die das NextStep-Netz benutzt, sind \(2\)-Tupel.
-Es handelt sich um die nächste Zeile in der Doppelspalte des dazugehörigen Tracks:
 Das erste Element ist die X-Koordinate der Position des Partikels im nächsten Zeitschritt und das Zweite ist die Y-Koordinate.
+% Es handelt sich um die X- und Y-Koordinate der Position des Partikels im nächsten Zeitschritt.
+Diese findet man als die nächste Zeile in der Doppelspalte des dazugehörigen Tracks.
+
 
 Die Labels des Separator-Netzes sind ebenfalls \(2\)-Tupel.
 Im Gegensatz zu denen des NextStep-Netzes können diese nicht direkt aus der CSV-Datei ausgelesen werden, sondern müssen berechnet werden.
 Dies ist in Abbildung~\ref{fig:Schnittpunkt} dargestellt.
-Für jedes Partikel \(i\) müssen die Positionen \(f_n\) und \(f_{n+1}\) direkt vor 
-und direkt nach der Position des Druckluftdüsenarrays bestimmt werden.
+Für jedes Partikel \(i\) müssen die letzte Position vor dem Überqueren des Druckluftdüsenarrays \(f_n\) 
+und die erste Position nach dem Überqueren \(f_{n+1}\) bestimmt werden.
 
 Das erste Element eines Labels ist die Koordinate entlang der Achse orthogonal zur Bewegungsrichtung des Förderbandes, wo das Teilchen den Druckluftdüsenarrays passiert.
+\todo{Bewegungsrichtung Band in der Grafik klarer machen}
 Diese erhalten wir in dem wir den Schnittpunkt zwischen der Strecke, die \(f_n\) und \(f_{n+1}\) verbindet und 
 einer gedachten Gerade orthogonal zur Bewegungsrichtung des Förderbandes bestimmen.
 Das zweite Element ist die Zeit, die das Partikel noch brauchen wird, bis es das Druckluftdüsenarray passiert.
 Sie wird in der Einheit Frames angegeben.
-Die ganzzahlige Komponente hiervon ist durch das Zählen von Elementen im Track zu bestimmen.
+Die ganzzahlige Komponente hiervon ist durch das Zählen der Messungen im Track zu bestimmen.
 Die Nachkommastelle wird bestimmt als das Verhältnis von der Distanz zwischen \(f_n\) und \(s\), 
 und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 Dabei wird die angenommen, dass die Geschwindigkeit des Partikels zwischen \(f_n\) und \(f_{n+1}\) konstant ist.
@@ -78,16 +82,16 @@ Dies ist zwar nur eine Approximation, diese ist jedoch ausreichend gut und wird 
 \todo[inline]{Example: Gegeben ein Track, was für Features und Labels würden da rausfallen}
 
 
-Um zu verhindern, dass verschiedene Dimensionen basierend auf ihrer Skalierung beim Training unterschiedlich 
+Um zu verhindern, dass verschiedene Label-Elemente basierend auf ihrer Skalierung beim Training unterschiedlich 
 % Gradientenabstieg
-stark gewichtet werden, werden die Labels folgendermaßen standardisiert.
-Jedes Element \(e\) vom Typ 1 oder Typ 2 wird entsprechend seiner Spalte behandelt, vor dem Training angepasst
+stark gewichtet werden, werden sie folgendermaßen standardisiert.
+Jeder Label-Bestandteil \(e\), sei es das erste oder das zweite Element seines entsprechenden Labels, wird gemäß seiner Zugehörigkeit vor dem Training angepasst
 
 \begin{equation*}
-	e_{\text{neu}} = \frac{e - \mu_{\text{Typ}}}{\sigma_{\text{Typ}}}
+	e_{\text{neu}} = \frac{e - \mu_{\text{N}}}{\sigma_{\text{N}}}
 \end{equation*}
 
-und Ausgaben des Netzes müssen umkehrt zurück in die ursprünglichen Skalierung gerechnet werden.
+Die Ausgaben des Netzes müssen umkehrt zurück in ihre ursprüngliche Form gerechnet werden.
 \todo{überlegen wie ich klar mache, dass es sich um den durchschnitt und die Abweichung der jeweiligen Spalte handelt}
 
 Solch ein Ungleichgewicht würde zum Beispiel auftreten, wenn sich die Werte des einen Elements im Bereich zwischen 0 und 1700 bewegen, während die des Anderen zwischen 1 und 25,
@@ -96,9 +100,10 @@ Theoretisch wäre es möglich beim NextStep Fall darauf zu verzichten, aber im S
 die Standardisierung für beide Fälle implementiert.
 
 
-Im Code gibt es die Möglichkeit unterschiedliche Ausgaben unterschiedlich zu gewichten, indem weighted Mean Squared Error als Fehlerfunktion verwendet werden kann. 
+Im Code gibt es die Möglichkeit unterschiedliche Label-Elemente unterschiedlich zu gewichten, indem weighted Mean Squared Error als Fehlerfunktion verwendet werden kann. 
 Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht gebrauch gemacht, beziehungsweise den beiden Elementen wird jeweils das Gewicht~1.0 zugewiesen.
-\todo{hier noch schreiben, warum man das tun wollen könnte, oder nicht?}
+Dies kann nützlich sein, falls die Ansteuerung der Druckluftdüsen eine maximale Auflösung hat, jenseits derer bessere Zeitprädiktionen keine Verbesserung der Sortierqualität mehr erreichen.
+% \todo{hier noch schreiben, warum man das tun wollen könnte, oder nicht?}
 
 \begin{figure}[h]
 	\centering
