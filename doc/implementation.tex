@@ -21,7 +21,7 @@ Für die Umsetzung der neuronalen Netze wurde im Rahmen dieser Arbeit
 das Open Source Framework TensorFlow\footnote{https://www.tensorflow.org/} verwendet.
 Es wurde die \texttt{tensorflow-gpu} Variante mittels pip in einem Python~3.6.5 virtual environment installiert.
 Zu Beginn der Arbeit wurde die zum damaligen Zeitpunkt aktuelle TensorFlow Version 1.8 installiert 
-und zu einem späteren Zeitpunkt wurde auf Version~1.11 geupdatet, die bis zum Ende verwendet wurde.
+und zu einem späteren Zeitpunkt wurde auf Version~1.11 geupdatet, die bis zum Abschluss der Arbeit verwendet wurde.
 
 Weitere wichtige Software, die verwendet wurde 
 sind \textit{pandas} in der Version~0.23.1, was für den Umgang mit den Daten genutzt wurde, 
@@ -34,8 +34,16 @@ weshalb einige Teile der Arbeit auch das verwenden.
 
 \section{Code Struktur}
 
-Vorgehen beschrieben in \ref{CodeStruktur}.
+Vorgehen beschrieben in Abbildung~\ref{fig:impl01} und \ref{CodeStruktur}.
 \todo[inline]{überlegen wie viel ich überhaupt dazu schreiben soll - }
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{implementation01.pdf}
+    \caption{Skizze Codestruktur}
+    \label{fig:impl01}
+\end{figure}
+
 
 \begin{figure}[h]
     \centering
@@ -150,7 +158,8 @@ Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
 
 % \begin{itemize}
     % \item Architektur:
-    
+
+\pagebreak
 \bigskip
 {\Large \sffamily \textbf{arch}}
 \begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries separatorPosition}, labelindent=0.5cm]
@@ -201,7 +210,7 @@ Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
     \item[direction] Bewegungsrichtung der Partikel. ``x'' bei simulierten Daten, ``y'' bei Selbstgesammelten.
     \item[unitLoc] Einheit des Orts. ``m'' beziehungsweise Meter bei simulierten Daten, ``px'' beziehungsweise Pixel bei Selbstgesammelten.
     \item[unitTime] Einheit der Zeit. 
-    \item[limits] Bereich, der in der Visualisierung dargestellt wird. [0.388, 0.788, 0, 0.18] bei simulierten Daten,  [0, 2350, 0, 1750] bei Selbstgesammelten.
+    \item[limits] Bereich, der in der Visualisierung dargestellt wird.\\ \([0.388, \, 0.788, \ 0, \, 0.18]\) bei simulierten Daten und \([0,\, 2350, \ 0, \, 1750]\) bei Selbstgesammelten.
 
 \end{description}
 % \end{itemize}
@@ -210,10 +219,9 @@ Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
 
 \subsection{Hyperparameter Tuning}
 
+\color{blue}
 Als Hyperparameter Optimierung oder auch Hyperparameter Tuning bezeicht man den Vorgang das am besten geeignete Set an 
-Hyperparametern für einen Lernalgorithmus zu wählen.
-
-
+Hyperparametern für einen Lernalgorithmus zu finden.
 
 Vorgehen um optimale Hyperparameter zu finden: 
 Baseline wird (über den Daumen gepeilt).
@@ -234,18 +242,48 @@ Learning Rate Decay ist eine gute Idee. (Höherer Wert \textrightarrow langsamer
 FeatureSize 5 ist gut, weniger wird schlechter und Mehr ist auch schlechter geworden (potenziell weil weniger Beispiele?)
 Dropout macht es kaputt, also auf 0.0 setzen
 
-Separator: 
+Separator:
+\color{black}
 
-\subsection{Architektur des neuronalen Netzes}
+Als Hyperparameter Optimierung oder auch Hyperparameter Tuning bezeicht man den Vorgang das am besten geeignete Set an 
+Hyperparametern für einen Lernalgorithmus zu finden.
 
-Input layer: \(2 * FeatureSize\) Neuronen
+In Rahmen dieser Arbeit wurden die Hyperparameter für die verschiedenen Szenarien manuell angepasst und verglichen.
+Da es zu zeitintensiv wäre diesen Vorgang für jedes einzelne Szenario, bestehend auf dem verwendeten Schüttgut und Art der Aufgabe, durchzuführen
+wurde insgesamt nur 2 Sets an Hyperparametern gesucht.
+Jeweils eines für NextStep Netze und eines für Separator Netze.
+Diese wurden beiden auf dem DEM Kugel Datensatz optimiert und dann auf die anderen Datensätze angewendet.
+Von dieser Betrachtung ausgenommen wurden Hyperparameter, das Lernen nicht beeinflussen.
+Dies sind die Parameter der Kategorien {\sffamily \textbf{problem}}, in der Dateipfade und Problemdefinitionen zu finden sind, 
+und {\sffamily \textbf{data}}, in der unter anderem die relative Größe des Testdatensets festgelegt wird.
 
-\(N\) hiddenlayer (as determined by Hyperparameter tuning) mit jeweils \(m\) Neuronen.
-Fully connected!
 
-Output layer:
-Linear activation weil regression.
-2 Neuronen, eins für die eine Label Dimension und eins für die andere.
+Für beide Arten von Netzen hat sich gezeigt, dass Dropout nicht nur keine Verbesserung mit sich bringt, sondern tatsächlich die Qualität der Ausgabe merklich reduziert.
+Auch was die Aktivierungsfunktionen und den Optimierer angeht unterscheiden sich die unterschiedlichen Aufgaben nicht. 
+In beiden Fällen haben sich Leaky ReLU und der Adam Optimizer als beste Option hervorgetan.
+
+Eine sinkende Lernrate hat einen positiven Einfluss auf die Güte der Ausgabe der Netze gezeigt. 
+Es wurde eine Technik names \textit{exponential learning rate decay} eingesetzt,
+die die Lernrate, die an den Optimierer übergeben wird, in Abhängigkeit der absolvierten Trainingsschritte reduziert.   
+Die verwendete Lernrate entspricht dabei dieser Formel:
+\begin{equation*}
+	\text{verwendete Lernrate} = \text{ursprüngliche Lernrate} \cdot \lambda ^{\frac{\text{globale Trainingsschritte}}{\text{Zerfallsschritte}}}
+\end{equation*}
+Die Zerfallskonstante \(\lambda\) wurde als 0.96 festgelegt, während die ursprüngliche Lernrate und die Zerfallsschritte anpassbare Hyperparameter sind.
+
+
+Das Ergebnis des Hyperparameter Tunings bezüglich Netzarchitektur für die NextStep Netze ist in Abbildung~\ref{fig:netArchitectureNextStep} zu sehen.
+Auf den Testdaten produzierte eine FeatureSize von 5 in Kombination mit 3 Hidden Layers mit jeweils 16 Neuronen die besten Ergebnisse.
+Was die Lernparameter angeht, so sieht das Ergebnis des Hyperparameter Tunings folgendermaßen aus:
+\begin{itemize}
+    \item Batch Größe von 500
+    \item Training über insgesamt 3000 Epochen mit jeweils 5000 Iterationen
+    \item Ursprüngliche Lernrate von 0.005 und 45\,000 Zerfallsschritte
+\end{itemize}
+
+Die Netzarchitektur der für die Separator Netze ist in Abbildung~\ref{fig:netArchitectureSep} zu sehen.
+\todo[inline]{Ergebnis von Hyperparameter Tuning für Separator Netze}
+
 
 \begin{figure}[h]
     \centering

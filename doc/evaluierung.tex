@@ -1,34 +1,52 @@
 \chapter{Evaluation}
 
-Im vorhergegangenen Kapitel wurde beschrieben, [wie die Netze designed wurde]
-Jetzt bewerten wie gut sie das eigentlich mache.
+\todo[inline]{Im vorhergegangenen Kapitel wurde beschrieben, [wie die Netze designed wurde]
+Jetzt bewerten wie gut sie das eigentlich mache.}
 
 \section{System}
 
-Trainiert und evaluiert wurde auf einem Ubuntu 18.04 Linux System.
-Intel i7-7700k CPU @ 4.20 GHz,
-NVIDIA GeForce 1080Ti, 11GB GDDR5X,
-32GB RAM,
-SSD 
+Alle in dieser Arbeit vorgestellten Netze wurden auf einem Ubuntu 18.04 Linux System trainiert und evaluiert.
+Dieses verfügte über einen Intel i7-7700k CPU @ \SI{4.20}{\giga\hertz}, eine NVIDIA GeForce 1080Ti Grafikkarte mit \SI{11}{\giga\byte}~GDDR5X,
+und \SI{32}{\giga\byte}~RAM. 
 
-\todo{Stats verifizieren}
+\todo[inline]{muss da noch irgendwie mehr dazu?}
 
 \section{Vergleichsmodelle}
 
+\color{blue}
 Notation und Definition bei allen diesen Modellen nach Florian's Diss \cite{Pfaff2018}, mit Ausnahme von Average Acceleration.
 Sei \(x(t)\) die Position des Partikels entlang der Bewegungsrichtung in Abhängigkeit von der Zeit
 (continuous-time equation).
 Sei \( y(t)\) die Position des Partikels orthogonal zur Bewegungsrichtung in Abhängigkeit von der Zeit.
 \(t^{\text{Last}}\) ist der Zeitpunkt der Beobachtung des letzten Features.
-Sei \(\Delta t =  t - t^{\text{Last}}\).
+% Sei \(\Delta t =  t - t^{\text{Last}}\).
+
+Vergleich über Boxplots: Balken: 25\%-Quantil bis 75\%-Quantil.
+Roter Balken ist der Median. Der obere und der untere Whisker 
+gehen bis zum höchsten bzw. niedrigsten Wert, der nicht mehr als 2.7 Standardabweichungen vom Median abweicht
+Die Outlier werden nicht angezeigt.
+
+\color{black}
+
+In diesem Abschnitt sollen die Modelle eingeführt werden, mit denen die Ergebnisse der Neuronalen Netze verglichen werden.
+Mit Ausnahme des \textit{Average Acceleration} Modells stammen sie alle aus \cite{Pfaff2018} und sowohl Definition als auch Notation wurden von dort übernommen.
+Dabei seien \(x\) die Achse entlang der Bewegungsrichtung des Förderbands und \(y\) die Achse orthogonal zur Bewegungsrichtung des Förderbands.
+Zeitdiskreten Messungen entlang der einzelnen Achsen werden als \(\mathsf{x}_t\) beziehungsweise \(\mathsf{y}_t\) dargestellt.
+Die daraus rekonstruierten zeitkontinuierlichen Positionsgleichungen als \(\mathsf{x}(t)\) beziehungsweise \(\mathsf{y}(t)\).
+Sei \(t^{\text{Last}}\) der Zeitpunkt der Beobachtung des aktuellsten Features und \(x^{\text{Last}}\) und \(y^{\text{Last}}\) die dazugehörigen Positionen entlang der beiden Achsen.
+Sei \(\mathsf{x}^{\text{PredTo}}\) die Position des Druckluftdüsenarrays entlang der \(x\)-Achse.
+Sei \(t^{\text{Pred}}\) der Zeitpunkt an dem ein Partikel den Druckluftdüsenarray passiert.
+Sei \(\mathsf{y}^{\text{Pred}} = \mathsf{y}(t^{\text{Pred}})\) die Position entlang der \(y\)-Achse an dem der Partikel den Druckluftdüsenarray passiert.
+\(\Delta t = t^{\text{Pred}} - t^{\text{Last}} \) und \(\mathsf{y}^{\text{Pred}}\) dementsprechen den Labels der einzelnen Feature-Label-Paare für das Separator Netz.
+\(\mathsf{x}(t^{\text{Last}} + 1)\) und \(\mathsf{y}(t^{\text{Last}} + 1)\) entsprechen den Labels der Feature-Label-Paare für das NextStep-Netz.
+Die verschiedenen Modelle können nun ebenso wie die Ergebnisse der verschiedenen Netze bewertet werden, 
+indem man die Abweichung zwischen dem Ergebnis in dem Modell und der Ground Truth in den Feature-Label-Paaren bestimmt.
+\todo{Das formatting hier ist total schlecht - überlegen wie ich das gut machen kann.}
 
 
-\subsection{Constant Velocity Modell}
-\todo[inline]{Soll }
+Für Modelle, die unabhängig von der Beschleunigung der Teilchen sind, ist der Zustandsvektor wie folgt definiert:
 
-Zustandsvector für CV:
-
- \begin{equation*} \label{eq:definitionCV}
+\begin{equation} \label{eq:definitionCV}
     \vx(t) = 
     \begin{bmatrix}
         \mathsf{x}(t) \\
@@ -36,7 +54,27 @@ Zustandsvector für CV:
         \mathsf{y}(t) \\
         \dot{\mathsf{y}}(t)
        \end{bmatrix} 
-\end{equation*}
+\end{equation}
+
+Für Modelle, die die Beschleunigung der Teilchen mit einbeziehen, ist der Zustandsvektor folgendermaßen definiert:
+
+\begin{equation} \label{eq:definitionCA}
+    \vx_t = 
+    \begin{bmatrix}
+        \mathsf{x}(t) \\
+        \dot{\mathsf{x}}(t) \\
+        \ddot{\mathsf{x}}(t) \\
+        \mathsf{y}(t) \\
+        \dot{\mathsf{y}}(t) \\
+        \ddot{\mathsf{y}}(t)
+       \end{bmatrix} 
+\end{equation}
+
+\subsection{Constant Velocity Modell}
+
+Das Constant Velocity Modell (CV Modell) arbeitet unter der Annahme, dass sich Partikel, 
+abgesehen von einem Rauschterm, mit einer konstanten Geschwindigkeit bewegen.
+Es kann mittels folgender Differenzialgleichung dargestellt werden.
 
 \begin{equation*} \label{eq:speedCV}
     \dot{\vx}(t) = \mat{A}\vx(t), \quad \mat{A} = 
@@ -48,32 +86,35 @@ Zustandsvector für CV:
     \end{bmatrix} 
 \end{equation*}
 
-Definition Positionsgleichungen:
-
+Daraus folgen die folgenden Positionsgleichungen entlang der einzelnen Achsen:
 \begin{equation*}
-    x(t) = x^{\text{Last}} + (t - t^{\text{Last}})\dot{x}^{\text{Last}}
+    \mathsf{x}(t) = \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{x}}^{\text{Last}}
 \end{equation*}
 \begin{equation*}
-    x(t) = y^{\text{Last}} + (t - t^{\text{Last}})\dot{y}^{\text{Last}}
+    \mathsf{y}(t) = \mathsf{y}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{y}}^{\text{Last}}
 \end{equation*}
 
+Für das NextStep Szenario sind die Prädiktionen mittels des CV Modells also
+\begin{equation*}
+    \mathsf{x}(t+1) = \mathsf{x}^{\text{Last}} + \dot{\mathsf{x}}^{\text{Last}}
+\end{equation*}
+\begin{equation}\label{eq:cvyp}
+    \mathsf{y}(t+1) = \mathsf{y}^{\text{Last}} + \dot{\mathsf{y}}^{\text{Last}}
+\end{equation}
 
+Für das Separator Szenario lösen wir die folgende Gleichung für \(t\) um  \(t^{\text{Pred}}\) zu erhalten.
+
+\begin{equation*}
+    \mathsf{x}^{\text{PredTo}} = \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{x}}^{\text{Last}}
+\end{equation*}
+
+Durch das Einsetzen von \(t^{\text{Pred}}\) in \eqref{eq:cvyp} ergibt sich \(\mathsf{y}^{\text{Pred}}\).
 
 \subsection{Contant Acceleration Modell}
 
 Zustandsvector für CA:
 
-\begin{equation*} \label{eq:definitionCA}
-    \vx_t = 
-    \begin{bmatrix}
-        \mathsf{x}(t) \\
-        \dot{\mathsf{x}}(t) \\
-        \ddot{\mathsf{x}}(t) \\
-        \mathsf{y}(t) \\
-        \dot{\mathsf{y}}(t) \\
-        \ddot{\mathsf{y}}(t)
-       \end{bmatrix} 
-\end{equation*}
+
 
 
 \begin{align*} \label{eq:speedCV}
@@ -102,10 +143,7 @@ Definition Positionsgleichungen:
     + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{\mathsf{y}}^{\text{Last}}
 \end{equation*}
 
-Vergleich über Boxplots: Balken: 25\%-Quantil bis 75\%-Quantil.
-Roter Balken ist der Median. Der obere und der untere Whisker 
-gehen bis zum höchsten bzw. niedrigsten Wert, der nicht mehr als 2.7 Standardabweichungen vom Median abweicht
-Die Outlier werden nicht angezeigt.
+
 
 
 \subsection{Bias-Corrected Constant Velocity Modell}

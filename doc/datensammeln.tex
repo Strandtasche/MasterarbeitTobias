@@ -15,6 +15,7 @@ Zudem existieren Datensatze, die mit der \textit{Diskrete-Elemente-Methode} (DEM
 \section{Eigene Aufnahmen}
 
 \subsection{Versuchsaufbau}
+\todo[inline]{passendere überschrift finden?}
 
 \color{blue}
 \begin{itemize}
@@ -27,8 +28,9 @@ Zudem existieren Datensatze, die mit der \textit{Diskrete-Elemente-Methode} (DEM
 
 
 Zur Aufnahme der Daten wurde eine Bonito~CL-400~200~FPS~Kamera benutzt, die in Abbildung~\ref{pictureCam} zu sehen ist.
-Die ist, wie in Abbildung~\ref{fig:tablesortsystem} oberhalb des Förderbandes angebracht.
+Diese wurde, wie in Abbildung~\ref{fig:tablesortsystem} oberhalb des Förderbandes angebracht.
 Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726~Pixeln~\cite{alliedvisiontechnologiesgmbh2014}.
+\todo[inline]{Rutschenkonfiguration Tablesort erwähnen?}
 \todo[inline]{Umrechengröße pixel zu mm, im weiteren verlauf werden pixel benutzt}
 
 \begin{figure}[h]
@@ -40,7 +42,7 @@ Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 232
 
 \subsection{Schüttgüter-Typen}
 
-Aufgenommen wurden vier verschiedene Schüttgüter, die in Abbildung~\ref{fig:schuettgueterSchuessel} zu sehen sind, auf dem Förderband.
+Aufgenommen wurden vier verschiedene Schüttgüter, die in Abbildung~\ref{fig:schuettgueterSchuessel} zu sehen sind.
 
 \begin{itemize}
     \item Kugeln
@@ -56,8 +58,9 @@ Die Kugeln bestehen aus Holz und haben einen Durchmesser von \SI{5}{\milli\metre
 Die Zylinder bestehen ebenfalls aus Holz. Sie haben eine Länge von \SI{1}{\centi\metre} und einen Durchmesser von \SI{3}{\milli\metre}.
 Die Schüttgüter sind in Abbildung~\ref{fig:schuettgueterSchuessel} in Schüsseln 
 und in Abbildung~\ref{fig:schuettgueterBand} auf dem Förderband zu sehen.
-\todo{Mehr Details?}
+% \todo{Mehr Details?}
 
+Alle Schüttgüter wurden auf der Förderbandkonfiguration des \textit{TableSort} Systems aufgenommen.
 Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration des \textit{TableSort} Systems aufgenommen.
 
 \begin{figure}[h]
@@ -125,7 +128,8 @@ Diese werden dann in Batches von je 3500 gesammelt und in Bitmap Dateien geschri
 
 Auf Grund der Menge an Bildern wurden die Bilder zunächst in das PNG-Dateiformat übertragen.
 Die Features, die für das Trainieren der Netze benutzt werden, sind die Koordinaten der Mittelpunkte der Objekte.
-Um diese zu bestimmten, müssen zunächst die Dateien mittels \textit{demosaicing} rekonstruiert werden um gewöhnliche RGB-Bilder zu erhalten.
+Um diese zu bestimmten, müssen zunächst die Dateien rekonstruiert werden um gewöhnliche RGB-Bilder zu erhalten.
+Dieser Vorgang wird mittels \textit{demosaicing} genannt.
 Die Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/} hat eine Methode implementiert, die ein Bild von einem Farbraum in einen anderen übertragen kann.
 Diese wurde eingesetzt um die einzelnen Bilder in RGB-Farbbilder zu konvertieren.
 \todo[inline]{Skript ursprünglich von Georg, ein paar changes implementiert (bezüglich input und output.)}
@@ -263,23 +267,20 @@ Vergleich bezüglich der Eignung für die verschiedenen Ansätze dann im Evaluat
 Neben den selbst aufgenommenen Daten wurde im Rahmen dieser Arbeit auch mit einigen simulierten Datensätzen gearbeitet.
 Diese Datensätze wurden basierend auf einer hochgenauen numerischen Simulation des \textit{TableSort} Systems mittels der Diskrete-Elemente-Methode erstellt~\cite{pieper2016numerical}\,\cite{pieper2017numerical}.
 \todo{interaktion Teilchen untereinander und mit dem Sortierer?}
-In Abbildung~\ref{fig:DEMSimulation} ist das Modell des Schüttgutsortierers zu sehen.
+In Abbildung~\ref{fig:DEMSimulation} ist die virtuelle Nachbildung des Schüttgutsortierers auf dem die Simulation durchgeführt wurde.
 Die Simulation wird mit einem Zeitschritt von \SI{1e-5}{\second} durchgeführt.
 Die Positionsdaten in den Datensätzen waren ursprünglich mit einer Frequenz von \SI{1000}{\hertz} aufgelistet,
 um jedoch Vergleichbarkeit mit den realen Daten zu erhalten wurde diese Frequenz auf \SI{200}{\hertz} reduziert.
-
-
 Dennoch gibt es einige Unterschiede zwischen den selbst aufgenommenen Daten und denen, die simuliert wurden.
 Am wichtigsten ist dabei, dass die Positionen der Simulation eine absolut verlässliche Ground Truth sind.
 Das sind die Positionen der selbst aufgenommenen Daten nicht.
 Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann es zu Fehlern kommen, die sich durch die gesamte Pipeline fortpflanzen.
 Die Segmentierung kann an einigen Stellen nicht präzise sein, in dem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
 Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Predictive Tracking} Algorithmus die beiden Tracks vertauscht.  
-
 Desweiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
 während Messungen am realen \textit{TableSort} System darauf hindeuten, dass das Förderband dort nur eine Geschwindigkeit von 
 circa \SI{1.1}{\meter\per\second} hat.
-Ein weiterer Unterschied ist der Aufnahmebereich: Im Gegensatz zu den selbst aufgenommenen Daten, die nur Informationen 
+Ein weiterer Unterschied ist der Aufnahmebereich, denn im Gegensatz zu den selbst aufgenommenen Daten, die nur Informationen 
 zu den Bewegungen der Partikel im Bereich auf den die Hochgeschwindigkeitskamera gerichtet ist beinhalten, 
 befinden sich in den DEM Datensätzen die Positionen der Teilchen über die gesamte Länge des Förderbandes.
 Das bedeutet auch, dass in den DEM Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden enthalten ist.
@@ -334,11 +335,10 @@ Die Feature-Label Paare der unterschiedlichen Anwendungen unterscheiden sich nur
 Die Eingangsdaten sind -- abhängig von einem Hyperparameter --
 in beiden Fällen die Position des Partikels zu den letzten \(n\) Zeitschritten.
 Deshalb muss beim Format der Features kein Unterschied zwischen der Art der Aufgabe gemacht werden.
-
 Dieser Hyperparameter wird \textit{FeatureSize} genannt. 
 Die Features sind also ein \(2n\)-Tupel, bestehend aus \(n\) X-Koordinaten und \(n\) Y-Koordinaten 
 von den Mittelpunkten der \(n\) beobachteten Teilchen
-Was die Reihenfolge angeht, so ist sie für das neuronale Netz irrelevant, 
+Was die Reihenfolge der Features angeht, so ist sie für das neuronale Netz irrelevant, 
 solange sie konsistent zwischen Training und Evaluation bleibt. 
 In der umgesetzten Implementierung ist es so, dass zuerst die X-Koordinaten 
 und dann die Y-Koordinaten in chronologischer Reihenfolge aufgereiht sind. 
@@ -346,35 +346,54 @@ und dann die Y-Koordinaten in chronologischer Reihenfolge aufgereiht sind.
 
 
 Die Labels, die das NextStep-Netz benutzt, sind \(2\)-Tupel.
-Das erste Element ist die X-Koordinate der Position des Partikels im nächsten Zeitschritt und das Zweite ist die Y-Koordinate.
+Das erste Element ist die X-Koordinate der Position des Partikels im nächsten Zeitschritt 
+und das Zweite ist die Y-Koordinate.
 % Es handelt sich um die X- und Y-Koordinate der Position des Partikels im nächsten Zeitschritt.
-Diese findet man als die nächste Zeile in der Doppelspalte des dazugehörigen Tracks.
+Diese findet man als die nächste Zeile des Spaltenpaares des dazugehörigen Tracks.
+\todo{Grafik um es verständlicher zu machen? Siehe zwischevortrag}
+
+\begin{figure}
+	\centering
+	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
+	\includegraphics[width=0.6\textwidth]{weizen_003_trackHistory_NothingDeleted-v3}
+	\caption{Beispiel Feature-Label-Paar NextStep}
+	% \todo{Quelle - test?}
+	\label{fig:FLPNext}
+\end{figure}
 
 
 Die Labels des Separator-Netzes sind ebenfalls \(2\)-Tupel.
 Im Gegensatz zu denen des NextStep-Netzes können diese nicht direkt aus der CSV-Datei ausgelesen werden, sondern müssen berechnet werden.
 Dies ist in Abbildung~\ref{fig:Schnittpunkt} dargestellt.
 Für jedes Partikel \(i\) müssen die letzte Position vor dem Überqueren des Druckluftdüsenarrays \(f_n\) 
-und die erste Position nach dem Überqueren \(f_{n+1}\) bestimmt werden.
-
-Das erste Element eines Labels ist die Koordinate entlang der Achse orthogonal zur Bewegungsrichtung des Förderbandes, wo das Teilchen den Druckluftdüsenarrays passiert.
+und die erste Position nach dem Überqueren \(f_{n+1}\) bestimmt werden. 
+Das erste Element eines Labels ist die Koordinate entlang der Achse orthogonal zur Bewegungsrichtung des Förderbandes, wo das Partikel den Druckluftdüsenarrays passiert.
 \todo{Bewegungsrichtung Band in der Grafik klarer machen}
-Diese erhalten wir in dem wir den Schnittpunkt zwischen der Strecke, die \(f_n\) und \(f_{n+1}\) verbindet und 
-einer gedachten Gerade orthogonal zur Bewegungsrichtung des Förderbandes bestimmen.
+Diese erhalten wir in dem wir den Schnittpunkt \(s\) zwischen der Strecke, die \(f_n\) und \(f_{n+1}\) verbindet und 
+der Gerade, die das Druckluftdüsenarray symbolisiert, bestimmen.
 Das zweite Element ist die Zeit, die das Partikel noch brauchen wird, bis es das Druckluftdüsenarray passiert.
 Sie wird in der Einheit Frames angegeben.
 Die ganzzahlige Komponente hiervon ist durch das Zählen der Messungen im Track zu bestimmen.
 Die Nachkommastelle wird bestimmt als das Verhältnis von der Distanz zwischen \(f_n\) und \(s\), 
 und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 Dabei wird die angenommen, dass die Geschwindigkeit des Partikels zwischen \(f_n\) und \(f_{n+1}\) konstant ist.
-Dies ist zwar nur eine Approximation, diese ist jedoch ausreichend gut und wird auch in~\cite{Pfaff2018} getroffen wurde.
+Dies ist zwar nur eine Approximation, diese ist jedoch ausreichend gut und wird auch in~\cite{Pfaff2018} verwendet.
 \todo[inline]{Example: Gegeben ein Track, was für Features und Labels würden da rausfallen}
+
+\begin{figure}[h]
+	\centering
+	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
+	\includegraphics[width=0.6\textwidth]{weizen_003_trackHistory_NothingDeleted_sep-v3}
+	\caption{Beispiel Feature-Label-Paar Separator}
+	% \todo{Quelle - test?}
+	\label{fig:FLPSep}
+\end{figure}
 
 
 Um zu verhindern, dass verschiedene Label-Elemente basierend auf ihrer Skalierung beim Training unterschiedlich 
 % Gradientenabstieg
 stark gewichtet werden, werden sie folgendermaßen standardisiert.
-Jeder Label-Bestandteil \(e\), sei es das erste oder das zweite Element seines entsprechenden Labels, wird gemäß seiner Zugehörigkeit vor dem Training angepasst
+Jedes Label-Element \(e\), sei es das erste oder das zweite Element seines entsprechenden Tupels, wird gemäß seiner Zugehörigkeit vor dem Training angepasst
 
 \begin{equation*}
 	e_{\text{neu}} = \frac{e - \mu_{\text{N}}}{\sigma_{\text{N}}}
@@ -385,12 +404,12 @@ Die Ausgaben des Netzes müssen umkehrt zurück in ihre ursprüngliche Form gere
 
 Solch ein Ungleichgewicht würde zum Beispiel auftreten, wenn sich die Werte des einen Elements im Bereich zwischen 0 und 1700 bewegen, während die des Anderen zwischen 1 und 25,
 so wie es bei der Separator Anwendung der Fall sein kann.   
-Theoretisch wäre es möglich beim NextStep Fall darauf zu verzichten, aber im Sinne der Einheitlichkeit wurde 
-die Standardisierung für beide Fälle implementiert.
+Bei dem NextStep Fall wäre die Standardisierung nicht zwingend notwendig, 
+sie wurde allerdings um die Einheitlichkeit zu wahren für beide Fälle implementiert. 
 
 
-Im Code gibt es die Möglichkeit unterschiedliche Label-Elemente unterschiedlich zu gewichten, indem weighted Mean Squared Error als Fehlerfunktion verwendet werden kann. 
-Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht gebrauch gemacht, beziehungsweise den beiden Elementen wird jeweils das Gewicht~1.0 zugewiesen.
+Im Code gibt es die Möglichkeit unterschiedliche Label-Elemente unterschiedlich zu gewichten, indem Weighted Mean Squared Error als Fehlerfunktion verwendet werden kann. 
+Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht Gebrauch gemacht, beziehungsweise den beiden Elementen wird jeweils das Gewicht~1.0 zugewiesen.
 Dies kann nützlich sein, falls die Ansteuerung der Druckluftdüsen eine maximale Auflösung hat, jenseits derer bessere Zeitprädiktionen keine Verbesserung der Sortierqualität mehr erreichen.
 % \todo{hier noch schreiben, warum man das tun wollen könnte, oder nicht?}
 
@@ -413,7 +432,7 @@ Dies kann nützlich sein, falls die Ansteuerung der Druckluftdüsen eine maximal
 % 8426 Weizenkörner
 
 
-\section{Daten Postprocessing}
+\section{Daten Augmentation}
 
 \color{blue}
 
@@ -441,7 +460,7 @@ zum Beispiel Rotation, Translation, Spiegeln und das Ausschneiden von Teilbilder
 Für den gegebenen Fall mit den Mittelpunkten von Schüttgut Partikeln als Features resultiert von diesen Techniken nur das Spiegeln in zweifelsfrei sinnvollen Daten.
 Eine beispielhafte Darstellung der vorgenommenen Data Augmentation ist in Abbildung~\ref{fig:dataAugm} zu finden.
 Gespiegelt wird an der Mittellinie des Bands, beziehungsweise der Rutsche entlang der Bewegungsrichtung.
-Tracks, die eine gewisse Distanz zur Mittelinie überschreiten werden ausgenommen, da zumindest bei den selbst aufgenommenen Daten, 
+Tracks, die eine gewisse Distanz zur Spiegelachse überschreiten werden ausgenommen, da zumindest bei den selbst aufgenommenen Daten, 
 die Kamera nicht perfekt zentriert ist und es so nicht ausgeschlossen werden kann, 
 dass unrealistische Feature-Label-Paare den Trainingsset hinzugefügt werden.
 
@@ -499,9 +518,9 @@ In manchen Situationen wird noch ein drittes Set, das so genannte Validation Set
 Dies ist zum Beispiel beim Hyperparameter Tuning der Fall.
 
 Dabei ist wichtig, dass das Testset eine gute Repräsentation des gesamten Datensets ist 
-und außerdem ausreichend groß ist um statistisch aussagekräftige Ergebnisse zu produzieren.
+und ausreichend groß ist um statistisch aussagekräftige Ergebnisse zu produzieren.
 
-Im Rahmen dieser Arbeit wurde meist ein 90:10 Split zwischen Trainings- und Testset verwendet.
+Im Rahmen dieser Arbeit wurde meist eine Aufteilung im Verhältnis 90:10 zwischen Trainings- und Testset vorgenommen.
 Es ist jedoch möglich beliebige andere Splits in der Hyperparameter Datei festzulegen.
 \todo{Vorgriff zum nächsten Kapitel - hier wissen wir noch gar nicht, dass ich ein Hyperparameter File habe...}  
 
