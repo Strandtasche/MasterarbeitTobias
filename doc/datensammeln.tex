@@ -56,11 +56,11 @@ und in Abbildung~\ref{fig:schuettgueterBand} während den Aufnahmen zu sehen.
     \item Weizenkörner
 \end{itemize}
 
+Die Kugeln bestehen aus Holz und haben einen Durchmesser von \SI{5}{\milli\metre}.
+Die Zylinder bestehen ebenfalls aus Holz. Sie haben eine Länge von \SI{1}{\centi\metre} und einen Durchmesser von \SI{3}{\milli\metre}.
 Die Kugeln und der Pfeffer, sowie die Zylinder und die Weizenkörner, bilden jeweils 
 ein Paar aus einem geometrischen Körper und einem echten Objekt, das grob dessen Form ähnelt.
 
-Die Kugeln bestehen aus Holz und haben einen Durchmesser von \SI{5}{\milli\metre}.
-Die Zylinder bestehen ebenfalls aus Holz. Sie haben eine Länge von \SI{1}{\centi\metre} und einen Durchmesser von \SI{3}{\milli\metre}.
 % \todo{Mehr Details?}
 
 Alle Schüttgüter wurden auf der Förderbandkonfiguration des \textit{TableSort} Systems aufgenommen.
@@ -283,11 +283,11 @@ Um jedoch Vergleichbarkeit mit den realen Daten zu erhalten wurde diese Frequenz
 Dennoch gibt es einige Unterschiede zwischen den selbst aufgenommenen und den simulierten Daten.
 Der Größte davon ist, dass die Positionen der simulierten Partikel eine absolut verlässliche Ground Truth sind, 
 die direkt aus Simulation entnommen wurde.
-So verlässlich sind die Partikelpositionen bei den selbstaufgenommen Daten nicht.
+So verlässlich sind die Partikelpositionen bei den selbst aufgenommen Daten nicht.
 Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann es zu Fehlern kommen, die sich durch die gesamte Pipeline fortpflanzen.
 Die Segmentierung kann an einigen Stellen nicht präzise sein, in dem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
-Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Predictive Tracking} Algorithmus die beiden Tracks vertauscht.  
-Desweiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
+Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Multi-Target-Tracking} Algorithmus die beiden Tracks vertauscht.  
+Des weiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
 während Messungen am realen \textit{TableSort} System darauf hindeuten, dass das Förderband dort nur eine Geschwindigkeit von 
 circa \SI{1.1}{\meter\per\second} hat.
 Ein weiterer Unterschied ist der Aufnahmebereich.
@@ -367,7 +367,7 @@ Wie in Abbildung~\ref{fig:FLPNext} dargestellt, befinden diese sich in der näch
 	\centering
 	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
 	\includegraphics[width=0.6\textwidth]{weizen_003_trackHistory_NothingDeleted-v3}
-	\caption[Beispiel Feature-Label-Paar NextStep]{An diesem Ausschnitt eines Tracks wird beispielhaft mit FeatureSize 5 gezeigt, wie die einzelnen Feature-Label-Paare entstehen.
+	\caption[Beispiel Feature-Label-Paar NextStep]{An diesem Ausschnitt eines Tracks wird beispielhaft mit FeatureSize 5 gezeigt, wie die einzelnen Feature-Label-Paare im NextStep Fall entstehen.
 		Der rote Rahmen markiert die 10 Features. Der blaue Rahmen markiert das dazugehörigen Label. 
 		Der blaue und der rote Rahmen werden parallel entlang des Tracks verschoben um alle möglichen Feature-Label-Paare zu erhalten. }
 	\label{fig:FLPNext}
@@ -398,24 +398,28 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 	\centering
 	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
 	\includegraphics[width=0.6\textwidth]{weizen_003_trackHistory_NothingDeleted_sep-v3}
-	\caption{Beispiel Feature-Label-Paar Separator}
+	\caption[Beispiel Feature-Label-Paar Separator]{An diesem Ausschnitt eines Tracks wird beispielhaft mit FeatureSize 5 gezeigt, wie die einzelnen Feature-Label-Paare im Separator Fall entstehen.
+	Analog zu Abbildung~\ref{fig:FLPNext} sind die Features markiert. Der Unterschied besteht in der Bestimmung der Labels. 
+	Der Schnittpunkt mit dem Druckluftdüsenarray befindet sich zwischen den beiden blau markierten Messungen und kann dementsprechend nicht direkt abgelesen werden.}
 	% \todo{Quelle - test?}
 	\label{fig:FLPSep}
 \end{figure}
 
 
-Um zu verhindern, dass verschiedene Label-Elemente basierend auf ihrer Skalierung beim Training unterschiedlich 
-% Gradientenabstieg
-stark gewichtet werden, werden sie standardisiert.
-Durch die Standardisierung wird jedes Label so skaliert, dass die beiden Elemente der Labels jeweils einen Erwartungswert von 0 und eine Standardabweichung von 1 haben. 
+% Um zu verhindern, dass verschiedene Label-Elemente basierend auf ihrer Skalierung beim Training unterschiedlich stark gewichtet werden, werden sie standardisiert.
+Damit die Fehler der beiden Labelelemente sich ähnlich auf den Gesamtgradienten auswirken,
+selbst wenn ihre Werte in sehr unterschiedliche Wertebereichen liegen, werden die Labels komponentenweise standardisiert.
+Dazu wird von der jeweiligen Komponente der Mittelwert und die Standardabweichung berechnet. 
+Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\) subtrahiert, und durch die korrespondierende Standardabweichung \(\sigma\) dividiert
 % Jedes Labelelement \(e\), sei es das erste oder das zweite Element seines entsprechenden Tupels, wird gemäß seiner Position vor dem Training angepasst,
 % indem davon der Durchschnitt aller ersten beziehungsweise zweiten Elemente abgezogen wird und dann durch die Standardabweichung aller ersten beziehungsweise zweiten Elemente geteilt wird.
-% \todo[inline]{ist das hier verständlich?}
+\todo[inline]{ist das hier verständlich?}
 	
 \begin{equation*}
 	X_{\text{neu}} = \frac{X - \mu}{\sigma} %\mu_{\text{N}}}{\sigma_{\text{N}}}
 \end{equation*}
 
+Durch die Standardisierung wird jedes Label so skaliert, dass die beiden Elemente der Labels jeweils einen Erwartungswert von 0 und eine Standardabweichung von 1 haben. 2
 Die Ausgaben des Netzes müssen umkehrt zurück in das ursprüngliche Format umgerechnet werden.
 % \todo{überlegen wie ich klar mache, dass es sich um den durchschnitt und die Abweichung der jeweiligen Spalte handelt}
 Solch ein Ungleichgewicht zwischen den Labelelementen würde zum Beispiel auftreten, wenn sich die Werte des einen Elements im Bereich zwischen 0 und 1700 bewegen, während die des Anderen zwischen 1 und 25 liegen,
@@ -423,7 +427,7 @@ so wie es bei der Separator Anwendung der Fall sein kann.
 Bei dem NextStep Fall wäre die Standardisierung nicht zwingend notwendig, 
 sie wurde allerdings um die Einheitlichkeit zu wahren für beide Fälle implementiert. 
 
-
+\todo[inline]{Der Absatz hier nach Implementierung verschieben?}
 Im Code gibt es die Möglichkeit unterschiedliche Label-Elemente unterschiedlich zu gewichten, indem Weighted Mean Squared Error als Fehlerfunktion verwendet werden kann. 
 Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht Gebrauch gemacht, beziehungsweise den beiden Elementen wird jeweils das Gewicht~1.0 zugewiesen.
 Dies könnte nützlich sein, falls die Ansteuerung der Druckluftdüsen eine maximale Auflösung hat, jenseits derer eine bessere Zeitprädiktion keine Verbesserung der Sortierqualität mehr erreicht.
@@ -448,7 +452,7 @@ Dies könnte nützlich sein, falls die Ansteuerung der Druckluftdüsen eine maxi
 % 8426 Weizenkörner
 
 
-\section{Datenaugmentatierung}
+\section{Datenaugmentierung}
 
 % \color{blue}
 
@@ -510,7 +514,7 @@ Die Verteilung dieser Bilder ist in Abbildung~\ref{fig:barPics} dargestellt.
 	\label{fig:barPics}
 \end{figure}
 
-Laut den Ergebnissen des \textit{Predictive Tracking} Algorithmus wurden auf dem Förderband 
+Laut den Ergebnissen des \textit{Multi-Target-Tracking} Algorithmus wurden auf dem Förderband 
 7712 Kugeln in 15 Batches,
 7170 Pfefferkörner in 13 Batches,
 19\,200 Zylinder in 11 Batches

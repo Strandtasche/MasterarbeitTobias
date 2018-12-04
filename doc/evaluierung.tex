@@ -32,7 +32,7 @@ In diesem Abschnitt sollen die Modelle eingeführt werden, mit denen die Ergebni
 Mit Ausnahme des \textit{Average Acceleration} Modells stammen sie alle aus \cite{Pfaff2018} und sowohl Definition als auch Notation wurden von dort übernommen.
 Dabei seien \(x\) die Achse entlang der Bewegungsrichtung des Förderbands und \(y\) die Achse orthogonal zur Bewegungsrichtung des Förderbands.
 Zeitdiskreten Messungen entlang der einzelnen Achsen werden als \(\mathsf{x}_t\) beziehungsweise \(\mathsf{y}_t\) dargestellt.
-Die daraus rekonstruierten zeitkontinuierlichen Positionsgleichungen als \(\mathsf{x}(t)\) beziehungsweise \(\mathsf{y}(t)\).
+Die daraus rekonstruierten zeitkontinuierlichen Positionsgleichungen werden als \(\mathsf{x}(t)\) beziehungsweise \(\mathsf{y}(t)\) bezeichnet.
 Sei \(t^{\text{Last}}\) der Zeitpunkt der Beobachtung des aktuellsten Features und \(x^{\text{Last}}\) und \(y^{\text{Last}}\) die dazugehörigen Positionen entlang der beiden Achsen.
 Sei \(\mathsf{x}^{\text{PredTo}}\) die Position des Druckluftdüsenarrays entlang der \(x\)-Achse.
 Sei \(t^{\text{Pred}}\) der Zeitpunkt an dem ein Partikel den Druckluftdüsenarray passiert.
@@ -41,10 +41,10 @@ Sei \(\mathsf{y}^{\text{Pred}} = \mathsf{y}(t^{\text{Pred}})\) die Position entl
 \(\mathsf{x}(t^{\text{Last}} + 1)\) und \(\mathsf{y}(t^{\text{Last}} + 1)\) entsprechen den Labels der Feature-Label-Paare für das NextStep-Netz.
 Die verschiedenen Modelle können nun ebenso wie die Ergebnisse der verschiedenen Netze bewertet werden, 
 indem man die Abweichung zwischen dem Ergebnis in dem Modell und der Ground Truth in den Feature-Label-Paaren bestimmt.
-\todo{Das formatting hier ist total schlecht - überlegen wie ich das gut machen kann.}
+\todo[inline]{Das formatting hier ist total schlecht - überlegen wie ich das gut machen kann.}
 
 
-Für Modelle, die unabhängig von der Beschleunigung der Teilchen sind, ist der Zustandsvektor wie folgt definiert:
+Für Modelle, die unabhängig von der Beschleunigung der Teilchen sind, ist der Zustandsvektor als 
 
 \begin{equation} \label{eq:definitionCV}
     \vx(t) = 
@@ -53,13 +53,14 @@ Für Modelle, die unabhängig von der Beschleunigung der Teilchen sind, ist der 
         \dot{\mathsf{x}}(t) \\
         \mathsf{y}(t) \\
         \dot{\mathsf{y}}(t)
-       \end{bmatrix} 
+       \end{bmatrix} \: .
 \end{equation}
 
+definiert.
 Für Modelle, die die Beschleunigung der Teilchen mit einbeziehen, ist der Zustandsvektor folgendermaßen definiert:
 
 \begin{equation} \label{eq:definitionCA}
-    \vx_t = 
+    \vx(t) = 
     \begin{bmatrix}
         \mathsf{x}(t) \\
         \dot{\mathsf{x}}(t) \\
@@ -69,6 +70,19 @@ Für Modelle, die die Beschleunigung der Teilchen mit einbeziehen, ist der Zusta
         \ddot{\mathsf{y}}(t)
        \end{bmatrix} 
 \end{equation}
+
+Der Vergleich zwischen unterschiedlichen Modelle wird mittels sogenannter Boxplots visualisiert.
+Die fünf relevanten Charakteristiken, die in einem Boxplot dargestellt werden sind 
+der Median, das untere und obere Quartil sowie zwei sogenannte "Antennen" oder auch "Whisker", die die Position den letzten Datenpunkt innerhalb des 1.5-fachen Interquartilsabstands beschreiben.
+Die Position des Medians wird durch eine rote Linie verdeutlicht.
+Die namensgebende Box ist zwischen dem unteren und dem oberen Quartil aufgespannt.
+Für die Darstellung in dieser Arbeit wurde darauf verzichtet Ausreißer außerhalb der Antennen darzustellen.
+
+
+\todo[inline]{Irgendwo irgendwas dazu sagen, wie es mutmaßlich wirklich ist?
+Geschwindigkeit Förderband ist eine obere Grenze - bis dahin beschleunigen, dann konstante Geschwindigkeit.
+Wie schnell diese Geschwindigkeit erreicht wird hängt von der Art des Schüttguts ab.
+Je länger das Band desto mehr Zeit hat das Schüttgut sich an die Geschwindigkeit anzupassen.}
 
 \subsection{Constant Velocity Modell}
 
@@ -86,36 +100,36 @@ Es kann mittels folgender Differenzialgleichung dargestellt werden.
     \end{bmatrix} 
 \end{equation*}
 
-Daraus folgen die folgenden Positionsgleichungen entlang der einzelnen Achsen:
+Daraus folgen die Positionsgleichungen 
 \begin{equation*}
-    \mathsf{x}(t) = \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{x}}^{\text{Last}}
+    \mathsf{x}(t) = \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{x}}^{\text{Last}} \: ,
 \end{equation*}
 \begin{equation*}
     \mathsf{y}(t) = \mathsf{y}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{y}}^{\text{Last}}
 \end{equation*}
 
-Für das NextStep Szenario sind die Prädiktionen mittels des CV Modells also
+entlang der einzelnen Achsen.
+Für das NextStep Szenario ergibt sich die Prädiktionen mittels des CV Modells also aus
 \begin{equation*}
-    \mathsf{x}(t+1) = \mathsf{x}^{\text{Last}} + \dot{\mathsf{x}}^{\text{Last}}
+    \mathsf{x}(t\hitext{Last}+1) = \mathsf{x}^{\text{Last}} + \dot{\mathsf{x}}^{\text{Last}} \: ,
 \end{equation*}
 \begin{equation}\label{eq:cvyp}
-    \mathsf{y}(t+1) = \mathsf{y}^{\text{Last}} + \dot{\mathsf{y}}^{\text{Last}}
+    \mathsf{y}(t\hitext{Last}+1) = \mathsf{y}^{\text{Last}} + \dot{\mathsf{y}}^{\text{Last}} \: .
 \end{equation}
 
-Für das Separator Szenario lösen wir die folgende Gleichung für \(t\) um  \(t^{\text{Pred}}\) zu erhalten.
+Für das Separator Szenario lösen wir die Gleichung 
 
 \begin{equation*}
     \mathsf{x}^{\text{PredTo}} = \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{x}}^{\text{Last}}
 \end{equation*}
 
+für \(t\) um  \(t^{\text{Pred}}\) zu erhalten.
 Durch das Einsetzen von \(t^{\text{Pred}}\) in \eqref{eq:cvyp} ergibt sich \(\mathsf{y}^{\text{Pred}}\).
 
-\subsection{Contant Acceleration Modell}
+\subsection{Constant Acceleration Modell}
 
-Zustandsvector für CA:
-
-
-
+Im Constant Acceleration Modell wird davon ausgegangen, dass das das Teilchen mit einer konstanten Beschleunigung schneller wird.
+Es kann mittels folgender Differenzialgleichung dargestellt werden.
 
 \begin{align*} \label{eq:speedCV}
     \dot{\vx}(t) = \mat{A}\vx(t), \quad \mat{A} = 
@@ -132,47 +146,80 @@ Zustandsvector für CA:
     \end{bmatrix} 
 \end{align*}
 
-Definition Positionsgleichungen:
+Analog zum Constant Velocity Modell können daraus die Positionsgleichungen 
 
 \begin{equation*}
     \mathsf{x}(t) = \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{x}}^{\text{Last}} 
-    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{\mathsf{x}}^{\text{Last}}
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{\mathsf{x}}^{\text{Last}} \: , 
 \end{equation*}
 \begin{equation*}
     \mathsf{y}(t) = \mathsf{y}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{y}}^{\text{Last}}
     + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{\mathsf{y}}^{\text{Last}}
 \end{equation*}
 
-
+abgeleitet werden.
+Genau wie beim Constant Velocity Modell werden nun jeweils entweder die Gleichung für \(t = \text{Last} + 1\) gelöst 
+um die Prädiktion für den Nextstep Fall oder \(\Delta t \) und daraus \(\mathsf{y}^{\text{Pred}}\) für den Separator Fall gelöst.
 
 
 \subsection{Bias-Corrected Constant Velocity Modell}
 
-Bias in der Zeit am Trainingsset bestimmen und neuen Wert für Ortsprädiktion benutzen.
+In \cite{Pfaff2018} wurden weitere szenariospezifische Bewegungsmodelle beschrieben, die insbesondere die Qualität der zeitlichen Prädiktion für den Separator Fall verbessern.
+Das erste von diesen Modellen, das hier zum Vergleich mit den Ergebnissen der neuronalen Netze betrachtet werden soll ist eine Verbesserung des Constant Velocity Modells.
+Durch das Bestimmen des durchschnittlichen Bias bezüglich der Ankunftszeit des Partikels am Druckluftdüsenarray in den Trainingsdaten und das Abziehen des selben vom der Prädiktion der Testdaten kann verbessert sich die Qualität dieser Prädiktion.
+Dieser neuen Wert kann nun für Ortsprädiktion benutzt werden und verbessert auch diese.
+Sei \(t\hitext{Bias}\) dieser durchschnittliche Bias und
 
 \begin{equation*}
-    t\hitext{Pred, CVBC} = t\hitext{Pred, CV} - t\hitext{Bias}
+    t\hitext{Pred, CVBC} = t\hitext{Pred, CV} - t\hitext{Bias} \, .
 \end{equation*}
+
+Analog zum unveränderterten Constant Velocity Modell erhält man nun durch das Einsetzen von \(t^{\text{Pred, CVBC}}\) in \eqref{eq:cvyp} erneut \(\mathsf{y}^{\text{Pred, CVBC}}\).
+Die Verbesserung der prädizierten Zeit führt ebenfalls zu einer Verbesserung des prädizierten Orts.
+
 
 \subsection{Average Acceleration Modell}
 
-Für alle Elemente des Trainingssets: Bestimme die Beschleunigungen.
-Sei \(\ddot{x}\hitext{Median}\) der Median von all diesen Beschleunigungen.
-Benutze ihn als Beschleunigung wie im CA Modell
+% \color{blue}
+% Für alle Elemente des Trainingssets: Bestimme die Beschleunigungen.
+% Sei \(\ddot{x}\hitext{Median}\) der Median von all diesen Beschleunigungen.
+% Benutze ihn als Beschleunigung wie im CA Modell
 
-(Basicly CV Modell + eine Beschleunigung basierend auf den Trainingsdaten)
-\todo[inline]{überhaupt erwähnen? Er ist way better als er irgendein right hat}
+% (Basicly CV Modell + eine Beschleunigung basierend auf den Trainingsdaten)
 
+% \todo[inline]{überhaupt erwähnen? Er ist way better als er irgendein right hat}
+% \color{black}
+
+Das Identical Acceleration Modell ist eine Erweiterung des CVBC Modells.
+Anstatt die durchschnittliche Abweichung der prädizierten Zeit in den Trainingsdaten auf die prädizierte Zeit zu addieren wird angenommen, 
+dass diese Abweichung von einer nicht betrachteten Beschleunigung herrührt.
+Diese Beschleunigung wird mutmaßlich vom Band verursacht werden und alle Partikel mehr oder weniger ähnlich betreffen.
+Deshalb wird die Beschleunigung des Partikels in allen Feature-Label-Paaren des Trainingssets bestimmt
+und von diesen der Median \(\ddot{ \mathsf{x}}^{\text{Median}}\) gewählt als eine einheitliche Beschleunigung, die zum CV Modell hinzugefügt wird.
+
+Es folgt die Positionsgleichung
 \begin{equation*}
     \mathsf{x}(t) =  \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}}) \: \dot{ \mathsf{x}}^{\text{Last}} 
-    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{ \mathsf{x}}^{\text{Median}}
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{ \mathsf{x}}^{\text{Median}} \: ,
 \end{equation*}
 
+die wir für \(\mathsf{x}(t) =  \mathsf{x}^{\text{PredTo}}\) nach \(t\) lösen.
+
+
 \subsection{Identical Acceleration Modell}
- 
-Upgrade zu CVBC: Correction Term, der den die Letzte Position des Partikels einbezieht.\\
-Annahme: Abweichungen bezüglich dem Zeit Label wird von einer zusätzlichen Beschleunigung verursacht.
-Für jedes Partikel \( i\) aus dem Trainingsset lösen wir die Gleichung 
+
+% \color{blue}
+% Upgrade zu CVBC: Correction Term, der den die Letzte Position des Partikels einbezieht.\\
+% Annahme: Abweichungen bezüglich dem Zeit Label wird von einer zusätzlichen Beschleunigung verursacht.
+% \color{black}
+
+Ebenso wie das Average Acceleration Modell ist das  sogenannte Identical Acceleration Modell ist eine Verbesserung des CVBC Modells, 
+bei dem die Korrekturterme, die als Beschleunigung auf die Positionsgleichungen addiert werden nicht unabhängig von der letzten Position des Partikels ist sondern diese miteinbeziehen.
+Wie oben wird hierbei die Annahme getroffen, dass die zusätzliche Beschleunigung, die für die zeitliche Abweichung sorgt für alle Partikel ungefähr gleich ist.
+Die Bestimmung dieser Korrekturterme ist jedoch unterschiedlich.
+Für die Feature-Label-Paare des Trainingssets haben hat man Zugang zu der Ground Truth, wann die Partikel das Druckluftdüsenarray passieren.
+
+dementsprechen lösen wir für jedes Partikel \( i\) aus dem Trainingsset die Gleichung
 
 \begin{equation*}
     \mathsf{x}\hitext{PredTo} =  \mathsf{x}\hitext{Last, \(i\)} + (t\hitext{GT, \(i\)} - t\hitext{Last, \(i\)}) 
@@ -183,11 +230,22 @@ Für jedes Partikel \( i\) aus dem Trainingsset lösen wir die Gleichung
 um herauszufinden mit welcher zusätzlichen Beschleunigung \(\ddot{ \mathsf{x}}\hitext{Optimal, \(i\)}\) es optimal die Zeit,
 die es noch braucht, vorhersagen würde.
 Nun sei \(\ddot{ \mathsf{x}}\hitext{Avg}\) der Durchschnitt von allen \(\ddot{ \mathsf{x}}\hitext{Optimal, \(i\)}\).
+Für die Partikel des Testsets werden die Zeit und der Ort des Passierens des Druckluftdüsenarrays nun basierend auf deren 
+beobachteter Geschwindigkeit \(\dot{ \mathsf{x}}^{\text{Last}}\) und der errechneten Beschleunigung \(\ddot{ \mathsf{x}}\hitext{Avg}\).
+Die Zeitprädiktion \(t\hitext{Pred}\) wird bestimmt indem wir
+
+\begin{equation*}
+    \mathsf{x}(t) =  \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}}) \: \dot{ \mathsf{x}}^{\text{Last}} 
+    + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{ \mathsf{x}}\hitext{Avg}
+\end{equation*}
+
+nach \(t\) lösen.
 
 \todo{fertig machen}
 
 \section{Next Step}
 
+\color{blue}
 Netz Variante 1: den nächsten Schritt vorhersagen
 \(\Delta t \) ist immer 1.
 
@@ -196,9 +254,11 @@ Für Nextstep gesucht: \( \mathsf{x}(t^{\text{Last}} + 1)\)
 
 \todo[inline]{Latex Tabelle des pandas Dataframe mit den Spalten GroundtruthX, GroundtruthY, 
 NNPrädiktionX, NNPrädiktion, CV\_X, CV\_Y, CA\_X, CA\_Y}
+\color{black}
 
-
-Evaluation nach Euklidischer Distanz zu Groundtruth:
+In dieser Sektion soll das Ergebnis der NextStep Netze in verschiedenen Szenarien betrachtet und diskutiert werden.
+Als Evaluationskriterium für die NextStep Netze wurde die Euklidische Distanz zwischen der Prädiktion des Modell und der Ground Truth gewählt.
+Der Gesamtfehler \(\mathsf{e}\hitext{Total} \) ist also durch 
 
 \begin{align*}
     \mathsf{x}\hitext{Err} &=  \mathsf{x}\hitext{Pred} -  \mathsf{x}\hitext{GT} \\
@@ -206,16 +266,46 @@ Evaluation nach Euklidischer Distanz zu Groundtruth:
     \mathsf{e}\hitext{Total} &= \sqrt{ \mathsf{x}\hitext{Err}^2 +  \mathsf{y}\hitext{Err}^2}
 \end{align*}
 
+definiert. Verglichen wird das NextStep Netz mit einem Constant Velocity Modell und einen Constant Acceleration Modell.
+
+Das neuronale Netz hat in allen bis auf einem der untersuchten Szenarien bessere Ergebnisse als die beiden Vergleichsmodelle geliefert.
+% \todo{kann man das bei den Simulierten Zylindern so sagen?}
+Es ist auf allen realen Datensätzen besser und hat bei den simulierten nur bei den Zylindern eine schlechtere Prädiktionsqualität.
+Repräsentativ für ihre jeweiligen Szenariokategorien sind in Abbildung~\ref{fig:boxplotErrorNNnextStep} der Boxplot für die selbstaufgenommenen Kugeln auf dem Förderband,
+und in Abbildung~TODO der [Noch zu entscheiden] zu sehen.
+\todo[inline]{Entscheiden welches Zweite Szenario vorgestellt werden soll}
+In Abbildung~TODO sieht man das Fehlerhistogramm, dass zu Abbildung~\ref{fig:boxplotErrorNNnextStep} gehört.
+Es ist zu erkennen, dass die Prädiktionen des neuronalen Netz sowohl einen besseren Erwartungswert als auch eine geringere Standardabweichungen als die Vergleichsmodelle hat.
+
+
+Die Boxplots der übrigen Szenarien sind im Anhang zu finden.
+\todo[inline]{hier könnte ich noch mehr schreiben zu verschiedenen anderen Szenarien, wenn es notwendig sein sollte.}
+
+
+\todo[inline]{Regression erwähnen?}
 
 \begin{figure}[h]
     \centering
     \missingfigure{Boxplots Result NeuralNets NextStep}
 	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
-	\caption{Evaluation für die NextStep Prädiktion}
+	\caption{Evaluation für die NextStep Prädiktion - VORLÄUFIG!}
 	% \todo{Quelle Bild!}
 	\label{fig:boxplotErrorNNnextStep}
 \end{figure}
 
+
+
+Bemerkenswert schlecht war das Ergebnis allerdings bei dem DEM Zylinder Datensatz.
+Es konnte nicht abschließend geklärt werden warum dies der Fall ist, vorallem da die Ergebnisse auf den realen Zylindern, wie in Abbildung TODO zu sehen, deutlich besser waren. 
+Man könnte jedoch vermuten, dass es eine Kombination der folgende Umstände ist.
+Bei den Zylindern hängt ihre Bewegung und die Aufnahme von Bewegungsenergie vom Förderband mehr von ihrer Orientierung ab, als bei den anderen Schüttgütern.
+Diese ist nicht aus den Eingabefeatures ersichtlich - potenziell wäre es bei diesem Szenario also lohnenswert mehr als nur die Mittelpunkte als Feature zu betrachten.
+Die höhere Bandgeschwindigkeit in der Simulation als in den Realdaten könnte diesen Effekt verstärkt haben.
+Auch könnte die höhere Schüttgutdichte auf dem Förderband darauf einen Einfluss gehabt haben.
+
+
+
+\color{blue}
 - CV, CA
 - Ergebnis Netz
 - Ergebnis Lineare Regression
@@ -225,14 +315,32 @@ Vergleich Realdaten und simulierte Daten.
 Realdaten mit ungefähr \SI{1.1}{\meter\per\second} während Simulierte mit \SI{1.5}{\metre\per\second} Bandgeschwindigkeit 
 
 Zylinder schlechte performance erklären \textrightarrow orientierung fehlt
+\color{black}
 
 \section{Separator}
 
+\color{blue}
 CV, CA quasi wie oben.
 zusätzlich: CVBC, AA und IA
 
 - Ergebnis NN
 - Ergebnis Lineare Regression
+\color{black}
+
+
+
+In dieser Sektion sollen nun die Ergebnisse der Separator Netze in verschiedenen Szenarien betrachtet und diskutiert werden.
+Im Gegensatz zu diesen können die beiden Labelelemente nicht in einem gemeinsamen Evaluationskriterium zusammengefasst werden.
+Deshalb werden hier die zeitliche Abweichung vom prädizierten Kontaktzeitpunkt mit dem Druckluftdüsenarray und die örtliche Abweichung des Schnittpunkts des Bahn des Partikels mit dem Druckluftdüsenarray separat betrachtet.
+Ebenso wie bei den NextStep Netzen werden hier ein Constant Velocity- und ein Constant Acceleration Modell als Vergleichsmodelle für die Ausgaben des neuronalen Netz benutzt.
+Zusätzlich kommen jedoch noch mehr Modelle hinzu. 
+Das Bias-Corrected Constant Velocity Modell liefert eine sowohl Prädiktion für den Zeit als auch für den Ort.
+Die Average Acceleration und Identical Acceleration Modelle werden nur für die zeitliche Prädiktion zum Vergleich herangezogen,
+weil ...
+\todo{begründung}.
+
+
+
 
 \begin{figure}[h]
     \centering

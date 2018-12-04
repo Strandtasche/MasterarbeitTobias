@@ -32,7 +32,7 @@ mittels neuronaler Netze erzielt wurden, wurde das Interesse an dem Feld neu ent
 
 % Nachdem jedoch Marvin Minsky und Seymour Papert zeigten, dass einzelne Perzeptrons nicht in der Lage sind linear nicht separierbare Probleme zu lösen sank das Interesse an dem Feld.
 
-\subsection{{Perzeptron}}
+\subsection{Perzeptron}
 Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt beschrieben wurde \cite{rosenblatt1958perceptron}.
 Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(o\) ausgibt.
 
@@ -56,7 +56,7 @@ Mathematisch ist die Ausgabe eines Perzeptrons also wie folgt definiert:
 \end{equation}
 
 Ein Überblick über verschiedene Aktivierungsfunktionen, die für solch ein Perzeptron benutzt werden, ist unter~\ref{sec:activationfuncs} zu finden.
-Beim Lernen werden die Gewichte der einzelnen Eingaben so an gepasst, dass die gewünschte Ausgabe erreicht wird.
+Beim Lernen werden die Gewichte der einzelnen Eingaben so angepasst, dass die gewünschte Ausgabe erreicht wird.
 \todo{Vielleicht ein paar Sätze zum Perceptron Learning Algorithm?}
 Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen Operatoren AND, OR und NOT genutzt werden
 
@@ -72,7 +72,7 @@ Solche, nicht linear-separierbare Probleme zu lösen müssen mehrere Schichten a
 \label{sec:activationfuncs}
 \todo[inline]{Entscheiden, ob diese Section weg soll, oder auf nur ReLU reduziert werden sollte}
 Es gibt verschiedene Aktivierungsfunktionen, die für den Einsatz in neuronalen Netzen in Frage kommen.
-Sie sind von notwendig, da ohne eine Nicht-Linearität das Netz in eine einfache Regression kollabiert.
+Sie sind notwendig, da ohne eine Nicht-Linearität das Netz in eine einfache Regression kollabiert.
 
 Eine Aktivierungsfunktion sollte leicht abzuleiten sein, 
 da dies im Rahmen des Trainings mit dem Backpropagation Algorithmus häufig geschieht 
@@ -111,7 +111,7 @@ durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Line
 	Abbildung~\ref{reluoutput} zeigt das Schaubild einer solchen ReLU. 
 	\todo{ReLU plot neu machen: dicker bei unter 0 und als Vector graphic statt als PNG}
 	Die Aktivierung von ReLUs ist ein einfacher Schwellwert, der weit weniger rechenintensiv ist, als die aufwendigen Exponenzialfunktionen von Sigmoid und tanh.
-	In der Praxis hat sich gezeigt zudem gezeigt, dass ReLus deutlich schneller konvergieren als Sigmoid- oder tanh-Neuronen.  
+	In der Praxis hat sich zudem gezeigt, dass ReLus deutlich schneller konvergieren als Sigmoid- oder tanh-Neuronen.  
 	Krizhevsky et al. haben in ihrem Paper~\cite{NIPS2012_4824} einen Geschwindigkeitsgewinn um Faktor 6 feststellen können.
 	Ein Problem, das mit ReLUs jedoch existiert ist, dass einzelne Neuronen während dem Training "absterben" können, falls sie irgendwann in dem Bereich landen, wo der Gradient 0 ist.
 	Diese Neuronen sind dann für jeden beliebigen Input inaktiv und können niemals wieder etwas zur Ausgabe des Netzes beitragen.
@@ -171,16 +171,16 @@ durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Line
 
 
 Als Feedforward Netz bezeichnet man ein neuronales Netz, zwischen dessen Knoten keine Kreise oder Schleifen existieren.
-Ein Netz in dem es solche Verbindungen gibt bezeichnet man als \textit{Rekurrentes Neuronales Netz}.
+Ein Netz, in dem es solche Verbindungen gibt, bezeichnet man als \textit{Rekurrentes Neuronales Netz}.
 Die Informationen wandert in der Verarbeitungsrichtung von den Eingabeknoten zu den Ausgabeknoten.
 Für gewöhnlich sind die einzelnen Knoten in Schichten, sogenannten Layern, organisiert.
-Die Neuronen eines einzelnen Layers sind meist 
+Die Neuronen eines einzelnen Layers sind meist [...]
 Die Eingabe wird in ein Input Layer eingeben.
 
 \subsection{Backpropagation}
 
 \todo[inline]{Optional: am Ende entscheiden ob ich noch mehr Kontent möchte und dann gegebenenfalls ausformulieren}
-Der Backpropagation Algorithmus ist ein Verfahren mit denen künstliche neuronale Netze in der Lage sind komplizierte Zielfunktionen einzulernen.
+Der Backpropagation Algorithmus ist ein Verfahren, mit denen künstliche neuronale Netze in der Lage sind, komplizierte Zielfunktionen einzulernen.
 Es ist eine Methode, bei der effizient der Gradient der Fehlerfunktion in Abhängigkeit vom Gewicht der einzelnen Kanten im Netz bestimmt werden kann,
 was dann für einen Gradientenabstieg verwendet werden kann. 
 
@@ -192,9 +192,10 @@ was dann für einen Gradientenabstieg verwendet werden kann.
 \end{itemize}
 \color{black}
 
-\subsection{Performancemaß}
+\subsection{Performance-Maß}
 
-Das essenzielle Maß nachdenen neuronale Netze bewertet werden, ist wie gut sie mit neuen, unbekannten Daten umgehen, die nicht in den Trainingsdaten vorhanden waren. 
+Neuronale Netze werden in der Regel danach bewertet, wie gut sie mit unbekannte, das heißt nicht im Training vorgekommenen, Daten umgehen können.
+% Das essenzielle Maß nachdenen neuronale Netze bewertet werden, ist wie gut sie mit neuen, unbekannten Daten umgehen, die nicht in den Trainingsdaten vorhanden waren. 
 Diese Eigenschaft von Trainingsdaten auf unabhängige Testdaten zu schließen wird Generalisierung genannt. 
 
 Als Overfitting bezeichnet man es, wenn ein Modell sich zu sehr an ein gegebenes Datenset anpasst und 
@@ -214,7 +215,7 @@ Das kann passieren wenn das Modell nicht ausreichend komplex ist um die zugrunde
 
 
 Sowohl Overfitting als auch Underfitting hängen mit der Kapazität eines Netzes zusammen.
-Ist die Kapazität zu gering kann es sein, dass das Netz daran scheitert die Trainingsdaten zu lernen.
+Ist die Kapazität zu gering, kann es sein, dass das Netz daran scheitert die Trainingsdaten zu lernen.
 Ist die Kapazität zu groß, so kann es passieren, dass das Netz, umgangsprachlich ausgedrückt, die Trainingsdaten einfach auswendig lernt.
 \todo{umgangsprachlich mit einer besseren Formulierung ersetzen...}
 
@@ -292,8 +293,8 @@ Dabei ist \(V\) die Loss Funktion, beispielsweise \textit{Mean-Square-Error} ode
 Die Funktion \(f\) ist in unserem Fall das neuronale Netz, das die Features entgegen nimmt.
 \(\lambda\) ist ein Parameter, der die Gewichtung des Regularisierungsterm festlegt.
 Wählt man diesen Parameter zu klein, so kann es sein, dass das Modell trotz Regularisierung noch immer overfittet.
-Wählt man ihn zu groß so kann es sein, dass das Modell das Problem nicht mehr korrekt abbildet und es zu Underfitting kommt.
-Der Regularisierungsterm \(R\) wird so gewählt, dass er die Komplexität der Funktion \(f\) wiederspiegelt.
+Wählt man ihn zu groß, so kann es sein, dass das Modell das Problem nicht mehr korrekt abbildet und es zu Underfitting kommt.
+Der Regularisierungsterm \(R\) wird so gewählt, dass er die Komplexität der Funktion \(f\) widerspiegelt.
 Ein gutes Maß für die Komplexität eines neuronalen Netzes sind die Gewichte zwischen den Neuronen.
 Beispiele für \(R\) wären zum Beispiel die \(L_1\)- oder die \(L_2\)-Regularisierung. % die jeweils mit der \(L_1\) beziehungsweise mit der \(L_2\)-Norm arbeiten.
 Der entscheidende Unterschied zwischen den beiden ist der unterschiedliche Strafterm, zu sehen in~\ref{eqn:MSE-L1} für \(L_1\) und~\ref{eqn:MSE-L2} für \(L_2\). 
@@ -308,9 +309,9 @@ Die Fehlerfunktionen sind jeweils MSE mit dazugehörigen Strafterm.
 \end{equation} 
 
 
-Ein Regressionsmodell, dass \(L_1\)-Regularisierung verwendet wird auch als Lasso Regression bezeichnet, 
+Ein Regressionsmodell, das \(L_1\)-Regularisierung verwendet wird auch als Lasso Regression bezeichnet, 
 während ein Modell mit \(L_2\)-Regularisierung als Ridge Regression beschrieben werden kann.
-Vergleicht man die beiden Ansätze, so schrumpft die \(L_1\) Norm weniger wichtige Gewichte auf 0, was zu dünn besetzten Gewichtsvektoren führt.
+Vergleicht man die beiden Ansätze, so schrumpft die \(L_1\)-Norm weniger wichtige Gewichte auf 0, was zu dünn besetzten Gewichtsvektoren führt.
 Dies kann eine wünschenswerte Eigenschaft sein.
 Im Gegensatz dazu hat die \(L_2\)-Regularisierung, den Vorteil, dass sie effizienter berechnen kann.
 Der Strafterm von \(L_2\) hat eine geschlossene Form und kann in Form einer Matrix angewendet werden, während die Funktion von \(L_1\) auf Grund des Betrags eine nicht-differenzierbar ist.
@@ -323,7 +324,7 @@ Dabei werden während dem Training eines neuronalen Netzes
 mit einer festgelegten Wahrscheinlichkeit zufällig Neuronen und die dazugehörigen Verbindungen abgeschaltet, 
 wie in Abbildung~\ref{fig:dropout} dargestellt.
 \todo{Ist die Grafik essenziell fürs Verständnis?}
-Dies soll insofern Overfitting vermeiden, dass es übermässige Kodaption von mehreren Neuronen erschwert.
+Dies soll insofern Overfitting vermeiden, dass es übermässige Koadaption von mehreren Neuronen erschwert.
 Dropout als Technik wird insbesondere bei tiefen neuronalen Netzen eingesetzt. 
 
 \begin{figure}[h]
