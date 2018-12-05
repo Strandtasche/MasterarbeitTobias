@@ -6,7 +6,7 @@ Jetzt bewerten wie gut sie das eigentlich mache.}
 \section{System}
 
 Alle in dieser Arbeit vorgestellten Netze wurden auf einem Ubuntu 18.04 Linux System trainiert und evaluiert.
-Dieses verfügte über einen Intel i7-7700k CPU @ \SI{4.20}{\giga\hertz}, eine NVIDIA GeForce 1080Ti Grafikkarte mit \SI{11}{\giga\byte}~GDDR5X,
+Dieses verfügt über einen Intel i7-7700k CPU @ \SI{4.20}{\giga\hertz}, eine NVIDIA GeForce 1080Ti Grafikkarte mit \SI{11}{\giga\byte}~GDDR5X,
 und \SI{32}{\giga\byte}~RAM. 
 
 \todo[inline]{muss da noch irgendwie mehr dazu?}
@@ -333,12 +333,11 @@ In dieser Sektion sollen nun die Ergebnisse der Separator Netze in verschiedenen
 Im Gegensatz zu diesen können die beiden Labelelemente nicht in einem gemeinsamen Evaluationskriterium zusammengefasst werden.
 Deshalb werden hier die zeitliche Abweichung vom prädizierten Kontaktzeitpunkt mit dem Druckluftdüsenarray und die örtliche Abweichung des Schnittpunkts des Bahn des Partikels mit dem Druckluftdüsenarray separat betrachtet.
 Ebenso wie bei den NextStep Netzen werden hier ein Constant Velocity- und ein Constant Acceleration Modell als Vergleichsmodelle für die Ausgaben des neuronalen Netz benutzt.
-Zusätzlich kommen jedoch noch mehr Modelle hinzu. 
+Es werden mehr Vergleichmodelle hinzugezogen. 
 Das Bias-Corrected Constant Velocity Modell liefert eine sowohl Prädiktion für den Zeit als auch für den Ort.
 Die Average Acceleration und Identical Acceleration Modelle werden nur für die zeitliche Prädiktion zum Vergleich herangezogen,
 weil ...
 \todo{begründung}.
-
 
 
 
@@ -350,3 +349,14 @@ weil ...
 	% \todo{Quelle Bild!}
 	\label{fig:boxplotErrorNNSeparator}
 \end{figure}
+
+
+\section{Zusammenfassung und Diskussion}
+
+
+Die Fehlerfunktion nach der im Rahmen dieser Arbeit optimiert worden ist, ist MSE.
+Es konnte beobachtet werden, dass bei mehrmaligem Trainieren eines Netzes 
+mit identischen Hyperparametern und Daten, unterschiedliche Ergebnisse mit einem ähnlichen MSE insgesamt aber einer Verschiebung zwischen dem Mittelwert und der Standardabweichung  
+an dessen Ende standen.
+Dies ist auf verschiedene stochastische Vorgänge während dem Training zurück zu führen, wie die Initialisierung der Gewichte zwischen den Neuronen und die Reihenfolge beziehungsweise das Batching der Trainingsbeispiele.
+Der Einsatz einer anderen Fehlerfunktion, zum Beispiel 

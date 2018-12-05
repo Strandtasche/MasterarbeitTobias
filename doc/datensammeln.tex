@@ -2,17 +2,23 @@
 
 % Wie bei jeder Anwendung von maschinellen Lernverfahren sind die zugrundeliegenden Daten von äußerster Wichtigkeit.
 Bei maschinellen Lernverfahren ist die Qualität und der Umfang der zugrundeliegenden Daten sehr wichtig,
-da diese die Güte des Ergebnisses stark beeinflussen kann.
+da diese die Güte des Ergebnisses stark beeinflussen können.
 Im Rahmen dieser Masterarbeit wurden zweierlei Sorten von Daten benutzt:
 Einerseits wurden am \textit{TableSort} Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht, 
 die dann über mehrere Arbeitsschritte in das richtige Datenformat übersetzt wurden.
 Zudem existieren Datensatze, die mit der \textit{Diskrete-Elemente-Methode} (DEM) simuliert wurden. 
+In diesem Kapitel soll nun beschrieben werden welche Form diese Daten annehmen, wie sie verarbeitet werden 
+und wie in welcher Form sie dann letztendlich in die neuronalen Netze gegeben werden.
+Abschließend wird die Datenaugmentierung die vorgenommen wurde vorgestellt und erklärt.
 
 
 
 
 
 \section{Eigene Aufnahmen}
+
+In diesem Abschnitt soll beschrieben werden, welche Form die am Fraunhofer IOSB selbst aufgenommenen Daten haben und welche Szenarien sie darstellen.
+
 
 \subsection{Versuchsaufbau}
 \todo[inline]{passendere überschrift finden?}
@@ -31,6 +37,9 @@ Zur Aufnahme der Daten wurde eine Bonito~CL-400~200~FPS~Kamera benutzt.
 % , die in Abbildung~\ref{pictureCam} zu sehen ist.
 Diese wurde, wie in Abbildung~\ref{fig:tablesortsystem} oberhalb des Förderbandes angebracht.
 Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726~Pixeln~\cite{alliedvisiontechnologiesgmbh2014}.
+Anhand mehrerer Kalibrierungsbilder wurde bestimmt, dass 1 Pixel im Bild ungefähr \SI{0.056}{\milli\meter} entspricht.
+Im weiteren Verlauf der Arbeit wird mit Pixeln~(px) als der Einheit des Orts für die selbst aufgenommenen Bilder gearbeitet.
+
 \todo[inline]{Rutschenkonfiguration Tablesort erwähnen?}
 \todo[inline]{Umrechengröße pixel zu mm, im weiteren verlauf werden pixel benutzt}
 
@@ -142,7 +151,7 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 % \color{black}
 
 Die Features, die für das Trainieren der Netze benutzt werden, sind die Koordinaten der Mittelpunkte der Partikel.
-Diese aus den aufgenommenen Bildern zu bestimmten ist das Ziel dieser Pipeline.
+Diese aus den aufgenommenen Bildern zu bestimmten ist die Aufgabe dieser Pipeline.
 
 Am Anfang davon stehen die Bilder, die die Bonito-Kamera in Form einer Bayer-Matrix aufnimmt, wie sie in~\ref{fig:bayerPattern} zu sehen ist.
 Diese werden dann in Batches von je 3500 Bildern gesammelt und in Bitmap-Dateien geschrieben.
@@ -174,7 +183,7 @@ Diese bestehen aus einem oberen und unteren Grenzwert in jedem Kanal des HSV-Rau
 Entsprechend der durch das Profil festgelegten Parameter werden für die einzelnen Bilder Masken angelegt,
 die angeben ob die HSV-Werte der einzelnen Pixel innerhalb oder außerhalb der Grenzwerte liegen. 
 Mit diesen Masken werden dann alle möglichen Konturen von Schüttgutpartikeln extrahiert, 
-bevor diese noch einmal bezüglich der Sinnhaftigkeit ihrer Größe und Form gefiltert werden. 
+bevor diese noch einmal bezüglich der Plausibilität ihrer Größe und Form gefiltert werden. 
 Im letzten Schritt wird nun der gewichtete Mittelpunkt der einzelnen Konturen bestimmt und abgespeichert.
 Das Ergebnis von diesem Segmentierungsscripts ist eine CSV-Datei für jedes Batch.
 Ein Beispiel für einen Ausschnitt aus solch einer Datei ist in Tabelle~\ref{table:Segmentierungsscript} zu sehen.
@@ -285,7 +294,7 @@ Der Größte davon ist, dass die Positionen der simulierten Partikel eine absolu
 die direkt aus Simulation entnommen wurde.
 So verlässlich sind die Partikelpositionen bei den selbst aufgenommen Daten nicht.
 Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann es zu Fehlern kommen, die sich durch die gesamte Pipeline fortpflanzen.
-Die Segmentierung kann an einigen Stellen nicht präzise sein, in dem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
+Die Segmentierung kann an einigen Stellen nicht präzise sein, indem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
 Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Multi-Target-Tracking} Algorithmus die beiden Tracks vertauscht.  
 Des weiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
 während Messungen am realen \textit{TableSort} System darauf hindeuten, dass das Förderband dort nur eine Geschwindigkeit von 
@@ -396,6 +405,14 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 
 \begin{figure}[h]
 	\centering
+	\includegraphics[width=\textwidth]{geometrie}
+	\caption{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}}
+	% \todo{Quelle - test?}
+	\label{fig:Schnittpunkt}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
 	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
 	\includegraphics[width=0.6\textwidth]{weizen_003_trackHistory_NothingDeleted_sep-v3}
 	\caption[Beispiel Feature-Label-Paar Separator]{An diesem Ausschnitt eines Tracks wird beispielhaft mit FeatureSize 5 gezeigt, wie die einzelnen Feature-Label-Paare im Separator Fall entstehen.
@@ -419,7 +436,7 @@ Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\
 	X_{\text{neu}} = \frac{X - \mu}{\sigma} %\mu_{\text{N}}}{\sigma_{\text{N}}}
 \end{equation*}
 
-Durch die Standardisierung wird jedes Label so skaliert, dass die beiden Elemente der Labels jeweils einen Erwartungswert von 0 und eine Standardabweichung von 1 haben. 2
+Durch die Standardisierung wird jedes Label so skaliert, dass die beiden Elemente der Labels jeweils einen Erwartungswert von 0.0 und eine Standardabweichung von 1.0 haben.
 Die Ausgaben des Netzes müssen umkehrt zurück in das ursprüngliche Format umgerechnet werden.
 % \todo{überlegen wie ich klar mache, dass es sich um den durchschnitt und die Abweichung der jeweiligen Spalte handelt}
 Solch ein Ungleichgewicht zwischen den Labelelementen würde zum Beispiel auftreten, wenn sich die Werte des einen Elements im Bereich zwischen 0 und 1700 bewegen, während die des Anderen zwischen 1 und 25 liegen,
@@ -433,14 +450,7 @@ Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht Gebr
 Dies könnte nützlich sein, falls die Ansteuerung der Druckluftdüsen eine maximale Auflösung hat, jenseits derer eine bessere Zeitprädiktion keine Verbesserung der Sortierqualität mehr erreicht.
 % \todo{hier noch schreiben, warum man das tun wollen könnte, oder nicht?}
 
-\begin{figure}[h]
-	\centering
-	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
-	\includegraphics[width=\textwidth]{geometrie}
-	\caption{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}}
-	% \todo{Quelle - test?}
-	\label{fig:Schnittpunkt}
-\end{figure}
+
 
 
 
@@ -474,7 +484,7 @@ Man generiert aus den bestehenden Daten zusätzliche, synthetische Daten, die da
 Ausreichend viele Trainingsbeispiele zu haben ist notwendig um mit neuronalen Netzen eine gute Performance zu erzielen.
 Die synthetischen Beispiele müssen jedoch plausibel sein, da sie sonst die Qualität der Ausgabe des Netzes negativ beeinträchtigen können.
 
-Für Netze, die in der Computervision eingesetzt werden gibt es einige weit verbreitete Techniken,
+Für Netze, die in der Computer Vision eingesetzt werden gibt es einige weit verbreitete Techniken,
 zum Beispiel Rotation, Translation, Spiegeln und das Ausschneiden von Teilbildern.
 
 Für den gegebenen Fall mit den Mittelpunkten von Schüttgut-Partikeln als Features resultiert von diesen Techniken nur das Spiegeln in zweifelsfrei sinnvollen Daten.

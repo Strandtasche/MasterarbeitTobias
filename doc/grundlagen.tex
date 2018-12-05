@@ -63,10 +63,9 @@ Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen 
 % Letztendlich ist ein solches Perzeptron jedoch nur ein linearer Klassifikator und kann somit 
 % zum Beispiel den XOR Operator nicht auflösen.
 Ein Perzeptron ist jedoch nur ein linearer Klassifikator und kann dementsprechend zum Beispiel den XOR Operator nicht korrekt abbilden.
-Dies zeigten Marvin Minksy und Seymour Papert 1969 in einflussreichen Buch \textit{Perceptrons: an introduction to computational geometry} \todo{quelle}
+Dies zeigten Marvin Minksy und Seymour Papert 1969 in einflussreichen Buch \textit{Perceptrons: an introduction to computational geometry} \todo{quelle}.
 \todo{Linear Trennbares / Nicht-linear Trennbares Problem (AND vs XOR)}
-
-Solche, nicht linear-separierbare Probleme zu lösen müssen mehrere Schichten an Neuronen kombiniert werden.
+Um solche nicht linear-separierbare Probleme zu lösen müssen mehrere Schichten an Neuronen kombiniert werden.
 
 \subsection{Aktivierungsfunktionen}
 \label{sec:activationfuncs}
@@ -83,9 +82,9 @@ In der Vergangenheit wurden einige verschiedene Aktivierungsfunktionen verwendet
 % Einige häufig verwendete Aktivierungsfunktionen sollen hier vorgestellt werden.
 Jede dieser Funktionen stellt eine Nicht-Linearität dar und nimmt eine einzelne Zahl, wendet eine bestimmte, festgelegte mathematische 
 Operation auf diese an und gibt das Ergebnis zurück.
-Historisch ist häufig die Sigmoid-Funktion verwendet worden, da sie das Verhalten eines natürlichen Neurons gut nachbildet.
+Historisch ist häufig die Sigmoid-Funktion \(\sigma(x)\) verwendet worden, da sie das Verhalten eines natürlichen Neurons gut nachbildet.
 \begin{equation}
-	f(x) = \frac{1}{1 + e^x} = \frac{e^x}{e^{x + 1}}
+	\sigma(x) = \frac{1}{1 + e^x} = \frac{e^x}{e^{x + 1}}
 	\label{func:Sigmoid}
 \end{equation}
 In der Praxis jedoch haben sich einige Nachteile der Sigmoid-Funktion gezeigt.
@@ -109,7 +108,7 @@ durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Line
 	\end{cases}
 \end{equation*}
 	Abbildung~\ref{reluoutput} zeigt das Schaubild einer solchen ReLU. 
-	\todo{ReLU plot neu machen: dicker bei unter 0 und als Vector graphic statt als PNG}
+	% \todo{ReLU plot neu machen: dicker bei unter 0 und als Vector graphic statt als PNG}
 	Die Aktivierung von ReLUs ist ein einfacher Schwellwert, der weit weniger rechenintensiv ist, als die aufwendigen Exponenzialfunktionen von Sigmoid und tanh.
 	In der Praxis hat sich zudem gezeigt, dass ReLus deutlich schneller konvergieren als Sigmoid- oder tanh-Neuronen.  
 	Krizhevsky et al. haben in ihrem Paper~\cite{NIPS2012_4824} einen Geschwindigkeitsgewinn um Faktor 6 feststellen können.
@@ -127,7 +126,7 @@ durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Line
 
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.618\textwidth]{ReLu}
+		\includegraphics[width=0.618\textwidth]{reluPlot.pdf}
 		\caption{Schaubild der Ausgabe einer ReLU}
 		\label{reluoutput}
 	\end{figure}
@@ -159,6 +158,7 @@ durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Line
 \subsection{Feedforward Netze}
 
 % \textbf{absatz über Feedforward Netze. Basic}
+\color{blue}
 \begin{itemize}
 	\item Definition (keine Kreise oder Schleifen). (Kommentar Florian: \"Rückkopplung\")
 	\item Gegenstück zum RNN
@@ -167,15 +167,27 @@ durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Line
 	\item Outputlayer: Verschiedene Aktivierungsfunktionen:
 	\item Linear für regression, z.B. Softmax für Wahrscheinlichkeitsverteilung Softmax
 \end{itemize}
+\color{black}
 
 
 
 Als Feedforward Netz bezeichnet man ein neuronales Netz, zwischen dessen Knoten keine Kreise oder Schleifen existieren.
 Ein Netz, in dem es solche Verbindungen gibt, bezeichnet man als \textit{Rekurrentes Neuronales Netz}.
-Die Informationen wandert in der Verarbeitungsrichtung von den Eingabeknoten zu den Ausgabeknoten.
+Die Informationen wandert in der Verarbeitungsrichtung von den Eingabeneuronen zu den Ausgabeneuronen.
 Für gewöhnlich sind die einzelnen Knoten in Schichten, sogenannten Layern, organisiert.
-Die Neuronen eines einzelnen Layers sind meist [...]
-Die Eingabe wird in ein Input Layer eingeben.
+Auf ein Eingabe- oder auch Input Layer folgen eine Menge an sogenannten Hidden Layers.
+Den Schlussstein bildet das Ausgabe- oder auch Output Layer.
+Die Neuronen eines einzelnen Hidden Layers sind meist uniform und verwenden identische Aktivierungsfunktionen, wie sie in Abschnitt~\ref{sec:activationfuncs} beschrieben sind.
+Je nachdem welche Aufgabe das neuronale Netz erfüllen soll können unterschiedliche Aktivierungsfunktionen für das Output Layer sinn ergeben.
+Häufig genutzt ist die \textit{Softmax} Funktion für Klassifikation, da sie eine Wahrscheinlichkeitsverteilung als Ausgabe hat.
+Für Regression benutzt man lineare Aktivierungsfunktionen für das Output Layer. 
+Durch die Hintereinanderschaltung von mehreren Layern von Neuronen können auch Probleme, die nicht linear-separierbar sind, gelöst werden.
+Tatsächlich sind solche Neuronalen Netze bewiesenermaßen universale Funktionsapproximatoren - 
+sie können mit endlich vielen Neuronen in den Hidden Layers beliebige kontinuierliche Funktionen auf kompakten Subsets von \(\mathbb{R}^n\) approximieren.
+\todo[inline]{mit Quelle belegen? Universal approximation theorem }
+Es gibt viele verschiedene Unterkategorien von Feedforward Netzen, die in verschiedensten Bereichen Verwendung finden.
+Convolutional Neural Networks zeichnen sich durch eine spezielle Struktur aus sogenannten Convolutional Layers aus, die als Featureextractor fungieren.
+Diese Art von Netz findet unter anderem in der Bildverarbeitung Anwendung.
 
 \subsection{Backpropagation}
 
@@ -201,7 +213,6 @@ Diese Eigenschaft von Trainingsdaten auf unabhängige Testdaten zu schließen wi
 Als Overfitting bezeichnet man es, wenn ein Modell sich zu sehr an ein gegebenes Datenset anpasst und 
 dafür in Kauf nimmt zusätzliche oder zukünftige Daten schlechter zu repräsentieren.
 Das System wird also schlechter darin zu generalisieren.
-
 Im Feld des überwachten Lernens beziehungsweise der neuronalen Netze ist Overfitting daran zu erkennen,
 dass die Qualität die Ausgaben des Netzes auf dem Trainingsdatenset sich weiter verbessert,
 während sie auf dem Testdatenset schlechter wird.
@@ -231,7 +242,16 @@ Die Kapazität ist zu niedrig und dementsprechend schafft das Modell es nicht di
 In Abbildung~\ref{subfig:rightfitting} ist der Grad des Polynoms 4.
 Das resultierende Modell ist eine gute Approximation der ursprünglichen Funktion.
 
-In Abbildung~\ref{subfig:overfitting}
+In Abbildung~\ref{subfig:overfitting} ist der Grad des Polynoms mit 17 deutlich zu hoch.
+Man kann am resultierenden Modell erkennen wie es dem Rauschen der Samples folgt und wie es an den Rändern des betrachteten Bereichs weit ausschlägt.
+
+Die beste Methode um Overfitting zu vermeiden ist es mehr Trainingsdaten zu bekommen.
+In der Praxis kann dies oft umständlich, kostspielig oder sogar unmöglich sein, 
+weshalb auf das Generiern von synthetischen Trainingsdaten, oder auch Datenaugmentierung genannt, zurückgegriffen wird.
+% There is no Data like more Data
+Auch der Einsatz von Regularisierungsverfahren kann helfen Overfitting zu verringern.
+Als letzter Schritt kann die Kapazität der Architektur gesenkt werden,
+zum Beispiel indem die Anzahl der zur Verfügung stehenden Layer reduziert wird.
 
 \begin{figure}[h]
     \centering
@@ -257,12 +277,13 @@ In Abbildung~\ref{subfig:overfitting}
 	\label{fig:capacity}
 \end{figure}
 
+\color{blue}
 \begin{itemize}
 	\item Methoden um Overfitting zu vermeiden:
 	\item Mehr Trainingsdaten (z.\,B. durch Data-Augmentation)
 	\item Regularisierung (L1, \(L_2\) (siehe unten), dropout)
 \end{itemize}
-
+\color{black}
 
 \subsection{Regularisierung} \label{ssec:Regul}
 
