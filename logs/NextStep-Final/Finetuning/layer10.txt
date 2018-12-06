@@ -1,0 +1,3295 @@
+INFO:root:Tensorflow 1.8.0
+INFO:root:time: 2018-10-14_18.21.44
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:/home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10 does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 31485.668, 'loss': 28466980.0, 'rmse': 177.44202, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 524.82794, 'loss': 474510.06, 'rmse': 22.909124, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 347.4683, 'loss': 314154.78, 'rmse': 18.640501, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 256.81622, 'loss': 232193.97, 'rmse': 16.025486, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 83.21415, 'loss': 75235.99, 'rmse': 9.122179, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 65.26614, 'loss': 59008.75, 'rmse': 8.078747, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 66.99804, 'loss': 60574.6, 'rmse': 8.185233, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 39.484566, 'loss': 35698.984, 'rmse': 6.2836747, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 2568.9348, 'loss': 2322638.2, 'rmse': 50.68466, 'global_step': 40500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 296.78705, 'loss': 268332.6, 'rmse': 17.227509, 'global_step': 45500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 188.5752, 'loss': 170495.55, 'rmse': 13.732268, 'global_step': 50500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 96.16723, 'loss': 86947.195, 'rmse': 9.806489, 'global_step': 55500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 76.58776, 'loss': 69244.91, 'rmse': 8.751443, 'global_step': 60500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 59.16012, 'loss': 53488.14, 'rmse': 7.6915617, 'global_step': 65500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 47.75353, 'loss': 43175.16, 'rmse': 6.9103928, 'global_step': 70500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 40.798714, 'loss': 36887.137, 'rmse': 6.3873873, 'global_step': 75500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 35.061398, 'loss': 31699.887, 'rmse': 5.9212666, 'global_step': 80500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 40.291294, 'loss': 36428.367, 'rmse': 6.3475423, 'global_step': 85500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 29.89863, 'loss': 27032.1, 'rmse': 5.467964, 'global_step': 90500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 20.851345, 'loss': 18852.223, 'rmse': 4.566327, 'global_step': 95500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 218.39774, 'loss': 197458.86, 'rmse': 14.778286, 'global_step': 100500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 18.991386, 'loss': 17170.588, 'rmse': 4.3579106, 'global_step': 105500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 13.46266, 'loss': 12171.928, 'rmse': 3.6691496, 'global_step': 110500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 56.03946, 'loss': 50666.676, 'rmse': 7.485951, 'global_step': 115500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 49.099327, 'loss': 44391.93, 'rmse': 7.007091, 'global_step': 120500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 30.128832, 'loss': 27240.23, 'rmse': 5.4889736, 'global_step': 125500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 34.670074, 'loss': 31346.08, 'rmse': 5.88813, 'global_step': 130500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 16.435339, 'loss': 14859.601, 'rmse': 4.0540524, 'global_step': 135500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 26.734085, 'loss': 24170.955, 'rmse': 5.170501, 'global_step': 140500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 27.452843, 'loss': 24820.8, 'rmse': 5.239546, 'global_step': 145500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 15.998791, 'loss': 14464.906, 'rmse': 3.9998488, 'global_step': 150500}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 14.379023, 'loss': 13000.434, 'rmse': 3.791968, 'global_step': 155500}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 19.410727, 'loss': 17549.723, 'rmse': 4.405761, 'global_step': 160500}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 19.265135, 'loss': 17418.09, 'rmse': 4.3892064, 'global_step': 165500}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 21.49432, 'loss': 19433.553, 'rmse': 4.6361966, 'global_step': 170500}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 17.777811, 'loss': 16073.363, 'rmse': 4.2163744, 'global_step': 175500}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 12.34628, 'loss': 11162.58, 'rmse': 3.5137274, 'global_step': 180500}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 12.697219, 'loss': 11479.873, 'rmse': 3.5633156, 'global_step': 185500}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 15.1655855, 'loss': 13711.586, 'rmse': 3.8943017, 'global_step': 190500}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 13.716323, 'loss': 12401.2705, 'rmse': 3.7035553, 'global_step': 195500}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 17.474453, 'loss': 15799.091, 'rmse': 4.1802454, 'global_step': 200500}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 13.054947, 'loss': 11803.304, 'rmse': 3.613163, 'global_step': 205500}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 11.474697, 'loss': 10374.561, 'rmse': 3.3874323, 'global_step': 210500}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 17.890425, 'loss': 16175.181, 'rmse': 4.2297072, 'global_step': 215500}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 9.991563, 'loss': 9033.622, 'rmse': 3.1609433, 'global_step': 220500}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 11.458323, 'loss': 10359.756, 'rmse': 3.3850143, 'global_step': 225500}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 21.948858, 'loss': 19844.512, 'rmse': 4.684961, 'global_step': 230500}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 11.77196, 'loss': 10643.323, 'rmse': 3.431029, 'global_step': 235500}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 19.217173, 'loss': 17374.727, 'rmse': 4.3837395, 'global_step': 240500}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 11.74947, 'loss': 10622.989, 'rmse': 3.4277499, 'global_step': 245500}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 11.782571, 'loss': 10652.917, 'rmse': 3.432575, 'global_step': 250500}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 19.633854, 'loss': 17751.459, 'rmse': 4.4310102, 'global_step': 255500}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 10.966515, 'loss': 9915.1, 'rmse': 3.3115728, 'global_step': 260500}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 16.333818, 'loss': 14767.816, 'rmse': 4.041512, 'global_step': 265500}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 12.600592, 'loss': 11392.51, 'rmse': 3.5497313, 'global_step': 270500}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 10.436243, 'loss': 9435.668, 'rmse': 3.2305174, 'global_step': 275500}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 9.744647, 'loss': 8810.379, 'rmse': 3.1216416, 'global_step': 280500}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 8.753173, 'loss': 7913.9624, 'rmse': 2.9585762, 'global_step': 285500}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 9.575273, 'loss': 8657.243, 'rmse': 3.0943937, 'global_step': 290500}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 14.777445, 'loss': 13360.657, 'rmse': 3.8441443, 'global_step': 295500}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 11.828197, 'loss': 10694.168, 'rmse': 3.4392145, 'global_step': 300500}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 14.390009, 'loss': 13010.367, 'rmse': 3.7934165, 'global_step': 305500}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 9.5648, 'loss': 8647.775, 'rmse': 3.0927012, 'global_step': 310500}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 10.31056, 'loss': 9322.035, 'rmse': 3.2110062, 'global_step': 315500}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 9.591036, 'loss': 8671.495, 'rmse': 3.0969398, 'global_step': 320500}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 9.437917, 'loss': 8533.057, 'rmse': 3.0721192, 'global_step': 325500}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 17.686653, 'loss': 15990.945, 'rmse': 4.20555, 'global_step': 330500}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 9.693618, 'loss': 8764.242, 'rmse': 3.1134574, 'global_step': 335500}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 8.50019, 'loss': 7685.2334, 'rmse': 2.9155085, 'global_step': 340500}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 9.866042, 'loss': 8920.136, 'rmse': 3.1410255, 'global_step': 345500}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 8.6538925, 'loss': 7824.2, 'rmse': 2.9417498, 'global_step': 350500}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 10.763893, 'loss': 9731.905, 'rmse': 3.2808373, 'global_step': 355500}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 10.671833, 'loss': 9648.671, 'rmse': 3.2667773, 'global_step': 360500}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 10.350998, 'loss': 9358.596, 'rmse': 3.2172966, 'global_step': 365500}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 12.943967, 'loss': 11702.964, 'rmse': 3.5977726, 'global_step': 370500}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 9.745681, 'loss': 8811.313, 'rmse': 3.1218073, 'global_step': 375500}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 10.1566105, 'loss': 9182.846, 'rmse': 3.1869438, 'global_step': 380500}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 8.64656, 'loss': 7817.571, 'rmse': 2.9405034, 'global_step': 385500}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 10.887667, 'loss': 9843.812, 'rmse': 3.2996464, 'global_step': 390500}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 10.504563, 'loss': 9497.438, 'rmse': 3.2410743, 'global_step': 395500}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 8.268345, 'loss': 7475.617, 'rmse': 2.875473, 'global_step': 400500}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 8.4399185, 'loss': 7630.7417, 'rmse': 2.9051538, 'global_step': 405500}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 9.8008, 'loss': 8861.148, 'rmse': 3.130623, 'global_step': 410500}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 8.147208, 'loss': 7366.0947, 'rmse': 2.8543315, 'global_step': 415500}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 8.406312, 'loss': 7600.3564, 'rmse': 2.899364, 'global_step': 420500}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 8.236218, 'loss': 7446.571, 'rmse': 2.8698812, 'global_step': 425500}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 9.926328, 'loss': 8974.641, 'rmse': 3.1506076, 'global_step': 430500}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 8.939906, 'loss': 8082.793, 'rmse': 2.9899676, 'global_step': 435500}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 8.7403555, 'loss': 7902.374, 'rmse': 2.9564092, 'global_step': 440500}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 9.389944, 'loss': 8489.684, 'rmse': 3.0643015, 'global_step': 445500}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 8.937053, 'loss': 8080.2124, 'rmse': 2.9894903, 'global_step': 450500}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 9.517135, 'loss': 8604.68, 'rmse': 3.0849853, 'global_step': 455500}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 8.160003, 'loss': 7377.6626, 'rmse': 2.856572, 'global_step': 460500}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 8.49162, 'loss': 7677.4863, 'rmse': 2.9140384, 'global_step': 465500}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 8.602686, 'loss': 7777.904, 'rmse': 2.9330335, 'global_step': 470500}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 8.951754, 'loss': 8093.504, 'rmse': 2.9919481, 'global_step': 475500}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 10.446039, 'loss': 9444.525, 'rmse': 3.2320333, 'global_step': 480500}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 8.753398, 'loss': 7914.1655, 'rmse': 2.958614, 'global_step': 485500}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 8.799475, 'loss': 7955.825, 'rmse': 2.9663908, 'global_step': 490500}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 8.191639, 'loss': 7406.2656, 'rmse': 2.862104, 'global_step': 495500}
+INFO:root:Progress: epoch 1000
+INFO:root:eval: {'average_loss': 9.126139, 'loss': 8251.17, 'rmse': 3.02095, 'global_step': 500500}
+INFO:root:Progress: epoch 1010
+INFO:root:eval: {'average_loss': 9.907073, 'loss': 8957.232, 'rmse': 3.1475503, 'global_step': 505500}
+INFO:root:Progress: epoch 1020
+INFO:root:eval: {'average_loss': 9.399123, 'loss': 8497.982, 'rmse': 3.065799, 'global_step': 510500}
+INFO:root:Progress: epoch 1030
+INFO:root:eval: {'average_loss': 8.615364, 'loss': 7789.3657, 'rmse': 2.935194, 'global_step': 515500}
+INFO:root:Progress: epoch 1040
+INFO:root:eval: {'average_loss': 8.491796, 'loss': 7677.645, 'rmse': 2.9140685, 'global_step': 520500}
+INFO:root:Progress: epoch 1050
+INFO:root:eval: {'average_loss': 10.379874, 'loss': 9384.704, 'rmse': 3.2217813, 'global_step': 525500}
+INFO:root:Progress: epoch 1060
+INFO:root:eval: {'average_loss': 8.395068, 'loss': 7590.1914, 'rmse': 2.8974245, 'global_step': 530500}
+INFO:root:Progress: epoch 1070
+INFO:root:eval: {'average_loss': 9.211133, 'loss': 8328.016, 'rmse': 3.0349848, 'global_step': 535500}
+INFO:root:Progress: epoch 1080
+INFO:root:eval: {'average_loss': 10.323178, 'loss': 9333.443, 'rmse': 3.2129703, 'global_step': 540500}
+INFO:root:Progress: epoch 1090
+INFO:root:eval: {'average_loss': 10.026118, 'loss': 9064.864, 'rmse': 3.1664047, 'global_step': 545500}
+INFO:root:Progress: epoch 1100
+INFO:root:eval: {'average_loss': 8.442198, 'loss': 7632.802, 'rmse': 2.905546, 'global_step': 550500}
+INFO:root:Progress: epoch 1110
+INFO:root:eval: {'average_loss': 9.665958, 'loss': 8739.234, 'rmse': 3.1090124, 'global_step': 555500}
+INFO:root:Progress: epoch 1120
+INFO:root:eval: {'average_loss': 8.062, 'loss': 7289.056, 'rmse': 2.8393662, 'global_step': 560500}
+INFO:root:Progress: epoch 1130
+INFO:root:eval: {'average_loss': 8.030734, 'loss': 7260.787, 'rmse': 2.833855, 'global_step': 565500}
+INFO:root:Progress: epoch 1140
+INFO:root:eval: {'average_loss': 7.9076414, 'loss': 7149.496, 'rmse': 2.812053, 'global_step': 570500}
+INFO:root:Progress: epoch 1150
+INFO:root:eval: {'average_loss': 9.583067, 'loss': 8664.29, 'rmse': 3.0956528, 'global_step': 575500}
+INFO:root:Progress: epoch 1160
+INFO:root:eval: {'average_loss': 7.958363, 'loss': 7195.355, 'rmse': 2.821057, 'global_step': 580500}
+INFO:root:Progress: epoch 1170
+INFO:root:eval: {'average_loss': 8.996078, 'loss': 8133.5786, 'rmse': 2.9993463, 'global_step': 585500}
+INFO:root:Progress: epoch 1180
+INFO:root:eval: {'average_loss': 8.379614, 'loss': 7576.2188, 'rmse': 2.8947563, 'global_step': 590500}
+INFO:root:Progress: epoch 1190
+INFO:root:eval: {'average_loss': 9.30684, 'loss': 8414.547, 'rmse': 3.0507114, 'global_step': 595500}
+INFO:root:Progress: epoch 1200
+INFO:root:eval: {'average_loss': 7.917619, 'loss': 7158.518, 'rmse': 2.8138263, 'global_step': 600500}
+INFO:root:Progress: epoch 1210
+INFO:root:eval: {'average_loss': 8.714181, 'loss': 7878.708, 'rmse': 2.9519792, 'global_step': 605500}
+INFO:root:Progress: epoch 1220
+INFO:root:eval: {'average_loss': 9.159787, 'loss': 8281.593, 'rmse': 3.026514, 'global_step': 610500}
+INFO:root:Progress: epoch 1230
+INFO:root:eval: {'average_loss': 10.257932, 'loss': 9274.452, 'rmse': 3.2028005, 'global_step': 615500}
+INFO:root:Progress: epoch 1240
+INFO:root:eval: {'average_loss': 8.373517, 'loss': 7570.706, 'rmse': 2.893703, 'global_step': 620500}
+INFO:root:Progress: epoch 1250
+INFO:root:eval: {'average_loss': 8.506406, 'loss': 7690.8545, 'rmse': 2.9165742, 'global_step': 625500}
+INFO:root:Progress: epoch 1260
+INFO:root:eval: {'average_loss': 7.753898, 'loss': 7010.493, 'rmse': 2.7845821, 'global_step': 630500}
+INFO:root:Progress: epoch 1270
+INFO:root:eval: {'average_loss': 7.620401, 'loss': 6889.795, 'rmse': 2.7605073, 'global_step': 635500}
+INFO:root:Progress: epoch 1280
+INFO:root:eval: {'average_loss': 8.031255, 'loss': 7261.2583, 'rmse': 2.833947, 'global_step': 640500}
+INFO:root:Progress: epoch 1290
+INFO:root:eval: {'average_loss': 8.215631, 'loss': 7427.957, 'rmse': 2.8662922, 'global_step': 645500}
+INFO:root:Progress: epoch 1300
+INFO:root:eval: {'average_loss': 7.725118, 'loss': 6984.4727, 'rmse': 2.7794096, 'global_step': 650500}
+INFO:root:Progress: epoch 1310
+INFO:root:eval: {'average_loss': 8.163591, 'loss': 7380.9067, 'rmse': 2.8572, 'global_step': 655500}
+INFO:root:Progress: epoch 1320
+INFO:root:eval: {'average_loss': 8.553479, 'loss': 7733.414, 'rmse': 2.9246333, 'global_step': 660500}
+INFO:root:Progress: epoch 1330
+INFO:root:eval: {'average_loss': 7.9707623, 'loss': 7206.5654, 'rmse': 2.8232539, 'global_step': 665500}
+INFO:root:Progress: epoch 1340
+INFO:root:eval: {'average_loss': 8.838508, 'loss': 7991.1157, 'rmse': 2.9729629, 'global_step': 670500}
+INFO:root:Progress: epoch 1350
+INFO:root:eval: {'average_loss': 8.546897, 'loss': 7727.4634, 'rmse': 2.9235077, 'global_step': 675500}
+INFO:root:Progress: epoch 1360
+INFO:root:eval: {'average_loss': 8.948084, 'loss': 8090.1865, 'rmse': 2.991335, 'global_step': 680500}
+INFO:root:Progress: epoch 1370
+INFO:root:eval: {'average_loss': 9.05261, 'loss': 8184.6914, 'rmse': 3.0087557, 'global_step': 685500}
+INFO:root:Progress: epoch 1380
+INFO:root:eval: {'average_loss': 7.6977973, 'loss': 6959.771, 'rmse': 2.7744904, 'global_step': 690500}
+INFO:root:Progress: epoch 1390
+INFO:root:eval: {'average_loss': 7.714963, 'loss': 6975.291, 'rmse': 2.7775822, 'global_step': 695500}
+INFO:root:Progress: epoch 1400
+INFO:root:eval: {'average_loss': 8.283017, 'loss': 7488.883, 'rmse': 2.8780231, 'global_step': 700500}
+INFO:root:Progress: epoch 1410
+INFO:root:eval: {'average_loss': 8.061599, 'loss': 7288.693, 'rmse': 2.8392954, 'global_step': 705500}
+INFO:root:Progress: epoch 1420
+INFO:root:eval: {'average_loss': 7.7674947, 'loss': 7022.786, 'rmse': 2.7870226, 'global_step': 710500}
+INFO:root:Progress: epoch 1430
+INFO:root:eval: {'average_loss': 7.7065296, 'loss': 6967.666, 'rmse': 2.7760637, 'global_step': 715500}
+INFO:root:Progress: epoch 1440
+INFO:root:eval: {'average_loss': 8.00773, 'loss': 7239.9883, 'rmse': 2.8297932, 'global_step': 720500}
+INFO:root:Progress: epoch 1450
+INFO:root:eval: {'average_loss': 7.5399084, 'loss': 6817.0195, 'rmse': 2.7458894, 'global_step': 725500}
+INFO:root:Progress: epoch 1460
+INFO:root:eval: {'average_loss': 8.113849, 'loss': 7335.933, 'rmse': 2.848482, 'global_step': 730500}
+INFO:root:Progress: epoch 1470
+INFO:root:eval: {'average_loss': 8.1768, 'loss': 7392.849, 'rmse': 2.8595104, 'global_step': 735500}
+INFO:root:Progress: epoch 1480
+INFO:root:eval: {'average_loss': 7.9890466, 'loss': 7223.0967, 'rmse': 2.8264902, 'global_step': 740500}
+INFO:root:Progress: epoch 1490
+INFO:root:eval: {'average_loss': 7.837413, 'loss': 7086.001, 'rmse': 2.799538, 'global_step': 745500}
+INFO:root:Progress: epoch 1500
+INFO:root:eval: {'average_loss': 7.652186, 'loss': 6918.5327, 'rmse': 2.7662585, 'global_step': 750500}
+INFO:root:Progress: epoch 1510
+INFO:root:eval: {'average_loss': 7.998875, 'loss': 7231.983, 'rmse': 2.8282282, 'global_step': 755500}
+INFO:root:Progress: epoch 1520
+INFO:root:eval: {'average_loss': 7.7957087, 'loss': 7048.295, 'rmse': 2.7920797, 'global_step': 760500}
+INFO:root:Progress: epoch 1530
+INFO:root:eval: {'average_loss': 7.802854, 'loss': 7054.7554, 'rmse': 2.7933588, 'global_step': 765500}
+INFO:root:Progress: epoch 1540
+INFO:root:eval: {'average_loss': 7.770976, 'loss': 7025.9336, 'rmse': 2.787647, 'global_step': 770500}
+INFO:root:Progress: epoch 1550
+INFO:root:eval: {'average_loss': 7.804504, 'loss': 7056.247, 'rmse': 2.7936542, 'global_step': 775500}
+INFO:root:Progress: epoch 1560
+INFO:root:eval: {'average_loss': 7.9941607, 'loss': 7227.7207, 'rmse': 2.8273947, 'global_step': 780500}
+INFO:root:Progress: epoch 1570
+INFO:root:eval: {'average_loss': 7.598223, 'loss': 6869.7437, 'rmse': 2.7564874, 'global_step': 785500}
+INFO:root:Progress: epoch 1580
+INFO:root:eval: {'average_loss': 8.389222, 'loss': 7584.906, 'rmse': 2.8964155, 'global_step': 790500}
+INFO:root:Progress: epoch 1590
+INFO:root:eval: {'average_loss': 8.332251, 'loss': 7533.3965, 'rmse': 2.8865638, 'global_step': 795500}
+INFO:root:Progress: epoch 1600
+INFO:root:eval: {'average_loss': 7.8407063, 'loss': 7088.9785, 'rmse': 2.800126, 'global_step': 800500}
+INFO:root:Progress: epoch 1610
+INFO:root:eval: {'average_loss': 7.7768497, 'loss': 7031.244, 'rmse': 2.7887003, 'global_step': 805500}
+INFO:root:Progress: epoch 1620
+INFO:root:eval: {'average_loss': 7.595228, 'loss': 6867.0356, 'rmse': 2.7559443, 'global_step': 810500}
+INFO:root:Progress: epoch 1630
+INFO:root:eval: {'average_loss': 7.6321106, 'loss': 6900.382, 'rmse': 2.7626274, 'global_step': 815500}
+INFO:root:Progress: epoch 1640
+INFO:root:eval: {'average_loss': 9.412879, 'loss': 8510.419, 'rmse': 3.0680416, 'global_step': 820500}
+INFO:root:Progress: epoch 1650
+INFO:root:eval: {'average_loss': 8.002893, 'loss': 7235.616, 'rmse': 2.8289385, 'global_step': 825500}
+INFO:root:Progress: epoch 1660
+INFO:root:eval: {'average_loss': 7.442585, 'loss': 6729.0273, 'rmse': 2.72811, 'global_step': 830500}
+INFO:root:Progress: epoch 1670
+INFO:root:eval: {'average_loss': 7.811019, 'loss': 7062.1377, 'rmse': 2.79482, 'global_step': 835500}
+INFO:root:Progress: epoch 1680
+INFO:root:eval: {'average_loss': 7.357522, 'loss': 6652.1196, 'rmse': 2.7124753, 'global_step': 840500}
+INFO:root:Progress: epoch 1690
+INFO:root:eval: {'average_loss': 7.547729, 'loss': 6824.0903, 'rmse': 2.747313, 'global_step': 845500}
+INFO:root:Progress: epoch 1700
+INFO:root:eval: {'average_loss': 7.800138, 'loss': 7052.3, 'rmse': 2.7928727, 'global_step': 850500}
+INFO:root:Progress: epoch 1710
+INFO:root:eval: {'average_loss': 7.930597, 'loss': 7170.251, 'rmse': 2.8161316, 'global_step': 855500}
+INFO:root:Progress: epoch 1720
+INFO:root:eval: {'average_loss': 7.720466, 'loss': 6980.2666, 'rmse': 2.7785728, 'global_step': 860500}
+INFO:root:Progress: epoch 1730
+INFO:root:eval: {'average_loss': 7.545574, 'loss': 6822.142, 'rmse': 2.7469208, 'global_step': 865500}
+INFO:root:Progress: epoch 1740
+INFO:root:eval: {'average_loss': 8.651177, 'loss': 7821.746, 'rmse': 2.9412885, 'global_step': 870500}
+INFO:root:Progress: epoch 1750
+INFO:root:eval: {'average_loss': 7.5763245, 'loss': 6849.9443, 'rmse': 2.7525125, 'global_step': 875500}
+INFO:root:Progress: epoch 1760
+INFO:root:eval: {'average_loss': 8.000337, 'loss': 7233.3047, 'rmse': 2.8284867, 'global_step': 880500}
+INFO:root:Progress: epoch 1770
+INFO:root:eval: {'average_loss': 7.7984214, 'loss': 7050.7476, 'rmse': 2.7925653, 'global_step': 885500}
+INFO:root:Progress: epoch 1780
+INFO:root:eval: {'average_loss': 8.021984, 'loss': 7252.876, 'rmse': 2.8323107, 'global_step': 890500}
+INFO:root:Progress: epoch 1790
+INFO:root:eval: {'average_loss': 7.42206, 'loss': 6710.47, 'rmse': 2.7243457, 'global_step': 895500}
+INFO:root:Progress: epoch 1800
+INFO:root:eval: {'average_loss': 7.813665, 'loss': 7064.53, 'rmse': 2.7952933, 'global_step': 900500}
+INFO:root:Progress: epoch 1810
+INFO:root:eval: {'average_loss': 7.8098116, 'loss': 7061.046, 'rmse': 2.794604, 'global_step': 905500}
+INFO:root:Progress: epoch 1820
+INFO:root:eval: {'average_loss': 7.942271, 'loss': 7180.806, 'rmse': 2.8182034, 'global_step': 910500}
+INFO:root:Progress: epoch 1830
+INFO:root:eval: {'average_loss': 7.761453, 'loss': 7017.3237, 'rmse': 2.7859385, 'global_step': 915500}
+INFO:root:Progress: epoch 1840
+INFO:root:eval: {'average_loss': 7.663941, 'loss': 6929.1606, 'rmse': 2.7683823, 'global_step': 920500}
+INFO:root:Progress: epoch 1850
+INFO:root:eval: {'average_loss': 7.5802016, 'loss': 6853.4497, 'rmse': 2.7532165, 'global_step': 925500}
+INFO:root:Progress: epoch 1860
+INFO:root:eval: {'average_loss': 7.57132, 'loss': 6845.42, 'rmse': 2.7516031, 'global_step': 930500}
+INFO:root:Progress: epoch 1870
+INFO:root:eval: {'average_loss': 8.102301, 'loss': 7325.492, 'rmse': 2.8464541, 'global_step': 935500}
+INFO:root:Progress: epoch 1880
+INFO:root:eval: {'average_loss': 8.150379, 'loss': 7368.962, 'rmse': 2.854887, 'global_step': 940500}
+INFO:root:Progress: epoch 1890
+INFO:root:eval: {'average_loss': 7.760686, 'loss': 7016.6304, 'rmse': 2.7858007, 'global_step': 945500}
+INFO:root:Progress: epoch 1900
+INFO:root:eval: {'average_loss': 7.567852, 'loss': 6842.284, 'rmse': 2.750973, 'global_step': 950500}
+INFO:root:Progress: epoch 1910
+INFO:root:eval: {'average_loss': 8.069235, 'loss': 7295.5967, 'rmse': 2.8406398, 'global_step': 955500}
+INFO:root:Progress: epoch 1920
+INFO:root:eval: {'average_loss': 7.601498, 'loss': 6872.7046, 'rmse': 2.7570815, 'global_step': 960500}
+INFO:root:Progress: epoch 1930
+INFO:root:eval: {'average_loss': 7.6903715, 'loss': 6953.057, 'rmse': 2.7731519, 'global_step': 965500}
+INFO:root:Progress: epoch 1940
+INFO:root:eval: {'average_loss': 7.506778, 'loss': 6787.0654, 'rmse': 2.73985, 'global_step': 970500}
+INFO:root:Progress: epoch 1950
+INFO:root:eval: {'average_loss': 7.3817077, 'loss': 6673.9863, 'rmse': 2.71693, 'global_step': 975500}
+INFO:root:Progress: epoch 1960
+INFO:root:eval: {'average_loss': 7.891101, 'loss': 7134.5415, 'rmse': 2.8091104, 'global_step': 980500}
+INFO:root:Progress: epoch 1970
+INFO:root:eval: {'average_loss': 7.609967, 'loss': 6880.362, 'rmse': 2.758617, 'global_step': 985500}
+INFO:root:Progress: epoch 1980
+INFO:root:eval: {'average_loss': 7.4604096, 'loss': 6745.143, 'rmse': 2.731375, 'global_step': 990500}
+INFO:root:Progress: epoch 1990
+INFO:root:eval: {'average_loss': 7.594594, 'loss': 6866.4624, 'rmse': 2.755829, 'global_step': 995500}
+INFO:root:Progress: epoch 2000
+INFO:root:eval: {'average_loss': 7.492033, 'loss': 6773.7344, 'rmse': 2.7371578, 'global_step': 1000500}
+INFO:root:Progress: epoch 2010
+INFO:root:eval: {'average_loss': 7.77854, 'loss': 7032.7725, 'rmse': 2.7890034, 'global_step': 1005500}
+INFO:root:Progress: epoch 2020
+INFO:root:eval: {'average_loss': 7.941638, 'loss': 7180.2334, 'rmse': 2.8180912, 'global_step': 1010500}
+INFO:root:Progress: epoch 2030
+INFO:root:eval: {'average_loss': 7.97938, 'loss': 7214.357, 'rmse': 2.8247797, 'global_step': 1015500}
+INFO:root:Progress: epoch 2040
+INFO:root:eval: {'average_loss': 7.406917, 'loss': 6696.779, 'rmse': 2.7215652, 'global_step': 1020500}
+INFO:root:Progress: epoch 2050
+INFO:root:eval: {'average_loss': 7.870659, 'loss': 7116.0596, 'rmse': 2.8054695, 'global_step': 1025500}
+INFO:root:Progress: epoch 2060
+INFO:root:eval: {'average_loss': 7.9258757, 'loss': 7165.9824, 'rmse': 2.815293, 'global_step': 1030500}
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 516, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 126, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 380, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 363, in train
+    loss = self._trINFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-15_11.11.34
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:/home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10 does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 30186.514, 'loss': 27292382.0, 'rmse': 173.74266, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 468.2762, 'loss': 423380.22, 'rmse': 21.63969, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 197.41867, 'loss': 178491.16, 'rmse': 14.050575, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 274.50772, 'loss': 248189.3, 'rmse': 16.568275, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 114.13096, 'loss': 103188.66, 'rmse': 10.683209, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 95.98996, 'loss': 86786.92, 'rmse': 9.797446, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 88.58648, 'loss': 80093.25, 'rmse': 9.412039, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 80.620636, 'loss': 72891.13, 'rmse': 8.9789, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 44.38808, 'loss': 40132.375, 'rmse': 6.662438, 'global_step': 40500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 88.79237, 'loss': 80279.41, 'rmse': 9.422971, 'global_step': 45500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 60.976955, 'loss': 55130.79, 'rmse': 7.8087745, 'global_step': 50500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 56.227158, 'loss': 50836.38, 'rmse': 7.498477, 'global_step': 55500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 42.36408, 'loss': 38302.42, 'rmse': 6.5087695, 'global_step': 60500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 34.716705, 'loss': 31388.242, 'rmse': 5.8920884, 'global_step': 65500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 21.345396, 'loss': 19298.906, 'rmse': 4.6201077, 'global_step': 70500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 40.302467, 'loss': 36438.47, 'rmse': 6.3484225, 'global_step': 75500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 19.268076, 'loss': 17420.75, 'rmse': 4.3895416, 'global_step': 80500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 26.985746, 'loss': 24398.488, 'rmse': 5.194781, 'global_step': 85500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 18.121698, 'loss': 16384.281, 'rmse': 4.256959, 'global_step': 90500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 14.279403, 'loss': 12910.365, 'rmse': 3.7788098, 'global_step': 95500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 39.756348, 'loss': 35944.707, 'rmse': 6.3052635, 'global_step': 100500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 40.95445, 'loss': 37027.94, 'rmse': 6.399566, 'global_step': 105500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 32.174633, 'loss': 29089.89, 'rmse': 5.672269, 'global_step': 110500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 21.333324, 'loss': 19287.992, 'rmse': 4.618801, 'global_step': 115500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 14.722684, 'loss': 13311.146, 'rmse': 3.837015, 'global_step': 120500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 21.502405, 'loss': 19440.861, 'rmse': 4.6370687, 'global_step': 125500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 13.285923, 'loss': 12012.135, 'rmse': 3.644986, 'global_step': 130500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 15.467949, 'loss': 13984.959, 'rmse': 3.9329314, 'global_step': 135500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 12.9499235, 'loss': 11708.35, 'rmse': 3.5986001, 'global_step': 140500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 12.928987, 'loss': 11689.42, 'rmse': 3.59569, 'global_step': 145500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 14.19825, 'loss': 12836.992, 'rmse': 3.7680564, 'global_step': 150500}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 16.409576, 'loss': 14836.309, 'rmse': 4.0508738, 'global_step': 155500}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 14.594437, 'loss': 13195.195, 'rmse': 3.8202665, 'global_step': 160500}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 16.456057, 'loss': 14878.333, 'rmse': 4.056607, 'global_step': 165500}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 14.339017, 'loss': 12964.264, 'rmse': 3.7866895, 'global_step': 170500}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 12.597006, 'loss': 11389.268, 'rmse': 3.549226, 'global_step': 175500}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 13.753767, 'loss': 12435.125, 'rmse': 3.7086072, 'global_step': 180500}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 12.523105, 'loss': 11322.452, 'rmse': 3.5388, 'global_step': 185500}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 12.871561, 'loss': 11637.5, 'rmse': 3.5876958, 'global_step': 190500}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 15.262559, 'loss': 13799.261, 'rmse': 3.9067326, 'global_step': 195500}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 11.358881, 'loss': 10269.849, 'rmse': 3.3702939, 'global_step': 200500}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 11.182895, 'loss': 10110.734, 'rmse': 3.3440835, 'global_step': 205500}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 16.829515, 'loss': 15215.986, 'rmse': 4.1023793, 'global_step': 210500}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 10.475932, 'loss': 9471.552, 'rmse': 3.2366545, 'global_step': 215500}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 13.922285, 'loss': 12587.486, 'rmse': 3.731258, 'global_step': 220500}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 25.932915, 'loss': 23446.596, 'rmse': 5.092437, 'global_step': 225500}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 10.392149, 'loss': 9395.802, 'rmse': 3.2236855, 'global_step': 230500}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 11.445242, 'loss': 10347.93, 'rmse': 3.3830817, 'global_step': 235500}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 14.013199, 'loss': 12669.684, 'rmse': 3.7434208, 'global_step': 240500}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 12.557994, 'loss': 11353.996, 'rmse': 3.543726, 'global_step': 245500}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 12.305147, 'loss': 11125.392, 'rmse': 3.5078692, 'global_step': 250500}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 11.476834, 'loss': 10376.493, 'rmse': 3.3877478, 'global_step': 255500}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 9.604643, 'loss': 8683.798, 'rmse': 3.0991359, 'global_step': 260500}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 10.990826, 'loss': 9937.08, 'rmse': 3.3152413, 'global_step': 265500}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 12.727727, 'loss': 11507.456, 'rmse': 3.567594, 'global_step': 270500}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 14.73371, 'loss': 13321.116, 'rmse': 3.8384516, 'global_step': 275500}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 11.036758, 'loss': 9978.609, 'rmse': 3.3221617, 'global_step': 280500}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 9.777733, 'loss': 8840.293, 'rmse': 3.1269367, 'global_step': 285500}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 10.034503, 'loss': 9072.445, 'rmse': 3.1677284, 'global_step': 290500}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 11.5555, 'loss': 10447.616, 'rmse': 3.3993382, 'global_step': 295500}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 10.188186, 'loss': 9211.394, 'rmse': 3.1918938, 'global_step': 300500}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 9.246498, 'loss': 8359.99, 'rmse': 3.0408056, 'global_step': 305500}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 9.536453, 'loss': 8622.1455, 'rmse': 3.0881147, 'global_step': 310500}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 13.17761, 'loss': 11914.207, 'rmse': 3.6300979, 'global_step': 315500}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 14.107794, 'loss': 12755.209, 'rmse': 3.7560344, 'global_step': 320500}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 8.977225, 'loss': 8116.5337, 'rmse': 2.9962018, 'global_step': 325500}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 10.334406, 'loss': 9343.595, 'rmse': 3.2147171, 'global_step': 330500}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 9.472115, 'loss': 8563.976, 'rmse': 3.07768, 'global_step': 335500}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 16.053143, 'loss': 14514.047, 'rmse': 4.006637, 'global_step': 340500}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 9.257942, 'loss': 8370.337, 'rmse': 3.0426867, 'global_step': 345500}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 9.636623, 'loss': 8712.712, 'rmse': 3.1042912, 'global_step': 350500}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 10.066323, 'loss': 9101.215, 'rmse': 3.172747, 'global_step': 355500}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 11.372139, 'loss': 10281.835, 'rmse': 3.3722603, 'global_step': 360500}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 9.228022, 'loss': 8343.285, 'rmse': 3.037766, 'global_step': 365500}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 11.377218, 'loss': 10286.428, 'rmse': 3.3730133, 'global_step': 370500}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 8.996624, 'loss': 8134.0728, 'rmse': 2.9994373, 'global_step': 375500}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 11.826392, 'loss': 10692.537, 'rmse': 3.4389522, 'global_step': 380500}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 10.348844, 'loss': 9356.648, 'rmse': 3.2169619, 'global_step': 385500}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 8.425472, 'loss': 7617.68, 'rmse': 2.9026663, 'global_step': 390500}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 9.990949, 'loss': 9033.066, 'rmse': 3.1608462, 'global_step': 395500}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 10.800533, 'loss': 9765.032, 'rmse': 3.2864165, 'global_step': 400500}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 8.391807, 'loss': 7587.242, 'rmse': 2.8968616, 'global_step': 405500}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 10.227898, 'loss': 9247.298, 'rmse': 3.1981084, 'global_step': 410500}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 12.970314, 'loss': 11726.785, 'rmse': 3.6014323, 'global_step': 415500}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 9.97678, 'loss': 9020.256, 'rmse': 3.1586041, 'global_step': 420500}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 10.593907, 'loss': 9578.217, 'rmse': 3.2548282, 'global_step': 425500}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 9.135949, 'loss': 8260.04, 'rmse': 3.0225732, 'global_step': 430500}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 8.673323, 'loss': 7841.768, 'rmse': 2.9450505, 'global_step': 435500}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 8.980488, 'loss': 8119.4834, 'rmse': 2.9967463, 'global_step': 440500}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 8.662984, 'loss': 7832.4204, 'rmse': 2.9432948, 'global_step': 445500}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 8.961452, 'loss': 8102.2725, 'rmse': 2.9935684, 'global_step': 450500}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 8.21672, 'loss': 7428.9414, 'rmse': 2.866482, 'global_step': 455500}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 9.019635, 'loss': 8154.8774, 'rmse': 3.0032709, 'global_step': 460500}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 8.326241, 'loss': 7527.9624, 'rmse': 2.8855226, 'global_step': 465500}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 9.622875, 'loss': 8700.282, 'rmse': 3.102076, 'global_step': 470500}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 8.141974, 'loss': 7361.3623, 'rmse': 2.8534145, 'global_step': 475500}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 8.793945, 'loss': 7950.8257, 'rmse': 2.9654586, 'global_step': 480500}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 9.143446, 'loss': 8266.818, 'rmse': 3.0238132, 'global_step': 485500}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 9.1448555, 'loss': 8268.093, 'rmse': 3.0240462, 'global_step': 490500}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 7.965258, 'loss': 7201.589, 'rmse': 2.822279, 'global_step': 495500}
+INFO:root:Progress: epoch 1000
+INFO:root:eval: {'average_loss': 8.372887, 'loss': 7570.136, 'rmse': 2.893594, 'global_step': 500500}
+INFO:root:Progress: epoch 1010
+INFO:root:eval: {'average_loss': 9.316478, 'loss': 8423.261, 'rmse': 3.0522907, 'global_step': 505500}
+INFO:root:Progress: epoch 1020
+INFO:root:eval: {'average_loss': 9.409903, 'loss': 8507.729, 'rmse': 3.0675564, 'global_step': 510500}
+INFO:root:Progress: epoch 1030
+INFO:root:eval: {'average_loss': 9.451537, 'loss': 8545.371, 'rmse': 3.0743353, 'global_step': 515500}
+INFO:root:Progress: epoch 1040
+INFO:root:eval: {'average_loss': 9.253269, 'loss': 8366.112, 'rmse': 3.0419188, 'global_step': 520500}
+INFO:root:Progress: epoch 1050
+INFO:root:eval: {'average_loss': 8.409744, 'loss': 7603.46, 'rmse': 2.899956, 'global_step': 525500}
+INFO:root:Progress: epoch 1060
+INFO:root:eval: {'average_loss': 8.071294, 'loss': 7297.4585, 'rmse': 2.8410022, 'global_step': 530500}
+INFO:root:Progress: epoch 1070
+INFO:root:eval: {'average_loss': 8.8019085, 'loss': 7958.0254, 'rmse': 2.9668012, 'global_step': 535500}
+INFO:root:Progress: epoch 1080
+INFO:root:eval: {'average_loss': 7.94517, 'loss': 7183.427, 'rmse': 2.8187177, 'global_step': 540500}
+INFO:root:Progress: epoch 1090
+INFO:root:eval: {'average_loss': 10.16321, 'loss': 9188.8125, 'rmse': 3.187979, 'global_step': 545500}
+INFO:root:Progress: epoch 1100
+INFO:root:eval: {'average_loss': 8.05449, 'loss': 7282.266, 'rmse': 2.8380435, 'global_step': 550500}
+INFO:root:Progress: epoch 1110
+INFO:root:eval: {'average_loss': 7.9032874, 'loss': 7145.5596, 'rmse': 2.8112786, 'global_step': 555500}
+INFO:root:Progress: epoch 1120
+INFO:root:eval: {'average_loss': 8.713643, 'loss': 7878.2227, 'rmse': 2.951888, 'global_step': 560500}
+INFO:root:Progress: epoch 1130
+INFO:root:eval: {'average_loss': 9.635176, 'loss': 8711.403, 'rmse': 3.104058, 'global_step': 565500}
+INFO:root:Progress: epoch 1140
+INFO:root:eval: {'average_loss': 8.379074, 'loss': 7575.73, 'rmse': 2.894663, 'global_step': 570500}
+INFO:root:Progress: epoch 1150
+INFO:root:eval: {'average_loss': 8.640395, 'loss': 7811.997, 'rmse': 2.9394548, 'global_step': 575500}
+INFO:root:Progress: epoch 1160
+INFO:root:eval: {'average_loss': 8.736614, 'loss': 7898.991, 'rmse': 2.9557765, 'global_step': 580500}
+INFO:root:Progress: epoch 1170
+INFO:root:eval: {'average_loss': 8.389265, 'loss': 7584.9443, 'rmse': 2.8964229, 'global_step': 585500}
+INFO:root:Progress: epoch 1180
+INFO:root:eval: {'average_loss': 8.505289, 'loss': 7689.8447, 'rmse': 2.9163828, 'global_step': 590500}
+INFO:root:Progress: epoch 1190
+INFO:root:eval: {'average_loss': 8.250961, 'loss': 7459.9004, 'rmse': 2.8724487, 'global_step': 595500}
+INFO:root:Progress: epoch 1200
+INFO:root:eval: {'average_loss': 9.134889, 'loss': 8259.081, 'rmse': 3.0223978, 'global_step': 600500}
+INFO:root:Progress: epoch 1210
+INFO:root:eval: {'average_loss': 8.501536, 'loss': 7686.451, 'rmse': 2.9157395, 'global_step': 605500}
+INFO:root:Progress: epoch 1220
+INFO:root:eval: {'average_loss': 8.475869, 'loss': 7663.245, 'rmse': 2.9113345, 'global_step': 610500}
+INFO:root:Progress: epoch 1230
+INFO:root:eval: {'average_loss': 8.496119, 'loss': 7681.553, 'rmse': 2.9148102, 'global_step': 615500}
+INFO:root:Progress: epoch 1240
+INFO:root:eval: {'average_loss': 7.900343, 'loss': 7142.8975, 'rmse': 2.8107548, 'global_step': 620500}
+INFO:root:Progress: epoch 1250
+INFO:root:eval: {'average_loss': 9.172102, 'loss': 8292.727, 'rmse': 3.0285478, 'global_step': 625500}
+INFO:root:Progress: epoch 1260
+INFO:root:eval: {'average_loss': 8.637768, 'loss': 7809.6216, 'rmse': 2.939008, 'global_step': 630500}
+INFO:root:Progress: epoch 1270
+INFO:root:eval: {'average_loss': 8.864143, 'loss': 8014.2935, 'rmse': 2.977271, 'global_step': 635500}
+INFO:root:Progress: epoch 1280
+INFO:root:eval: {'average_loss': 9.147425, 'loss': 8270.415, 'rmse': 3.024471, 'global_step': 640500}
+INFO:root:Progress: epoch 1290
+INFO:root:eval: {'average_loss': 7.992293, 'loss': 7226.0317, 'rmse': 2.8270643, 'global_step': 645500}
+INFO:root:Progress: epoch 1300
+INFO:root:eval: {'average_loss': 8.7198715, 'loss': 7883.8535, 'rmse': 2.9529428, 'global_step': 650500}
+INFO:root:Progress: epoch 1310
+INFO:root:eval: {'average_loss': 9.011046, 'loss': 8147.1123, 'rmse': 3.0018406, 'global_step': 655500}
+INFO:root:Progress: epoch 1320
+INFO:root:eval: {'average_loss': 8.885226, 'loss': 8033.3555, 'rmse': 2.9808097, 'global_step': 660500}
+INFO:root:Progress: epoch 1330
+INFO:root:eval: {'average_loss': 7.8083205, 'loss': 7059.6978, 'rmse': 2.7943373, 'global_step': 665500}
+INFO:root:Progress: epoch 1340
+INFO:root:eval: {'average_loss': 8.061537, 'loss': 7288.637, 'rmse': 2.8392847, 'global_step': 670500}
+INFO:root:Progress: epoch 1350
+INFO:root:eval: {'average_loss': 9.861851, 'loss': 8916.346, 'rmse': 3.1403584, 'global_step': 675500}
+INFO:root:Progress: epoch 1360
+INFO:root:eval: {'average_loss': 8.14206, 'loss': 7361.44, 'rmse': 2.8534296, 'global_step': 680500}
+INFO:root:Progress: epoch 1370
+INFO:root:eval: {'average_loss': 8.048128, 'loss': 7276.5137, 'rmse': 2.8369224, 'global_step': 685500}
+INFO:root:Progress: epoch 1380
+INFO:root:eval: {'average_loss': 9.797778, 'loss': 8858.416, 'rmse': 3.1301403, 'global_step': 690500}
+INFO:root:Progress: epoch 1390
+INFO:root:eval: {'average_loss': 7.875129, 'loss': 7120.101, 'rmse': 2.806266, 'global_step': 695500}
+INFO:root:Progress: epoch 1400
+INFO:root:eval: {'average_loss': 7.6037197, 'loss': 6874.713, 'rmse': 2.7574842, 'global_step': 700500}
+INFO:root:Progress: epoch 1410
+INFO:root:eval: {'average_loss': 8.571627, 'loss': 7749.822, 'rmse': 2.9277341, 'global_step': 705500}
+INFO:root:Progress: epoch 1420
+INFO:root:eval: {'average_loss': 7.694067, 'loss': 6956.3984, 'rmse': 2.773818, 'global_step': 710500}
+INFO:root:Progress: epoch 1430
+INFO:root:eval: {'average_loss': 9.170736, 'loss': 8291.492, 'rmse': 3.0283225, 'global_step': 715500}
+INFO:root:Progress: epoch 1440
+INFO:root:eval: {'average_loss': 9.153104, 'loss': 8275.55, 'rmse': 3.0254097, 'global_step': 720500}
+INFO:root:Progress: epoch 1450
+INFO:root:eval: {'average_loss': 8.842686, 'loss': 7994.8936, 'rmse': 2.9736655, 'global_step': 725500}
+INFO:root:Progress: epoch 1460
+INFO:root:eval: {'average_loss': 8.210831, 'loss': 7423.6177, 'rmse': 2.8654547, 'global_step': 730500}
+INFO:root:Progress: epoch 1470
+INFO:root:eval: {'average_loss': 7.83479, 'loss': 7083.63, 'rmse': 2.7990696, 'global_step': 735500}
+INFO:root:Progress: epoch 1480
+INFO:root:eval: {'average_loss': 7.587896, 'loss': 6860.4062, 'rmse': 2.7546136, 'global_step': 740500}
+INFO:root:Progress: epoch 1490
+INFO:root:eval: {'average_loss': 8.70854, 'loss': 7873.6084, 'rmse': 2.9510236, 'global_step': 745500}
+INFO:root:Progress: epoch 1500
+INFO:root:eval: {'average_loss': 8.125061, 'loss': 7346.071, 'rmse': 2.8504493, 'global_step': 750500}
+INFO:root:Progress: epoch 1510
+INFO:root:eval: {'average_loss': 7.6276855, 'loss': 6896.3813, 'rmse': 2.7618265, 'global_step': 755500}
+INFO:root:Progress: epoch 1520
+INFO:root:eval: {'average_loss': 8.099748, 'loss': 7323.184, 'rmse': 2.8460057, 'global_step': 760500}
+INFO:root:Progress: epoch 1530
+INFO:root:eval: {'average_loss': 8.368257, 'loss': 7565.951, 'rmse': 2.892794, 'global_step': 765500}
+INFO:root:Progress: epoch 1540
+INFO:root:eval: {'average_loss': 7.790564, 'loss': 7043.6436, 'rmse': 2.7911582, 'global_step': 770500}
+INFO:root:Progress: epoch 1550
+INFO:root:eval: {'average_loss': 7.5972404, 'loss': 6868.855, 'rmse': 2.7563093, 'global_step': 775500}
+INFO:root:Progress: epoch 1560
+INFO:root:eval: {'average_loss': 8.401329, 'loss': 7595.851, 'rmse': 2.8985047, 'global_step': 780500}
+INFO:root:Progress: epoch 1570
+INFO:root:eval: {'average_loss': 8.426834, 'loss': 7618.911, 'rmse': 2.902901, 'global_step': 785500}
+INFO:root:Progress: epoch 1580
+INFO:root:eval: {'average_loss': 8.240058, 'loss': 7450.042, 'rmse': 2.8705502, 'global_step': 790500}
+INFO:root:Progress: epoch 1590
+INFO:root:eval: {'average_loss': 7.718226, 'loss': 6978.241, 'rmse': 2.7781696, 'global_step': 795500}
+INFO:root:Progress: epoch 1600
+INFO:root:eval: {'average_loss': 7.5762634, 'loss': 6849.889, 'rmse': 2.7525012, 'global_step': 800500}
+INFO:root:Progress: epoch 1610
+INFO:root:eval: {'average_loss': 7.509272, 'loss': 6789.321, 'rmse': 2.7403052, 'global_step': 805500}
+INFO:root:Progress: epoch 1620
+INFO:root:eval: {'average_loss': 7.4116774, 'loss': 6701.083, 'rmse': 2.7224395, 'global_step': 810500}
+INFO:root:Progress: epoch 1630
+INFO:root:eval: {'average_loss': 7.8392234, 'loss': 7087.6377, 'rmse': 2.7998614, 'global_step': 815500}
+INFO:root:Progress: epoch 1640
+INFO:root:eval: {'average_loss': 8.395916, 'loss': 7590.9575, 'rmse': 2.8975706, 'global_step': 820500}
+INFO:root:Progress: epoch 1650
+INFO:root:eval: {'average_loss': 7.5032463, 'loss': 6783.8726, 'rmse': 2.7392054, 'global_step': 825500}
+INFO:root:Progress: epoch 1660
+INFO:root:eval: {'average_loss': 8.021208, 'loss': 7252.175, 'rmse': 2.8321736, 'global_step': 830500}
+INFO:root:Progress: epoch 1670
+INFO:root:eval: {'average_loss': 7.6503224, 'loss': 6916.8477, 'rmse': 2.7659216, 'global_step': 835500}
+INFO:root:Progress: epoch 1680
+INFO:root:eval: {'average_loss': 7.5713687, 'loss': 6845.464, 'rmse': 2.751612, 'global_step': 840500}
+INFO:root:Progress: epoch 1690
+INFO:root:eval: {'average_loss': 8.591848, 'loss': 7768.1055, 'rmse': 2.9311855, 'global_step': 845500}
+INFO:root:Progress: epoch 1700
+INFO:root:eval: {'average_loss': 7.511901, 'loss': 6791.6973, 'rmse': 2.7407846, 'global_step': 850500}
+INFO:root:Progress: epoch 1710
+INFO:root:eval: {'average_loss': 7.7002883, 'loss': 6962.023, 'rmse': 2.7749393, 'global_step': 855500}
+INFO:root:Progress: epoch 1720
+INFO:root:eval: {'average_loss': 7.946832, 'loss': 7184.9297, 'rmse': 2.8190126, 'global_step': 860500}
+INFO:root:Progress: epoch 1730
+INFO:root:eval: {'average_loss': 8.345203, 'loss': 7545.107, 'rmse': 2.8888066, 'global_step': 865500}
+INFO:root:Progress: epoch 1740
+INFO:root:eval: {'average_loss': 8.91721, 'loss': 8062.272, 'rmse': 2.9861698, 'global_step': 870500}
+INFO:root:Progress: epoch 1750
+INFO:root:eval: {'average_loss': 7.806579, 'loss': 7058.1235, 'rmse': 2.7940257, 'global_step': 875500}
+INFO:root:Progress: epoch 1760
+INFO:root:eval: {'average_loss': 7.984691, 'loss': 7219.1587, 'rmse': 2.8257196, 'global_step': 880500}
+INFO:root:Progress: epoch 1770
+INFO:root:eval: {'average_loss': 7.8673506, 'loss': 7113.0684, 'rmse': 2.8048797, 'global_step': 885500}
+INFO:root:Progress: epoch 1780
+INFO:root:eval: {'average_loss': 8.371826, 'loss': 7569.1772, 'rmse': 2.893411, 'global_step': 890500}
+INFO:root:Progress: epoch 1790
+INFO:root:eval: {'average_loss': 7.701432, 'loss': 6963.0576, 'rmse': 2.7751455, 'global_step': 895500}
+INFO:root:Progress: epoch 1800
+INFO:root:eval: {'average_loss': 8.512798, 'loss': 7696.634, 'rmse': 2.91767, 'global_step': 900500}
+INFO:root:Progress: epoch 1810
+INFO:root:eval: {'average_loss': 7.637019, 'loss': 6904.82, 'rmse': 2.7635157, 'global_step': 905500}
+INFO:root:Progress: epoch 1820
+INFO:root:eval: {'average_loss': 7.6262984, 'loss': 6895.127, 'rmse': 2.7615755, 'global_step': 910500}
+INFO:root:Progress: epoch 1830
+INFO:root:eval: {'average_loss': 8.377638, 'loss': 7574.432, 'rmse': 2.894415, 'global_step': 915500}
+INFO:root:Progress: epoch 1840
+INFO:root:eval: {'average_loss': 8.271762, 'loss': 7478.707, 'rmse': 2.8760672, 'global_step': 920500}
+INFO:root:Progress: epoch 1850
+INFO:root:eval: {'average_loss': 7.8438787, 'loss': 7091.8467, 'rmse': 2.8006926, 'global_step': 925500}
+INFO:root:Progress: epoch 1860
+INFO:root:eval: {'average_loss': 7.9273233, 'loss': 7167.291, 'rmse': 2.8155503, 'global_step': 930500}
+INFO:root:Progress: epoch 1870
+INFO:root:eval: {'average_loss': 7.6751366, 'loss': 6939.2827, 'rmse': 2.7704036, 'global_step': 935500}
+INFO:root:Progress: epoch 1880
+INFO:root:eval: {'average_loss': 7.934258, 'loss': 7173.561, 'rmse': 2.8167815, 'global_step': 940500}
+INFO:root:Progress: epoch 1890
+INFO:root:eval: {'average_loss': 8.017193, 'loss': 7248.5444, 'rmse': 2.8314648, 'global_step': 945500}
+INFO:root:Progress: epoch 1900
+INFO:root:eval: {'average_loss': 7.5098257, 'loss': 6789.8213, 'rmse': 2.740406, 'global_step': 950500}
+INFO:root:Progress: epoch 1910
+INFO:root:eval: {'average_loss': 7.3406634, 'loss': 6636.8774, 'rmse': 2.7093658, 'global_step': 955500}
+INFO:root:Progress: epoch 1920
+INFO:root:eval: {'average_loss': 7.5852027, 'loss': 6857.971, 'rmse': 2.7541246, 'global_step': 960500}
+INFO:root:Progress: epoch 1930
+INFO:root:eval: {'average_loss': 7.7371907, 'loss': 6995.3877, 'rmse': 2.7815807, 'global_step': 965500}
+INFO:root:Progress: epoch 1940
+INFO:root:eval: {'average_loss': 7.724793, 'loss': 6984.178, 'rmse': 2.7793512, 'global_step': 970500}
+INFO:root:Progress: epoch 1950
+INFO:root:eval: {'average_loss': 7.4513764, 'loss': 6736.9756, 'rmse': 2.7297208, 'global_step': 975500}
+INFO:root:Progress: epoch 1960
+INFO:root:eval: {'average_loss': 7.3206964, 'loss': 6618.8247, 'rmse': 2.7056785, 'global_step': 980500}
+INFO:root:Progress: epoch 1970
+INFO:root:eval: {'average_loss': 8.14758, 'loss': 7366.4307, 'rmse': 2.8543966, 'global_step': 985500}
+INFO:root:Progress: epoch 1980
+INFO:root:eval: {'average_loss': 7.4651318, 'loss': 6749.412, 'rmse': 2.7322392, 'global_step': 990500}
+INFO:root:Progress: epoch 1990
+INFO:root:eval: {'average_loss': 7.9169683, 'loss': 7157.929, 'rmse': 2.8137107, 'global_step': 995500}
+INFO:root:Progress: epoch 2000
+INFO:root:eval: {'average_loss': 7.496158, 'loss': 6777.464, 'rmse': 2.7379112, 'global_step': 1000500}
+INFO:root:Progress: epoch 2010
+INFO:root:eval: {'average_loss': 7.6290402, 'loss': 6897.606, 'rmse': 2.7620718, 'global_step': 1005500}
+INFO:root:Progress: epoch 2020
+INFO:root:eval: {'average_loss': 7.65271, 'loss': 6919.0063, 'rmse': 2.7663531, 'global_step': 1010500}
+INFO:root:Progress: epoch 2030
+INFO:root:eval: {'average_loss': 7.6985383, 'loss': 6960.441, 'rmse': 2.774624, 'global_step': 1015500}
+INFO:root:Progress: epoch 2040
+INFO:root:eval: {'average_loss': 7.728942, 'loss': 6987.9297, 'rmse': 2.7800975, 'global_step': 1020500}
+INFO:root:Progress: epoch 2050
+INFO:root:eval: {'average_loss': 7.3280077, 'loss': 6625.435, 'rmse': 2.7070293, 'global_step': 1025500}
+INFO:root:Progress: epoch 2060
+INFO:root:eval: {'average_loss': 7.4166627, 'loss': 6705.5903, 'rmse': 2.723355, 'global_step': 1030500}
+INFO:root:Progress: epoch 2070
+INFO:root:eval: {'average_loss': 7.647449, 'loss': 6914.25, 'rmse': 2.765402, 'global_step': 1035500}
+INFO:root:Progress: epoch 2080
+INFO:root:eval: {'average_loss': 7.6744833, 'loss': 6938.6924, 'rmse': 2.7702858, 'global_step': 1040500}
+INFO:root:Progress: epoch 2090
+INFO:root:eval: {'average_loss': 7.5007615, 'loss': 6781.626, 'rmse': 2.738752, 'global_step': 1045500}
+INFO:root:Progress: epoch 2100
+INFO:root:eval: {'average_loss': 7.540167, 'loss': 6817.2534, 'rmse': 2.7459364, 'global_step': 1050500}
+INFO:root:Progress: epoch 2110
+INFO:root:eval: {'average_loss': 7.5219336, 'loss': 6800.768, 'rmse': 2.7426143, 'global_step': 1055500}
+INFO:root:Progress: epoch 2120
+INFO:root:eval: {'average_loss': 7.4049764, 'loss': 6695.0244, 'rmse': 2.7212086, 'global_step': 1060500}
+INFO:root:Progress: epoch 2130
+INFO:root:eval: {'average_loss': 7.417956, 'loss': 6706.7593, 'rmse': 2.7235925, 'global_step': 1065500}
+INFO:root:Progress: epoch 2140
+INFO:root:eval: {'average_loss': 7.4032264, 'loss': 6693.442, 'rmse': 2.720887, 'global_step': 1070500}
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-15_14.56.07
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 7.435743808746338
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/layer10_highestLoss_2018-10-15_14.56.07.png
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/layer10_2018-10-15_14.56.07.png
+INFO:root:getting optimal accel for 1872 examples
+INFO:root:Evaluation on 105 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  105.000000             105.000000             105.000000                
+mean   0.611246               0.044441               0.068093                  
+std    1.254395               0.895033               0.893368                  
+min   -2.810928              -2.099541              -2.025783                  
+25%   -0.114974              -0.459630              -0.386211                  
+50%    0.581106               0.059400               0.053553                  
+75%    1.364501               0.557079               0.519487                  
+max    4.568056               2.778337               2.901255                  
+
+       CApixelErrorPosBalken  
+count  105.000000             
+mean  -0.175289               
+std    3.304328               
+min   -15.992759              
+25%   -0.858989               
+50%   -0.049764               
+75%    1.218492               
+max    10.335070              
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  105.000000   105.000000   105.000000     105.000000   105.000000    
+mean   0.352663     2.261715     0.086217       0.333139     0.810029      
+std    1.812544     3.009888     3.009888       12.460836    2.986197      
+min   -8.549415    -7.773283    -9.948782      -42.360762   -10.854777     
+25%   -0.519041     0.326211    -1.849288      -6.416851    -0.766320      
+50%    0.369717     2.168476    -0.007023       1.444391     0.880575      
+75%    1.210367     4.401840     2.226342       7.999317     2.705573      
+max    6.852084     12.425536    10.250037      42.074221    9.893340      
+
+       IAerrorTime  
+count  105.000000   
+mean  -2.843505     
+std    3.909996     
+min   -18.708155    
+25%   -4.275607     
+50%   -2.157200     
+75%   -0.568101     
+max    3.472494     
+             X_0        X_1    ...            Y_3        Y_4
+15555  1200.3312  1201.9689    ...       632.0302   724.8296
+61673   450.9443   448.1340    ...      1221.3297  1283.1894
+50814  1675.7084  1673.6070    ...       453.6034   539.8871
+71258  1693.7372  1693.8636    ...       667.4808   758.8790
+41215  1342.3869  1346.4296    ...       582.8272   677.4022
+29592   525.9999   523.5590    ...      1108.7532  1200.1361
+8395   1721.8996  1719.9965    ...      1098.0312  1188.5672
+53447   975.9751   979.1957    ...       523.0244   614.9900
+34908  1550.9972  1552.0263    ...       441.2077   531.7449
+18663   178.7851   174.0245    ...       641.6828   732.2519
+
+[10 rows x 10 columns]
+       LabelPosBalken    LabelTime
+15555     1227.683028   893.820405
+61673      430.752744   435.674091
+50814     1638.071599  1166.709984
+71258     1692.731873   874.194965
+41215     1393.778011   938.455159
+29592      508.242121   385.752031
+8395      1704.449642   404.203486
+53447     1024.119375  1020.252720
+34908     1570.256719  1130.267808
+18663      122.444407   906.894887
+predicted: 
+[1223.0127  892.6802]
+[431.75726 432.50897]
+[1637.875  1169.5797]
+[1691.9817  878.0429]
+[1395.352   935.5553]
+[508.42337 382.40863]
+[1704.2671  402.6592]
+[1022.71875 1019.2023 ]
+[1566.4077 1128.0558]
+[136.23117 904.46094]
+time: 0.30s
+MSE (tensorflow): 15.053560256958008
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_09.50.55
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 7.435743808746338
+             X_0        X_1        X_2    ...          Y_2       Y_3       Y_4
+16966  1088.1693  1083.2968  1078.4269    ...     760.2247  854.2102  946.8262
+
+[1 rows x 10 columns]
+       LabelPosBalken   LabelTime
+16966     1038.152316  649.660045
+predicted: 
+[1035.2217   651.92694]
+time: 0.33s
+MSE (tensorflow): 6.863828659057617
+name: 
+beta1_power
+
+value: 
+0.0
+name: 
+beta2_power
+
+value: 
+0.0
+name: 
+dense/bias
+
+value: 
+[-4.27357  8.333    6.10743 -5.64123 -2.57494 -4.35379  2.22614  0.23086
+ -4.65265  5.9741  -1.545   -1.2751  -2.93975 -5.84196  1.27316  6.66962]
+name: 
+dense/bias/Adam
+
+value: 
+[-5.45394e-03 -8.86038e-04  1.10371e-02 -3.69399e-03  5.07989e-04
+  4.88634e-03 -6.53818e-05 -6.21050e-04  1.14681e-02 -5.02177e-03
+  1.01206e-03 -2.14198e-02  1.82960e-03  1.21791e-02 -3.89505e-02
+  1.37437e-04]
+name: 
+dense/bias/Adam_1
+
+value: 
+[1.43263e-02 2.97901e-05 4.48132e-02 3.52775e-04 1.32691e-04 2.59345e-03
+ 1.86372e-03 1.33751e-03 9.05980e-04 1.48499e-03 1.55016e-04 2.58786e-01
+ 7.98095e-05 9.80074e-03 5.47445e-01 1.45173e-03]
+name: 
+dense/kernel
+
+value: 
+[[-0.77283  0.13101  0.35272 -0.1072  -0.21952 -0.12326 -0.2845  -0.71385
+  -0.86846 -0.63275  0.44495 -0.98607 -0.59454  0.6055   0.06843 -0.60042]
+ [-0.12654  0.37234 -0.37592 -0.01922 -0.50218  0.52244  0.35246 -0.45333
+   0.07721 -0.11355  0.29573  0.03306 -0.50871  0.49955 -0.43212 -0.04901]
+ [-0.19328  0.01168  0.00481  0.07826 -0.1407  -0.27436 -0.19883  0.48469
+   0.37271  0.0259   0.14257  0.14239  0.32634 -0.42748  0.04704  0.2363 ]
+ [ 0.24799 -0.42059 -0.13316 -0.19494  0.34887  0.21303  0.37159 -0.1368
+   0.23952  0.34651 -0.07637  0.54843  0.14926 -0.216   -0.21935  0.21913]
+ [ 0.87621 -0.03667 -0.89537  0.10173  0.51833 -0.33954 -0.24131  0.81528
+   0.16117  0.4674  -0.76138  0.61626  0.66955 -0.5096   0.4029   0.20417]
+ [ 0.05209  0.89679  0.56291 -0.67604 -0.00647  0.04302 -0.15485 -0.33237
+  -0.34755  0.77196 -0.08605  0.35601  0.13108 -0.19022 -0.73454 -1.04261]
+ [-0.24324  0.31317  0.55888  0.09842 -0.04126  0.13691  0.25881  0.27574
+   0.29305  0.04794  0.14834  0.0524   0.06799 -0.23738 -0.51927 -0.16559]
+ [-0.73719 -0.09722  0.37122  0.18817  0.2659  -0.37242 -0.14799  0.16519
+   0.36122 -0.5519   0.11059  0.37728 -0.27823  0.20424  0.22523  0.11458]
+ [ 0.2342  -0.78289 -0.09196  0.62631 -0.36273  0.05886  0.11281 -0.19315
+  -0.05249  0.14483 -0.07999 -0.31981 -0.19372 -0.10639  0.69721 -0.23972]
+ [-0.01174 -0.12149 -1.02307 -0.23284  0.12609  0.12522 -0.0724   0.01392
+  -0.21432 -0.44061 -0.21503 -0.34155  0.14256  0.3556   1.03366  0.19943]]
+name: 
+dense/kernel/Adam
+
+value: 
+[[  5.24842  -0.87701   3.93254  -1.97683   1.95783   2.38235  -0.62666
+    0.07869  10.17084  -3.08846   1.41885   8.67962   2.50004   0.32142
+  -29.67298  -0.97026]
+ [  5.24525  -0.87865   3.9324   -1.96248   1.96196   2.355    -0.62616
+    0.08127  10.20811  -3.07026   1.41682   8.76357   2.51084   0.32987
+  -29.77258  -0.97229]
+ [  5.23148  -0.8799    3.92521  -1.95049   1.9644    2.33166  -0.62142
+    0.08269  10.24868  -3.05627   1.41482   8.79491   2.52032   0.34485
+  -29.82481  -0.97401]
+ [  5.19457  -0.88049   3.91598  -1.94202   1.96546   2.31803  -0.60977
+    0.07703  10.2988   -3.05298   1.41571   8.68304   2.52961   0.38775
+  -29.8172   -0.97239]
+ [  5.12616  -0.88004   3.92867  -1.93272   1.96402   2.31693  -0.59663
+    0.06186  10.35723  -3.05797   1.41924   8.43266   2.53667   0.45426
+  -29.80921  -0.97278]
+ [ -1.98683  -0.37002   5.43602  -0.17609  -0.50195   1.00804  -0.41986
+   -0.59469   5.40524  -1.48588   0.35249 -16.13589  -0.28299   3.23346
+  -19.98095   1.91073]
+ [ -2.30838  -0.44411   6.4488   -0.4014   -0.47796   1.40908  -0.46829
+   -0.67506   6.20212  -1.85288   0.44781 -17.33259  -0.16686   4.15322
+  -23.65511   2.01726]
+ [ -2.58573  -0.51796   7.3325   -0.63231  -0.45479   1.79844  -0.49996
+   -0.7371    6.98211  -2.21223   0.53502 -18.31807  -0.04883   5.03376
+  -27.00293   2.12087]
+ [ -2.89571  -0.59172   8.2975   -0.85985  -0.43444   2.20211  -0.53986
+   -0.80966   7.77667  -2.58435   0.62916 -19.54268   0.06739   5.94804
+  -30.53104   2.23509]
+ [ -3.15004  -0.66675   9.254    -1.08204  -0.41274   2.57415  -0.59246
+   -0.8731    8.54382  -2.93379   0.71673 -20.39549   0.1842    6.81371
+  -34.1897    2.34456]]
+name: 
+dense/kernel/Adam_1
+
+value: 
+[[2.05506e+04 4.81187e+01 6.59556e+04 2.10331e+02 2.52568e+02 3.37795e+03
+  2.73705e+03 1.79284e+03 1.00795e+03 2.39313e+03 2.75541e+02 3.80290e+05
+  1.45360e+02 1.18957e+04 7.97826e+05 2.21785e+03]
+ [2.05456e+04 4.81536e+01 6.59369e+04 2.10304e+02 2.53587e+02 3.37126e+03
+  2.73799e+03 1.79551e+03 1.01145e+03 2.39638e+03 2.75151e+02 3.80355e+05
+  1.45728e+02 1.18816e+04 7.97695e+05 2.21874e+03]
+ [2.05407e+04 4.81878e+01 6.59181e+04 2.10292e+02 2.54607e+02 3.36455e+03
+  2.73892e+03 1.79815e+03 1.01497e+03 2.39959e+03 2.74748e+02 3.80416e+05
+  1.46105e+02 1.18674e+04 7.97563e+05 2.21963e+03]
+ [2.05358e+04 4.82209e+01 6.58979e+04 2.10287e+02 2.55632e+02 3.35789e+03
+  2.73980e+03 1.80079e+03 1.01852e+03 2.40279e+03 2.74341e+02 3.80475e+05
+  1.46468e+02 1.18533e+04 7.97420e+05 2.22049e+03]
+ [2.05308e+04 4.82525e+01 6.58773e+04 2.10300e+02 2.56651e+02 3.35124e+03
+  2.74066e+03 1.80345e+03 1.02207e+03 2.40591e+03 2.73939e+02 3.80528e+05
+  1.46819e+02 1.18392e+04 7.97274e+05 2.22134e+03]
+ [1.63738e+03 1.27763e+01 7.90355e+03 4.22773e+01 8.73260e+00 2.92043e+02
+  2.91128e+02 8.96773e+01 1.72156e+02 1.88293e+02 1.43851e+01 3.92572e+04
+  5.86683e+00 9.70820e+02 9.26305e+04 2.61659e+02]
+ [2.43972e+03 1.55814e+01 1.10890e+04 6.07231e+01 1.32798e+01 4.46160e+02
+  4.17571e+02 1.43475e+02 2.36414e+02 2.72497e+02 2.17042e+01 5.68382e+04
+  8.89775e+00 1.48983e+03 1.30597e+05 3.43041e+02]
+ [3.42567e+03 1.87160e+01 1.48686e+04 8.32339e+01 1.90296e+01 6.38918e+02
+  5.68540e+02 2.12977e+02 3.12045e+02 3.75000e+02 3.08717e+01 7.79800e+04
+  1.27470e+01 2.13423e+03 1.75679e+05 4.39220e+02]
+ [4.59573e+03 2.21799e+01 1.92411e+04 1.09765e+02 2.59858e+01 8.70446e+02
+  7.44033e+02 2.98243e+02 3.99023e+02 4.95792e+02 4.18827e+01 1.02675e+05
+  1.74175e+01 2.90421e+03 2.27859e+05 5.49958e+02]
+ [5.94860e+03 2.59675e+01 2.42046e+04 1.40335e+02 3.41348e+01 1.14046e+03
+  9.43916e+02 3.99159e+02 4.97267e+02 6.34756e+02 5.47299e+01 1.30910e+05
+  2.29011e+01 3.79897e+03 2.87119e+05 6.75279e+02]]
+name: 
+dense_1/bias
+
+value: 
+[ -2.44659   8.92141  11.62296 -10.74775   7.19847   5.67259  -5.31737
+   9.62217  -3.31697   6.33932 -13.71908   5.72344   7.36807  -7.00687
+   7.52629   7.13739]
+name: 
+dense_1/bias/Adam
+
+value: 
+[ 0.00119  0.01719 -0.00789  0.00042 -0.01109  0.00615  0.01988 -0.01323
+ -0.04913 -0.00832  0.0128   0.01177 -0.0052   0.01449  0.01451  0.04101]
+name: 
+dense_1/bias/Adam_1
+
+value: 
+[0.0022  0.16562 0.00214 0.01672 0.00204 0.00256 0.08039 0.00206 0.66741
+ 0.00185 0.00352 0.16289 0.00142 0.00606 0.00905 0.07428]
+name: 
+dense_1/kernel
+
+value: 
+[[ 0.09314  0.64492  0.8686   0.61622 -1.24802 -0.92684  0.65739 -1.07455
+   0.37312 -0.97319 -0.98637 -0.12348  1.00629 -1.02296 -1.1813  -0.16161]
+ [ 0.33609 -0.41104 -0.08012 -0.04403 -0.03152 -0.23035 -0.01901  0.1612
+   0.02669 -0.31959 -0.14123  0.44751  0.10486  0.15542  0.06604 -0.01838]
+ [-0.32677  0.48078  0.45766 -0.444   -0.29219 -0.36992  0.04849 -0.11877
+  -0.6863  -0.26098 -0.61746  0.54523  0.50523  0.17153 -0.33343  0.44365]
+ [-0.32835  0.19199  0.12008  0.16423  0.01478 -0.19215 -0.05398  0.27191
+  -0.01286  0.05351  0.14566  0.00247 -0.6278  -0.12192 -0.14016 -0.07914]
+ [-0.24655  0.05326 -0.08214  0.14201 -0.10817 -0.1427   0.03436 -0.03408
+  -0.03511 -0.17839 -0.16657 -0.04509 -0.1024  -0.05547 -0.05714 -0.10726]
+ [-0.09806 -0.15764 -0.27381  0.24525  0.03214 -0.7179  -0.33664  0.12757
+  -0.13881 -0.27282  0.08883 -0.05511 -0.41681  0.05248  0.26423 -0.06386]
+ [-0.02758 -0.04573  0.00787 -0.04725  0.01375  0.0446  -0.02312 -0.01988
+   0.01459  0.09452  0.01307 -0.06209  0.00381  0.03943  0.10405  0.01754]
+ [-0.5371   0.04104 -0.44564  0.02999 -0.83127 -0.13667  0.08908  0.14743
+   0.06142  0.31426 -0.13736 -0.03658  0.28514  0.22178 -0.84227 -0.10506]
+ [ 0.19815  0.06543 -0.05953  0.2198  -0.17003 -0.13682 -0.18805 -0.24012
+  -0.04259 -0.16492  0.14905 -0.05372 -0.46889  0.12309  0.11237 -0.00429]
+ [-0.06294  0.23836  0.47195 -0.13688  0.92614  0.40493  0.08525 -0.19956
+   0.0522   0.64543 -0.03678  0.11132  0.23564  0.04595 -0.12305 -0.2967 ]
+ [ 0.03369  0.2162  -0.06589  0.09309 -0.01527 -0.1457  -0.05807  0.35109
+  -0.01784 -0.4736   0.00591 -0.15664  0.0648   0.39333 -0.03911 -0.10136]
+ [-0.29129  0.41795  0.28799 -0.25437 -0.29402 -0.25519  0.60998  0.01594
+   0.18386 -0.18589 -0.3449   0.41863  0.23886 -0.15399 -0.17875 -1.03733]
+ [-0.08195  0.2618  -0.02338 -0.05699  0.00914  0.22068 -0.0064  -0.00834
+  -0.02452 -0.1966  -0.06278 -0.33224  0.03768 -0.03874 -0.11243 -0.10651]
+ [-0.36448 -0.15306  0.01114 -0.1117  -0.34308  0.31173  0.0247   0.42262
+  -0.00703 -0.30756  0.10133 -0.03684 -0.26398 -0.35327  0.48368  0.30653]
+ [ 0.04796 -0.96475  0.16438  0.02408 -0.00704 -0.17643 -0.25987 -0.18572
+   0.10728 -0.074   -0.29687 -0.56627  0.22833  0.09309 -0.24179  0.02513]
+ [ 0.46445  0.37496  0.41925  0.04809  0.57936 -0.28306  0.26208  0.39466
+   0.33708  0.27151 -0.4663  -0.26455  0.28501  0.82146 -0.00596  0.57365]]
+name: 
+dense_1/kernel/Adam
+
+value: 
+[[-4.04581e-01 -2.16143e+00  6.67760e-01  5.45873e-02  3.55751e-01
+  -9.30350e-02 -2.72172e-01  4.21455e-01  2.82562e+00  2.80515e-01
+  -1.68873e-01 -1.42050e+00  5.98285e-01 -7.40954e-01 -4.35788e-01
+  -3.75376e+00]
+ [ 5.16541e-02  2.21318e-01  4.09845e-02  5.46912e-02  1.99819e-01
+  -1.11992e-01 -9.61545e-01  1.97687e-01 -5.89173e-02  8.06642e-02
+  -4.69833e-01  2.17730e-01 -1.90153e-01 -2.11623e-01 -9.35618e-02
+   6.54046e-03]
+ [ 9.60232e-02 -2.61612e+00  8.38517e-01 -1.72911e+00  1.80004e+00
+  -1.10366e+00 -8.03778e+00  4.06909e+00  4.42623e+00  2.80530e+00
+  -2.35089e+00 -1.88364e+00  3.92185e-01 -1.47060e+00 -3.40005e+00
+  -3.36780e+00]
+ [ 4.42575e-02  5.86563e-01 -1.86597e-01 -2.68028e-01 -2.69190e-01
+   6.68137e-02 -9.04351e-01  3.32610e-01 -3.40869e+00  9.33205e-02
+   4.97455e-01  4.88944e-01 -7.04624e-02  8.42002e-01  2.80222e-01
+   2.59998e+00]
+ [-3.21248e-02 -9.38812e-02  7.50022e-02  2.77155e-02  1.50365e-02
+   1.16692e-02  1.44875e-02 -1.54079e-02  1.54885e-01 -3.68864e-02
+  -1.93531e-03 -6.85628e-02  3.14023e-02 -2.56235e-02  1.77256e-02
+  -1.80374e-01]
+ [ 8.99903e-04 -2.62122e-02  4.29164e-03  6.12549e-03 -3.17808e-03
+  -7.93710e-03 -5.34976e-03  5.33402e-03  2.03409e-02  4.36335e-03
+   5.15671e-03 -2.36206e-02  9.02693e-03 -2.32749e-03 -1.59310e-02
+  -1.25604e-02]
+ [-5.18893e-03  3.18645e-02 -7.06429e-03 -2.49711e-03 -2.33991e-02
+   1.95467e-02  5.61253e-02 -2.26073e-02 -1.23895e-01 -1.58320e-02
+   3.24153e-02  2.88582e-02  2.55346e-03  2.92013e-02  3.24889e-02
+   5.49713e-02]
+ [-6.59147e-02 -1.30983e-01  1.25709e-01 -4.40388e-02 -9.34265e-03
+   1.76108e-02  1.16842e-01 -1.00368e-02  4.76679e-02 -1.68372e-02
+   2.78470e-02 -8.11735e-02  7.57410e-02 -2.21584e-02  6.47562e-03
+  -2.66067e-01]
+ [ 3.49551e-02  1.40443e-01 -5.79100e-02 -3.41399e-02  1.46470e-02
+  -3.63738e-03 -2.37687e-01  6.05370e-02 -2.62212e-01  2.53985e-02
+  -3.23032e-02  9.18638e-02 -8.06633e-02  7.44612e-02  2.46166e-02
+   3.37925e-01]
+ [-1.55086e-01 -4.38599e-01  1.96663e-01  1.26051e-01  2.14739e-01
+  -2.69055e-02 -1.59803e-01  4.94679e-02  8.63257e-01  1.24706e-02
+  -2.54833e-01 -1.78389e-01  8.65794e-02 -3.94100e-01  4.86145e-03
+  -1.42519e+00]
+ [-1.00686e-01 -4.26813e-01  1.26663e-01  6.74426e-02  6.63932e-02
+  -2.19246e-02  4.77221e-02  3.26781e-02  6.16506e-01  1.65211e-02
+  -6.59793e-02 -2.45717e-01  1.18855e-01 -2.17875e-01 -7.74349e-02
+  -9.46513e-01]
+ [ 5.89973e-03  3.43694e+00 -8.39890e-01  2.80320e+00 -1.29607e+00
+   1.07098e+00  8.87560e+00 -5.17092e+00 -1.94833e+00 -3.68863e+00
+   1.50081e+00  2.46624e+00 -1.09180e+00  7.98336e-01  4.14037e+00
+   2.90186e+00]
+ [-1.57833e-01 -4.44482e-01  2.42633e-01  2.20740e-01  4.41102e-02
+   5.31803e-02  2.11218e-01 -1.20597e-01  5.87958e-01 -1.93858e-01
+  -1.01478e-03 -2.67013e-01  1.74589e-01 -1.70458e-01  8.46070e-02
+  -9.59223e-01]
+ [ 2.66995e-01  1.90081e+00 -6.60819e-01 -3.63576e-01 -7.62843e-01
+   2.09591e-01  7.98019e-01 -3.16511e-01 -4.35997e+00 -1.54310e-01
+   7.93609e-01  1.31130e+00 -2.19964e-01  1.08965e+00  4.26029e-01
+   3.90971e+00]
+ [ 2.89482e+00  1.81305e+01 -5.95153e+00 -9.62901e-01 -5.18422e+00
+   2.07821e+00  7.40895e+00 -4.87573e+00 -3.13340e+01 -3.17545e+00
+   5.12351e+00  1.20494e+01 -3.99978e+00  8.73234e+00  5.91489e+00
+   3.45988e+01]
+ [-5.79506e-01 -2.90017e+00  8.57845e-01  2.85321e-02  2.83313e-01
+  -4.85755e-02  6.27549e-02  4.51991e-01  3.18113e+00  3.19916e-01
+   5.63920e-02 -1.89526e+00  8.85128e-01 -8.14234e-01 -4.71621e-01
+  -4.80805e+00]]
+name: 
+dense_1/kernel/Adam_1
+
+value: 
+[[9.55608e+00 9.58604e+02 3.39757e+00 2.24642e+01 5.58086e+00 5.22569e+00
+  3.07674e+02 4.90765e+00 2.79861e+03 5.97196e+00 2.58869e+01 7.51306e+02
+  4.21426e+00 2.71847e+01 2.46521e+01 5.67398e+02]
+ [6.07724e-01 2.56208e+01 1.16314e+00 6.82931e+00 1.05768e+00 8.46080e-01
+  1.58752e+01 7.41547e-01 1.20903e+02 6.39720e-01 1.18776e+00 2.57051e+01
+  7.05387e-01 1.95447e+00 2.66784e+00 1.44686e+01]
+ [1.48975e+02 1.17282e+04 1.54488e+02 1.37311e+03 1.31352e+02 2.27923e+02
+  7.71970e+03 1.88493e+02 5.00392e+04 1.19132e+02 2.08548e+02 1.18151e+04
+  1.20942e+02 3.58643e+02 6.53156e+02 4.86016e+03]
+ [6.97868e-01 2.55106e+01 1.34862e+00 4.79303e+00 1.66382e+00 1.04789e+00
+  2.16212e+01 1.10240e+00 1.53277e+02 5.74189e-01 1.73796e+00 2.76572e+01
+  5.14070e-01 2.70122e+00 3.33444e+00 3.35336e+01]
+ [2.10993e-02 1.21188e+00 2.85192e-02 8.26682e-02 3.09335e-02 2.05591e-02
+  4.13062e-01 1.98386e-02 4.58297e+00 2.44769e-02 4.44459e-02 1.01898e+00
+  2.90095e-02 4.90030e-02 6.69431e-02 7.76051e-01]
+ [2.38398e-03 1.21018e-01 2.85916e-03 7.69086e-03 6.37303e-03 2.09766e-03
+  5.49730e-02 2.46689e-03 4.23404e-01 1.74401e-03 5.60601e-03 1.06933e-01
+  2.38345e-03 3.88706e-03 7.64929e-03 6.94591e-02]
+ [6.71497e-03 3.13137e-01 1.22041e-02 7.39222e-02 6.24910e-03 9.35308e-03
+  1.96893e-01 6.24774e-03 1.62628e+00 8.23697e-03 9.72262e-03 3.61537e-01
+  6.33998e-03 1.62233e-02 2.77629e-02 1.16461e-01]
+ [8.65429e-02 6.28334e+00 6.76203e-02 2.22567e-01 7.71210e-02 5.14305e-02
+  1.94923e+00 5.85680e-02 1.94375e+01 9.47487e-02 2.33034e-01 4.89867e+00
+  6.16236e-02 1.79472e-01 2.32191e-01 3.86775e+00]
+ [7.05771e-02 2.14199e+00 3.73196e-02 2.90432e-01 4.44475e-02 5.42530e-02
+  9.45236e-01 5.25969e-02 8.53328e+00 2.85118e-02 1.23288e-01 1.76353e+00
+  2.52556e-02 7.28789e-02 1.80880e-01 1.11025e+00]
+ [6.01676e-01 6.27452e+01 7.53440e-01 4.64298e+00 8.43602e-01 6.77234e-01
+  1.90567e+01 5.13179e-01 2.14167e+02 5.84137e-01 1.64600e+00 5.23799e+01
+  3.20626e-01 2.99146e+00 2.85266e+00 4.03354e+01]
+ [3.52108e-01 2.74937e+01 1.90350e-01 8.29577e-01 2.16422e-01 2.28728e-01
+  7.10567e+00 2.09470e-01 8.05860e+01 2.35056e-01 1.03300e+00 2.06984e+01
+  1.54287e-01 9.33478e-01 8.03619e-01 1.79416e+01]
+ [2.60832e+02 2.02363e+04 2.29098e+02 1.83854e+03 2.32526e+02 3.63461e+02
+  1.32336e+04 3.09939e+02 8.25752e+04 1.93346e+02 3.95082e+02 1.98205e+04
+  2.18691e+02 5.40858e+02 1.06217e+03 8.60061e+03]
+ [3.66311e-01 2.18890e+01 3.85156e-01 9.83785e-01 3.90736e-01 3.91519e-01
+  5.25875e+00 2.27396e-01 6.90323e+01 3.63631e-01 8.59136e-01 1.61633e+01
+  3.43841e-01 7.52240e-01 1.01779e+00 1.50843e+01]
+ [4.76093e+00 5.36617e+02 4.59621e+00 3.61065e+01 6.57583e+00 4.65580e+00
+  1.61187e+02 4.19124e+00 1.79439e+03 4.16995e+00 1.33274e+01 4.48422e+02
+  1.84830e+00 2.40392e+01 2.01130e+01 3.39432e+02]
+ [6.91123e+02 7.52837e+04 4.61601e+02 3.52062e+03 4.75318e+02 5.41814e+02
+  2.73365e+04 4.62658e+02 2.40328e+05 5.27484e+02 1.73598e+03 6.27254e+04
+  3.83739e+02 2.48779e+03 2.20006e+03 4.27391e+04]
+ [1.72100e+01 1.62651e+03 4.91309e+00 2.39148e+01 8.83141e+00 7.76205e+00
+  4.93506e+02 7.43390e+00 4.51867e+03 1.00209e+01 4.84172e+01 1.23253e+03
+  7.39812e+00 4.24782e+01 3.90435e+01 9.83601e+02]]
+name: 
+dense_10/bias
+
+value: 
+[1.04836 7.86462]
+name: 
+dense_10/bias/Adam
+
+value: 
+[-0.01305  0.02205]
+name: 
+dense_10/bias/Adam_1
+
+value: 
+[0.0603 0.1129]
+name: 
+dense_10/kernel
+
+value: 
+[[ 0.05723 -0.08222]
+ [-0.11068 -0.97442]
+ [ 0.8437   0.38716]
+ [-0.48537 -0.64414]
+ [-0.58579 -0.55417]
+ [ 0.60791  0.51539]
+ [-0.48364  0.00578]
+ [-0.39791  0.91377]
+ [ 0.501   -0.19338]
+ [-0.00552 -0.08215]
+ [ 0.77274  0.41044]
+ [-0.36347 -0.68701]
+ [ 0.44456 -0.25269]
+ [ 0.77494  0.04126]
+ [-0.77033 -0.43368]
+ [ 0.39625  1.05265]]
+name: 
+dense_10/kernel/Adam
+
+value: 
+[[-1.64290e-02  2.98650e-03]
+ [ 1.15753e+00 -5.28448e-01]
+ [ 2.22808e+00  6.85739e+00]
+ [ 4.42902e-01 -4.99590e-01]
+ [ 1.92312e-01 -5.96400e-01]
+ [-1.46909e+00  5.18106e+00]
+ [ 9.57055e-02 -2.39369e-03]
+ [-7.57343e+00  6.81727e-01]
+ [ 1.58762e+00  3.55715e+00]
+ [ 4.61745e-01 -7.57889e-02]
+ [ 7.61101e-01  5.42980e+00]
+ [ 7.33111e-01 -5.04110e-01]
+ [ 1.39212e+00  2.84493e+00]
+ [ 2.02343e+00  4.93761e+00]
+ [-8.17011e-06  1.29406e-03]
+ [-3.50240e+00  2.81833e+00]]
+name: 
+dense_10/kernel/Adam_1
+
+value: 
+[[2.42428e-01 4.15834e-01]
+ [1.55187e+02 2.92585e+02]
+ [8.52905e+03 1.62552e+04]
+ [1.05312e+02 2.02223e+02]
+ [1.00315e+02 1.92932e+02]
+ [7.22209e+03 1.38815e+04]
+ [9.14324e-02 1.09561e-01]
+ [1.13190e+03 1.89226e+03]
+ [1.30940e+03 2.37686e+03]
+ [2.58966e+00 3.74670e+00]
+ [6.21619e+03 1.18710e+04]
+ [1.27961e+02 2.44476e+02]
+ [5.89608e+02 1.01061e+03]
+ [3.42879e+03 6.46190e+03]
+ [2.09603e-03 3.20708e-03]
+ [3.82110e+03 7.32719e+03]]
+name: 
+dense_2/bias
+
+value: 
+[-7.03155  7.60491 -9.41349  6.66321  5.46087  5.98776 -7.5179   8.68167
+ 10.48988  3.46499  6.94395 -3.90147 11.32153 -9.37466 11.7266   0.97393]
+name: 
+dense_2/bias/Adam
+
+value: 
+[ 0.00211 -0.01474  0.00035  0.02401  0.00166  0.01959 -0.03618  0.04888
+ -0.00654 -0.02854 -0.01427 -0.03005  0.0148  -0.0073   0.10511  0.05271]
+name: 
+dense_2/bias/Adam_1
+
+value: 
+[0.02513 0.25361 0.01925 0.02029 0.00669 0.06872 0.02411 0.38213 0.02077
+ 0.0172  0.00951 0.01326 0.00897 0.01668 2.6008  1.36255]
+name: 
+dense_2/kernel
+
+value: 
+[[ 1.70102e-01 -5.15435e-01  2.68592e-02 -2.34562e-01  4.21958e-01
+  -3.66925e-01  1.29526e-01 -3.77456e-02  5.34290e-01 -4.62651e-01
+  -4.54837e-01 -1.13691e-01 -2.22673e-01  4.45448e-01  5.08682e-02
+  -1.01578e-01]
+ [-4.24549e-02  2.32677e-01  1.55662e-01  4.44967e-01 -3.45808e-02
+   2.35031e-01 -2.09378e-01  5.42030e-01 -1.00584e-01  4.95265e-02
+   9.28282e-03  1.79438e-01 -9.76634e-02  9.45764e-02  7.82591e-01
+  -6.38823e-01]
+ [-1.03716e+00 -1.52934e-01  2.66901e-01 -3.50950e-01  1.48286e-01
+   6.14339e-02 -2.73807e-01  3.44633e-01 -2.72392e-01  4.95897e-01
+   1.41556e-01  4.99535e-01  4.08021e-01 -1.27452e-02 -9.34776e-02
+   3.54178e-02]
+ [ 3.77179e-01 -5.59843e-01 -5.70525e-01 -3.39693e-01  5.05560e-02
+  -1.87347e-01  1.00524e-01 -4.30951e-01 -2.02677e-01  1.71599e-02
+  -5.30979e-02 -2.55889e-02  1.15834e-01 -4.06838e-01  1.66052e-01
+   4.28844e-02]
+ [-5.52846e-01  4.85935e-01 -6.84052e-01 -4.46390e-01  6.25132e-02
+   7.61880e-01  3.16959e-01  1.58838e+00  7.55348e-01  8.17037e-01
+   2.65587e-01 -1.74647e-01  1.11391e+00 -4.45633e-01 -7.14844e-01
+  -1.35457e-01]
+ [-3.54342e-01 -1.67823e-01  9.98968e-02  5.89156e-02  2.71120e-01
+  -9.69889e-03  1.78302e-01  1.48792e-01 -2.32482e-01 -2.17649e-01
+   1.22234e-01 -2.67640e-03 -7.42613e-02 -3.55543e-01 -4.57447e-03
+   3.95969e-03]
+ [ 2.62892e-01 -3.41467e-02 -1.98880e-02 -1.16924e-03 -2.64638e-01
+  -3.14822e-01 -4.82554e-02 -4.25411e-01  2.78738e-02 -9.91531e-03
+  -1.10577e-01  2.67163e-02  9.26446e-02  2.16125e-01  1.83645e-01
+  -5.40088e-01]
+ [ 1.25859e-01 -2.59965e-01  2.61159e-01 -7.09208e-01  2.53871e-01
+  -5.01629e-01  1.42537e-01  1.08421e-01  2.16067e-01  2.75259e-02
+   2.80506e-02 -4.04754e-02 -2.53423e-01 -2.51360e-01  1.00262e-01
+   4.60109e-02]
+ [-1.25081e-01 -3.25011e-01  1.43918e-01  2.36697e-01 -5.43392e-02
+   1.33181e-01 -1.85699e-01  8.55683e-02  2.78989e-02  1.34705e-01
+   8.96848e-02 -6.50192e-02 -1.28804e-01  1.11733e-01 -5.08826e-01
+  -2.51924e-01]
+ [ 1.21990e-01  7.93293e-01  8.43129e-02  4.08898e-02  8.16359e-02
+   7.48663e-01 -3.18362e-02  8.28008e-01  3.20993e-01  2.60902e-01
+   1.54332e-01 -1.51168e-01 -3.33202e-01 -3.31113e-01 -5.51641e-01
+  -1.71696e-01]
+ [-1.53202e-01  1.06316e-01  2.52091e-01  3.29867e-01 -1.03941e-01
+   1.96118e-01  5.82618e-01 -2.70753e-01 -7.19028e-01 -5.63689e-01
+  -1.72262e+00 -1.07419e+00  7.81298e-01  4.43998e-02 -1.42344e-02
+  -6.72361e-03]
+ [-2.97152e-01  3.63434e-01 -3.41981e-01 -4.19484e-01  1.79354e-01
+   2.18497e-01  2.30991e-01 -1.28500e-02  3.82541e-01  2.04144e-01
+   4.30406e-01 -3.21047e-01  2.15623e-01 -1.68946e-01  1.00977e+00
+  -4.98776e-01]
+ [ 8.20700e-01 -2.70026e-01 -1.03269e-01 -2.99681e-01  3.31211e-01
+  -1.03791e+00 -5.67112e-02  1.03929e-01 -4.07327e-02  5.29703e-01
+  -1.35931e-01  3.08200e-02  7.78302e-02 -4.30059e-01  1.70104e-01
+  -3.54960e-02]
+ [-4.40317e-01 -3.94049e-01  5.71103e-01 -2.49679e-01 -5.61788e-02
+   9.32397e-03  2.47986e-01 -3.93745e-02 -4.39813e-01  5.23109e-02
+  -7.04071e-01 -4.43775e-01  6.69304e-01 -3.10903e-01  2.76316e-01
+   2.55157e-01]
+ [-3.34713e-01 -1.02639e-01 -2.55181e-01 -3.89848e-04 -1.22327e-02
+   1.89119e-01  8.11109e-02  1.19942e-01 -5.65139e-01 -3.73731e-02
+   5.73675e-02 -1.42546e+00  1.90631e-01  3.23099e-02 -4.24433e-02
+   2.19069e-02]
+ [ 4.20981e-01 -6.57562e-01  1.92125e-01  5.87532e-01  3.53244e-01
+   6.31552e-01 -4.41505e-01  5.09817e-01  1.97862e-01  2.47909e-01
+   3.31894e-01 -8.66791e-02 -3.17096e-01  4.92096e-01  5.61514e-01
+   3.71833e-01]]
+name: 
+dense_2/kernel/Adam
+
+value: 
+[[-1.37852e-01  3.89442e-01  2.61603e-02 -2.69977e-01 -1.42714e-01
+  -3.74844e-01  5.43745e-01 -7.54976e-01 -8.24184e-02  2.37932e-01
+   6.08158e-02  2.36618e-01 -8.78201e-02 -1.39288e-05 -1.41364e+00
+  -1.64039e-01]
+ [-1.44738e+00  4.36466e+00 -4.17746e-01 -3.42821e+00 -9.04893e-01
+  -4.81503e+00  6.59030e+00 -1.05058e+01 -3.44060e-01  3.81560e+00
+   2.31122e+00  3.83139e+00 -1.06493e+00 -3.37397e-01 -1.97435e+01
+  -4.55438e+00]
+ [-7.76869e-02  2.81069e-01 -7.58608e-03 -1.05511e-01 -8.05486e-02
+   6.69821e-02  6.27232e-02  2.38911e-01 -2.31222e-01 -1.05260e-01
+  -1.69352e-01 -1.42165e-01 -2.31891e-02 -4.05401e-02  6.24441e-01
+   6.14223e-01]
+ [-2.38655e-01  5.91116e-01  2.41576e-03 -1.88559e-01 -4.57721e-01
+  -1.57820e-01  2.33511e-01 -7.73703e-02 -6.06083e-01 -1.42456e-01
+  -6.87051e-01 -2.52839e-01  7.60974e-02 -1.72042e-01 -2.10213e-02
+   2.00207e+00]
+ [-2.43535e-02  1.20302e-01  1.66933e-02 -1.05262e-01 -5.49108e-02
+   9.56863e-03  1.27962e-01 -2.12643e-02 -4.76479e-02 -1.25527e-02
+  -9.95262e-02  2.48063e-02 -2.64542e-02  1.31784e-03 -5.85143e-03
+   2.09755e-01]
+ [-9.07793e-02  1.64238e-01 -6.13180e-02  1.71582e-01 -9.44277e-04
+  -2.07339e-01 -1.74772e-01 -3.28364e-01 -1.91749e-02 -1.49878e-01
+   9.21974e-02  9.39013e-02  1.68857e-01 -7.38522e-02 -1.75245e-01
+  -6.51386e-01]
+ [-1.79218e+00  3.79161e+00 -2.89912e+00 -3.23552e-01 -5.33623e-01
+  -3.32540e+00  7.98618e-01 -4.72924e+00 -1.36007e+00  9.83795e-01
+   7.88671e-01  3.31864e-01  1.06197e+00 -2.69741e+00 -5.15279e+00
+  -3.50081e+00]
+ [-2.18560e-01  7.57719e-01 -1.73221e-01 -1.89321e-01 -6.23541e-02
+  -2.98460e-01  1.97094e-01 -5.57779e-01 -2.17404e-01  6.93215e-04
+  -5.70780e-05  1.27061e-01  7.54449e-02 -1.77955e-01 -2.76234e-01
+   8.92553e-02]
+ [-1.22412e+00 -8.12866e-01 -2.91798e+00  5.67997e+00  1.37149e-01
+  -5.23638e-01 -7.94092e+00  3.62583e+00 -1.89084e+00 -4.60640e+00
+  -1.65691e+00 -5.26556e+00  4.22593e+00 -3.71477e+00  1.15923e+01
+   3.41877e-01]
+ [-1.30225e-01  3.76844e-01 -8.78105e-02 -9.69735e-02 -6.36306e-02
+  -2.25721e-01  1.50879e-01 -2.90324e-01 -1.52827e-01  3.68061e-02
+   2.63925e-02  1.06895e-01  1.38518e-02 -6.89803e-02 -2.77709e-01
+  -2.18263e-01]
+ [-1.02248e-01  3.29967e-01 -5.94063e-02 -2.21771e-01 -4.75371e-02
+  -3.54893e-01  4.04850e-01 -7.68567e-01  3.75014e-03  2.57939e-01
+   1.43356e-01  3.12008e-01 -4.27996e-02 -2.19537e-02 -1.37197e+00
+  -4.29036e-01]
+ [-4.38717e-01  1.56295e+00 -2.03163e-01 -1.50194e+00 -1.44412e-01
+  -1.98563e+00  2.87053e+00 -4.71624e+00  1.42710e-01  1.84513e+00
+   1.43412e+00  1.88910e+00 -6.01532e-01 -2.23531e-02 -9.07716e+00
+  -2.54961e+00]
+ [ 4.22599e-03 -7.45086e-02  5.75130e-02  3.49741e-02  4.76032e-03
+  -9.56323e-02  9.00301e-02 -2.14023e-01 -5.88479e-03  1.66125e-02
+   2.14993e-01  3.12098e-02 -3.80215e-02 -7.49455e-02 -4.98091e-01
+  -1.30980e-01]
+ [ 7.65764e-02  5.36162e-02  2.21776e-01 -3.42818e-01 -4.36367e-02
+   1.00998e-01  4.54952e-01 -3.08512e-02  7.75453e-02  2.23144e-01
+   4.37532e-03  2.55167e-01 -2.74436e-01  2.53159e-01 -3.51445e-01
+   1.48826e-01]
+ [-5.31279e-02  2.35105e-01 -5.39559e-02  4.52661e-03  2.25157e-02
+  -1.93514e-01  3.37752e-02 -5.13889e-01  4.25369e-02  1.40136e-02
+   1.41346e-01  1.42350e-01  1.43560e-01 -3.38027e-02 -5.74411e-01
+  -8.51787e-02]
+ [ 1.75657e-01  1.02901e+00  1.33057e+00 -2.38209e+00 -5.12734e-01
+   1.49558e-01  3.29611e+00 -1.01282e+00  1.78707e-01  1.49691e+00
+  -1.93359e-01  1.69211e+00 -1.56129e+00  1.43198e+00 -3.39296e+00
+   1.29842e+00]]
+name: 
+dense_2/kernel/Adam_1
+
+value: 
+[[1.86556e+00 1.21641e+01 1.08097e+00 2.31554e+00 8.55613e-01 9.11506e+00
+  7.11473e+00 4.56114e+01 1.18708e+00 6.59826e-01 6.56485e-01 1.64942e+00
+  8.76956e-01 2.38154e+00 2.60704e+02 1.85087e+02]
+ [3.46963e+02 2.35358e+03 2.23720e+02 3.45087e+02 1.42685e+02 1.66338e+03
+  9.19125e+02 8.80151e+03 2.22062e+02 1.66687e+02 1.57153e+02 2.47474e+02
+  1.41476e+02 3.94206e+02 5.13025e+04 3.50180e+04]
+ [2.24774e-01 3.16443e+00 2.27229e-01 4.40569e-01 6.80690e-01 5.75120e-01
+  3.22347e-01 1.59866e+00 6.68078e-01 2.03751e-01 3.57381e-01 3.47260e-01
+  9.59118e-02 3.80986e-01 1.23772e+01 7.15454e+00]
+ [3.34934e+00 4.21582e+01 1.00829e+00 4.21993e+00 2.21857e+00 8.01340e+00
+  4.27724e+00 3.58538e+01 3.97913e+00 4.57766e+00 3.74147e+00 3.40048e+00
+  1.57574e+00 3.12995e+00 2.34592e+02 1.09494e+02]
+ [2.28402e-01 1.48748e+00 1.53148e-01 2.05766e-01 1.40749e-01 8.05873e-01
+  5.41436e-01 4.38832e+00 1.51210e-01 1.44804e-01 9.24729e-02 1.49030e-01
+  1.09847e-01 2.66448e-01 2.64791e+01 1.54865e+01]
+ [1.51850e+00 1.59270e+01 1.12229e+00 1.29421e+00 4.36315e-01 3.48349e+00
+  1.66812e+00 1.95739e+01 9.91272e-01 9.22112e-01 7.88963e-01 4.04543e-01
+  7.19585e-01 8.75074e-01 1.37651e+02 5.97488e+01]
+ [1.28074e+02 1.58624e+03 1.21230e+02 7.22778e+01 1.82203e+01 1.40596e+02
+  3.09377e+01 4.34087e+02 1.32109e+02 1.70547e+02 1.36094e+01 5.09336e+01
+  7.16106e+01 1.66299e+02 5.11601e+03 9.26906e+02]
+ [1.88332e+00 2.50894e+01 1.18643e+00 1.53541e+00 3.93259e-01 2.46354e+00
+  1.28038e+00 9.05887e+00 1.34572e+00 2.28808e+00 3.36937e-01 5.71580e-01
+  1.39348e+00 2.12135e+00 8.58330e+01 3.11690e+01]
+ [1.90910e+03 1.73760e+04 1.49648e+03 1.09187e+03 3.92944e+02 4.39383e+03
+  1.32166e+03 2.49911e+04 1.23473e+03 1.46119e+03 3.04987e+02 7.24808e+02
+  5.99688e+02 1.27334e+03 1.75094e+05 7.63617e+04]
+ [1.53781e-01 1.42060e+00 9.29486e-02 2.12847e-01 7.48224e-02 8.10338e-01
+  6.89202e-01 3.88270e+00 2.50624e-01 1.18227e-01 7.45380e-02 1.57497e-01
+  1.27911e-01 2.82653e-01 2.14871e+01 1.62031e+01]
+ [1.28311e+00 9.61528e+00 8.78668e-01 1.41840e+00 5.82064e-01 6.32964e+00
+  3.35667e+00 3.26068e+01 1.06586e+00 6.67250e-01 7.12847e-01 1.15865e+00
+  5.81238e-01 1.62095e+00 1.89962e+02 1.37484e+02]
+ [8.10750e+01 5.83030e+02 5.63966e+01 7.21310e+01 3.32233e+01 3.63038e+02
+  1.59407e+02 1.93420e+03 5.47937e+01 4.69035e+01 4.08400e+01 5.37325e+01
+  2.78903e+01 8.19136e+01 1.14879e+04 7.61282e+03]
+ [1.91514e-01 2.29321e+00 1.51154e-01 2.57538e-01 1.84409e-01 4.97310e-01
+  1.57543e-01 2.11239e+00 4.63986e-01 1.82297e-01 2.38913e-01 1.81258e-01
+  1.30138e-01 1.43026e-01 1.42788e+01 8.09306e+00]
+ [6.75636e+00 6.23460e+01 5.39563e+00 3.80363e+00 1.35035e+00 1.40089e+01
+  4.81533e+00 7.93369e+01 4.31111e+00 5.14652e+00 8.29914e-01 2.44594e+00
+  2.26138e+00 4.48703e+00 5.72831e+02 2.31501e+02]
+ [1.03606e+00 1.32776e+01 6.62556e-01 9.15832e-01 4.24017e-01 9.46957e-01
+  3.28324e-01 5.08380e+00 6.54020e-01 7.28718e-01 7.70668e-01 1.59626e-01
+  1.07245e+00 5.47466e-01 4.90772e+01 1.00136e+01]
+ [2.61672e+02 2.31431e+03 2.02293e+02 1.59275e+02 5.75636e+01 5.98533e+02
+  2.62377e+02 3.39682e+03 1.62838e+02 1.88319e+02 3.35010e+01 1.04493e+02
+  9.45320e+01 1.88935e+02 2.36725e+04 1.05059e+04]]
+name: 
+dense_3/bias
+
+value: 
+[-5.64311 -1.49547 -3.41045  1.23848  1.69699  8.21365  8.95321  7.59641
+  6.64704  8.27983 -9.10895 -5.04213 -0.47718 -7.42331 -4.45685  6.27595]
+name: 
+dense_3/bias/Adam
+
+value: 
+[ 0.05278  0.01033 -0.05446 -0.00678 -0.00456  0.01982  0.35811 -0.04949
+  0.08654  0.03781  0.02028  0.01397 -0.00049  0.00173  0.05155  0.11176]
+name: 
+dense_3/bias/Adam_1
+
+value: 
+[5.97220e-01 2.12064e-02 1.17489e-01 2.56414e-02 1.99477e-02 2.31029e+00
+ 2.90651e+01 6.14505e-01 2.10619e-01 4.10457e-01 7.24725e-01 9.22897e-02
+ 1.74653e-02 9.03138e-02 5.90927e-01 5.59997e+00]
+name: 
+dense_3/kernel
+
+value: 
+[[ 1.69988e-01 -3.37885e-01  2.23669e-01 -8.05335e-02 -1.14292e-01
+  -2.25529e-01  1.13126e-01  2.32979e-02 -1.20010e-01 -1.33384e-01
+  -4.20460e-02  1.64568e-01  1.67014e-01  2.87726e-01  3.13674e-01
+  -2.05210e-01]
+ [-3.28971e-01  3.09442e-01  4.81083e-01  2.98585e-01 -4.15100e-01
+   6.98523e-01 -2.78747e-02  8.25837e-01  4.85932e-01 -1.27902e-01
+  -5.54763e-01  3.61507e-01  4.97103e-01 -2.59315e-01 -5.22158e-01
+   2.22109e-03]
+ [ 3.31936e-01  2.90687e-01  1.98415e-01  2.00122e-01 -1.08817e-01
+   1.50678e-01 -4.05819e-02  4.49078e-01 -7.93034e-03  4.60122e-02
+   2.48770e-01  2.58788e-01 -3.63113e-01  2.32847e-02  5.28044e-01
+   6.14292e-02]
+ [-7.97795e-03 -8.66261e-02 -6.26035e-01 -4.54007e-01  3.64655e-02
+  -6.59063e-01  7.96196e-02  8.16887e-02  1.06992e-01  1.60413e-01
+  -1.30688e-02 -8.00849e-02  5.50477e-01  1.33565e-01  5.21125e-01
+   8.79482e-02]
+ [-2.15513e-01  2.32688e-01 -2.76193e-01 -5.24497e-02 -3.81058e-01
+  -4.62492e-01  1.59597e-01  2.19684e-01  1.82061e-01 -4.56144e-01
+  -1.60000e-01  3.77695e-01  9.56927e-01  2.10555e-01  2.86032e-02
+  -2.60876e-01]
+ [ 5.63558e-01  7.21301e-02 -1.53627e-01  4.14132e-01  3.94268e-01
+  -5.43254e-02  2.63042e-01  1.94094e-01 -1.03027e-01 -2.02504e-01
+   3.72643e-01 -1.59855e-01  2.47556e-02  2.24261e-01  1.43437e-01
+  -1.50857e-01]
+ [-2.65662e-01  3.65074e-03  1.95191e-01  2.20885e-01  3.31649e-01
+   8.28177e-02 -6.86645e-02  5.87260e-02 -9.96931e-02 -1.24380e-02
+   2.72970e-01 -4.92404e-01 -3.72023e-02 -3.42837e-01 -3.20326e-01
+  -1.21873e-03]
+ [ 1.02767e-01 -3.35586e-01  2.45125e-02  1.62300e-01  2.05648e-01
+   4.50741e-01  5.67020e-01 -6.65111e-01 -4.21705e-01  3.42397e-01
+   2.69240e-01  1.58932e-01 -3.04433e-02  3.43445e-01  4.51796e-01
+  -6.28963e-02]
+ [-3.73039e-01 -6.71222e-01 -1.10736e+00 -3.01940e-02 -4.33519e-01
+  -1.78188e-01 -1.75716e-02 -5.39571e-01 -1.64999e-01  1.88337e-01
+  -2.45482e-01 -3.64550e-01  2.16617e-01 -1.97882e-01  1.88850e-01
+  -1.59181e-01]
+ [-2.75072e-01 -6.59513e-02 -7.33136e-02  3.18040e-01  1.00453e-01
+  -6.97327e-02 -1.23372e-02 -4.31550e-01 -1.08898e-01 -8.19603e-03
+  -1.48286e-01 -4.29241e-01 -8.92625e-02 -1.47609e-01 -3.59652e-01
+  -5.89863e-03]
+ [-4.38896e-01  6.30014e-01 -3.55024e-01 -3.29417e-02 -6.77865e-01
+  -5.70189e-01  5.60179e-02 -9.80930e-02 -1.51094e-02  9.99734e-02
+  -2.07824e-01 -4.31165e-01  1.21395e-01 -3.12630e-01 -5.41484e-01
+  -1.47627e-01]
+ [-1.06967e-01 -7.32165e-02  4.02495e-02 -9.77559e-02  1.88422e-01
+  -1.54217e-01  2.36493e-02  2.52697e-01  6.30701e-02 -1.08800e-01
+  -6.15696e-02 -2.99789e-03 -2.06808e-02  1.64035e-02  2.05015e-01
+  -9.66487e-03]
+ [-2.99041e-01  8.48035e-03 -9.09330e-01 -2.45359e-01 -4.18014e-01
+  -3.65710e-01  3.31573e-02 -4.70778e-01  9.13709e-02  9.77584e-02
+  -3.44687e-01  1.97316e-01  2.19324e-01  1.17685e-01 -6.16958e-02
+  -1.56807e-01]
+ [-8.27339e-02  6.34163e-01  6.03036e-01 -3.77854e-02 -1.59257e-01
+  -4.79698e-01  2.05904e-01  1.72553e-01 -3.44195e-01 -5.51507e-01
+  -3.17460e-02 -1.68262e-01  4.31763e-01  5.26723e-01 -1.13932e-01
+   8.39728e-02]
+ [ 4.32569e-02  1.67622e-02 -3.37934e-03 -5.48179e-02  1.26433e-01
+   2.26090e-01  1.36232e+00  1.83830e-01  1.83643e-01  2.03191e-01
+  -9.06978e-03 -1.76623e-01 -3.31927e-01 -3.07399e-01 -6.18255e-02
+   2.02128e-01]
+ [ 1.29012e-02  5.10922e-03  1.15776e-02  1.52911e-02  1.65521e-02
+  -6.52746e-02  5.37352e-02 -1.02598e-02 -1.63666e-02  9.38339e-03
+  -3.85749e-03 -3.99673e-03 -4.93133e-02 -3.39358e-02 -1.14692e-01
+  -9.34850e-01]]
+name: 
+dense_3/kernel/Adam
+
+value: 
+[[-2.77643e-01  1.27577e-02  4.10388e-01  2.53034e-02  1.40889e-01
+   3.71153e-01 -1.51825e+00  4.76781e-01 -6.80855e-01  1.24519e-01
+  -4.59056e-02 -2.38973e-01 -5.57327e-02  9.07870e-02 -5.97030e-01
+  -1.31699e+00]
+ [-6.79256e-01 -2.50942e-01  6.69900e-01  1.01481e-01 -1.71084e-01
+  -7.17760e-01 -5.22369e+00  5.01807e-01 -7.60400e-01 -7.47693e-01
+   3.50710e-02 -2.94230e-01 -3.68074e-03 -3.93229e-01 -3.35079e-01
+  -1.96715e+00]
+ [-3.15665e-01  3.19250e-02 -4.65484e-02  1.57990e-02  1.07367e-02
+   2.56604e-01  3.35132e-01  7.10009e-02  1.37146e-01 -1.69049e-02
+  -3.06583e-01  2.33070e-01  7.59815e-02 -6.17933e-02 -9.77709e-02
+   1.39810e+00]
+ [-4.28162e-01  4.69871e-02  2.07625e-01  1.54621e-02  1.06026e-01
+   6.72511e-02 -2.56186e+00  2.05857e-01 -1.29538e-01 -1.63105e-01
+  -4.98370e-01 -9.60971e-02  4.88040e-04  9.66788e-02 -1.54537e-01
+   2.61419e-01]
+ [ 1.15260e-01  5.00952e-02  5.29737e-01  5.86309e-02  2.36745e-01
+   9.25433e-02 -4.64838e-01  5.71708e-01 -1.37172e+00  1.36111e-01
+   4.81110e-01 -1.38091e-01 -5.36126e-02  3.46806e-01 -7.68010e-01
+  -2.07258e+00]
+ [-2.93228e-01  1.36164e-02  7.02197e-01  5.71679e-02  3.00365e-01
+   5.32647e-02 -2.78080e+00  7.83199e-01 -1.60694e+00 -9.77343e-02
+   7.06591e-02 -1.74529e-01 -5.04282e-02  4.08921e-01 -9.42122e-01
+  -1.96265e+00]
+ [ 1.59348e-01 -1.84044e-01  6.39717e-02  6.53722e-02 -8.23010e-02
+  -4.93176e-01  1.37337e+00 -6.19650e-03 -5.74523e-01 -2.14296e-01
+   4.67709e-01  2.74559e-02  1.59560e-03 -1.28315e-01  1.48298e-01
+  -7.16791e-01]
+ [-5.93411e-01 -3.04508e-03  1.01846e+00  7.36850e-02  2.95744e-01
+   7.19591e-02 -5.40720e+00  1.14934e+00 -1.66310e+00 -2.47148e-01
+  -2.08366e-01 -3.88633e-01 -6.73687e-02  3.66626e-01 -1.21871e+00
+  -2.64551e+00]
+ [-7.45986e-02 -9.22920e-03  6.83554e-02  7.60922e-03 -4.84307e-03
+   1.16300e-01 -3.20080e-01  9.10207e-02 -5.05394e-02  5.00779e-02
+   6.73951e-02 -4.50239e-02 -6.97676e-03  1.26139e-02 -1.66536e-01
+  -2.63610e-01]
+ [-3.58092e-01  1.41212e-01 -1.86272e-01 -3.65384e-02  1.43909e-01
+   1.25159e+00  1.17628e+00  3.90267e-01  8.52460e-01  6.69712e-01
+  -6.04197e-01 -7.99431e-02 -1.23361e-02  2.75163e-01 -3.68720e-01
+   7.39826e-01]
+ [ 4.02488e-01  1.24512e-01 -7.16490e-02 -3.52271e-03  1.02893e-01
+   1.35486e-01  1.18581e+00 -7.21050e-02 -3.25059e-02  3.43185e-01
+   3.67039e-01 -7.70963e-02 -5.04837e-02  2.01430e-01 -1.49650e-01
+  -5.78834e-01]
+ [ 3.75943e-01  1.10313e-01 -2.56674e-01  1.96024e-04 -8.14078e-02
+   5.65013e-01  3.37731e+00 -4.77532e-01  3.88379e-01  9.14733e-01
+   8.98617e-01  1.57820e-01  4.32442e-02  2.22088e-01 -1.63175e-01
+   1.21716e-01]
+ [-1.00276e-01 -2.58505e-02 -9.69863e-02 -3.97551e-02 -3.87184e-03
+   5.26409e-01  1.16438e+00  4.04979e-01  1.62550e-01  3.39358e-01
+  -2.60555e-01 -1.60683e-02 -4.44629e-02 -2.93480e-02 -4.09175e-01
+  -1.30717e-01]
+ [-5.03650e-01  1.68671e-02  2.25056e-01  2.08779e-02  8.80076e-02
+   2.27042e-01 -2.31233e+00  3.42792e-01 -1.98985e-01 -1.77553e-01
+  -4.71961e-01 -1.44973e-01 -2.38914e-02 -4.13311e-03 -3.39570e-01
+  -1.73947e-01]
+ [-2.98960e+00 -2.14253e-01  3.40066e+00  2.95449e-01  5.90251e-01
+   1.89742e-01 -2.24438e+01  3.77877e+00 -4.24614e+00 -1.61826e+00
+  -1.69036e+00 -1.86814e+00 -2.88653e-01  1.59743e-01 -3.65843e+00
+  -9.21699e+00]
+ [ 6.99559e+00  6.28036e-01 -3.04184e+00 -3.62335e-01  9.78836e-01
+   4.19286e+00  5.92177e+01 -1.87183e+00 -3.95257e+00  6.71540e+00
+   8.91857e+00  2.13126e+00 -4.61225e-01  8.45202e-01 -5.41365e-01
+  -3.80059e+00]]
+name: 
+dense_3/kernel/Adam_1
+
+value: 
+[[3.65710e+01 1.80306e+00 1.01844e+01 1.94618e+00 1.24162e+00 1.52547e+02
+  2.30045e+03 3.93962e+01 1.51628e+01 2.87630e+01 5.07738e+01 7.70050e+00
+  1.18630e+00 4.82762e+00 3.92374e+01 4.94799e+02]
+ [1.15197e+02 3.08929e+00 1.32003e+01 4.14700e+00 3.64599e+00 3.30578e+02
+  5.35266e+03 8.05569e+01 1.85853e+01 7.65231e+01 8.32001e+01 1.30828e+01
+  3.54480e+00 2.38955e+01 7.71585e+01 1.01855e+03]
+ [9.46781e-01 1.01529e-01 1.17012e-01 1.13255e-01 6.14868e-02 2.68745e+00
+  8.02729e+01 5.18183e-01 6.55963e-01 4.90107e-01 8.01331e-01 4.13767e-01
+  1.13235e-01 1.14712e+00 4.94712e-01 1.69038e+01]
+ [3.58662e+00 3.90374e-01 2.57953e+00 3.99424e-01 2.35436e-01 1.49928e+01
+  4.35342e+02 4.64414e+00 2.58686e+00 3.84735e+00 6.59332e+00 1.84598e+00
+  1.26145e-01 4.87497e-01 5.71225e+00 6.66007e+01]
+ [7.95296e+01 2.70701e+00 2.07499e+01 3.20622e+00 2.25849e+00 3.35397e+02
+  3.59074e+03 8.51858e+01 5.80027e+01 5.98910e+01 1.26211e+02 1.15125e+01
+  2.32684e+00 7.49146e+00 7.68841e+01 9.88550e+02]
+ [1.18785e+02 4.08020e+00 3.27455e+01 5.03539e+00 3.42671e+00 4.91170e+02
+  6.22135e+03 1.25378e+02 7.61144e+01 8.86138e+01 1.74890e+02 2.01114e+01
+  3.27854e+00 1.21658e+01 1.17245e+02 1.50298e+03]
+ [7.41934e+00 6.29626e-01 2.44836e+00 5.44845e-01 3.49099e-01 2.24942e+01
+  2.03402e+02 6.95356e+00 5.63267e+00 5.38377e+00 1.03347e+01 1.16512e+00
+  1.83331e-01 1.14691e+00 6.47433e+00 4.01350e+01]
+ [2.12042e+02 7.37190e+00 5.65650e+01 9.67312e+00 5.89042e+00 8.16294e+02
+  1.24836e+04 2.07074e+02 1.04803e+02 1.57016e+02 2.78123e+02 3.87687e+01
+  6.21983e+00 2.49604e+01 1.99304e+02 2.79532e+03]
+ [1.79343e+00 1.28611e-01 5.04592e-01 1.27546e-01 8.02446e-02 6.19243e+00
+  1.50615e+02 1.43543e+00 5.24635e-01 1.75855e+00 1.79409e+00 4.38436e-01
+  6.76207e-02 3.93160e-01 1.56541e+00 2.78810e+01]
+ [1.62415e+01 5.71351e-01 3.06602e+00 6.77819e-01 7.73744e-01 7.11630e+01
+  2.38270e+02 1.97328e+01 1.35066e+01 8.28054e+00 2.81550e+01 1.50385e+00
+  5.35800e-01 2.03052e+00 1.46814e+01 6.38624e+01]
+ [2.07345e+00 5.06074e-01 6.43416e-01 4.04589e-01 1.92115e-01 1.05958e+01
+  4.23265e+01 3.23081e+00 1.68643e+00 1.34494e+00 4.02985e+00 3.94947e-01
+  4.48829e-01 7.66897e-01 3.11494e+00 1.08400e+01]
+ [1.45874e+01 1.23762e+00 3.61416e+00 8.10044e-01 1.11024e+00 5.44738e+01
+  5.24700e+02 1.58601e+01 9.26132e+00 7.75103e+00 2.16157e+01 2.97688e+00
+  7.67791e-01 3.22574e+00 1.44262e+01 1.04734e+02]
+ [1.94338e+00 2.56065e-01 4.73354e-01 1.28204e-01 1.49478e-01 7.71025e+00
+  7.52162e+01 1.95015e+00 3.97096e+00 2.41853e+00 3.70693e+00 4.89835e-01
+  7.27858e-02 7.74627e-01 1.91141e+00 1.57536e+01]
+ [1.10567e+01 6.04218e-01 3.51722e+00 7.23243e-01 4.53807e-01 4.07119e+01
+  8.80969e+02 1.13279e+01 2.76517e+00 9.25367e+00 1.28044e+01 3.14885e+00
+  3.94161e-01 1.99247e+00 1.24556e+01 1.43556e+02]
+ [2.22004e+03 7.63715e+01 4.93209e+02 1.05926e+02 6.48750e+01 7.83404e+03
+  1.40911e+05 1.97792e+03 6.33917e+02 1.59054e+03 2.39946e+03 4.23746e+02
+  7.02570e+01 3.62438e+02 1.95530e+03 2.78304e+04]
+ [7.79258e+02 1.11628e+02 3.10742e+02 1.03012e+02 1.07130e+02 2.23432e+03
+  8.77439e+04 7.63139e+02 3.99400e+02 8.27633e+02 1.62983e+03 3.86052e+02
+  5.38980e+01 4.09003e+02 9.65320e+02 8.10065e+03]]
+name: 
+dense_4/bias
+
+value: 
+[ 6.26847 -4.72802 -4.43815 -9.04303 -9.11419  0.98451 -8.51039  8.09347
+ 10.07418  4.22115  8.24375  7.57412  7.78131  8.19912 -4.07144  5.69182]
+name: 
+dense_4/bias/Adam
+
+value: 
+[ 0.22158  0.0479  -0.08985 -0.77714 -0.86916 -0.10379 -0.01524  0.02682
+  0.02559  0.13867  0.23434 -0.04502 -0.04729 -0.02084 -0.03385  0.09535]
+name: 
+dense_4/bias/Adam_1
+
+value: 
+[ 70.55376  27.15615   2.19611 104.93407 144.99435   1.62201   1.3599
+  19.73551   3.32737   1.43105   3.72573   0.3719    0.39326  17.45051
+   1.65258   3.73598]
+name: 
+dense_4/kernel
+
+value: 
+[[-3.45474e-02 -3.59647e-02  2.92053e-01  1.69926e-01 -3.24214e-01
+  -2.27252e-01  5.66163e-01 -5.14019e-01 -7.57528e-01  3.46187e-01
+   2.96945e-01  1.99745e-01  1.03953e-01 -3.76904e-01 -1.43951e-01
+   3.72422e-01]
+ [ 5.15663e-02  5.79465e-02  1.57934e-01  1.19248e-01 -1.08259e-01
+  -9.21960e-02  2.29165e-01 -8.68353e-02  3.09027e-02 -1.69300e-01
+   2.25825e-01 -2.71228e-01  2.77473e-01  4.95120e-02 -5.42413e-02
+   2.08335e-04]
+ [ 3.32733e-02 -1.57399e-01 -2.87590e-01 -9.06118e-02  5.29285e-02
+   2.48254e-01 -3.24715e-03  2.20516e-03 -5.73212e-03 -3.87266e-01
+  -3.00552e-01  6.20521e-01  4.54157e-01 -1.34530e-01  6.43929e-01
+  -5.70233e-01]
+ [-5.33004e-02  2.19956e-02  2.07117e-01 -4.50107e-02  7.89626e-02
+  -1.78231e-01 -3.26937e-02 -3.06496e-02  2.33864e-01  2.33589e-01
+  -1.09862e-01 -1.62526e-01  4.02205e-01 -1.11660e-02 -1.99990e-01
+  -2.43931e-02]
+ [ 9.46904e-02 -1.88184e-02  3.12191e-01  1.01598e-01 -9.74714e-02
+   1.95510e-01 -1.50673e-01  1.33060e-01 -5.10931e-01  2.21730e-01
+  -2.25979e-01 -3.32993e-01  2.12980e-01  1.24365e-01 -1.97938e-01
+  -3.75846e-01]
+ [-5.02540e-03  8.96378e-02 -1.95506e-01  2.69278e-01 -2.01393e-01
+   2.97293e-01 -2.60306e-01  4.50393e-01  8.70515e-01 -2.17074e-01
+   7.79238e-01  8.52687e-01  1.31665e-02  5.42765e-01  2.70004e-01
+   5.98943e-01]
+ [-5.59342e-02 -1.86417e-01 -2.69814e-01 -6.76580e-01 -1.27596e+00
+   1.43518e-01 -3.42878e-01  3.43985e-01  7.19719e-01  3.25471e-01
+   5.11691e-01  3.66305e-01  4.65052e-01  4.04462e-01  2.16720e-01
+   2.54206e-01]
+ [-3.00529e-01 -2.10815e-01 -9.15576e-02 -1.27256e-02  9.47217e-02
+   8.18106e-01 -3.09265e-01  3.74429e-01  2.62290e-01 -1.77201e-01
+  -2.03797e-02 -4.40243e-01  1.46270e-01  2.69516e-01 -4.99950e-01
+   4.49261e-01]
+ [-9.63691e-02  5.86379e-02 -3.94830e-01  5.60168e-02  2.40904e-02
+   2.60236e-02  1.03237e-01 -6.47118e-02 -8.31182e-02  2.33296e-01
+   4.95840e-01  1.05762e-01 -3.23101e-01 -4.54776e-02 -2.97978e-01
+   1.29442e-01]
+ [-2.38073e-02  2.88477e-01  2.40922e-01 -1.11869e-01  6.29059e-02
+   5.30046e-01 -8.26803e-02  3.01435e-01 -1.65658e-01  7.51621e-02
+  -8.84797e-03  1.51639e-01 -2.75271e-01 -2.09005e-01 -3.94125e-01
+   2.40307e-01]
+ [-1.95805e-02 -2.92518e-01  1.25420e-01  2.07794e-02 -1.63935e-01
+  -1.17188e+00  8.66564e-01  4.54912e-02 -6.13419e-02 -8.74198e-02
+  -2.82220e-01  8.47610e-01 -9.23760e-02 -7.34831e-01  2.54860e-01
+   1.43825e-01]
+ [-1.99773e-01 -1.35648e-01  9.18201e-02 -1.81218e-01  1.87170e-01
+  -3.52961e-01  5.28173e-02 -8.24272e-02  3.89470e-01  2.06337e-01
+  -5.96768e-01  9.44585e-01  1.63180e-01  5.45396e-01  7.73369e-02
+   2.85347e-01]
+ [-2.72122e-02  9.65857e-02 -4.18561e-02 -2.16058e-01  2.24151e-01
+  -2.61081e-02 -6.35354e-02  9.46214e-02 -4.98556e-02  2.81111e-01
+   1.37963e-01  4.26046e-01  2.85837e-01  6.85435e-02  3.82613e-01
+  -5.84884e-02]
+ [ 4.61312e-02  7.15034e-02 -1.38694e-01  9.72638e-03  3.87078e-03
+  -2.19522e-01  3.22048e-02  1.22826e-01 -3.22150e-01 -2.13066e-01
+  -6.85147e-01 -8.35477e-02  1.83050e-01  2.32191e-01 -1.24942e-01
+   3.05363e-01]
+ [-1.53991e-01  2.53347e-01  2.43545e-02 -4.83212e-01  3.36080e-01
+  -1.29446e-01 -6.59972e-01 -4.57641e-01  1.03831e-01  5.55581e-01
+   4.15140e-01 -7.57998e-01 -3.13546e-01 -3.17592e-01 -4.54999e-01
+  -7.02225e-01]
+ [ 2.22736e-01 -7.79454e-01  8.10199e-02 -4.10793e-02  6.83518e-02
+  -6.34216e-02  8.08758e-04  2.29950e-02  4.27573e-02  1.15251e-01
+  -1.08711e-02  4.06272e-02  1.08465e-01  9.40639e-02 -1.23574e-01
+   6.19606e-02]]
+name: 
+dense_4/kernel/Adam
+
+value: 
+[[-3.97482e-01  1.88653e-03  2.45428e-01  1.84573e+00  2.02002e+00
+   2.12758e-01  8.63082e-04 -1.12378e-01 -1.79994e-01 -3.42743e-01
+  -5.89400e-01  1.08991e-01  1.94262e-01  2.09831e-01  1.01850e-01
+  -3.14492e-01]
+ [-8.26343e-02 -9.26258e-02  2.53870e-03  1.57311e-01  1.96325e-01
+  -3.34841e-03 -1.28677e-02 -8.77914e-02 -8.57882e-02 -4.36191e-02
+  -1.29401e-01 -1.47283e-02  1.10046e-01 -8.95667e-02  9.23947e-03
+  -2.80961e-03]
+ [ 5.23377e-01 -7.01609e-01  1.18441e-01  3.99113e-01  1.85854e+00
+   7.29482e-02  8.89323e-02 -4.77765e-01 -2.00258e-02 -1.30764e-01
+  -2.75182e-01 -7.42189e-02 -7.94396e-02 -1.59674e-01 -8.68936e-02
+  -3.23591e-01]
+ [-3.91701e-01 -5.45507e-03  2.10225e-02 -1.91296e-01 -4.31728e-01
+  -1.15663e-01 -1.04176e-01  2.70806e-01 -1.69778e-02 -1.83557e-02
+  -1.99526e-01  7.48107e-02  6.53320e-02 -4.32618e-02  2.44417e-02
+   9.81391e-03]
+ [-1.32275e+00  9.85774e-01  1.36402e-01  1.09441e-01 -1.21189e+00
+  -2.75626e-02 -2.02854e-01  5.80386e-02 -1.53912e-01 -1.59030e-01
+  -2.25258e-01  1.49782e-01  8.98091e-02  9.64615e-02  1.88413e-01
+  -5.97552e-02]
+ [-2.05326e-01 -4.23680e-01  1.46938e-01  3.59165e+00  5.22760e+00
+   4.91913e-01  3.53717e-01 -7.36649e-01 -1.48399e-02 -4.23611e-01
+  -6.10413e-01 -1.18914e-01 -8.13074e-02 -1.19083e-01  5.65331e-02
+  -5.13552e-01]
+ [-9.21363e+00  2.62729e+00  1.55091e+00  1.64517e+01  1.18295e+01
+   1.34219e+00 -6.55490e-01  4.75374e-01 -6.16663e-01 -2.66526e+00
+  -4.16294e+00  1.01128e+00  9.12951e-01  2.47010e-01  1.29979e+00
+  -1.55034e+00]
+ [ 2.66950e-01 -4.94164e-01  1.40067e-01  1.20823e+00  2.38719e+00
+  -8.40975e-03  1.07068e-01 -3.35591e-01 -4.50720e-02 -2.00716e-01
+  -3.83990e-01 -7.44415e-03  2.20681e-02 -4.32562e-01 -1.21782e-02
+  -2.66127e-01]
+ [-6.46535e-01  1.64682e-01 -7.96252e-02  4.33843e-01 -9.93018e-03
+   9.46433e-02 -3.06832e-03 -2.16894e-01  1.13170e-01  3.57686e-02
+   1.60624e-01 -9.25169e-02 -6.49482e-02 -3.70818e-01  8.44740e-02
+   2.42431e-01]
+ [-3.33938e-01  6.31648e-01 -3.51218e-01  6.83662e-01 -1.54653e-01
+   2.91188e-01 -4.74437e-03 -2.79580e-02  1.70390e-01  2.41779e-01
+   6.93658e-01 -3.15571e-01 -2.40149e-01  6.70030e-01  1.40011e-02
+   9.59426e-02]
+ [-3.28472e-01 -9.64008e-03  2.08396e-01  1.25972e+00  1.45905e+00
+   1.49179e-01  2.10703e-02 -9.73503e-02 -1.96171e-01 -2.64756e-01
+  -5.27326e-01  1.04117e-01  1.71174e-01  1.63416e-01  7.53937e-02
+  -2.63605e-01]
+ [ 1.21091e+00 -8.62263e-01  6.25983e-02 -8.71245e-02  1.30730e+00
+   6.24462e-02  2.52108e-01 -2.20609e-01 -4.39029e-02 -1.35060e-02
+  -1.20122e-01 -8.62713e-03  8.70711e-02 -2.08062e-02 -1.15523e-01
+  -3.36057e-02]
+ [-2.81694e-01  8.92221e-02  9.22761e-02  4.37983e-01  5.50861e-01
+  -3.98267e-02  4.35573e-02 -1.53892e-01 -1.32351e-01 -1.07998e-01
+  -2.35718e-01  1.78809e-02  3.77087e-02 -2.21762e-01  6.80544e-02
+  -7.52384e-02]
+ [-2.38551e-01  6.51611e-01  1.15742e-01  2.89986e-01 -2.12755e-01
+   1.53792e-01  2.58679e-02 -1.63063e-01 -1.93259e-01 -8.65316e-02
+  -1.46287e-01  1.17309e-01  1.58419e-01  5.03458e-01  1.38196e-01
+   2.34791e-02]
+ [ 2.56811e-01  2.57905e-02  1.86646e-01  3.88033e+00  4.93165e+00
+   5.88336e-01  3.36329e-01 -4.70812e-01 -2.06415e-02 -3.97803e-01
+  -5.05849e-01 -1.80665e-03  6.26661e-02  5.30807e-01  6.48085e-02
+  -4.99099e-01]
+ [ 6.82127e+00 -1.75548e+00 -1.00904e+00  2.57515e+01  3.55673e+01
+   5.84355e+00  2.83245e+00 -4.39085e+00  2.72057e+00 -6.11479e-01
+   2.54380e+00 -2.65683e+00 -2.28596e+00  6.04605e+00 -1.00283e+00
+  -2.80387e+00]]
+name: 
+dense_4/kernel/Adam_1
+
+value: 
+[[3.70049e+02 1.25584e+02 1.20568e+01 5.54891e+02 7.31916e+02 1.26077e+01
+  7.80748e+00 1.02734e+02 1.79342e+01 8.82880e+00 2.40069e+01 1.95579e+00
+  2.66110e+00 1.36170e+02 9.19206e+00 2.68218e+01]
+ [1.25954e+01 5.55251e+00 9.00208e-01 1.31978e+01 2.61970e+01 4.35948e-01
+  7.69577e-01 8.84893e+00 1.51151e+00 4.81601e-01 9.93964e-01 1.22219e-01
+  7.72244e-01 4.13656e+00 3.73824e-01 8.01878e-01]
+ [3.69194e+01 2.03746e+01 2.38620e+00 3.68190e+01 9.38833e+01 2.84845e+00
+  9.76099e-01 3.40559e+01 6.24183e+00 1.21749e+00 4.74882e+00 6.56561e-01
+  8.39830e-01 2.04031e+01 1.14386e+00 4.46165e+00]
+ [4.33167e+01 7.41928e+00 2.97317e+00 5.76775e+01 9.81521e+01 1.85041e+00
+  4.08578e-01 1.77749e+01 3.19402e+00 9.55198e-01 3.54957e+00 4.03666e-01
+  5.57691e-01 1.82057e+01 1.10618e+00 3.40316e+00]
+ [2.44370e+01 9.67918e+00 1.51661e+00 2.55595e+01 4.82999e+01 1.45967e+00
+  3.79761e-01 1.36184e+01 1.72407e+00 6.24969e-01 2.08516e+00 2.85785e-01
+  2.45245e-01 1.34279e+01 6.69967e-01 2.73576e+00]
+ [8.31634e+02 3.79434e+02 1.54947e+01 1.26038e+03 1.58821e+03 7.12520e+00
+  1.95079e+01 1.77674e+02 2.76810e+01 1.46768e+01 2.43770e+01 1.89283e+00
+  2.66276e+00 7.99094e+01 1.80342e+01 1.92044e+01]
+ [3.30125e+04 1.13211e+04 8.47238e+02 5.05833e+04 6.29109e+04 4.51629e+02
+  7.15699e+02 6.28126e+03 1.04780e+03 6.00674e+02 1.25546e+03 1.01946e+02
+  1.05085e+02 5.82035e+03 7.27198e+02 1.21725e+03]
+ [1.37746e+02 5.61753e+01 5.67250e+00 1.88901e+02 2.99908e+02 2.71858e+00
+  1.98099e+00 6.44134e+01 1.09573e+01 2.85469e+00 7.71302e+00 8.55425e-01
+  9.68742e-01 3.06043e+01 3.51539e+00 6.43577e+00]
+ [3.53203e+01 1.28751e+01 3.54254e+00 3.83977e+01 1.06831e+02 7.39639e+00
+  5.63432e-01 2.39047e+01 3.51286e+00 1.32654e+00 7.87752e+00 1.28720e+00
+  8.08135e-01 5.79416e+01 1.14869e+00 1.20325e+01]
+ [4.11882e+01 1.86266e+01 1.02487e+01 3.13438e+01 1.75544e+02 1.85722e+01
+  1.00975e+00 7.42596e+01 1.96990e+01 5.26903e+00 2.92434e+01 4.15543e+00
+  4.54372e+00 1.13354e+02 2.17770e+00 2.34548e+01]
+ [2.10868e+02 6.66307e+01 9.09026e+00 3.03496e+02 4.43412e+02 1.03292e+01
+  3.85303e+00 6.99220e+01 1.27680e+01 5.47304e+00 1.78581e+01 1.57326e+00
+  2.20617e+00 1.00761e+02 5.40442e+00 1.97229e+01]
+ [1.25028e+01 5.39932e+00 1.29743e+00 1.33819e+01 3.18145e+01 1.87632e+00
+  4.21558e-01 1.57128e+01 3.48187e+00 7.19227e-01 2.98087e+00 2.65004e-01
+  6.40173e-01 1.42561e+01 4.22670e-01 2.45853e+00]
+ [3.38040e+01 1.03724e+01 1.51252e+00 5.10681e+01 6.89473e+01 1.02534e+00
+  7.78249e-01 8.71447e+00 1.60827e+00 9.03044e-01 2.35183e+00 2.23786e-01
+  4.92817e-01 9.25456e+00 8.03266e-01 1.95974e+00]
+ [6.53695e+01 3.36987e+01 2.84335e+00 7.21571e+01 1.41105e+02 1.41636e+00
+  1.00323e+00 3.28791e+01 5.53415e+00 7.72807e-01 1.87945e+00 5.32626e-01
+  4.35672e-01 1.02510e+01 1.70239e+00 2.87958e+00]
+ [5.67693e+02 2.77795e+02 5.95396e+00 9.88719e+02 1.07111e+03 9.63275e+00
+  2.07891e+01 8.74638e+01 1.03249e+01 1.25553e+01 1.88591e+01 1.62357e+00
+  1.60298e+00 9.74229e+01 1.32840e+01 2.39407e+01]
+ [1.00275e+04 5.66630e+03 5.80328e+02 1.60973e+04 2.22689e+04 7.76729e+02
+  3.91193e+02 2.81924e+03 5.62253e+02 3.28849e+02 1.04356e+03 1.28094e+02
+  2.00846e+02 4.46110e+03 2.57487e+02 9.54263e+02]]
+name: 
+dense_5/bias
+
+value: 
+[-8.18989  4.20884 -5.25154  8.82669  8.92109 -8.4681   1.71112 -5.33292
+  5.58216  6.37896  4.94023  3.55504  7.22702 -4.97593 -8.06335 -0.1681 ]
+name: 
+dense_5/bias/Adam
+
+value: 
+[-0.16385  0.10933 -0.07196 -0.04054  0.05988 -0.40906 -0.40742 -0.01155
+  0.02789  0.2285   0.23846  0.16843  0.32711  0.04048 -0.17388 -0.03092]
+name: 
+dense_5/bias/Adam_1
+
+value: 
+[  3.16866  10.48568   1.07152  20.40826   3.90697  28.05588  84.89173
+   2.83502   3.05139  32.05691   3.58812   3.51357 106.27573   1.34695
+   6.61075   0.18141]
+name: 
+dense_5/kernel
+
+value: 
+[[-0.11762  0.34453 -0.42617  0.00441 -0.07239 -0.07385  0.32293  0.19059
+  -0.16528  0.23064 -0.07487  0.34995  0.38474 -0.33484 -0.27634  0.20038]
+ [ 0.22414 -0.06828  0.01786 -0.2309  -0.43007  0.1808  -0.19821  0.39526
+  -0.42235 -0.07664  0.0719   0.06718 -0.09754  0.25617  0.19754 -0.50822]
+ [-0.69831 -0.37836  0.48341  0.09909 -0.96153 -0.06865  0.06931 -0.08176
+   0.51293 -0.20515 -0.13265  0.16369  0.02107 -0.33652  0.08134  0.08771]
+ [ 0.6112   0.0051   0.2443   0.10333  0.32438  0.1917   0.71716  0.08325
+   0.20225 -0.65116 -0.26127  0.53028 -0.37399 -0.09271  0.2998   0.10226]
+ [ 0.27853 -0.18826  0.12385 -0.31606 -0.72394  0.41821  0.73221  0.08826
+  -0.47534  0.02964 -0.66747 -0.40365  0.04332 -0.39506  0.36267 -0.10646]
+ [ 0.84326  0.07668  0.29605 -0.02702  0.05028 -0.04682 -0.0717   0.10935
+   0.93518  0.43391 -0.32001 -0.24032 -0.1555  -0.25799  0.03217 -0.13847]
+ [-0.07304 -0.28763  0.24387 -0.18577 -0.04903 -0.15079  0.15043 -0.15156
+  -0.37176  0.44368 -0.41582 -0.20752 -0.13539 -0.4429  -0.10287 -0.63564]
+ [-0.10585  0.37648 -0.057    0.48327  0.77463  0.60474 -0.05592  0.08409
+   0.18644  0.59772  0.22741  0.26    -0.13624  0.17481  0.05398  0.7562 ]
+ [ 0.40856  0.22202  0.57279  1.38966  0.55141 -0.30009  0.13389  0.95517
+   0.2523   0.11664  0.45908 -1.25089  0.08029 -0.08222  0.73024 -0.83561]
+ [ 0.34682  0.07048 -0.82384 -0.38218  0.09226  0.19937 -0.23643 -0.61712
+  -0.22016  0.16095  0.23377  0.15423  0.43526  0.03215 -0.57716 -0.15165]
+ [-0.84173 -0.04545 -0.04132  0.32376  0.3868  -0.57613  0.1461  -0.21434
+   0.4568   0.24619  0.17046 -0.02115 -0.11987 -0.08916  0.46093  0.23903]
+ [ 0.38269 -0.16364  0.28743 -0.22868 -0.15813 -0.14422 -0.07369 -0.70245
+  -0.11315  0.33224  0.0096   1.10428 -0.16924 -0.54872 -0.10227  1.68355]
+ [-0.10128  0.11872 -0.13362  0.17104  0.48593 -0.11962 -0.01005 -0.53857
+   0.32626 -0.59078 -0.02744  0.82669  0.1635  -0.16492  0.31189  0.00416]
+ [-0.23724  0.13364  0.68335  0.33727  1.40875  0.40161  0.06813 -0.06161
+   0.33205  0.29958  0.23327  0.03981  0.24678  0.63524  0.32493 -2.04403]
+ [ 0.02753 -0.08597  0.42259 -0.11875 -0.46229 -0.22299 -0.1573  -0.81072
+   0.04015 -0.19333 -0.34411  0.38859 -0.32125  0.10318  0.57227 -0.04205]
+ [ 0.3499  -0.00289  0.13847  0.22775 -0.00874 -0.06643  0.11082 -0.45989
+   0.14822  0.47625  0.28183  1.55103 -0.00791  0.53497  0.01715 -0.41645]]
+name: 
+dense_5/kernel/Adam
+
+value: 
+[[-7.01733e-01  6.72245e-01 -3.91527e-01 -1.87810e+00  1.13488e+00
+  -1.74232e+00  2.28199e+00  2.09191e-01  9.48575e-01  1.20948e+00
+  -1.70358e-01  1.39027e-01  3.08035e+00 -3.49861e-01 -1.14881e+00
+  -1.97001e-01]
+ [-2.25789e+00  1.02024e+00 -8.16083e-01  3.40155e+00  1.23899e-01
+  -5.59667e+00 -1.42978e+01 -4.39923e-01 -4.88363e-01  2.27907e+00
+   6.62047e+00  3.25804e+00  6.53282e-01  1.79422e+00 -1.13552e+00
+  -1.15400e-01]
+ [-7.17805e-02  1.34046e-01 -5.00973e-02 -4.54091e-01  2.78639e-01
+  -1.42781e-01  1.32644e+00 -4.03951e-02  2.29344e-01  2.10472e-01
+  -2.53049e-01 -2.36617e-01  8.13810e-01 -1.71886e-01 -1.08564e-01
+   3.10198e-02]
+ [-1.39657e+00  1.24897e+00 -6.48436e-01  5.37961e-02  1.41460e-01
+  -2.93752e+00 -6.63699e-01 -3.36360e-01  2.66485e-01  2.58592e+00
+   3.61717e-01 -2.77277e-02  4.33342e+00 -2.11033e-01 -1.59578e+00
+  -2.81532e-01]
+ [-3.40716e+00  3.46266e+00 -1.63546e+00 -1.95394e+00  1.32290e+00
+  -7.66844e+00  2.81356e+00 -8.22991e-01  1.42524e+00  6.81321e+00
+   4.06300e-02 -4.23676e-02  1.28564e+01 -9.88584e-01 -4.01628e+00
+  -6.91490e-01]
+ [ 5.14025e-02 -2.69744e-01  3.98483e-02 -1.70308e-01 -1.55825e-01
+   1.36755e-01 -1.21354e+00  3.07620e-01 -2.19444e-01 -4.41037e-01
+   2.26260e-01  3.74007e-01 -1.03135e+00  2.01512e-01 -1.11055e-01
+  -3.77672e-02]
+ [-1.35504e-01  1.02784e-01 -6.92778e-02  1.31012e-01 -2.09244e-03
+  -2.24921e-01 -1.80685e-01 -3.06099e-03  4.05627e-02  2.52674e-01
+  -1.33331e-02 -1.35208e-01  3.56943e-01 -1.83835e-02 -1.03472e-01
+  -3.72086e-02]
+ [ 3.40547e-02 -3.69024e-01  8.12155e-03 -2.06228e-01  6.51086e-02
+  -1.04489e-01 -2.30846e+00  4.33487e-01 -1.09638e-01 -5.74365e-01
+   6.63912e-01  7.10855e-01 -1.51293e+00  3.58219e-01 -1.56332e-01
+  -7.35599e-02]
+ [ 3.15365e-01 -2.57389e-01  1.27329e-01 -1.90947e-02 -7.37765e-02
+   7.44877e-01  5.32795e-01  1.19237e-01 -8.11386e-02 -5.06200e-01
+  -2.67625e-01 -1.74817e-01 -7.78754e-01 -1.60649e-02  2.67310e-01
+   6.05337e-02]
+ [ 2.64261e-01 -1.26203e-01  9.15069e-02 -1.74421e-02  2.14626e-01
+   4.75343e-01  7.43403e-01  4.03476e-02  1.54958e-01 -3.06242e-01
+  -1.90288e-01 -1.35544e-01 -3.19458e-01 -5.82865e-02  2.42241e-01
+   6.31948e-02]
+ [ 3.13874e-01 -2.77289e-01  1.26896e-01  1.63923e-02 -2.72584e-02
+   6.69881e-01  1.38352e-01  1.70842e-01 -4.41233e-02 -5.39905e-01
+  -1.11804e-01 -6.00193e-02 -9.33119e-01  3.62355e-02  2.67890e-01
+   5.38295e-02]
+ [ 1.11528e-01 -3.66034e-02  2.74200e-02 -6.78552e-02  2.85926e-02
+   2.05165e-01  4.47049e-01  5.55942e-02  3.41727e-02 -7.74436e-02
+  -2.52109e-01 -1.79965e-01 -5.92379e-02 -5.72779e-02  7.98155e-02
+  -3.30805e-03]
+ [ 1.53741e-01 -1.58113e-01  7.33292e-02 -7.21574e-02 -3.07521e-02
+   3.77323e-01  2.58533e-01  3.95577e-02 -5.52771e-02 -3.42671e-01
+  -3.88643e-02 -3.97209e-02 -5.03330e-01  2.91191e-02  1.65076e-01
+   2.05434e-02]
+ [ 1.56803e-01 -1.95769e-01  3.75379e-02 -4.92521e-01  2.07286e-01
+   1.35278e-01  1.14410e-01  3.30435e-01  1.23259e-01 -3.50769e-01
+  -7.39483e-02  1.34515e-01 -5.22659e-01  4.21042e-02  2.75961e-02
+   6.99325e-03]
+ [ 1.55870e-01 -1.63314e-01  8.59982e-02  2.97043e-01 -2.06707e-01
+   4.59053e-01 -2.47344e-01 -5.37013e-04 -1.68959e-01 -3.00785e-01
+  -4.84845e-02 -1.17360e-01 -6.47978e-01  4.20135e-02  2.18192e-01
+   3.28517e-02]
+ [ 1.15631e-01 -4.13850e-02  4.18341e-03 -8.65643e-02  2.39917e-01
+  -4.34672e-02 -1.47447e-02  1.75851e-01  1.73878e-01 -8.43150e-02
+  -6.17523e-02  5.48873e-02 -1.72997e-01  2.67672e-02  3.40875e-02
+   5.94444e-03]]
+name: 
+dense_5/kernel/Adam_1
+
+value: 
+[[1.08154e+02 7.01228e+02 5.89247e+01 1.65624e+03 4.05789e+02 1.64602e+03
+  4.93749e+03 1.20842e+02 3.01663e+02 2.02038e+03 1.59336e+02 2.70363e+02
+  6.44164e+03 7.67115e+01 2.38174e+02 1.76291e+01]
+ [4.03109e+02 4.98362e+02 8.27582e+01 5.48436e+02 9.05716e+01 1.95433e+03
+  5.64253e+03 2.76508e+02 8.24910e+01 1.80078e+03 4.27244e+02 1.27094e+02
+  6.60456e+03 9.90727e+01 9.00470e+02 3.68774e+00]
+ [1.40362e+00 1.38459e+01 1.04632e+00 3.20501e+01 3.09327e+00 3.38225e+01
+  1.00561e+02 1.84331e+00 2.69268e+00 3.97420e+01 2.01120e+00 5.17025e+00
+  1.23571e+02 1.52004e+00 2.89851e+00 5.77827e-01]
+ [1.80734e+02 2.87446e+02 4.55944e+01 3.29789e+02 5.80804e+01 1.17643e+03
+  3.00948e+03 1.01379e+02 4.87808e+01 1.00989e+03 4.81358e+01 5.44157e+01
+  3.53970e+03 4.83542e+01 4.12120e+02 5.10559e+00]
+ [1.21534e+03 3.32574e+03 3.83248e+02 5.31552e+03 9.97052e+02 1.07082e+04
+  2.89342e+04 8.55802e+02 7.84353e+02 1.05542e+04 5.79957e+02 9.11822e+02
+  3.53090e+04 4.56350e+02 2.58842e+03 6.75794e+01]
+ [1.48420e+00 3.80933e+00 6.95029e-01 1.23688e+01 1.17392e+01 6.85960e+00
+  3.06749e+01 1.71334e+00 8.17979e+00 1.04922e+01 4.76129e+00 2.69110e+00
+  3.68709e+01 5.01581e-01 4.81659e+00 5.20754e-02]
+ [1.72896e+00 1.33411e+00 3.32273e-01 3.77955e+00 1.91326e+00 7.40863e+00
+  2.06410e+01 8.70015e-01 1.49278e+00 5.95747e+00 1.17261e+00 6.91278e-01
+  2.32769e+01 3.52547e-01 4.93017e+00 4.70964e-02]
+ [3.36633e+00 2.51255e+01 2.15197e+00 8.42368e+01 4.96383e+01 3.38258e+01
+  1.45899e+02 6.10127e+00 3.59094e+01 6.86157e+01 2.84444e+01 1.42174e+01
+  2.21296e+02 2.48612e+00 9.32686e+00 4.01632e-01]
+ [8.59178e+00 2.09390e+01 2.45080e+00 3.32258e+01 2.74308e+00 6.79531e+01
+  2.02172e+02 6.66943e+00 2.60682e+00 6.90195e+01 5.87634e+00 6.27823e+00
+  2.35266e+02 3.17307e+00 1.82466e+01 4.02535e-01]
+ [6.23400e+00 7.53062e+00 1.40305e+00 7.26395e+00 2.33163e+00 3.44372e+01
+  8.97365e+01 3.39941e+00 1.97881e+00 2.83593e+01 2.21214e+00 1.41799e+00
+  1.02233e+02 1.44738e+00 1.44948e+01 1.03285e-01]
+ [7.66001e+00 1.65684e+01 2.07653e+00 2.16874e+01 2.52381e+00 5.93994e+01
+  1.68325e+02 5.37921e+00 2.42984e+00 5.62013e+01 4.39309e+00 4.54087e+00
+  1.92542e+02 2.64431e+00 1.61693e+01 3.25942e-01]
+ [9.31151e-01 3.49732e+00 3.39233e-01 6.90743e+00 8.45339e-01 9.07440e+00
+  2.92415e+01 1.10354e+00 6.79715e-01 1.08531e+01 1.47599e+00 1.31523e+00
+  3.62273e+01 4.89772e-01 1.99822e+00 8.34549e-02]
+ [1.80395e+00 3.14345e+00 4.63032e-01 3.70739e+00 7.35953e-01 1.20359e+01
+  3.15904e+01 1.07255e+00 5.32526e-01 1.06974e+01 8.36916e-01 7.26587e-01
+  3.72726e+01 5.40374e-01 3.90942e+00 4.97771e-02]
+ [1.08748e+00 1.25167e+01 9.80272e-01 3.45713e+01 3.52033e+01 2.73450e+01
+  8.36707e+01 1.40471e+00 2.43515e+01 3.35461e+01 6.77099e+00 7.97031e+00
+  1.09863e+02 1.28956e+00 2.78547e+00 1.71249e-01]
+ [4.78891e+00 2.92894e+01 2.44408e+00 6.58196e+01 1.58580e+01 6.84199e+01
+  2.05383e+02 5.45490e+00 1.18280e+01 8.39560e+01 7.44664e+00 1.11242e+01
+  2.67802e+02 3.19317e+00 9.79935e+00 6.54145e-01]
+ [6.84729e-01 3.51919e+00 3.61480e-01 8.09303e+00 1.44361e+01 9.46927e+00
+  2.89671e+01 5.38906e-01 1.00484e+01 1.04910e+01 4.39996e+00 2.56290e+00
+  3.58707e+01 4.68706e-01 1.84102e+00 7.23216e-02]]
+name: 
+dense_6/bias
+
+value: 
+[-5.25715  6.09871  4.55062  2.3918   8.13474  8.7562  -6.30733 -6.66534
+  6.66489  3.1725  -4.97876  6.46126  1.96704 -1.64974  2.11715 -2.13327]
+name: 
+dense_6/bias/Adam
+
+value: 
+[-0.19928  0.07683  0.05675 -0.02436  0.15889  0.26235 -0.02242 -0.05666
+  0.13004  0.03618 -0.01237  0.01822 -0.08614 -0.0201   0.01131  0.0179 ]
+name: 
+dense_6/bias/Adam_1
+
+value: 
+[1.24301e+01 1.65123e-01 3.05142e+00 3.24817e+00 6.65295e+00 1.71353e+01
+ 2.44505e-01 4.68239e-01 1.48793e+01 1.69297e+01 2.26504e-01 1.66280e+01
+ 3.32377e+00 5.20222e-02 1.39586e-02 1.47848e-01]
+name: 
+dense_6/kernel
+
+value: 
+[[ 0.44242 -0.15082 -0.09081 -0.27848  0.20621  0.01766  0.08426 -0.08723
+  -0.33508 -0.495   -0.34901  0.20926 -0.0282   0.24217  0.33469 -0.02214]
+ [-0.38159  0.21939  0.04326  0.0408  -0.03741  0.07435 -0.67925 -0.0246
+   0.15649  0.36264 -0.25661  0.22187  0.02458  0.29838 -0.04652 -0.72246]
+ [ 0.26059  0.14212  0.28943  0.42511  0.14466 -0.38277  0.21694  1.23833
+  -0.5419  -0.46772  0.05778 -0.11189  0.36858  0.08272 -0.48113 -0.74907]
+ [-0.54779  0.68393 -0.35326  1.2096   0.6257   0.46545 -0.19049  0.63191
+  -0.24269  0.00384  0.7609   0.16421  0.56062  0.3691  -0.90132 -0.14919]
+ [ 0.14678  0.10619 -0.05264 -1.07763  1.45588  0.55614 -0.86906 -0.15234
+   0.40772 -0.50882 -0.18629  0.37002 -0.09631  0.07332 -0.41222 -0.0637 ]
+ [ 0.97019  0.15614 -0.29403  0.88643 -0.21936 -0.25018  0.20326  0.06109
+  -0.31141 -0.37458  0.25821 -0.37237  0.49063 -0.71697 -1.31619  0.58076]
+ [ 1.74472 -0.37418 -0.05223 -0.29291 -0.072   -0.16163  0.24887  0.20837
+   0.16322  0.40334 -0.19668  0.65921  0.41914 -0.12888 -0.70053 -0.1089 ]
+ [-0.31122 -0.28516  0.10521 -0.5546  -0.42799  0.11757  0.00467  0.40143
+  -0.04875  0.20679 -0.1896  -0.29405 -0.06399  0.01241  1.00712  0.78783]
+ [-0.39244  0.87069 -0.24853 -0.37205  0.63161  0.09899 -0.78586 -0.10173
+   0.29803  0.38064 -0.27301  0.15726  0.25527 -0.61298  0.59061  0.17075]
+ [-0.43088 -0.2301   0.16822  0.09034  0.39638  0.07018 -0.03292  0.28721
+   0.42695  0.37922  0.26971  0.20146  0.08229 -0.32249  0.76342  0.4776 ]
+ [-0.94108  2.17583 -0.40854  0.17003  0.296    0.32297 -0.23311 -0.09609
+   0.39747 -0.42067 -0.14196 -0.02929 -0.37702  0.7556   0.36145 -0.03986]
+ [-0.4601   0.40786  0.36421 -0.31795 -0.11169  0.39422  1.83544 -0.11424
+   0.03245 -0.46996 -0.76788 -0.42949 -0.05215 -0.03959  0.20266 -1.72548]
+ [ 0.13094 -0.25123  0.2263  -0.00856  0.26391  0.60577 -0.37572 -0.56666
+   0.54121  0.62991 -0.26222  0.52515  0.01141 -0.19519  0.19294  0.17458]
+ [-0.62766 -0.25742 -0.59525  0.04135  0.37607  0.03084 -0.07483  0.41173
+  -0.50887 -0.15699  0.42745 -0.43488 -0.12616 -0.62306 -0.50257  0.10236]
+ [ 0.28578 -0.58202 -0.12082  0.40523 -0.66774 -0.39073 -0.23554  0.78923
+  -0.76586  0.38032  0.51814 -0.13719  0.18538  0.79908 -0.43262  0.88108]
+ [-0.15295  0.90224  0.07729  0.02423  0.49821 -0.42251 -0.00327  0.10935
+  -0.09567 -0.15625  0.18922  0.31416  0.50126 -0.8244  -0.62299 -0.86818]]
+name: 
+dense_6/kernel/Adam
+
+value: 
+[[-9.55166e-01  8.00903e-03  2.01306e-01  4.81059e-01  5.65999e-01
+   9.59411e-01 -9.19865e-02 -2.55803e-01  7.05770e-01  4.56321e-01
+  -7.86453e-02  4.26935e-01 -1.30316e-01 -3.69363e-02 -3.61122e-02
+   1.38420e-01]
+ [-4.18133e-01  2.63463e-01 -2.08145e-01 -5.27905e-01  4.62931e-02
+   6.69556e-04 -1.06661e-01 -5.83671e-02 -4.25918e-01 -8.22728e-01
+   6.65952e-02 -8.52512e-01 -5.58020e-01 -4.69158e-02  6.43413e-02
+  -1.64554e-03]
+ [ 1.00222e-01 -9.94962e-02 -4.86109e-02  6.37525e-02 -1.20184e-01
+  -1.92228e-01  1.69285e-02  3.44483e-02 -6.69180e-02  8.36938e-03
+   5.08380e-03  2.56972e-02  7.72469e-02  2.41821e-02 -8.23336e-03
+  -9.98154e-04]
+ [-3.96397e-01  1.82176e-01 -4.07855e-01 -6.19950e-01 -2.01173e-01
+  -4.24102e-01 -9.80687e-02  8.85623e-03 -7.62960e-01 -1.16258e+00
+   1.07890e-01 -1.17593e+00 -6.20262e-01  2.34641e-04  8.99184e-02
+   2.07695e-02]
+ [ 2.06423e-01  2.99501e-02 -3.94135e-01 -4.81673e-01 -3.02990e-01
+  -6.77457e-01 -3.13179e-02  9.39757e-02 -6.49698e-01 -8.31350e-01
+   9.37563e-02 -8.33143e-01 -3.04648e-01  3.24790e-02  9.25994e-02
+  -2.18382e-02]
+ [-6.02133e-01 -1.33452e-02  3.94793e-01  1.67214e-01  5.64646e-01
+   1.17012e+00 -2.15003e-02 -2.55005e-01  1.03654e+00  8.89649e-01
+  -1.20422e-01  8.68145e-01  9.82611e-02 -5.60742e-02 -1.60474e-02
+   7.27512e-02]
+ [-8.92441e-01 -5.32527e-02  2.51473e+00 -6.35276e-01  2.08495e+00
+   5.39672e+00  2.52167e-01 -9.70251e-01  5.28282e+00  5.37519e+00
+  -6.73365e-01  5.29263e+00  1.58260e+00 -2.67290e-01  3.38034e-02
+   1.50761e-01]
+ [-1.20114e+00  3.69622e-01  1.39822e-01  4.64319e-01  9.85702e-01
+   1.23976e+00 -2.19149e-01 -3.00051e-01  5.39384e-01 -5.01653e-03
+  -3.59162e-02 -1.08452e-01 -5.90957e-01 -1.01565e-01  1.35940e-02
+   1.30068e-01]
+ [ 3.51586e-01 -6.48965e-02 -1.55345e-01 -2.02376e-01 -2.73313e-01
+  -4.83808e-01  2.63752e-02  9.26346e-02 -3.16072e-01 -2.54161e-01
+   3.54535e-02 -2.38432e-01  3.42853e-02  5.71133e-02  3.99396e-02
+  -3.61831e-02]
+ [-6.28486e-01  3.58133e-01 -1.99276e-01 -9.62636e-01  1.93016e-01
+   2.06631e-01 -1.29693e-01 -1.10955e-01 -4.05208e-01 -9.59420e-01
+   6.49679e-02 -1.00881e+00 -7.38653e-01 -6.03781e-02  1.23062e-01
+   2.11348e-03]
+ [-1.47205e-01  3.76617e-01 -5.34697e-01  1.36594e-02 -1.98519e-01
+  -6.32944e-01 -1.29853e-01  6.33375e-02 -9.98175e-01 -1.41772e+00
+   1.58783e-01 -1.45523e+00 -7.60781e-01 -2.03566e-03  3.62935e-02
+  -1.09796e-02]
+ [-9.69395e-01  3.71519e-01 -1.87505e-01 -3.08311e-01  4.77088e-01
+   4.58288e-01 -2.29605e-01 -1.52556e-01 -2.26974e-01 -8.30016e-01
+   5.67341e-02 -8.95546e-01 -7.88421e-01 -4.49929e-02  6.39280e-02
+   9.54419e-02]
+ [-1.31624e-01  3.75112e-01  5.92149e-01 -8.59963e-01  6.40654e-01
+   1.43213e+00  9.71320e-03 -2.42708e-01  1.00974e+00  7.82485e-01
+  -1.19450e-01  7.13980e-01  2.39557e-02 -1.30334e-01  6.72239e-02
+  -4.68143e-02]
+ [ 2.75380e-03  4.18516e-03 -3.29246e-01  1.24756e-01 -2.03787e-01
+  -6.25531e-01 -4.61210e-02  1.04683e-01 -6.42901e-01 -6.96869e-01
+   8.46465e-02 -6.86613e-01 -2.41977e-01  3.45791e-02 -4.59919e-03
+  -1.08792e-02]
+ [-2.49437e-01 -5.95315e-02 -2.56602e-03  2.05851e-01  6.38245e-02
+   1.18866e-01 -3.92198e-02 -5.74159e-02  1.20658e-01  8.22445e-02
+  -1.25314e-02  8.17911e-02 -1.31552e-02  7.08437e-03 -2.22840e-02
+   5.81834e-02]
+ [ 4.65151e-01 -1.40441e-01  2.43337e-02 -1.56093e-01 -3.33026e-01
+  -3.35748e-01  6.61262e-02  8.69280e-02 -6.18040e-02  1.68885e-01
+  -6.29898e-03  1.99500e-01  2.86292e-01  2.42165e-02 -5.53296e-03
+  -2.37849e-02]]
+name: 
+dense_6/kernel/Adam_1
+
+value: 
+[[6.63281e+01 1.47444e-01 1.46715e+01 6.45394e+00 7.97104e+00 8.00483e+01
+  2.70711e+00 4.34379e+00 7.10913e+01 8.00334e+01 1.02545e+00 7.95067e+01
+  1.38688e+01 1.66549e-01 8.82469e-02 3.60483e+00]
+ [1.14682e+02 5.57491e+00 3.39383e+01 5.70256e+01 1.10729e+02 1.96097e+02
+  8.79613e-01 5.03802e+00 1.67941e+02 1.89756e+02 2.71434e+00 1.84960e+02
+  4.12631e+01 1.00888e+00 6.64662e-01 1.96545e-01]
+ [1.08622e+01 2.78103e-01 2.82728e+00 4.49386e+00 7.83344e+00 1.57700e+01
+  1.25873e-01 3.40941e-01 1.37884e+01 1.59141e+01 2.14840e-01 1.55922e+01
+  3.30847e+00 6.03308e-02 1.89151e-02 4.11513e-02]
+ [5.77543e+01 6.40405e+00 2.05477e+01 3.22809e+01 7.13246e+01 1.19940e+02
+  3.31150e-01 3.06286e+00 1.02127e+02 1.16411e+02 1.74355e+00 1.11983e+02
+  2.93567e+01 1.01073e+00 1.14364e+00 9.13366e-02]
+ [4.28410e+01 5.52425e+00 1.41160e+01 5.09562e+00 3.40170e+01 7.48759e+01
+  9.15165e-01 1.88556e+00 6.74659e+01 8.20367e+01 1.18612e+00 7.76924e+01
+  2.27799e+01 7.88845e-01 1.40117e+00 7.50431e-01]
+ [1.54162e+02 1.45702e-01 3.49843e+01 1.77836e+01 4.53979e+01 1.89432e+02
+  4.66021e+00 6.79518e+00 1.68099e+02 1.90854e+02 2.45964e+00 1.88196e+02
+  3.40450e+01 3.40890e-01 5.86903e-02 4.05664e+00]
+ [5.56196e+03 1.77886e+01 1.29816e+03 1.10184e+03 2.62986e+03 7.14008e+03
+  1.15316e+02 2.04752e+02 6.26805e+03 7.10865e+03 9.34493e+01 6.98240e+03
+  1.30342e+03 1.44145e+01 1.32905e+00 7.14453e+01]
+ [8.84062e+01 8.84921e-01 2.05920e+01 1.10489e+01 2.13551e+01 1.18415e+02
+  3.11486e+00 4.31835e+00 1.02282e+02 1.14699e+02 1.53342e+00 1.13579e+02
+  2.11512e+01 3.79442e-01 2.08722e-01 3.24382e+00]
+ [2.24963e+01 1.06327e+00 5.76744e+00 2.22815e+00 8.82760e+00 3.08209e+01
+  6.40469e-01 7.98367e-01 2.76181e+01 3.27437e+01 4.42223e-01 3.15592e+01
+  7.45865e+00 1.74999e-01 3.18528e-01 5.45211e-01]
+ [3.38402e+02 1.61849e+01 9.90134e+01 1.47974e+02 3.18316e+02 5.75685e+02
+  2.84142e+00 1.47786e+01 4.90584e+02 5.51850e+02 7.92290e+00 5.37738e+02
+  1.20468e+02 2.87667e+00 2.07119e+00 7.24025e-01]
+ [4.97290e+01 8.65255e-01 1.13991e+01 7.26994e+00 1.80390e+01 5.93338e+01
+  1.26098e+00 1.78127e+00 5.37686e+01 6.33850e+01 8.15616e-01 6.21970e+01
+  1.23783e+01 3.49203e-01 2.12050e-01 8.95381e-01]
+ [8.82848e+01 6.16883e+00 2.59694e+01 3.69919e+01 7.71016e+01 1.52421e+02
+  1.33256e+00 4.19285e+00 1.28656e+02 1.46675e+02 2.11501e+00 1.43284e+02
+  3.51179e+01 1.15945e+00 8.45160e-01 5.15608e-01]
+ [8.73244e+02 1.34428e+01 2.20724e+02 2.85454e+02 6.01273e+02 1.24210e+03
+  1.10257e+01 2.93747e+01 1.07791e+03 1.22256e+03 1.66375e+01 1.19753e+03
+  2.39864e+02 3.71419e+00 1.06365e+00 4.16975e+00]
+ [9.09004e+01 3.38116e-01 2.12476e+01 2.00369e+01 4.56106e+01 1.16834e+02
+  1.72459e+00 3.18224e+00 1.02587e+02 1.16613e+02 1.53243e+00 1.14442e+02
+  2.15671e+01 2.40500e-01 2.34467e-02 9.79225e-01]
+ [5.74958e+00 2.00476e-01 1.46644e+00 2.35205e+00 3.51238e+00 8.02481e+00
+  1.52085e-01 3.34623e-01 7.14856e+00 8.24751e+00 1.11207e-01 8.15316e+00
+  1.71815e+00 3.60186e-02 2.26256e-02 2.81025e-01]
+ [6.30558e+00 1.81751e-01 1.53388e+00 1.33209e+00 2.04011e+00 9.15205e+00
+  2.18635e-01 2.83899e-01 7.71084e+00 8.70134e+00 1.19142e-01 8.62811e+00
+  1.74330e+00 4.34556e-02 2.47560e-02 2.28149e-01]]
+name: 
+dense_7/bias
+
+value: 
+[-3.58068  4.83842  6.06759  6.61423  9.11818 -4.97574 -3.57266  4.63087
+  6.12414 -7.00811 -2.94207  7.11752  7.2326   3.15897 -2.63342 -3.84645]
+name: 
+dense_7/bias/Adam
+
+value: 
+[ 0.01345  0.01306  0.01536  0.05892  0.10617 -0.00846 -0.00267  0.03834
+  0.00147 -0.05741 -0.00344  0.10243  0.06951  0.01321  0.01619 -0.01113]
+name: 
+dense_7/bias/Adam_1
+
+value: 
+[1.20292e-02 6.31352e-02 8.57508e-02 1.82416e-01 5.56774e+00 1.69005e-01
+ 6.00531e-02 2.70292e+00 2.36955e-02 2.96952e+00 9.47390e-02 3.77645e-01
+ 2.71519e+00 7.49416e-03 4.83302e-03 7.85394e-02]
+name: 
+dense_7/kernel
+
+value: 
+[[ 1.80635e-01 -5.29619e-01 -6.10327e-01 -1.20962e+00 -5.23254e-01
+  -4.45574e-01  1.94485e-02  6.83366e-02 -7.51398e-01  1.36184e+00
+  -3.09738e-01 -7.58886e-01 -3.91251e-01 -3.01708e-01  5.94133e-01
+  -4.17247e-02]
+ [ 7.87600e-01 -2.41567e-01 -8.17564e-01  6.43248e-01  5.55819e-01
+   6.68804e-01  6.47272e-01  2.51169e-02 -2.39990e-01  3.65105e-01
+   3.47381e-01  8.78426e-01 -4.43429e-01  1.92681e-01  5.20314e-01
+  -1.41400e-01]
+ [-1.95698e-01 -2.75570e-01  3.18803e-01 -2.38639e-01 -2.59375e-01
+  -5.84367e-01 -3.24407e-01  5.18626e-01 -2.92978e-01  2.08928e-01
+  -1.58881e-01  4.46736e-01  6.00545e-01  2.76950e-01 -7.75393e-02
+   3.65030e-01]
+ [ 1.04359e+00  1.60086e+00  4.74484e-01  2.63500e-01  6.50145e-01
+  -2.54268e-01 -2.30571e-01  2.07351e-01  1.62945e+00 -8.45947e-03
+  -3.67109e-01  6.36853e-01  8.02967e-01  3.53924e-01  8.67281e-01
+   3.83108e-01]
+ [ 3.59423e-01  4.90975e-01  3.79762e-01  6.15571e-02  8.46374e-01
+  -1.42967e-02  9.11394e-02  4.98678e-01 -2.01549e-01 -3.53326e-01
+  -5.42195e-01  4.03655e-01 -2.30440e-02  4.90205e-01 -1.84543e-01
+  -8.42587e-01]
+ [-3.10427e-02  1.58560e-01  4.02250e-01  1.53191e-01  6.77445e-01
+  -7.70415e-01 -9.79450e-02  3.19628e-01 -3.12817e-01 -1.25854e-01
+  -4.27686e-01  8.91813e-01  8.34044e-01  2.77185e-01 -8.90875e-02
+  -1.83866e-01]
+ [-7.02316e-02 -8.62632e-02 -5.02723e-02 -3.24472e-01 -3.48819e-01
+  -4.49284e-01 -1.63180e-02  6.38083e-01 -3.55534e-01 -5.68608e-02
+  -2.75009e-01 -2.75219e-01  4.90116e-02 -1.62596e-01 -8.45477e-01
+   3.35838e-01]
+ [ 5.19824e-02 -5.46027e-01 -5.64993e-01 -7.05542e-01 -4.48776e-01
+   3.97537e-01  3.03179e-01 -2.28963e-01  8.08902e-01  2.93768e-01
+   5.00558e-01 -4.79201e-01 -6.76409e-01 -5.86775e-01  1.78094e-01
+   6.24981e-02]
+ [-1.37185e-01 -1.93142e-01  1.93384e-01  2.86336e-01  6.86991e-01
+  -4.85343e-01 -6.72455e-01  1.73790e-01 -3.59571e-01  3.78256e-01
+   1.61653e-02 -3.70474e-02  7.02614e-01 -5.17986e-01  3.45327e-01
+  -6.77074e-01]
+ [-3.42304e-02 -7.05887e-01 -3.66735e-01 -3.09633e-01  7.16923e-01
+   2.06554e-02 -1.67418e-01  4.73601e-01  4.95002e-01  7.17854e-01
+  -6.39107e-01  8.70698e-05  3.60161e-01 -4.10173e-01 -6.25184e-01
+  -3.53884e-01]
+ [-4.77788e-02  3.21523e-01 -5.55543e-01  5.11440e-01 -9.64048e-02
+   4.01344e-01  4.77434e-01 -5.74055e-01  9.91090e-01 -1.40289e-03
+   1.82706e-01 -2.30263e-01 -4.97907e-01  4.53386e-01  2.69805e-01
+   2.81769e-01]
+ [-5.15583e-01 -1.09719e-01  2.61545e-01 -4.87965e-01  6.56914e-01
+  -6.38955e-01 -6.20696e-01  4.43698e-01  3.79316e-01  6.65894e-01
+  -6.76799e-01 -1.91328e-01  2.08505e-01  1.62315e-01 -5.26280e-01
+  -3.86933e-01]
+ [ 3.08021e-01 -4.65499e-01  5.62362e-02 -7.05632e-01  1.51224e-01
+  -1.64433e-01 -8.14527e-02  5.07412e-02  5.60839e-01  6.37632e-01
+   1.40537e-01 -3.85660e-01  5.31151e-02 -4.51232e-01  1.75843e-01
+   1.23177e-01]
+ [-1.65353e+00 -5.79203e-01 -7.94813e-01 -5.84981e-01 -4.95754e-01
+  -3.04503e-01  7.02912e-02  4.17006e-01 -7.18754e-01 -4.60944e-01
+   1.84746e-01  1.73515e-01  7.11932e-02  9.97430e-01 -1.78160e-01
+   1.92082e-02]
+ [ 1.22412e-01 -1.47182e+00 -6.83935e-01 -1.92159e-02  2.56413e-01
+   4.24622e-01 -1.75834e-01 -3.40318e-01 -6.50484e-01  6.88699e-02
+   6.96189e-01  1.21060e-01  5.26182e-01  1.50113e-01  3.81942e-01
+   1.46566e+00]
+ [ 1.93446e+00 -1.28543e+00  2.00849e-01 -4.01217e-02  1.72588e-01
+   3.32200e-01 -6.50394e-01 -7.81906e-02  3.41130e-01 -3.79190e-01
+   9.54919e-02  7.82118e-02  1.04911e-02 -1.75640e-02 -9.57067e-01
+   6.74279e-01]]
+name: 
+dense_7/kernel/Adam
+
+value: 
+[[ 2.83525e-01 -9.40880e-03  2.39979e-01 -3.57732e-01  6.24872e+00
+  -1.19058e+00 -6.29072e-01  4.46162e+00  3.01206e-01  2.79583e+00
+  -8.12485e-01  8.03450e-02  4.71806e+00  1.46288e-01  5.60355e-02
+  -8.51402e-01]
+ [ 1.01196e-01  1.85859e-01 -4.74312e-03  1.02182e+00 -9.89387e-01
+   2.93535e-01  1.88635e-01 -1.07648e+00 -1.08330e-01 -1.44447e+00
+   2.25531e-01  7.83565e-01 -8.10638e-01  1.37713e-01  2.52097e-01
+   1.72474e-01]
+ [ 9.18527e-02  5.75817e-02  1.11033e-01  2.83951e-01  8.23735e-01
+  -1.11738e-01 -5.19996e-02  4.37900e-01  1.68889e-02 -6.64639e-02
+  -6.28940e-02  6.91778e-01  5.48827e-01  7.80010e-02  9.23925e-02
+  -1.01060e-01]
+ [ 8.68587e-03  3.04390e-02  1.44165e-02  9.96294e-02 -2.14387e-01
+   5.94470e-02  3.81438e-02 -2.21718e-01 -1.05077e-02 -2.78744e-01
+   4.59596e-02  1.15933e-01 -1.64690e-01  2.98738e-02  2.91322e-02
+   3.51375e-02]
+ [ 2.62509e-01  1.90051e-01  9.50519e-02  8.03618e-01 -7.77846e-01
+   2.53613e-01  1.67239e-01 -9.14515e-01 -1.71440e-01 -1.33142e+00
+   1.92530e-01  7.69055e-01 -6.40768e-01  1.40221e-01  2.50268e-01
+   1.38346e-01]
+ [ 2.40243e-01  2.58211e-01  1.98066e-01  1.22342e+00  1.17624e-01
+   1.50576e-01  1.16587e-01 -4.75124e-01 -1.00688e-01 -1.52922e+00
+   1.36387e-01  1.63976e+00 -8.52677e-02  2.13554e-01  3.32804e-01
+   3.48622e-02]
+ [ 3.77907e-02  5.54024e-02  2.94163e-02  7.82727e-02  6.98892e-01
+  -7.56374e-02 -3.44412e-02  3.08168e-01  5.83936e-02 -1.70224e-01
+  -3.99650e-02  1.39296e-01  5.37051e-01  2.54440e-02 -1.08032e-03
+  -7.04672e-02]
+ [-9.21336e-03 -7.09167e-03 -1.44175e-02 -6.96143e-02 -6.95431e-02
+   1.13581e-02  5.24214e-03 -3.81958e-02  1.40724e-04  3.13649e-03
+   4.97047e-03 -1.52226e-01 -3.63176e-02 -1.28459e-02 -2.10442e-02
+   8.85091e-03]
+ [ 2.28650e-01  1.31743e-01  1.86914e-01  7.55446e-01  8.17066e-01
+  -9.46857e-02 -2.90213e-02  3.70254e-01 -6.17742e-02 -2.83386e-01
+  -4.50443e-02  1.28721e+00  4.72055e-01  1.69683e-01  2.64453e-01
+  -9.01817e-02]
+ [ 1.88345e-01  2.21538e-02  1.91935e-01  1.51199e-01  1.85384e+00
+  -3.55583e-01 -1.82617e-01  1.31279e+00  3.22061e-02  7.49109e-01
+  -2.32664e-01  8.42033e-01  1.30816e+00  1.15002e-01  1.30407e-01
+  -2.64036e-01]
+ [-3.04123e-02 -2.66681e-02 -3.54127e-02 -1.15462e-01 -3.23019e-01
+   4.02077e-02  1.84741e-02 -1.64397e-01 -9.70995e-03  4.44677e-02
+   2.33860e-02 -2.08211e-01 -2.20070e-01 -2.47865e-02 -3.30388e-02
+   3.81419e-02]
+ [ 3.08397e-01  7.37534e-02  2.52224e-01  2.58403e-01  2.55975e+00
+  -4.54231e-01 -2.26270e-01  1.70446e+00  2.75997e-02  7.61730e-01
+  -2.96595e-01  9.18978e-01  1.84428e+00  1.61628e-01  1.95156e-01
+  -3.40375e-01]
+ [ 1.72402e-01  3.39377e-02  1.39991e-01 -4.88472e-02  1.75511e+00
+  -3.06178e-01 -1.54745e-01  1.16124e+00  3.76731e-02  5.29033e-01
+  -2.04099e-01  2.22808e-01  1.31531e+00  7.48609e-02  5.67396e-02
+  -2.30744e-01]
+ [-1.02297e-02  2.91518e-02 -4.11045e-03  1.35234e-01 -2.19433e-01
+   5.94671e-02  3.53544e-02 -2.15221e-01 -1.00614e-02 -2.52613e-01
+   4.31245e-02  7.23956e-02 -1.74450e-01  7.02679e-03  2.61170e-02
+   3.42614e-02]
+ [ 9.94787e-03  1.59764e-01  1.22030e-02  8.47768e-01 -6.57055e-01
+   2.33979e-01  1.48812e-01 -8.38240e-01 -3.31778e-02 -1.30360e+00
+   1.85356e-01  9.15718e-01 -5.78259e-01  1.15422e-01  1.60265e-01
+   1.35888e-01]
+ [-5.86861e-03 -5.28636e-03 -5.82364e-03 -4.63993e-02  2.63160e-01
+  -4.39486e-02 -2.39467e-02  1.74400e-01  2.81949e-02  7.80774e-02
+  -2.93044e-02 -3.66833e-02  2.00584e-01 -7.14507e-03 -1.60690e-02
+  -5.98742e-02]]
+name: 
+dense_7/kernel/Adam_1
+
+value: 
+[[1.61286e+01 6.58209e+01 5.16144e+01 1.26151e+02 6.50159e+03 1.99253e+02
+  6.68987e+01 3.04439e+03 2.61696e+01 3.62667e+03 1.04474e+02 1.49734e+02
+  3.31523e+03 6.97513e+00 4.34405e+00 8.10524e+01]
+ [9.32729e-01 6.36076e+00 1.43135e+00 1.47923e+01 4.64840e+01 1.64090e+00
+  6.27588e-01 2.71139e+01 1.42587e-01 2.85854e+01 9.77675e-01 1.27037e+01
+  2.23119e+01 8.94537e-01 4.92135e-01 7.70828e-01]
+ [5.87687e-01 3.72863e+00 6.02443e+00 1.09595e+01 3.61265e+02 1.09613e+01
+  3.93760e+00 1.76241e+02 1.56137e+00 1.93483e+02 6.21488e+00 2.52795e+01
+  1.74834e+02 4.23654e-01 2.94704e-01 5.05113e+00]
+ [3.55501e-03 7.14899e-03 1.43816e-02 8.95366e-02 4.30409e-01 1.39267e-02
+  5.30487e-03 2.35841e-01 8.26559e-03 2.27292e-01 8.50871e-03 1.14208e-01
+  2.00123e-01 4.85078e-03 3.68666e-03 6.99072e-03]
+ [3.40582e+00 2.34988e+01 2.19203e+01 5.13543e+01 5.78343e+02 1.73168e+01
+  6.63120e+00 3.02199e+02 1.86598e+00 2.66934e+02 1.07898e+01 9.64682e+01
+  2.56541e+02 3.75212e+00 1.34585e+00 8.91088e+00]
+ [2.81904e+00 1.90917e+01 2.45662e+01 5.47491e+01 9.03838e+02 2.73124e+01
+  1.02166e+01 4.60081e+02 3.59944e+00 4.51254e+02 1.63940e+01 1.13930e+02
+  4.17131e+02 3.10365e+00 1.49908e+00 1.35692e+01]
+ [2.47643e-01 5.12209e-01 2.36590e-01 9.36551e-01 3.81589e+01 1.16172e+00
+  3.75792e-01 1.74402e+01 1.63252e-01 2.14296e+01 5.85469e-01 1.09347e+00
+  2.00870e+01 7.96165e-02 2.24994e-02 6.26109e-01]
+ [1.08036e-02 9.25585e-02 1.57679e-01 3.35734e-01 8.13454e+00 2.52837e-01
+  9.34922e-02 4.11534e+00 3.98718e-02 4.50916e+00 1.47847e-01 7.67879e-01
+  3.87160e+00 1.37482e-02 8.75511e-03 1.17173e-01]
+ [2.98064e+00 2.27156e+01 3.32944e+01 6.08979e+01 1.52302e+03 4.58030e+01
+  1.68010e+01 7.55552e+02 6.09718e+00 7.77967e+02 2.67598e+01 1.33604e+02
+  7.17482e+02 3.10598e+00 1.74184e+00 2.13443e+01]
+ [2.87631e+00 1.95959e+01 3.00063e+01 4.89334e+01 1.91107e+03 5.77263e+01
+  2.05630e+01 9.24465e+02 7.94120e+00 1.01278e+03 3.24407e+01 1.06246e+02
+  9.28042e+02 2.01340e+00 1.49398e+00 2.54615e+01]
+ [6.89221e-02 3.63420e-01 4.75876e-01 9.82737e-01 3.26040e+01 9.88751e-01
+  3.49159e-01 1.57385e+01 1.33065e-01 1.74909e+01 5.50347e-01 1.98644e+00
+  1.59716e+01 3.94928e-02 2.74347e-02 4.55452e-01]
+ [6.18337e+00 3.95056e+01 5.46691e+01 9.23806e+01 3.41446e+03 1.02798e+02
+  3.64302e+01 1.64706e+03 1.36165e+01 1.78957e+03 5.75878e+01 1.90212e+02
+  1.65753e+03 4.28025e+00 2.87418e+00 4.52772e+01]
+ [2.20149e+00 1.15572e+01 1.44548e+01 2.47707e+01 1.05620e+03 3.18169e+01
+  1.10566e+01 5.02757e+02 4.13656e+00 5.58030e+02 1.74339e+01 4.62074e+01
+  5.20285e+02 1.18859e+00 8.28381e-01 1.37328e+01]
+ [2.08955e-02 1.19973e-01 1.59164e-01 3.04132e-01 1.12652e+01 3.41310e-01
+  1.19904e-01 5.39265e+00 4.55359e-02 6.08127e+00 1.88630e-01 5.18516e-01
+  5.53676e+00 1.08162e-02 1.35562e-02 1.45449e-01]
+ [1.22457e-01 3.24177e-01 2.25675e-01 3.83467e+00 1.78273e+01 6.23485e-01
+  2.18072e-01 9.50734e+00 7.45363e-02 1.24572e+01 3.45215e-01 4.07459e+00
+  9.22872e+00 1.34431e-01 1.25287e-01 3.45852e-01]
+ [1.15169e-01 2.18531e-01 2.00855e-01 4.80448e-01 9.71761e+00 2.93245e-01
+  1.00892e-01 4.68992e+00 4.02652e-02 4.98410e+00 1.59865e-01 8.56912e-01
+  4.82799e+00 3.99649e-02 1.50966e-02 1.56872e-01]]
+name: 
+dense_8/bias
+
+value: 
+[ 5.69728 -7.89478 -0.62139  5.36605  0.77666  1.14576  6.36731  0.27196
+ -5.5526   1.76979 -5.70424  5.59782 -9.37326 -4.60162 -6.07037  6.53267]
+name: 
+dense_8/bias/Adam
+
+value: 
+[ 0.02514 -0.02314  0.00471  0.01771 -0.0008   0.00065  0.02354  0.00276
+ -0.00358  0.01366 -0.00356  0.01336 -0.02739 -0.00187 -0.00121  0.02584]
+name: 
+dense_8/bias/Adam_1
+
+value: 
+[0.02915 0.09992 0.02541 0.07103 0.0038  0.02123 0.8276  0.01598 0.01711
+ 0.01308 0.31432 0.54521 0.13308 0.01996 0.08675 0.59942]
+name: 
+dense_8/kernel
+
+value: 
+[[ 7.15982e-02 -2.15505e-01 -1.91736e+00  1.58256e-01 -8.48812e-01
+  -2.43979e-01  8.03645e-03 -5.97917e-01  8.99172e-02  1.35382e+00
+  -8.57931e-01 -1.13736e-01 -1.64861e-02 -9.53158e-03  5.74526e-01
+  -3.11170e-01]
+ [ 7.91596e-01 -3.83031e-01  2.94117e-01 -3.49925e-01  3.14498e-01
+   4.91368e-01  2.01976e-02  6.43764e-01 -8.84363e-02  1.37544e+00
+  -7.71740e-01 -4.02647e-01 -7.74617e-01 -1.89190e-01 -2.71741e-01
+   1.61365e-01]
+ [-2.27397e-01 -4.57287e-01  5.05204e-01 -4.50301e-02  4.75002e-01
+   9.43975e-03 -4.87388e-02 -2.95179e-01 -1.40565e-02  6.80519e-01
+  -5.13406e-01  8.94768e-02 -1.42779e-01 -7.81651e-02  3.67223e-01
+   3.67368e-01]
+ [ 9.77614e-01 -5.11892e-01  8.11571e-01  8.57684e-01  8.40710e-02
+   7.89888e-01  2.28423e-01  6.69179e-01  1.84010e-01  5.05454e-01
+  -9.70087e-01 -5.62711e-01 -5.22184e-01  3.64448e-01 -7.92395e-01
+   3.67517e-01]
+ [ 2.62265e-01 -7.89587e-01 -1.33313e-01  6.97506e-01 -2.02581e-01
+  -2.25267e-01  8.06971e-01  2.77562e-01 -5.83620e-01  3.22574e-02
+  -1.58480e-01  5.73632e-01 -7.43487e-01 -7.69351e-01 -4.91022e-01
+   6.41719e-01]
+ [ 2.60834e-01  8.55758e-02  1.17724e-01  1.35246e-01 -2.21393e-01
+   7.84897e-01 -5.06465e-01  7.70763e-01  1.84456e-03  1.91500e-02
+  -3.51646e-01 -8.58452e-01  4.77141e-01  2.20506e-01 -2.72716e-01
+  -6.81279e-01]
+ [ 3.35269e-01  3.47494e-01  3.11321e-01 -1.25087e-01 -2.56128e-01
+  -7.62137e-02 -2.14733e-01 -2.89452e-03  2.94681e-01  3.56614e-01
+  -2.67452e-01 -6.80703e-01 -2.80775e-01  3.96891e-01 -1.53367e-01
+  -4.20750e-01]
+ [-3.07464e-01  8.85989e-02 -5.50280e-01  4.17319e-01 -3.07505e-01
+  -3.79253e-01  4.61393e-01 -5.81617e-01  7.32162e-02  2.54478e-01
+   2.26694e-01  3.43113e-01 -3.37875e-01 -4.15457e-01 -1.29604e-02
+   6.58611e-01]
+ [ 1.79989e-01 -2.56920e-01  6.89222e-03  7.30131e-02 -3.10358e-01
+   5.16205e-01  2.46921e-01 -1.17845e-01  6.66410e-02 -1.43892e+00
+  -1.50722e-01  3.16398e-01 -5.38073e-01 -6.87849e-02 -4.38479e-01
+   3.21969e-02]
+ [-1.09975e+00  5.16185e-01 -7.06532e-01 -5.48962e-01 -4.62320e-01
+  -1.14333e+00  1.68233e-01 -6.73200e-01 -4.05883e-01 -9.69762e-03
+   9.48810e-01  3.41616e-01  5.69567e-01 -3.65534e-01  5.48534e-01
+   2.43593e-01]
+ [ 4.23645e-01  4.74491e-02  5.97451e-01  7.44251e-02  2.25573e-01
+   1.03320e-01 -3.64704e-01  3.31752e-02  3.27296e-01 -4.66626e-01
+  -4.30284e-01 -6.22381e-01 -2.44038e-01  4.43995e-01  2.11049e-01
+  -5.23570e-01]
+ [ 1.32210e+00 -8.69655e-01  4.96994e-01  9.19486e-01  5.12849e-01
+   3.40288e-01  3.17911e-01  1.44000e-01 -2.44919e-01 -4.33386e-01
+  -7.13390e-01 -4.74641e-01 -5.95518e-01  1.88060e-02 -2.06760e-01
+   2.85758e-01]
+ [ 2.27100e-02 -7.10793e-01  4.08654e-02  2.65410e-01 -2.83288e-01
+  -2.85733e-01  7.20238e-01 -4.01102e-01 -6.49743e-01 -3.46026e-01
+  -8.93202e-02 -1.77913e-02 -5.40660e-01  1.65662e-01 -4.53470e-01
+   6.53693e-01]
+ [ 1.69789e-01 -5.53696e-01 -6.90097e-01 -8.74039e-01 -3.69739e-01
+   3.39724e-01 -3.11985e-01  9.05846e-02 -3.78558e-01  8.34019e-01
+   2.07537e-01 -7.21088e-02 -5.44485e-01 -2.03459e-01 -4.55239e-01
+  -1.56991e-01]
+ [ 1.10111e-01  5.16829e-01  7.00359e-01  3.01408e-01 -2.44127e-01
+   8.62815e-02  3.80553e-01 -7.47337e-01  7.15898e-02  1.04004e+00
+  -3.57623e-02 -2.98116e-01 -2.28744e-01  2.67654e-02 -2.56122e-01
+  -6.31161e-02]
+ [ 4.13735e-01  2.28628e-01 -1.38620e-01 -2.49928e-01 -2.61897e-02
+   4.41714e-01 -5.19211e-01 -2.40474e-01  5.42030e-02 -8.07978e-01
+  -3.66385e-01 -3.96417e-01 -1.61584e-01  4.88328e-02 -2.60111e-01
+  -5.10211e-01]]
+name: 
+dense_8/kernel/Adam
+
+value: 
+[[ 8.89640e-02 -3.10583e-02  2.97268e-02  2.42762e-02  1.40580e-02
+   2.83547e-02 -1.02453e-01  2.24792e-02  1.64207e-02  2.17392e-02
+  -5.83304e-02 -1.22274e-01 -2.75168e-02  1.97667e-02 -4.53116e-02
+  -8.48225e-02]
+ [-5.62802e-02  1.63676e-01  4.20765e-02 -1.88779e-02  2.66455e-02
+   5.04051e-02 -3.55585e-01  3.93166e-02  5.16487e-02 -6.56578e-02
+  -1.50279e-01 -2.90902e-01  2.25601e-01  5.02346e-02 -2.62838e-02
+  -3.27946e-01]
+ [ 1.24406e-01 -3.84778e-02  1.27972e-01  1.87871e-01  3.46930e-02
+   1.02036e-01 -3.41110e-01  1.07236e-01  4.61875e-02  6.57987e-02
+  -4.23653e-01 -3.37919e-01  1.77602e-02  6.96440e-02 -3.83887e-02
+  -2.43106e-01]
+ [ 6.03494e-01  2.57703e-01  3.46068e-01  2.15762e-01  1.20333e-01
+   2.50367e-01 -1.23868e+00  2.37768e-01  1.83917e-01  7.69863e-02
+  -3.89324e-01 -1.17878e+00  4.25486e-01  2.04916e-01 -4.67432e-02
+  -1.05206e+00]
+ [ 1.38919e+00 -4.94268e-01  5.77036e-01  7.11065e-01  9.59501e-02
+   2.91671e-01 -7.75078e-01  3.70830e-01  1.04824e-01  8.11634e-01
+  -4.26206e-01 -8.82143e-01 -3.93432e-01  1.91346e-01  2.59636e-01
+  -3.92698e-01]
+ [-5.08499e-02  2.49276e-01  4.89840e-02 -5.24613e-02  3.78852e-02
+   6.25136e-02 -4.79181e-01  4.12929e-02  7.19915e-02 -1.20294e-01
+  -1.30499e-01 -4.00557e-01  3.24773e-01  6.49755e-02 -3.77083e-02
+  -4.56436e-01]
+ [-4.39149e-02  1.32688e-01  2.29203e-02 -3.85547e-02  2.09789e-02
+   3.46576e-02 -2.68337e-01  2.16573e-02  4.03117e-02 -7.29559e-02
+  -8.43574e-02 -2.25754e-01  1.71451e-01  3.61217e-02 -4.69836e-02
+  -2.59038e-01]
+ [ 4.72606e-01 -8.34993e-01  1.83748e-02  3.08358e-01 -7.54280e-02
+  -8.59755e-02  1.05946e+00 -1.07603e-02 -1.62954e-01  5.20820e-01
+   1.85301e-01  8.22074e-01 -1.01589e+00 -1.19610e-01  1.28484e-01
+   1.10200e+00]
+ [-7.13229e-02  5.90699e-02  2.30104e-03 -2.19340e-02  5.82131e-03
+   1.23129e-02 -1.14551e-01  7.77444e-03  1.60206e-02 -3.39699e-02
+  -7.74316e-02 -7.90017e-02  8.02010e-02  1.54532e-02  9.49254e-03
+  -1.03971e-01]
+ [-3.92563e-01 -1.80919e+00 -7.88681e-01 -2.23933e-01 -3.84915e-01
+  -7.46795e-01  4.47342e+00 -6.24348e-01 -6.60406e-01  6.49372e-01
+   1.76962e+00  3.93121e+00 -2.54401e+00 -6.70227e-01  3.07590e-01
+   4.04554e+00]
+ [-8.57465e-03  1.96059e-01  4.69553e-02 -1.85886e-02  3.21088e-02
+   5.43548e-02 -3.77890e-01  3.79618e-02  5.70902e-02 -9.82305e-02
+  -1.14435e-01 -3.27516e-01  2.55818e-01  5.24096e-02 -4.09402e-02
+  -3.60001e-01]
+ [ 1.31895e+00 -6.84947e-02  6.82919e-01  6.53781e-01  1.93779e-01
+   4.56411e-01 -1.75057e+00  4.65927e-01  2.59315e-01  3.79216e-01
+  -9.65165e-01 -1.82853e+00  1.27886e-01  3.28992e-01 -1.39740e-01
+  -1.36914e+00]
+ [ 1.06825e+00 -4.36317e-01  3.76469e-01  6.35378e-01  4.41878e-02
+   1.65266e-01 -1.50229e-01  2.35110e-01  1.55615e-02  5.45650e-01
+  -2.44545e-01 -3.13462e-01 -3.96329e-01  8.05139e-02  2.33824e-01
+   8.30199e-02]
+ [ 4.03854e-01  6.11519e-02  2.15681e-01  1.46345e-01  6.70377e-02
+   1.45417e-01 -6.60797e-01  1.44509e-01  9.83012e-02  9.92851e-02
+  -2.26175e-01 -6.52016e-01  1.36661e-01  1.14480e-01 -5.00206e-02
+  -5.46004e-01]
+ [ 5.41077e-02 -3.64911e-02  2.02576e-02 -7.17641e-04  5.43416e-03
+   1.17686e-02 -3.72081e-02  1.10999e-02  6.63595e-03  2.24211e-02
+  -1.35777e-02 -5.30983e-02 -4.39513e-02  7.75798e-03 -4.18185e-02
+  -3.12615e-02]
+ [-3.66418e-03  9.09718e-02  1.35287e-02 -3.92481e-03  1.47592e-02
+   2.29553e-02 -1.45826e-01  1.17610e-02  2.30797e-02 -7.86930e-02
+  -6.23794e-02 -1.37810e-01  1.12685e-01  1.97048e-02 -4.08191e-02
+  -1.48410e-01]]
+name: 
+dense_8/kernel/Adam_1
+
+value: 
+[[2.39796e-01 1.23794e-01 5.19598e-02 2.23011e-01 8.16761e-03 4.51100e-02
+  1.67367e+00 4.82885e-02 3.53601e-02 7.57004e-02 5.78452e-01 1.14596e+00
+  1.54211e-01 4.19215e-02 1.39094e-01 1.17494e+00]
+ [6.38504e-01 6.32889e+00 1.06856e+00 1.83385e+00 1.63592e-01 9.13190e-01
+  3.29750e+01 6.91206e-01 6.88402e-01 2.97837e-01 1.43685e+01 2.26077e+01
+  8.81492e+00 8.03214e-01 4.86126e+00 2.42521e+01]
+ [6.71107e+00 1.87824e+00 2.00713e+00 1.08770e+01 3.10811e-01 1.70244e+00
+  7.66374e+01 1.23994e+00 1.55344e+00 4.13187e+00 1.93388e+01 4.71605e+01
+  1.84976e+00 1.84566e+00 1.56132e+00 5.37418e+01]
+ [3.00248e+00 2.10079e+01 3.43795e+00 5.45028e+00 5.17469e-01 2.85847e+00
+  1.00965e+02 2.28244e+00 2.12576e+00 1.22738e+00 4.59603e+01 7.02555e+01
+  2.95796e+01 2.46510e+00 1.60758e+01 7.45302e+01]
+ [1.48075e+02 1.29789e+02 6.55453e+01 2.80177e+02 9.99073e+00 5.41738e+01
+  2.31110e+03 4.05780e+01 4.78279e+01 8.34051e+01 6.95621e+02 1.47580e+03
+  1.59176e+02 5.51664e+01 1.47550e+02 1.64897e+03]
+ [3.21886e+00 1.62583e+01 3.72561e+00 1.03770e+01 5.82656e-01 3.20560e+00
+  1.24149e+02 2.36207e+00 2.59453e+00 2.17440e+00 4.92668e+01 8.27360e+01
+  2.20276e+01 2.98216e+00 1.45603e+01 9.03784e+01]
+ [1.30765e+00 5.60988e+00 1.41855e+00 4.26269e+00 2.21319e-01 1.21824e+00
+  4.76986e+01 8.93034e-01 9.94413e-01 8.34491e-01 1.86168e+01 3.15905e+01
+  7.53912e+00 1.14534e+00 5.30623e+00 3.46004e+01]
+ [5.84716e+01 1.82468e+02 4.93699e+01 1.57288e+02 7.67634e+00 4.20894e+01
+  1.67616e+03 3.10516e+01 3.49434e+01 3.76295e+01 6.20664e+02 1.10319e+03
+  2.43119e+02 4.01526e+01 1.70728e+02 1.21386e+03]
+ [8.16746e-02 4.89015e-01 8.37146e-02 8.79436e-02 1.10127e-02 6.30235e-02
+  2.12617e+00 5.26568e-02 4.42905e-02 2.93117e-02 9.18279e-01 1.49149e+00
+  6.79914e-01 5.27686e-02 3.22599e-01 1.56512e+00]
+ [9.44751e+01 8.86681e+02 1.58693e+02 3.34095e+02 2.50380e+01 1.37964e+02
+  5.09755e+03 1.02535e+02 1.07053e+02 6.44815e+01 2.18236e+03 3.47746e+03
+  1.23166e+03 1.23210e+02 7.26401e+02 3.74520e+03]
+ [2.54302e+00 1.14267e+01 2.73005e+00 8.06522e+00 4.30521e-01 2.35721e+00
+  9.23049e+01 1.72790e+00 1.93173e+00 1.84151e+00 3.59362e+01 6.13434e+01
+  1.54525e+01 2.21253e+00 1.04749e+01 6.71281e+01]
+ [2.96655e+01 4.35012e+00 4.61366e+00 1.43790e+01 5.07269e-01 2.76771e+00
+  1.09824e+02 2.96962e+00 2.21627e+00 7.94524e+00 1.14603e+01 7.12321e+01
+  5.40748e+00 2.76544e+00 1.77017e+00 7.62493e+01]
+ [5.94290e+01 7.07809e+01 3.27493e+01 1.31831e+02 4.88994e+00 2.69201e+01
+  1.12176e+03 1.99584e+01 2.30886e+01 3.01287e+01 3.67893e+02 7.17881e+02
+  8.78317e+01 2.68838e+01 8.12313e+01 8.00391e+02]
+ [1.69835e+00 2.29425e+00 5.62604e-01 8.33122e-01 6.85411e-02 3.76018e-01
+  1.26411e+01 3.82031e-01 2.67971e-01 4.00968e-01 4.91046e+00 9.03202e+00
+  3.24448e+00 3.16226e-01 1.77867e+00 9.20340e+00]
+ [7.50481e-02 6.23947e-02 4.02521e-02 1.79336e-01 5.00312e-03 2.94183e-02
+  1.12704e+00 2.65258e-02 2.28974e-02 4.57710e-02 4.21711e-01 7.28731e-01
+  7.07577e-02 2.81133e-02 6.09431e-02 7.81502e-01]
+ [2.27244e+00 4.53615e+00 1.50110e+00 5.78105e+00 2.40528e-01 1.29507e+00
+  5.36366e+01 9.41058e-01 1.12469e+00 1.70077e+00 1.85431e+01 3.49750e+01
+  5.92963e+00 1.27531e+00 4.76000e+00 3.87065e+01]]
+name: 
+dense_9/bias
+
+value: 
+[-5.12521 -8.37577  3.83771 -4.42905 -4.3755   5.48228  2.85824  7.47289
+ -5.90899 -5.21811  5.67386 -7.14163 -6.3988   3.8937   1.46856  6.94569]
+name: 
+dense_9/bias/Adam
+
+value: 
+[-0.00123 -0.00442 -0.00248 -0.00157 -0.00091  0.00343  0.00365  0.01578
+ -0.00547 -0.0013  -0.00104 -0.00187 -0.00111 -0.00609  0.00585  0.01803]
+name: 
+dense_9/bias/Adam_1
+
+value: 
+[1.00734e-04 4.39280e-03 5.83024e-02 2.38471e-03 2.15518e-03 5.08402e-02
+ 1.25104e-03 5.43535e-02 1.71965e-02 2.85260e-04 5.35754e-02 2.41913e-03
+ 1.10780e-02 3.60337e-02 8.51950e-03 1.32656e-01]
+name: 
+dense_9/kernel
+
+value: 
+[[-0.32472 -0.6415  -0.87045 -0.2298   0.0443  -0.36634 -0.13298  1.00211
+  -0.75309 -0.09905 -0.09634 -0.03915 -0.4908  -0.60311 -0.11714 -0.13829]
+ [ 0.14768  0.69978  0.34701  0.77456 -0.02692 -0.42377 -0.25882 -1.2707
+   0.68186 -0.68385 -0.02465  0.29633  0.67081  0.62452 -0.378   -0.57942]
+ [ 0.29557  0.22016 -0.76568  0.57516  0.22476  0.06617 -0.01134  0.22942
+  -0.46752 -0.35324 -0.89281  0.39799 -0.31308 -0.76116  0.29102 -0.6446 ]
+ [-0.02374 -0.69894 -0.403   -0.21048  0.19597  0.26367 -0.35839  0.76386
+   0.12509 -0.85917 -0.09297 -0.43368 -0.85088  0.05182  0.32069  0.10376]
+ [ 0.56139 -0.11485  0.07207  0.4138   0.13497 -0.22272 -0.53951  0.25283
+   0.13946  0.18869 -0.81168  0.37437 -0.0396  -0.29372 -0.20784 -0.21371]
+ [ 0.47544  0.73101 -0.83424  0.75644  0.49562 -0.73934 -0.28967  0.21491
+  -0.40142  0.38987 -0.43847  0.66588 -0.40678 -0.76746  0.09319  0.01473]
+ [ 0.08773 -0.78379  0.75113 -0.10911 -0.8091   0.68325 -0.03266  0.63448
+   0.08792  0.04209  0.47948 -0.55289 -0.23742  0.29116 -0.24847  0.65756]
+ [ 0.11    -0.11245 -0.46975  0.41323  0.22377 -0.6306   0.54527  0.60077
+  -0.30532  0.25406 -0.24004  0.36296 -0.44527 -0.56266  0.56173 -0.43664]
+ [ 0.46509  0.49485 -0.41133  0.36272 -0.04504 -0.67504 -0.00169 -0.33734
+  -0.23982  0.04157 -0.71051  0.3217   0.44307 -0.11845 -0.27882 -0.4412 ]
+ [ 0.064   -0.62374 -0.03252 -0.12612  0.42157 -0.39518  0.9573   0.76276
+  -0.32204  0.83041 -0.69183  0.99731 -0.82039  0.87794 -0.13321  0.4904 ]
+ [-0.32684  0.32354  0.75523 -0.10107  0.04895  0.43898 -0.3918  -0.61204
+   0.54731  0.54133  0.82448  0.19826  0.28711  0.66496  0.18155 -0.35105]
+ [ 0.18858 -0.38426  0.67508 -0.47997 -0.47777  0.72217  0.17551  0.17294
+  -0.03137 -0.48606  0.83827 -0.21565  0.17367  0.26728  0.24445  0.36508]
+ [-0.26916  0.24897  0.42264  0.3193   0.51732 -0.60395  0.12519 -0.93035
+   0.91196 -0.20366 -0.39071  0.86719  0.94956  0.61341  0.24351 -0.68102]
+ [ 0.31037 -0.06945 -0.6008   0.61909  0.52427 -0.38773  0.12474 -0.51317
+  -0.05002 -0.02938 -0.5581   0.56051  0.18496 -0.64452  0.3035  -0.31519]
+ [ 0.73361  0.06857  0.07456  0.50343 -0.14619  0.17187  0.4212  -0.56082
+   0.79212  0.29356  0.12863  0.36597  0.83118  0.28774  0.00797 -0.14383]
+ [ 0.13702 -0.7208   0.50454 -0.5974  -0.21646  0.5707   0.07341  0.29042
+   0.05924  0.12156  0.20058 -0.72105  0.13143  0.10441 -0.07336  0.92496]]
+name: 
+dense_9/kernel/Adam
+
+value: 
+[[-6.79601e-04  1.50356e-01 -1.50914e+00  2.15452e-01  2.37875e-01
+  -1.20464e+00  4.79565e-04  5.12141e-01 -1.76560e-01  3.76122e-02
+  -1.40986e+00  1.69636e-01 -1.25920e-01 -9.51770e-01  6.01053e-01
+  -1.14058e+00]
+ [ 9.34548e-03 -1.62876e-01  6.42857e-01 -1.22329e-01 -1.22018e-01
+   5.98858e-01 -1.85552e-02 -1.92944e-01 -1.11298e-02 -5.73373e-02
+   6.20813e-01 -8.81348e-02 -1.69432e-01  3.11693e-01 -4.54069e-01
+   8.01000e-01]
+ [ 1.05653e-02  9.22619e-02 -3.02737e-01  6.64992e-02  6.34838e-02
+  -3.06972e-01 -3.73057e-02 -8.28536e-03 -1.20831e-02  2.69994e-02
+  -2.98273e-01  5.69874e-02 -1.63716e-02 -1.55243e-01  1.05788e-01
+  -4.69133e-01]
+ [-8.19336e-02  5.06777e-03 -1.86748e+00  1.92090e-01  2.43896e-01
+  -1.28163e+00  1.33523e-01  1.25179e+00 -6.04269e-01  3.73581e-03
+  -1.69524e+00  1.28885e-01 -1.28695e-01 -1.40076e+00  1.07401e+00
+  -6.41771e-01]
+ [ 7.73779e-03  5.29320e-02 -1.49083e-01  3.58328e-02  3.33516e-02
+  -1.59822e-01 -2.62154e-02 -2.30831e-02 -5.53518e-03  1.53955e-02
+  -1.48925e-01  3.12704e-02 -1.56615e-02 -7.62555e-02  4.07416e-02
+  -2.62893e-01]
+ [ 2.02345e-02  1.33467e-01 -3.93826e-01  9.27034e-02  8.67797e-02
+  -4.16710e-01 -6.65080e-02 -6.09231e-02  4.04423e-03  3.88212e-02
+  -3.92112e-01  8.05210e-02 -3.23034e-02 -1.95635e-01  1.03325e-01
+  -6.74308e-01]
+ [-1.38074e-01 -3.06146e-01 -6.72418e-01 -5.81560e-02  1.59851e-03
+  -1.04274e-01  3.37957e-01  1.32941e+00 -4.91248e-01 -8.05846e-02
+  -5.25986e-01 -9.30482e-02  1.27530e-01 -7.03672e-01  8.64018e-01
+   1.08392e+00]
+ [ 1.37719e-02  9.35041e-02 -2.61488e-01  6.33677e-02  5.88481e-02
+  -2.81773e-01 -4.54480e-02 -5.36118e-02  1.29458e-02  2.73526e-02
+  -2.61548e-01  5.52656e-02 -1.15637e-02 -1.20997e-01  7.10201e-02
+  -4.66468e-01]
+ [ 2.00832e-02  5.42130e-02  5.61833e-02  1.64068e-02  7.68618e-03
+  -2.36832e-02 -5.09919e-02 -1.88177e-01  6.51016e-02  1.47342e-02
+   3.62940e-02  2.00204e-02 -1.95760e-02  7.76098e-02 -1.04077e-01
+  -2.09822e-01]
+ [-3.58293e-04 -8.56748e-04 -1.12084e-01  1.19246e-02  1.49013e-02
+  -7.79986e-02 -2.27496e-02  6.84985e-02 -1.54005e-02  9.88400e-04
+  -1.01938e-01  8.24010e-03 -3.27743e-02 -8.36990e-02  3.78121e-02
+  -4.27120e-02]
+ [-2.83547e-02 -4.85150e-01  1.89120e+00 -3.80194e-01 -3.72722e-01
+   1.81878e+00  1.83169e-01 -2.46851e-01  2.39380e-01 -1.51389e-01
+   1.83987e+00 -3.11743e-01  7.77480e-02  1.09480e+00 -8.02298e-01
+   2.56698e+00]
+ [-8.61073e-02 -3.98213e-01  9.24626e-01 -2.53836e-01 -2.28246e-01
+   1.07987e+00  2.55177e-01  4.14686e-01 -1.17538e-01 -1.12317e-01
+   9.44576e-01 -2.30585e-01  1.51063e-01  3.94530e-01 -3.47831e-02
+   1.95695e+00]
+ [ 8.01883e-03 -1.47944e-01  5.82486e-01 -1.10530e-01 -1.10349e-01
+   5.41747e-01 -1.97264e-02 -1.69621e-01 -6.85722e-03 -5.14716e-02
+   5.62306e-01 -8.00399e-02 -1.45555e-01  2.85018e-01 -4.16682e-01
+   7.22560e-01]
+ [ 1.76206e-02  6.23996e-02 -4.60079e-02  2.96209e-02  2.28631e-02
+  -1.01401e-01 -4.83724e-02 -1.24396e-01  4.61358e-02  1.75560e-02
+  -5.82694e-02  2.91604e-02 -1.88610e-02  9.05834e-03 -4.92507e-02
+  -2.72828e-01]
+ [-4.19057e-03 -2.10104e-01  6.83324e-01 -1.46054e-01 -1.40550e-01
+   6.81514e-01  4.35422e-02 -9.97909e-02 -1.98194e-02 -6.78398e-02
+   6.70523e-01 -1.15442e-01 -1.21302e-01  3.22569e-01 -4.34175e-01
+   1.01697e+00]
+ [-1.46660e-01 -3.53308e-01 -5.36532e-01 -9.12735e-02 -2.91091e-02
+   4.26770e-02  3.65435e-01  1.36837e+00 -5.16055e-01 -9.45581e-02
+  -3.89952e-01 -1.22474e-01  1.31353e-01 -6.47704e-01  8.51109e-01
+   1.32829e+00]]
+name: 
+dense_9/kernel/Adam_1
+
+value: 
+[[2.60429e-02 2.29997e+00 3.46619e+01 1.28886e+00 1.20230e+00 2.86756e+01
+  1.10917e+00 2.04284e+01 9.99394e+00 2.31423e-01 3.15513e+01 1.28778e+00
+  8.40672e+00 2.11137e+01 5.09834e+00 6.87294e+01]
+ [3.95456e-02 1.32879e+00 1.70492e+01 6.34629e-01 5.91333e-01 1.40996e+01
+  6.12252e-01 1.02602e+01 5.17792e+00 1.49313e-01 1.55047e+01 6.71057e-01
+  5.06738e+00 1.10135e+01 6.23583e+00 3.39242e+01]
+ [2.36839e-02 1.72177e+00 2.23483e+01 9.16215e-01 8.27883e-01 1.95248e+01
+  4.81917e-01 1.51321e+01 7.27452e+00 1.55026e-01 2.05331e+01 9.35925e-01
+  5.68879e+00 1.37829e+01 2.94700e+00 5.09047e+01]
+ [5.94965e-01 7.02025e+00 1.04658e+02 4.08500e+00 3.76089e+00 8.92615e+01
+  3.10388e+00 1.76475e+02 1.42825e+01 5.26086e-02 9.61627e+01 4.04944e+00
+  2.35444e+00 6.36309e+01 1.96595e+01 2.21069e+02]
+ [1.04460e-02 6.87043e-01 8.96035e+00 3.68341e-01 3.32647e-01 7.84329e+00
+  1.79816e-01 6.76280e+00 2.86751e+00 5.78636e-02 8.23853e+00 3.75450e-01
+  2.15755e+00 5.50833e+00 1.10625e+00 2.04728e+01]
+ [6.91398e-02 4.15923e+00 5.41588e+01 2.22813e+00 2.01159e+00 4.74247e+01
+  1.06316e+00 4.13689e+01 1.72706e+01 3.43258e-01 4.97920e+01 2.27183e+00
+  1.27573e+01 3.32980e+01 6.89323e+00 1.23892e+02]
+ [2.22362e+00 6.35747e+01 8.48043e+02 3.50639e+01 3.16387e+01 7.45676e+02
+  1.60001e+01 1.01987e+03 2.26755e+02 3.04751e+00 7.81387e+02 3.54531e+01
+  1.23083e+02 5.16034e+02 1.03684e+02 1.94930e+03]
+ [2.77933e-02 1.77611e+00 2.30923e+01 9.47497e-01 8.55892e-01 2.01832e+01
+  4.69707e-01 1.66715e+01 7.42561e+00 1.50556e-01 2.12169e+01 9.67212e-01
+  5.57059e+00 1.42300e+01 3.09589e+00 5.26641e+01]
+ [4.78706e-02 1.53768e+00 2.04337e+01 8.44205e-01 7.61784e-01 1.79549e+01
+  3.81417e-01 2.28541e+01 5.63321e+00 8.30256e-02 1.88210e+01 8.54667e-01
+  3.28094e+00 1.24488e+01 2.52340e+00 4.69371e+01]
+ [6.51438e-03 9.87270e-02 1.73976e+00 6.22496e-02 5.92174e-02 1.42043e+00
+  1.52663e-01 2.37446e+00 9.18523e-02 8.99162e-04 1.58935e+00 5.99842e-02
+  3.00288e-02 1.08559e+00 7.14019e-02 3.20340e+00]
+ [4.03382e-01 4.19551e+01 5.46700e+02 2.22042e+01 2.01222e+01 4.75060e+02
+  1.15062e+01 2.90860e+02 1.83639e+02 4.36833e+00 5.01744e+02 2.26982e+01
+  1.56731e+02 3.38600e+02 7.60421e+01 1.22914e+03]
+ [1.12450e+00 5.12794e+01 6.70617e+02 2.77472e+01 2.50126e+01 5.89346e+02
+  1.26895e+01 6.21234e+02 2.05665e+02 3.57912e+00 6.17129e+02 2.82162e+01
+  1.37454e+02 4.10630e+02 7.97656e+01 1.54527e+03]
+ [2.99715e-02 1.09627e+00 1.40441e+01 5.22110e-01 4.86631e-01 1.16045e+01
+  5.06950e-01 7.70325e+00 4.34094e+00 1.26439e-01 1.27684e+01 5.52595e-01
+  4.28703e+00 9.08827e+00 5.21514e+00 2.79035e+01]
+ [4.51305e-02 1.66155e+00 2.18100e+01 9.04178e-01 8.14929e-01 1.91992e+01
+  4.17550e-01 2.24234e+01 6.30693e+00 1.02049e-01 2.00893e+01 9.18053e-01
+  3.95287e+00 1.33021e+01 2.58613e+00 5.03460e+01]
+ [2.82937e-02 3.66269e+00 4.68626e+01 1.83747e+00 1.68274e+00 3.98804e+01
+  1.33428e+00 7.76745e+00 1.61630e+01 4.96635e-01 4.28128e+01 1.90945e+00
+  1.62489e+01 2.96504e+01 1.11195e+01 1.00463e+02]
+ [2.55150e+00 7.54112e+01 1.00295e+03 4.14929e+01 3.74282e+01 8.82043e+02
+  1.88505e+01 1.18115e+03 2.72490e+02 3.74555e+00 9.24010e+02 4.19837e+01
+  1.50641e+02 6.10936e+02 1.22581e+02 2.30787e+03]]
+name: 
+global_step
+
+value: 
+1071500
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_10.32.17
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 7.435743808746338
+             X_0        X_1        X_2    ...          Y_2       Y_3       Y_4
+31942  1277.9806  1277.5158  1277.1076    ...     660.5318  752.7897  844.4501
+
+[1 rows x 10 columns]
+       LabelPosBalken  LabelTime
+31942     1273.540217  771.44886
+predicted: 
+[1272.0112  773.4457]
+time: 0.30s
+MSE (tensorflow): 3.1624717712402344
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_10.32.54
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+173 ops no flops stats due to incomplete shapes.
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 517, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 380, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 356, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1181, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1215, in _train_model_default
+    saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1409, in _train_with_estimator_spec
+    _, loss = mon_sess.run([estimator_spec.train_op, estimator_spec.loss])
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 671, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1148, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1239, in run
+    raise six.reraise(*original_exc_info)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/six.py", line 693, in reraise
+    raise value
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1224, in run
+    return self._sess.run(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1288, in run
+    feed_dict, options)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1314, in _call_hook_before_run
+    request = hook.before_run(run_context)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/debug/wrappers/hooks.py", line 361, in before_run
+    run_context.original_args.fetches, self._sent_graph_version)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/debug/wrappers/grpc_wrapper.py", line 63, in publish_traceback
+    send_source=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/debug/lib/source_remote.py", line 209, in send_graph_tracebacks
+    graph=graph, send_source=send_source)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/debug/lib/source_remote.py", line 174, in _send_call_tracebacks
+    stub.SendTracebacks(call_traceback)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/grpc/_channel.py", line 500, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/grpc/_channel.py", line 434, in _end_unary_response_blocking
+    raise _Rendezvous(state, None, None, deadline)
+grpc._channel._Rendezvous: <_Rendezvous of RPC that terminated with (StatusCode.UNAVAILABLE, Connect Failed)>
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_10.45.07
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_16.01.08
+INFO:root:Saving to ~/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:~/MasterarbeitTobias/models/FineTuning/layer/layer10 does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 31200.635, 'loss': 28209274.0, 'rmse': 176.63701, 'global_step': 500}
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_16.02.23
+INFO:root:Saving to ~/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 26171.984, 'loss': 23662746.0, 'rmse': 161.77757, 'global_step': 1500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 663.53345, 'loss': 599917.2, 'rmse': 25.759144, 'global_step': 6500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 553.428, 'loss': 500368.1, 'rmse': 23.52505, 'global_step': 11500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 94.622604, 'loss': 85550.664, 'rmse': 9.727415, 'global_step': 16500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 176.50279, 'loss': 159580.6, 'rmse': 13.285436, 'global_step': 21500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 74.65313, 'loss': 67495.76, 'rmse': 8.640204, 'global_step': 26500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 43.155502, 'loss': 39017.97, 'rmse': 6.569285, 'global_step': 31500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 86.5521, 'loss': 78253.92, 'rmse': 9.303338, 'global_step': 36500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 99.716156, 'loss': 90155.87, 'rmse': 9.985798, 'global_step': 41500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 41.11405, 'loss': 37172.242, 'rmse': 6.412024, 'global_step': 46500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 223.6593, 'loss': 202215.97, 'rmse': 14.955243, 'global_step': 51500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 130.01071, 'loss': 117545.94, 'rmse': 11.402224, 'global_step': 56500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 72.00592, 'loss': 65102.35, 'rmse': 8.48563, 'global_step': 61500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 52.23503, 'loss': 47226.996, 'rmse': 7.2273808, 'global_step': 66500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 85.630455, 'loss': 77420.63, 'rmse': 9.253673, 'global_step': 71500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 50.340855, 'loss': 45514.426, 'rmse': 7.095129, 'global_step': 76500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 70.222176, 'loss': 63489.62, 'rmse': 8.379868, 'global_step': 81500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 25.835281, 'loss': 23358.324, 'rmse': 5.082842, 'global_step': 86500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 28.827196, 'loss': 26063.389, 'rmse': 5.3690963, 'global_step': 91500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 27.71994, 'loss': 25062.291, 'rmse': 5.264973, 'global_step': 96500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 21.27476, 'loss': 19235.041, 'rmse': 4.612457, 'global_step': 101500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 26.794548, 'loss': 24225.621, 'rmse': 5.176345, 'global_step': 106500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 20.358915, 'loss': 18407.004, 'rmse': 4.5120854, 'global_step': 111500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 109.611305, 'loss': 99102.32, 'rmse': 10.469542, 'global_step': 116500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 52.610977, 'loss': 47566.9, 'rmse': 7.2533426, 'global_step': 121500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 33.819355, 'loss': 30576.924, 'rmse': 5.815441, 'global_step': 126500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 37.19451, 'loss': 33628.49, 'rmse': 6.09873, 'global_step': 131500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 20.165663, 'loss': 18232.28, 'rmse': 4.490619, 'global_step': 136500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 15.972934, 'loss': 14441.528, 'rmse': 3.9966152, 'global_step': 141500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 16.203299, 'loss': 14649.807, 'rmse': 4.025332, 'global_step': 146500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 21.107595, 'loss': 19083.904, 'rmse': 4.5943003, 'global_step': 151500}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 19.485525, 'loss': 17617.35, 'rmse': 4.4142413, 'global_step': 156500}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 22.56296, 'loss': 20399.736, 'rmse': 4.750048, 'global_step': 161500}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 21.997211, 'loss': 19888.229, 'rmse': 4.6901183, 'global_step': 166500}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 12.590743, 'loss': 11383.605, 'rmse': 3.5483437, 'global_step': 171500}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 14.349612, 'loss': 12973.843, 'rmse': 3.7880883, 'global_step': 176500}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 23.29365, 'loss': 21060.371, 'rmse': 4.8263497, 'global_step': 181500}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 15.878619, 'loss': 14356.257, 'rmse': 3.9847984, 'global_step': 186500}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 11.59546, 'loss': 10483.745, 'rmse': 3.4052107, 'global_step': 191500}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 23.933971, 'loss': 21639.303, 'rmse': 4.8922358, 'global_step': 196500}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 10.677812, 'loss': 9654.076, 'rmse': 3.267692, 'global_step': 201500}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 12.314998, 'loss': 11134.297, 'rmse': 3.509273, 'global_step': 206500}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 11.914179, 'loss': 10771.907, 'rmse': 3.451692, 'global_step': 211500}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 14.169098, 'loss': 12810.636, 'rmse': 3.7641861, 'global_step': 216500}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 34.377552, 'loss': 31081.604, 'rmse': 5.8632374, 'global_step': 221500}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 20.251835, 'loss': 18310.19, 'rmse': 4.500204, 'global_step': 226500}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 16.193962, 'loss': 14641.366, 'rmse': 4.0241723, 'global_step': 231500}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 12.900909, 'loss': 11664.035, 'rmse': 3.5917835, 'global_step': 236500}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 14.304809, 'loss': 12933.335, 'rmse': 3.7821698, 'global_step': 241500}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 14.0315485, 'loss': 12686.273, 'rmse': 3.7458708, 'global_step': 246500}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 16.73132, 'loss': 15127.204, 'rmse': 4.0903935, 'global_step': 251500}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 19.33167, 'loss': 17478.246, 'rmse': 4.3967795, 'global_step': 256500}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 16.337292, 'loss': 14770.954, 'rmse': 4.0419416, 'global_step': 261500}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 10.26877, 'loss': 9284.252, 'rmse': 3.204492, 'global_step': 266500}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 25.602257, 'loss': 23147.64, 'rmse': 5.0598674, 'global_step': 271500}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 13.774174, 'loss': 12453.575, 'rmse': 3.7113574, 'global_step': 276500}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 10.545864, 'loss': 9534.779, 'rmse': 3.2474396, 'global_step': 281500}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 16.263206, 'loss': 14703.972, 'rmse': 4.032767, 'global_step': 286500}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 10.333238, 'loss': 9342.538, 'rmse': 3.2145355, 'global_step': 291500}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 12.08324, 'loss': 10924.759, 'rmse': 3.4760954, 'global_step': 296500}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 13.224116, 'loss': 11956.254, 'rmse': 3.6364977, 'global_step': 301500}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 9.574445, 'loss': 8656.495, 'rmse': 3.09426, 'global_step': 306500}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 17.125235, 'loss': 15483.353, 'rmse': 4.1382647, 'global_step': 311500}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 10.477781, 'loss': 9473.224, 'rmse': 3.2369401, 'global_step': 316500}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 11.139503, 'loss': 10071.503, 'rmse': 3.3375893, 'global_step': 321500}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 10.781245, 'loss': 9747.594, 'rmse': 3.2834806, 'global_step': 326500}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 12.481211, 'loss': 11284.574, 'rmse': 3.5328758, 'global_step': 331500}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 9.953523, 'loss': 8999.229, 'rmse': 3.1549203, 'global_step': 336500}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 10.31163, 'loss': 9323.003, 'rmse': 3.2111728, 'global_step': 341500}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 12.552341, 'loss': 11348.886, 'rmse': 3.5429285, 'global_step': 346500}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 15.038917, 'loss': 13597.061, 'rmse': 3.8780043, 'global_step': 351500}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 10.583217, 'loss': 9568.551, 'rmse': 3.2531855, 'global_step': 356500}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 9.356085, 'loss': 8459.07, 'rmse': 3.0587718, 'global_step': 361500}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 11.265355, 'loss': 10185.289, 'rmse': 3.3563902, 'global_step': 366500}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 9.18242, 'loss': 8302.056, 'rmse': 3.0302508, 'global_step': 371500}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 9.353928, 'loss': 8457.12, 'rmse': 3.0584192, 'global_step': 376500}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 9.780226, 'loss': 8842.547, 'rmse': 3.1273353, 'global_step': 381500}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 11.05682, 'loss': 9996.747, 'rmse': 3.3251796, 'global_step': 386500}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 12.124676, 'loss': 10962.223, 'rmse': 3.4820504, 'global_step': 391500}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 12.811785, 'loss': 11583.455, 'rmse': 3.5793552, 'global_step': 396500}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 10.117391, 'loss': 9147.386, 'rmse': 3.1807847, 'global_step': 401500}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 11.59639, 'loss': 10484.586, 'rmse': 3.4053473, 'global_step': 406500}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 9.67958, 'loss': 8751.55, 'rmse': 3.1112022, 'global_step': 411500}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 9.2219095, 'loss': 8337.759, 'rmse': 3.0367596, 'global_step': 416500}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 11.062989, 'loss': 10002.325, 'rmse': 3.3261073, 'global_step': 421500}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 13.351539, 'loss': 12071.46, 'rmse': 3.6539757, 'global_step': 426500}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 9.106148, 'loss': 8233.096, 'rmse': 3.0176394, 'global_step': 431500}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 9.4855995, 'loss': 8576.168, 'rmse': 3.07987, 'global_step': 436500}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 10.891549, 'loss': 9847.322, 'rmse': 3.3002348, 'global_step': 441500}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 12.581734, 'loss': 11375.46, 'rmse': 3.547074, 'global_step': 446500}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 11.7905, 'loss': 10660.086, 'rmse': 3.4337296, 'global_step': 451500}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 8.619792, 'loss': 7793.3696, 'rmse': 2.9359481, 'global_step': 456500}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 8.808217, 'loss': 7963.729, 'rmse': 2.967864, 'global_step': 461500}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 9.186882, 'loss': 8306.09, 'rmse': 3.030987, 'global_step': 466500}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 8.995748, 'loss': 8133.2803, 'rmse': 2.9992912, 'global_step': 471500}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 10.630118, 'loss': 9610.956, 'rmse': 3.2603862, 'global_step': 476500}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 8.641766, 'loss': 7813.2363, 'rmse': 2.939688, 'global_step': 481500}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 9.217058, 'loss': 8333.373, 'rmse': 3.035961, 'global_step': 486500}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 9.537238, 'loss': 8622.855, 'rmse': 3.0882418, 'global_step': 491500}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 12.18747, 'loss': 11018.997, 'rmse': 3.4910557, 'global_step': 496500}
+INFO:root:Training completed. final average loss: 9.249855995178223, best average loss during training: 8.619791984558105
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-17_10.15.00
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:/home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10 does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-17_10.15.13
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/layer/layer10
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1136359.0
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/layer10_2018-10-17_10.15.13.png
+INFO:root:getting optimal accel for 1872 examples
+INFO:root:Evaluation on 105 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  105.000000             105.000000             105.000000                
+mean   1121.348230            0.044441               0.068093                  
+std    409.614637             0.895033               0.893368                  
+min    239.404180            -2.099541              -2.025783                  
+25%    803.874024            -0.459630              -0.386211                  
+50%    1159.085766            0.059400               0.053553                  
+75%    1441.949983            0.557079               0.519487                  
+max    1946.423066            2.778337               2.901255                  
+
+       CApixelErrorPosBalken  
+count  105.000000             
+mean  -0.175289               
+std    3.304328               
+min   -15.992759              
+25%   -0.858989               
+50%   -0.049764               
+75%    1.218492               
+max    10.335070              
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  105.000000   105.000000   105.000000     105.000000   105.000000    
+mean   411.245335   2.261715     0.086217       0.333139     0.810029      
+std    63.373948    3.009888     3.009888       12.460836    2.986197      
+min    356.149226  -7.773283    -9.948782      -42.360762   -10.854777     
+25%    368.947334   0.326211    -1.849288      -6.416851    -0.766320      
+50%    375.706962   2.168476    -0.007023       1.444391     0.880575      
+75%    485.965091   4.401840     2.226342       7.999317     2.705573      
+max    543.684911   12.425536    10.250037      42.074221    9.893340      
+
+       IAerrorTime  
+count  105.000000   
+mean  -2.843505     
+std    3.909996     
+min   -18.708155    
+25%   -4.275607     
+50%   -2.157200     
+75%   -0.568101     
+max    3.472494     
+           X_0       X_1       X_2    ...          Y_2      Y_3       Y_4
+1524  872.3004  871.7213  870.9089    ...     737.8518  830.004  921.8745
+
+[1 rows x 10 columns]
+      LabelPosBalken   LabelTime
+1524      862.867225  687.939388
+predicted: 
+[-2.02101 -1.33705]
+time: 0.32s
+MSE (tensorflow): 641078.9375

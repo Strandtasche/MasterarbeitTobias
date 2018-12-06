@@ -1,0 +1,517 @@
+python3: can't open file 'DNNRegressor-Example.py': [Errno 2] No such file or directory
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_11.10.54
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/decay/decay20000Steps
+INFO:root:using premade Estimator
+INFO:root:/home/hornberger/MasterarbeitTobias/models/FineTuning/decay/decay20000Steps does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+78 ops no flops stats due to incomplete shapes.
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 517, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 380, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 356, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1181, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1215, in _train_model_default
+    saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1409, in _train_with_estimator_spec
+    _, loss = mon_sess.run([estimator_spec.train_op, estimator_spec.loss])
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 671, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1148, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1239, in run
+    raise six.reraise(*original_exc_info)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/six.py", line 693, in reraise
+    raise value
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1224, in run
+    return self._sess.run(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1288, in run
+    feed_dict, options)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1314, in _call_hook_before_run
+    request = hook.before_run(run_context)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/debug/wrappers/hooks.py", line 361, in before_run
+    run_context.original_args.fetches, self._sent_graph_version)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/debug/wrappers/grpc_wrapper.py", line 63, in publish_traceback
+    send_source=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/debug/lib/source_remote.py", line 209, in send_graph_tracebacks
+    graph=graph, send_source=send_source)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/debug/lib/source_remote.py", line 174, in _send_call_tracebacks
+    stub.SendTracebacks(call_traceback)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/grpc/_channel.py", line 500, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/grpc/_channel.py", line 434, in _end_unary_response_blocking
+    raise _Rendezvous(state, None, None, deadline)
+grpc._channel._Rendezvous: <_Rendezvous of RPC that terminated with (StatusCode.UNAVAILABLE, Connect Failed)>
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_11.11.22
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/decay/decay20000Steps
+INFO:root:using premade Estimator
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+78 ops no flops stats due to incomplete shapes.
+Traceback (most recent call last):
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1292, in _do_call
+    return fn(*args)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1277, in _run_fn
+    options, feed_dict, fetch_list, target_list, run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1367, in _call_tf_sessionrun
+    run_metadata)
+tensorflow.python.framework.errors_impl.InternalError: Publishing to 1 of 1 debug target URLs failed, due to the following errors: Write event to stream URL grpc://localhost:6007 failed.;
+	 [[{{node __dbg_dnn/input_from_feature_columns/input_layer/X_2/ToFloat:0_0_DebugIdentity}} = DebugIdentity[T=DT_FLOAT, debug_urls=["grpc://localhost:6007"], device_name="/job:localhost/replica:0/task:0/device:GPU:0", gated_grpc=true, tensor_name="dnn/input_from_feature_columns/input_layer/X_2/ToFloat:0"](__copy_dnn/input_from_feature_columns/input_layer/X_2/ToFloat_0)]]
+	 [[{{node dnn/head/weighted_loss/Sum/_311}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device_incarnation=1, tensor_name="edge_414_dnn/head/weighted_loss/Sum", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:CPU:0"]()]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 517, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 380, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 356, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1181, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1215, in _train_model_default
+    saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1409, in _train_with_estimator_spec
+    _, loss = mon_sess.run([estimator_spec.train_op, estimator_spec.loss])
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 671, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1148, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1239, in run
+    raise six.reraise(*original_exc_info)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/six.py", line 693, in reraise
+    raise value
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1224, in run
+    return self._sess.run(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1296, in run
+    run_metadata=run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1076, in run
+    return self._sess.run(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 887, in run
+    run_metadata_ptr)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1110, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1286, in _do_run
+    run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1301, in _do_call
+    op = self._graph.get_operation_by_name(node_name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3616, in get_operation_by_name
+    return self.as_graph_element(name, allow_tensor=False, allow_operation=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3485, in as_graph_element
+    return self._as_graph_element_locked(obj, allow_tensor, allow_operation)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3542, in _as_graph_element_locked
+    (repr(name), types_str))
+ValueError: Name '__dbg_dnn/input_from_feature_columns/input_layer/X_2/ToFloat:0_0_DebugIdentity' appears to refer to a Tensor, not a Operation.
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_11.28.42
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/decay/decay20000Steps
+INFO:root:using custom estimator
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+Traceback (most recent call last):
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1292, in _do_call
+    return fn(*args)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1277, in _run_fn
+    options, feed_dict, fetch_list, target_list, run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1367, in _call_tf_sessionrun
+    run_metadata)
+tensorflow.python.framework.errors_impl.NotFoundError: Key beta1_power not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, ..., DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_19}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_24_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1538, in restore
+    {self.saver_def.filename_tensor_name: save_path})
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 887, in run
+    run_metadata_ptr)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1110, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1286, in _do_run
+    run_metadata)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1308, in _do_call
+    raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.NotFoundError: Key beta1_power not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, ..., DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_19}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_24_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+Caused by op 'save/RestoreV2', defined at:
+  File "DNNRegressor-Example.py", line 517, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 380, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 356, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1181, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1215, in _train_model_default
+    saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1406, in _train_with_estimator_spec
+    log_step_count_steps=self._config.log_step_count_steps) as mon_sess:
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 504, in MonitoredTrainingSession
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 921, in __init__
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 643, in __init__
+    self._sess = _RecoverableSession(self._coordinated_creator)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1107, in __init__
+    _WrappedSession.__init__(self, self._create_session())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1112, in _create_session
+    return self._sess_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 800, in create_session
+    self.tf_sess = self._session_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 557, in create_session
+    self._scaffold.finalize()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 215, in finalize
+    self._saver.build()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1106, in build
+    self._build(self._filename, build_save=True, build_restore=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1143, in _build
+    build_save=build_save, build_restore=build_restore)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 781, in _build_internal
+    restore_sequentially, reshape)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 459, in _AddShardedRestoreOps
+    name="restore_shard"))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 406, in _AddRestoreOps
+    restore_sequentially)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 854, in bulk_restore
+    return io_ops.restore_v2(filename_tensor, names, slices, dtypes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/ops/gen_io_ops.py", line 1466, in restore_v2
+    shape_and_slices=shape_and_slices, dtypes=dtypes, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 787, in _apply_op_helper
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/util/deprecation.py", line 488, in new_func
+    return func(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3272, in create_op
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1768, in __init__
+    self._traceback = tf_stack.extract_stack()
+
+NotFoundError (see above for traceback): Key beta1_power not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, ..., DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_19}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_24_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1548, in restore
+    names_to_keys = object_graph_key_mapping(save_path)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1822, in object_graph_key_mapping
+    checkpointable.OBJECT_GRAPH_PROTO_KEY)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/pywrap_tensorflow_internal.py", line 359, in get_tensor
+    status)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/errors_impl.py", line 526, in __exit__
+    c_api.TF_GetCode(self.status.status))
+tensorflow.python.framework.errors_impl.NotFoundError: Key _CHECKPOINTABLE_OBJECT_GRAPH not found in checkpoint
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DNNRegressor-Example.py", line 517, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 380, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 356, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1181, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1215, in _train_model_default
+    saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1406, in _train_with_estimator_spec
+    log_step_count_steps=self._config.log_step_count_steps) as mon_sess:
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 504, in MonitoredTrainingSession
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 921, in __init__
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 643, in __init__
+    self._sess = _RecoverableSession(self._coordinated_creator)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1107, in __init__
+    _WrappedSession.__init__(self, self._create_session())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1112, in _create_session
+    return self._sess_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 800, in create_session
+    self.tf_sess = self._session_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 566, in create_session
+    init_fn=self._scaffold.init_fn)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/session_manager.py", line 281, in prepare_session
+    config=config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/session_manager.py", line 211, in _restore_checkpoint
+    saver.restore(sess, ckpt.model_checkpoint_path)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1554, in restore
+    err, "a Variable name or other graph key that is missing")
+tensorflow.python.framework.errors_impl.NotFoundError: Restoring from checkpoint failed. This is most likely due to a Variable name or other graph key that is missing from the checkpoint. Please ensure that you have not altered the graph expected based on the checkpoint. Original error:
+
+Key beta1_power not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, ..., DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_19}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_24_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+Caused by op 'save/RestoreV2', defined at:
+  File "DNNRegressor-Example.py", line 517, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 380, in main
+    steps=STEPS_PER_EPOCH, hooks=hooks)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 356, in train
+    loss = self._train_model(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1181, in _train_model
+    return self._train_model_default(input_fn, hooks, saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1215, in _train_model_default
+    saving_listeners)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1406, in _train_with_estimator_spec
+    log_step_count_steps=self._config.log_step_count_steps) as mon_sess:
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 504, in MonitoredTrainingSession
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 921, in __init__
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 643, in __init__
+    self._sess = _RecoverableSession(self._coordinated_creator)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1107, in __init__
+    _WrappedSession.__init__(self, self._create_session())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1112, in _create_session
+    return self._sess_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 800, in create_session
+    self.tf_sess = self._session_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 557, in create_session
+    self._scaffold.finalize()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 215, in finalize
+    self._saver.build()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1106, in build
+    self._build(self._filename, build_save=True, build_restore=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1143, in _build
+    build_save=build_save, build_restore=build_restore)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 781, in _build_internal
+    restore_sequentially, reshape)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 459, in _AddShardedRestoreOps
+    name="restore_shard"))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 406, in _AddRestoreOps
+    restore_sequentially)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 854, in bulk_restore
+    return io_ops.restore_v2(filename_tensor, names, slices, dtypes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/ops/gen_io_ops.py", line 1466, in restore_v2
+    shape_and_slices=shape_and_slices, dtypes=dtypes, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 787, in _apply_op_helper
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/util/deprecation.py", line 488, in new_func
+    return func(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3272, in create_op
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1768, in __init__
+    self._traceback = tf_stack.extract_stack()
+
+NotFoundError (see above for traceback): Restoring from checkpoint failed. This is most likely due to a Variable name or other graph key that is missing from the checkpoint. Please ensure that you have not altered the graph expected based on the checkpoint. Original error:
+
+Key beta1_power not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, ..., DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_19}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_24_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_11.29.08
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/decay/decay20000Steps
+INFO:root:using custom estimator
+INFO:root:/home/hornberger/MasterarbeitTobias/models/FineTuning/decay/decay20000Steps does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 31564.752, 'loss': 28538482.0, 'rmse': 177.66472, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 15251.965, 'loss': 13789683.0, 'rmse': 123.49885, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 4423.007, 'loss': 3998951.2, 'rmse': 66.50569, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 102.8816, 'loss': 93017.83, 'rmse': 10.143057, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 161.47946, 'loss': 145997.62, 'rmse': 12.707457, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 8623.219, 'loss': 7796467.5, 'rmse': 92.86129, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 135.02786, 'loss': 122082.06, 'rmse': 11.620149, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 113.145905, 'loss': 102298.04, 'rmse': 10.637007, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 3887.8992, 'loss': 3515146.8, 'rmse': 62.35302, 'global_step': 40500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 392.49142, 'loss': 354861.3, 'rmse': 19.811396, 'global_step': 45500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 2705.7441, 'loss': 2446331.0, 'rmse': 52.01677, 'global_step': 50500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 198.41748, 'loss': 179394.2, 'rmse': 14.086074, 'global_step': 55500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 83.70961, 'loss': 75683.95, 'rmse': 9.149296, 'global_step': 60500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 72.32412, 'loss': 65390.047, 'rmse': 8.504359, 'global_step': 65500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 153.01082, 'loss': 138340.9, 'rmse': 12.369754, 'global_step': 70500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 68.07331, 'loss': 61546.785, 'rmse': 8.250655, 'global_step': 75500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 162.46805, 'loss': 146891.42, 'rmse': 12.746296, 'global_step': 80500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 76.020546, 'loss': 68732.08, 'rmse': 8.718976, 'global_step': 85500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 79.393234, 'loss': 71781.41, 'rmse': 8.910288, 'global_step': 90500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 254.46973, 'loss': 230072.44, 'rmse': 15.952107, 'global_step': 95500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 91.94038, 'loss': 83125.59, 'rmse': 9.588554, 'global_step': 100500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 227.00134, 'loss': 205237.6, 'rmse': 15.066564, 'global_step': 105500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 110.63755, 'loss': 100030.17, 'rmse': 10.518438, 'global_step': 110500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 181.11584, 'loss': 163751.36, 'rmse': 13.457929, 'global_step': 115500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 115.5644, 'loss': 104484.664, 'rmse': 10.750089, 'global_step': 120500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 41.72503, 'loss': 37724.64, 'rmse': 6.4594913, 'global_step': 125500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 180.25688, 'loss': 162974.75, 'rmse': 13.425978, 'global_step': 130500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 31.841541, 'loss': 28788.734, 'rmse': 5.642831, 'global_step': 135500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 135.83743, 'loss': 122814.02, 'rmse': 11.654932, 'global_step': 140500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 77.75693, 'loss': 70301.984, 'rmse': 8.817988, 'global_step': 145500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 39.657974, 'loss': 35855.766, 'rmse': 6.2974577, 'global_step': 150500}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 29.051912, 'loss': 26266.56, 'rmse': 5.3899827, 'global_step': 155500}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 102.69527, 'loss': 92849.36, 'rmse': 10.133867, 'global_step': 160500}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 45.824875, 'loss': 41431.414, 'rmse': 6.7694073, 'global_step': 165500}
+INFO:root:Tensorflow 1.11.0
+INFO:root:time: 2018-10-16_12.01.12
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/FineTuning/decay/decay20000Steps2
+INFO:root:using custom estimator
+INFO:root:/home/hornberger/MasterarbeitTobias/models/FineTuning/decay/decay20000Steps2 does not exist. Creating folder
+INFO:root:loading data from store
+INFO:root:Train: ((130192, 10), (130192, 2))
+INFO:root:Test: ((7233, 10), (7233, 2))
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 31326.404, 'loss': 28322986.0, 'rmse': 176.99266, 'global_step': 500}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 17464.113, 'loss': 15789742.0, 'rmse': 132.15186, 'global_step': 5500}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 12199.839, 'loss': 11030179.0, 'rmse': 110.45288, 'global_step': 10500}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 17042.516, 'loss': 15408565.0, 'rmse': 130.54698, 'global_step': 15500}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 17839.643, 'loss': 16129266.0, 'rmse': 133.56512, 'global_step': 20500}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 4279.4824, 'loss': 3869187.0, 'rmse': 65.417755, 'global_step': 25500}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 2823.733, 'loss': 2553007.5, 'rmse': 53.13881, 'global_step': 30500}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 271.7025, 'loss': 245653.05, 'rmse': 16.4834, 'global_step': 35500}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 1422.0634, 'loss': 1285723.0, 'rmse': 37.710255, 'global_step': 40500}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 241.74756, 'loss': 218570.02, 'rmse': 15.548233, 'global_step': 45500}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 396.6094, 'loss': 358584.47, 'rmse': 19.915054, 'global_step': 50500}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 116.28328, 'loss': 105134.62, 'rmse': 10.783472, 'global_step': 55500}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 168.66916, 'loss': 152498.0, 'rmse': 12.987269, 'global_step': 60500}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 183.02022, 'loss': 165473.16, 'rmse': 13.528497, 'global_step': 65500}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 93.47667, 'loss': 84514.59, 'rmse': 9.668333, 'global_step': 70500}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 97.819405, 'loss': 88440.97, 'rmse': 9.890369, 'global_step': 75500}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 76.72256, 'loss': 69366.78, 'rmse': 8.759141, 'global_step': 80500}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 967.16046, 'loss': 874433.94, 'rmse': 31.099203, 'global_step': 85500}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 110.941414, 'loss': 100304.91, 'rmse': 10.532873, 'global_step': 90500}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 107.23357, 'loss': 96952.55, 'rmse': 10.355364, 'global_step': 95500}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 111.2971, 'loss': 100626.484, 'rmse': 10.549744, 'global_step': 100500}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 135.79807, 'loss': 122778.42, 'rmse': 11.653243, 'global_step': 105500}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 98.83462, 'loss': 89358.85, 'rmse': 9.94156, 'global_step': 110500}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 112.174515, 'loss': 101419.78, 'rmse': 10.591248, 'global_step': 115500}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 92.42507, 'loss': 83563.82, 'rmse': 9.613796, 'global_step': 120500}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 142.98862, 'loss': 129279.586, 'rmse': 11.957785, 'global_step': 125500}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 90.49796, 'loss': 81821.47, 'rmse': 9.5130415, 'global_step': 130500}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 108.70137, 'loss': 98279.625, 'rmse': 10.425995, 'global_step': 135500}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 127.49283, 'loss': 115269.45, 'rmse': 11.291272, 'global_step': 140500}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 96.91033, 'loss': 87619.055, 'rmse': 9.844304, 'global_step': 145500}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 70.459885, 'loss': 63704.543, 'rmse': 8.394038, 'global_step': 150500}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 70.27879, 'loss': 63540.812, 'rmse': 8.3832445, 'global_step': 155500}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 119.79339, 'loss': 108308.195, 'rmse': 10.945017, 'global_step': 160500}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 112.51479, 'loss': 101727.44, 'rmse': 10.607299, 'global_step': 165500}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 68.22428, 'loss': 61683.28, 'rmse': 8.259799, 'global_step': 170500}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 93.103775, 'loss': 84177.45, 'rmse': 9.64903, 'global_step': 175500}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 92.760864, 'loss': 83867.414, 'rmse': 9.631244, 'global_step': 180500}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 67.24735, 'loss': 60800.01, 'rmse': 8.200448, 'global_step': 185500}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 54.50404, 'loss': 49278.465, 'rmse': 7.382685, 'global_step': 190500}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 56.246532, 'loss': 50853.895, 'rmse': 7.4997687, 'global_step': 195500}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 59.195404, 'loss': 53520.043, 'rmse': 7.693855, 'global_step': 200500}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 73.29059, 'loss': 66263.85, 'rmse': 8.560992, 'global_step': 205500}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 76.6983, 'loss': 69344.85, 'rmse': 8.757757, 'global_step': 210500}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 43.264503, 'loss': 39116.52, 'rmse': 6.5775757, 'global_step': 215500}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 51.56122, 'loss': 46617.785, 'rmse': 7.180614, 'global_step': 220500}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 61.098255, 'loss': 55240.46, 'rmse': 7.8165374, 'global_step': 225500}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 99.345985, 'loss': 89821.19, 'rmse': 9.967246, 'global_step': 230500}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 36.634422, 'loss': 33122.098, 'rmse': 6.0526376, 'global_step': 235500}

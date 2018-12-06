@@ -1,0 +1,376 @@
+Starting Execution
+06/12/2018 17:23:06
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--filter', '--save', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Spheres-final.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 131: highest Value smaller than separator
+WARNING:root:skipping track 258: NaN values in track
+WARNING:root:skipping track 259: NaN values in track
+WARNING:root:skipping track 444: highest Value smaller than separator
+WARNING:root:skipping track 445: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_002_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 185: highest Value smaller than separator
+WARNING:root:skipping track 186: highest Value smaller than separator
+WARNING:root:skipping track 338: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_003_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_004_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 310: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_005_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 66: Not enough elements for features
+WARNING:root:skipping track 127: highest Value smaller than separator
+WARNING:root:skipping track 129: highest Value smaller than separator
+WARNING:root:skipping track 150: highest Value smaller than separator
+WARNING:root:skipping track 226: highest Value smaller than separator
+WARNING:root:skipping track 283: highest Value smaller than separator
+WARNING:root:skipping track 658: highest Value smaller than separator
+WARNING:root:skipping track 660: highest Value smaller than separator
+WARNING:root:skipping track 724: highest Value smaller than separator
+WARNING:root:skipping track 830: NaN values in track
+WARNING:root:skipping track 831: NaN values in track
+WARNING:root:skipping track 903: highest Value smaller than separator
+WARNING:root:skipping track 904: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_006_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 20: NaN values in track
+WARNING:root:skipping track 21: NaN values in track
+WARNING:root:skipping track 50: NaN values in track
+WARNING:root:skipping track 51: NaN values in track
+WARNING:root:skipping track 96: NaN values in track
+WARNING:root:skipping track 122: highest Value smaller than separator
+WARNING:root:skipping track 124: highest Value smaller than separator
+WARNING:root:skipping track 329: highest Value smaller than separator
+WARNING:root:skipping track 331: highest Value smaller than separator
+WARNING:root:skipping track 468: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_007_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 208: highest Value smaller than separator
+WARNING:root:skipping track 209: highest Value smaller than separator
+WARNING:root:skipping track 531: NaN values in track
+WARNING:root:skipping track 532: NaN values in track
+WARNING:root:skipping track 662: highest Value smaller than separator
+WARNING:root:skipping track 749: highest Value smaller than separator
+WARNING:root:skipping track 750: highest Value smaller than separator
+WARNING:root:skipping track 751: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_008_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 446: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_009_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 68: highest Value smaller than separator
+WARNING:root:skipping track 89: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_010_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 31: highest Value smaller than separator
+WARNING:root:skipping track 32: highest Value smaller than separator
+WARNING:root:skipping track 98: Not enough elements for features
+WARNING:root:skipping track 242: NaN values in track
+WARNING:root:skipping track 243: NaN values in track
+WARNING:root:skipping track 338: highest Value smaller than separator
+WARNING:root:skipping track 451: highest Value smaller than separator
+WARNING:root:skipping track 452: highest Value smaller than separator
+WARNING:root:skipping track 822: highest Value smaller than separator
+WARNING:root:skipping track 823: highest Value smaller than separator
+WARNING:root:skipping track 825: highest Value smaller than separator
+WARNING:root:skipping track 826: highest Value smaller than separator
+WARNING:root:skipping track 830: highest Value smaller than separator
+WARNING:root:skipping track 831: highest Value smaller than separator
+WARNING:root:skipping track 832: highest Value smaller than separator
+WARNING:root:skipping track 833: highest Value smaller than separator
+WARNING:root:skipping track 835: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_011_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 268: highest Value smaller than separator
+WARNING:root:skipping track 308: highest Value smaller than separator
+WARNING:root:skipping track 468: highest Value smaller than separator
+WARNING:root:skipping track 469: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_012_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 624: highest Value smaller than separator
+WARNING:root:skipping track 641: highest Value smaller than separator
+WARNING:root:skipping track 642: highest Value smaller than separator
+WARNING:root:skipping track 643: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_013_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 11: highest Value smaller than separator
+WARNING:root:skipping track 19: highest Value smaller than separator
+WARNING:root:skipping track 47: highest Value smaller than separator
+WARNING:root:skipping track 48: highest Value smaller than separator
+WARNING:root:skipping track 112: Not enough elements for features
+WARNING:root:skipping track 217: highest Value smaller than separator
+WARNING:root:skipping track 218: highest Value smaller than separator
+WARNING:root:skipping track 350: highest Value smaller than separator
+WARNING:root:skipping track 357: Not enough elements for features
+WARNING:root:skipping track 449: NaN values in track
+WARNING:root:skipping track 450: NaN values in track
+WARNING:root:skipping track 497: NaN values in track
+WARNING:root:skipping track 498: NaN values in track
+WARNING:root:skipping track 524: highest Value smaller than separator
+WARNING:root:skipping track 525: highest Value smaller than separator
+WARNING:root:skipping track 569: highest Value smaller than separator
+WARNING:root:skipping track 570: highest Value smaller than separator
+WARNING:root:skipping track 571: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_014_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 19: highest Value smaller than separator
+WARNING:root:skipping track 20: highest Value smaller than separator
+WARNING:root:skipping track 62: highest Value smaller than separator
+WARNING:root:skipping track 63: highest Value smaller than separator
+WARNING:root:skipping track 362: highest Value smaller than separator
+WARNING:root:skipping track 363: highest Value smaller than separator
+WARNING:root:skipping track 382: highest Value smaller than separator
+WARNING:root:skipping track 383: Not enough elements for features
+WARNING:root:skipping track 446: highest Value smaller than separator
+WARNING:root:skipping track 447: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_015_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 32: NaN values in track
+WARNING:root:skipping track 73: highest Value smaller than separator
+WARNING:root:skipping track 93: highest Value smaller than separator
+WARNING:root:skipping track 95: highest Value smaller than separator
+WARNING:root:skipping track 96: Not enough elements for features
+WARNING:root:skipping track 281: highest Value smaller than separator
+WARNING:root:skipping track 386: highest Value smaller than separator
+WARNING:root:skipping track 449: highest Value smaller than separator
+WARNING:root:skipping track 494: NaN values in track
+INFO:root:applying augmentation to Training Set...
+INFO:root:Augmented. Original Size: 6607. Increased by 6607
+INFO:root:done!
+INFO:root:time: 2018-12-06_17.23.07
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Spheres_final
+INFO:root:model folder /home/hornberger/MasterarbeitTobias/models/final/real/Real_Spheres_final does not exist. Creating folder
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/final/real/Real_Spheres_final does not exist. Creating folder
+INFO:root:storing data in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-750Distance.h5
+INFO:root:using custom estimator
+INFO:root:Train: ((13214, 14), (13214, 2))
+INFO:root:Test: ((722, 14), (722, 2))
+INFO:root:Means: 
+LabelPosBalken    1160.011003
+LabelTime          655.042913
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    396.260029
+LabelTime         324.157749
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+Starting Execution
+06/12/2018 17:25:08
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--filter', '--save', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Spheres-final.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 131: highest Value smaller than separator
+WARNING:root:skipping track 258: NaN values in track
+WARNING:root:skipping track 259: NaN values in track
+WARNING:root:skipping track 444: highest Value smaller than separator
+WARNING:root:skipping track 445: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_002_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 185: highest Value smaller than separator
+WARNING:root:skipping track 186: highest Value smaller than separator
+WARNING:root:skipping track 338: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_003_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_004_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 310: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_005_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 66: Not enough elements for features
+WARNING:root:skipping track 127: highest Value smaller than separator
+WARNING:root:skipping track 129: highest Value smaller than separator
+WARNING:root:skipping track 150: highest Value smaller than separator
+WARNING:root:skipping track 226: highest Value smaller than separator
+WARNING:root:skipping track 283: highest Value smaller than separator
+WARNING:root:skipping track 658: highest Value smaller than separator
+WARNING:root:skipping track 660: highest Value smaller than separator
+WARNING:root:skipping track 724: highest Value smaller than separator
+WARNING:root:skipping track 830: NaN values in track
+WARNING:root:skipping track 831: NaN values in track
+WARNING:root:skipping track 903: highest Value smaller than separator
+WARNING:root:skipping track 904: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_006_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 20: NaN values in track
+WARNING:root:skipping track 21: NaN values in track
+WARNING:root:skipping track 50: NaN values in track
+WARNING:root:skipping track 51: NaN values in track
+WARNING:root:skipping track 96: NaN values in track
+WARNING:root:skipping track 122: highest Value smaller than separator
+WARNING:root:skipping track 124: highest Value smaller than separator
+WARNING:root:skipping track 329: highest Value smaller than separator
+WARNING:root:skipping track 331: highest Value smaller than separator
+WARNING:root:skipping track 468: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_007_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 208: highest Value smaller than separator
+WARNING:root:skipping track 209: highest Value smaller than separator
+WARNING:root:skipping track 531: NaN values in track
+WARNING:root:skipping track 532: NaN values in track
+WARNING:root:skipping track 662: highest Value smaller than separator
+WARNING:root:skipping track 749: highest Value smaller than separator
+WARNING:root:skipping track 750: highest Value smaller than separator
+WARNING:root:skipping track 751: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_008_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 446: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_009_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 68: highest Value smaller than separator
+WARNING:root:skipping track 89: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_010_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 31: highest Value smaller than separator
+WARNING:root:skipping track 32: highest Value smaller than separator
+WARNING:root:skipping track 98: Not enough elements for features
+WARNING:root:skipping track 242: NaN values in track
+WARNING:root:skipping track 243: NaN values in track
+WARNING:root:skipping track 338: highest Value smaller than separator
+WARNING:root:skipping track 451: highest Value smaller than separator
+WARNING:root:skipping track 452: highest Value smaller than separator
+WARNING:root:skipping track 822: highest Value smaller than separator
+WARNING:root:skipping track 823: highest Value smaller than separator
+WARNING:root:skipping track 825: highest Value smaller than separator
+WARNING:root:skipping track 826: highest Value smaller than separator
+WARNING:root:skipping track 830: highest Value smaller than separator
+WARNING:root:skipping track 831: highest Value smaller than separator
+WARNING:root:skipping track 832: highest Value smaller than separator
+WARNING:root:skipping track 833: highest Value smaller than separator
+WARNING:root:skipping track 835: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_011_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 268: highest Value smaller than separator
+WARNING:root:skipping track 308: highest Value smaller than separator
+WARNING:root:skipping track 468: highest Value smaller than separator
+WARNING:root:skipping track 469: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_012_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 624: highest Value smaller than separator
+WARNING:root:skipping track 641: highest Value smaller than separator
+WARNING:root:skipping track 642: highest Value smaller than separator
+WARNING:root:skipping track 643: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_013_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 11: highest Value smaller than separator
+WARNING:root:skipping track 19: highest Value smaller than separator
+WARNING:root:skipping track 47: highest Value smaller than separator
+WARNING:root:skipping track 48: highest Value smaller than separator
+WARNING:root:skipping track 112: Not enough elements for features
+WARNING:root:skipping track 217: highest Value smaller than separator
+WARNING:root:skipping track 218: highest Value smaller than separator
+WARNING:root:skipping track 350: highest Value smaller than separator
+WARNING:root:skipping track 357: Not enough elements for features
+WARNING:root:skipping track 449: NaN values in track
+WARNING:root:skipping track 450: NaN values in track
+WARNING:root:skipping track 497: NaN values in track
+WARNING:root:skipping track 498: NaN values in track
+WARNING:root:skipping track 524: highest Value smaller than separator
+WARNING:root:skipping track 525: highest Value smaller than separator
+WARNING:root:skipping track 569: highest Value smaller than separator
+WARNING:root:skipping track 570: highest Value smaller than separator
+WARNING:root:skipping track 571: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_014_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 19: highest Value smaller than separator
+WARNING:root:skipping track 20: highest Value smaller than separator
+WARNING:root:skipping track 62: highest Value smaller than separator
+WARNING:root:skipping track 63: highest Value smaller than separator
+WARNING:root:skipping track 362: highest Value smaller than separator
+WARNING:root:skipping track 363: highest Value smaller than separator
+WARNING:root:skipping track 382: highest Value smaller than separator
+WARNING:root:skipping track 383: Not enough elements for features
+WARNING:root:skipping track 446: highest Value smaller than separator
+WARNING:root:skipping track 447: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_015_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 32: NaN values in track
+WARNING:root:skipping track 73: highest Value smaller than separator
+WARNING:root:skipping track 93: highest Value smaller than separator
+WARNING:root:skipping track 95: highest Value smaller than separator
+WARNING:root:skipping track 96: Not enough elements for features
+WARNING:root:skipping track 281: highest Value smaller than separator
+WARNING:root:skipping track 386: highest Value smaller than separator
+WARNING:root:skipping track 449: highest Value smaller than separator
+WARNING:root:skipping track 494: NaN values in track
+INFO:root:applying augmentation to Training Set...
+INFO:root:Augmented. Original Size: 6622. Increased by 6622
+INFO:root:done!
+INFO:root:time: 2018-12-06_17.25.09
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Spheres_final
+INFO:root:storing data in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-750Distance.h5
+INFO:root:using custom estimator
+INFO:root:Train: ((13244, 14), (13244, 2))
+INFO:root:Test: ((707, 14), (707, 2))
+INFO:root:Means: 
+LabelPosBalken    1160.011003
+LabelTime          655.042913
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    396.260029
+LabelTime         324.157749
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.03410477, 'loss': 3.0140088, 'rmse': 0.18467477, 'global_step': 5000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.0028123155, 'loss': 0.24853837, 'rmse': 0.05303127, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.0009670788, 'loss': 0.08546559, 'rmse': 0.03109789, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.00046632797, 'loss': 0.041211735, 'rmse': 0.021594629, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.019423977, 'loss': 1.7165939, 'rmse': 0.13936992, 'global_step': 205000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.000748689, 'loss': 0.06616539, 'rmse': 0.027362183, 'global_step': 255000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.0004770702, 'loss': 0.042161077, 'rmse': 0.021841936, 'global_step': 305000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.0001623612, 'loss': 0.014348672, 'rmse': 0.012742104, 'global_step': 355000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.0001457597, 'loss': 0.012881514, 'rmse': 0.012073098, 'global_step': 405000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.00010477323, 'loss': 0.009259334, 'rmse': 0.01023588, 'global_step': 455000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.00041616094, 'loss': 0.036778223, 'rmse': 0.020400023, 'global_step': 505000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.0004247157, 'loss': 0.037534248, 'rmse': 0.020608632, 'global_step': 555000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.00012532002, 'loss': 0.011075157, 'rmse': 0.011194643, 'global_step': 605000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.00014552879, 'loss': 0.012861107, 'rmse': 0.012063531, 'global_step': 655000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.0002687736, 'loss': 0.023752868, 'rmse': 0.016394317, 'global_step': 705000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.00015856099, 'loss': 0.014012829, 'rmse': 0.012592101, 'global_step': 755000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.00016641332, 'loss': 0.014706777, 'rmse': 0.012900129, 'global_step': 805000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.00027108897, 'loss': 0.023957487, 'rmse': 0.01646478, 'global_step': 855000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.00011108942, 'loss': 0.009817528, 'rmse': 0.010539897, 'global_step': 905000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.00010694611, 'loss': 0.009451362, 'rmse': 0.010341475, 'global_step': 955000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.00010330131, 'loss': 0.009129254, 'rmse': 0.010163725, 'global_step': 1005000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 0.00016926709, 'loss': 0.014958979, 'rmse': 0.013010269, 'global_step': 1055000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 8.995551e-05, 'loss': 0.007949819, 'rmse': 0.009484488, 'global_step': 1105000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 9.5041774e-05, 'loss': 0.008399317, 'rmse': 0.009748937, 'global_step': 1155000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.00016213683, 'loss': 0.014328842, 'rmse': 0.0127332965, 'global_step': 1205000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.00011456861, 'loss': 0.010125001, 'rmse': 0.010703673, 'global_step': 1255000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 7.3867384e-05, 'loss': 0.0065280306, 'rmse': 0.0085946135, 'global_step': 1305000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 9.7259486e-05, 'loss': 0.008595307, 'rmse': 0.0098620225, 'global_step': 1355000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 7.910254e-05, 'loss': 0.0069906865, 'rmse': 0.008893961, 'global_step': 1405000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 9.486002e-05, 'loss': 0.0083832545, 'rmse': 0.009739611, 'global_step': 1455000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.00013382231, 'loss': 0.011826546, 'rmse': 0.011568159, 'global_step': 1505000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.00010040159, 'loss': 0.0088729905, 'rmse': 0.0100200595, 'global_step': 1555000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 9.8955905e-05, 'loss': 0.008745228, 'rmse': 0.0099476585, 'global_step': 1605000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 7.06314e-05, 'loss': 0.006242049, 'rmse': 0.008404249, 'global_step': 1655000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 7.858045e-05, 'loss': 0.0069445474, 'rmse': 0.008864561, 'global_step': 1705000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 6.681793e-05, 'loss': 0.0059050345, 'rmse': 0.008174223, 'global_step': 1755000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 8.842551e-05, 'loss': 0.007814605, 'rmse': 0.009403484, 'global_step': 1805000}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 7.976881e-05, 'loss': 0.007049569, 'rmse': 0.008931339, 'global_step': 1855000}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 7.1094655e-05, 'loss': 0.00628299, 'rmse': 0.008431764, 'global_step': 1905000}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 8.07374e-05, 'loss': 0.007135168, 'rmse': 0.008985399, 'global_step': 1955000}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 6.55297e-05, 'loss': 0.005791187, 'rmse': 0.008095042, 'global_step': 2005000}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 0.00010335284, 'loss': 0.009133807, 'rmse': 0.0101662595, 'global_step': 2055000}

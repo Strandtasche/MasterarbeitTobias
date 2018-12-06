@@ -322,3 +322,106 @@ predicted:
 [0.13005758644074683, 21.90170872874879]
 time: 0.24s
 MSE (tensorflow): 0.0005544017185457051
+python3: can't open file 'DNNRegressor-Example.py': [Errno 2] No such file or directory
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS7-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/SepSimFinetuning/filteredParticles-60kDecaySteps-04Layers-FS7-BatchSize100.json']
+INFO:root:time: 2018-12-03_10.33.42
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator/FilteredTracks-60kDecaySteps-04Layers-FS7
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-Separator-FS7-Augm-Filtered.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((6250, 14), (6250, 2))
+INFO:root:Test: ((358, 14), (358, 2))
+INFO:root:Means: 
+LabelPosBalken     0.090364
+LabelTime         24.283814
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken     0.037645
+LabelTime         11.915077
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0004606578149832785
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/FilteredTracks-60kDecaySteps-04Layers-FS7/FilteredTracks-60kDecaySteps-04Layers-FS7_highestLoss_2018-12-03_10.33.42.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/FilteredTracks-60kDecaySteps-04Layers-FS7/FilteredTracks-60kDecaySteps-04Layers-FS7_2018-12-03_10.33.42.pdf
+INFO:root:getting optimal accel for 6250 examples
+INFO:root:Evaluation on 358 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  358.000000             358.000000             358.000000                
+mean  -0.000004               0.000048               0.000046                  
+std    0.000877               0.000891               0.000725                  
+min   -0.010947              -0.005315              -0.004089                  
+25%   -0.000070              -0.000149              -0.000106                  
+50%   -0.000048              -0.000003              -0.000003                  
+75%    0.000004               0.000116               0.000077                  
+max    0.009492               0.011383               0.010425                  
+
+       CApixelErrorPosBalken  
+count  3.580000e+02           
+mean   3.005390e-05           
+std    1.348329e-03           
+min   -3.974841e-03           
+25%   -2.487834e-04           
+50%   -1.000000e-06           
+75%    1.669278e-04           
+max    1.138446e-02           
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  358.000000   358.000000   358.000000     358.000000   358.000000    
+mean  -0.018520     1.537765     0.024117       0.091888     0.017898      
+std    0.231914     0.349067     0.349067       0.501104     0.138683      
+min   -2.003362     0.856807    -0.656841      -1.234420    -1.234420      
+25%   -0.014740     1.486430    -0.027218       0.009510     0.011223      
+50%   -0.008044     1.519569     0.005921       0.021178     0.020653      
+75%   -0.003669     1.544248     0.030600       0.361918     0.029075      
+max    2.771634     7.620538     6.106890       7.622344     1.489476      
+
+       IAerrorTime  
+count  358.000000   
+mean  -0.000910     
+std    0.137523     
+min   -1.259580     
+25%   -0.007817     
+50%    0.002053     
+75%    0.010867     
+max    1.426118     
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/FilteredTracks-60kDecaySteps-04Layers-FS7
+INFO:root:Saving dataframe:
+           X_0      X_1      X_2    ...          Y_4       Y_5       Y_6
+57311  0.51668  0.52277  0.52890    ...     0.071332  0.071344  0.071355
+61632  0.51694  0.52325  0.52960    ...     0.152440  0.152530  0.152630
+51096  0.51382  0.52001  0.52624    ...     0.086211  0.086218  0.086225
+62328  0.51389  0.52005  0.52626    ...     0.130430  0.130430  0.130430
+94476  0.51619  0.52224  0.52833    ...     0.123890  0.123890  0.123890
+5364   0.51264  0.51878  0.52495    ...     0.120080  0.120090  0.120090
+469    0.51323  0.51939  0.52560    ...     0.029703  0.029670  0.029637
+87730  0.51427  0.52046  0.52668    ...     0.117920  0.117820  0.117720
+64900  0.51779  0.52391  0.53008    ...     0.047780  0.047713  0.047646
+7485   0.51406  0.52027  0.52652    ...     0.053519  0.053520  0.053521
+
+[10 rows x 14 columns]
+       LabelPosBalken  LabelTime
+57311        0.071574  21.745403
+61632        0.154521  20.846154
+51096        0.086357  21.742340
+62328        0.130420  21.831006
+94476        0.123920  21.964489
+5364         0.120120  22.107843
+469          0.028992  21.909344
+87730        0.115808  21.698745
+64900        0.046377  21.442877
+7485         0.053544  21.629681
+predicted: 
+[0.07136421446170896, 21.726894134382235]
+[0.15444149047602793, 20.831410235531376]
+[0.08638480704128268, 21.735630940279023]
+[0.13040222198846915, 21.82416229692687]
+[0.12392937699858406, 21.952901993897637]
+[0.12013500231017508, 22.101909560733915]
+[0.028959129739489095, 21.90246242207166]
+[0.11581644699248039, 21.69098246741938]
+[0.04632652292117341, 21.433002031650485]
+[0.05350138383970673, 21.627244691543993]
+time: 0.25s
+MSE (tensorflow): 2.3799693735782057e-06

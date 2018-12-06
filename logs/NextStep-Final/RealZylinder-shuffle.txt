@@ -1,0 +1,193 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--save', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/h5/zylinderFinal-shuffle.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/NextStep-Final/RealZylinder-NextStep-45kDecay-shuffle.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_001_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_002_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_003_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_004_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_005_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_006_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_007_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_008_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_009_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_010_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/zylinder_011_trackHistory_NothingDeleted.csv
+INFO:root:removed(s) Row for Label NaN
+INFO:root:removed Row(s) for Feature NaN
+INFO:root:applying augmentation to Training Set...
+INFO:root:Augmented. Original Size: 215454. Increased by 213672
+INFO:root:done!
+INFO:root:time: 2018-11-29_15.13.01
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-ZylinderReal-shuffle
+INFO:root:model folder /home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-ZylinderReal-shuffle does not exist. Creating folder
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-ZylinderReal-shuffle does not exist. Creating folder
+INFO:root:storing data in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/h5/zylinderFinal-shuffle.h5
+INFO:root:using custom estimator
+INFO:root:Train: ((429126, 10), (429126, 2))
+INFO:root:Test: ((23940, 10), (23940, 2))
+INFO:root:Means: 
+LabelX    1127.276706
+LabelY    1047.580154
+dtype: float64
+INFO:root:Stds: 
+LabelX    534.856426
+LabelY    346.518201
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 1.1286024, 'loss': 562.89044, 'rmse': 1.062357, 'global_step': 5000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 1.0035008, 'loss': 500.49606, 'rmse': 1.0017489, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 1.0031915, 'loss': 500.34177, 'rmse': 1.0015944, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 1.0002999, 'loss': 498.89957, 'rmse': 1.00015, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 1.0025555, 'loss': 500.02454, 'rmse': 1.001277, 'global_step': 205000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 1.0025302, 'loss': 500.01193, 'rmse': 1.0012643, 'global_step': 255000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.9990205, 'loss': 498.26147, 'rmse': 0.9995101, 'global_step': 305000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 1.0025176, 'loss': 500.0056, 'rmse': 1.001258, 'global_step': 355000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 1.0025804, 'loss': 500.037, 'rmse': 1.0012894, 'global_step': 405000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 1.0034306, 'loss': 500.46097, 'rmse': 1.0017139, 'global_step': 455000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 1.0055273, 'loss': 501.5067, 'rmse': 1.0027598, 'global_step': 505000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 1.0047195, 'loss': 501.10385, 'rmse': 1.002357, 'global_step': 555000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 1.002351, 'loss': 499.92264, 'rmse': 1.0011748, 'global_step': 605000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 1.0023968, 'loss': 499.9454, 'rmse': 1.0011977, 'global_step': 655000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 1.0022752, 'loss': 499.88477, 'rmse': 1.001137, 'global_step': 705000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 1.0023404, 'loss': 499.91727, 'rmse': 1.0011696, 'global_step': 755000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 1.002529, 'loss': 500.01135, 'rmse': 1.0012637, 'global_step': 805000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 1.0025055, 'loss': 499.99963, 'rmse': 1.0012519, 'global_step': 855000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 1.0002515, 'loss': 498.87546, 'rmse': 1.0001258, 'global_step': 905000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 1.0023731, 'loss': 499.9336, 'rmse': 1.0011859, 'global_step': 955000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 1.0016279, 'loss': 499.56192, 'rmse': 1.0008136, 'global_step': 1005000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 1.0028428, 'loss': 500.16782, 'rmse': 1.0014204, 'global_step': 1055000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.9997931, 'loss': 498.64682, 'rmse': 0.9998965, 'global_step': 1105000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 1.0024502, 'loss': 499.97205, 'rmse': 1.0012244, 'global_step': 1155000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 1.0026532, 'loss': 500.07327, 'rmse': 1.0013257, 'global_step': 1205000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 1.0028042, 'loss': 500.1486, 'rmse': 1.0014011, 'global_step': 1255000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 1.0023477, 'loss': 499.92093, 'rmse': 1.0011731, 'global_step': 1305000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 1.002367, 'loss': 499.93054, 'rmse': 1.0011828, 'global_step': 1355000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 1.0024517, 'loss': 499.97275, 'rmse': 1.0012251, 'global_step': 1405000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 1.0026537, 'loss': 500.07358, 'rmse': 1.001326, 'global_step': 1455000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 1.0023072, 'loss': 499.90063, 'rmse': 1.0011529, 'global_step': 1505000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 1.0024616, 'loss': 499.9777, 'rmse': 1.00123, 'global_step': 1555000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 1.002452, 'loss': 499.97293, 'rmse': 1.0012252, 'global_step': 1605000}
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/h5/zylinderFinal-shuffle.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/NextStep-Final/RealZylinder-NextStep-45kDecay-shuffle.json']
+INFO:root:time: 2018-11-29_17.31.33
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-ZylinderReal-shuffle
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Zylinder-Band-Juli/h5/zylinderFinal-shuffle.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((429126, 10), (429126, 2))
+INFO:root:Test: ((23940, 10), (23940, 2))
+INFO:root:Means: 
+LabelX    1127.276706
+LabelY    1047.580154
+dtype: float64
+INFO:root:Stds: 
+LabelX    534.856426
+LabelY    346.518201
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.00245201587677
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-NextStep-45kDecay-Zylinder-shuffle/NextStep-45kDecaySteps-ZylinderReal-shuffle_highestLoss_2018-11-29_17.31.33.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-NextStep-45kDecay-Zylinder-shuffle/NextStep-45kDecaySteps-ZylinderReal-shuffle_2018-11-29_17.31.33.pdf
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  23940.000000       23940.000000       23940.000000     
+mean   588.899378         1.062078           1.868325         
+std    246.698207         0.669997           1.101580         
+min    4.830946           0.007145           0.020585         
+25%    408.148693         0.597262           1.036678         
+50%    585.566059         0.970373           1.744319         
+75%    774.504511         1.401595           2.540503         
+max    1183.545985        19.196010          37.944395        
+INFO:root:number of predictions with error > 3: 23940
+INFO:root:Saving dataframe:
+              X_0        X_1    ...            Y_3        Y_4
+99416   1260.8831  1260.9004    ...       925.0477  1004.4853
+223848   483.3100   483.0395    ...      1207.3634  1287.0610
+148520   577.2981   578.5510    ...      1293.0532  1372.1816
+150645  1033.7298  1035.8415    ...      1076.1363  1152.4338
+200535   400.7755   399.4760    ...      1167.2031  1243.9335
+211186   415.3728   414.1169    ...       765.9962   846.7649
+152189  1644.4302  1644.7861    ...       467.7284   546.2105
+16202    964.9307   965.6873    ...      1092.6809  1172.3209
+222861  1846.2807  1846.7970    ...      1367.6753  1446.1639
+210068  1401.9316  1400.9944    ...      1175.5396  1256.0609
+
+[10 rows x 10 columns]
+           LabelX     LabelY
+99416   1262.3119  1084.3825
+223848   484.3907  1367.1810
+148520   582.0681  1451.0286
+150645  1045.1861  1229.8101
+200535   397.4662  1321.9804
+211186   412.4412   926.6006
+152189  1646.4526   624.8762
+16202    967.4944  1249.7965
+222861  1847.0171  1522.8644
+210068  1396.6489  1336.7149
+predicted: 
+[1119.734033644485, 1047.1830382717194]
+[1119.7207681078787, 1047.1854154288858]
+[1119.7170012952236, 1047.1825067111713]
+[1119.7267570510885, 1047.1818061259062]
+[1119.7220353349871, 1047.1873817228675]
+[1119.7346652655438, 1047.193140826616]
+[1119.7492015161258, 1047.1840111118331]
+[1119.7261518305943, 1047.183114191652]
+[1119.718246604882, 1047.169914934511]
+[1119.7244711606793, 1047.1786308816272]
+time: 0.20s
+MSE (tensorflow): 0.845611572265625
