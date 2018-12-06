@@ -258,12 +258,12 @@ NNPrädiktionX, NNPrädiktion, CV\_X, CV\_Y, CA\_X, CA\_Y}
 
 In dieser Sektion soll das Ergebnis der NextStep Netze in verschiedenen Szenarien betrachtet und diskutiert werden.
 Als Evaluationskriterium für die NextStep Netze wurde die Euklidische Distanz zwischen der Prädiktion des Modell und der Ground Truth gewählt.
-Der Gesamtfehler \(\mathsf{e}\hitext{Total} \) ist also durch 
+Der Gesamtfehler \(\varepsilon\hitext{Total} \) ist also durch 
 
 \begin{align*}
     \mathsf{x}\hitext{Err} &=  \mathsf{x}\hitext{Pred} -  \mathsf{x}\hitext{GT} \\
     \mathsf{y}\hitext{Err} &=  \mathsf{y}\hitext{Pred} -  \mathsf{y}\hitext{GT} \\
-    \mathsf{e}\hitext{Total} &= \sqrt{ \mathsf{x}\hitext{Err}^2 +  \mathsf{y}\hitext{Err}^2}
+    \varepsilon\hitext{Total} &= \sqrt{ \mathsf{x}\hitext{Err}^2 +  \mathsf{y}\hitext{Err}^2}
 \end{align*}
 
 definiert. Verglichen wird das NextStep Netz mit einem Constant Velocity Modell und einen Constant Acceleration Modell.
@@ -359,4 +359,4 @@ Es konnte beobachtet werden, dass bei mehrmaligem Trainieren eines Netzes
 mit identischen Hyperparametern und Daten, unterschiedliche Ergebnisse mit einem ähnlichen MSE insgesamt aber einer Verschiebung zwischen dem Mittelwert und der Standardabweichung  
 an dessen Ende standen.
 Dies ist auf verschiedene stochastische Vorgänge während dem Training zurück zu führen, wie die Initialisierung der Gewichte zwischen den Neuronen und die Reihenfolge beziehungsweise das Batching der Trainingsbeispiele.
-Der Einsatz einer anderen Fehlerfunktion, zum Beispiel 
+Der Einsatz einer anderen Fehlerfunktion, zum Beispiel [einer die tatsächlich Richtig/Falsch Sortiert bewertet] könnte dieses Problem beheben.

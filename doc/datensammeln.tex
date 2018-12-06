@@ -17,7 +17,7 @@ Abschließend wird die Datenaugmentierung die vorgenommen wurde vorgestellt und 
 
 \section{Eigene Aufnahmen}
 
-In diesem Abschnitt soll beschrieben werden, welche Form die am Fraunhofer IOSB selbst aufgenommenen Daten haben und welche Szenarien sie darstellen.
+In diesem Abschnitt soll beschrieben werden, welche Form die am Fraunhofer IOSB selbst aufgenommenen Daten haben und welche Szenarien, bezüglich Schüttgut und Sortierer, sie darstellen.
 
 
 \subsection{Versuchsaufbau}
@@ -35,13 +35,13 @@ In diesem Abschnitt soll beschrieben werden, welche Form die am Fraunhofer IOSB 
 
 Zur Aufnahme der Daten wurde eine Bonito~CL-400~200~FPS~Kamera benutzt. 
 % , die in Abbildung~\ref{pictureCam} zu sehen ist.
-Diese wurde, wie in Abbildung~\ref{fig:tablesortsystem} oberhalb des Förderbandes angebracht.
+Diese wurde, wie in Abbildung~\ref{fig:tablesortsystem} oberhalb des Förderbandes beziehungsweise der Rutsche angebracht.
 Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726~Pixeln~\cite{alliedvisiontechnologiesgmbh2014}.
 Anhand mehrerer Kalibrierungsbilder wurde bestimmt, dass 1 Pixel im Bild ungefähr \SI{0.056}{\milli\meter} entspricht.
 Im weiteren Verlauf der Arbeit wird mit Pixeln~(px) als der Einheit des Orts für die selbst aufgenommenen Bilder gearbeitet.
 
-\todo[inline]{Rutschenkonfiguration Tablesort erwähnen?}
-\todo[inline]{Umrechengröße pixel zu mm, im weiteren verlauf werden pixel benutzt}
+\todo[inline]{Rutschenkonfiguration Tablesort ausführlicher erwähnen?}
+% \todo[inline]{Umrechengröße pixel zu mm, im weiteren verlauf werden pixel benutzt}
 
 % \begin{figure}[h]
 %     \centering
@@ -324,7 +324,7 @@ Bei der NextStep Prädiktion sorgt das dafür, dass es eine deutlich größere A
 
 % \color{blue}
 % \begin{itemize}
-% 	\item Zu Beginn des Datenverarbeitungskapitel erstmal definieren wie unsere Feature-Label Paare aussehen.
+% 	\item Zu Beginn des Datenverarbeitungskapitel erstmal definieren wie unsere Feature-Label-Paare aussehen.
 % 	\item Features eigentlich immer gleich:
 % 	\item die Positionen der letzten \(n\) Zeitschritte (FeatureSize Hyperparameter)
 % 	\item also ein \(2n\) Tupel, mit jeweils \(n\) X-Koordinaten und \(n\) Y-Koordinaten
@@ -351,7 +351,7 @@ Bei der NextStep Prädiktion sorgt das dafür, dass es eine deutlich größere A
 
 Das Format, das die Daten annehmen, ist bei den beiden Anwendungen leicht unterschiedlich.
 %  unterscheidet sich leicht zwischen den beiden Anwendungen.
-Die Feature-Label Paare der unterschiedlichen Anwendungen unterscheiden sich nur in den Labeln.
+Die Feature-Label-Paare der unterschiedlichen Anwendungen unterscheiden sich nur in den Labeln.
 Die Eingangsdaten sind -- abhängig von einem Hyperparameter --
 in beiden Fällen die Position des Partikels zu den letzten \(n\) Zeitschritten.
 Deshalb muss beim Format der Features kein Unterschied zwischen der Art der Aufgabe gemacht werden.
@@ -604,8 +604,8 @@ Verhältnis: Anzahl Feature-Label-Paare für verschiedene Beispiele und verschie
 (FeatureSize, Filter Ja/Nein, Augmentation Ja/Nein) Als Tabelle?
 
 OUTDATED:
-Bei einer FeatureSize von 5 ergeben sich bei den Kugeln so 98.966 Feature-Label Paare.
-Die Pfefferkörner haben dann 105.101 Feature-Label Paare,
-bei den Zylindern kommt man auf 244.422 Feature-Label Paare
-und bei den Weizenkörner 132.140 Feature-Label Paare.
+Bei einer FeatureSize von 5 ergeben sich bei den Kugeln so 98.966 Feature-Label-Paare.
+Die Pfefferkörner haben dann 105.101 Feature-Le,
+bei den Zylindern kommt man auf 244.422 Feature-Label-Paare
+und bei den Weizenkörner 132.140 Feature-Label-Paare.
 \color{black}

@@ -30,12 +30,32 @@
 \todo[inline]{auf jeden fall separator und nextStep Netze unterscheidung erwähnen}
 
 
-Im Rahmen dieser Arbeit sollen 2 verschiedene Prädiktionsprobleme mittels neuronaler Netze gelöst werden.
-Einerseits die Vorhersage an welcher Position sich ein Teilchen im nächsten Zeitschritt befinden wird.
+Im Rahmen dieser Arbeit sollen zwei verschiedene Prädiktionsprobleme mittels neuronaler Netze gelöst werden.
+Einerseits soll vorhergesagt werden, an welcher Position sich ein Teilchen im nächsten Zeitschritt befinden wird.
 Diese Netze werden im Rahmen dieser Netze als NextStep Netze bezeichnet.
+Eine Visualisierung dieser Aufgabe ist in Abbildung~\ref{fig:visualsNextstep} zu sehen.
 Andererseits soll vorhergesagt werden an welcher Position und wann ein Teilchen das Druckluftdüsenarray passieren wird.
-Diese Problemstellung wird von den Separator Netzen gelöst.
-/todo[inline]{Visualisierung von Separator Netz output}
+Diese Problemstellung wird von den sogenannten Separator Netzen gelöst.
+Eine Visualisierung dieser Aufgabe ist in Abbildung~\ref{fig:visualsSeparator} zu sehen.
+
+\todo[inline]{Visualisierung von Separator Netz output}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{NextStep-45kDecaySteps-ZylinderReal_2018-11-29.pdf}
+    \caption{Visualisierung einer gelösten Probleminstanz eines NextStep Netzes}
+    \label{fig:visualsNextstep}
+\end{figure}
+
+
+\begin{figure}[h]
+    \centering
+    \missingfigure{Boxplots Result NeuralNets NextStep}
+	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
+	\caption{Visualisierung einer gelösten Probleminstanz eines Separator Netzes}
+	% \todo{Quelle Bild!}
+	\label{fig:visualsSeparator}
+\end{figure}
 
 
 
