@@ -109,7 +109,7 @@ class NeuralNetwork():
         pyplot.axis('off')
         # csfont = {'fontname': 'Comic Sans MS'}
         # pyplot.title( 'Neural Network architecture', fontsize=15)
-        # pyplot.savefig('/home/hornberger/Pictures/neuralNetImage.pdf', format='pdf', dpi=1200)
+        pyplot.savefig('/home/hornberger/Pictures/neuralNetImage.pdf', format='pdf', dpi=1200)
         pyplot.show()
 
 class DrawNN():

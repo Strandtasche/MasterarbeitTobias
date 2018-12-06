@@ -2,5 +2,5 @@
 
 import NNGraphs
 
-a = NNGraphs.DrawNN([2, 16, 16, 16, 10])
+a = NNGraphs.DrawNN([2, 16, 16, 16, 16, 14])
 a.draw()

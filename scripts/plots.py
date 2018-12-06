@@ -34,7 +34,7 @@ def relu(x):
 
 
 def plotFnct():
-	x = np.arange(-10., 10., 0.25)
+	x = np.arange(-10., 10.25, 0.25)
 	sig = sigmoid(x)
 	# a = plt.plot(x,sig)
 	# a = plt.plot(x, tanh(x))
@@ -43,8 +43,12 @@ def plotFnct():
 	plt.xticks(np.arange(-10, 10.001, 5))
 	# plt.yticks(np.arange(0, 1.001, 0.25))
 	plt.yticks(np.arange(0, 10.001, 2.5))
+	plt.ylim(-0.25, 10)
+	plt.xlim(-10, 10)
+	# plt.xlabel('x', fontsize=18)
+	# plt.ylabel('y', fontsize=18)
 	# plt.title('Sigmoid')
-	plt.title('ReLU')
+	# plt.title('ReLU')
 	plt.grid(True)
 	plt.setp(a, linewidth=3, color='r')
 	plt.show()
@@ -259,6 +263,6 @@ def plotImagesTracks():
 # inputFile3 = '/home/hornberger/Projects/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-BandVorne-Sept/kugeln_rot-002_trackHistory_NothingDeleted.csv'
 
 # plotParticleSpeed(inputFile, True, True)
-# plotFnct()
+plotFnct()
 
-plotImagesTracks()
+# plotImagesTracks()
