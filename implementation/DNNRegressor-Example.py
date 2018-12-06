@@ -248,6 +248,9 @@ def main(argv):
 				F_train, L_train = augmentData(F_train, L_train, MIDPOINT, MIRRORRANGE, separator, labelMeans, labelStds, direction=elementsDirectionBool)
 			else:
 				F_train, L_train = augmentData(F_train, L_train, MIDPOINT, MIRRORRANGE, separator, labelMeans, labelStds, direction=elementsDirectionBool)
+			state = random.randint(1, 101)
+			F_train = F_train.sample(frac=1, random_state=state)
+			L_train = L_train.sample(frac=1, random_state=state)
 			logging.info("done!")
 
 	# Network Design

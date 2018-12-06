@@ -220,8 +220,8 @@ def plotTrainDataPandas(x_pred2, y_vals2, y_predicted, savePath, units):
 	plt.plot()
 	plt.title('%s DNNRegressor' % savePath.split('/')[-1])
 	plt.tight_layout()
-	plt.xlabel('x-Coordinate in {}'.format(units['loc']))
-	plt.ylabel('y-Coordinate in {}'.format(units['loc'])) # a little bit hacky
+	plt.xlabel('x-Koordinate in {}'.format(units['loc']))
+	plt.ylabel('y-Koordinate in {}'.format(units['loc'])) # a little bit hacky
 	logging.info("Saving debug image to file {}".format(savePath + '_' + time_stamp + '.png', ))
 	plt.savefig(savePath + '_' + time_stamp + '.pdf', format='pdf', dpi=1200)
 	# plt.show()
@@ -298,8 +298,13 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	plt.ylim(lim[2], lim[3])
 
 	plt.title('%s DNNRegressor Separator' % savePath.split('/')[-1])
-	plt.xlabel('x-Coordinate in {}'.format(units['loc']), labelpad=None)
-	plt.ylabel('y-Coordinate in {}'.format(units['loc']), labelpad=None) # a little bit hacky
+
+	handles, labels = plt.gca().get_legend_handles_labels()
+	by_label = OrderedDict(zip(labels, handles))
+	plt.legend(by_label.values(), by_label.keys(), loc=4)
+
+	plt.xlabel('x-Koordinate in {}'.format(units['loc']), labelpad=None)
+	plt.ylabel('y-Koordinate in {}'.format(units['loc']), labelpad=None) # a little bit hacky
 	logging.info("Saving Image to file {}".format(output))
 	# plt.tight_layout()
 	plt.savefig(output, format='pdf', dpi=1200)
@@ -392,6 +397,7 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions, units, imageLoc):
 							 'CApixelErrorX', 'CApixelErrorY', 'CApixelErrorTotal']
 
 	reducedRelColumns = [relevantColumns[2], relevantColumns[5], relevantColumns[8]]
+	reducedRelColumnsLabel = ['Fehler NN', 'Fehler CV', 'Fehler CA']
 
 	_printPDfull(pandasLost[reducedRelColumns].describe())
 
@@ -403,10 +409,10 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions, units, imageLoc):
 	fig1, ax1 = plt.subplots()
 	ax1.boxplot([pandasLost[i] for i in reducedRelColumns], showfliers=False)
 	ax1.yaxis.grid(True)
-	xtickNames = plt.setp(ax1, xticklabels=reducedRelColumns)
+	xtickNames = plt.setp(ax1, xticklabels=reducedRelColumnsLabel)
 	plt.setp(xtickNames, rotation=45, fontsize=8)
 	ax1.set_title('Boxplot Location Error')
-	ax1.set_ylabel('error in {}'.format(units['loc']))  # a little bit hacky
+	ax1.set_ylabel('Fehler in {}'.format(units['loc']))  # a little bit hacky
 
 	fig1.tight_layout()
 
@@ -417,8 +423,8 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions, units, imageLoc):
 	# # plt.yscale('log')
 	# ax.style.use('seaborn-muted')
 	ax2.set_title('Error Histogram')
-	ax2.set_ylabel('# of elements in bin')
-	ax2.set_xlabel('error in {}'.format(units['loc']))
+	ax2.set_ylabel('Anzahl Elemente')
+	ax2.set_xlabel('Fehler in {}'.format(units['loc']))
 	plt.legend(loc=1)
 	fig1.savefig(imageLoc + '/evaluation_NextStep_LocationError_' + time_stamp + '.pdf', format='pdf', dpi=1200)
 	fig2.savefig(imageLoc + '/evaluation_NextStep_ErrorHistogram_' + time_stamp + '.pdf', format='pdf', dpi=1200)
@@ -515,7 +521,7 @@ def getMedianAccel(X_test, separator, direction):
 		# print("y axis")
 
 	accel = (X_test.loc[:, relCols[-1]] - X_test.loc[:, relCols[-2]]) - (X_test.loc[:, relCols[-2]] - X_test.loc[:, relCols[-3]])
-
+	logging.info("Median Accel: {}".format(accel.median()))
 	return accel.median()
 	# X_test['accel'] = X_test.apply(
 	# 	lambda row: (row[relCols[-1]] - row[relCols[-2]]) - (row[relCols[-2]] - row[relCols[-3]]), axis=1
@@ -539,6 +545,7 @@ def getOptimalAccel(X_test, y_test, separatorPosition, direction):
 		lambda row: (separatorPosition - row[relCols[-1]] - row['LabelTime'] * (row[relCols[-1]] - row[relCols[-2]]))/(0.5 * row['LabelTime'] ** 2)
 		, axis=1)
 
+	logging.info("optimal Accel: {}".format(tempDf['optAc'].median()))
 	return tempDf['optAc'].median()
 
 
@@ -642,7 +649,9 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	# something like '	accel = (X_test.iloc[:,relCols[-1]] - X_test.iloc[:,relCols[-2]])'
 
 	relevantColumnsLoc = ['NNpixelErrorPosBalken', 'CVpixelErrorPosBalken', 'CVBCpixelErrorPosBalken', 'CApixelErrorPosBalken']
+	relevantColumnsLocLabel = ['Fehler NN', 'Fehler CV', 'Fehler CVBC', 'Fehler CA']
 	relevantColumnsTime = ['NNerrorTime', 'CVerrorTime', 'CVBCerrorTime', 'CAerrorTime', 'AAerrorTime', 'IAerrorTime']
+	relevantColumnsTimeLabel = ['Fehler NN', 'Fehler CV', 'Fehler CVBC', 'Fehler CA', 'Fehler AA', 'Fehler IA']
 	# logging.info("\n{}".format(pandasLost[relevantColumns]))
 
 	_printPDfull(pandasLost[relevantColumnsLoc].describe())
@@ -653,11 +662,11 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	fig1, ax1 = plt.subplots()
 	# ax1.grid(True)
 	ax1.yaxis.grid(True)
-	ax1.boxplot([pandasLost[i] for i in relevantColumnsLoc], showfliers=False, labels=relevantColumnsLoc)
+	ax1.boxplot([pandasLost[i] for i in relevantColumnsLoc], showfliers=False, labels=relevantColumnsLocLabel)
 	xtickNames = plt.setp(ax1, xticklabels=relevantColumnsLoc)
 	plt.setp(xtickNames, rotation=45, fontsize=8)
 	ax1.set_title('Boxplot Location Error')
-	ax1.set_ylabel('error in {}'.format(units['loc']))  # a little bit hacky
+	ax1.set_ylabel('Räumlicher Fehler in {}'.format(units['loc']))  # a little bit hacky
 	fig1.tight_layout()
 
 	# plt.show()
@@ -665,7 +674,7 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	ax2.hist([pandasLost[i] for i in relevantColumnsLoc],
 			 bins=40, label=relevantColumnsLoc)
 	ax2.set_title('Histogram Location Error')
-	ax2.set_ylabel('# of elements in bin')  # a little bit hacky
+	ax2.set_ylabel('Anzahl Elemente')  # a little bit hacky
 	ax2.legend(loc=1)
 	# # plt.yscale('log')
 	# ax.style.use('seaborn-muted')
@@ -674,17 +683,17 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	# ax3.grid(True)
 	ax3.yaxis.grid(True)
 	ax3.boxplot([pandasLost[i] for i in relevantColumnsTime], showfliers=False)
-	xtickNamesAx3 = plt.setp(ax3, xticklabels=relevantColumnsTime)
+	xtickNamesAx3 = plt.setp(ax3, xticklabels=relevantColumnsTimeLabel)
 	plt.setp(xtickNamesAx3, rotation=45, fontsize=8)
 	ax3.set_title('Boxplot Time Error')
-	ax3.set_ylabel('error in {}'.format(units['time']))  # a little bit hacky
+	ax3.set_ylabel('Zeitlicher Fehler in {}'.format(units['time']))  # a little bit hacky
 	fig3.tight_layout()
 
 	fig4, ax4 = plt.subplots()
 	ax4.hist([pandasLost[i] for i in relevantColumnsTime],
 			 bins=40, label=relevantColumnsTime)
 	ax4.set_title('Histogram Time Error')
-	ax4.set_ylabel('# of elements in bin')  # a little bit hacky
+	ax4.set_ylabel('Anzahl Elemente')  # a little bit hacky
 	ax4.legend(loc=1)
 	plt.tight_layout()
 	logging.info("Saving evaluation images to {}".format(imageLoc))
