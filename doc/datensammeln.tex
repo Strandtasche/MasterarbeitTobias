@@ -1,15 +1,15 @@
 \chapter{Datenverarbeitung}
 
 % Wie bei jeder Anwendung von maschinellen Lernverfahren sind die zugrundeliegenden Daten von äußerster Wichtigkeit.
-Bei maschinellen Lernverfahren ist die Qualität und der Umfang der zugrundeliegenden Daten sehr wichtig,
+Bei maschinellen Lernverfahren ist die Qualität und die Menge der zugrundeliegenden Daten sehr wichtig,
 da diese die Güte des Ergebnisses stark beeinflussen können.
-Im Rahmen dieser Masterarbeit wurden zweierlei Sorten von Daten benutzt:
+Im Rahmen dieser Masterarbeit wurden zweierlei Arten von Daten benutzt:
 Einerseits wurden am \textit{TableSort} Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht, 
 die dann über mehrere Arbeitsschritte in das richtige Datenformat übersetzt wurden.
-Zudem existieren Datensatze, die mit der \textit{Diskrete-Elemente-Methode} (DEM) simuliert wurden. 
-In diesem Kapitel soll nun beschrieben werden welche Form diese Daten annehmen, wie sie verarbeitet werden 
+Zudem existieren Datensatze, die durch eine Simulation mittels der \textit{Diskrete-Elemente-Methode} (DEM) entstanden sind. 
+In diesem Kapitel soll nun beschrieben werden, woher diese Daten kommen, wie sie verarbeitet werden 
 und wie in welcher Form sie dann letztendlich in die neuronalen Netze gegeben werden.
-Abschließend wird die Datenaugmentierung die vorgenommen wurde vorgestellt und erklärt.
+Abschließend wird die Datenaugmentierung, die vorgenommen wurde, vorgestellt und erklärt.
 
 
 
@@ -17,11 +17,11 @@ Abschließend wird die Datenaugmentierung die vorgenommen wurde vorgestellt und 
 
 \section{Eigene Aufnahmen}
 
-In diesem Abschnitt soll beschrieben werden, welche Form die am Fraunhofer IOSB selbst aufgenommenen Daten haben und welche Szenarien, bezüglich Schüttgut und Sortierer, sie darstellen.
+In diesem Abschnitt soll beschrieben werden, welche Form die am Fraunhofer IOSB selbst aufgenommenen Daten haben und welche Konfigurationen bezüglich Schüttgut und Sortierer sie darstellen.
 
 
-\subsection{Versuchsaufbau}
-\todo[inline]{passendere überschrift finden?}
+% \subsection{Versuchsaufbau}
+% \todo[inline]{passendere überschrift finden?}
 
 % \color{blue}
 % \begin{itemize}
@@ -35,12 +35,12 @@ In diesem Abschnitt soll beschrieben werden, welche Form die am Fraunhofer IOSB 
 
 Zur Aufnahme der Daten wurde eine Bonito~CL-400~200~FPS~Kamera benutzt. 
 % , die in Abbildung~\ref{pictureCam} zu sehen ist.
-Diese wurde, wie in Abbildung~\ref{fig:tablesortsystem} oberhalb des Förderbandes beziehungsweise der Rutsche angebracht.
+Diese wurde, wie in Abbildung~\ref{fig:tablesortsystem} dargestellt, oberhalb des Förderbandes beziehungsweise der Rutsche angebracht.
 Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726~Pixeln~\cite{alliedvisiontechnologiesgmbh2014}.
 Anhand mehrerer Kalibrierungsbilder wurde bestimmt, dass 1 Pixel im Bild ungefähr \SI{0.056}{\milli\meter} entspricht.
 Im weiteren Verlauf der Arbeit wird mit Pixeln~(px) als der Einheit des Orts für die selbst aufgenommenen Bilder gearbeitet.
 
-\todo[inline]{Rutschenkonfiguration Tablesort ausführlicher erwähnen?}
+% \todo[inline]{Rutschenkonfiguration Tablesort ausführlicher erwähnen?}
 % \todo[inline]{Umrechengröße pixel zu mm, im weiteren verlauf werden pixel benutzt}
 
 % \begin{figure}[h]
@@ -50,7 +50,7 @@ Im weiteren Verlauf der Arbeit wird mit Pixeln~(px) als der Einheit des Orts fü
 %     \label{pictureCam}
 % \end{figure}
 
-\subsection{Schüttgüter-Typen}
+% \subsection{Schüttgüter-Typen}
 
 Aufgenommen wurden Daten von vier verschiedenen Schüttgütern.
 Diese Schüttgüter sind in Abbildung~\ref{fig:schuettgueterSchuessel} in Schüsseln 
@@ -110,7 +110,7 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 	\quad
 	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{Pfeffer_003_00020_debayer}
-		\caption{Pfeffer auf dem Förderband}
+		\caption{Pfefferkörner auf dem Förderband}
 	\end{subfigure}
 	\vskip\baselineskip
 	\begin{subfigure}[t]{0.4\textwidth}
@@ -130,7 +130,7 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 	\quad
 	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{pfeffer_rutsche_005_00056_debayer}
-		\caption{Pfeffer auf der Rutsche}
+		\caption{Pfefferkörner auf der Rutsche}
 	\end{subfigure}
 	\caption{Verschiedene Schüttgüter auf dem Förderband bzw. der Rutsche}
 	\label{fig:schuettgueterBand}
@@ -151,10 +151,10 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 % \color{black}
 
 Die Features, die für das Trainieren der Netze benutzt werden, sind die Koordinaten der Mittelpunkte der Partikel.
-Diese aus den aufgenommenen Bildern zu bestimmten ist die Aufgabe dieser Pipeline.
+Diese aus den aufgenommenen Bildern zu bestimmen, ist die Aufgabe dieser Pipeline.
 
-Am Anfang davon stehen die Bilder, die die Bonito-Kamera in Form einer Bayer-Matrix aufnimmt, wie sie in~\ref{fig:bayerPattern} zu sehen ist.
-Diese werden dann in Batches von je 3500 Bildern gesammelt und in Bitmap-Dateien geschrieben.
+Am Anfang davon stehen die Bilder, die die Bonito-Kamera in Form einer Bayer-Matrix aufnimmt, wie sie in Abbildung~\ref{fig:bayerPattern} zu sehen ist.
+Die Bilder werden in Batches von je 3500 Bildern gesammelt und in Bitmap-Dateien geschrieben.
 \todo{überlegen ob ich vielleicht einen Besseren Begriff als batch finde (und wenn nicht besser definieren)}
 \todo{Optional: Bayer-Matrix erklären}
 
@@ -162,23 +162,21 @@ Diese werden dann in Batches von je 3500 Bildern gesammelt und in Bitmap-Dateien
 	% \missingfigure{bayer matrix}
 	\centering
 	\includegraphics[width=0.6\textwidth]{BayerPattern.pdf}
-	\caption{Bayer Matrix auf einem Sensor\cite{bayerPattern06}}
+	\caption{Bayer-Matrix auf einem Sensor\cite{bayerPattern06}}
 	\label{fig:bayerPattern}
 \end{figure}
 
 Auf Grund der Menge an Bildern und dem damit verbundenen Speicherbedarf wurden die Bilder zunächst in das PNG-Dateiformat übertragen.
 Danach müssen zunächst die gebayerten Dateien mittels eines Vorgangs, der als \textit{demosaicing} bezeichnet wird,
 als Farbbilder rekonstruiert werden.
-Dies geschieht mittels der Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/}, die eine Methode implementiert hat, die ein Bild von einem Farbraum in einen anderen übertragen kann.
-Damit werden die einzelnen Bilder in RGB-Farbbilder konvertiert.
+Dies geschieht mittels der Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/}, die ein Bild von einem Farbraum in einen anderen übertragen kann.
+Ein Skript, das vom Fraunhofer IOSB zur Verfügung gestellt wurde, wurde angepasst und damit die einzelnen Bilder in RGB-Farbbilder konvertiert.
 \todo[inline]{Skript ursprünglich von Georg, ein paar changes implementiert (bezüglich input und output.)}
 
 
-
-
 Auf diesen kann dann eine Segmentierung vorgenommen werden.
-Hierzu wurde erneut die Computer Vision Library OpenCV benutzt.
-Für jede Sorte von Schüttgut wurde ein eigenes Parameterprofil von Hand angepasst.
+Dafür wurde ebenfalls ein existierendes Skript des Fraunhofer IOSBs angepasst, in dem erneut die Computer Vision Library OpenCV benutzt wird.
+Für jede Sorte von Schüttgut wurde ein eigenes Parameterprofil von Hand optimiert.
 Diese bestehen aus einem oberen und unteren Grenzwert in jedem Kanal des HSV-Raums und einer minimalen Fläche, die ein Teilchen umfassen muss.
 Entsprechend der durch das Profil festgelegten Parameter werden für die einzelnen Bilder Masken angelegt,
 die angeben ob die HSV-Werte der einzelnen Pixel innerhalb oder außerhalb der Grenzwerte liegen. 
@@ -194,8 +192,8 @@ und den Koordinaten der Mittelpunkte der detektierten Partikel.
 
     
 
-Aus den Mittelpunkten in dieser CSV-Datei werden nun mittels des in \textsc{Matlab} implementierten \textit{Multi-Target-Tracking} Algorithmus, die in dem Datensatz vorhandenen Tracks abgeleitet,
-\todo{Mehr details: Tracksort trackzuweisung Assignment Problem. Referenz Tobi MA?}
+Aus den Mittelpunkten in dieser CSV-Datei werden nun mittels des in \textsc{Matlab} implementierten \textit{Multi-Target-Tracking} Algorithmus die in dem Datensatz vorhandenen Tracks abgeleitet,
+% \todo{Mehr details: Tracksort trackzuweisung Assignment Problem. Referenz Tobi MA?}
 die dann wiederum in einer neuen CSV-Datei gespeichert werden.
 Die einzelnen Tracks werden als Spaltenpaare dargestellt, mit jeweils einer Spalte für die X- und Y-Koordinaten zu einem jeweiligen Zeitpunkt.
 Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{table:tracksortCSV} zu sehen.
@@ -282,39 +280,44 @@ Dies ist der Zustand in dem die Daten dann im eigentlichen Code geladen werden.
 % Vergleich bezüglich der Eignung für die verschiedenen Ansätze dann im Evaluations Kapitel
 % \color{black}
 
-Neben den selbst aufgenommenen Daten wurde im Rahmen dieser Arbeit auch mit einigen simulierten Datensätzen gearbeitet.
+Neben den selbst aufgenommenen Daten wurde im Rahmen dieser Arbeit auch mit einigen existierenden Datensätzen gearbeitet.
 Diese Datensätze wurden basierend auf einer hochgenauen numerischen Simulation des \textit{TableSort} Systems mittels der Diskrete-Elemente-Methode erstellt~\cite{pieper2016numerical}\,\cite{pieper2017numerical}.
-\todo{interaktion Teilchen untereinander und mit dem Sortierer?}
+% \todo{interaktion Teilchen untereinander und mit dem Sortierer?}
 In Abbildung~\ref{fig:DEMSimulation} ist die virtuelle Nachbildung des Schüttgutsortierers zu sehen, auf dem die Simulation durchgeführt wurde.
 Die Simulation wird mit einem Zeitschritt von \SI{1e-5}{\second} durchgeführt.
 Die Positionsdaten in den Datensätzen waren ursprünglich mit einer Frequenz von \SI{1000}{\hertz} aufgelistet.
 Um jedoch Vergleichbarkeit mit den realen Daten zu erhalten wurde diese Frequenz auf \SI{200}{\hertz} reduziert.
 Dennoch gibt es einige Unterschiede zwischen den selbst aufgenommenen und den simulierten Daten.
-Der Größte davon ist, dass die Positionen der simulierten Partikel eine absolut verlässliche Ground Truth sind, 
+Von diesen Unterschieden ist der schwerwiegendste, dass die Positionen der simulierten Partikel eine absolut verlässliche Ground~Truth sind, 
 die direkt aus Simulation entnommen wurde.
 So verlässlich sind die Partikelpositionen bei den selbst aufgenommen Daten nicht.
 Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann es zu Fehlern kommen, die sich durch die gesamte Pipeline fortpflanzen.
 Die Segmentierung kann an einigen Stellen nicht präzise sein, indem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
 Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Multi-Target-Tracking} Algorithmus die beiden Tracks vertauscht.  
-Des weiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
+Des Weiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
 während Messungen am realen \textit{TableSort} System darauf hindeuten, dass das Förderband dort nur eine Geschwindigkeit von 
 circa \SI{1.1}{\meter\per\second} hat.
+
+
 Ein weiterer Unterschied ist der Aufnahmebereich.
 Im Gegensatz zu den selbst aufgenommenen Daten, die nur Informationen 
-zu den Bewegungen der Partikel im Bereich auf den die Hochgeschwindigkeitskamera gerichtet ist beinhalten, 
+zu den Bewegungen der Partikel im Bereich auf den die Hochgeschwindigkeitskamera gerichtet ist umfassen, 
 befinden sich in den DEM Datensätzen die Positionen der Teilchen über die gesamte Länge des Förderbandes.
 Das bedeutet auch, dass in den DEM Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden enthalten ist.
 Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, sprich mehr Messungen enthalten.
 Bei der NextStep Prädiktion sorgt das dafür, dass es eine deutlich größere Anzahl an Feature-Label-Paaren gibt.
 
-\todo[inline]{Einheit real: Pixel, Einheit simuliert: m}
+Die Einheit des Orts, die in den beiden Datensatztypen verwendet wird, ist nicht identisch.
+Die Simulation verwendet metrische Einheiten und gibt die Position auf dem Band in Metern an,
+während die Position der Partikel bei den selbst aufgenommenen Daten in Pixeln bestimmt wird.
+% \todo[inline]{Einheit real: Pixel, Einheit simuliert: m}
 \todo[inline]{simulierte haben viel mehr Partikel gleichzeitig auf dem Band - mehr kollisionen...?}
 
 \begin{figure}[h]
     \centering
     % \missingfigure{DEM Simulationsgrafik}
 	\includegraphics[width=\textwidth]{DEM-SimOverview}
-	\caption{Visualisierung der DEM Simulation~\cite{Pfaff2018}}
+	\caption{Visualisierung der DEM Simulation, übersetzt~aus~\cite{Pfaff2018}}
 	\label{fig:DEMSimulation}
 \end{figure}
 
@@ -349,7 +352,7 @@ Bei der NextStep Prädiktion sorgt das dafür, dass es eine deutlich größere A
 % optional: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location...)
 % \color{black}
 
-Das Format, das die Daten annehmen, ist bei den beiden Anwendungen leicht unterschiedlich.
+Das Format, das die Daten annehmen, ist für die NextStep- und den Separator Netze leicht unterschiedlich.
 %  unterscheidet sich leicht zwischen den beiden Anwendungen.
 Die Feature-Label-Paare der unterschiedlichen Anwendungen unterscheiden sich nur in den Labeln.
 Die Eingangsdaten sind -- abhängig von einem Hyperparameter --
@@ -378,7 +381,8 @@ Wie in Abbildung~\ref{fig:FLPNext} dargestellt, befinden diese sich in der näch
 	\includegraphics[width=0.6\textwidth]{weizen_003_trackHistory_NothingDeleted-v3}
 	\caption[Beispiel Feature-Label-Paar NextStep]{An diesem Ausschnitt eines Tracks wird beispielhaft mit FeatureSize 5 gezeigt, wie die einzelnen Feature-Label-Paare im NextStep Fall entstehen.
 		Der rote Rahmen markiert die 10 Features. Der blaue Rahmen markiert das dazugehörigen Label. 
-		Der blaue und der rote Rahmen werden parallel entlang des Tracks verschoben um alle möglichen Feature-Label-Paare zu erhalten. }
+		% Der blaue und der rote Rahmen werden parallel entlang des Tracks verschoben um alle möglichen Feature-Label-Paare zu erhalten. 
+		}
 	\label{fig:FLPNext}
 \end{figure}
 
@@ -387,15 +391,15 @@ Die Labels des Separator-Netzes sind ebenfalls \(2\)-Tupel.
 Im Gegensatz zu denen des NextStep-Netzes können diese nicht direkt aus der CSV-Datei ausgelesen werden, da sie nicht gemessen werden.
 Stattdessen müssen sie berechnet werden.
 Dies ist in Abbildung~\ref{fig:Schnittpunkt} dargestellt.
-Für jedes Partikel \(i\) müssen die letzte Position vor dem Überqueren des Druckluftdüsenarrays \(f_n\) 
+Für jedes Partikel müssen die letzte Position vor dem Überqueren des Druckluftdüsenarrays \(f_n\) 
 und die erste Position nach dem Überqueren \(f_{n+1}\) bestimmt werden.
 In Abbildung~\ref{fig:FLPSep} sind dies die blau markierten Einträge. 
 Dabei wird die angenommen, dass die Geschwindigkeit des Partikels zwischen \(f_n\) und \(f_{n+1}\) konstant ist.
 Dies ist eine Approximation, die ebenfalls in~\cite{Pfaff2018} verwendet wird.
-Das erste Element eines Labels ist die Koordinate entlang der Achse orthogonal zur Bewegungsrichtung des Förderbandes, wo das Partikel den Druckluftdüsenarrays passiert.
+Das erste Element eines jeden Labels ist die Koordinate entlang der Achse orthogonal zur Bewegungsrichtung des Förderbandes, wo das Partikel den Druckluftdüsenarray passiert.
 \todo{Bewegungsrichtung Band in der Grafik klarer machen}
-Diese erhalten wir in dem wir den Schnittpunkt \(s\) zwischen der Strecke, die \(f_n\) und \(f_{n+1}\) verbindet und 
-der Gerade, die das Druckluftdüsenarray symbolisiert, bestimmen.
+Diese erhalten wir, indem wir den Schnittpunkt \(s\) zwischen der Strecke \(f_n\) nach \(f_{n+1}\) und 
+der Gerade des Druckluftdüsenarray bestimmen.
 Das zweite Element ist die Zeit, die das Partikel noch brauchen wird, bis es das Druckluftdüsenarray passiert.
 Sie wird in der Einheit Frames angegeben.
 Die ganzzahlige Komponente hiervon ist durch das Zählen der Messungen im Track zu bestimmen.
@@ -416,7 +420,7 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
 	\includegraphics[width=0.6\textwidth]{weizen_003_trackHistory_NothingDeleted_sep-v3}
 	\caption[Beispiel Feature-Label-Paar Separator]{An diesem Ausschnitt eines Tracks wird beispielhaft mit FeatureSize 5 gezeigt, wie die einzelnen Feature-Label-Paare im Separator Fall entstehen.
-	Analog zu Abbildung~\ref{fig:FLPNext} sind die Features markiert. Der Unterschied besteht in der Bestimmung der Labels. 
+	Analog zu Abbildung~\ref{fig:FLPNext} ist ein Featurevektor markiert. Der Unterschied besteht in der Bestimmung der Labels. 
 	Der Schnittpunkt mit dem Druckluftdüsenarray befindet sich zwischen den beiden blau markierten Messungen und kann dementsprechend nicht direkt abgelesen werden.}
 	% \todo{Quelle - test?}
 	\label{fig:FLPSep}
@@ -425,7 +429,7 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 
 % Um zu verhindern, dass verschiedene Label-Elemente basierend auf ihrer Skalierung beim Training unterschiedlich stark gewichtet werden, werden sie standardisiert.
 Damit die Fehler der beiden Labelelemente sich ähnlich auf den Gesamtgradienten auswirken,
-selbst wenn ihre Werte in sehr unterschiedliche Wertebereichen liegen, werden die Labels komponentenweise standardisiert.
+selbst wenn ihre Werte in sehr unterschiedliche Wertebereichen liegen oder einfach unterschiedliche Einheiten haben, werden die Labels komponentenweise standardisiert.
 Dazu wird von der jeweiligen Komponente der Mittelwert und die Standardabweichung berechnet. 
 Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\) subtrahiert, und durch die korrespondierende Standardabweichung \(\sigma\) dividiert
 % Jedes Labelelement \(e\), sei es das erste oder das zweite Element seines entsprechenden Tupels, wird gemäß seiner Position vor dem Training angepasst,
@@ -439,15 +443,15 @@ Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\
 Durch die Standardisierung wird jedes Label so skaliert, dass die beiden Elemente der Labels jeweils einen Erwartungswert von 0.0 und eine Standardabweichung von 1.0 haben.
 Die Ausgaben des Netzes müssen umkehrt zurück in das ursprüngliche Format umgerechnet werden.
 % \todo{überlegen wie ich klar mache, dass es sich um den durchschnitt und die Abweichung der jeweiligen Spalte handelt}
-Solch ein Ungleichgewicht zwischen den Labelelementen würde zum Beispiel auftreten, wenn sich die Werte des einen Elements im Bereich zwischen 0 und 1700 bewegen, während die des Anderen zwischen 1 und 25 liegen,
-so wie es bei der Separator Anwendung der Fall sein kann.   
+Solch ein Gefälle zwischen den Labelelementen würde zum Beispiel auftreten, wenn sich die Werte des einen Elements im Bereich zwischen 0 und 1700 bewegen, während die des Anderen zwischen 1 und 25 liegen,
+so wie es bei den Separator Netzen der Fall sein kann.   
 Bei dem NextStep Fall wäre die Standardisierung nicht zwingend notwendig, 
-sie wurde allerdings um die Einheitlichkeit zu wahren für beide Fälle implementiert. 
+sie wurde allerdings, um die Einheitlichkeit zu wahren, für beide Fälle implementiert. 
 
-\todo[inline]{Der Absatz hier nach Implementierung verschieben?}
-Im Code gibt es die Möglichkeit unterschiedliche Label-Elemente unterschiedlich zu gewichten, indem Weighted Mean Squared Error als Fehlerfunktion verwendet werden kann. 
+% \todo[inline]{Der Absatz hier nach Implementierung verschieben?}
+Im Code gibt es die Möglichkeit, unterschiedliche Label-Elemente unterschiedlich zu gewichten, indem Weighted Mean Squared Error als Fehlerfunktion verwendet werden kann. 
 Von dieser Möglichkeit wird in den später vorgestellten Ergebnissen nicht Gebrauch gemacht, beziehungsweise den beiden Elementen wird jeweils das Gewicht~1.0 zugewiesen.
-Dies könnte nützlich sein, falls die Ansteuerung der Druckluftdüsen eine maximale Auflösung hat, jenseits derer eine bessere Zeitprädiktion keine Verbesserung der Sortierqualität mehr erreicht.
+Diese Option könnte nützlich sein, falls die Ansteuerung der Druckluftdüsen eine maximale Auflösung hat, jenseits derer eine bessere Zeitprädiktion keine Verbesserung der Sortierqualität mehr erzielt.
 % \todo{hier noch schreiben, warum man das tun wollen könnte, oder nicht?}
 
 
@@ -479,30 +483,30 @@ Dies könnte nützlich sein, falls die Ansteuerung der Druckluftdüsen eine maxi
 % \end{itemize}
 % \color{black}
 
-Als Datenaugmentierung oder auch Data Augmentation bezeichnet man Verfahren, die die eigenen Daten erweitern ohne zusätzliche Daten aufzunehmen.
+Als Datenaugmentierung oder auch Data Augmentation bezeichnet man Verfahren, die dem eigenen Datenset Datenpunkte hinzufügen ohne zusätzliche Daten aufzunehmen.
 Man generiert aus den bestehenden Daten zusätzliche, synthetische Daten, die dann im Trainingsset eingesetzt werden können.
-Ausreichend viele Trainingsbeispiele zu haben ist notwendig um mit neuronalen Netzen eine gute Performance zu erzielen.
-Die synthetischen Beispiele müssen jedoch plausibel sein, da sie sonst die Qualität der Ausgabe des Netzes negativ beeinträchtigen können.
+Ausreichend viele Trainingsbeispiele zu haben ist notwendig, um mit neuronalen Netzen eine gute Performance zu erzielen.
+Die synthetischen Beispiele müssen jedoch konsistent mit den Originaldaten sein, da sie sonst die Qualität der Ausgabe des Netzes negativ beeinträchtigen können.
 
 Für Netze, die in der Computer Vision eingesetzt werden gibt es einige weit verbreitete Techniken,
 zum Beispiel Rotation, Translation, Spiegeln und das Ausschneiden von Teilbildern.
 
-Für den gegebenen Fall mit den Mittelpunkten von Schüttgut-Partikeln als Features resultiert von diesen Techniken nur das Spiegeln in zweifelsfrei sinnvollen Daten.
+Für den gegebenen Fall mit den Mittelpunkten von Schüttgut-Partikeln als Features resultiert von diesen Techniken nur das Spiegeln in sinnvollen Daten.
 Eine beispielhafte Darstellung der vorgenommenen Data Augmentation ist in Abbildung~\ref{fig:dataAugm} zu finden.
 Gespiegelt wird an der Mittellinie des Bands, beziehungsweise der Rutsche entlang der Bewegungsrichtung.
 Tracks, die eine gewisse Distanz zur Spiegelachse überschreiten, werden ausgenommen, da zumindest bei den selbst aufgenommenen Daten 
 die Kamera nicht perfekt zentriert ist.
 Deshalb könnte nicht ausgeschlossen werden, 
-dass unrealistische Feature-Label-Paare den Trainingsset hinzugefügt werden würden.
+dass unrealistische Feature-Label-Paare dem Trainingsset hinzugefügt werden würden.
 
 Die Anwendung dieser Technik auf die vorhandenen Daten führt beinahe zu einer Verdoppelung 
-der benutzbaren Feature-Label-Paare im Trainingsset, wovon man sich einen positiven Effekt auf die Qualität der Ergebnisse erhofft.
+der benutzbaren Feature-Label-Paare im Trainingsset, wovon man sich einen positiven Effekt auf die Qualität der Ergebnisse verspricht.
 
 \begin{figure}[h]
 	% \missingfigure{Visualisierung Dataaugmentation}
 	\centering
 	\includegraphics[width=\textwidth]{augmentationImage.pdf}
-	\caption{Visualisierung Data Augmentation durch Spiegelung}
+	\caption{Visualisierung der Datenaugmentierung durch Spiegelung}
 	% \todo{Quelle Bild!}
 	\label{fig:dataAugm}
 \end{figure}
@@ -544,16 +548,15 @@ Die Verteilung der Tracks ist in Abbildung~\ref{fig:barTracks} zu sehen.
 \end{figure}
 
 Die Feature-Label-Paare, die aus den Tracks extrahiert werden, 
-müssen in ein Trainingsset wird und ein Testset aufgeteilt werden.
+müssen in ein Trainingsset und ein Testset aufgeteilt werden.
 In manchen Situationen wird noch ein drittes Set, das so genannte Validationset, benötigt.
 Dies ist zum Beispiel beim Hyperparameter Tuning der Fall.
 
-Dabei ist wichtig, dass das Testset eine gute Repräsentation des gesamten Datensets ist 
+Hierbei ist wichtig, dass das Testset eine gute Repräsentation des gesamten Datensets ist 
 und ausreichend groß ist um statistisch aussagekräftige Ergebnisse zu produzieren.
-
 Im Rahmen dieser Arbeit wurde meist eine Aufteilung im Verhältnis 90:10 zwischen Trainings- und Testset vorgenommen.
 Es ist jedoch möglich beliebige andere Splits in der Hyperparameter Datei festzulegen.
-\todo{Vorgriff zum nächsten Kapitel - hier wissen wir noch gar nicht, dass ich ein Hyperparameter File habe...}  
+% \todo{Vorgriff zum nächsten Kapitel - hier wissen wir noch gar nicht, dass ich ein Hyperparameter File habe...}  
 
 
 
@@ -597,15 +600,15 @@ Es ist jedoch möglich beliebige andere Splits in der Hyperparameter Datei festz
 
 
 
-\todo{table of size of different data sets - number of pictures...}
+% \todo{table of size of different data sets - number of pictures...}
 
-\color{blue}
-Verhältnis: Anzahl Feature-Label-Paare für verschiedene Beispiele und verschiedene Settings
-(FeatureSize, Filter Ja/Nein, Augmentation Ja/Nein) Als Tabelle?
+% \color{blue}
+% Verhältnis: Anzahl Feature-Label-Paare für verschiedene Beispiele und verschiedene Settings
+% (FeatureSize, Filter Ja/Nein, Augmentation Ja/Nein) Als Tabelle?
 
-OUTDATED:
-Bei einer FeatureSize von 5 ergeben sich bei den Kugeln so 98.966 Feature-Label-Paare.
-Die Pfefferkörner haben dann 105.101 Feature-Le,
-bei den Zylindern kommt man auf 244.422 Feature-Label-Paare
-und bei den Weizenkörner 132.140 Feature-Label-Paare.
-\color{black}
+% OUTDATED:
+% Bei einer FeatureSize von 5 ergeben sich bei den Kugeln so 98.966 Feature-Label-Paare.
+% Die Pfefferkörner haben dann 105.101 Feature-Le,
+% bei den Zylindern kommt man auf 244.422 Feature-Label-Paare
+% und bei den Weizenkörner 132.140 Feature-Label-Paare.
+% \color{black}
