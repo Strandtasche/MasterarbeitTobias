@@ -6,9 +6,9 @@ da diese die Güte des Ergebnisses stark beeinflussen können.
 Im Rahmen dieser Masterarbeit wurden zweierlei Arten von Daten benutzt:
 Einerseits wurden am \textit{TableSort} Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht, 
 die dann über mehrere Arbeitsschritte in das richtige Datenformat übersetzt wurden.
-Zudem existieren Datensatze, die durch eine Simulation mittels der \textit{Diskrete-Elemente-Methode} (DEM) entstanden sind. 
+Zudem existieren Datensätze, die durch eine Simulation mittels der \textit{Diskrete-Elemente-Methode} (DEM) entstanden sind. 
 In diesem Kapitel soll nun beschrieben werden, woher diese Daten kommen, wie sie verarbeitet werden 
-und wie in welcher Form sie dann letztendlich in die neuronalen Netze gegeben werden.
+und in welcher Form sie dann letztendlich in die neuronalen Netze gegeben werden.
 Abschließend wird die Datenaugmentierung, die vorgenommen wurde, vorgestellt und erklärt.
 
 
@@ -52,18 +52,18 @@ Im weiteren Verlauf der Arbeit wird mit Pixeln~(px) als der Einheit des Orts fü
 
 % \subsection{Schüttgüter-Typen}
 
-Aufgenommen wurden Daten von vier verschiedenen Schüttgütern.
+Aufgenommen wurden Daten von vier verschiedenen Schüttgütern: Kugeln, grüne Pfefferkörner, Zylinder und Weizenkörner.
 Diese Schüttgüter sind in Abbildung~\ref{fig:schuettgueterSchuessel} in Schüsseln 
 und in Abbildung~\ref{fig:schuettgueterBand} während den Aufnahmen zu sehen.
 
 % die in Abbildung~\ref{fig:schuettgueterSchuessel} zu sehen sind.
 
-\begin{itemize}
-    \item Kugeln
-    \item grüne Pfefferkörner
-    \item Zylinder
-    \item Weizenkörner
-\end{itemize}
+% \begin{itemize}
+%     \item Kugeln
+%     \item grüne Pfefferkörner
+%     \item Zylinder
+%     \item Weizenkörner
+% \end{itemize}
 
 Die Kugeln bestehen aus Holz und haben einen Durchmesser von \SI{5}{\milli\metre}.
 Die Zylinder bestehen ebenfalls aus Holz. Sie haben eine Länge von \SI{1}{\centi\metre} und einen Durchmesser von \SI{3}{\milli\metre}.
@@ -84,7 +84,7 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 	\quad
 	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{PfefferCropped}
-		\caption{Pfeffer}
+		\caption{Pfefferkörner}
 	\end{subfigure}
 	\vskip\baselineskip
 	\begin{subfigure}[t]{0.4\textwidth}
@@ -169,38 +169,36 @@ Die Bilder werden in Batches von je 3500 Bildern gesammelt und in Bitmap-Dateien
 Auf Grund der Menge an Bildern und dem damit verbundenen Speicherbedarf wurden die Bilder zunächst in das PNG-Dateiformat übertragen.
 Danach müssen zunächst die gebayerten Dateien mittels eines Vorgangs, der als \textit{demosaicing} bezeichnet wird,
 als Farbbilder rekonstruiert werden.
-Dies geschieht mittels der Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/}, die ein Bild von einem Farbraum in einen anderen übertragen kann.
-Ein Skript, das vom Fraunhofer IOSB zur Verfügung gestellt wurde, wurde angepasst und damit die einzelnen Bilder in RGB-Farbbilder konvertiert.
-\todo[inline]{Skript ursprünglich von Georg, ein paar changes implementiert (bezüglich input und output.)}
-
-
-Auf diesen kann dann eine Segmentierung vorgenommen werden.
+Das geschiet mit einem Skript des Frauenhofer IOSB, das die Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/} benutzt.
+% Dies geschieht mittels der Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/}, die ein Bild von einem Farbraum in einen anderen übertragen kann.
+Dieses Skript wurde angepasst und damit und dann damit die einzelnen Bilder in RGB-Farbbilder konvertiert.
+% Ein Skript, das vom Fraunhofer IOSB zur Verfügung gestellt wurde, wurde angepasst und damit die einzelnen Bilder in RGB-Farbbilder konvertiert.
+% \todo[inline]{Skript ursprünglich von Georg, ein paar changes implementiert (bezüglich input und output.)}
+Auf diesen Bildern kann dann eine Segmentierung vorgenommen werden.
 Dafür wurde ebenfalls ein existierendes Skript des Fraunhofer IOSBs angepasst, in dem erneut die Computer Vision Library OpenCV benutzt wird.
 Für jede Sorte von Schüttgut wurde ein eigenes Parameterprofil von Hand optimiert.
-Diese bestehen aus einem oberen und unteren Grenzwert in jedem Kanal des HSV-Raums und einer minimalen Fläche, die ein Teilchen umfassen muss.
-Entsprechend der durch das Profil festgelegten Parameter werden für die einzelnen Bilder Masken angelegt,
+Ein solches Parameterprofil besteht aus einem oberen und unteren Grenzwert in jedem Kanal des HSV-Raums und einer minimalen Fläche, die ein Teilchen umfassen muss.
+Entsprechend der im Profil festgelegten Parameter werden für die einzelnen Bilder Masken angelegt,
 die angeben ob die HSV-Werte der einzelnen Pixel innerhalb oder außerhalb der Grenzwerte liegen. 
-Mit diesen Masken werden dann alle möglichen Konturen von Schüttgutpartikeln extrahiert, 
-bevor diese noch einmal bezüglich der Plausibilität ihrer Größe und Form gefiltert werden. 
-Im letzten Schritt wird nun der gewichtete Mittelpunkt der einzelnen Konturen bestimmt und abgespeichert.
-Das Ergebnis von diesem Segmentierungsscripts ist eine CSV-Datei für jedes Batch.
+Mit diesen Masken werden dann alle möglichen Konturen von Schüttgutpartikeln extrahiert. 
+Die Konturen werden dann bezüglich der Plausibilität ihrer Größe und Form gefiltert. 
+Im letzten Schritt wird nun der gewichtete Mittelpunkt der verbleibenden Konturen bestimmt und abgespeichert.
+
+
+Das Ergebnis von diesem Segmentierungsskripts ist eine CSV-Datei für jeden Batch.
 Ein Beispiel für einen Ausschnitt aus solch einer Datei ist in Tabelle~\ref{table:Segmentierungsscript} zu sehen.
 Eine Zeile repräsentiert jeweils ein Bild aus dem Batch, also einen Zeitschritt.
 Zu Beginn jeder Zeile steht zunächst die Frame-Nummer, gefolgt von der Anzahl der detektierten Partikel
 und den Koordinaten der Mittelpunkte der detektierten Partikel.
-
-
-    
-
-Aus den Mittelpunkten in dieser CSV-Datei werden nun mittels des in \textsc{Matlab} implementierten \textit{Multi-Target-Tracking} Algorithmus die in dem Datensatz vorhandenen Tracks abgeleitet,
+Aus den Mittelpunkten in dieser CSV-Datei werden nun mittels des in \textsc{Matlab} implementierten \textit{Multi-Target-Tracking}-Algorithmus die in dem Datensatz vorhandenen Tracks abgeleitet,
 % \todo{Mehr details: Tracksort trackzuweisung Assignment Problem. Referenz Tobi MA?}
 die dann wiederum in einer neuen CSV-Datei gespeichert werden.
-Die einzelnen Tracks werden als Spaltenpaare dargestellt, mit jeweils einer Spalte für die X- und Y-Koordinaten zu einem jeweiligen Zeitpunkt.
+Die einzelnen Tracks werden als Spaltenpaare dargestellt, mit jeweils einer Spalte für die X- und Y-Koordinaten und einer Zeile für jeden Zeitschritt.
 Ein Ausschnitt aus einer solchen Datei ist in Tabelle \ref{table:tracksortCSV} zu sehen.
-Dies ist der Zustand in dem die Daten dann im eigentlichen Code geladen werden. 
+Dies ist der Zustand in dem die Daten dann im Programmcode geladen werden. 
 
 \begin{table}[p]
-    \caption{Ausschnitt aus dem Ergebnis des Segmentierungsscripts}
+    \caption{Ausschnitt aus dem Ergebnis des Segmentierungsskripts}
 	\small
 	\centering
     \begin{tabular}{@{}rcrrrrrr@{}}
@@ -243,7 +241,7 @@ Dies ist der Zustand in dem die Daten dann im eigentlichen Code geladen werden.
 
 
 \begin{table}[p]
-	\caption{Ausschnitt aus dem Ergebnis des \textit{Multi-Target-Tracking} Algorithmus}
+	\caption{Ausschnitt aus dem Ergebnis des \textit{Multi-Target-Tracking}-Algorithmus}
 	\label{table:tracksortCSV}
     \small
     \centering
@@ -284,21 +282,22 @@ Neben den selbst aufgenommenen Daten wurde im Rahmen dieser Arbeit auch mit eini
 Diese Datensätze wurden basierend auf einer hochgenauen numerischen Simulation des \textit{TableSort} Systems mittels der Diskrete-Elemente-Methode erstellt~\cite{pieper2016numerical}\,\cite{pieper2017numerical}.
 % \todo{interaktion Teilchen untereinander und mit dem Sortierer?}
 In Abbildung~\ref{fig:DEMSimulation} ist die virtuelle Nachbildung des Schüttgutsortierers zu sehen, auf dem die Simulation durchgeführt wurde.
-Die Simulation wird mit einem Zeitschritt von \SI{1e-5}{\second} durchgeführt.
+% Die Simulation wird mit einem Zeitschritt von \SI{1e-5}{\second} durchgeführt.
 Die Positionsdaten in den Datensätzen waren ursprünglich mit einer Frequenz von \SI{1000}{\hertz} aufgelistet.
 Um jedoch Vergleichbarkeit mit den realen Daten zu erhalten wurde diese Frequenz auf \SI{200}{\hertz} reduziert.
+Die Positionsangaben der Simulation werden in Metern angeben.
+Das Förderband erstreckt sich entlang der y-Achse von \SI{0.0}{\meter} bis \SI{0.18}{\meter} und entlang der x-Achse von \SI{0.388}{\meter} bis \SI{0.788}{\meter} 
+
 Dennoch gibt es einige Unterschiede zwischen den selbst aufgenommenen und den simulierten Daten.
 Von diesen Unterschieden ist der schwerwiegendste, dass die Positionen der simulierten Partikel eine absolut verlässliche Ground~Truth sind, 
 die direkt aus Simulation entnommen wurde.
 So verlässlich sind die Partikelpositionen bei den selbst aufgenommen Daten nicht.
 Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann es zu Fehlern kommen, die sich durch die gesamte Pipeline fortpflanzen.
 Die Segmentierung kann an einigen Stellen nicht präzise sein, indem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
-Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Multi-Target-Tracking} Algorithmus die beiden Tracks vertauscht.  
+Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Multi-Target-Tracking}-Algorithmus die beiden Tracks vertauscht.  
 Des Weiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
 während Messungen am realen \textit{TableSort} System darauf hindeuten, dass das Förderband dort nur eine Geschwindigkeit von 
 circa \SI{1.1}{\meter\per\second} hat.
-
-
 Ein weiterer Unterschied ist der Aufnahmebereich.
 Im Gegensatz zu den selbst aufgenommenen Daten, die nur Informationen 
 zu den Bewegungen der Partikel im Bereich auf den die Hochgeschwindigkeitskamera gerichtet ist umfassen, 
@@ -306,10 +305,8 @@ befinden sich in den DEM Datensätzen die Positionen der Teilchen über die gesa
 Das bedeutet auch, dass in den DEM Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden enthalten ist.
 Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, sprich mehr Messungen enthalten.
 Bei der NextStep Prädiktion sorgt das dafür, dass es eine deutlich größere Anzahl an Feature-Label-Paaren gibt.
-
-Die Einheit des Orts, die in den beiden Datensatztypen verwendet wird, ist nicht identisch.
-Die Simulation verwendet metrische Einheiten und gibt die Position auf dem Band in Metern an,
-während die Position der Partikel bei den selbst aufgenommenen Daten in Pixeln bestimmt wird.
+Die Bewegungsrichtung der Partikel ist ebenfalls nicht identisch.
+Während die selbst aufgenommenen Datensätze eine Bewegung entlang der y-Achse haben, bewegen sich die simulierten Partikel entlang der x-Achse.
 % \todo[inline]{Einheit real: Pixel, Einheit simuliert: m}
 \todo[inline]{simulierte haben viel mehr Partikel gleichzeitig auf dem Band - mehr kollisionen...?}
 
@@ -360,7 +357,8 @@ in beiden Fällen die Position des Partikels zu den letzten \(n\) Zeitschritten.
 Deshalb muss beim Format der Features kein Unterschied zwischen der Art der Aufgabe gemacht werden.
 Dieser Hyperparameter wird \textit{FeatureSize} genannt. 
 Die Features sind also ein \(2n\)-Tupel, bestehend aus \(n\) X-Koordinaten und \(n\) Y-Koordinaten 
-von den Mittelpunkten der \(n\) beobachteten Teilchen
+von den Mittelpunkten der \(n\) beobachteten Teilchen.
+Die Reihenfolge der Features ist für das neuronale Netz irrelevant, solange sie konsistent zwischen Training und Evaluation bleibt.
 Was die Reihenfolge der Features angeht, so ist sie für das neuronale Netz irrelevant, 
 solange sie konsistent zwischen Training und Evaluation bleibt. 
 In der umgesetzten Implementierung ist es so, dass zuerst die X-Koordinaten 
@@ -430,7 +428,11 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 % Um zu verhindern, dass verschiedene Label-Elemente basierend auf ihrer Skalierung beim Training unterschiedlich stark gewichtet werden, werden sie standardisiert.
 Damit die Fehler der beiden Labelelemente sich ähnlich auf den Gesamtgradienten auswirken,
 selbst wenn ihre Werte in sehr unterschiedliche Wertebereichen liegen oder einfach unterschiedliche Einheiten haben, werden die Labels komponentenweise standardisiert.
-Dazu wird von der jeweiligen Komponente der Mittelwert und die Standardabweichung berechnet. 
+Dieses Problem würde zum Beispiel auftreten, wenn sich die Werte des einen Elements im Bereich zwischen 0 und 1700 bewegen, während die des Anderen zwischen 1 und 25 liegen,
+so wie es bei den Separator Netzen der Fall sein kann.
+Bei dem NextStep Fall wäre die Standardisierung nicht zwingend notwendig, 
+sie wurde allerdings, um die Einheitlichkeit zu wahren, für beide Fälle implementiert. 
+Für die Standardisierung wird von der jeweiligen Komponente der Mittelwert und die Standardabweichung berechnet. 
 Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\) subtrahiert, und durch die korrespondierende Standardabweichung \(\sigma\) dividiert
 % Jedes Labelelement \(e\), sei es das erste oder das zweite Element seines entsprechenden Tupels, wird gemäß seiner Position vor dem Training angepasst,
 % indem davon der Durchschnitt aller ersten beziehungsweise zweiten Elemente abgezogen wird und dann durch die Standardabweichung aller ersten beziehungsweise zweiten Elemente geteilt wird.
@@ -443,10 +445,6 @@ Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\
 Durch die Standardisierung wird jedes Label so skaliert, dass die beiden Elemente der Labels jeweils einen Erwartungswert von 0.0 und eine Standardabweichung von 1.0 haben.
 Die Ausgaben des Netzes müssen umkehrt zurück in das ursprüngliche Format umgerechnet werden.
 % \todo{überlegen wie ich klar mache, dass es sich um den durchschnitt und die Abweichung der jeweiligen Spalte handelt}
-Solch ein Gefälle zwischen den Labelelementen würde zum Beispiel auftreten, wenn sich die Werte des einen Elements im Bereich zwischen 0 und 1700 bewegen, während die des Anderen zwischen 1 und 25 liegen,
-so wie es bei den Separator Netzen der Fall sein kann.   
-Bei dem NextStep Fall wäre die Standardisierung nicht zwingend notwendig, 
-sie wurde allerdings, um die Einheitlichkeit zu wahren, für beide Fälle implementiert. 
 
 % \todo[inline]{Der Absatz hier nach Implementierung verschieben?}
 Im Code gibt es die Möglichkeit, unterschiedliche Label-Elemente unterschiedlich zu gewichten, indem Weighted Mean Squared Error als Fehlerfunktion verwendet werden kann. 
@@ -516,7 +514,7 @@ der benutzbaren Feature-Label-Paare im Trainingsset, wovon man sich einen positi
 \section{Datenumfang}
 
 Im Rahmen dieser Arbeit wurden insgesamt 247\,951 Bilder aufgenommen.
-177\,951 Bilder auf dem Förderband und 70\,000 Bilder auf der Rutsche.
+Davon waren 177\,951 Bilder auf dem Förderband und 70\,000 Bilder auf der Rutsche.
 Die Verteilung dieser Bilder ist in Abbildung~\ref{fig:barPics} dargestellt.
 
 \begin{figure}[h]
@@ -528,12 +526,12 @@ Die Verteilung dieser Bilder ist in Abbildung~\ref{fig:barPics} dargestellt.
 	\label{fig:barPics}
 \end{figure}
 
-Laut den Ergebnissen des \textit{Multi-Target-Tracking} Algorithmus wurden auf dem Förderband 
-7712 Kugeln in 15 Batches,
-7170 Pfefferkörner in 13 Batches,
-19\,200 Zylinder in 11 Batches
-und 8702 Weizenkörner in 13 Batches aufgenommen.
-Zudem wurden 5132 Kugeln und 3609 Pfefferkörner auf der Rutsche aufgenommen.
+Der \textit{Multi-Target-Tracking}-Algorithmus wurde benutzt um die Anzahl der Kugeln zu bestimmen.
+Auf dem Förderband wurden 7712 Tracks von Kugeln,
+7170 Tracks Pfefferkörnern,
+19\,200 Tracks von Zylindern,
+und 8702 Tracks von Weizenkörner zugeordnet.
+Zudem wurden 5132 Tracks Kugeln und 3609 Tracks von Pfefferkörner auf der Rutsche zugeordnet.
 
 Im DEM Datensatz sind die Tracks von 3713 Kugeln, 4357 Plättchen und 4427 Zylindern enthalten.
 Die Verteilung der Tracks ist in Abbildung~\ref{fig:barTracks} zu sehen.
@@ -566,7 +564,7 @@ Es ist jedoch möglich beliebige andere Splits in der Hyperparameter Datei festz
 % Validation nur für die sets auf denen das Hyperparameter Tuning gemacht wurde
 % [ungefähres ]
 
-\todo[inline]{Table mit Anzahl von Elementen in verschiedenen Batches?}
+% \todo[inline]{Table mit Anzahl von Elementen in verschiedenen Batches?}
 
 % \begin{figure}[h]
 %     \centering

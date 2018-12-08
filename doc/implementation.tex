@@ -32,8 +32,8 @@ Weitere wichtige Software, die verwendet wurde
 sind \textit{pandas} in der Version~0.23.1, was für den Umgang mit den Daten genutzt wurde, 
 und \textit{matplotlib} in der Version~3.0.0, mit dem die Visualisierung der Ergebnisse und die meisten Grafiken dieser Arbeit generiert wurden.
 Des weiteren wurde die Python Bindings von \textit{OpenCV} für die Verarbeitung der aufgenommen Bilder verwendet.
-Der existierende \textit{Predictive Tracking} Algorithmus ist in \textsc{Matlab} implementiert, 
-weshalb einige Teile der Arbeit auch das verwenden.
+Der existierende \textit{Multi-Target-Tracking}-Algorithmus ist in \textsc{Matlab} implementiert worden. 
+Deshalb sind Teile des Projekts, die direkt darauf aufbauen ebenfalls in \textsc{Matlab} geschrieben.
 
 % \todo[inline]{Aufpassen dass das nicht zu viel wird}
 
@@ -47,12 +47,12 @@ und daraus jeweils ein pandas DataFrame mit den Feature-Label-Paaren des Trainin
 In der Trainingssschleife wird dann ein Modell mit dem Trainingsset trainiert.
 Dies resultiert in dem trainierten Modell, dass nun für die Prädiktion genutzt werden kann.
 
-Um dieses Modell auszuwerten werden die Feature-Label-Paare des Testsets benutzt.
+Um das aus dem Training resultierende Modell auszuwerten werden die Feature-Label-Paare des Testsets benutzt.
 Dem Modell werden die Features als Eingabe gegeben um die Prädiktionen des Netzes zu erhalten.
 Am Ende steht als Ergebnis ein einzelnes pandas DataFrame in dem alle Features, das zurücktransformierte Label, 
 die Prädiktionen des Netzes und die Prädiktionen der verschiedenen Vergleichsmodelle jeweils für alle Feature-Label-Paare des Testsets enthalten sind.
 Hinzu kommen noch die Fehler all dieser Prädiktionen, also die Differenz zwischen der Ground Truth die im Label steht und den Prädiktionen selbst.
-Diese Fehler werden dann analysiert, Durchschnitt, Media und Quartile werden gebildet und dann mittels Boxplots und Histogrammen visualisiert.
+Diese Fehler werden dann analysiert, Durchschnitt, Median und Quartile werden gebildet und dann mittels Boxplots und Histogrammen visualisiert.
 Beispiele für diese Visualisierung sind im Evaluationskapitel zu finden.
 
 \todo[inline]{Tabelle mit inhalt von Dataframe?}
@@ -61,14 +61,14 @@ Beispiele für diese Visualisierung sind im Evaluationskapitel zu finden.
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=\textwidth]{implementation01v4.pdf}
+    \includegraphics[width=0.75\textwidth]{implementation01v4.pdf}
     \caption{Skizzierte Struktur des Ablaufs des Trainings eines neuronalen Netzes}
     \label{fig:impl01}
 \end{figure}
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=\textwidth]{implementation02v2.pdf}
+    \includegraphics[width=0.75\textwidth]{implementation02v2.pdf}
     \caption{Skizzierte Struktur der Auswertung des Ergebnis eines neuronalen Netzes}
     \label{fig:impl02}
 \end{figure}
@@ -94,16 +94,17 @@ Beispiele für diese Visualisierung sind im Evaluationskapitel zu finden.
 Im Kontext des maschinellen Lernens bezeichnet man jene Variablen als Hyperparameter, 
 die bereits vor dem Beginn des Trainings festgelegt sein müssen.
 Beispiele für solche Hyperparameter sind zum Beispiel Aspekte der Netzarchitektur, wie die Anzahl der Layers und ihre jeweilige Größe 
-oder speziell im Falle dieser Arbeit die \textit{FeatureSize}, die festlegt, welche Form der Input des Netzes annimmt.
+oder speziell im Falle dieser Arbeit die \textit{FeatureSize}, die festlegt welche Form der Input des Netzes annimmt.
 Auch Parameter, die festlegen wie das Netz lernt - also Lernrate oder die Anzahl der Epochen beim Training - zählen dazu.
 
-Die Implementierung dieser Arbeit hat die Definition der Hyperparameter aus dem Programmcode selbst ausgelagert.
+Bei der Implementierung dieser Arbeit wurde die Definition der Hyperparameter aus dem Programmcode selbst ausgelagert.
 Stattdessen können sogenannte Hyperparameter Dateien im JSON Dateiformat definiert werden, die dann vom Programm geladen werden.
-Dies vereinfacht das Training und das Testen von Netzen mit unterschiedlichen Hyperparametern, 
-wie es bei Netzen des NextStep Typs und des Separator Typs der Fall ist.
+Dies vereinfacht das Training und das Evaluieren von Netzen mit unterschiedlichen Hyperparameter-Konfigurationen.
 Einzelne Parameter aus den Dateien können per Kommandozeilenparameter überschrieben werden.
 Ein Beispiel für eine solche Hyperparameter Datei ist in Listing~\ref{lst-hyperparam} zu sehen.
 Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
+
+\todo[inline]{überlegen wir man das sinnvoll machen kann, dass das Listing seine eigene Seite kriegt und die Description sinnvoll anfängt.}
 
 \newpage
 
@@ -193,7 +194,7 @@ Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
     \item [dropoutRate] Wahrscheinlichkeit für das zufälliges Ausschalten von einzelnen Neuronen beim Training, entsprechend der Beschreibung in Unterabschnitt~\ref{ssec:Regul}.
     \item [hiddenLayers] Ein Array an Zahlen, das die Architektur der Hidden Layers repräsentiert. Jede Zahl steht für ein FC Layer mit der entsprechenden Anzahl Neuronen.
     \item [featureSize] Anzahl der vergangen Positionen, die das Netz als Eingabe bekommt.
-    \item [activation] Legt die Aktivierungsfunktionen für die Neuronen der Hidden Layers fest. Valide Werte sind ReLU, Leaky ReLU und lineare Aktivierungsfunktionen.
+    \item [activation] Legt die Aktivierungsfunktionen für die Neuronen der Hidden Layers fest. Valide Optionen sind ReLU, Leaky ReLU und lineare Aktivierungsfunktionen.
     % - optionen: "relu", "leaky_relu", "linear"
 \end{description}
 
@@ -204,7 +205,7 @@ Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
     \item[dataPath] Ort im Dateisystem, wo die CSV Dateien mit den Track Informationen liegen.
     \item[modelBasePath] Ort im Dateisystem, an dem das Modell des Netzes und alle damit verbundenen Dateien gespeichert wird, beziehungsweise woher es geladen wird. 
     \item [imagePath] Ort im Dateisystem, wo sollen Schaubilder, Visualisierungen oder Ähnliches gespeichert werden sollen.
-    \item [separator] Hyperparameter, der festlegt, welcher Typ von Netz trainiert werden soll. Ob es den nächsten Schritt (0) oder zum Düsenbalken (1) prädizieren soll.
+    \item [separator] Hyperparameter, der festlegt, welcher Typ von Netz trainiert werden soll. Für NextStep Netze steht hier 0 und für Separator Netze 1.
 \end{description}
 
 % Falls Separator 1:
@@ -234,7 +235,7 @@ Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
     \item[testSize] Parameter, der die Aufteilung zwischen Trainings- und Testdaten festlegt. Ein Wert von 0.1 würde einen 90:10 Split Training zu Test bedeuten.  
     \item[augmentMidpoint] Koordinate, der Spiegelachse an der für die Data Augmentation gespiegelt wird.
     \item[augmentRange] Breite des Bandes, zu einer Seite, in dem die Spiegelung angewendet werden soll. Feature-Label-Paare mit einem Element außerhalb des Bandes werden ignoriert.
-    \item[direction] Bewegungsrichtung der Partikel. ``x'' bei simulierten Daten, ``y'' bei Selbstgesammelten.
+    \item[direction] Bewegungsrichtung der Partikel. ``x'' bei simulierten und ``y'' bei selbst gesammelten Daten.
     \item[unitLoc] Einheit des Orts. ``m'' beziehungsweise Meter bei simulierten Daten, ``px'' beziehungsweise Pixel bei Selbstgesammelten.
     \item[unitTime] Einheit der Zeit. 
     \item[limits] Bereich, der in der Visualisierung dargestellt wird.\\ \([0.388, \, 0.788, \ 0, \, 0.18]\) bei simulierten Daten und \([0,\, 2350, \ 0, \, 1750]\) bei Selbstgesammelten.

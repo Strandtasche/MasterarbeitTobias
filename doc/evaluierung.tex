@@ -271,7 +271,7 @@ definiert. Verglichen wird das NextStep Netz mit einem Constant Velocity Modell 
 Das neuronale Netz hat in allen bis auf einem der untersuchten Szenarien bessere Ergebnisse als die beiden Vergleichsmodelle geliefert.
 % \todo{kann man das bei den Simulierten Zylindern so sagen?}
 Es ist auf allen realen Datensätzen besser und hat bei den simulierten nur bei den Zylindern eine schlechtere Prädiktionsqualität.
-Repräsentativ für ihre jeweiligen Szenariokategorien sind in Abbildung~\ref{fig:boxplotErrorNNnextStep} der Boxplot für die selbstaufgenommenen Kugeln auf dem Förderband,
+Repräsentativ für ihre jeweiligen Szenariokategorien sind in Abbildung~\ref{fig:boxplotErrorNNnextStep} der Boxplot für die selbst aufgenommenen Kugeln auf dem Förderband,
 und in Abbildung~TODO der [Noch zu entscheiden] zu sehen.
 \todo[inline]{Entscheiden welches Zweite Szenario vorgestellt werden soll}
 In Abbildung~TODO sieht man das Fehlerhistogramm, dass zu Abbildung~\ref{fig:boxplotErrorNNnextStep} gehört.
@@ -314,7 +314,7 @@ Auch könnte die höhere Schüttgutdichte auf dem Förderband darauf einen Einfl
 Vergleich Realdaten und simulierte Daten.
 Realdaten mit ungefähr \SI{1.1}{\meter\per\second} während Simulierte mit \SI{1.5}{\metre\per\second} Bandgeschwindigkeit 
 
-Zylinder schlechte performance erklären \textrightarrow orientierung fehlt
+Zylinder schlechte performance erklären \textrightarrow orientierung fehlt?
 \color{black}
 
 \section{Separator}
@@ -335,9 +335,15 @@ Deshalb werden hier die zeitliche Abweichung vom prädizierten Kontaktzeitpunkt 
 Ebenso wie bei den NextStep Netzen werden hier ein Constant Velocity- und ein Constant Acceleration Modell als Vergleichsmodelle für die Ausgaben des neuronalen Netz benutzt.
 Es werden mehr Vergleichmodelle hinzugezogen. 
 Das Bias-Corrected Constant Velocity Modell liefert eine sowohl Prädiktion für den Zeit als auch für den Ort.
-Die Average Acceleration und Identical Acceleration Modelle werden nur für die zeitliche Prädiktion zum Vergleich herangezogen,
-weil ...
-\todo{begründung}.
+Die Average Acceleration und Identical Acceleration Modelle werden nur für die zeitliche Prädiktion zum Vergleich herangezogen.
+
+Die Evaluation, die hier durchgeführt wurde erfolg auf folgendem Szenario.
+Als Trainingsdaten wurden nur das jeweils letzte Feature-Label-Paar eines Tracks benutzt, bevor das entsprechende Partikel die Prädiktionsphase verlässt.
+Es wäre in der Zukunft möglich auf allen möglichen Feature-Label-Paaren zu trainieren um zu erreichen, dass der Ausgangspunkt verschoben werden kann ohne das Netz neu trainieren zu müssen.
+\todo{Hier weg und dafür in den Ausblick?}  
+Für die DEM Datensätze wurde von \(x = \SI{0.55}{\meter}\) nach \(x = \SI{0.70}{\meter}\) prädiziert, also \SI{15}{\centi\meter} nach vorne.
+Da der gesamte Bildausschnitt der selbst aufgenommenen Daten weniger als \SI{15}{\centi\meter} entlang der Bewegungsrichtung misst musste diese Distanz reduziert werden.
+Die letztendlich auf den selbst gesammelten Daten trainierten Netze prädizieren von \(y = \SI{800}{\px}\) nach \(y = \SI{1550}{\px}\), also eine Distanz von \SI{750}{\px}.
 
 
 

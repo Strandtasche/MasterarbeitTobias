@@ -10,8 +10,9 @@
 % 	- LSTM
 
 In diesem Kapitel soll eine kurze Einführung in die für das Verständnis der restlichen Arbeit benötigten Themengebiete gegeben werden.
-Primär sollen zunächst allgemein neuronale Netze und einige ihrer speziellere Aspekte betrachtet werden 
+Primär sollen zunächst allgemein neuronale Netze und einige ihrer speziellere Aspekte betrachtet werden, 
 bevor ein kurzer Blick auf das bei den Experimenten verwendete Schüttgutsortiersystem \textit{TableSort} geworfen wird. 
+[STAND DER TECHNIK!]
 
 % hier Könnte man das Kalman Filter Kapitel einfügen
 % \input{reserve/kalmanFilter.tex}
@@ -22,6 +23,8 @@ Als Neuronale Netze  % beziehungsweise \textit{künstliche neuronale Netze}, wie
 bezeichnet man in der Informatik Systeme aus künstlichen Neuronen, die heute eine wichtige Rolle im Feld des maschinellem Lernen einnehmen.
 Manchmal werden sie korrekter als \textit{künstliche neuronale Netze} bezeichnet um sie von \textit{natürlichen neuronalen Netzen} 
 wie dem menschlichen Gehirn zu unterscheiden, nach deren biologischem Vorbild sie modelliert sind.
+
+\todo[inline]{Motivation, warum neuronale Netze gut sind - Patternrecognition die zu kompliziert sind sie von hand zu implementieren.}
 
 Die Grundsteine des Feldes wurde bereits 1943 von Warren McCulloch und Walter Pitts gelegt~\cite{mcculloch1943logical}, 
 als sie ein Neuronenmodell vorschlugen, mit dem sich logische arithmetische Funktionen berechnen lassen. 
@@ -34,13 +37,13 @@ mittels neuronaler Netze erzielt wurden, wurde das Interesse an dem Feld neu ent
 
 \subsection{Perzeptron}
 Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt beschrieben wurde \cite{rosenblatt1958perceptron}.
-Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(o\) ausgibt.
+Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(y\) ausgibt.
 
 \begin{figure}[h]
     \centering
     % \missingfigure{Grafik Neuron}
 	\includegraphics[width=0.5\textwidth]{perceptron-2}
-	\caption{Schematischer Aufbau Neuron}
+	\caption[Schematischer Aufbau Neuron]{Aufbau eines Neurons: Die Eingaben $x_i$ werden gewichtet mit $w_i$ aufsummiert und nach Anwendung der Aktivierungsfunktion $\phi$ als $y$ ausgegeben.}
 	% \todo{Quelle Bild!}
 	\label{fig:singleNeuron}
 \end{figure}
@@ -56,7 +59,8 @@ Mathematisch ist die Ausgabe eines Perzeptrons also wie folgt definiert:
 \end{equation}
 
 Ein Überblick über verschiedene Aktivierungsfunktionen, die für solch ein Perzeptron benutzt werden, ist unter~\ref{sec:activationfuncs} zu finden.
-Beim Lernen werden die Gewichte der einzelnen Eingaben so angepasst, dass die gewünschte Ausgabe erreicht wird.
+Beim Lernen werden die Gewichte \(w_i\) so angepasst, dass die gewünschte Ausgabe für die jeweilige Eingabe erreicht wird.
+In der Anwendung sind die Gewichte dann fest.
 \todo{Vielleicht ein paar Sätze zum Perceptron Learning Algorithm?}
 Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen Operatoren AND, OR und NOT genutzt werden
 
@@ -64,16 +68,53 @@ Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen 
 % zum Beispiel den XOR Operator nicht auflösen.
 Ein Perzeptron ist jedoch nur ein linearer Klassifikator und kann dementsprechend zum Beispiel den XOR Operator nicht korrekt abbilden.
 Dies zeigten Marvin Minksy und Seymour Papert 1969 in einflussreichen Buch \textit{Perceptrons: an introduction to computational geometry}. \todo{quelle}
-\todo{Linear Trennbares / Nicht-linear Trennbares Problem (AND vs XOR)}
+\todo[inline]{(1) lineare Trennung mit perzeptron (2) xor-problem (3) nichtlineare trennung mit dem mehrschichtigen netz}
 Um solche nicht linear-separierbare Probleme zu lösen müssen mehrere Schichten an Neuronen kombiniert werden.
+
+
+\subsection{Feedforward Netze}
+
+% \textbf{absatz über Feedforward Netze. Basic}
+\color{blue}
+\begin{itemize}
+	\item Definition (keine Kreise oder Schleifen). (Kommentar Florian: \"Rückkopplung\")
+	\item Gegenstück zum RNN
+	\item grundlegende Architektur in Layern 
+	\item Aktivierungsfunktionen in Layern
+	\item Outputlayer: Verschiedene Aktivierungsfunktionen:
+	\item Linear für regression, z.B. Softmax für Wahrscheinlichkeitsverteilung Softmax
+\end{itemize}
+\color{black}
+
+
+
+Als Feedforward Netz bezeichnet man ein neuronales Netz, zwischen dessen Knoten keine Kreise oder Schleifen existieren.
+Ein Netz, in dem es solche Verbindungen gibt, bezeichnet man als \textit{Rekurrentes Neuronales Netz}.
+Die Informationen wandert in der Verarbeitungsrichtung von den Eingabeneuronen zu den Ausgabeneuronen.
+Für gewöhnlich sind die einzelnen Knoten in Schichten, sogenannten Layern, organisiert.
+Auf ein Eingabe- oder auch Input Layer folgen eine Menge an sogenannten Hidden Layers.
+Den Schlussstein bildet das Ausgabe- oder auch Output Layer.
+Die Neuronen eines einzelnen Hidden Layers sind meist uniform und verwenden identische Aktivierungsfunktionen, wie sie in Abschnitt~\ref{sec:activationfuncs} beschrieben sind.
+Je nachdem welche Aufgabe das neuronale Netz erfüllen soll können unterschiedliche Aktivierungsfunktionen für das Output Layer sinn ergeben.
+Häufig genutzt ist die \textit{Softmax} Funktion für Klassifikation, da sie eine Wahrscheinlichkeitsverteilung als Ausgabe hat.
+Für Regression benutzt man lineare Aktivierungsfunktionen für das Output Layer. 
+Durch die Hintereinanderschaltung von mehreren Layern von Neuronen können auch Probleme, die nicht linear-separierbar sind, gelöst werden.
+Tatsächlich sind solche Neuronalen Netze bewiesenermaßen universale Funktionsapproximatoren - 
+sie können mit endlich vielen Neuronen in den Hidden Layers beliebige kontinuierliche Funktionen auf kompakten Subsets von \(\mathbb{R}^n\) approximieren.
+\todo[inline]{mit Quelle belegen? Universal approximation theorem }
+Es gibt viele verschiedene Unterkategorien von Feedforward Netzen, die in verschiedensten Bereichen Verwendung finden.
+Convolutional Neural Networks zeichnen sich durch eine spezielle Struktur aus sogenannten Convolutional Layers aus, die als Featureextractor fungieren.
+Diese Art von Netz findet unter anderem in der Bildverarbeitung Anwendung.
+
 
 \subsection{Aktivierungsfunktionen}
 \label{sec:activationfuncs}
 % \todo[inline]{Entscheiden, ob diese Section weg soll, oder auf nur ReLU reduziert werden sollte}
 Es gibt verschiedene Aktivierungsfunktionen, die für den Einsatz in neuronalen Netzen in Frage kommen.
-Sie sind notwendig, da ohne eine Nicht-Linearität das Netz in eine einfache Regression kollabiert.
+Sie sind notwendig, da ohne eine Nicht-Linearität das Netz in eine lineare Regression kollabiert, 
+die dann wiederum nicht in der Lage ist nicht-lineare Funktionen darzustellen.
 
-Eine Aktivierungsfunktion sollte leicht abzuleiten sein, 
+Sowohl die Aktivierungsfunktion als auch ihre Ableitung sollte schnell zu berechnen sein, 
 da dies im Rahmen des Trainings mit dem Backpropagation Algorithmus häufig geschieht 
 und sonst beträchtlicher Rechenaufwand entsteht.
 \todo[inline]{das referenziert dinge von Backprop, die der Leser hier vielleicht noch gar nicht weiß - Nach hinten?}
@@ -88,7 +129,7 @@ Historisch ist häufig die Sigmoid-Funktion \(\sigma(x)\) verwendet worden, da s
 	\label{func:Sigmoid}
 \end{equation}
 In der Praxis jedoch haben sich einige Nachteile der Sigmoid-Funktion gezeigt.
-\todo{hier noch genauer drauf eingehen?}
+\todo{Probleme mit Sigmoid genauer beschreiben? saturation}
 Einige dieser Probleme konnten mit der Verwendung des Tangens hyperbolicus (tanh) behoben werden, 
 durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Linear Units}, oder kurz ReLUs.
 
@@ -155,39 +196,7 @@ durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Line
 
 
 
-\subsection{Feedforward Netze}
 
-% \textbf{absatz über Feedforward Netze. Basic}
-\color{blue}
-\begin{itemize}
-	\item Definition (keine Kreise oder Schleifen). (Kommentar Florian: \"Rückkopplung\")
-	\item Gegenstück zum RNN
-	\item grundlegende Architektur in Layern 
-	\item Aktivierungsfunktionen in Layern
-	\item Outputlayer: Verschiedene Aktivierungsfunktionen:
-	\item Linear für regression, z.B. Softmax für Wahrscheinlichkeitsverteilung Softmax
-\end{itemize}
-\color{black}
-
-
-
-Als Feedforward Netz bezeichnet man ein neuronales Netz, zwischen dessen Knoten keine Kreise oder Schleifen existieren.
-Ein Netz, in dem es solche Verbindungen gibt, bezeichnet man als \textit{Rekurrentes Neuronales Netz}.
-Die Informationen wandert in der Verarbeitungsrichtung von den Eingabeneuronen zu den Ausgabeneuronen.
-Für gewöhnlich sind die einzelnen Knoten in Schichten, sogenannten Layern, organisiert.
-Auf ein Eingabe- oder auch Input Layer folgen eine Menge an sogenannten Hidden Layers.
-Den Schlussstein bildet das Ausgabe- oder auch Output Layer.
-Die Neuronen eines einzelnen Hidden Layers sind meist uniform und verwenden identische Aktivierungsfunktionen, wie sie in Abschnitt~\ref{sec:activationfuncs} beschrieben sind.
-Je nachdem welche Aufgabe das neuronale Netz erfüllen soll können unterschiedliche Aktivierungsfunktionen für das Output Layer sinn ergeben.
-Häufig genutzt ist die \textit{Softmax} Funktion für Klassifikation, da sie eine Wahrscheinlichkeitsverteilung als Ausgabe hat.
-Für Regression benutzt man lineare Aktivierungsfunktionen für das Output Layer. 
-Durch die Hintereinanderschaltung von mehreren Layern von Neuronen können auch Probleme, die nicht linear-separierbar sind, gelöst werden.
-Tatsächlich sind solche Neuronalen Netze bewiesenermaßen universale Funktionsapproximatoren - 
-sie können mit endlich vielen Neuronen in den Hidden Layers beliebige kontinuierliche Funktionen auf kompakten Subsets von \(\mathbb{R}^n\) approximieren.
-\todo[inline]{mit Quelle belegen? Universal approximation theorem }
-Es gibt viele verschiedene Unterkategorien von Feedforward Netzen, die in verschiedensten Bereichen Verwendung finden.
-Convolutional Neural Networks zeichnen sich durch eine spezielle Struktur aus sogenannten Convolutional Layers aus, die als Featureextractor fungieren.
-Diese Art von Netz findet unter anderem in der Bildverarbeitung Anwendung.
 
 \subsection{Backpropagation}
 
@@ -381,13 +390,20 @@ Dropout als Technik wird insbesondere bei tiefen neuronalen Netzen mit einer hoh
 
 Der \textit{TableSort} Schüttgutsortierer ist eine modulare Versuchsplattform, die konzipiert wurde um neue Schüttgutsortierkonzepte in einem kleineren Rahmen experimentell erproben zu können.
 Industrielle Schüttgutsortieranlagen sind sehr groß und um etwas an ihrer Konfiguration zu ändern ist sowohl zeitaufwendig als auch arbeitsintensiv, 
-weshalb es sinnvoll ist, eine Plattform zu haben, die flexibel und transportabel ist und umgebaut werden kann.
+weshalb es sinnvoll ist, eine Plattform zu haben, die flexibel und transportabel ist und leicht umgebaut werden kann.
 Das System ist im Rahmen des \textit{TrackSort} Projekts in Kooperation zwischen dem Fraunhofer IOSB, Abteilung Sichtprüfsysteme, und dem Institut für Intelligente Sensor Aktor Systeme des Karlsruher Institut für Technologie entstanden\cite{doll2015}.
 Es kann in zwei verschiedenen Konfigurationen bezüglich des Schüttguttransports benutzt werden.
 Einmal werden die Schüttgutpartikel mittels eines Förderbands beschleunigt - diese Konfiguration ist in Abbildung~\ref{fig:tablesortsystem} zu sehen.
 Dazu kommt die Möglichkeit dieses Förderband mit einer Rutsche zu ersetzen, sodass die Schüttgutpartikel stattdessen durch die Schwerkraft beschleunigt werden. 
 Im Rahmen dieser Arbeit wurden die Flächenkamera Konfiguration mit einem Ringlicht zur Beleuchtung verwendet.
 Schematisch ist der Ablauf der Schüttgutsortierung in Abbildung~\ref{fig:aufbau_tablesort} zu sehen.
+Die Funktionsweise des Systems wird im folgenden erklärt.
+Das zu sortierende Schüttgut wird durch einen Schwingförderer nach und nach über eine Rutsche auf das Förderbands aufgebracht.
+Dort wird es in Richtung des Druckluftdüsenarrays beschleunigt. 
+Auf das vom Ringlicht beleuchtete Ende des Förderbands ist die Flächenkamera gerichtet.
+Kurz nachdem die Schüttgutpartikel die Flugphase beginnen passieren sie das Druckluftdüsenarray, wo sie entweder abgelenkt werden, 
+falls die Verarbeitung der Bilddaten von der Kamera sie als auszusortieren klassifiziert.
+
 \begin{figure}[h]
 	% \missingfigure{Bild von TablesortSystem}
 	\includegraphics[width=\textwidth]{TrackSortPic}
