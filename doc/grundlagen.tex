@@ -69,7 +69,7 @@ Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen 
 Ein Perzeptron ist jedoch nur ein linearer Klassifikator und kann dementsprechend zum Beispiel den XOR Operator nicht korrekt abbilden.
 Dies zeigten Marvin Minksy und Seymour Papert 1969 in einflussreichen Buch \textit{Perceptrons: an introduction to computational geometry}. \todo{quelle}
 \todo[inline]{(1) lineare Trennung mit perzeptron (2) xor-problem (3) nichtlineare trennung mit dem mehrschichtigen netz}
-Um solche nicht linear-separierbare Probleme zu lösen müssen mehrere Schichten an Neuronen kombiniert werden.
+Um solche nicht linear-separierbare Probleme zu lösen müssen mehrere Neuronen hintereinander geschaltet werden.
 
 
 \subsection{Feedforward Netze}
@@ -86,10 +86,9 @@ Um solche nicht linear-separierbare Probleme zu lösen müssen mehrere Schichten
 \end{itemize}
 \color{black}
 
-
-
-Als Feedforward Netz bezeichnet man ein neuronales Netz, zwischen dessen Knoten keine Kreise oder Schleifen existieren.
-Ein Netz, in dem es solche Verbindungen gibt, bezeichnet man als \textit{Rekurrentes Neuronales Netz}.
+Um die Limitation auf lineare Klassifikation eines einzelnen Perzeptrons zu überwinden kann man mehrere davon hintereinander schalten. 
+Die einfachste Art dies zu tun wird als Feedforward Netz bezeichnet.
+Mit diesem Begriff beschreibt man ein neuronales Netz, zwischen dessen Knoten keine Kreise beziehungsweise Schleifen existieren.
 Die Informationen wandert in der Verarbeitungsrichtung von den Eingabeneuronen zu den Ausgabeneuronen.
 Für gewöhnlich sind die einzelnen Knoten in Schichten, sogenannten Layern, organisiert.
 Auf ein Eingabe- oder auch Input Layer folgen eine Menge an sogenannten Hidden Layers.
@@ -101,11 +100,14 @@ Für Regression benutzt man lineare Aktivierungsfunktionen für das Output Layer
 Durch die Hintereinanderschaltung von mehreren Layern von Neuronen können auch Probleme, die nicht linear-separierbar sind, gelöst werden.
 Tatsächlich sind solche Neuronalen Netze bewiesenermaßen universale Funktionsapproximatoren - 
 sie können mit endlich vielen Neuronen in den Hidden Layers beliebige kontinuierliche Funktionen auf kompakten Subsets von \(\mathbb{R}^n\) approximieren.
+Das heißt zwar, dass es theoretisch für jede Funktion ein Netz gibt, das sie beschreiben kann, in der Praxis muss man dieses Netz auch finden und dann auch trainieren können.
 \todo[inline]{mit Quelle belegen? Universal approximation theorem }
 Es gibt viele verschiedene Unterkategorien von Feedforward Netzen, die in verschiedensten Bereichen Verwendung finden.
 Convolutional Neural Networks zeichnen sich durch eine spezielle Struktur aus sogenannten Convolutional Layers aus, die als Featureextractor fungieren.
 Diese Art von Netz findet unter anderem in der Bildverarbeitung Anwendung.
-
+Ein Netz in dem Kreise beziehungsweise Schleifen existieren, bezeichnet man als \textit{Rekurrentes Neuronales Netz}.
+Diese Netze werden vorallem dann eingesetzt, wenn die zeitliche Abfolge der Eingaben relevant ist, 
+da es im Gegensatz zu Feedforward Netzen einen internen Zustand erhält.
 
 \subsection{Aktivierungsfunktionen}
 \label{sec:activationfuncs}
@@ -131,7 +133,8 @@ Historisch ist häufig die Sigmoid-Funktion \(\sigma(x)\) verwendet worden, da s
 In der Praxis jedoch haben sich einige Nachteile der Sigmoid-Funktion gezeigt.
 \todo{Probleme mit Sigmoid genauer beschreiben? saturation}
 Einige dieser Probleme konnten mit der Verwendung des Tangens hyperbolicus (tanh) behoben werden, 
-durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Linear Units}, oder kurz ReLUs.
+aber das Problem der Saturierung, dass ihre Ableitung bei großen Beträgen beinah \(0\) wird, nicht.
+In letzter Zeit haben sich sogenannte \textit{Rectified Linear Units}, oder kurz ReLUs, durchgesetzt.
 
 % \begin{description}
 	
@@ -151,7 +154,7 @@ durchgesetzt haben sich jedoch in letzter Zeit sogenannte \textit{Rectified Line
 	Abbildung~\ref{reluoutput} zeigt das Schaubild einer solchen ReLU. 
 	% \todo{ReLU plot neu machen: dicker bei unter 0 und als Vector graphic statt als PNG}
 	Die Aktivierung von ReLUs ist ein einfacher Schwellwert, der weit weniger rechenintensiv ist, als die aufwendigen Exponenzialfunktionen von Sigmoid und tanh.
-	In der Praxis hat sich zudem gezeigt, dass ReLus deutlich schneller konvergieren als Sigmoid- oder tanh-Neuronen.  
+	In der Praxis hat sich zudem gezeigt, dass ReLus deutlich schneller konvergieren als Sigmoid- oder tanh-Neuronen, da sie kein Problem mit Saturierung haben.
 	Krizhevsky et al. haben in ihrem Paper~\cite{NIPS2012_4824} einen Geschwindigkeitsgewinn um Faktor 6 feststellen können.
 	Ein Problem, das mit ReLUs jedoch existiert ist, dass einzelne Neuronen während dem Training "absterben" können, falls sie irgendwann in dem Bereich landen, wo der Gradient 0 ist.
 	Diese Neuronen sind dann für jeden beliebigen Input inaktiv und können niemals wieder etwas zur Ausgabe des Netzes beitragen.
@@ -222,7 +225,7 @@ Diese Eigenschaft von Trainingsdaten auf unabhängige Testdaten zu schließen wi
 Als Overfitting bezeichnet man es, wenn ein Modell sich zu sehr an ein gegebenes Datenset anpasst und 
 dafür in Kauf nimmt zusätzliche oder zukünftige Daten schlechter zu repräsentieren.
 Das System wird also schlechter darin zu generalisieren.
-Im Feld des überwachten Lernens beziehungsweise der neuronalen Netze ist Overfitting daran zu erkennen,
+Im Feld des überwachten Lernens - beziehungsweise der neuronalen Netze - ist Overfitting daran zu erkennen,
 dass die Qualität die Ausgaben des Netzes auf dem Trainingsdatenset sich weiter verbessert,
 während sie auf dem Testdatenset schlechter wird.
 Dies kann zum Beispiel der Fall sein, wenn das Modell Rauschen in den Testdaten als Teil der zugrundeliegenden Struktur interpretiert. 
@@ -231,13 +234,13 @@ Dies kann zum Beispiel der Fall sein, wenn das Modell Rauschen in den Testdaten 
 Dem Overfitting gegenüber steht das Underfitting. 
 Als Underfitting bezeichnet man wenn das Netz nicht in der Lage ist
 eine ausreichend gute Performance auf den Trainingsdaten zu erreichen.
-Das kann passieren wenn das Modell nicht ausreichend komplex ist um die zugrundeliegende Struktur der Daten abzubilden.
+Das kann passieren wenn das Modell nicht ausreichend komplex ist, um die zugrundeliegende Struktur der Daten abzubilden.
 
 
 Sowohl Overfitting als auch Underfitting hängen mit der Kapazität eines Netzes zusammen.
 Ist die Kapazität zu gering, kann es sein, dass das Netz daran scheitert die Trainingsdaten zu lernen.
-Ist die Kapazität zu groß, so kann es passieren, dass das Netz, umgangsprachlich ausgedrückt, die Trainingsdaten einfach auswendig lernt.
-\todo{umgangsprachlich mit einer besseren Formulierung ersetzen...}
+Ist die Kapazität zu groß, so kann es passieren, dass das Netz gewissermaßen die Trainingsdaten einfach auswendig lernt.
+% \todo{umgangsprachlich mit einer besseren Formulierung ersetzen...}
 
 Dies ist beispielhaft in Abbildung~\ref{fig:capacity} zu sehen.
 Aus der zugrundeliegenden \( \cos \)-Funktion werden Stichproben mit einem Rauschterm entnommen. 
@@ -305,8 +308,11 @@ zum Beispiel indem die Anzahl der zur Verfügung stehenden Layer reduziert wird.
 \end{itemize}
 \color{black}
 
-Als Regularisierung bezeichnet man eine Technik, die zur Vermeidung von Overfitting verwendet wird.
-Sie wird in der Hoffnung angewendet, dass das Modell mit Regularisierung besser generalisiert als ohne.
+Als Regularisierung bezeichnet man Techniken, die zur Vermeidung von Overfitting verwendet wird.
+% Sie wird in der Hoffnung angewendet, dass das Modell mit Regularisierung besser generalisiert als ohne.
+Im Gegensatz zu anderen Techniken des maschinellen Lernens, die den Fehler auf den Trainingsdaten reduzieren und damit potenziell indirekt auch den auf den Testdaten,
+soll hier primär der Fehler auf den Testdaten reduziert werden, selbst wenn das zu schlechteren Ergebnissen auf den Trainingsdaten führt.
+Das Ziel ist also bessere Generalisierung.
 
 Eine Möglichkeit ist, dass zur Loss Funktion ein Regularisierungsterm \(R\) hinzugefügt wird, 
 der die Kosten basierend auf der Komplexität des Systems erhöht.
@@ -325,14 +331,14 @@ Wählt man ihn zu groß, so kann es sein, dass das Modell das Problem nicht mehr
 Der Regularisierungsterm \(R\) wird so gewählt, dass er die Komplexität der Funktion \(f\) widerspiegelt.
 Ein gutes Maß für die Komplexität eines neuronalen Netzes sind die Gewichte zwischen den Neuronen.
 Beispiele für \(R\) wären zum Beispiel die \(L_1\)- oder die \(L_2\)-Regularisierung. % die jeweils mit der \(L_1\) beziehungsweise mit der \(L_2\)-Norm arbeiten.
-Der entscheidende Unterschied zwischen den beiden ist der unterschiedliche Strafterm, zu sehen in~\ref{eqn:MSE-L1} für \(L_1\) und~\ref{eqn:MSE-L2} für \(L_2\). 
+Der entscheidende Unterschied zwischen den beiden ist der unterschiedliche Strafterm, zu sehen in Gleichung~\eqref{eq:MSE-L1} für \(L_1\) und Gleichung~\eqref{eq:MSE-L2} für \(L_2\). 
 Die Fehlerfunktionen sind jeweils MSE mit dazugehörigen Strafterm.
 
-\begin{equation} \label{eqn:MSE-L1}
+\begin{equation} \label{eq:MSE-L1}
 	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j, k} (|\mat{W}_{j,k}|)
 \end{equation} 
 
-\begin{equation} \label{eqn:MSE-L2}
+\begin{equation} \label{eq:MSE-L2}
 	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j, k} (\mat{W}_{j,k}^2)
 \end{equation} 
 
