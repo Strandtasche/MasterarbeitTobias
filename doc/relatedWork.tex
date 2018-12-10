@@ -2,13 +2,49 @@
 
 Notizen:
 \todo[inline]{Das aller aller dickste TODO}
-
+\color{blue}
 Wie wird das, was ich dann mit Neuronalen Netzen machen möchte aktuell gemacht?
 
 
 Teilaspekt vom Tracksort Multi-Targettracking: Bewegungsprädiktion.
 Primär Florian's Dissertation: Kapitel 4.
-Einige
 
+
+\begin{itemize}
+    \item Im Rahmen dieser Arbeit es geht um die Prädiktion der Bewegung von Schüttgutpartikeln.
+    \item "Bewegungsmodell" bei Zeilenkamera: Identical Delay, weil nur eine Beobachtung.
+    \item Modelle erst seit Flächenkamera notwendig.
+    \item Vorraussetzung: Trackassoziationen.
+    \item Aber: wir nehmen dieses Problem als gelöst an.
+    \item In der Realität ist es das nicht (MA Tobi K), reale daten sind nicht zwingend 100\% genau, aber wir arbeiten mal damit.
+    \item in Florians Diss: mehrere Modelle beschrieben zum prädizieren:
+    \item CV und CA, und was die dahinterstehenden Annahmen sind.
+    \item CV: Konstante geschwindigkeit - Perfekte Beruhigung
+    \item CA: Konstante Beschleuningung - Geschwindigkeit ändert sich Konstante
+    \item Dazu kommen noch Szenario spezifische Modelle, bei denen gezeigt wurden, dass sie für das Szenario besser sind.
+    \item CVBC, IA - upgrades.
+    \item Vorgriff ins evaluationskapitel? - dort wird dann behandelt wie man sie Mathematisch beschreibt. 
+\end{itemize}
+
+\color{black}
+
+
+Im Rahmen dieser Arbeit geht es um die Prädiktion der Bewegungsprädiktion von Schüttgutpartikeln.
+Der Einsatz von verschiedenen Bewegungsmodellen ist erst für Schüttgutsortierer mit Flächenkamera sinnvoll.
+Eine Zeilenkamera liefert nur einen einzelnen Datenpunkt bezüglich Zeit und Position eines Partikels.
+In~\cite{Pfaff2018} wird unter anderem ein Bewegungsmodell beschrieben, das das Verhalten eines Schüttgutsortierers mit Zeilenkamera emuliert.
+Wie in schon in Abbildung~\ref{fig:predMissed} dargestellt wurde, muss angenommen werden, dass es zu keinerlei Bewegung orthogonal zur Transportrichtung kommt.
+Für die Prädiktion des Zeitpunkts wird die durchschnittliche Zeit bestimmt, die ein Partikel von der Position der Zeilenkamera zur Position des Druckluftdüsenarrays benötigt 
+und diese als konstanter Offset für jede Partikeldetektion angenommen.
+
+Um den Separationsprozess durch den Einsatz von prädiktiven Tracking Methoden und Bewegungsmodellen zu verbessern ist eine Assoziation 
+der beobachteten Partikelpositionen zu tatsächlichen Tracks notwendig. 
+Im Rahmen dieser Arbeit wird dieses Problem nicht betrachtet. 
+Es wird direkt mit den assozierten Trackdaten gearbeitet, 
+obwohl dieser Assoziationsprozess noch Gegenstand aktueller Forschung ist.
+\todo{hier schon erwähnen, dass die Assoziation auf den selbst gesammelten Daten vielleicht flawed ist?}
+
+Die grundlegenden Bewegungsmodelle, die in \cite{Pfaff2018} beschrieben werden sind 
+einerseits das Constant Velocity Modell und andererseits das Constant Acceleration Modell.
 
 
