@@ -35,7 +35,7 @@ In dieser Arbeit soll es insbesondere um die bilddatenbasierte beziehungsweise o
 \color{black}
 
 \todo[inline]{arbeit motivieren. Schüttgutsortierung ist ein interessantes Feld, das sich potenziell für ML anbietet.}
-\todo[inline]{auf jeden fall separator und nextStep Netze unterscheidung erwähnen}
+\todo[inline]{auf jeden fall separator- und NextStep-Netze unterscheidung erwähnen}
 
 Der Großteil der heute in der Industrie eingesetzten optischen Schüttgutsortierer verwenden Zeilenkameras.
 Diese haben jedoch den Nachteil, dass die Annahme getroffen werden muss, dass die Schüttgutpartikel keinerlei Geschwindigkeit orthogonal zur Transportrichtung haben.
@@ -52,7 +52,7 @@ wurde die Verbesserung der Schüttgutsortierung durch den Einsatz von Trackingve
     \centering
     \includegraphics[width=0.8\textwidth]{PredictionMissed_translated.pdf}
     \caption{Darstellung einer Fehlseparierung durch die Annahme, dass es keine Bewegung orthogonal zur Transportrichtung gibt. 
-    Übersetzt aus~\cite{Pfaff2018}}
+    Übersetzt aus~\cite{Pfaff2018}.}
     \label{fig:predMissed}
 \end{figure}
 
@@ -64,11 +64,11 @@ Dabei wird exemplarisch am \textit{TableSort} Schüttgutsortier gearbeitet.
 
 Dafür sollen im Rahmen dieser Arbeit zwei verschiedene Prädiktionsprobleme durch neuronaler Netze gelöst werden.
 Einerseits soll vorhergesagt werden, an welcher Position sich ein Teilchen im nächsten Zeitschritt befinden wird.
-Solche Netze werden von hier an als NextStep Netze bezeichnet.
+Solche Netze werden von hier an als NextStep-Netze bezeichnet.
 Eine Visualisierung dieser Aufgabe ist in Abbildung~\ref{fig:visualsNextstep} zu sehen.
 Dies hilft dabei das Zuordnungsproblem bei Trackingverfahren zu lösen.
 Andererseits soll vorhergesagt werden an welcher Position und wann ein Teilchen das Druckluftdüsenarray passieren wird.
-Diese Problemstellung wird von den sogenannten Separator Netzen gelöst.
+Diese Problemstellung wird von sogenannten Separator-Netzen gelöst.
 Eine Visualisierung dieser Aufgabe ist in Abbildung~\ref{fig:visualsSeparator} zu sehen.
 Die Qualität dieser Prädiktion ist ausschlaggebend für den Erfolg der Separation.
 
@@ -76,7 +76,7 @@ Die Qualität dieser Prädiktion ist ausschlaggebend für den Erfolg der Separat
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{NextStep-45kDecaySteps-ZylinderReal_2018-11-29.pdf}
-    \caption{Visualisierung einer gelösten Probleminstanz eines NextStep Netzes}
+    \caption{Visualisierung einer gelösten Probleminstanz eines NextStep-Netzes.}
     \label{fig:visualsNextstep}
 \end{figure}
 
@@ -85,7 +85,7 @@ Die Qualität dieser Prädiktion ist ausschlaggebend für den Erfolg der Separat
     \centering
     % \missingfigure{Real_Weizen_final_separatorExample.pdf}
 	\includegraphics[width=0.8\textwidth]{Real_Weizen_final_separatorExample.pdf}
-	\caption{Visualisierung einer gelösten Probleminstanz eines Separator Netzes}
+	\caption{Visualisierung einer gelösten Probleminstanz eines Separator-Netzes.}
 	% \todo{Quelle Bild!}
 	\label{fig:visualsSeparator}
 \end{figure}

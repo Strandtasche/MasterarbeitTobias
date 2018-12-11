@@ -279,7 +279,7 @@ Dies ist der Zustand in dem die Daten dann im Programmcode geladen werden.
 % \color{black}
 
 Neben den selbst aufgenommenen Daten wurde im Rahmen dieser Arbeit auch mit einigen existierenden Datensätzen gearbeitet.
-Diese Datensätze wurden basierend auf einer hochgenauen numerischen Simulation des \textit{TableSort} Systems mittels der Diskrete-Elemente-Methode erstellt~\cite{pieper2016numerical}\,\cite{pieper2017numerical}.
+In \cite{pieper2016numerical}~und~\cite{pieper2017numerical} wird dargelegt wie diese Datensätze basierend auf einer hochgenauen numerischen Simulation des \textit{TableSort} Systems mittels der Diskrete-Elemente-Methode erstellt wurden.
 % \todo{interaktion Teilchen untereinander und mit dem Sortierer?}
 In Abbildung~\ref{fig:DEMSimulation} ist die virtuelle Nachbildung des Schüttgutsortierers zu sehen, auf dem die Simulation durchgeführt wurde.
 % Die Simulation wird mit einem Zeitschritt von \SI{1e-5}{\second} durchgeführt.
@@ -304,7 +304,7 @@ zu den Bewegungen der Partikel im Bereich auf den die Hochgeschwindigkeitskamera
 befinden sich in den DEM Datensätzen die Positionen der Teilchen über die gesamte Länge des Förderbandes.
 Das bedeutet auch, dass in den DEM Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden enthalten ist.
 Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, sprich mehr Messungen enthalten.
-Bei der NextStep Prädiktion sorgt das dafür, dass es eine deutlich größere Anzahl an Feature-Label-Paaren gibt.
+Bei der NextStep-Prädiktion sorgt das dafür, dass es eine deutlich größere Anzahl an Feature-Label-Paaren gibt.
 Die Bewegungsrichtung der Partikel ist ebenfalls nicht identisch.
 Während die selbst aufgenommenen Datensätze eine Bewegung entlang der y-Achse haben, bewegen sich die simulierten Partikel entlang der x-Achse.
 % \todo[inline]{Einheit real: Pixel, Einheit simuliert: m}
@@ -349,7 +349,7 @@ Während die selbst aufgenommenen Datensätze eine Bewegung entlang der y-Achse 
 % optional: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location...)
 % \color{black}
 
-Das Format, das die Daten annehmen, ist für die NextStep- und den Separator Netze leicht unterschiedlich.
+Das Format, das die Daten annehmen, ist für die NextStep- und den Separator-Netze leicht unterschiedlich.
 %  unterscheidet sich leicht zwischen den beiden Anwendungen.
 Die Feature-Label-Paare der unterschiedlichen Anwendungen unterscheiden sich nur in den Labeln.
 Die Eingangsdaten sind -- abhängig von einem Hyperparameter --
@@ -377,7 +377,7 @@ Wie in Abbildung~\ref{fig:FLPNext} dargestellt, befinden diese sich in der näch
 	\centering
 	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
 	\includegraphics[width=0.6\textwidth]{weizen_003_trackHistory_NothingDeleted-v3}
-	\caption[Beispiel Feature-Label-Paar NextStep]{An diesem Ausschnitt eines Tracks wird beispielhaft mit FeatureSize 5 gezeigt, wie die einzelnen Feature-Label-Paare im NextStep Fall entstehen.
+	\caption[Beispiel Feature-Label-Paar NextStep]{An diesem Ausschnitt eines Tracks wird beispielhaft mit FeatureSize 5 gezeigt, wie die einzelnen Feature-Label-Paare im NextStep-Fall entstehen.
 		Der rote Rahmen markiert die 10 Features. Der blaue Rahmen markiert das dazugehörigen Label. 
 		% Der blaue und der rote Rahmen werden parallel entlang des Tracks verschoben um alle möglichen Feature-Label-Paare zu erhalten. 
 		}
@@ -408,7 +408,7 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{geometrie}
-	\caption{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}}
+	\caption{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}.}
 	% \todo{Quelle - test?}
 	\label{fig:Schnittpunkt}
 \end{figure}
@@ -417,7 +417,7 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 	\centering
 	% \missingfigure{geometrische Bestimmung des Schnittpunkts mit dem Separator}
 	\includegraphics[width=0.6\textwidth]{weizen_003_trackHistory_NothingDeleted_sep-v3}
-	\caption[Beispiel Feature-Label-Paar Separator]{An diesem Ausschnitt eines Tracks wird beispielhaft mit FeatureSize 5 gezeigt, wie die einzelnen Feature-Label-Paare im Separator Fall entstehen.
+	\caption[Beispiel Feature-Label-Paar Separator]{An diesem Ausschnitt eines Tracks wird beispielhaft mit FeatureSize 5 gezeigt, wie die einzelnen Feature-Label-Paare im Separator-Fall entstehen.
 	Analog zu Abbildung~\ref{fig:FLPNext} ist ein Featurevektor markiert. Der Unterschied besteht in der Bestimmung der Labels. 
 	Der Schnittpunkt mit dem Druckluftdüsenarray befindet sich zwischen den beiden blau markierten Messungen und kann dementsprechend nicht direkt abgelesen werden.}
 	% \todo{Quelle - test?}
@@ -429,11 +429,11 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 Damit die Fehler der beiden Labelelemente sich ähnlich auf den Gesamtgradienten auswirken,
 selbst wenn ihre Werte in sehr unterschiedliche Wertebereichen liegen oder einfach unterschiedliche Einheiten haben, werden die Labels komponentenweise standardisiert.
 Dieses Problem würde zum Beispiel auftreten, wenn sich die Werte des einen Elements im Bereich zwischen 0 und 1700 bewegen, während die des Anderen zwischen 1 und 25 liegen,
-so wie es bei den Separator Netzen der Fall sein kann.
-Bei dem NextStep Fall wäre die Standardisierung nicht zwingend notwendig, 
+so wie es bei den Separator-Netzen der Fall sein kann.
+Bei dem NextStep-Fall wäre die Standardisierung nicht zwingend notwendig, 
 sie wurde allerdings, um die Einheitlichkeit zu wahren, für beide Fälle implementiert. 
 Für die Standardisierung wird von der jeweiligen Komponente der Mittelwert und die Standardabweichung berechnet. 
-Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\) subtrahiert, und durch die korrespondierende Standardabweichung \(\sigma\) dividiert
+Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\) subtrahiert, und durch die korrespondierende Standardabweichung \(\sigma\) dividiert.
 % Jedes Labelelement \(e\), sei es das erste oder das zweite Element seines entsprechenden Tupels, wird gemäß seiner Position vor dem Training angepasst,
 % indem davon der Durchschnitt aller ersten beziehungsweise zweiten Elemente abgezogen wird und dann durch die Standardabweichung aller ersten beziehungsweise zweiten Elemente geteilt wird.
 \todo[inline]{ist das hier verständlich?}
@@ -481,7 +481,7 @@ Diese Option könnte nützlich sein, falls die Ansteuerung der Druckluftdüsen e
 % \end{itemize}
 % \color{black}
 
-Als Datenaugmentierung oder auch Data Augmentation bezeichnet man Verfahren, die dem eigenen Datenset Datenpunkte hinzufügen ohne zusätzliche Daten aufzunehmen.
+Als Datenaugmentierung oder auch Data Augmentation bezeichnet man Verfahren, die dem eigenen Datenset Datenpunkte hinzufügen ohne zusätzliche Daten aufzunehmen~\cite[Kapitel 7.4]{Goodfellow-et-al-2016}.
 Man generiert aus den bestehenden Daten zusätzliche, synthetische Daten, die dann im Trainingsset eingesetzt werden können.
 Ausreichend viele Trainingsbeispiele zu haben ist notwendig, um mit neuronalen Netzen eine gute Performance zu erzielen.
 Die synthetischen Beispiele müssen jedoch konsistent mit den Originaldaten sein, da sie sonst die Qualität der Ausgabe des Netzes negativ beeinträchtigen können.
@@ -504,7 +504,7 @@ der benutzbaren Feature-Label-Paare im Trainingsset, wovon man sich einen positi
 	% \missingfigure{Visualisierung Dataaugmentation}
 	\centering
 	\includegraphics[width=\textwidth]{augmentationImage.pdf}
-	\caption{Visualisierung der Datenaugmentierung durch Spiegelung}
+	\caption{Visualisierung der Datenaugmentierung durch Spiegelung.}
 	% \todo{Quelle Bild!}
 	\label{fig:dataAugm}
 \end{figure}
@@ -521,7 +521,7 @@ Die Verteilung dieser Bilder ist in Abbildung~\ref{fig:barPics} dargestellt.
 	% \missingfigure{Visualisierung Dataaugmentation}
 	\centering
 	\includegraphics[width=\textwidth]{ImagesAmountPictures}
-	\caption{Balkendiagramm Verteilung Bilder}
+	\caption{Balkendiagramm Verteilung Bilder.}
 	% \todo{Quelle Bild!}
 	\label{fig:barPics}
 \end{figure}
@@ -540,7 +540,7 @@ Die Verteilung der Tracks ist in Abbildung~\ref{fig:barTracks} zu sehen.
 	% \missingfigure{Visualisierung Dataaugmentation}
 	\centering
 	\includegraphics[width=\textwidth]{ImagesAmountTracks}
-	\caption{Balkendiagramm Verteilung Tracks}
+	\caption{Balkendiagramm Verteilung Tracks.}
 	% \todo{Quelle Bild!}
 	\label{fig:barTracks}
 \end{figure}
@@ -586,7 +586,7 @@ Es ist jedoch möglich beliebige andere Splits in der Hyperparameter Datei festz
 
 
 % Labels:
-% Sehr straight forward für NextStep (Literally), einfach die nächste Zeile im Track jeweils für X und Y
+% Sehr straight forward für NextStep(Literally), einfach die nächste Zeile im Track jeweils für X und Y
 
 % für separator slightly more complicated: 
 % Element des Tracks vor und hinter der Separator position (entlang der Travel Achse)

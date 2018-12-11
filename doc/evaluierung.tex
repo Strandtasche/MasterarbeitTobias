@@ -1,6 +1,11 @@
 \chapter{Evaluation}
 \label{cap:Eval}
 
+Im vorhergegangenen Kapitel wurde die Implementierung der neuronalen Netze beschrieben.
+Nun wird in diesem Kapitel betrachtet, wie gut die Ergebnisse sind, die von diesen Netzen geliefert werden.
+Dazu wird zunächst beschrieben auf was für einem System das Training und die Evaluation durchgeführt wurde.
+Es werden mehrere, bereits aus dem Stand der Technik bekannte Modelle beschrieben, die mit den Ergebnissen der neuronalen Netze 
+verglichen werden.
 \todo[inline]{Im vorhergegangenen Kapitel wurde beschrieben, [wie die Netze designed wurde]
 Jetzt bewerten wie gut sie das eigentlich mache.}
 
@@ -25,11 +30,11 @@ Sei \( y(t)\) die Position des Partikels orthogonal zur Bewegungsrichtung in Abh
 Vergleich über Boxplots: Balken: 25\%-Quantil bis 75\%-Quantil.
 Roter Balken ist der Median. Der obere und der untere Whisker 
 gehen bis zum höchsten bzw. niedrigsten Wert, der nicht mehr als 2.7 Standardabweichungen vom Median abweicht
-Die Outlier werden nicht angezeigt.
+Die Outlier werden nicht abgebildet.
 
 \color{black}
 
-In diesem Abschnitt sollen die Modelle, mit denen die Ergebnisse der Neuronalen Netze verglichen werden, detaillierter beschrieben werden.
+In diesem Abschnitt sollen einige der Modelle detaillierter beschrieben werden, die schon in Abschnitt~\ref{cap:relWork} erwähnt wurden und mit denen die Ergebnisse der Neuronalen Netze nun verglichen werden.
 Mit Ausnahme des \textit{Average Acceleration} Modells stammen sie alle aus \cite{Pfaff2018} und sowohl Definition als auch Notation wurden von dort übernommen.
 Dabei seien \(x\) die Achse entlang der Bewegungsrichtung des Förderbands und \(y\) die Achse orthogonal zur Bewegungsrichtung des Förderbands.
 Zeitdiskreten Messungen entlang der einzelnen Achsen werden als \(\mathsf{x}_t\) beziehungsweise \(\mathsf{y}_t\) dargestellt.
@@ -38,7 +43,7 @@ Sei \(t^{\text{Last}}\) der Zeitpunkt der Beobachtung des aktuellsten Features u
 Sei \(\mathsf{x}^{\text{PredTo}}\) die Position des Druckluftdüsenarrays entlang der \(x\)-Achse.
 Sei \(t^{\text{Pred}}\) der Zeitpunkt an dem ein Partikel den Druckluftdüsenarray passiert.
 Sei \(\mathsf{y}^{\text{Pred}} = \mathsf{y}(t^{\text{Pred}})\) die Position entlang der \(y\)-Achse an dem der Partikel den Druckluftdüsenarray passiert.
-\(\Delta t = t^{\text{Pred}} - t^{\text{Last}} \) und \(\mathsf{y}^{\text{Pred}}\) dementsprechen den Labels der einzelnen Feature-Label-Paare für das Separator Netz.
+\(\Delta t = t^{\text{Pred}} - t^{\text{Last}} \) und \(\mathsf{y}^{\text{Pred}}\) dementsprechen den Labels der einzelnen Feature-Label-Paare für das Separator-Netz.
 \(\mathsf{x}(t^{\text{Last}} + 1)\) und \(\mathsf{y}(t^{\text{Last}} + 1)\) entsprechen den Labels der Feature-Label-Paare für das NextStep-Netz.
 Die verschiedenen Modelle können nun ebenso wie die Ergebnisse der verschiedenen Netze bewertet werden, 
 indem man die Abweichung zwischen dem Ergebnis in dem Modell und der Ground Truth in den Feature-Label-Paaren bestimmt.
@@ -77,7 +82,7 @@ Die fünf relevanten Charakteristiken, die in einem Boxplot dargestellt werden s
 der Median, das untere und obere Quartil sowie zwei sogenannte "Antennen" oder auch "Whisker", die die Position den letzten Datenpunkt innerhalb des 1.5-fachen Interquartilsabstands beschreiben.
 Die Position des Medians wird durch eine rote Linie verdeutlicht.
 Die namensgebende Box ist zwischen dem unteren und dem oberen Quartil aufgespannt.
-Für die Darstellung in dieser Arbeit wurde darauf verzichtet Ausreißer außerhalb der Antennen darzustellen.
+Für die Darstellung in dieser Arbeit wurde darauf verzichtet Ausreißer außerhalb der Antennen abzubilden.
 
 
 \todo[inline]{Irgendwo irgendwas dazu sagen, wie es mutmaßlich wirklich ist?
@@ -110,7 +115,7 @@ Daraus folgen die Positionsgleichungen
 \end{equation*}
 
 entlang der einzelnen Achsen.
-Für das NextStep Szenario ergibt sich die Prädiktionen mittels des CV Modells also aus
+Für das NextStep-Szenario ergibt sich die Prädiktionen mittels des CV Modells also aus
 \begin{equation*}
     \mathsf{x}(t\hitext{Last}+1) = \mathsf{x}^{\text{Last}} + \dot{\mathsf{x}}^{\text{Last}} \: ,
 \end{equation*}
@@ -118,7 +123,7 @@ Für das NextStep Szenario ergibt sich die Prädiktionen mittels des CV Modells 
     \mathsf{y}(t\hitext{Last}+1) = \mathsf{y}^{\text{Last}} + \dot{\mathsf{y}}^{\text{Last}} \: .
 \end{equation}
 
-Für das Separator Szenario lösen wir die Gleichung 
+Für das Separator-Szenario lösen wir die Gleichung 
 
 \begin{equation*}
     \mathsf{x}^{\text{PredTo}} = \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{x}}^{\text{Last}}
@@ -160,12 +165,12 @@ Analog zum Constant Velocity Modell können daraus die Positionsgleichungen
 
 abgeleitet werden.
 Genau wie beim Constant Velocity Modell werden nun jeweils entweder die Gleichung für \(t = \text{Last} + 1\) gelöst 
-um die Prädiktion für den Nextstep Fall oder \(\Delta t \) und daraus \(\mathsf{y}^{\text{Pred}}\) für den Separator Fall gelöst.
+um die Prädiktion für den Nextstep-Fall oder \(\Delta t \) und daraus \(\mathsf{y}^{\text{Pred}}\) für den Separator-Fall gelöst.
 
 
 \subsection{Bias-Corrected Constant Velocity Modell}
 
-In \cite{Pfaff2018} wurden weitere szenariospezifische Bewegungsmodelle beschrieben, die insbesondere die Qualität der zeitlichen Prädiktion für den Separator Fall verbessern.
+In \cite{Pfaff2018} wurden weitere szenariospezifische Bewegungsmodelle beschrieben, die insbesondere die Qualität der zeitlichen Prädiktion für den Separator-Fall verbessern.
 Das erste von diesen Modellen, das hier zum Vergleich mit den Ergebnissen der neuronalen Netze betrachtet werden soll ist eine Verbesserung des Constant Velocity Modells.
 Durch das Bestimmen des durchschnittlichen Bias bezüglich der Ankunftszeit des Partikels am Druckluftdüsenarray in den Trainingsdaten und das Abziehen des selben vom der Prädiktion der Testdaten kann verbessert sich die Qualität dieser Prädiktion.
 Dieser neuen Wert kann nun für Ortsprädiktion benutzt werden und verbessert auch diese.
@@ -242,23 +247,23 @@ Die Zeitprädiktion \(t\hitext{Pred}\) wird bestimmt indem wir
 
 nach \(t\) lösen.
 
-\todo{fertig machen}
+% \todo{fertig machen}
 
 \section{Next Step}
 
-\color{blue}
-Netz Variante 1: den nächsten Schritt vorhersagen
-\(\Delta t \) ist immer 1.
+% \color{blue}
+% Netz Variante 1: den nächsten Schritt vorhersagen
+% \(\Delta t \) ist immer 1.
 
 
-Für Nextstep gesucht: \( \mathsf{x}(t^{\text{Last}} + 1)\)
+% Für Nextstep gesucht: \( \mathsf{x}(t^{\text{Last}} + 1)\)
 
-\todo[inline]{Latex Tabelle des pandas Dataframe mit den Spalten GroundtruthX, GroundtruthY, 
-NNPrädiktionX, NNPrädiktion, CV\_X, CV\_Y, CA\_X, CA\_Y}
-\color{black}
+% \todo[inline]{Latex Tabelle des pandas Dataframe mit den Spalten GroundtruthX, GroundtruthY, 
+% NNPrädiktionX, NNPrädiktion, CV\_X, CV\_Y, CA\_X, CA\_Y}
+% \color{black}
 
-In dieser Sektion soll das Ergebnis der NextStep Netze in verschiedenen Szenarien betrachtet und diskutiert werden.
-Als Evaluationskriterium für die NextStep Netze wurde die Euklidische Distanz zwischen der Prädiktion des Modell und der Ground Truth gewählt.
+In dieser Sektion soll das Ergebnis der NextStep-Netze in verschiedenen Szenarien betrachtet und diskutiert werden.
+Als Evaluationskriterium für die NextStep-Netze wurde die Euklidische Distanz zwischen der Prädiktion des Modell und der Ground Truth gewählt.
 Der Gesamtfehler \(\varepsilon\hitext{Total} \) ist also durch 
 
 \begin{align*}
@@ -267,7 +272,7 @@ Der Gesamtfehler \(\varepsilon\hitext{Total} \) ist also durch
     \varepsilon\hitext{Total} &= \sqrt{ \mathsf{x}\hitext{Err}^2 +  \mathsf{y}\hitext{Err}^2}
 \end{align*}
 
-definiert. Verglichen wird das NextStep Netz mit einem Constant Velocity Modell und einen Constant Acceleration Modell.
+definiert. Verglichen wird das NextStep-Netz mit einem Constant Velocity Modell und einen Constant Acceleration Modell.
 
 Das neuronale Netz hat in allen bis auf einem der untersuchten Szenarien bessere Ergebnisse als die beiden Vergleichsmodelle geliefert.
 % \todo{kann man das bei den Simulierten Zylindern so sagen?}
@@ -289,7 +294,7 @@ Die Boxplots der übrigen Szenarien sind im Anhang zu finden.
     \centering
     \missingfigure{Boxplots Result NeuralNets NextStep}
 	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
-	\caption{Evaluation für die NextStep Prädiktion - VORLÄUFIG!}
+	\caption{Evaluation für die NextStep-Prädiktion - VORLÄUFIG!}
 	% \todo{Quelle Bild!}
 	\label{fig:boxplotErrorNNnextStep}
 \end{figure}
@@ -330,10 +335,10 @@ zusätzlich: CVBC, AA und IA
 
 
 
-In dieser Sektion sollen nun die Ergebnisse der Separator Netze in verschiedenen Szenarien betrachtet und diskutiert werden.
+In dieser Sektion sollen nun die Ergebnisse der Separator-Netze in verschiedenen Szenarien betrachtet und diskutiert werden.
 Im Gegensatz zu diesen können die beiden Labelelemente nicht in einem gemeinsamen Evaluationskriterium zusammengefasst werden.
 Deshalb werden hier die zeitliche Abweichung vom prädizierten Kontaktzeitpunkt mit dem Druckluftdüsenarray und die örtliche Abweichung des Schnittpunkts des Bahn des Partikels mit dem Druckluftdüsenarray separat betrachtet.
-Ebenso wie bei den NextStep Netzen werden hier ein Constant Velocity- und ein Constant Acceleration Modell als Vergleichsmodelle für die Ausgaben des neuronalen Netz benutzt.
+Ebenso wie bei den NextStep-Netzen werden hier ein Constant Velocity- und ein Constant Acceleration Modell als Vergleichsmodelle für die Ausgaben des neuronalen Netz benutzt.
 Es werden mehr Vergleichmodelle hinzugezogen. 
 Das Bias-Corrected Constant Velocity Modell liefert eine sowohl Prädiktion für den Zeit als auch für den Ort.
 Die Average Acceleration und Identical Acceleration Modelle werden nur für die zeitliche Prädiktion zum Vergleich herangezogen.
@@ -352,7 +357,7 @@ Die letztendlich auf den selbst gesammelten Daten trainierten Netze prädizieren
     \centering
     \missingfigure{Boxplots Result NeuralNets Separator}
 	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
-	\caption{Evaluation für die Separator Prädiktion}
+	\caption{Evaluation für die Separator-Prädiktion.}
 	% \todo{Quelle Bild!}
 	\label{fig:boxplotErrorNNSeparator}
 \end{figure}

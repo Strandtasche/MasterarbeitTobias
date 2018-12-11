@@ -1,8 +1,8 @@
 \chapter{Umsetzung und Implementierung}
 
-In diesem Kapitel wird beschrieben, wie die neuronalen Netze, die für die Schüttgutprädiktion verwendet werden sollen,
-umgesetzt und implementiert wurden.
-Dafür wird auf die verwendete Software eingegangen und die Struktur der finalen Implementierung anhand eines Flussdiagramms betrachtet.
+In diesem Kapitel wird beschrieben, wie die neuronalen Netze, die für die Schüttgut\-prädiktion verwendet werden sollen,
+umgesetzt wurden.
+Dafür wird auf die verwendete Software eingegangen und die Struktur der Implementierung anhand eines Flussdiagramms betrachtet.
 Am Ende des Kapitels wird ein genauerer Blick auf die verwendeten Hyperparameter und deren Optimierung geworfen.
 
 % \todo[inline]{Sinnvoller einstiegstext in das Kapitel}
@@ -26,13 +26,13 @@ Für die Umsetzung der neuronalen Netze wurde im Rahmen dieser Arbeit
 das Open Source Framework TensorFlow\footnote{https://www.tensorflow.org/} verwendet.
 Es wurde die \texttt{tensorflow-gpu} Variante mittels pip in einer Python~3.6.5 virtuellen Umgebung installiert.
 Zu Beginn der Arbeit wurde die zum damaligen Zeitpunkt aktuelle TensorFlow Version 1.8 installiert, die zu einem späteren Zeitpunkt durch die Version~1.11 ersetzt wurde.
-Für den Umgang mit den Daten wurde die Python Bibliothek \textit{pandas} in der Version~0.23.1 genutzt.
-Weitere wichtige Software, die verwendet wurde 
+Für den Umgang mit den Daten wurde die Python-Bibliothek \textit{pandas} in der Version~0.23.1 genutzt.
+Weitere wichtige Software, die verwendet wurde,
 % sind \textit{pandas} in der Version~0.23.1, was für den Umgang mit den Daten genutzt wurde, und 
-ist die Python Bibliothek \textit{matplotlib} in der Version~3.0.0, mit dem die Visualisierung der Ergebnisse und die meisten Grafiken dieser Arbeit generiert wurden.
-Des Weiteren wurden die Python Bindings von \textit{OpenCV} in der Version~3.4.1.15 für die Verarbeitung der aufgenommen Bilder verwendet.
+ist die Python-Bibliothek \textit{matplotlib} in der Version~3.0.0, mit dem die Visualisierung der Ergebnisse und die meisten Grafiken dieser Arbeit generiert wurden.
+Des Weiteren wurden die Python-Bindings von \textit{OpenCV} in der Version~3.4.1.15 für die Verarbeitung der aufgenommen Bilder verwendet.
 Der existierende \textit{Multi-Target-Tracking}-Algorithmus ist in \textsc{Matlab} implementiert worden. 
-Deshalb sind Teile des Projekts, die direkt darauf aufbauen ebenfalls in \textsc{Matlab} geschrieben.
+Deshalb sind Teile des Projekts, die direkt darauf aufbauen, ebenfalls in \textsc{Matlab} geschrieben.
 
 % \todo[inline]{Aufpassen dass das nicht zu viel wird}
 
@@ -47,8 +47,8 @@ Dies resultiert in dem trainierten Modell, das nun für die Prädiktion genutzt 
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=0.75\textwidth]{implementation01v4.pdf}
-    \caption{Skizzierter Trainingsablauf eines neuronalen Netzes}
+    \includegraphics[width=0.75\textwidth]{implementation01v5.pdf}
+    \caption{Skizzierter Trainingsablauf eines neuronalen Netzes.}
     \label{fig:impl01}
 \end{figure}
 
@@ -60,7 +60,7 @@ Am Ende steht als Ergebnis ein einzelnes \textit{pandas DataFrame} in dem alle F
 die Prädiktionen des Netzes und die Prädiktionen der verschiedenen Vergleichsmodelle jeweils für alle Feature-Label-Paare des Testsets enthalten sind.
 Hinzu kommen noch die Fehler all dieser Prädiktionen, also die Differenz zwischen der Ground Truth, die im Label steht, und den Prädiktionen selbst.
 Diese Fehler werden dann analysiert.
-Es werden Durchschnitt, Median und Quartile gebildet, welche dann mittels Boxplots und Histogrammen visualisiert.
+Es werden Durchschnitt, Median und Quartile gebildet, welche dann mittels Boxplots und Histogrammen visualisiert werden.
 Diese Diagramme sind in Kapitel~\ref{cap:Eval} zu finden.
 
 \todo[inline]{Tabelle mit inhalt von Dataframe?}
@@ -69,8 +69,8 @@ Diese Diagramme sind in Kapitel~\ref{cap:Eval} zu finden.
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=0.75\textwidth]{implementation02v2.pdf}
-    \caption{Skizzierte Ablauf der Auswertung des Ergebnis eines neuronalen Netzes}
+    \includegraphics[width=0.75\textwidth]{implementation02v3.pdf}
+    \caption{Skizzierte Ablauf der Evaluation eines neuronalen Netzes.}
     \label{fig:impl02}
 \end{figure}
 
@@ -94,23 +94,24 @@ Diese Diagramme sind in Kapitel~\ref{cap:Eval} zu finden.
 
 Im Kontext des maschinellen Lernens bezeichnet man jene Variablen als Hyperparameter, 
 die bereits vor dem Beginn des Trainings festgelegt sein müssen.
-Beispiele für solche Hyperparameter sind unter anderem Aspekte der Netzarchitektur, wie die Anzahl der Layers und ihre jeweilige Größe 
-oder speziell im Falle dieser Arbeit die \textit{FeatureSize}, die festlegt welche Form der Input des Netzes annimmt.
-Auch Parameter, die festlegen wie das Netz lernt - also Lernrate oder die Anzahl der Epochen beim Training - zählen dazu.
+Beispiele für solche Hyperparameter sind unter anderem die Netzarchitektur, wie die Anzahl der Layers und ihre jeweilige Größe 
+oder die \textit{FeatureSize}.
+Dieser Parameter legt fest, welche Form der Input des Netzes annimmt.
+Auch Parameter, die festlegen wie das Netz lernt -- also Lernrate oder die Anzahl der Epochen beim Training -- zählen dazu.
 
 Bei der Implementierung dieser Arbeit wurde die Definition der Hyperparameter aus dem Programmcode selbst ausgelagert.
-Stattdessen können sogenannte Hyperparameter-Dateien im JSON-Dateiformat definiert werden, die dann vom Programm geladen werden.
+Es können sogenannte Hyperparameter-Dateien im JSON-Dateiformat definiert werden, die dann vom Programm geladen werden.
 Dies vereinfacht das Training und das Evaluieren von Netzen mit unterschiedlichen Hyperparameter-Konfigurationen.
 Einzelne Parameter aus den Dateien können per Kommandozeilenparameter überschrieben werden.
 Ein Beispiel für eine solche Hyperparameter-Datei ist in Listing~\ref{lst-hyperparam} zu sehen.
-Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
+Die Bedeutung der einzelnen Parameter wird im Folgenden erklärt.
 
 \todo[inline]{überlegen wir man das sinnvoll machen kann, dass das Listing seine eigene Seite kriegt und die Description sinnvoll anfängt.}
 
 \newpage
 
 \noindent\begin{minipage}{\textwidth}
-\begin{lstlisting}[language=json,firstnumber=1, caption={Beispiel einer Hyperparameter-Datei in JSON}, captionpos=b, label=lst-hyperparam]
+\begin{lstlisting}[language=json,firstnumber=1, caption={Beispiel einer Hyperparameter-Datei in JSON.}, captionpos=b, label=lst-hyperparam]
 
     {
         "arch": {
@@ -193,9 +194,9 @@ Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
 {\Large \sffamily \textbf{arch}}
 \begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries separatorPosition}, labelindent=0.5cm]
     \item [dropoutRate] Wahrscheinlichkeit für das zufällige Ausschalten von einzelnen Neuronen beim Training, entsprechend der Beschreibung in Unterabschnitt~\ref{ssec:Regul}.
-    \item [hiddenLayers] Ein ein­di­men­si­o­nales Array an Zahlen, das die Architektur der Hidden Layers repräsentiert. Jede Zahl steht für ein Fully-Connected Layer mit der entsprechenden Anzahl Neuronen.
-    \item [featureSize] Anzahl der vergangenen Positionen, die das Netz als Eingabe bekommt.
-    \item [activation] Legt die Aktivierungsfunktionen für die Neuronen der Hidden Layers fest. Valide Optionen sind ReLU, Leaky ReLU und lineare Aktivierungsfunktionen.
+    \item [hiddenLayers] Ein ein­di­men­si­o­nales Array an Zahlen, das die Architektur der Hidden Layers repräsentiert. Jede Zahl repräsentiert ein Fully-Connected Layer mit der entsprechenden Anzahl Neuronen.
+    \item [featureSize] Anzahl der letzten Positionen des Partikels, die das Netz als Eingabe bekommt.
+    \item [activation] Legt die Aktivierungsfunktionen für die Neuronen der Hidden Layers fest. Valide Optionen sind ReLU, Leaky\_ReLU und linear, um lineare Aktivierungsfunktionen zu benutzen.
     % - optionen: "relu", "leaky_relu", "linear"
 \end{description}
 
@@ -203,10 +204,10 @@ Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
 {\Large \sffamily \textbf{problem}}
 
 \begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries separatorPosition}, labelindent=0.5cm]
-    \item[dataPath] Ort im Dateisystem, wo die CSV-Dateien mit den Track Informationen liegen.
+    \item[dataPath] Ort im Dateisystem, wo die CSV-Dateien liegen, in denen die Tracks gespeichert sind.
     \item[modelBasePath] Ort im Dateisystem, an dem das Modell des Netzes und alle damit verbundenen Dateien gespeichert wird, beziehungsweise woher es geladen wird. 
     \item [imagePath] Ort im Dateisystem, wo Schaubilder, Visualisierungen oder Ähnliches gespeichert werden sollen.
-    \item [separator] Hyperparameter, der festlegt, für welche Art von Aufgabe das Netz trainiert werden soll. Für NextStep Netze steht hier 0 und für Separator Netze 1.
+    \item [separator] Hyperparameter, der festlegt, für welche Art von Aufgabe das Netz trainiert werden soll. 0 bedeutet es wird ein NextStep-Netz trainiert. 1 bedeutet es wird ein Separator-Netz trainiert.
 \end{description}
 
 % Falls Separator 1:
@@ -221,11 +222,11 @@ Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
 
 \begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries separatorPosition}, labelindent=0.5cm]
     \item[batchSize] Die Anzahl der Feature-Label-Paare, die in einer Iteration betrachtet werden.
-    \item[epochs] Die Anzahl der Epochen, für die trainiert wird.
+    \item[epochs] Die Anzahl der Epochen nach denen das Trainings beendet wird.
     \item[stepsPerEpoch] Die Anzahl der Iterationen, die in einer Epoche durchgeführt werden.  
     \item[learningRate] Anfängliche maximale Lernrate, mit der die Gewichte geändert werden
-    \item[decaySteps] Parameter, der festlegt, wie schnell die maximale Lernrate reduziert wird. 
-    \item[optimizer] Der Optimierer, der fürs Training verwendet wird.
+    \item[decaySteps] Parameter, der festlegt, wie schnell die maximale Lernrate reduziert wird. Wie dieser Parameter verwendet wird, wird im weiteren Kapitel erklärt.
+    \item[optimizer] Der Optimierer, der fürs Training verwendet wird. Zulässig sind Adams, Adagrad und Gradient Descent
 \end{description}
 
 \bigskip
@@ -237,8 +238,8 @@ Die Bedeutung der einzelnen Parameter soll im folgenden erklärt werden.
     \item[augmentMidpoint] Koordinate der Spiegelachse, an der für die Data Augmentation gespiegelt wird.
     \item[augmentRange] Maximale Distanz eines Feature-Label-Paares zur Spiegelachse, bis wohin immer noch die Spiegelung angewendet werden soll. Feature-Label-Paare mit einem Element außerhalb des Bandes werden ignoriert.
     \item[direction] Bewegungsrichtung der Partikel. ``x'' bei simulierten und ``y'' bei selbst gesammelten Daten.
-    \item[unitLoc] Einheit des Orts. ``m'' beziehungsweise Meter bei simulierten Daten, ``px'' beziehungsweise Pixel bei selbst gesammelten Daten.
-    \item[unitTime] Einheit der Zeit. 
+    \item[unitLoc] Einheit des Orts in der Visualisierung. ``m'' beziehungsweise Meter bei simulierten Daten, ``px'' beziehungsweise Pixel bei selbst gesammelten Daten.
+    \item[unitTime] Einheit der Zeit in der Visualisierung. ``Frames '' beziehungsweise ``1/100 Frames'' für die hier verwendeten Daten.
     \item[limits] Bereich, der in der Visualisierung dargestellt wird.\\ \([0.388, \, 0.788, \ 0, \, 0.18]\) bei simulierten Daten und \([0,\, 2350, \ 0, \, 1750]\) bei selbst gesammelten Daten.
 
 \end{description}
@@ -278,16 +279,16 @@ Als Hyperparameter Optimierung oder auch Hyperparameter Tuning bezeicht man den 
 Hyperparametern für einen Lernalgorithmus zu finden.
 
 In Rahmen dieser Arbeit wurden die Hyperparameter für die verschiedenen Szenarien manuell angepasst und verglichen.
-Da es zu zeitintensiv wäre, diesen Vorgang für jedes einzelne Szenario, bestehend auf dem verwendeten Schüttgut und Art der Aufgabe, durchzuführen,
-wurde insgesamt nur zwei Sets an Hyperparametern gesucht.
-Jeweils eines für NextStep Netze und eines für Separator Netze.
+Da es zu zeitintensiv wäre, diesen Vorgang für jedes einzelne Szenario, bestehend aus dem verwendeten Schüttgut und der Art der Aufgabe, durchzuführen,
+wurden insgesamt nur zwei Sets an Hyperparametern gesucht.
+Eines davon wurde für NextStep-Netze angepasst und das andere für Separator-Netze.
 Diese wurden beiden auf dem DEM-Kugel-Datensatz optimiert und dann auf die anderen Datensätze angewendet.
 Von dieser Betrachtung ausgenommen wurden Hyperparameter, die das Lernen nicht beeinflussen.
 Dies sind die Parameter der Kategorien {\sffamily \textbf{problem}}, in der Dateipfade und Problemdefinitionen zu finden sind, 
 und {\sffamily \textbf{data}}, in der unter anderem die relative Größe des Testdatensets festgelegt wird.
 
 
-Für beide Arten von Netzen hat sich gezeigt, dass Dropout nicht nur keine Verbesserung mit sich bringt, sondern tatsächlich die Qualität der Ausgabe merklich reduziert.
+Für beide Arten von Netzen hat sich gezeigt, dass eine Regularisierung mittels Dropout nicht nur keine Verbesserung mit sich bringt, sondern tatsächlich die Qualität der Ausgabe merklich reduziert.
 Deshalb wurde für die letztendlich verwendete Trainingskonfiguration die Dropout Rate für alle Szenarien auf 0.0 gesetzt. 
 Auch bezüglich der Aktivierungsfunktionen und der Optimierer unterscheiden sich die beiden Aufgaben nicht. 
 In beiden Fällen haben sich Leaky ReLU und der Adam Optimizer als beste Option hervorgetan.
@@ -303,7 +304,7 @@ Die verwendete Lernrate entspricht dabei der folgenden Formel:
 Die Zerfallskonstante \(\lambda\) wurde als 0.96 festgelegt, während die Basislernrate und die Zerfallsschritte anpassbare Hyperparameter sind.
 
 
-Das Ergebnis des Hyperparameter Tunings bezüglich Netzarchitektur für die NextStep Netze ist in Abbildung~\ref{fig:netArchitectureNextStep} zu sehen.
+Das Ergebnis des Hyperparameter Tunings bezüglich Netzarchitektur für die NextStep-Netze ist in Abbildung~\ref{fig:netArchitectureNextStep} zu sehen.
 Auf den Testdaten produzierte von den erprobten Konfigurationen eine FeatureSize von 5 in Kombination mit 3 Hidden Layers mit jeweils 16 Neuronen die besten Ergebnisse.
 Was die Lernparameter angeht, so sieht das Ergebnis des Hyperparameter Tunings folgendermaßen aus:
 \begin{itemize}
@@ -316,16 +317,16 @@ Was die Lernparameter angeht, so sieht das Ergebnis des Hyperparameter Tunings f
     \centering
     % \missingfigure{Grafik architektur}
 	\includegraphics[width=\textwidth]{neuralNetImage}
-	\caption{Architektur eines Neuronales Netzes für die NextStep Prädiktion}
+	\caption{Architektur eines Neuronales Netzes für die NextStep-Prädiktion.}
 	% \todo{Quelle Bild!}
 	\label{fig:netArchitectureNextStep}
 \end{figure}
 
-Die Netzarchitektur, die für die Separator Netze  ermittelt wurde ist in Abbildung~\ref{fig:netArchitectureSep} zu sehen.
+Die Netzarchitektur, die für die Separator-Netze  ermittelt wurde ist in Abbildung~\ref{fig:netArchitectureSep} zu sehen.
 % \todo[inline]{Ergebnis von Hyperparameter Tuning für Separator Netze}\
-Hier produzierte eine FeatureSize von 7 bessere Ergebnisse.
-Dies erscheint plausibel, da für die Separator Netze im Gegensatz zu den NextStep Netzen eine höhere FeatureSize nicht mit einer Reduktion der Anzahl an Trainingsbeispielen einhergeht.
-\todo{Sind hier solche Vermutungen angebracht?}
+Hier sorgt eine FeatureSize von 7 für bessere Ergebnisse.
+Dies könnte zumindest teilweise damit erklärt werden, dass für die Separator-Netze im Gegensatz zu den NextStep-Netzen eine höhere FeatureSize nicht mit einer Reduktion der Anzahl an Trainingsbeispielen einhergeht.
+% \todo{Sind hier solche Vermutungen angebracht?}
 Des Weiteren haben 4 Layers mit jeweils 16 Neuronen die besten Ausgaben von den erprobten Konfigurationen erzielt.
 Das Hyperparameter Tuning hat für die restlichen Hyperparameter die folgenden Werte ergeben:
 \begin{itemize}
@@ -340,7 +341,7 @@ Das Hyperparameter Tuning hat für die restlichen Hyperparameter die folgenden W
     \centering
     % \missingfigure{Grafik architektur Separator}
 	\includegraphics[width=\textwidth]{neuralNetImageSeparator}
-	\caption{Architektur eines Neuronales Netzes für die Separator Prädiktion}
+	\caption{Architektur eines Neuronales Netzes für die Separator-Prädiktion.}
 	% \todo{Quelle Bild!}
 	\label{fig:netArchitectureSep}
 \end{figure}
