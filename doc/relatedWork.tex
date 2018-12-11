@@ -1,4 +1,5 @@
 \section{Stand der Technik}
+\label{cap:relWork}
 
 Notizen:
 \todo[inline]{Das aller aller dickste TODO}
@@ -19,7 +20,7 @@ Primär Florian's Dissertation: Kapitel 4.
     \item In der Realität ist es das nicht (MA Tobi K), reale daten sind nicht zwingend 100\% genau, aber wir arbeiten mal damit.
     \item in Florians Diss: mehrere Modelle beschrieben zum prädizieren:
     \item CV und CA, und was die dahinterstehenden Annahmen sind.
-    \item CV: Konstante geschwindigkeit - Perfekte Beruhigung
+    \item CV: Konstante Geschwindigkeit - Perfekte Beruhigung
     \item CA: Konstante Beschleuningung - Geschwindigkeit ändert sich Konstante
     \item Dazu kommen noch Szenario spezifische Modelle, bei denen gezeigt wurden, dass sie für das Szenario besser sind.
     \item CVBC, IA - upgrades.
@@ -46,5 +47,26 @@ obwohl dieser Assoziationsprozess noch Gegenstand aktueller Forschung ist.
 
 Die grundlegenden Bewegungsmodelle, die in \cite{Pfaff2018} beschrieben werden sind 
 einerseits das Constant Velocity Modell und andererseits das Constant Acceleration Modell.
+Das Constant Velocity Modell prädiziert die Bewegung eines Teilchens unter der Annahme, dass es sich mit einer konstanten Geschwindigkeit bewegt.
+Basierend auf den letzten zwei bekannten Positionen des Partikels wird dessen Geschwindigkeit entlang der beiden Achsen bestimmt 
+und davon die zukünftige Bewegung abgeleitet.
+Wenn bei einem Bandsortierer jedoch zum Beispiel das Förderband nicht lang genug ist um das Schüttgut zu beruhigen kann es sein, 
+dass die Teilchen eine Beschleuningung haben, die nicht 0 ist.
+Das Constant Velocity Modell dahingegen prädiziert die Bewegung des Teilchens unter der Annahme, dass es sich mit einer konstanten Beschleuningung bewegt.
+Diese Beschleuningung wird anhand der letzten drei bekannten Positionen bestimmt 
+und anhang dieser Beschleuningung und der aktuellen Geschwindigkeit werden die zukünftigen Positionen abgeleitet.
 
+In \cite{Pfaff2018} werden weitere, szenariospezifische Bewegungsmodelle beschrieben.
+Bei dem sogenannten Bias-Corrected Constant Velocity Modell wird das Constant Velocity Modell als Grundlage genommen und ein Korrekturterm eingeführt.
+Basierend auf den zuvor beobachteten Schüttgutpartikeln wird ein durchschnittlicher temporaler Bias bestimmt, der -- unter der Annahme, dass der Bias für zukünftige Partikel ähnlich sein wird --
+von den zukünftigen Prädiktionen abgezogen wird.
+Beim Identical Acceleration Modell wird ebenfalls ein Korrekturterm benutzt, 
+der im Gegensatz zum Bias-Corrected Constant Velocity Modell jedoch nicht absolut sondern abhängig von der letzten bekannten Position des Partikels ist.
+Auf jedem der zuvor beobachteten Partikeln wird der Wert einer zusätzlichen Beschleuningung bestimmt, die zu einer optimalen Prädiktion führen würde und dann der Durchschnitt dieser Beschleunigungen gebildet.
+Dieser wird dann als Korrekturterm auf ein Constant Velocity Modell addiert, sodass sich eine Formel ähnlich zu der des Constant Acceleration Modelles ergibt.
+Um das Verhalten von den Partikeln, deren Geschwindigkeit sich der des Förderbands nähert diese aber nicht überschreitet, besser abzubilden als das ein Constant Acceleration Modell tut
+wird das Constant Acceleration with Limited Velocity Modell beschrieben. 
+Dabei wird die Geschwindigkeit des Förderbands bestimmt und Partikel, die diese erreichen von dann aus mit konstanter Geschwindigkeit weiter prädiziert.
+Es wurden zudem zwei Modelle, Constant Acceleration Disallowing Sign Change Modell und Ratio-Based Deceleration Modell, vorgestellt, 
+die spezifisch konzipiert wurden um die Bewegungprädiktion orthogonal zur Transportrichtung zu verbessern.
 
