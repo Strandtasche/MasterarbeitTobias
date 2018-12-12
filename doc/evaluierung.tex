@@ -4,10 +4,11 @@
 Im vorhergegangenen Kapitel wurde die Implementierung der neuronalen Netze beschrieben.
 Nun wird in diesem Kapitel betrachtet, wie gut die Ergebnisse sind, die von diesen Netzen geliefert werden.
 Dazu wird zunächst beschrieben auf was für einem System das Training und die Evaluation durchgeführt wurde.
-Es werden mehrere, bereits aus dem Stand der Technik bekannte Modelle beschrieben, die mit den Ergebnissen der neuronalen Netze 
+Es werden mehrere, bereits aus dem Stand der Technik bekannte Modelle beschrieben, die dann mit den Ergebnissen der neuronalen Netze 
 verglichen werden.
-\todo[inline]{Im vorhergegangenen Kapitel wurde beschrieben, [wie die Netze designed wurde]
-Jetzt bewerten wie gut sie das eigentlich mache.}
+Anschließend werden diese Ergebnisse diskutiert.
+% \todo[inline]{Im vorhergegangenen Kapitel wurde beschrieben, [wie die Netze designed wurde]
+% Jetzt bewerten wie gut sie das eigentlich mache.}
 
 \section{System}
 
@@ -76,14 +77,6 @@ Für Modelle, die die Beschleunigung der Teilchen mit einbeziehen, ist der Zusta
         \ddot{\mathsf{y}}(t)
        \end{bmatrix} 
 \end{equation}
-
-Der Vergleich zwischen unterschiedlichen Modelle wird mittels sogenannter Boxplots visualisiert.
-Die fünf relevanten Charakteristiken, die in einem Boxplot dargestellt werden sind 
-der Median, das untere und obere Quartil sowie zwei sogenannte "Antennen" oder auch "Whisker", die die Position den letzten Datenpunkt innerhalb des 1.5-fachen Interquartilsabstands beschreiben.
-Die Position des Medians wird durch eine rote Linie verdeutlicht.
-Die namensgebende Box ist zwischen dem unteren und dem oberen Quartil aufgespannt.
-Für die Darstellung in dieser Arbeit wurde darauf verzichtet Ausreißer außerhalb der Antennen abzubilden.
-
 
 \todo[inline]{Irgendwo irgendwas dazu sagen, wie es mutmaßlich wirklich ist?
 Geschwindigkeit Förderband ist eine obere Grenze - bis dahin beschleunigen, dann konstante Geschwindigkeit.
@@ -247,6 +240,18 @@ Die Zeitprädiktion \(t\hitext{Pred}\) wird bestimmt indem wir
 
 nach \(t\) lösen.
 
+\paragraph{Visualisierung}
+
+
+Der Vergleich zwischen unterschiedlichen Modelle wird mittels sogenannter Boxplots visualisiert.
+Die fünf relevanten Charakteristiken, die in einem Boxplot dargestellt werden sind 
+der Median, das untere und obere Quartil sowie zwei sogenannte "Antennen" oder auch "Whisker", die die Position den letzten Datenpunkt innerhalb des 1.5-fachen Interquartilsabstands beschreiben.
+Die Position des Medians wird durch eine rote Linie verdeutlicht.
+Die namensgebende Box ist zwischen dem unteren und dem oberen Quartil aufgespannt.
+Für die Darstellung in dieser Arbeit wurde darauf verzichtet Ausreißer außerhalb der Antennen abzubilden.
+
+
+
 % \todo{fertig machen}
 
 \section{Next Step}
@@ -267,55 +272,74 @@ Als Evaluationskriterium für die NextStep-Netze wurde die Euklidische Distanz z
 Der Gesamtfehler \(\varepsilon\hitext{Total} \) ist also durch 
 
 \begin{align*}
-    \mathsf{x}\hitext{Err} &=  \mathsf{x}\hitext{Pred} -  \mathsf{x}\hitext{GT} \\
-    \mathsf{y}\hitext{Err} &=  \mathsf{y}\hitext{Pred} -  \mathsf{y}\hitext{GT} \\
+    \mathsf{x}\hitext{Err} &=  \mathsf{x}\hitext{Pred} -  \mathsf{x}\hitext{GT} \: ,\\
+    \mathsf{y}\hitext{Err} &=  \mathsf{y}\hitext{Pred} -  \mathsf{y}\hitext{GT} \: ,\\
     \varepsilon\hitext{Total} &= \sqrt{ \mathsf{x}\hitext{Err}^2 +  \mathsf{y}\hitext{Err}^2}
 \end{align*}
 
 definiert. Verglichen wird das NextStep-Netz mit einem Constant Velocity Modell und einen Constant Acceleration Modell.
 
-Das neuronale Netz hat in allen bis auf einem der untersuchten Szenarien bessere Ergebnisse als die beiden Vergleichsmodelle geliefert.
+Die neuronalen Netze haben in allen untersuchten Szenarien bessere Ergebnisse als die beiden Vergleichsmodelle geliefert.
 % \todo{kann man das bei den Simulierten Zylindern so sagen?}
-Es ist auf allen realen Datensätzen besser und hat bei den simulierten nur bei den Zylindern eine schlechtere Prädiktionsqualität.
-Repräsentativ für ihre jeweiligen Szenariokategorien sind in Abbildung~\ref{fig:boxplotErrorNNnextStep} der Boxplot für die selbst aufgenommenen Kugeln auf dem Förderband,
-und in Abbildung~TODO der [Noch zu entscheiden] zu sehen.
-\todo[inline]{Entscheiden welches Zweite Szenario vorgestellt werden soll}
-In Abbildung~TODO sieht man das Fehlerhistogramm, dass zu Abbildung~\ref{fig:boxplotErrorNNnextStep} gehört.
+Repräsentativ für ihre jeweiligen Szenariokategorien sind in Abbildung~\ref{subfig:RealSpheresBoxplot} der Boxplot für die selbst aufgenommenen Kugeln auf dem Förderband,
+und in Abbildung~\ref{subfig:SimSpheresBoxplot} der Boxplot für die mittels DEM simulierten Kugeln zu sehen.
+In beiden Fällen ist das Ergebnis des Neuronalen Netzes besser als die Vergleichsmodelle
+Es ist auffällig, dass bei den simulierten Daten das CA Modell besser als das CV Modell ist, während es im anderen Fall umgekehrt ist.
+Das ist auf die die höhere Bandgeschwindigkeit bei der Simulation zurückzuführen. 
+
+\todo[inline]{NextStep Boxplot schön machen ohne titel und in mm}
+
+In Abbildung~\ref{fig:RealSpheresHistogram} sieht man das Fehlerhistogramm, dass zu Abbildung~\ref{subfig:RealSpheresBoxplot} gehört.
 Es ist zu erkennen, dass die Prädiktionen des neuronalen Netz sowohl einen besseren Erwartungswert als auch eine geringere Standardabweichungen als die Vergleichsmodelle hat.
 
 
-Die Boxplots der übrigen Szenarien sind im Anhang zu finden.
+Die Boxplots und Histogramme der übrigen Szenarien sind im Anhang zu finden.
 \todo[inline]{hier könnte ich noch mehr schreiben zu verschiedenen anderen Szenarien, wenn es notwendig sein sollte.}
-
-
-\todo[inline]{Regression erwähnen?}
 
 \begin{figure}[h]
     \centering
-    \missingfigure{Boxplots Result NeuralNets NextStep}
-	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
-	\caption{Evaluation für die NextStep-Prädiktion - VORLÄUFIG!}
-	% \todo{Quelle Bild!}
-	\label{fig:boxplotErrorNNnextStep}
+	
+	\begin{subfigure}[t]{0.8\textwidth}
+		\includegraphics[width=\textwidth]{RealSpheres-evaluation_NextStep_LocationError_2018-12-10_18-42-20.pdf}
+		\caption{Boxplots für die NextStep-Ergebnisse der selbst aufgenommenen Kugeln auf dem Förderband.}
+		\label{subfig:RealSpheresBoxplot}
+	\end{subfigure}
+    % \quad
+    \vskip\baselineskip
+	\begin{subfigure}[t]{0.8\textwidth}
+		\includegraphics[width=\textwidth]{SimulatedSpheres-evaluation_NextStep_LocationError_2018-12-10_19-09-25.pdf}
+		\caption{Boxplots für die NextStep-Ergebnisse der Kugeln aus dem DEM-Datensatz.}
+		\label{subfig:SimSpheresBoxplot}
+	\end{subfigure}
+	
+	\caption{Visualisierung der Ergebnisse }
+	\label{fig:BoxplotsNextStep}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    % \missingfigure{Boxplots Result NeuralNets NextStep}
+	\includegraphics[width=0.8\textwidth]{RealSpheres-evaluation_NextStep_ErrorHistogram_2018-12-10_18-42-20.pdf}
+	\caption{Histogramm der Fehler für die NextStep-Ergebnisse der selbst aufgenommenen Kugeln auf dem Förderband.}
+	\label{fig:RealSpheresHistogram}
 \end{figure}
 
 
 
-Bemerkenswert schlecht war das Ergebnis allerdings bei dem DEM Zylinder Datensatz.
-Es konnte nicht abschließend geklärt werden warum dies der Fall ist, vorallem da die Ergebnisse auf den realen Zylindern, wie in Abbildung TODO zu sehen, deutlich besser waren. 
-Man könnte jedoch vermuten, dass es eine Kombination der folgende Umstände ist.
-Bei den Zylindern hängt ihre Bewegung und die Aufnahme von Bewegungsenergie vom Förderband mehr von ihrer Orientierung ab, als bei den anderen Schüttgütern.
-Diese ist nicht aus den Eingabefeatures ersichtlich - potenziell wäre es bei diesem Szenario also lohnenswert mehr als nur die Mittelpunkte als Feature zu betrachten.
-Die höhere Bandgeschwindigkeit in der Simulation als in den Realdaten könnte diesen Effekt verstärkt haben.
-Auch könnte die höhere Schüttgutdichte auf dem Förderband darauf einen Einfluss gehabt haben.
+
+% Bemerkenswert schlecht war das Ergebnis allerdings bei dem DEM Zylinder Datensatz.
+% Es konnte nicht abschließend geklärt werden warum dies der Fall ist, vorallem da die Ergebnisse auf den realen Zylindern, wie in Abbildung TODO zu sehen, deutlich besser waren. 
+% Man könnte jedoch vermuten, dass es eine Kombination der folgende Umstände ist.
+% Bei den Zylindern hängt ihre Bewegung und die Aufnahme von Bewegungsenergie vom Förderband mehr von ihrer Orientierung ab, als bei den anderen Schüttgütern.
+% Diese ist nicht aus den Eingabefeatures ersichtlich - potenziell wäre es bei diesem Szenario also lohnenswert mehr als nur die Mittelpunkte als Feature zu betrachten.
+% Die höhere Bandgeschwindigkeit in der Simulation als in den Realdaten könnte diesen Effekt verstärkt haben.
+% Auch könnte die höhere Schüttgutdichte auf dem Förderband darauf einen Einfluss gehabt haben.
 
 
 
 \color{blue}
 - CV, CA
 - Ergebnis Netz
-- Ergebnis Lineare Regression
-
 
 Vergleich Realdaten und simulierte Daten.
 Realdaten mit ungefähr \SI{1.1}{\meter\per\second} während Simulierte mit \SI{1.5}{\metre\per\second} Bandgeschwindigkeit 
@@ -339,7 +363,7 @@ In dieser Sektion sollen nun die Ergebnisse der Separator-Netze in verschiedenen
 Im Gegensatz zu diesen können die beiden Labelelemente nicht in einem gemeinsamen Evaluationskriterium zusammengefasst werden.
 Deshalb werden hier die zeitliche Abweichung vom prädizierten Kontaktzeitpunkt mit dem Druckluftdüsenarray und die örtliche Abweichung des Schnittpunkts des Bahn des Partikels mit dem Druckluftdüsenarray separat betrachtet.
 Ebenso wie bei den NextStep-Netzen werden hier ein Constant Velocity- und ein Constant Acceleration Modell als Vergleichsmodelle für die Ausgaben des neuronalen Netz benutzt.
-Es werden mehr Vergleichmodelle hinzugezogen. 
+Es werden mehr Vergleichsmodelle hinzugezogen. 
 Das Bias-Corrected Constant Velocity Modell liefert eine sowohl Prädiktion für den Zeit als auch für den Ort.
 Die Average Acceleration und Identical Acceleration Modelle werden nur für die zeitliche Prädiktion zum Vergleich herangezogen.
 
@@ -352,23 +376,85 @@ Da der gesamte Bildausschnitt der selbst aufgenommenen Daten weniger als \SI{15}
 Die letztendlich auf den selbst gesammelten Daten trainierten Netze prädizieren von \(y = \SI{800}{\px}\) nach \(y = \SI{1550}{\px}\), also eine Distanz von \SI{750}{\px}.
 
 
+Die Ergebnisse auf den Separator-Netzen werden zweigeteilt als
+\begin{align*}
+    t\hitext{Err} &=  t\hitext{Pred} -  t\hitext{GT} \: ,\\
+    \mathsf{y}\hitext{Err} &=  \mathsf{y}\hitext{Pred} -  \mathsf{y}\hitext{GT}
+\end{align*}
+definiert.
+Im Gegensatz zu den NextStep-Netzen ist es nicht sinnvoll diese Fehler zu einem Gesamtfehler zu kombinieren.
+Das Vorzeichen der Fehler für die einzelnen Partikel ist hier, ebenfalls im Gegensatz zu den NextStep-Netzen, angegeben.
+Für die zeitlichen Fehler bedeutet ein positiver Wert also, 
+dass das Teilchen früher den Druckluftdüsenarray passiert hat als von dem Modell vorhergesagt. 
+
+
+Die Ergebnisse der neuronalen Netze für die Separator-Prädiktion sind insgesamt zufriedenstellend.
+Sie sind auf allen Datensätzen besser als das Constant Velocity Modell, das Constant Acceleration Modell und das Bias-Corrected Constant Velocity Modell.
+Auf den beiden simulierten Datensätzen sind die Ergebnisse ein wenig schlechter als das Identical Acceleration Modell, 
+aber deutlich besser als die grundlegenden Modelle und dem Bias-Corrected Constant Velocity Modell.
+Dies ist in Abbildung~\ref{fig:BoxplotsSimCub} exemplarisch durch die Boxplots der simulierten Plättchen dargestellt.
 
 \begin{figure}[h]
     \centering
-    \missingfigure{Boxplots Result NeuralNets Separator}
-	% \includegraphics[width=\textwidth]{NN_NextStep_v2}
-	\caption{Evaluation für die Separator-Prädiktion.}
-	% \todo{Quelle Bild!}
-	\label{fig:boxplotErrorNNSeparator}
+	
+	\begin{subfigure}[t]{0.8\textwidth}
+		\includegraphics[width=\textwidth]{SimCub-evaluation_Separator_TimeErrorBoxplot_2018-12-11_14-33-22.pdf}
+		\caption{Boxplots des zeitlichen Fehlers für die Separator-Ergebnisse der Plättchen aus dem DEM-Datensatz.}
+		\label{subfig:SimCubTimeBoxplot}
+	\end{subfigure}
+    % \quad
+    \vskip\baselineskip
+	\begin{subfigure}[t]{0.8\textwidth}
+		\includegraphics[width=\textwidth]{SimCub-evaluation_Separator_LocationErrorBoxplot_2018-12-11_14-33-22.pdf}
+		\caption{Boxplots des örtlichen Fehlers für die Separator-Ergebnisse der Plättchen aus dem DEM-Datensatz.}
+		\label{subfig:SimCubLocBoxplot}
+	\end{subfigure}
+	
+	\caption{Visualisierung der Ergebnisse für die Plättchen aus der DEM-Simulation.}
+	\label{fig:BoxplotsSimCub}
 \end{figure}
 
+Im Vergleich dazu sind die Unterschiede zwischen den verschiedenen Modellen auf den selbst aufgenommenen Daten deutlich kleiner.
+Das Constant Velocity Modell, dessen mittlerer zeitlicher Fehler auf den DEM-Datensätzen einen signifikanten Bias gezeigt hat, schneidet oft beinah so gut 
+und bei den Weizenkörnern, zu sehen in Abbildung~\ref{fig:BoxplotsRealWeizen}, sogar besser ab, als das Identical Acceleration Modell.
+Auf den selbst gesammelten Daten schneidet von den bestehenden Modellen das Bias-Corrected Constant Velocity Modell am besten ab. 
+Die neuronalen Netze sind jedoch [bis auf Pfeffer?] nocheinmal besser. 
+\todo[inline]{Resultat verifizieren}
+Dieses Resultat hängt höchstwahrscheinlich mit der niedrigeren Bandgeschwindigkeit und dem kürzeren Prädiktionsabstand zusammen.
+Auch die könnten die unterschiedlichen Verfahren unterschiedlich anfällig gegen das Messrauschen sein, das ja auch den simulierten Daten nicht existiert.
+Für die bestehenden Modelle gilt, dass eine relative Verbesserung der zeitliche Prädiktion zu einer Verbesserung der örtlichen Prädiktion führt, 
+was besonders gut in Abbildung~\ref{fig:BoxplotsSimCub} zu erkennen ist, da die zeitliche Prädiktion benutzt wird um die örtliche zu treffen.
+Für die Ausgabe der neuronalen Netze gilt das jedoch nicht. 
+
+\begin{figure}[h]
+    \centering
+	
+	\begin{subfigure}[t]{0.8\textwidth}
+		\includegraphics[width=\textwidth]{RealWeizen-evaluation_Separator_TimeErrorBoxplot_2018-12-11_14-09-12.pdf}
+		\caption{Boxplots des zeitlichen Fehlers für die Separator-Ergebnisse des Weizenkörnern-Datensatz aus dem selbst gesammelten Datensatz.}
+		\label{subfig:RealWeizenTimeBoxplot}
+	\end{subfigure}
+    % \quad
+    \vskip\baselineskip
+	\begin{subfigure}[t]{0.8\textwidth}
+		\includegraphics[width=\textwidth]{RealWeizen-evaluation_Separator_LocationErrorBoxplot_2018-12-11_14-09-12.pdf}
+		\caption{Boxplots des örtlichen Fehlers für die Separator-Ergebnisse des Weizenkörnern-Datensatz aus dem selbst gesammelten Datensatz.}
+		\label{subfig:RealWeizenLocBoxplot}
+	\end{subfigure}
+	
+	\caption{Visualisierung der Ergebnisse für den Weizenkörnern-Datensatz aus dem selbst gesammelten Datensatz.}
+	\label{fig:BoxplotsRealWeizen}
+\end{figure}
+
+Wie schon für die NextStep-Netze sind die Boxplots und Histogramme der restlichen Szenarien im Anhang zu finden.
 
 \section{Zusammenfassung und Diskussion}
 
 
-Die Fehlerfunktion nach der im Rahmen dieser Arbeit optimiert worden ist, ist MSE.
+Die Fehlerfunktion nach der die neuronalen Netze optimiert worden ist, ist die MSE-Funktion.
 Es konnte beobachtet werden, dass bei mehrmaligem Trainieren eines Netzes 
 mit identischen Hyperparametern und Daten, unterschiedliche Ergebnisse mit einem ähnlichen MSE insgesamt aber einer Verschiebung zwischen dem Mittelwert und der Standardabweichung  
 an dessen Ende standen.
+Für die Separator-Netze kam es sogar zu Verschiebungen zwischen der örtlichen und der zeitlichen Prädiktion.
 Dies ist auf verschiedene stochastische Vorgänge während dem Training zurück zu führen, wie die Initialisierung der Gewichte zwischen den Neuronen und die Reihenfolge beziehungsweise das Batching der Trainingsbeispiele.
 Der Einsatz einer anderen Fehlerfunktion, zum Beispiel [einer die tatsächlich Richtig/Falsch Sortiert bewertet] könnte dieses Problem beheben.
