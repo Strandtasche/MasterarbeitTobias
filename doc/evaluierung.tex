@@ -83,7 +83,7 @@ Geschwindigkeit Förderband ist eine obere Grenze - bis dahin beschleunigen, dan
 Wie schnell diese Geschwindigkeit erreicht wird hängt von der Art des Schüttguts ab.
 Je länger das Band desto mehr Zeit hat das Schüttgut sich an die Geschwindigkeit anzupassen.}
 
-\subsection{Constant Velocity Modell}
+\paragraph{Constant Velocity Modell}
 
 Das Constant Velocity Modell (CV Modell) arbeitet unter der Annahme, dass sich Partikel, 
 abgesehen von einem Rauschterm, mit einer konstanten Geschwindigkeit bewegen.
@@ -106,7 +106,7 @@ Daraus folgen die Positionsgleichungen
 \begin{equation*}
     \mathsf{y}(t) = \mathsf{y}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{y}}^{\text{Last}}
 \end{equation*}
-
+% 
 entlang der einzelnen Achsen.
 Für das NextStep-Szenario ergibt sich die Prädiktionen mittels des CV Modells also aus
 \begin{equation*}
@@ -117,15 +117,15 @@ Für das NextStep-Szenario ergibt sich die Prädiktionen mittels des CV Modells 
 \end{equation}
 
 Für das Separator-Szenario lösen wir die Gleichung 
-
+% 
 \begin{equation*}
     \mathsf{x}^{\text{PredTo}} = \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{x}}^{\text{Last}}
 \end{equation*}
-
+% 
 für \(t\) um  \(t^{\text{Pred}}\) zu erhalten.
 Durch das Einsetzen von \(t^{\text{Pred}}\) in \eqref{eq:cvyp} ergibt sich \(\mathsf{y}^{\text{Pred}}\).
 
-\subsection{Constant Acceleration Modell}
+\paragraph{Constant Acceleration Modell}
 
 Im Constant Acceleration Modell wird davon ausgegangen, dass das das Teilchen mit einer konstanten Beschleunigung schneller wird.
 Es kann mittels folgender Differenzialgleichung dargestellt werden.
@@ -146,7 +146,7 @@ Es kann mittels folgender Differenzialgleichung dargestellt werden.
 \end{align*}
 
 Analog zum Constant Velocity Modell können daraus die Positionsgleichungen 
-
+% 
 \begin{equation*}
     \mathsf{x}(t) = \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{x}}^{\text{Last}} 
     + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{\mathsf{x}}^{\text{Last}} \: , 
@@ -155,7 +155,7 @@ Analog zum Constant Velocity Modell können daraus die Positionsgleichungen
     \mathsf{y}(t) = \mathsf{y}^{\text{Last}} + (t - t^{\text{Last}})\dot{\mathsf{y}}^{\text{Last}}
     + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{\mathsf{y}}^{\text{Last}}
 \end{equation*}
-
+% 
 abgeleitet werden.
 Genau wie beim Constant Velocity Modell werden nun jeweils entweder die Gleichung für \(t = \text{Last} + 1\) gelöst 
 um die Prädiktion für den Nextstep-Fall oder \(\Delta t \) und daraus \(\mathsf{y}^{\text{Pred}}\) für den Separator-Fall gelöst.
@@ -164,20 +164,20 @@ um die Prädiktion für den Nextstep-Fall oder \(\Delta t \) und daraus \(\maths
 \subsection{Bias-Corrected Constant Velocity Modell}
 
 In \cite{Pfaff2018} wurden weitere szenariospezifische Bewegungsmodelle beschrieben, die insbesondere die Qualität der zeitlichen Prädiktion für den Separator-Fall verbessern.
-Das erste von diesen Modellen, das hier zum Vergleich mit den Ergebnissen der neuronalen Netze betrachtet werden soll ist eine Verbesserung des Constant Velocity Modells.
-Durch das Bestimmen des durchschnittlichen Bias bezüglich der Ankunftszeit des Partikels am Druckluftdüsenarray in den Trainingsdaten und das Abziehen des selben vom der Prädiktion der Testdaten kann verbessert sich die Qualität dieser Prädiktion.
-Dieser neuen Wert kann nun für Ortsprädiktion benutzt werden und verbessert auch diese.
+Das erste von diesen Modellen, das hier zum Vergleich mit den Ergebnissen der neuronalen Netze betrachtet werden soll, ist eine Verbesserung des Constant Velocity Modells.
+Durch das Bestimmen des durchschnittlichen Bias bezüglich der Ankunftszeit der Partikel am Druckluftdüsenarray in den Trainingsdaten und das Abziehen des selben vom der Prädiktion der Testdaten kann die Qualität dieser Prädiktion verbessert werden.
+Dieser neue Wert kann nun für die Ortsprädiktion benutzt werden und verbessert auch diese.
 Sei \(t\hitext{Bias}\) dieser durchschnittliche Bias und
-
+% 
 \begin{equation*}
     t\hitext{Pred, CVBC} = t\hitext{Pred, CV} - t\hitext{Bias} \, .
 \end{equation*}
-
+% 
 Analog zum unveränderterten Constant Velocity Modell erhält man nun durch das Einsetzen von \(t^{\text{Pred, CVBC}}\) in \eqref{eq:cvyp} erneut \(\mathsf{y}^{\text{Pred, CVBC}}\).
 Die Verbesserung der prädizierten Zeit führt ebenfalls zu einer Verbesserung des prädizierten Orts.
 
 
-\subsection{Average Acceleration Modell}
+\paragraph{Average Acceleration Modell}
 
 % \color{blue}
 % Für alle Elemente des Trainingssets: Bestimme die Beschleunigungen.
@@ -190,58 +190,56 @@ Die Verbesserung der prädizierten Zeit führt ebenfalls zu einer Verbesserung d
 % \color{black}
 
 Das Identical Acceleration Modell ist eine Erweiterung des CVBC Modells.
-Anstatt die durchschnittliche Abweichung der prädizierten Zeit in den Trainingsdaten auf die prädizierte Zeit zu addieren wird angenommen, 
+Anstatt die durchschnittliche Abweichung der prädizierten Zeit in den Trainingsdaten auf die prädizierte Zeit zu addieren, wird angenommen, 
 dass diese Abweichung von einer nicht betrachteten Beschleunigung herrührt.
 Diese Beschleunigung wird mutmaßlich vom Band verursacht werden und alle Partikel mehr oder weniger ähnlich betreffen.
 Deshalb wird die Beschleunigung des Partikels in allen Feature-Label-Paaren des Trainingssets bestimmt
 und von diesen der Median \(\ddot{ \mathsf{x}}^{\text{Median}}\) gewählt als eine einheitliche Beschleunigung, die zum CV Modell hinzugefügt wird.
-
 Es folgt die Positionsgleichung
 \begin{equation*}
     \mathsf{x}(t) =  \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}}) \: \dot{ \mathsf{x}}^{\text{Last}} 
     + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{ \mathsf{x}}^{\text{Median}} \: ,
 \end{equation*}
-
+% 
 die wir für \(\mathsf{x}(t) =  \mathsf{x}^{\text{PredTo}}\) nach \(t\) lösen.
 
 
-\subsection{Identical Acceleration Modell}
+\paragraph{Identical Acceleration Modell}
 
 % \color{blue}
 % Upgrade zu CVBC: Correction Term, der den die Letzte Position des Partikels einbezieht.\\
 % Annahme: Abweichungen bezüglich dem Zeit Label wird von einer zusätzlichen Beschleunigung verursacht.
 % \color{black}
 
-Ebenso wie das Average Acceleration Modell ist das  sogenannte Identical Acceleration Modell ist eine Verbesserung des CVBC Modells, 
-bei dem die Korrekturterme, die als Beschleunigung auf die Positionsgleichungen addiert werden nicht unabhängig von der letzten Position des Partikels ist sondern diese miteinbeziehen.
-Wie oben wird hierbei die Annahme getroffen, dass die zusätzliche Beschleunigung, die für die zeitliche Abweichung sorgt für alle Partikel ungefähr gleich ist.
+Ebenso wie das Average Acceleration Modell ist das sogenannte Identical Acceleration Modell eine Verbesserung des CVBC Modells. 
+Bei diesem werden die Korrekturterme, die als Beschleunigung auf die Positionsgleichungen addiert werden, nicht unabhängig von der letzten Position des Partikels bestimmt, sondern beziehen diese mit ein.
+Wie oben wird hierbei die Annahme getroffen, dass die zusätzliche Beschleunigung, die für die zeitliche Abweichung sorgt, für alle Partikel ungefähr gleich ist.
 Die Bestimmung dieser Korrekturterme ist jedoch unterschiedlich.
-Für die Feature-Label-Paare des Trainingssets haben hat man Zugang zu der Ground Truth, wann die Partikel das Druckluftdüsenarray passieren.
+Für die Feature-Label-Paare des Trainingssets hat man man Zugang zu der Ground Truth, wann die Partikel das Druckluftdüsenarray passieren.
 
-dementsprechen lösen wir für jedes Partikel \( i\) aus dem Trainingsset die Gleichung
-
+Dementsprechen lösen wir für jedes Partikel \( i\) aus dem Trainingsset die Gleichung
+% 
 \begin{equation*}
     \mathsf{x}\hitext{PredTo} =  \mathsf{x}\hitext{Last, \(i\)} + (t\hitext{GT, \(i\)} - t\hitext{Last, \(i\)}) 
     \: \dot{ \mathsf{x}}\hitext{Last, \(i\)}
     + \frac{1}{2}(t\hitext{GT, \(i\)} - t\hitext{Last, \(i\)})^2 \: \ddot{ \mathsf{x}}\hitext{Optimal, \(i\)}
 \end{equation*}
-
-um herauszufinden mit welcher zusätzlichen Beschleunigung \(\ddot{ \mathsf{x}}\hitext{Optimal, \(i\)}\) es optimal die Zeit,
+% 
+um herauszufinden, mit welcher zusätzlichen Beschleunigung \(\ddot{ \mathsf{x}}\hitext{Optimal, \(i\)}\) es optimal die Zeit,
 die es noch braucht, vorhersagen würde.
 Nun sei \(\ddot{ \mathsf{x}}\hitext{Avg}\) der Durchschnitt von allen \(\ddot{ \mathsf{x}}\hitext{Optimal, \(i\)}\).
 Für die Partikel des Testsets werden die Zeit und der Ort des Passierens des Druckluftdüsenarrays nun basierend auf deren 
 beobachteter Geschwindigkeit \(\dot{ \mathsf{x}}^{\text{Last}}\) und der errechneten Beschleunigung \(\ddot{ \mathsf{x}}\hitext{Avg}\).
 Die Zeitprädiktion \(t\hitext{Pred}\) wird bestimmt indem wir
-
+% 
 \begin{equation*}
     \mathsf{x}(t) =  \mathsf{x}^{\text{Last}} + (t - t^{\text{Last}}) \: \dot{ \mathsf{x}}^{\text{Last}} 
     + \frac{1}{2} (t - t^{\text{Last}})^2 \: \ddot{ \mathsf{x}}\hitext{Avg}
 \end{equation*}
-
+% 
 nach \(t\) lösen.
 
 \paragraph{Visualisierung}
-
 
 Der Vergleich zwischen unterschiedlichen Modelle wird mittels sogenannter Boxplots visualisiert.
 Die fünf relevanten Charakteristiken, die in einem Boxplot dargestellt werden sind 

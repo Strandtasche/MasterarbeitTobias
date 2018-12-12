@@ -12,7 +12,7 @@
 In diesem Kapitel soll eine kurze Einführung in die für das Verständnis der restlichen Arbeit benötigten Themengebiete gegeben werden.
 Primär sollen zunächst allgemein neuronale Netze und einige ihrer speziellere Aspekte betrachtet werden, 
 bevor ein kurzer Blick auf das bei den Experimenten verwendete Schüttgutsortiersystem \textit{TableSort} geworfen wird. 
-[STAND DER TECHNIK!]
+Am Ende des Kapitels wird darauf eingegangen, wie das Problem der Prädiktion bei optischen Schüttgutsorierern vor der Arbeit gelöst wird.
 
 % hier Könnte man das Kalman Filter Kapitel einfügen
 % \input{reserve/kalmanFilter.tex}
@@ -23,8 +23,12 @@ Als Neuronale Netze  % beziehungsweise \textit{künstliche neuronale Netze}, wie
 bezeichnet man in der Informatik Systeme aus künstlichen Neuronen, die heute eine wichtige Rolle im Feld des maschinellem Lernen einnehmen.
 Manchmal werden sie korrekter als \textit{künstliche neuronale Netze} bezeichnet um sie von \textit{natürlichen neuronalen Netzen} 
 wie dem menschlichen Gehirn zu unterscheiden, nach deren biologischem Vorbild sie modelliert sind.
+Neuronale Netze sind ein mächtiges Werkzeug. 
+Aufgrund ihrer Fähigkeit komplexe, nichtlineare Muster und Zusammenhänge in Daten zu lernen, 
+ohne dass sie explizit darauf programmiert werden müssen diese zu finden,
+eröffnen sie in vielen Forschungsrichtungen neue Möglichkeiten.
 
-\todo[inline]{Motivation, warum neuronale Netze gut sind - Patternrecognition die zu kompliziert sind sie von hand zu implementieren.}
+% \todo[inline]{Motivation, warum neuronale Netze gut sind - Patternrecognition die zu kompliziert sind sie von hand zu implementieren.}
 
 Die Grundsteine des Feldes wurde bereits 1943 von Warren McCulloch und Walter Pitts gelegt~\cite{mcculloch1943logical}, 
 als sie ein Neuronenmodell vorschlugen, mit dem sich logische arithmetische Funktionen berechnen lassen. 
@@ -36,14 +40,14 @@ mittels neuronaler Netze erzielt wurden, wurde das Interesse an dem Feld neu ent
 % Nachdem jedoch Marvin Minsky und Seymour Papert zeigten, dass einzelne Perzeptrons nicht in der Lage sind linear nicht separierbare Probleme zu lösen sank das Interesse an dem Feld.
 
 \subsection{Perzeptron}
-Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt beschrieben wurde \cite{rosenblatt1958perceptron}.
+Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt in \cite{rosenblatt1958perceptron} beschrieben wurde.
 Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(y\) ausgibt.
 
 \begin{figure}[h]
     \centering
     % \missingfigure{Grafik Neuron}
 	\includegraphics[width=0.5\textwidth]{perceptron-2}
-	\caption[Schematischer Aufbau Neuron]{Aufbau eines Neurons: Die Eingaben $x_i$ werden gewichtet mit $w_i$ aufsummiert und nach Anwendung der Aktivierungsfunktion $\phi$ als $y$ ausgegeben.}
+	\caption[Schematischer Aufbau Perzeptron]{Aufbau eines Perzeptrons: Die Eingaben $x_i$ werden gewichtet mit $w_i$ aufsummiert und nach Anwendung der Aktivierungsfunktion $\phi$ als $y$ ausgegeben.}
 	% \todo{Quelle Bild!}
 	\label{fig:singleNeuron}
 \end{figure}
@@ -66,25 +70,43 @@ Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen 
 
 % Letztendlich ist ein solches Perzeptron jedoch nur ein linearer Klassifikator und kann somit 
 % zum Beispiel den XOR Operator nicht auflösen.
-Ein Perzeptron ist jedoch nur ein linearer Klassifikator und kann dementsprechend zum Beispiel den XOR Operator nicht korrekt abbilden.
+Ein Perzeptron ist jedoch nur ein linearer Klassifikator und kann dementsprechend nur linear separierbare Probleme, wie das Problem in Abbildung~\ref{subfig:linearSep}, lösen.
+Linear nicht separierbare Probleme wie zum Beispiel den XOR Operator oder das in Abbildung~\ref{subfig:nonlinearSep} gezeigte Problem, können nicht korrekt abbildet werden.
 Dies zeigten Marvin Minksy und Seymour Papert 1969 in einflussreichen Buch \textit{Perceptrons: an introduction to computational geometry}. \todo{quelle}
-\todo[inline]{(1) lineare Trennung mit perzeptron (2) xor-problem (3) nichtlineare trennung mit dem mehrschichtigen netz}
-Um solche nicht linear-separierbare Probleme zu lösen müssen mehrere Neuronen hintereinander geschaltet werden.
+% \todo[inline]{(1) lineare Trennung mit perzeptron (2) xor-problem (3) nichtlineare trennung mit dem mehrschichtigen netz}
+Um solche nicht linear-separierbare Probleme zu lösen müssen mehrere Perzeptrons hintereinander geschaltet werden.
 
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{linearSep.pdf}
+		\caption{Lineare Lösung für ein linear separierbares Problem.}
+		\label{subfig:linearSep}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{nonlinearSep.pdf}
+		\caption{Nichtlineare Lösung für ein nichtlinear separierbares Problem.}
+		\label{subfig:nonlinearSep}
+	\end{subfigure}
+	\caption{Vergleich zwischen einem linear und einem nichtlinear separierbaren Problem. Angepasst von \cite{LinSep}}
+	\label{fig:linearNonlinearVgl}
+\end{figure}
 
 \subsection{Feedforward Netze}
 
 % \textbf{absatz über Feedforward Netze. Basic}
-\color{blue}
-\begin{itemize}
-	\item Definition (keine Kreise oder Schleifen). (Kommentar Florian: \"Rückkopplung\")
-	\item Gegenstück zum RNN
-	\item grundlegende Architektur in Layern 
-	\item Aktivierungsfunktionen in Layern
-	\item Outputlayer: Verschiedene Aktivierungsfunktionen:
-	\item Linear für regression, z.B. Softmax für Wahrscheinlichkeitsverteilung Softmax
-\end{itemize}
-\color{black}
+% \color{blue}
+% \begin{itemize}
+% 	\item Definition (keine Kreise oder Schleifen). (Kommentar Florian: \"Rückkopplung\")
+% 	\item Gegenstück zum RNN
+% 	\item grundlegende Architektur in Layern 
+% 	\item Aktivierungsfunktionen in Layern
+% 	\item Outputlayer: Verschiedene Aktivierungsfunktionen:
+% 	\item Linear für regression, z.B. Softmax für Wahrscheinlichkeitsverteilung Softmax
+% \end{itemize}
+% \color{black}
 
 Um die Limitation auf lineare Klassifikation eines einzelnen Perzeptrons zu überwinden kann man mehrere davon hintereinander schalten. 
 Die einfachste Art dies zu tun wird als Feedforward Netz bezeichnet.
@@ -100,14 +122,14 @@ Für Regression benutzt man lineare Aktivierungsfunktionen für das Output Layer
 Durch die Hintereinanderschaltung von mehreren Layern von Neuronen können auch Probleme, die nicht linear-separierbar sind, gelöst werden.
 Tatsächlich sind solche Neuronalen Netze bewiesenermaßen universale Funktionsapproximatoren - 
 sie können mit endlich vielen Neuronen in den Hidden Layers beliebige kontinuierliche Funktionen auf kompakten Subsets von \(\mathbb{R}^n\) approximieren.
-Das heißt zwar, dass es theoretisch für jede Funktion ein Netz gibt, das sie beschreiben kann, in der Praxis muss man dieses Netz auch finden und dann auch trainieren können.
+Das heißt zwar, dass es theoretisch für jede Funktion ein Netz gibt, das sie beschreiben kann, in der Praxis muss man dieses Netz aber finden und dann auch trainieren können.
 \todo[inline]{mit Quelle belegen? Universal approximation theorem }
 Es gibt viele verschiedene Unterkategorien von Feedforward Netzen, die in verschiedensten Bereichen Verwendung finden.
 Convolutional Neural Networks zeichnen sich durch eine spezielle Struktur aus sogenannten Convolutional Layers aus, die als Featureextractor fungieren.
 Diese Art von Netz findet unter anderem in der Bildverarbeitung Anwendung.
 Ein Netz in dem Kreise beziehungsweise Schleifen existieren, bezeichnet man als \textit{Rekurrentes Neuronales Netz}.
 Diese Netze werden vorallem dann eingesetzt, wenn die zeitliche Abfolge der Eingaben relevant ist, 
-da es im Gegensatz zu Feedforward Netzen einen internen Zustand erhält.
+da sie im Gegensatz zu Feedforward Netzen einen internen Zustand halten.
 
 \subsection{Aktivierungsfunktionen}
 \label{sec:activationfuncs}
@@ -171,7 +193,7 @@ In letzter Zeit haben sich sogenannte \textit{Rectified Linear Units}, oder kurz
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.618\textwidth]{reluPlot.pdf}
-		\caption{Schaubild der Ausgabe einer ReLU}
+		\caption{Schaubild der Ausgabe einer ReLU.}
 		\label{reluoutput}
 	\end{figure}
 
@@ -283,30 +305,30 @@ zum Beispiel indem die Anzahl der zur Verfügung stehenden Layer reduziert wird.
 		\caption{Overfitting}
 		\label{subfig:overfitting}
 	\end{subfigure}
-	\caption{Visualisierung von unterschiedliche Kapazitäten}
+	\caption{Visualisierung von Modellen mit unterschiedlichen Kapazitäten.}
 	\label{fig:capacity}
 \end{figure}
 
-\color{blue}
-\begin{itemize}
-	\item Methoden um Overfitting zu vermeiden:
-	\item Mehr Trainingsdaten (z.\,B. durch Data-Augmentation)
-	\item Regularisierung (L1, \(L_2\) (siehe unten), dropout)
-\end{itemize}
-\color{black}
+% \color{blue}
+% \begin{itemize}
+% 	\item Methoden um Overfitting zu vermeiden:
+% 	\item Mehr Trainingsdaten (z.\,B. durch Data-Augmentation)
+% 	\item Regularisierung (L1, \(L_2\) (siehe unten), dropout)
+% \end{itemize}
+% \color{black}
 
 \subsection{Regularisierung} \label{ssec:Regul}
 
-\color{blue}
-\begin{itemize}
-	\item Regularisierung Definition
-	\item Mathematische Formel Darstellung
-	\item \(L_1\) und \(L_2\) Regularisierung
-	\item L0 - warum nicht?
-	\item (Maybe Dropout)
-	\item Early Stopping? (das internet sagt, es ist eine art von Regularisierung und falls ich sie verwenden sollte, sollte ich sie hier erwähnen)
-\end{itemize}
-\color{black}
+% \color{blue}
+% \begin{itemize}
+% 	\item Regularisierung Definition
+% 	\item Mathematische Formel Darstellung
+% 	\item \(L_1\) und \(L_2\) Regularisierung
+% 	\item L0 - warum nicht?
+% 	\item (Maybe Dropout)
+% 	\item Early Stopping? (das internet sagt, es ist eine art von Regularisierung und falls ich sie verwenden sollte, sollte ich sie hier erwähnen)
+% \end{itemize}
+% \color{black}
 
 Als Regularisierung bezeichnet man Techniken, die zur Vermeidung von Overfitting verwendet wird.
 % Sie wird in der Hoffnung angewendet, dass das Modell mit Regularisierung besser generalisiert als ohne.
@@ -360,6 +382,10 @@ wie in Abbildung~\ref{fig:dropout} dargestellt.
 \todo{Ist die Grafik essenziell fürs Verständnis?}
 Dies soll insofern Overfitting vermeiden, dass es übermässige Koadaption von mehreren Neuronen erschwert.
 Dropout als Technik wird insbesondere bei tiefen neuronalen Netzen mit einer hohen Anzahl von Hidden Layern eingesetzt. 
+Als Early Stopping wird eine Technik bezeichnet, bei der die Regularisierung durch das frühzeitige Beenden des Trainings erreicht wird \cite[Kapitel 7.8]{Goodfellow-et-al-2016}.
+Dabei wird versucht abzuschätzen, an welchem Punkt des Trainings 
+eine Verbesserung der Ergebnisse auf dem Trainingsset zu Lasten der Ergebnisse auf dem Testset geschieht.
+
 
 \begin{figure}[h]
     \centering
@@ -371,27 +397,27 @@ Dropout als Technik wird insbesondere bei tiefen neuronalen Netzen mit einer hoh
 		\includegraphics[width=\textwidth]{neuralNet_dropped}
 		\caption{Nach Dropout Anwendungen.}
 	\end{subfigure}
-    \caption{Beispiel Dropout-Regularisierung~\cite{JMLR:v15:srivastava14a}}
+    \caption{Beispiel für die Dropout-Regularisierung~\cite{JMLR:v15:srivastava14a}.}
     \label{fig:dropout}
 \end{figure}
 
 
 \section{TableSort System}
 
-\todo[inline]{Viel stuff über das TableSort System}
-\color{blue}
+% \todo[inline]{Viel stuff über das TableSort System}
+% \color{blue}
 
-\begin{itemize}
-	\item kleiner, experimenteller Bandsortierer~\cite{doll2015}
-	\item Entstanden in Kooperation zwischen dem Fraunhofer IOSB, Abteilung Sichtprüfsysteme, und dem Institut für Intelligente Sensor Aktor Systeme des Karlsruher Institut für Technologie.
-	\item Im Rahmen des \textit{TrackSort} Projekts
-	\item Gedacht für Experimente, wenn es zu aufwendig ist das mit dem großen großen zu machen und zum Mitnehmen auf Messen.
-	\item 2 Modi: mit Förderband und mit Rutsche
-	\item Mit Flächenkamera für TrackSort als auch die Zeilenkamera sind dargestellt.
-	\item Ringlicht (Refence später)
-	\item Die Zeilenkamera wird zurzeit in industriellen Schüttgutsortieranlagen verwendet, ist aber nicht optimal (Siehe all die Literatur)
-\end{itemize}
-\color{black}
+% \begin{itemize}
+% 	\item kleiner, experimenteller Bandsortierer~\cite{doll2015}
+% 	\item Entstanden in Kooperation zwischen dem Fraunhofer IOSB, Abteilung Sichtprüfsysteme, und dem Institut für Intelligente Sensor Aktor Systeme des Karlsruher Institut für Technologie.
+% 	\item Im Rahmen des \textit{TrackSort} Projekts
+% 	\item Gedacht für Experimente, wenn es zu aufwendig ist das mit dem großen großen zu machen und zum Mitnehmen auf Messen.
+% 	\item 2 Modi: mit Förderband und mit Rutsche
+% 	\item Mit Flächenkamera für TrackSort als auch die Zeilenkamera sind dargestellt.
+% 	\item Ringlicht (Refence später)
+% 	\item Die Zeilenkamera wird zurzeit in industriellen Schüttgutsortieranlagen verwendet, ist aber nicht optimal (Siehe all die Literatur)
+% \end{itemize}
+% \color{black}
 
 
 Der \textit{TableSort} Schüttgutsortierer ist eine modulare Versuchsplattform, die konzipiert wurde um neue Schüttgutsortierkonzepte in einem kleineren Rahmen experimentell erproben zu können.

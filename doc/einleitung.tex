@@ -38,15 +38,17 @@ In dieser Arbeit soll es insbesondere um die bilddatenbasierte beziehungsweise o
 \todo[inline]{auf jeden fall separator- und NextStep-Netze unterscheidung erwähnen}
 
 Der Großteil der heute in der Industrie eingesetzten optischen Schüttgutsortierer verwenden Zeilenkameras.
-Diese haben jedoch den Nachteil, dass die Annahme getroffen werden muss, dass die Schüttgutpartikel keinerlei Geschwindigkeit orthogonal zur Transportrichtung haben.
-In Abbildung~\ref{fig:predMissed} ist dargestellt wie es, wenn diese Annahme verletzt wird, zu einer Fehlseparierung kommen kann.
-Durch den Einsatz von Flächenkameras ist es möglich die Position eines Partikels auf dem Förderband zu mehreren Zeitpunkten zu bestimmen.
+Dabei muss jedoch die Annahme getroffen werden, dass die Schüttgutpartikel keinerlei Geschwindigkeit orthogonal zur Transportrichtung haben,
+weil diese nicht erfasst werden kann.
+In Abbildung~\ref{fig:predMissed} ist dargestellt wie es zu einer Fehlseparierung kommen kann, wenn diese Annahme verletzt wird.
+Durch den Einsatz von Flächenkameras ist es möglich, die Position eines Partikels auf dem Förderband zu mehreren Zeitpunkten zu bestimmen.
 Basierend auf diesen Informationen sollen die Trajektorien der einzelnen Partikel vorhergesagt werden.
-Diese sollen dazu verwendet werden um die Sortierqualität zu steigern. 
+Diese sollen dazu verwendet werden, um die Sortierqualität zu steigern. 
 Im Rahmen des \textit{TrackSort} Projekts, 
 einer Kooperation zwischen dem Lehrstuhls für Intelligente Sensor-Aktor-Systeme (ISAS) des Karlsruher Instituts für Technologie
 und dem Fraunhofer-Institut für Optronik, Systemtechnik und Bildauswertung (IOSB), 
 wurde die Verbesserung der Schüttgutsortierung durch den Einsatz von Trackingverfahren betrachtet.
+\todo[inline]{passt das hier rein, oder soll ich das eher wo anders erwähnen?}
 
 \begin{figure}[h]
     \centering
@@ -57,36 +59,49 @@ wurde die Verbesserung der Schüttgutsortierung durch den Einsatz von Trackingve
 \end{figure}
 
 
-Um die zukünftigen Trajektorien der Partikel aus den vergangenen Positionen vorherzusagen existieren verschiedene Bewegungsmodelle, 
-die je nach Situation -- Bandgeschwindigkeit, Schüttguttyp, Prädiktionsdistanz -- unterschiedlich gute Ergebnisse liefern.  
-In dieser Arbeit soll erforscht werden, ob der Einsatz von Maschinellem Lernverfahren zu einer Verbesserung dieser Ergebnisse führen kann.
-Dabei wird exemplarisch am \textit{TableSort} Schüttgutsortier gearbeitet.
+Um die zukünftigen Trajektorien der Partikel aus den vergangenen Positionen vorherzusagen, existieren verschiedene Bewegungsmodelle.
+Diese liefern für unterschiedliche Situationen, mit unterschiedlichen Bandgeschwindigkeiten, Schüttguttypen oder Prädiktionsdistanzen, unterschiedlich gute Ergebnisse.  
+Mittels neuronaler Netze können komplexe, nichtlineare Muster aus bestehenden Daten gelernt werden, ohne dass explizit auf diese hingewiesen werden müssen.
+Es ist also denkbar, dass sie in der Lage wären die Bewegungen des Schüttguts zu lernen.
+Die für den Einsatz von neuronalen Netzen essenziellen Daten in ausreichender Menge zu sammeln ist definitiv möglich. 
+In dieser Arbeit soll nun erforscht werden, inwiefern der Einsatz von neuronalen Netzen zu einer Verbesserung gegenüber den bestehenden Ergebnissen führen kann.
+Dabei wird exemplarisch mit Daten von dem \textit{TableSort} Schüttgutsortier gearbeitet.
 
-Dafür sollen im Rahmen dieser Arbeit zwei verschiedene Prädiktionsprobleme durch neuronaler Netze gelöst werden.
+Dafür sollen im Rahmen dieser Arbeit zwei verschiedene Prädiktionsprobleme durch neuronale Netze gelöst werden.
 Einerseits soll vorhergesagt werden, an welcher Position sich ein Teilchen im nächsten Zeitschritt befinden wird.
 Solche Netze werden von hier an als NextStep-Netze bezeichnet.
 Eine Visualisierung dieser Aufgabe ist in Abbildung~\ref{fig:visualsNextstep} zu sehen.
-Dies hilft dabei das Zuordnungsproblem bei Trackingverfahren zu lösen.
-Andererseits soll vorhergesagt werden an welcher Position und wann ein Teilchen das Druckluftdüsenarray passieren wird.
+Dies hilft dabei, das Zuordnungsproblem bei Multi-Target-Tracking zu lösen.
+Andererseits soll vorhergesagt werden, an welcher Position und wann ein Teilchen das Druckluftdüsenarray passieren wird.
 Diese Problemstellung wird von sogenannten Separator-Netzen gelöst.
 Eine Visualisierung dieser Aufgabe ist in Abbildung~\ref{fig:visualsSeparator} zu sehen.
 Die Qualität dieser Prädiktion ist ausschlaggebend für den Erfolg der Separation.
 
 
-\begin{figure}[h]
+\begin{figure}[p]
     \centering
     \includegraphics[width=0.8\textwidth]{NextStep-45kDecaySteps-ZylinderReal_2018-11-29.pdf}
-    \caption{Visualisierung einer gelösten Probleminstanz eines NextStep-Netzes.}
+    \caption[Visualisierung einer gelösten Probleminstanz eines NextStep-Netzes]{Visualisierung einer gelösten 
+    Probleminstanz eines NextStep-Netzes. Die Transportrichtung ist entlang der \(y\)-Achse nach oben.
+    Die Features sind die zeitlich aufeinanderfolgenden, beobachteten Positionen eines Partikels.
+    Das Label ist die Position des entsprechenden Partikels im nächsten Zeitschritt.
+    }
     \label{fig:visualsNextstep}
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[p]
     \centering
     % \missingfigure{Real_Weizen_final_separatorExample.pdf}
 	\includegraphics[width=0.8\textwidth]{Real_Weizen_final_separatorExample.pdf}
-	\caption{Visualisierung einer gelösten Probleminstanz eines Separator-Netzes.}
-	% \todo{Quelle Bild!}
+    \caption[Visualisierung einer gelösten Probleminstanz eines Separator-Netzes]{Visualisierung einer gelösten Probleminstanz 
+    eines Separator-Netzes.
+    Wie in Abbildung~\ref{fig:visualsNextstep} ist die Transportrichtung entlang der \(y\)-Achse nach oben.
+    Die Features sind erneut die zeitlich aufeinanderfolgenden, beobachteten Positionen eines Partikels.
+    Das eine Element des Label ist die Position entlang der \(x\)-Achse an der das entsprechende Partikel das Druckluftdüsenarray passiert.
+    Das zweite Element des Labels -- der Zeitpunkt an dem es das Druckluftdüsenarray passiert -- ist nicht abgebildet.
+    }
+	
 	\label{fig:visualsSeparator}
 \end{figure}
 

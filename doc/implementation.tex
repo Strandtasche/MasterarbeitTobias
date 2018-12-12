@@ -104,7 +104,9 @@ Es können sogenannte Hyperparameter-Dateien im JSON-Dateiformat definiert werde
 Dies vereinfacht das Training und das Evaluieren von Netzen mit unterschiedlichen Hyperparameter-Konfigurationen.
 Einzelne Parameter aus den Dateien können per Kommandozeilenparameter überschrieben werden.
 Ein Beispiel für eine solche Hyperparameter-Datei ist in Listing~\ref{lst-hyperparam} zu sehen.
-Die Bedeutung der einzelnen Parameter wird im Folgenden erklärt.
+Die Bedeutung der einzelnen Parameter wird im Folgenden erklärt. 
+Sollte es für einen Parameter eine begrenzte Menge an zulässigen Optionen geben, 
+so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
 
 \todo[inline]{überlegen wir man das sinnvoll machen kann, dass das Listing seine eigene Seite kriegt und die Description sinnvoll anfängt.}
 
@@ -196,7 +198,7 @@ Die Bedeutung der einzelnen Parameter wird im Folgenden erklärt.
     \item [dropoutRate] Wahrscheinlichkeit für das zufällige Ausschalten von einzelnen Neuronen beim Training, entsprechend der Beschreibung in Unterabschnitt~\ref{ssec:Regul}.
     \item [hiddenLayers] Ein ein­di­men­si­o­nales Array an Zahlen, das die Architektur der Hidden Layers repräsentiert. Jede Zahl repräsentiert ein Fully-Connected Layer mit der entsprechenden Anzahl Neuronen.
     \item [featureSize] Anzahl der letzten Positionen des Partikels, die das Netz als Eingabe bekommt.
-    \item [activation] Legt die Aktivierungsfunktionen für die Neuronen der Hidden Layers fest. Valide Optionen sind ReLU, Leaky\_ReLU und linear, um lineare Aktivierungsfunktionen zu benutzen.
+    \item [activation] Legt die Aktivierungsfunktionen für die Neuronen der Hidden Layers fest. Valide Optionen sind ReLU, Leaky ReLU und lineare Aktivierungsfunktionen.
     % - optionen: "relu", "leaky_relu", "linear"
 \end{description}
 
@@ -213,7 +215,7 @@ Die Bedeutung der einzelnen Parameter wird im Folgenden erklärt.
 % Falls Separator 1:
 \begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries separatorPosition}, labelindent=0.5cm]
     \item[separatorPosition] Koordinate des Düsenbalken und Ziel der Prädiktion entlang der Bewegungsrichtung des Förderbands.
-    \item[thresholdPoint] Koordinate des Punkts, ab dem prädiziert wird.
+    \item[thresholdPoint] Koordinate des Punkts, nach dem von der nächsten Beobachtung prädiziert wird.
     \item[predictionCutOff] Koordinate des Punkts, ab dem die Tracks beim Laden abgeschnitten werden.
 \end{description}
 
