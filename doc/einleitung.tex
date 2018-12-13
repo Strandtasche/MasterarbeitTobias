@@ -1,41 +1,62 @@
 \chapter{Einleitung}
 
-\begin{itemize}
-    \item Schüttgutsortierung ist ein wichtiges Thema \todo{hier vielleicht dieses 10\% der Energie Beispiel bringen?}
-    \item Anwendungsbereiche Schüttgutsortierung
-    \item Maschinelle Lernverfahren sind ein heißes Thema, dass bei vielen existierenden problemen Anwendung findet
-\end{itemize}
+% \begin{itemize}
+%     \item Schüttgutsortierung ist ein wichtiges Thema \todo{hier vielleicht dieses 10\% der Energie Beispiel bringen?}
+%     \item Anwendungsbereiche Schüttgutsortierung
+%     \item Maschinelle Lernverfahren sind ein heißes Thema, dass bei vielen existierenden problemen Anwendung findet
+% \end{itemize}
 
 Schüttgüter und ihr Transport sind aus unserer modernen, globalisierten Welt nicht mehr wegzudenken.
-Ob es sich um Lebensmittel wie Getreide, Kaffeebohnen oder Zucker, Bergbauerzeugnisse wie Eisenerze oder Kohle, oder [Granulat/Pellets] handelt, 
-[...]
-[nicht-destruktiv]
-In dieser Arbeit soll es insbesondere um die bilddatenbasierte beziehungsweise optische Schüttgutsortierung gehen.
+% Ob es sich um Lebensmittel wie Getreide, Kaffeebohnen oder Zucker, Bergbauerzeugnisse wie Eisenerze oder Kohle, Granulate oder Pellets handelt, 
+% ausschlaggebend für die Einstufung als Schüttgut ist, dass das Material lose in großen Mengen transportiert wird.
+Als Schüttgüter werden solche Materialien bezeichnet, die lose ingroßen Mengen transportiert werden. 
+Dazu gehören Lebensmittel wie Getreide, Kaffeebohnen oder Zucker, aber auch Bergbauerzeugnisse, wie zum Beispiel Erze oder Kohle. 
+Auch Rohstoffe in Pellet-Form und Granulate zählen zu dieser Kategorie\,\cite[]{schulze2009}.
+Laut dem Seefrachtbericht der Vereinten Nationen wurden im Jahr 2017 insgesamt 3196 Millionen Tonnen von den größten Schüttgütern Eisenerze, Kohle und Getreide verschifft\,\cite[Unterabschnitt 1.A.2]{unitednationsconferenceontradeanddevelopment2018}.
+Der Anteil, der für die Verarbeitung von Schüttgutmaterialien verwendeten Energie am globalen Energieverbrauch wird als 10 \% angegeben\,\cite[Abschnitt 1.2]{duran2012sands}.
+In Zeiten der globalen Erwärmung ist der verantwortungsvolle Umgang mit Energie ein wichtiges Thema 
+und eine effizientere Sortierung von Schüttgutern kann dazu beitragen.
+Für das Sortieren solcher Schüttgüter gibt es verschiedene Methoden, 
+wie zum Beispiel durch den Einsatz von Sieben, Magneten oder Flotationszellen.
+Diese Sortiermethoden basieren auf unterschiedlichen physikalischen Eigenschaften der Schüttgutpartikel.
+Im Rahmen dieser Arbeit wird die bildbasierte Schüttgutsortierung behandelt, 
+die stattdessen auf den optischen Eigenschaften der einzelnen Schüttgutpartikel aufbaut.
+% Eine Sortiermethode, die nicht auf die physikalischen Eigenschaften der Schüttgutpartikel aufbaut 
+% sondern auf den Optischen, ist die bilddatenbasierte Schüttgutsortierung, um die es im Rahmen dieser Arbeit gehen soll.
+% Ein Vorteil den diese Technik hat ist, dass sie besonders nicht-destruktiv ist, während beim mechanischen Sortieren die Gefahr besteht, dass einzelnen Partikel beschädigt werden könnten.
+% In dieser Arbeit soll es insbesondere um eine nicht-destruktive Sortiervariante, nämlich die bilddatenbasierte beziehungsweise optische  gehen.
+% Um die Qualität der Schüttgutsortierung zu steigern wird im Rahmen dieser Arbeit der Einsatz von neuronalen Netzen für die Bewegungsprädiktion der einzelnen Partikel erprobt.
+In den letzten Jahren haben neuronale Netze für einige beeindruckende Fortschritte in verschiedenen Forschungsfeldern gesorgt,
+wie zum Beispiel in den Bereichen der Bildverarbeitung und der Spracherkennung.
+% In den letzten Jahren haben neuronale Netze für einige beeindruckende Fortschritte in verschiedenen Forschungsfeldern gesorgt 
+% und ihre Stärken in der Mustererkennung sollen nun hier Einsatz finden.
+Um die Qualität der Schüttgutsortierung zu steigern,
+wird im Rahmen dieser Arbeit der Einsatz von neuronalen Netzen für die Bewegungsprädiktion der einzelnen Partikel erprobt.
 
 
 
-\todo{Einleitungstext}
+% \todo{Einleitungstext}
 
 \section{Motivation}
 
-\color{blue}
-\begin{itemize}
-    \item State of the Art: große Sortierer 
-    \item Kooperation ISAS IOSB, \textit{TrackSort} Projekt 
-    \item Flächenkamera
-    \item 2 geteiltes Problem: Tracking und Prediction
-    \item Fokus dieser Arbeit: Prediction
-    \item Bewegungsmodelle für verschiedene Schüttgüter von Hand finetunen ist viel Aufwand und schwer
-    \item Option: Neuronale Netze einsetzen! 
-    \item zwei verschiedene Problemstellungen:
-    \item 1. die Position des Teilchens im nächsten Zeitschritt. \textbf{NextStep} für Trackingphase
-    \item 2. die Position (und die Zeit) die das Teilchen beim Passieren des Düsenarrays haben wird. \textbf{Separator}
-    \item Aktuell: auf Messungen - kein Vollständiger Schätzer
-\end{itemize}
-\color{black}
+% \color{blue}
+% \begin{itemize}
+%     \item State of the Art: große Sortierer 
+%     \item Kooperation ISAS IOSB, \textit{TrackSort} Projekt 
+%     \item Flächenkamera
+%     \item 2 geteiltes Problem: Tracking und Prediction
+%     \item Fokus dieser Arbeit: Prediction
+%     \item Bewegungsmodelle für verschiedene Schüttgüter von Hand finetunen ist viel Aufwand und schwer
+%     \item Option: Neuronale Netze einsetzen! 
+%     \item zwei verschiedene Problemstellungen:
+%     \item 1. die Position des Teilchens im nächsten Zeitschritt. \textbf{NextStep} für Trackingphase
+%     \item 2. die Position (und die Zeit) die das Teilchen beim Passieren des Düsenarrays haben wird. \textbf{Separator}
+%     \item Aktuell: auf Messungen - kein Vollständiger Schätzer
+% \end{itemize}
+% \color{black}
 
-\todo[inline]{arbeit motivieren. Schüttgutsortierung ist ein interessantes Feld, das sich potenziell für ML anbietet.}
-\todo[inline]{auf jeden fall separator- und NextStep-Netze unterscheidung erwähnen}
+% \todo[inline]{arbeit motivieren. Schüttgutsortierung ist ein interessantes Feld, das sich potenziell für ML anbietet.}
+% \todo[inline]{auf jeden fall separator- und NextStep-Netze unterscheidung erwähnen}
 
 Der Großteil der heute in der Industrie eingesetzten optischen Schüttgutsortierer verwenden Zeilenkameras.
 Dabei muss jedoch die Annahme getroffen werden, dass die Schüttgutpartikel keinerlei Geschwindigkeit orthogonal zur Transportrichtung haben,
@@ -111,5 +132,30 @@ Die Qualität dieser Prädiktion ist ausschlaggebend für den Erfolg der Separat
 
 Das schreibe ich auf, wenn die Gliederung finalisiert ist.
 
-\todo{aufbau Gliederung beschreiben. Ganz am Ende dann, wenn sich nichts mehr ändert}
+\begin{itemize}
+    \item Kapitel 2: Für das verständnis der Arbeit wichtige Grundlagen
+    \item Einerseits die von Neuronalen Netzen
+    \item Andererseits TableSort System und wie das was ich dann mit Neuronalen Netzen machen möchte bisher gemacht wird.
+    \item Kapitel 3: alles zu den Daten
+    \item Zuerst: selbst aufgenommene Daten. Was für Bilder wurden aufgenommen und wie wurden sie in den Zustand gebracht mit denen ich arbeiten will.
+    \item Dann: Die Simulierten Daten und der unterschied zu den aufgenommenen
+    \item Welche Form genau nehmen die Eingaben für mein Netz an und woher kommen die erwarteten Ausgaben.
+    \item Beschreibung der Vorgenommenen Datenaugmentierung
+    \item am Ende: eine kurze zusammenfassung wie viele Daten das jeweils sind.
+    \item Kapitel 4: Umsetzung und Implementierung
+    \item Benutzte Software
+    \item Beschreibung des Ablaufs mit dem ein Netz trainiert und evaluiert wird
+    \item Hyperparameter beschreiben und auf das Tuning eingegangen.
+    \item Kapitel 5: Evaluation
+    \item Hardware auf der Trainiert wurde
+    \item die mathematische Beschreibung der Modelle aus dem Stand der Technik für den Vergleich.
+    \item Evaluation der NextStep-Netze
+    \item Evaluation der Separator-Netze
+    \item Kapitel 6: Ganz zum Schluss - Fazit und Ausblick darauf was man noch so tun könnte in dem Feld
+\end{itemize}
+
+
+Nachdem im ersten Kapitel eine kurze Einführung und Motivation für das Thema gegeben wurde
+
+% \todo{aufbau Gliederung beschreiben. Ganz am Ende dann, wenn sich nichts mehr ändert}
 

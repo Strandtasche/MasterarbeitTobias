@@ -1,4 +1,5 @@
 \chapter{Datenverarbeitung}
+\label{cap:data}
 
 % Wie bei jeder Anwendung von maschinellen Lernverfahren sind die zugrundeliegenden Daten von äußerster Wichtigkeit.
 Bei maschinellen Lernverfahren ist die Qualität und die Menge der zugrundeliegenden Daten sehr wichtig,
@@ -96,7 +97,7 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 		\includegraphics[width=\textwidth]{WeizenCropped}
 		\caption{Weizen}
 	\end{subfigure}
-	\caption{Verschiedene gesammelte Schüttgüter}
+	\caption{Verschiedene gesammelte Schüttgüter.}
 	\label{fig:schuettgueterSchuessel}
 \end{figure}
 
@@ -132,7 +133,7 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 		\includegraphics[width=\textwidth]{pfeffer_rutsche_005_00056_debayer}
 		\caption{Pfefferkörner auf der Rutsche}
 	\end{subfigure}
-	\caption{Verschiedene Schüttgüter auf dem Förderband bzw. der Rutsche}
+	\caption{Verschiedene Schüttgüter auf dem Förderband bzw. auf der Rutsche.}
 	\label{fig:schuettgueterBand}
 \end{figure}
 
@@ -162,7 +163,7 @@ Die Bilder werden in Batches von je 3500 Bildern gesammelt und in Bitmap-Dateien
 	% \missingfigure{bayer matrix}
 	\centering
 	\includegraphics[width=0.6\textwidth]{BayerPattern.pdf}
-	\caption{Bayer-Matrix auf einem Sensor\cite{bayerPattern06}}
+	\caption{Bayer-Matrix auf einem Sensor \cite{bayerPattern06}.}
 	\label{fig:bayerPattern}
 \end{figure}
 
@@ -301,8 +302,8 @@ circa \SI{1.1}{\meter\per\second} hat.
 Ein weiterer Unterschied ist der Aufnahmebereich.
 Im Gegensatz zu den selbst aufgenommenen Daten, die nur Informationen 
 zu den Bewegungen der Partikel im Bereich auf den die Hochgeschwindigkeitskamera gerichtet ist umfassen, 
-befinden sich in den DEM Datensätzen die Positionen der Teilchen über die gesamte Länge des Förderbandes.
-Das bedeutet auch, dass in den DEM Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden enthalten ist.
+befinden sich in den DEM-Datensätzen die Positionen der Teilchen über die gesamte Länge des Förderbandes.
+Das bedeutet auch, dass in den DEM-Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden enthalten ist.
 Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, sprich mehr Messungen enthalten.
 Bei der NextStep-Prädiktion sorgt das dafür, dass es eine deutlich größere Anzahl an Feature-Label-Paaren gibt.
 Die Bewegungsrichtung der Partikel ist ebenfalls nicht identisch.
@@ -314,7 +315,7 @@ Während die selbst aufgenommenen Datensätze eine Bewegung entlang der y-Achse 
     \centering
     % \missingfigure{DEM Simulationsgrafik}
 	\includegraphics[width=\textwidth]{DEM-SimOverview}
-	\caption{Visualisierung der DEM Simulation, übersetzt~aus~\cite{Pfaff2018}}
+	\caption{Visualisierung der DEM-Simulation, übersetzt~aus~\cite{Pfaff2018}.}
 	\label{fig:DEMSimulation}
 \end{figure}
 
@@ -436,7 +437,7 @@ Für die Standardisierung wird von der jeweiligen Komponente der Mittelwert und 
 Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\) subtrahiert, und durch die korrespondierende Standardabweichung \(\sigma\) dividiert.
 % Jedes Labelelement \(e\), sei es das erste oder das zweite Element seines entsprechenden Tupels, wird gemäß seiner Position vor dem Training angepasst,
 % indem davon der Durchschnitt aller ersten beziehungsweise zweiten Elemente abgezogen wird und dann durch die Standardabweichung aller ersten beziehungsweise zweiten Elemente geteilt wird.
-\todo[inline]{ist das hier verständlich?}
+% \todo[inline]{ist das hier verständlich?}
 	
 \begin{equation*}
 	X_{\text{neu}} = \frac{X - \mu}{\sigma} %\mu_{\text{N}}}{\sigma_{\text{N}}}
@@ -533,7 +534,7 @@ Auf dem Förderband wurden 7712 Tracks von Kugeln,
 und 8702 Tracks von Weizenkörner zugeordnet.
 Zudem wurden 5132 Tracks Kugeln und 3609 Tracks von Pfefferkörner auf der Rutsche zugeordnet.
 
-Im DEM Datensatz sind die Tracks von 3713 Kugeln, 4357 Plättchen und 4427 Zylindern enthalten.
+Im DEM-Datensatz sind die Tracks von 3713 Kugeln und 4357 Plättchen enthalten.
 Die Verteilung der Tracks ist in Abbildung~\ref{fig:barTracks} zu sehen.
 
 \begin{figure}[h]

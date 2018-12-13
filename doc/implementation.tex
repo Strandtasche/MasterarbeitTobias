@@ -84,6 +84,7 @@ Diese Diagramme sind in Kapitel~\ref{cap:Eval} zu finden.
   
 
 \section{Hyperparameter}
+\label{sec:hypp}
 
 % \color{blue}
 % Hyperparameter sind die Variablen, die die Struktur des Netzes bestimmen (Eg: Anzahl Layers, FeatureSize) 
@@ -197,7 +198,7 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
 \begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries separatorPosition}, labelindent=0.5cm]
     \item [dropoutRate] Wahrscheinlichkeit für das zufällige Ausschalten von einzelnen Neuronen beim Training, entsprechend der Beschreibung in Unterabschnitt~\ref{ssec:Regul}.
     \item [hiddenLayers] Ein ein­di­men­si­o­nales Array an Zahlen, das die Architektur der Hidden Layers repräsentiert. Jede Zahl repräsentiert ein Fully-Connected Layer mit der entsprechenden Anzahl Neuronen.
-    \item [featureSize] Anzahl der letzten Positionen des Partikels, die das Netz als Eingabe bekommt.
+    \item [featureSize] Anzahl der letzten Positionen des Partikels, die das Netz als Eingabe bekommt. Wie in Kapitel~\ref{cap:data} beschrieben.
     \item [activation] Legt die Aktivierungsfunktionen für die Neuronen der Hidden Layers fest. Valide Optionen sind ReLU, Leaky ReLU und lineare Aktivierungsfunktionen.
     % - optionen: "relu", "leaky_relu", "linear"
 \end{description}
@@ -249,7 +250,8 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
 
 
 
-\subsection{Hyperparameter Tuning}
+\subsection{Hyperparameter-Tuning}
+
 
 % \color{blue}
 % Als Hyperparameter Optimierung oder auch Hyperparameter Tuning bezeicht man den Vorgang das am besten geeignete Set an 
@@ -277,7 +279,7 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
 % Separator: ?
 % \color{black}
 
-Als Hyperparameter Optimierung oder auch Hyperparameter Tuning bezeicht man den Vorgang, das am besten geeignete Set an 
+Als Hyperparameter-Optimierung oder auch Hyperparameter-Tuning bezeicht man den Vorgang, das am besten geeignete Set an 
 Hyperparametern für einen Lernalgorithmus zu finden.
 
 In Rahmen dieser Arbeit wurden die Hyperparameter für die verschiedenen Szenarien manuell angepasst und verglichen.
@@ -306,9 +308,10 @@ Die verwendete Lernrate entspricht dabei der folgenden Formel:
 Die Zerfallskonstante \(\lambda\) wurde als 0.96 festgelegt, während die Basislernrate und die Zerfallsschritte anpassbare Hyperparameter sind.
 
 
-Das Ergebnis des Hyperparameter Tunings bezüglich Netzarchitektur für die NextStep-Netze ist in Abbildung~\ref{fig:netArchitectureNextStep} zu sehen.
+Das Ergebnis des Hyperparameter-Tunings bezüglich Netzarchitektur für die NextStep-Netze ist in Abbildung~\ref{fig:netArchitectureNextStep} zu sehen.
 Auf den Testdaten produzierte von den erprobten Konfigurationen eine FeatureSize von 5 in Kombination mit 3 Hidden Layers mit jeweils 16 Neuronen die besten Ergebnisse.
-Was die Lernparameter angeht, so sieht das Ergebnis des Hyperparameter Tunings folgendermaßen aus:
+Weder \(L_1\)- noch \(L_2\)-Regularisierung haben einen positiven Effekt auf die Trainingsergebnisse, weshalb für die NextStep-Netze darauf verzichtet wurde.
+Was die Lernparameter angeht, so sieht das Ergebnis des Hyperparameter-Tunings folgendermaßen aus:
 \begin{itemize}
     \item Batch Größe von 500
     \item Training über insgesamt 3000 Epochen mit jeweils 5000 Iterationen
@@ -330,7 +333,8 @@ Hier sorgt eine FeatureSize von 7 für bessere Ergebnisse.
 Dies könnte zumindest teilweise damit erklärt werden, dass für die Separator-Netze im Gegensatz zu den NextStep-Netzen eine höhere FeatureSize nicht mit einer Reduktion der Anzahl an Trainingsbeispielen einhergeht.
 % \todo{Sind hier solche Vermutungen angebracht?}
 Des Weiteren haben 4 Layers mit jeweils 16 Neuronen die besten Ausgaben von den erprobten Konfigurationen erzielt.
-Das Hyperparameter Tuning hat für die restlichen Hyperparameter die folgenden Werte ergeben:
+Im Gegensatz zu den NextStep-Netzen hat die \(L_1\)-Regularisierung bei den Separator-Netzen die Güte der Ergebnisse auf den Testdaten verbessert.  
+Das Hyperparameter-Tuning hat für die restlichen Hyperparameter die folgenden Werte ergeben:
 \begin{itemize}
     \item Batch Größe von 100
     \item Training über insgesamt 1000 Epochen mit jeweils 5000 Iterationen

@@ -13,7 +13,7 @@ Anschließend werden diese Ergebnisse diskutiert.
 \section{System}
 
 Alle in dieser Arbeit vorgestellten Netze wurden auf einem Ubuntu 18.04 Linux System trainiert und evaluiert.
-Dieses verfügt über einen Intel i7-7700k CPU @ \SI{4.20}{\giga\hertz}, eine NVIDIA GeForce 1080Ti Grafikkarte mit \SI{11}{\giga\byte}~GDDR5X,
+Dieses verfügt über einen Intel i7-7700k CPU mit \SI{4.20}{\giga\hertz}, eine NVIDIA GeForce 1080Ti Grafikkarte mit \SI{11}{\giga\byte}~GDDR5X
 und \SI{32}{\giga\byte}~RAM. 
 
 \todo[inline]{muss da noch irgendwie mehr dazu?}
@@ -158,10 +158,10 @@ Analog zum Constant Velocity Modell können daraus die Positionsgleichungen
 % 
 abgeleitet werden.
 Genau wie beim Constant Velocity Modell werden nun jeweils entweder die Gleichung für \(t = \text{Last} + 1\) gelöst 
-um die Prädiktion für den Nextstep-Fall oder \(\Delta t \) und daraus \(\mathsf{y}^{\text{Pred}}\) für den Separator-Fall gelöst.
+um die Prädiktion für den NextStep-Fall oder \(\Delta t \) und daraus \(\mathsf{y}^{\text{Pred}}\) für den Separator-Fall gelöst.
 
 
-\subsection{Bias-Corrected Constant Velocity Modell}
+\paragraph{Bias-Corrected Constant Velocity Modell}
 
 In \cite{Pfaff2018} wurden weitere szenariospezifische Bewegungsmodelle beschrieben, die insbesondere die Qualität der zeitlichen Prädiktion für den Separator-Fall verbessern.
 Das erste von diesen Modellen, das hier zum Vergleich mit den Ergebnissen der neuronalen Netze betrachtet werden soll, ist eine Verbesserung des Constant Velocity Modells.
@@ -265,7 +265,7 @@ Für die Darstellung in dieser Arbeit wurde darauf verzichtet Ausreißer außerh
 % NNPrädiktionX, NNPrädiktion, CV\_X, CV\_Y, CA\_X, CA\_Y}
 % \color{black}
 
-In dieser Sektion soll das Ergebnis der NextStep-Netze in verschiedenen Szenarien betrachtet und diskutiert werden.
+In dieser Sektion soll das Ergebnis der NextStep-Netze in verschiedenen Szenarien betrachtet werden.
 Als Evaluationskriterium für die NextStep-Netze wurde die Euklidische Distanz zwischen der Prädiktion des Modell und der Ground Truth gewählt.
 Der Gesamtfehler \(\varepsilon\hitext{Total} \) ist also durch 
 
@@ -277,24 +277,22 @@ Der Gesamtfehler \(\varepsilon\hitext{Total} \) ist also durch
 
 definiert. Verglichen wird das NextStep-Netz mit einem Constant Velocity Modell und einen Constant Acceleration Modell.
 
-Die neuronalen Netze haben in allen untersuchten Szenarien bessere Ergebnisse als die beiden Vergleichsmodelle geliefert.
+Die im Rahmen dieser Arbeit trainierten neuronalen Netze haben in allen untersuchten Szenarien bessere Ergebnisse als die beiden Vergleichsmodelle geliefert.
 % \todo{kann man das bei den Simulierten Zylindern so sagen?}
 Repräsentativ für ihre jeweiligen Szenariokategorien sind in Abbildung~\ref{subfig:RealSpheresBoxplot} der Boxplot für die selbst aufgenommenen Kugeln auf dem Förderband,
 und in Abbildung~\ref{subfig:SimSpheresBoxplot} der Boxplot für die mittels DEM simulierten Kugeln zu sehen.
 In beiden Fällen ist das Ergebnis des Neuronalen Netzes besser als die Vergleichsmodelle
 Es ist auffällig, dass bei den simulierten Daten das CA Modell besser als das CV Modell ist, während es im anderen Fall umgekehrt ist.
 Das ist auf die die höhere Bandgeschwindigkeit bei der Simulation zurückzuführen. 
-
-\todo[inline]{NextStep Boxplot schön machen ohne titel und in mm}
-
 In Abbildung~\ref{fig:RealSpheresHistogram} sieht man das Fehlerhistogramm, dass zu Abbildung~\ref{subfig:RealSpheresBoxplot} gehört.
 Es ist zu erkennen, dass die Prädiktionen des neuronalen Netz sowohl einen besseren Erwartungswert als auch eine geringere Standardabweichungen als die Vergleichsmodelle hat.
 
 
 Die Boxplots und Histogramme der übrigen Szenarien sind im Anhang zu finden.
 \todo[inline]{hier könnte ich noch mehr schreiben zu verschiedenen anderen Szenarien, wenn es notwendig sein sollte.}
+\todo[inline]{NextStep Boxplot schön machen ohne titel und in mm}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
 	
 	\begin{subfigure}[t]{0.8\textwidth}
@@ -310,7 +308,7 @@ Die Boxplots und Histogramme der übrigen Szenarien sind im Anhang zu finden.
 		\label{subfig:SimSpheresBoxplot}
 	\end{subfigure}
 	
-	\caption{Visualisierung der Ergebnisse }
+	\caption{Visualisierung der Ergebnisse für die realen und simulierten Kugeln mit NextStep-Netzen}
 	\label{fig:BoxplotsNextStep}
 \end{figure}
 
@@ -335,64 +333,71 @@ Die Boxplots und Histogramme der übrigen Szenarien sind im Anhang zu finden.
 
 
 
-\color{blue}
-- CV, CA
-- Ergebnis Netz
+% \color{blue}
+% - CV, CA
+% - Ergebnis Netz
 
-Vergleich Realdaten und simulierte Daten.
-Realdaten mit ungefähr \SI{1.1}{\meter\per\second} während Simulierte mit \SI{1.5}{\metre\per\second} Bandgeschwindigkeit 
+% Vergleich Realdaten und simulierte Daten.
+% Realdaten mit ungefähr \SI{1.1}{\meter\per\second} während Simulierte mit \SI{1.5}{\metre\per\second} Bandgeschwindigkeit 
 
-Zylinder schlechte performance erklären \textrightarrow orientierung fehlt?
-\color{black}
+% \color{black}
 
 \section{Separator}
 
-\color{blue}
-CV, CA quasi wie oben.
-zusätzlich: CVBC, AA und IA
+% \color{blue}
+% CV, CA quasi wie oben.
+% zusätzlich: CVBC, AA und IA
 
-- Ergebnis NN
-- Ergebnis Lineare Regression
-\color{black}
-
+% - Ergebnis NN
+% \color{black}
 
 
-In dieser Sektion sollen nun die Ergebnisse der Separator-Netze in verschiedenen Szenarien betrachtet und diskutiert werden.
-Im Gegensatz zu diesen können die beiden Labelelemente nicht in einem gemeinsamen Evaluationskriterium zusammengefasst werden.
-Deshalb werden hier die zeitliche Abweichung vom prädizierten Kontaktzeitpunkt mit dem Druckluftdüsenarray und die örtliche Abweichung des Schnittpunkts des Bahn des Partikels mit dem Druckluftdüsenarray separat betrachtet.
+
+In dieser Sektion sollen nun die Ergebnisse der Separator-Netze in verschiedenen Szenarien betrachtet werden.
+% Im Gegensatz zu diesen können die beiden Labelelemente nicht in einem gemeinsamen Evaluationskriterium zusammengefasst werden.
+Hier wird  die zeitliche Abweichung vom prädizierten Kontaktzeitpunkt mit dem Druckluftdüsenarray und die örtliche Abweichung des Schnittpunkts des Bahn des Partikels mit dem Druckluftdüsenarray separat betrachtet.
 Ebenso wie bei den NextStep-Netzen werden hier ein Constant Velocity- und ein Constant Acceleration Modell als Vergleichsmodelle für die Ausgaben des neuronalen Netz benutzt.
-Es werden mehr Vergleichsmodelle hinzugezogen. 
+Es werden allerdings noch mehr Vergleichsmodelle hinzugezogen. 
 Das Bias-Corrected Constant Velocity Modell liefert eine sowohl Prädiktion für den Zeit als auch für den Ort.
 Die Average Acceleration und Identical Acceleration Modelle werden nur für die zeitliche Prädiktion zum Vergleich herangezogen.
 
-Die Evaluation, die hier durchgeführt wurde erfolg auf folgendem Szenario.
+Die Evaluation, die hier durchgeführt wurde erfolgt auf folgendem Szenario.
 Als Trainingsdaten wurden nur das jeweils letzte Feature-Label-Paar eines Tracks benutzt, bevor das entsprechende Partikel die Prädiktionsphase verlässt.
 Es wäre in der Zukunft möglich auf allen möglichen Feature-Label-Paaren zu trainieren um zu erreichen, dass der Ausgangspunkt verschoben werden kann ohne das Netz neu trainieren zu müssen.
 \todo{Hier weg und dafür in den Ausblick?}  
-Für die DEM Datensätze wurde von \(x = \SI{0.55}{\meter}\) nach \(x = \SI{0.70}{\meter}\) prädiziert, also \SI{15}{\centi\meter} nach vorne.
+Für die DEM-Datensätze wurde von \(x = \SI{0.55}{\meter}\) nach \(x = \SI{0.70}{\meter}\) prädiziert, also \SI{15}{\centi\meter} nach vorne.
 Da der gesamte Bildausschnitt der selbst aufgenommenen Daten weniger als \SI{15}{\centi\meter} entlang der Bewegungsrichtung misst musste diese Distanz reduziert werden.
 Die letztendlich auf den selbst gesammelten Daten trainierten Netze prädizieren von \(y = \SI{800}{\px}\) nach \(y = \SI{1550}{\px}\), also eine Distanz von \SI{750}{\px}.
 
 
-Die Ergebnisse auf den Separator-Netzen werden zweigeteilt als
+Die Ergebnisse auf den Separator-Fall werden zweigeteilt als
 \begin{align*}
     t\hitext{Err} &=  t\hitext{Pred} -  t\hitext{GT} \: ,\\
     \mathsf{y}\hitext{Err} &=  \mathsf{y}\hitext{Pred} -  \mathsf{y}\hitext{GT}
 \end{align*}
 definiert.
-Im Gegensatz zu den NextStep-Netzen ist es nicht sinnvoll diese Fehler zu einem Gesamtfehler zu kombinieren.
-Das Vorzeichen der Fehler für die einzelnen Partikel ist hier, ebenfalls im Gegensatz zu den NextStep-Netzen, angegeben.
-Für die zeitlichen Fehler bedeutet ein positiver Wert also, 
+Im Gegensatz zu dem NextStep-Fall ist es nicht sinnvoll diese Fehler zu einem Gesamtfehler zu kombinieren.
+Das Vorzeichen der Fehler für die einzelnen Partikel ist hier relevant, ebenfalls im Gegensatz zu den NextStep-Netzen.
+Für die zeitlichen Fehler bedeutet ein positiver Wert, 
 dass das Teilchen früher den Druckluftdüsenarray passiert hat als von dem Modell vorhergesagt. 
 
 
 Die Ergebnisse der neuronalen Netze für die Separator-Prädiktion sind insgesamt zufriedenstellend.
-Sie sind auf allen Datensätzen besser als das Constant Velocity Modell, das Constant Acceleration Modell und das Bias-Corrected Constant Velocity Modell.
+Sie sind auf allen Datensätzen besser als das CV-Modell, das CV-Modell und das CVBC-Modell.
 Auf den beiden simulierten Datensätzen sind die Ergebnisse ein wenig schlechter als das Identical Acceleration Modell, 
-aber deutlich besser als die grundlegenden Modelle und dem Bias-Corrected Constant Velocity Modell.
+aber deutlich besser als die grundlegenden Modelle und das Bias-Corrected Constant Velocity Modell.
 Dies ist in Abbildung~\ref{fig:BoxplotsSimCub} exemplarisch durch die Boxplots der simulierten Plättchen dargestellt.
+Zunächst soll der zeitliche Fehler betrachtet werden.
+Obwohl der Median des Prädiktionsfehlers einen kleinen Bias ins Positive hat und das untere Quartil tatsächlich positiv ist, werden die Fehler der neuronalen Netzes komplett von denen des CVBC-Modells überdeckt.
+Das CV- und das CA-Modell sind beide nocheinmal bedeutend schlechter als das CVBC-Modell.
+Das CV-Modell hat einen Bias von beinah zwei ganzen Zeitschritten während das CA-Modell zwar beinah biasfrei ist, ungefähr in der gleichen Größenordnung wie das neuronale Netz, hat es mit Abstand die größte Standardabweichung
+Diese ist ungefähr drei mal so groß wie die des Ergebnisses des neuronalen Netzes.
+Das beste Modell in diesem Szenario ist das IA-Modell.
+Es ist beinah komplett biasfrei und hat die geringste Standardabweichung von allen Modellen.
+Bei der Betrachtung des örtlichen Fehlers ist das CA-Modell tatsächlich besser als das CV- oder das CVBC-Modell, aber dennoch deutlich schlechter als das neuronale Netz.
+Alle vier Modelle sind beinahe biasfrei, aber der Interquartilsabstands der Ausgabe des neuronalen Netzes sind deutlich geringer. 
 
-\begin{figure}[h]
+\begin{figure}[htbp+]
     \centering
 	
 	\begin{subfigure}[t]{0.8\textwidth}
@@ -413,46 +418,81 @@ Dies ist in Abbildung~\ref{fig:BoxplotsSimCub} exemplarisch durch die Boxplots d
 \end{figure}
 
 Im Vergleich dazu sind die Unterschiede zwischen den verschiedenen Modellen auf den selbst aufgenommenen Daten deutlich kleiner.
-Das Constant Velocity Modell, dessen mittlerer zeitlicher Fehler auf den DEM-Datensätzen einen signifikanten Bias gezeigt hat, schneidet oft beinah so gut 
-und bei den Weizenkörnern, zu sehen in Abbildung~\ref{fig:BoxplotsRealWeizen}, sogar besser ab, als das Identical Acceleration Modell.
+Das Constant Velocity Modell schneidet oft beinah so gut 
+und bei den Weizenkörnern sogar besser ab, als das Identical Acceleration Modell.
 Auf den selbst gesammelten Daten schneidet von den bestehenden Modellen das Bias-Corrected Constant Velocity Modell am besten ab. 
-Die neuronalen Netze sind jedoch [bis auf Pfeffer?] nocheinmal besser. 
-\todo[inline]{Resultat verifizieren}
-Dieses Resultat hängt höchstwahrscheinlich mit der niedrigeren Bandgeschwindigkeit und dem kürzeren Prädiktionsabstand zusammen.
-Auch die könnten die unterschiedlichen Verfahren unterschiedlich anfällig gegen das Messrauschen sein, das ja auch den simulierten Daten nicht existiert.
-Für die bestehenden Modelle gilt, dass eine relative Verbesserung der zeitliche Prädiktion zu einer Verbesserung der örtlichen Prädiktion führt, 
-was besonders gut in Abbildung~\ref{fig:BoxplotsSimCub} zu erkennen ist, da die zeitliche Prädiktion benutzt wird um die örtliche zu treffen.
-Für die Ausgabe der neuronalen Netze gilt das jedoch nicht. 
+Die neuronalen Netze sind jedoch nocheinmal besser. 
+Wenn man die Boxplots der zeitlichen Fehler der verschiedenen Modelle auf dem Weizenkörner-Datensatz der selbst aufgenommenen Daten, dargestellt in Abbildung~\ref{subfig:RealWeizenTimeBoxplot},
+im Detail betrachtet gibt es einige Auffälligkeiten. 
+Im Gegensatz zu dem in Abbildung~\ref{subfig:SimCubTimeBoxplot} dargestellten Szenario
+zeigt der zeitliche Fehler des CV-Modells nur einen geringen Bias, der sogar eher negativ ist.
+Während es im bei den simulierten Plättchen so ist, 
+dass der Interquartilsabstands des CV-Modells um Faktoren größer ist als der der IA-Modells, ist er hier fast gleich groß.
+Tatsächlich unterscheiden sich die Ergebnisse der CV-, CVBC-, AA- und IA- fast nur in ihrem Bias.
+Dem gegenüber stehen die Ergebnisse des neuronalen Netz, die fast komplett biasfrei sind und einen merklich kleineren Interquartilsabstands hat als jedes der bestehenden Modelle.
+Ähnlich ist es beim räumlichen Fehler, der in Abbildung~\ref{subfig:RealWeizenLocBoxplot} dargestellt ist.
+Obwohl die Ergebnisse des neuronalen Netzes einen kleinen Bias haben, wird der Bereich zwischen ihrem oberen und unteren Quartil immer noch komplett überdeckt von der Box des CVBC-Modells, das das beste der Vergleichsmodelle ist.
 
-\begin{figure}[h]
+% \todo[inline]{Resultat verifizieren}
+Die Resultate der bestehenden Modelle hängen höchstwahrscheinlich mit der niedrigeren Bandgeschwindigkeit und dem kürzeren Prädiktionsabstand zusammen.
+Auch die könnten die unterschiedlichen Verfahren unterschiedlich anfällig gegen das Messrauschen sein, das auf den simulierten Daten nicht existiert.
+Für die bestehenden Modelle gilt, dass eine relative Verbesserung der zeitliche Prädiktion zu einer Verbesserung der örtlichen Prädiktion führt,
+da die zeitliche Prädiktion benutzt wird um die örtliche zu bestimmen.
+Das ist besonders gut in Abbildung~\ref{fig:BoxplotsSimCub} zu erkennen. 
+Die Verbesserung der zeitlichen Prädiktion, zu sehen in Abbildung~\ref{subfig:SimCubTimeBoxplot}, zwischen dem CV- und dem CVBC-Modell sorgt auch direkt für eine Verbesserung der örtlichen Prädiktion, zu sehen in Abbildung~\ref{subfig:SimCubLocBoxplot}.
+Für die Ausgabe der neuronalen Netze gilt das jedoch nicht. Hier werden beide Ausgaben parallel bestimmt. 
+
+Wie schon für die NextStep-Netze sind die Boxplots und Histogramme der restlichen Szenarien im Anhang zu finden.
+
+\begin{figure}[htbp]
     \centering
 	
 	\begin{subfigure}[t]{0.8\textwidth}
 		\includegraphics[width=\textwidth]{RealWeizen-evaluation_Separator_TimeErrorBoxplot_2018-12-11_14-09-12.pdf}
-		\caption{Boxplots des zeitlichen Fehlers für die Separator-Ergebnisse des Weizenkörnern-Datensatz aus dem selbst gesammelten Datensatz.}
+		\caption{Boxplots des zeitlichen Fehlers für die Separator-Ergebnisse des Weizenkörnern-Datensatz von den selbst gesammelten Daten.}
 		\label{subfig:RealWeizenTimeBoxplot}
 	\end{subfigure}
     % \quad
     \vskip\baselineskip
 	\begin{subfigure}[t]{0.8\textwidth}
 		\includegraphics[width=\textwidth]{RealWeizen-evaluation_Separator_LocationErrorBoxplot_2018-12-11_14-09-12.pdf}
-		\caption{Boxplots des örtlichen Fehlers für die Separator-Ergebnisse des Weizenkörnern-Datensatz aus dem selbst gesammelten Datensatz.}
+		\caption{Boxplots des örtlichen Fehlers für die Separator-Ergebnisse des Weizenkörnern-Datensatz von den selbst gesammelten Daten.}
 		\label{subfig:RealWeizenLocBoxplot}
 	\end{subfigure}
 	
-	\caption{Visualisierung der Ergebnisse für den Weizenkörnern-Datensatz aus dem selbst gesammelten Datensatz.}
+	\caption{Visualisierung der Ergebnisse für den Weizenkörnern-Datensatz von den selbst gesammelten Daten.}
 	\label{fig:BoxplotsRealWeizen}
 \end{figure}
 
-Wie schon für die NextStep-Netze sind die Boxplots und Histogramme der restlichen Szenarien im Anhang zu finden.
 
 \section{Zusammenfassung und Diskussion}
 
+\todo[inline]{Einleitung und Zusammenfassung}
 
-Die Fehlerfunktion nach der die neuronalen Netze optimiert worden ist, ist die MSE-Funktion.
+Die Tatsache, dass die Separator-Netze auf den DEM-Datensätzen, im Gegensatz zu allen anderen Szenarios,
+hinter dem aktuellen Stand der Technik zurück bleiben könnte darauf zurückzuführen sein, 
+dass dort verhältnismäßig weniger Trainingsdaten zur Verfügung standen.
+Wie bereits in Kapitel~\ref{cap:data} erwähnt, haben DEM-Datensätzen im Vergleich zu den selbst aufgenommenen Daten weniger, aber dafür deutlich längere Tracks.
+Für die NextStep-Netze sorgt die größere Länge dazu, dass sogar mehr Feature-Label-Paare aus den DEM-daten extrahiert werden können als aus den selbst aufgenommenen.
+Für die Separator Netze ist die Länge der Tracks jedoch unerheblich.
+Aus einem Track entsteht nur ein einzelnes Feature-Label-Paar.
+Trotz der Datenaugmentierung scheint es so, als ob nicht genug Trainingsdaten vorhanden sein könnten.
+% Ein ähnliches Problem Problem [... Rutsche]
+
+
+In der Zukunft wäre es wünschenswert das Hyperparameter-Tuning für mehr Szenarios und präziser durchzuführen.
+Wie in Abschnitt~\ref{sec:hypp} beschrieben, wurden nur zwei Hyperparameter-Konfigurationen optimiert, was jeweils auf dem DEM-Kugel-Datensatz durchgeführt wurde.
+Diese Konfigurationen, eine für NextStep-Netze und eine für Separator-Netze,  wurden dann für alle verschiedenen Szenarien benutzt.
+Auch wenn es ein beträchtlicher Zeitaufwand wäre, würden individuelles Hyperparameter-Tuning für die einzelnen Schüttgutsorten wahrscheinlich einen positiven Effekt auf die Güte der Ergebnisse haben.
+Insbesondere ist es so, dass das Ergebnis für die Separator-Netze nicht gut auf die Rutschenkonfiguration des \textit{TableSort} Systems anwendbar war.
+Die Partikel bewegen sich in dieser Konfiguration deutlich schneller als auf dem Förderband, weshalb weniger Beobachtungen pro Track im Sichtbereich der Kamera gemacht werden.
+Eine FeatureSize von 7, wie von der Hyperparametern-Konfiguration für Separator-Netze vorgesehen, ist bei einer durchschnittlichen Tracklänge von 10 nicht sinnvoll.
+
+
 Es konnte beobachtet werden, dass bei mehrmaligem Trainieren eines Netzes 
 mit identischen Hyperparametern und Daten, unterschiedliche Ergebnisse mit einem ähnlichen MSE insgesamt aber einer Verschiebung zwischen dem Mittelwert und der Standardabweichung  
 an dessen Ende standen.
-Für die Separator-Netze kam es sogar zu Verschiebungen zwischen der örtlichen und der zeitlichen Prädiktion.
+Für Separator-Netze kam es sogar zu Verschiebungen zwischen der örtlichen und der zeitlichen Prädiktion.
+Die Fehlerfunktion nach der die neuronalen Netze optimiert worden ist, ist die MSE-Funktion, weshalb zwei Ergebnisse mit identischem MSE gleich 
 Dies ist auf verschiedene stochastische Vorgänge während dem Training zurück zu führen, wie die Initialisierung der Gewichte zwischen den Neuronen und die Reihenfolge beziehungsweise das Batching der Trainingsbeispiele.
-Der Einsatz einer anderen Fehlerfunktion, zum Beispiel [einer die tatsächlich Richtig/Falsch Sortiert bewertet] könnte dieses Problem beheben.
+Der Einsatz einer anderen Fehlerfunktion, zum Beispiel einer, die tatsächlich den Anteil der korrekt separierten Teilchen bewertet könnte dieses Problem beheben.
