@@ -1,5 +1,5 @@
 \chapter{Grundlagen}
-
+\label{cap:basics}
 % Grundlagen:
 
 
@@ -13,6 +13,8 @@ In diesem Kapitel soll eine kurze Einführung in die für das Verständnis der r
 Primär sollen zunächst allgemein neuronale Netze und einige ihrer speziellere Aspekte betrachtet werden, 
 bevor ein kurzer Blick auf das bei den Experimenten verwendete Schüttgutsortiersystem \textit{TableSort} geworfen wird. 
 Am Ende des Kapitels wird darauf eingegangen, wie das Problem der Prädiktion bei optischen Schüttgutsorierern vor der Arbeit gelöst wird.
+Die Ausführungen zu den neuronalen Netzen sind, wo nicht anders angemerkt, basierend auf \cite{Goodfellow-et-al-2016}, \cite{Murphy:2012:MLP:2380985} und \cite{nielsen2015neural}.
+% \todo[inline]{Primäre Quellen sind hier \cite{Goodfellow-et-al-2016}, \cite{Murphy:2012:MLP:2380985} und \cite{nielsen2015neural} aber ich bin mir nicht sicher wo ich das richtig vermerke.}
 
 % hier Könnte man das Kalman Filter Kapitel einfügen
 % \input{reserve/kalmanFilter.tex}
@@ -20,7 +22,7 @@ Am Ende des Kapitels wird darauf eingegangen, wie das Problem der Prädiktion be
 \section{Neuronale Netze}
 
 Als Neuronale Netze  % beziehungsweise \textit{künstliche neuronale Netze}, wie sie manchmal korrekter genannt werden, 
-bezeichnet man in der Informatik Systeme aus künstlichen Neuronen, die heute eine wichtige Rolle im Feld des maschinellem Lernen einnehmen.
+bezeichnet man in der Informatik Systeme aus künstlichen Neuronen, die heute eine wichtige Rolle im Feld des maschinellen Lernens einnehmen.
 Manchmal werden sie korrekter als \textit{künstliche neuronale Netze} bezeichnet um sie von \textit{natürlichen neuronalen Netzen} 
 wie dem menschlichen Gehirn zu unterscheiden, nach deren biologischem Vorbild sie modelliert sind.
 Neuronale Netze sind ein mächtiges Werkzeug. 
@@ -33,7 +35,7 @@ eröffnen sie in vielen Forschungsrichtungen neue Möglichkeiten.
 Die Grundsteine des Feldes wurde bereits 1943 von Warren McCulloch und Walter Pitts gelegt~\cite{mcculloch1943logical}, 
 als sie ein Neuronenmodell vorschlugen, mit dem sich logische arithmetische Funktionen berechnen lassen. 
 Nach einigen Rückschlägen gab es Phasen von relativ geringer Aufmerksamkeit der wissenschaftlichen Gemeinschaft. 
-Erst als um das Jahr 2010 einige herrausragende Ergebnisse, unter anderem im Feld der Sprach- und Bilderkennung, 
+Erst als um das Jahr 2010 einige herausragende Ergebnisse, unter anderem im Feld der Sprach- und Bilderkennung, 
 mittels neuronaler Netze erzielt wurden, wurde das Interesse an dem Feld neu entfacht. 
 
 
@@ -74,7 +76,7 @@ Ein Perzeptron ist jedoch nur ein linearer Klassifikator und kann dementsprechen
 Linear nicht separierbare Probleme wie zum Beispiel den XOR Operator oder das in Abbildung~\ref{subfig:nonlinearSep} gezeigte Problem, können nicht korrekt abbildet werden.
 Dies zeigten Marvin Minksy und Seymour Papert 1969 in einflussreichen Buch \textit{Perceptrons: an introduction to computational geometry}. \todo{quelle}
 % \todo[inline]{(1) lineare Trennung mit perzeptron (2) xor-problem (3) nichtlineare trennung mit dem mehrschichtigen netz}
-Um solche nicht linear-separierbare Probleme zu lösen müssen mehrere Perzeptrons hintereinander geschaltet werden.
+Um solche nicht linear-separierbare Probleme zu lösen müssen mehrere Perzeptrons hintereinandergeschaltet werden.
 
 
 \begin{figure}[h]
@@ -101,8 +103,8 @@ Um solche nicht linear-separierbare Probleme zu lösen müssen mehrere Perzeptro
 % \begin{itemize}
 % 	\item Definition (keine Kreise oder Schleifen). (Kommentar Florian: \"Rückkopplung\")
 % 	\item Gegenstück zum RNN
-% 	\item grundlegende Architektur in Layern 
-% 	\item Aktivierungsfunktionen in Layern
+% 	\item grundlegende Architektur in Layers 
+% 	\item Aktivierungsfunktionen in Layers
 % 	\item Outputlayer: Verschiedene Aktivierungsfunktionen:
 % 	\item Linear für regression, z.B. Softmax für Wahrscheinlichkeitsverteilung Softmax
 % \end{itemize}
@@ -112,23 +114,23 @@ Um die Limitation auf lineare Klassifikation eines einzelnen Perzeptrons zu übe
 Die einfachste Art dies zu tun wird als Feedforward Netz bezeichnet.
 Mit diesem Begriff beschreibt man ein neuronales Netz, zwischen dessen Knoten keine Kreise beziehungsweise Schleifen existieren.
 Die Informationen wandert in der Verarbeitungsrichtung von den Eingabeneuronen zu den Ausgabeneuronen.
-Für gewöhnlich sind die einzelnen Knoten in Schichten, sogenannten Layern, organisiert.
+Für gewöhnlich sind die einzelnen Knoten in Schichten, sogenannten Layers, organisiert.
 Auf ein Eingabe- oder auch Input Layer folgen eine Menge an sogenannten Hidden Layers.
 Den Schlussstein bildet das Ausgabe- oder auch Output Layer.
 Die Neuronen eines einzelnen Hidden Layers sind meist uniform und verwenden identische Aktivierungsfunktionen, wie sie in Abschnitt~\ref{sec:activationfuncs} beschrieben sind.
-Je nachdem welche Aufgabe das neuronale Netz erfüllen soll können unterschiedliche Aktivierungsfunktionen für das Output Layer sinn ergeben.
+Je nachdem welche Aufgabe das neuronale Netz erfüllen soll können unterschiedliche Aktivierungsfunktionen für das Output Layer Sinn ergeben.
 Häufig genutzt ist die \textit{Softmax} Funktion für Klassifikation, da sie eine Wahrscheinlichkeitsverteilung als Ausgabe hat.
 Für Regression benutzt man lineare Aktivierungsfunktionen für das Output Layer. 
-Durch die Hintereinanderschaltung von mehreren Layern von Neuronen können auch Probleme, die nicht linear-separierbar sind, gelöst werden.
+Durch die Hintereinanderschaltung von mehreren Layers von Neuronen können auch Probleme, die nicht linear-separierbar sind, gelöst werden.
 Tatsächlich sind solche Neuronalen Netze bewiesenermaßen universale Funktionsapproximatoren - 
 sie können mit endlich vielen Neuronen in den Hidden Layers beliebige kontinuierliche Funktionen auf kompakten Subsets von \(\mathbb{R}^n\) approximieren.
-Das heißt zwar, dass es theoretisch für jede Funktion ein Netz gibt, das sie beschreiben kann, in der Praxis muss man dieses Netz aber finden und dann auch trainieren können.
+Das heißt zwar, dass es theoretisch für jede solche Funktion ein Netz gibt, das sie beschreiben kann, in der Praxis muss man dieses Netz aber finden und dann auch trainieren können.
 \todo[inline]{mit Quelle belegen? Universal approximation theorem }
 Es gibt viele verschiedene Unterkategorien von Feedforward Netzen, die in verschiedensten Bereichen Verwendung finden.
-Convolutional Neural Networks zeichnen sich durch eine spezielle Struktur aus sogenannten Convolutional Layers aus, die als Featureextractor fungieren.
+Convolutional Neural Networks zeichnen sich durch eine spezielle Struktur aus sogenannten Convolutional Layers aus, die als Feature Extractor fungieren.
 Diese Art von Netz findet unter anderem in der Bildverarbeitung Anwendung.
-Ein Netz in dem Kreise beziehungsweise Schleifen existieren, bezeichnet man als \textit{Rekurrentes Neuronales Netz}.
-Diese Netze werden vorallem dann eingesetzt, wenn die zeitliche Abfolge der Eingaben relevant ist, 
+Ein Netz, in dem Kreise beziehungsweise Schleifen existieren, bezeichnet man als \textit{Rekurrentes Neuronales Netz}.
+Diese Netze werden vor allem dann eingesetzt, wenn die zeitliche Abfolge der Eingaben relevant ist, 
 da sie im Gegensatz zu Feedforward Netzen einen internen Zustand halten.
 
 \subsection{Aktivierungsfunktionen}
@@ -141,7 +143,7 @@ die dann wiederum nicht in der Lage ist nicht-lineare Funktionen darzustellen.
 Sowohl die Aktivierungsfunktion als auch ihre Ableitung sollte schnell zu berechnen sein, 
 da dies im Rahmen des Trainings mit dem Backpropagation Algorithmus häufig geschieht 
 und sonst beträchtlicher Rechenaufwand entsteht.
-\todo[inline]{das referenziert dinge von Backprop, die der Leser hier vielleicht noch gar nicht weiß - Nach hinten?}
+% \todo[inline]{das referenziert dinge von Backprop, die der Leser hier vielleicht noch gar nicht weiß - Nach hinten?}
 
 In der Vergangenheit wurden einige verschiedene Aktivierungsfunktionen verwendet.
 % Einige häufig verwendete Aktivierungsfunktionen sollen hier vorgestellt werden.
@@ -153,7 +155,7 @@ Historisch ist häufig die Sigmoid-Funktion \(\sigma(x)\) verwendet worden, da s
 	\label{func:Sigmoid}
 \end{equation}
 In der Praxis jedoch haben sich einige Nachteile der Sigmoid-Funktion gezeigt.
-\todo{Probleme mit Sigmoid genauer beschreiben? saturation}
+% \todo{Probleme mit Sigmoid genauer beschreiben? saturation}
 Einige dieser Probleme konnten mit der Verwendung des Tangens hyperbolicus (tanh) behoben werden, 
 aber das Problem der Saturierung, dass ihre Ableitung bei großen Beträgen beinah \(0\) wird, nicht.
 In letzter Zeit haben sich sogenannte \textit{Rectified Linear Units}, oder kurz ReLUs, durchgesetzt.
@@ -175,7 +177,7 @@ In letzter Zeit haben sich sogenannte \textit{Rectified Linear Units}, oder kurz
 \end{equation*}
 	Abbildung~\ref{reluoutput} zeigt das Schaubild einer solchen ReLU. 
 	% \todo{ReLU plot neu machen: dicker bei unter 0 und als Vector graphic statt als PNG}
-	Die Aktivierung von ReLUs ist ein einfacher Schwellwert, der weit weniger rechenintensiv ist, als die aufwendigen Exponenzialfunktionen von Sigmoid und tanh.
+	Die Aktivierung von ReLUs ist ein einfacher Schwellwert, der weit weniger rechenintensiv ist, als die aufwendigen Exponentialfunktionen von Sigmoid und tanh.
 	In der Praxis hat sich zudem gezeigt, dass ReLus deutlich schneller konvergieren als Sigmoid- oder tanh-Neuronen, da sie kein Problem mit Saturierung haben.
 	Krizhevsky et al. haben in ihrem Paper~\cite{NIPS2012_4824} einen Geschwindigkeitsgewinn um Faktor 6 feststellen können.
 	Ein Problem, das mit ReLUs jedoch existiert ist, dass einzelne Neuronen während dem Training "absterben" können, falls sie irgendwann in dem Bereich landen, wo der Gradient 0 ist.
@@ -223,20 +225,20 @@ In letzter Zeit haben sich sogenannte \textit{Rectified Linear Units}, oder kurz
 
 
 
-\subsection{Backpropagation}
+% \subsection{Backpropagation}
 
-\todo[inline]{Optional: am Ende entscheiden ob ich noch mehr Kontent möchte und dann gegebenenfalls ausformulieren}
-Der Backpropagation Algorithmus ist ein Verfahren, mit denen künstliche neuronale Netze in der Lage sind, komplizierte Zielfunktionen einzulernen.
-Es ist eine Methode, bei der effizient der Gradient der Fehlerfunktion in Abhängigkeit vom Gewicht der einzelnen Kanten im Netz bestimmt werden kann,
-was dann für einen Gradientenabstieg verwendet werden kann. 
+% \todo[inline]{Optional: am Ende entscheiden ob ich noch mehr Kontent möchte und dann gegebenenfalls ausformulieren}
+% Der Backpropagation Algorithmus ist ein Verfahren, mit denen künstliche neuronale Netze in der Lage sind, komplizierte Zielfunktionen einzulernen.
+% Es ist eine Methode, bei der effizient der Gradient der Fehlerfunktion in Abhängigkeit vom Gewicht der einzelnen Kanten im Netz bestimmt werden kann,
+% was dann für einen Gradientenabstieg verwendet werden kann. 
 
-\color{blue}
-\begin{itemize}
-	\item Definition und Beschreibung
-	\item Nur supervised learning: Gradient der Fehlerfunktion wird benötigt \(\rightarrow\) Tatsächliches Ergebnis muss bekannt sein.
-	\item "Finden einer Funktion, die am besten die Inputs auf die outputs mapt"
-\end{itemize}
-\color{black}
+% \color{blue}
+% \begin{itemize}
+% 	\item Definition und Beschreibung
+% 	\item Nur supervised learning: Gradient der Fehlerfunktion wird benötigt \(\rightarrow\) Tatsächliches Ergebnis muss bekannt sein.
+% 	\item "Finden einer Funktion, die am besten die Inputs auf die outputs mapt"
+% \end{itemize}
+% \color{black}
 
 \subsection{Performance-Maß}
 
@@ -265,7 +267,7 @@ Ist die Kapazität zu groß, so kann es passieren, dass das Netz gewissermaßen 
 % \todo{umgangsprachlich mit einer besseren Formulierung ersetzen...}
 
 Dies ist beispielhaft in Abbildung~\ref{fig:capacity} zu sehen.
-Aus der zugrundeliegenden \( \cos \)-Funktion werden Stichproben mit einem Rauschterm entnommen. 
+Aus der zugrundeliegenden Cosinus Funktion werden Stichproben mit einem Rauschterm entnommen. 
 Stellvertretend für das Lernen mit neuronalen Netzen wird hier lineare Regression benutzt,
 um die Parameter eines Polynoms zu lernen.
 Die Kapazität des Modells wird hier durch den Grad des Polynoms festgelegt.
@@ -277,37 +279,14 @@ Das resultierende Modell ist eine gute Approximation der ursprünglichen Funktio
 In Abbildung~\ref{subfig:overfitting} ist der Grad des Polynoms mit 17 deutlich zu hoch.
 Man kann am resultierenden Modell erkennen wie es dem Rauschen der Samples folgt und wie es an den Rändern des betrachteten Bereichs weit ausschlägt.
 
-Die beste Methode um Overfitting zu vermeiden ist es mehr Trainingsdaten zu bekommen.
+Die beste Methode, um Overfitting zu vermeiden, ist es mehr Trainingsdaten zu bekommen.
 In der Praxis kann dies oft umständlich, kostspielig oder sogar unmöglich sein, 
-weshalb auf das Generiern von synthetischen Trainingsdaten, auch Datenaugmentierung genannt, zurückgegriffen wird.
+weshalb auf das Generieren von synthetischen Trainingsdaten, auch Datenaugmentierung genannt, zurückgegriffen wird.
 % There is no Data like more Data
 Auch der Einsatz von Regularisierungsverfahren kann helfen Overfitting zu verringern.
 Als letzter Schritt kann die Kapazität der Architektur gesenkt werden,
 zum Beispiel indem die Anzahl der zur Verfügung stehenden Layer reduziert wird.
 
-\begin{figure}[h]
-    \centering
-	
-	\begin{subfigure}[t]{0.6\textwidth}
-		\includegraphics[width=\textwidth]{plotUnderfitting.pdf}
-		\caption{Underfitting}
-		\label{subfig:underfitting}
-	\end{subfigure}
-	% \quad
-	\begin{subfigure}[t]{0.6\textwidth}
-		\includegraphics[width=\textwidth]{plotPassendesModell.pdf}
-		\caption{Passendes Modell}
-		\label{subfig:rightfitting}
-	\end{subfigure}
-	% \quad
-	\begin{subfigure}[t]{0.6\textwidth}
-        \includegraphics[width=\textwidth]{plotOverfitting.pdf}
-		\caption{Overfitting}
-		\label{subfig:overfitting}
-	\end{subfigure}
-	\caption{Visualisierung von Modellen mit unterschiedlichen Kapazitäten.}
-	\label{fig:capacity}
-\end{figure}
 
 % \color{blue}
 % \begin{itemize}
@@ -346,7 +325,7 @@ der die Kosten basierend auf der Komplexität des Systems erhöht.
 Dabei ist \(V\) die Loss Funktion, beispielsweise \textit{Mean-Square-Error} oder \textit{Mean-Absolute-Error}.
 \(n\) ist die Anzahl der Feature-Label-Paare,
 \(x_i\) und \(y_i\) sind die einzelnen Eingabefeatures und das dazugehörige Label.
-Die Funktion \(f\) ist in unserem Fall das neuronale Netz, das die Features entgegen nimmt.
+Die Funktion \(f\) ist in unserem Fall das neuronale Netz, das die Features entgegennimmt.
 \(\lambda\) ist ein Parameter, der die Gewichtung des Regularisierungsterm festlegt.
 Wählt man diesen Parameter zu klein, so kann es sein, dass das Modell trotz Regularisierung noch immer overfittet.
 Wählt man ihn zu groß, so kann es sein, dass das Modell das Problem nicht mehr korrekt abbildet und es zu Underfitting kommt.
@@ -373,21 +352,21 @@ Im Gegensatz dazu hat die \(L_2\)-Regularisierung, den Vorteil, dass sie effizie
 Der Strafterm von \(L_2\) hat eine geschlossene Form und kann in Form einer Matrix angewendet werden, während die Funktion von \(L_1\) auf Grund des Betrags eine nicht-differenzierbar ist.
 
 
-\todo{absatz zu (L0 und warum man es nicht benutzt?)}
+% \todo{absatz zu (L0 und warum man es nicht benutzt?)}
 
 Eine weitere Regularisierungstechnik ist Dropout~\cite{JMLR:v15:srivastava14a}.
 Dabei werden während dem Training eines neuronalen Netzes 
 mit einer festgelegten Wahrscheinlichkeit zufällig Neuronen und die dazugehörigen Verbindungen abgeschaltet, 
 wie in Abbildung~\ref{fig:dropout} dargestellt.
 \todo{Ist die Grafik essenziell fürs Verständnis?}
-Dies soll insofern Overfitting vermeiden, dass es übermässige Koadaption von mehreren Neuronen erschwert.
-Dropout als Technik wird insbesondere bei tiefen neuronalen Netzen mit einer hohen Anzahl von Hidden Layern eingesetzt. 
+Dies soll insofern Overfitting vermeiden, dass es übermäßige Koadaption von mehreren Neuronen erschwert.
+Dropout als Technik wird insbesondere bei tiefen neuronalen Netzen mit einer hohen Anzahl von Hidden Layers eingesetzt. 
 Als Early Stopping wird eine Technik bezeichnet, bei der die Regularisierung durch das frühzeitige Beenden des Trainings erreicht wird \cite[Kapitel 7.8]{Goodfellow-et-al-2016}.
 Dabei wird versucht abzuschätzen, an welchem Punkt des Trainings 
 eine Verbesserung der Ergebnisse auf dem Trainingsset zu Lasten der Ergebnisse auf dem Testset geschieht.
 
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{neuralNet}
@@ -399,6 +378,31 @@ eine Verbesserung der Ergebnisse auf dem Trainingsset zu Lasten der Ergebnisse a
 	\end{subfigure}
     \caption{Beispiel für die Dropout-Regularisierung~\cite{JMLR:v15:srivastava14a}.}
     \label{fig:dropout}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+	
+	\begin{subfigure}[t]{0.6\textwidth}
+		\includegraphics[width=\textwidth]{plotUnderfitting.pdf}
+		\caption{Underfitting}
+		\label{subfig:underfitting}
+	\end{subfigure}
+	% \quad
+	\begin{subfigure}[t]{0.6\textwidth}
+		\includegraphics[width=\textwidth]{plotPassendesModell.pdf}
+		\caption{Passendes Modell}
+		\label{subfig:rightfitting}
+	\end{subfigure}
+	% \quad
+	\begin{subfigure}[t]{0.6\textwidth}
+        \includegraphics[width=\textwidth]{plotOverfitting.pdf}
+		\caption{Overfitting}
+		\label{subfig:overfitting}
+	\end{subfigure}
+	\caption{Visualisierung von Modellen mit unterschiedlichen Kapazitäten.}
+	\label{fig:capacity}
 \end{figure}
 
 
@@ -429,8 +433,8 @@ Einmal werden die Schüttgutpartikel mittels eines Förderbands beschleunigt - d
 Dazu kommt die Möglichkeit dieses Förderband mit einer Rutsche zu ersetzen, sodass die Schüttgutpartikel stattdessen durch die Schwerkraft beschleunigt werden. 
 Im Rahmen dieser Arbeit wurden die Flächenkamera Konfiguration mit einem Ringlicht zur Beleuchtung verwendet.
 Schematisch ist der Ablauf der Schüttgutsortierung in Abbildung~\ref{fig:aufbau_tablesort} zu sehen.
-Die Funktionsweise des Systems wird im folgenden erklärt.
-Das zu sortierende Schüttgut wird durch einen Schwingförderer nach und nach über eine Rutsche auf das Förderbands aufgebracht.
+Die Funktionsweise des Systems wird im Folgenden erklärt.
+Das zu sortierende Schüttgut wird durch einen Schwingförderer nach und nach über eine Rutsche auf das Förderband aufgebracht.
 Dort wird es in Richtung des Druckluftdüsenarrays beschleunigt. 
 Auf das vom Ringlicht beleuchtete Ende des Förderbands ist die Flächenkamera gerichtet.
 Kurz nachdem die Schüttgutpartikel die Flugphase beginnen passieren sie das Druckluftdüsenarray, wo sie entweder abgelenkt werden, 

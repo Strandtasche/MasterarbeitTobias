@@ -9,17 +9,17 @@
 Schüttgüter und ihr Transport sind aus unserer modernen, globalisierten Welt nicht mehr wegzudenken.
 % Ob es sich um Lebensmittel wie Getreide, Kaffeebohnen oder Zucker, Bergbauerzeugnisse wie Eisenerze oder Kohle, Granulate oder Pellets handelt, 
 % ausschlaggebend für die Einstufung als Schüttgut ist, dass das Material lose in großen Mengen transportiert wird.
-Als Schüttgüter werden solche Materialien bezeichnet, die lose ingroßen Mengen transportiert werden. 
+Als Schüttgüter werden solche Materialien bezeichnet, die lose in großen Mengen transportiert werden. 
 Dazu gehören Lebensmittel wie Getreide, Kaffeebohnen oder Zucker, aber auch Bergbauerzeugnisse, wie zum Beispiel Erze oder Kohle. 
 Auch Rohstoffe in Pellet-Form und Granulate zählen zu dieser Kategorie\,\cite[]{schulze2009}.
 Laut dem Seefrachtbericht der Vereinten Nationen wurden im Jahr 2017 insgesamt 3196 Millionen Tonnen von den größten Schüttgütern Eisenerze, Kohle und Getreide verschifft\,\cite[Unterabschnitt 1.A.2]{unitednationsconferenceontradeanddevelopment2018}.
 Der Anteil, der für die Verarbeitung von Schüttgutmaterialien verwendeten Energie am globalen Energieverbrauch wird als 10 \% angegeben\,\cite[Abschnitt 1.2]{duran2012sands}.
 In Zeiten der globalen Erwärmung ist der verantwortungsvolle Umgang mit Energie ein wichtiges Thema 
-und eine effizientere Sortierung von Schüttgutern kann dazu beitragen.
+und eine effizientere Sortierung von Schüttgütern kann dazu beitragen.
 Für das Sortieren solcher Schüttgüter gibt es verschiedene Methoden, 
 wie zum Beispiel durch den Einsatz von Sieben, Magneten oder Flotationszellen.
 Diese Sortiermethoden basieren auf unterschiedlichen physikalischen Eigenschaften der Schüttgutpartikel.
-Im Rahmen dieser Arbeit wird die bildbasierte Schüttgutsortierung behandelt, 
+Im Rahmen dieser Arbeit wird die optische Schüttgutsortierung behandelt, 
 die stattdessen auf den optischen Eigenschaften der einzelnen Schüttgutpartikel aufbaut.
 % Eine Sortiermethode, die nicht auf die physikalischen Eigenschaften der Schüttgutpartikel aufbaut 
 % sondern auf den Optischen, ist die bilddatenbasierte Schüttgutsortierung, um die es im Rahmen dieser Arbeit gehen soll.
@@ -86,7 +86,7 @@ Mittels neuronaler Netze können komplexe, nichtlineare Muster aus bestehenden D
 Es ist also denkbar, dass sie in der Lage wären die Bewegungen des Schüttguts zu lernen.
 Die für den Einsatz von neuronalen Netzen essenziellen Daten in ausreichender Menge zu sammeln ist definitiv möglich. 
 In dieser Arbeit soll nun erforscht werden, inwiefern der Einsatz von neuronalen Netzen zu einer Verbesserung gegenüber den bestehenden Ergebnissen führen kann.
-Dabei wird exemplarisch mit Daten von dem \textit{TableSort} Schüttgutsortier gearbeitet.
+Dabei wird exemplarisch mit Daten von dem \textit{TableSort} Schüttgutsortierer gearbeitet.
 
 Dafür sollen im Rahmen dieser Arbeit zwei verschiedene Prädiktionsprobleme durch neuronale Netze gelöst werden.
 Einerseits soll vorhergesagt werden, an welcher Position sich ein Teilchen im nächsten Zeitschritt befinden wird.
@@ -119,8 +119,8 @@ Die Qualität dieser Prädiktion ist ausschlaggebend für den Erfolg der Separat
     eines Separator-Netzes.
     Wie in Abbildung~\ref{fig:visualsNextstep} ist die Transportrichtung entlang der \(y\)-Achse nach oben.
     Die Features sind erneut die zeitlich aufeinanderfolgenden, beobachteten Positionen eines Partikels.
-    Das eine Element des Label ist die Position entlang der \(x\)-Achse an der das entsprechende Partikel das Druckluftdüsenarray passiert.
-    Das zweite Element des Labels -- der Zeitpunkt an dem es das Druckluftdüsenarray passiert -- ist nicht abgebildet.
+    Das eine Element des Labels ist die Position entlang der \(x\)-Achse an der das entsprechende Partikel das Druckluftdüsenarray passiert.
+    Das zweite Element des Labels -- der Zeitpunkt, an dem es das Druckluftdüsenarray passiert -- ist nicht abgebildet.
     }
 	
 	\label{fig:visualsSeparator}
@@ -130,32 +130,49 @@ Die Qualität dieser Prädiktion ist ausschlaggebend für den Erfolg der Separat
 
 \section{Aufbau der Arbeit}
 
-Das schreibe ich auf, wenn die Gliederung finalisiert ist.
+% Das schreibe ich auf, wenn die Gliederung finalisiert ist.
 
-\begin{itemize}
-    \item Kapitel 2: Für das verständnis der Arbeit wichtige Grundlagen
-    \item Einerseits die von Neuronalen Netzen
-    \item Andererseits TableSort System und wie das was ich dann mit Neuronalen Netzen machen möchte bisher gemacht wird.
-    \item Kapitel 3: alles zu den Daten
-    \item Zuerst: selbst aufgenommene Daten. Was für Bilder wurden aufgenommen und wie wurden sie in den Zustand gebracht mit denen ich arbeiten will.
-    \item Dann: Die Simulierten Daten und der unterschied zu den aufgenommenen
-    \item Welche Form genau nehmen die Eingaben für mein Netz an und woher kommen die erwarteten Ausgaben.
-    \item Beschreibung der Vorgenommenen Datenaugmentierung
-    \item am Ende: eine kurze zusammenfassung wie viele Daten das jeweils sind.
-    \item Kapitel 4: Umsetzung und Implementierung
-    \item Benutzte Software
-    \item Beschreibung des Ablaufs mit dem ein Netz trainiert und evaluiert wird
-    \item Hyperparameter beschreiben und auf das Tuning eingegangen.
-    \item Kapitel 5: Evaluation
-    \item Hardware auf der Trainiert wurde
-    \item die mathematische Beschreibung der Modelle aus dem Stand der Technik für den Vergleich.
-    \item Evaluation der NextStep-Netze
-    \item Evaluation der Separator-Netze
-    \item Kapitel 6: Ganz zum Schluss - Fazit und Ausblick darauf was man noch so tun könnte in dem Feld
-\end{itemize}
+% \begin{itemize}
+%     \item Kapitel 2: Für das verständnis der Arbeit wichtige Grundlagen
+%     \item Einerseits die von Neuronalen Netzen
+%     \item Andererseits TableSort System und wie das was ich dann mit Neuronalen Netzen machen möchte bisher gemacht wird.
+%     \item Kapitel 3: alles zu den Daten
+%     \item Zuerst: selbst aufgenommene Daten. Was für Bilder wurden aufgenommen und wie wurden sie in den Zustand gebracht mit denen ich arbeiten will.
+%     \item Dann: Die Simulierten Daten und der unterschied zu den aufgenommenen
+%     \item Welche Form genau nehmen die Eingaben für mein Netz an und woher kommen die erwarteten Ausgaben.
+%     \item Beschreibung der Vorgenommenen Datenaugmentierung
+%     \item am Ende: eine kurze zusammenfassung wie viele Daten das jeweils sind.
+%     \item Kapitel 4: Umsetzung und Implementierung
+%     \item Benutzte Software
+%     \item Beschreibung des Ablaufs mit dem ein Netz trainiert und evaluiert wird
+%     \item Hyperparameter beschreiben und auf das Tuning eingegangen.
+%     \item Kapitel 5: Evaluation
+%     \item Hardware auf der Trainiert wurde
+%     \item die mathematische Beschreibung der Modelle aus dem Stand der Technik für den Vergleich.
+%     \item Evaluation der NextStep-Netze
+%     \item Evaluation der Separator-Netze
+%     \item Kapitel 6: Ganz zum Schluss - Fazit und Ausblick darauf was man noch so tun könnte in dem Feld
+% \end{itemize}
 
 
-Nachdem im ersten Kapitel eine kurze Einführung und Motivation für das Thema gegeben wurde
-
+Nachdem im ersten Kapitel eine kurze Einführung und Motivation für das Thema gegeben wurde, 
+wird Kapitel~\ref{cap:basics} den theoretischen Grundlagen gewidmet, die für das Verständnis der restlichen Arbeit notwendig sind.
+Dabei wird zu Beginn auf die Funktionsweise von neuronalen Netzen eingegangen, 
+bevor die Funktionsweise und der Aufbau des \textit{TableSort} Schüttgutsortierers beschrieben werden.
+Am Ende des Grundlagen-Kapitels wird auf den aktuellen Stand Technik eingegangen und erklärt wie das, 
+was im Rahmen dieser Arbeit mittels neuronaler Netze getan werden soll, aktuell funktioniert.
+Kapitel~\ref{cap:data} beschreibt die Daten, die dafür verwendet werden,
+woher sie stammen, wie sie verarbeitet wurden und in welcher Form sie dann in die neuronalen Netze eingegeben werden.
+Auch wird in diesem Kapitel auf die bereits existierenden Datensätze eingegangen, für die mittels der \textit{Diskrete-Elemente-Methode} Schüttgut simuliert wurden,
+und das verwendete Datenaugmentierungsverfahren beschrieben.
+Danach wird auf den Umfang der verwendeten Daten eingegangen.
+In Kapitel~\ref{cap:impl} wird die Implementierung der Arbeit thematisiert.
+Dabei wird zu nächst auf die verwendete Software eingegangen, bevor die Struktur des Codes beschrieben wird.
+Es werden die für das Training und die Evaluation relevanten Hyperparameter beschrieben und die Optimierung derselben erläutert.
+Kapitel~\ref{cap:Eval} beschäftigt sich mit der Evaluation der Ergebnisse.
+Nachdem kurz die Modelle erläutert werden, mit denen die Ergebnisse der neuronalen Netze verglichen werden,
+wird jeweils ein Blick auf den NextStep-Fall und den Separator-Fall geworfen und dann die Ergebnisse diskutiert.
+Den Abschluss der Arbeit stellt Kapitel~\ref{cap:fazit} da, in dem die Ergebnisse der Arbeit noch einmal zusammengefasst werden 
+und ein Ausblick darauf gegeben wird, was in der Zukunft denkbare Fortführungen wären.
 % \todo{aufbau Gliederung beschreiben. Ganz am Ende dann, wenn sich nichts mehr ändert}
 

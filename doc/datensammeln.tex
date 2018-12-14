@@ -18,7 +18,7 @@ Abschließend wird die Datenaugmentierung, die vorgenommen wurde, vorgestellt un
 
 \section{Eigene Aufnahmen}
 
-In diesem Abschnitt soll beschrieben werden, welche Form die am Fraunhofer IOSB selbst aufgenommenen Daten haben und welche Konfigurationen bezüglich Schüttgut und Sortierer sie darstellen.
+In diesem Abschnitt soll beschrieben werden, welche Form, die am Fraunhofer IOSB selbst aufgenommenen Daten haben und welche Konfigurationen bezüglich Schüttgut und Sortierer sie darstellen.
 
 
 % \subsection{Versuchsaufbau}
@@ -156,9 +156,8 @@ Diese aus den aufgenommenen Bildern zu bestimmen, ist die Aufgabe dieser Pipelin
 
 Am Anfang davon stehen die Bilder, die die Bonito-Kamera in Form einer Bayer-Matrix aufnimmt, wie sie in Abbildung~\ref{fig:bayerPattern} zu sehen ist.
 Die Bilder werden in Batches von je 3500 Bildern gesammelt und in Bitmap-Dateien geschrieben.
-\todo{überlegen ob ich vielleicht einen Besseren Begriff als batch finde (und wenn nicht besser definieren)}
-\todo{Optional: Bayer-Matrix erklären}
-
+% \todo{überlegen ob ich vielleicht einen Besseren Begriff als batch finde (und wenn nicht besser definieren)}
+% \todo{Optional: Bayer-Matrix erklären}
 \begin{figure}[h]
 	% \missingfigure{bayer matrix}
 	\centering
@@ -166,11 +165,10 @@ Die Bilder werden in Batches von je 3500 Bildern gesammelt und in Bitmap-Dateien
 	\caption{Bayer-Matrix auf einem Sensor \cite{bayerPattern06}.}
 	\label{fig:bayerPattern}
 \end{figure}
-
 Auf Grund der Menge an Bildern und dem damit verbundenen Speicherbedarf wurden die Bilder zunächst in das PNG-Dateiformat übertragen.
 Danach müssen zunächst die gebayerten Dateien mittels eines Vorgangs, der als \textit{demosaicing} bezeichnet wird,
 als Farbbilder rekonstruiert werden.
-Das geschiet mit einem Skript des Frauenhofer IOSB, das die Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/} benutzt.
+Das geschieht mit einem Skript des Fraunhofer IOSB, das die Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/} benutzt.
 % Dies geschieht mittels der Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/}, die ein Bild von einem Farbraum in einen anderen übertragen kann.
 Dieses Skript wurde angepasst und damit und dann damit die einzelnen Bilder in RGB-Farbbilder konvertiert.
 % Ein Skript, das vom Fraunhofer IOSB zur Verfügung gestellt wurde, wurde angepasst und damit die einzelnen Bilder in RGB-Farbbilder konvertiert.
@@ -301,7 +299,7 @@ während Messungen am realen \textit{TableSort} System darauf hindeuten, dass da
 circa \SI{1.1}{\meter\per\second} hat.
 Ein weiterer Unterschied ist der Aufnahmebereich.
 Im Gegensatz zu den selbst aufgenommenen Daten, die nur Informationen 
-zu den Bewegungen der Partikel im Bereich auf den die Hochgeschwindigkeitskamera gerichtet ist umfassen, 
+zu den Bewegungen der Partikel im Bereich, auf den die Hochgeschwindigkeitskamera gerichtet ist umfassen, 
 befinden sich in den DEM-Datensätzen die Positionen der Teilchen über die gesamte Länge des Förderbandes.
 Das bedeutet auch, dass in den DEM-Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden enthalten ist.
 Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, sprich mehr Messungen enthalten.
@@ -409,7 +407,11 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{geometrie}
-	\caption{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}.}
+	\caption[Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}.]{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}. 
+	\(f_n\) ist die Position des Partikels im Zeitschritt \(n\), dem letzten bevor es das Druckluftdüsenarray passiert.
+	\(f_{n+1}\) ist die Position des Partikels im Zeitschritt \(n+1\), dem ersten nach der Passage.
+	\(s\) ist der Punkt an dem das Partikeln das Druckluftdüsenarray passiert.
+	}
 	% \todo{Quelle - test?}
 	\label{fig:Schnittpunkt}
 \end{figure}
@@ -527,12 +529,12 @@ Die Verteilung dieser Bilder ist in Abbildung~\ref{fig:barPics} dargestellt.
 	\label{fig:barPics}
 \end{figure}
 
-Der \textit{Multi-Target-Tracking}-Algorithmus wurde benutzt um die Anzahl der Kugeln zu bestimmen.
+Der \textit{Multi-Target-Tracking}-Algorithmus wurde benutzt, um die Anzahl der Kugeln zu bestimmen.
 Auf dem Förderband wurden 7712 Tracks von Kugeln,
 7170 Tracks Pfefferkörnern,
 19\,200 Tracks von Zylindern,
-und 8702 Tracks von Weizenkörner zugeordnet.
-Zudem wurden 5132 Tracks Kugeln und 3609 Tracks von Pfefferkörner auf der Rutsche zugeordnet.
+und 8702 Tracks von Weizenkörnern zugeordnet.
+Zudem wurden 5132 Tracks Kugeln und 3609 Tracks von Pfefferkörnern auf der Rutsche zugeordnet.
 
 Im DEM-Datensatz sind die Tracks von 3713 Kugeln und 4357 Plättchen enthalten.
 Die Verteilung der Tracks ist in Abbildung~\ref{fig:barTracks} zu sehen.

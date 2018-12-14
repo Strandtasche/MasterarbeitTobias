@@ -1,13 +1,13 @@
 \chapter{Fazit und Ausblick}
-
-\todo[inline]{einführungstext in Fazit und Ausblick}
+\label{cap:fazit}
+% \todo[inline]{einführungstext in Fazit und Ausblick}
 
 Im Rahmen dieser Arbeit wurde betrachtet, ob neuronale Netze ein Werkzeug sind, das für die Bewegungsprädiktion von Schüttgutpartikeln eingesetzt werden kann.
 Dazu wurden zunächst beinah 250\,000 Bilder von verschiedenen Schüttgütern auf dem \textit{TableSort} Schüttgutsortierer aufgenommen 
 und eine Pipeline entwickelt mit der die relevanten Features aus solchen Bildern extrahiert werden können.
 Zusätzlich wurde eine einfache Form der Datenaugmentierung implementiert, die das Volumen von verfügbaren Trainingsdaten aus einem Datenset beinahe verdoppelt.
 Es wurde mit Hilfe des TensorFlow Frameworks eine Implementierung erarbeitet, mit der verschiedene neuronale Netze trainiert werden können.
-Mit dieser Implementierung wurden mehrere Netze auf verschiedenen Datensets -- den selbst aufgenommenen und mehreren bereits existierenden, mittels DEM simulierten -- trainiert und deren Ergebnisse evaluiert.
+Mit dieser Implementierung wurden mehrere Netze auf verschiedenen Datensets -- den selbst aufgenommenen und bereits existierenden, mittels DEM simulierten -- trainiert und deren Ergebnisse evaluiert.
 Allgemein kann gesagt werden, dass die Ergebnisse zufriedenstellend sind.
 Es konnte gezeigt werden, dass sowohl NextStep-, als auch Separator-Netze gut in der Lage sind, die an sie gestellten Probleme zu lösen.
 In jedem Szenario konnten Ergebnisse erzielt werden, die besser als die der zwei grundlegenden Bewegungsmodelle, 
@@ -28,13 +28,15 @@ Und obwohl positive Ergebnisse erzielt wurden, gibt es noch viele weitere vielve
 Naheliegende Ideen wären zum Beispiel alternative Modellierungen, wie das relative Positionen statt absoluten als Eingabe verwendet werden, 
 oder zusätzliche Features, die zu den existierenden Objektmittelpunkten hinzugekommen.
 Beispielsweise ein Indikator für die Orientierung würde speziell bei den Zylindern Sinn ergeben.
-Maschinelles Lernen allgemein und neuronale Netze im Besonderen sind ein Feld auf dem momentan sehr schnell eine Menge Fortschritte gemacht werden,
+Auch ist denkbar, dass andere Netzwerkarchitekturen erprobt werden könnten. 
+Rekurrente neuronale Netze sind besonders gut dafür geeignet Daten, bei denen die zeitliche Abfolge wichtig ist sequenziell zu verarbeiten.
+Maschinelles Lernen allgemein und neuronale Netze im Besonderen sind ein Feld, auf dem momentan sehr schnell eine Menge Fortschritte gemacht werden,
 die in naher Zukunft vielleicht ganz neue Möglichkeiten eröffnen werden.
 Ein Aspekt, in dem Convolutional Neural Networks schon heute beindruckende Ergebnisse liefern, ist das Extrahieren von Informationen direkt aus Bildern.
 Es gibt bereits heute CNN basierte Online Multi-Object-Tracking Verfahren die sehr gute Ergebnisse erzielen. 
 \todo{hier eine Quelle?}
 Deshalb liegt es nahe, dass es möglich sein sollte auf den Bildern direkt Ende-zu-Ende zu trainieren.
-Das würde unter anderem das Problem von Messunsicherheiten auf den Trainingsdaten irrelevant machen.
+Das würde unter anderem das Problem von Messunsicherheiten bei der Bestimmung der Objektmittelpunkte irrelevant machen.
 \todo{hier anmerken, dass das wahrscheinlich ein größeres Projekt wäre und mehr als nur ne MA?}
 Sowohl im aktuellen Stand der Technik als auch bei den im Rahmen dieser Arbeit trainierten Netzen werden alle Schüttgutpartikel individuell betrachtet.
 Dies führt dazu, dass Kollisionen zwischen Partikeln, die diese von ihrer Bahn ablenken höchstens detektiert, aber nicht sinnvoll in die Modelle miteinbezogen werden können.

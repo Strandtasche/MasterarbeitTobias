@@ -1,4 +1,5 @@
 \chapter{Umsetzung und Implementierung}
+\label{cap:impl}
 
 In diesem Kapitel wird beschrieben, wie die neuronalen Netze, die für die Schüttgut\-prädiktion verwendet werden sollen,
 umgesetzt wurden.
@@ -102,14 +103,14 @@ Auch Parameter, die festlegen wie das Netz lernt -- also Lernrate oder die Anzah
 
 Bei der Implementierung dieser Arbeit wurde die Definition der Hyperparameter aus dem Programmcode selbst ausgelagert.
 Es können sogenannte Hyperparameter-Dateien im JSON-Dateiformat definiert werden, die dann vom Programm geladen werden.
-Dies vereinfacht das Training und das Evaluieren von Netzen mit unterschiedlichen Hyperparameter-Konfigurationen.
+Das vereinfacht das Training und das Evaluieren von Netzen mit unterschiedlichen Hyperparameter-Konfigurationen.
 Einzelne Parameter aus den Dateien können per Kommandozeilenparameter überschrieben werden.
 Ein Beispiel für eine solche Hyperparameter-Datei ist in Listing~\ref{lst-hyperparam} zu sehen.
 Die Bedeutung der einzelnen Parameter wird im Folgenden erklärt. 
 Sollte es für einen Parameter eine begrenzte Menge an zulässigen Optionen geben, 
 so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
 
-\todo[inline]{überlegen wir man das sinnvoll machen kann, dass das Listing seine eigene Seite kriegt und die Description sinnvoll anfängt.}
+% \todo[inline]{überlegen wir man das sinnvoll machen kann, dass das Listing seine eigene Seite kriegt und die Description sinnvoll anfängt.}
 
 \newpage
 
@@ -126,8 +127,8 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
         },
         "problem": {
             "dataPath": "/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/",
-            "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-SpheresReal",
-            "imagePath": "/home/hornberger/MasterarbeitTobias/images/Real-NextStep-45kDecay-Spheres",
+            "modelBasePath": "/home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-SpheresReal",
+            "imagePath": "/home/hornberger/MasterarbeitTobias/images/RealSpheres-NextStep-45kDecaySteps",
             "separator": 0,
             "separatorPosition": 1550,
             "thresholdPoint": 1200,
@@ -220,7 +221,7 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
     \item[predictionCutOff] Koordinate des Punkts, ab dem die Tracks beim Laden abgeschnitten werden.
 \end{description}
 
-\bigskip
+\newpage
 {\Large \sffamily \textbf{train}}
 
 \begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries separatorPosition}, labelindent=0.5cm]
@@ -239,7 +240,7 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
     % \item[numberFakeLines] Anzahl der synthetischen Trainingsbeispiele, die generiert werden sollen.
     \item[testSize] Parameter, der die Aufteilung zwischen Trainings- und Testdaten festlegt. Ein Wert von 0.1 würde einen 90:10 Split Training zu Test bedeuten.  
     \item[augmentMidpoint] Koordinate der Spiegelachse, an der für die Data Augmentation gespiegelt wird.
-    \item[augmentRange] Maximale Distanz eines Feature-Label-Paares zur Spiegelachse, bis wohin immer noch die Spiegelung angewendet werden soll. Feature-Label-Paare mit einem Element außerhalb des Bandes werden ignoriert.
+    \item[augmentRange] Maximale Distanz eines Feature-Label-Paares zur Spiegelachse, bis wohin die Spiegelung angewendet werden soll. Feature-Label-Paare außerhalb des Bandes werden ignoriert.
     \item[direction] Bewegungsrichtung der Partikel. ``x'' bei simulierten und ``y'' bei selbst gesammelten Daten.
     \item[unitLoc] Einheit des Orts in der Visualisierung. ``m'' beziehungsweise Meter bei simulierten Daten, ``px'' beziehungsweise Pixel bei selbst gesammelten Daten.
     \item[unitTime] Einheit der Zeit in der Visualisierung. ``Frames '' beziehungsweise ``1/100 Frames'' für die hier verwendeten Daten.
@@ -250,7 +251,7 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
 
 
 
-\subsection{Hyperparameter-Tuning}
+\section{Hyperparameter-Tuning}
 
 
 % \color{blue}
@@ -286,7 +287,7 @@ In Rahmen dieser Arbeit wurden die Hyperparameter für die verschiedenen Szenari
 Da es zu zeitintensiv wäre, diesen Vorgang für jedes einzelne Szenario, bestehend aus dem verwendeten Schüttgut und der Art der Aufgabe, durchzuführen,
 wurden insgesamt nur zwei Sets an Hyperparametern gesucht.
 Eines davon wurde für NextStep-Netze angepasst und das andere für Separator-Netze.
-Diese wurden beiden auf dem DEM-Kugel-Datensatz optimiert und dann auf die anderen Datensätze angewendet.
+Diese wurden beide auf dem DEM-Kugel-Datensatz optimiert und dann auf die anderen Datensätze angewendet.
 Von dieser Betrachtung ausgenommen wurden Hyperparameter, die das Lernen nicht beeinflussen.
 Dies sind die Parameter der Kategorien {\sffamily \textbf{problem}}, in der Dateipfade und Problemdefinitionen zu finden sind, 
 und {\sffamily \textbf{data}}, in der unter anderem die relative Größe des Testdatensets festgelegt wird.
@@ -299,7 +300,7 @@ In beiden Fällen haben sich Leaky ReLU und der Adam Optimizer als beste Option 
 \todo[inline]{Sollte ich erklären was genau der Adam Optimizer eigentlich macht?}
 
 Eine während des Trainings sinkende Lernrate hat einen positiven Einfluss auf die Güte der Ausgabe der Netze gezeigt. 
-Es wurde eine Technik names \textit{exponential learning rate decay} eingesetzt,
+Es wurde eine Technik namens \textit{exponential learning rate decay} eingesetzt,
 die die Lernrate, die an den Optimierer übergeben wird, in Abhängigkeit der absolvierten Trainingsschritte reduziert.   
 Die verwendete Lernrate entspricht dabei der folgenden Formel:
 \begin{equation*}
@@ -308,9 +309,9 @@ Die verwendete Lernrate entspricht dabei der folgenden Formel:
 Die Zerfallskonstante \(\lambda\) wurde als 0.96 festgelegt, während die Basislernrate und die Zerfallsschritte anpassbare Hyperparameter sind.
 
 
-Das Ergebnis des Hyperparameter-Tunings bezüglich Netzarchitektur für die NextStep-Netze ist in Abbildung~\ref{fig:netArchitectureNextStep} zu sehen.
+Das Ergebnis des Hyperparameter-Tunings bezüglich der Netzarchitektur für die NextStep-Netze ist in Abbildung~\ref{fig:netArchitectureNextStep} zu sehen.
 Auf den Testdaten produzierte von den erprobten Konfigurationen eine FeatureSize von 5 in Kombination mit 3 Hidden Layers mit jeweils 16 Neuronen die besten Ergebnisse.
-Weder \(L_1\)- noch \(L_2\)-Regularisierung haben einen positiven Effekt auf die Trainingsergebnisse, weshalb für die NextStep-Netze darauf verzichtet wurde.
+Weder \(L_1\)- noch \(L_2\)-Regularisierung haben einen positiven Effekt auf die Trainingsergebnisse gezeigt, weshalb für die NextStep-Netze darauf verzichtet wurde.
 Was die Lernparameter angeht, so sieht das Ergebnis des Hyperparameter-Tunings folgendermaßen aus:
 \begin{itemize}
     \item Batch Größe von 500
