@@ -39,12 +39,12 @@ In diesem Abschnitt sollen einige der existierenden Modelle detaillierter beschr
 Diese Modelle wurden schon in Abschnitt~\ref{cap:relWork} erwähnt, dort aber ohne die Berechnung zu erklären.
 Mit Ausnahme des \textit{Average Acceleration} Modells stammen sie alle aus \cite{Pfaff2018} und sowohl Definition als auch Notation wurden von dort übernommen.
 Dabei seien \(x\) die Achse entlang der Bewegungsrichtung des Förderbands und \(y\) die Achse orthogonal zur Bewegungsrichtung des Förderbands.
-Zeitdiskreten Messungen entlang der einzelnen Achsen werden als \(\mathsf{x}_t\) beziehungsweise \(\mathsf{y}_t\) dargestellt.
+Zeitdiskrete Messungen entlang der einzelnen Achsen werden als \(\mathsf{x}_t\) beziehungsweise \(\mathsf{y}_t\) dargestellt.
 Die daraus rekonstruierten zeitkontinuierlichen Positionsgleichungen werden als \(\mathsf{x}(t)\) beziehungsweise \(\mathsf{y}(t)\) bezeichnet.
 Sei \(t^{\text{Last}}\) der Zeitpunkt der Beobachtung des aktuellsten Features und \(\mathsf{x}^{\text{Last}}\) und \(\mathsf{y}^{\text{Last}}\) die dazugehörigen Positionen entlang der beiden Achsen.
-Sei \(\mathsf{x}^{\text{PredTo}}\) die Position des Druckluftdüsenarrays entlang der \(x\)-Achse.
+Sei \(\mathsf{x}^{\text{PredTo}}\) die Position des Druckluftdüsenarrays entlang der \(\mathsf{x}\)-Achse.
 Sei \(t^{\text{Pred}}\) der Zeitpunkt an dem ein Partikel den Druckluftdüsenarray passiert.
-Sei \(\mathsf{y}^{\text{Pred}} = \mathsf{y}(t^{\text{Pred}})\) die Position entlang der \(y\)-Achse an dem der Partikel den Druckluftdüsenarray passiert.
+Sei \(\mathsf{y}^{\text{Pred}} = \mathsf{y}(t^{\text{Pred}})\) die Position entlang der \(\mathsf{y}\)-Achse an dem der Partikel den Druckluftdüsenarray passiert.
 \(\Delta t = t^{\text{Pred}} - t^{\text{Last}} \) und \(\mathsf{y}^{\text{Pred}}\) sind die Labels der einzelnen Feature-Label-Paare für das Separator-Netz.
 \(\mathsf{x}(t^{\text{Last}} + 1)\) und \(\mathsf{y}(t^{\text{Last}} + 1)\) sind die Labels der Feature-Label-Paare für das NextStep-Netz.
 Die verschiedenen Modelle können nun ebenso wie die Ergebnisse der verschiedenen Netze bewertet werden, 
@@ -128,7 +128,7 @@ Durch das Einsetzen von \(t^{\text{Pred}}\) in \eqref{eq:cvyp} ergibt sich \(\ma
 
 \paragraph{Constant Acceleration Modell}
 
-Im Constant Acceleration (CA) Modell wird davon ausgegangen, dass das das Teilchen mit einer konstanten Beschleunigung schneller wird.
+Im Constant Acceleration (CA) Modell wird davon ausgegangen, dass das Teilchen mit einer konstanten Beschleunigung schneller wird.
 Es kann mittels folgender Differenzialgleichung dargestellt werden.
 
 \begin{align*} \label{eq:speedCV}
@@ -279,11 +279,11 @@ definiert. Verglichen wird das NextStep-Netz mit einem Constant Velocity Modell 
 % \todo{kann man das bei den Simulierten Zylindern so sagen?}
 Repräsentativ für ihre jeweiligen Szenariokategorien sind in Abbildung~\ref{subfig:RealSpheresBoxplot} die Boxplots für die selbst aufgenommenen Kugeln auf dem Förderband,
 und in Abbildung~\ref{subfig:SimSpheresBoxplot} die Boxplots für die mittels DEM simulierten Kugeln zu sehen.
-In beiden Fällen sind die Ergebnisse des neuronalen Netzes besser als die Vergleichsmodelle
+In beiden Fällen sind die Ergebnisse des neuronalen Netzes besser als die Vergleichsmodelle.
 Sowohl der Median als auch die Quartile sind für die Ergebnisse des neuronalen Netzes sind geringer.
-Der Bias der Ergebnisse ist kleiner und die weniger weit gestreut als die der beiden Vergleichsmodelle.
+Der Bias der Ergebnisse ist kleiner und weniger weit gestreut als die der beiden Vergleichsmodelle.
 Es ist auffällig, dass bei den simulierten Daten das CA-Modell besser als das CV-Modell ist, während es im anderen Fall umgekehrt ist.
-Das könnte auf die die höhere Bandgeschwindigkeit bei der Simulation zurückzuführen. 
+Das könnte auf die höhere Bandgeschwindigkeit bei der Simulation zurückzuführen sein. 
 In Abbildung~\ref{fig:RealSpheresHistogram} sieht man das Fehlerhistogramm, dass zu Abbildung~\ref{subfig:RealSpheresBoxplot} gehört.
 
 
@@ -362,10 +362,10 @@ Hier wird  die zeitliche Abweichung vom prädizierten Kontaktzeitpunkt mit dem D
 Wie bei den NextStep-Netzen werden ein Constant Velocity- und ein Constant Acceleration Modell 
 als Vergleichsmodelle benutzt. 
 Zusätzlich werden noch mehr Vergleichsmodelle hinzugezogen. 
-Das Bias-Corrected Constant Velocity Modell liefert eine sowohl Prädiktion für den Zeit als auch für den Ort.
+Das Bias-Corrected Constant Velocity Modell liefert sowohl eine Prädiktion für die Zeit als auch für den Ort.
 Die Average Acceleration und Identical Acceleration Modelle werden nur für die zeitliche Prädiktion zum Vergleich herangezogen.
 
-Die Evaluation, die hier durchgeführt wurde erfolgt auf folgendem Szenario.
+Die Evaluation wurde auf folgendem Szenario durchgeführt.
 Als Trainingsdaten wurden nur das jeweils letzte Feature-Label-Paar eines Tracks benutzt, bevor das entsprechende Partikel die Prädiktionsphase verlässt.
 Es wäre in der Zukunft möglich auf allen möglichen Feature-Label-Paaren zu trainieren, um zu erreichen, dass der Ausgangspunkt verschoben werden kann ohne das Netz neu trainieren zu müssen.
 \todo{Hier weg und dafür in den Ausblick?}  
@@ -390,18 +390,18 @@ dass das Teilchen früher den Druckluftdüsenarray passiert hat als von dem Mode
 Die Ergebnisse der neuronalen Netze für die Separator-Prädiktion sind insgesamt zufriedenstellend.
 Sie sind auf allen Datensätzen besser als das CV-Modell, das CV-Modell und das CVBC-Modell.
 \todo{Reihenfolge? erst Daten dann schlussfolgerungen}
-Auf den beiden simulierten Datensätzen sind die Ergebnisse ein wenig schlechter als das IA-Modell, 
+Auf den beiden simulierten Datensätzen sind die Ergebnisse marginal schlechter als das IA-Modell, 
 aber deutlich besser als die grundlegenden Modelle und das Bias-Corrected Constant Velocity Modell.
 Dies ist in Abbildung~\ref{fig:BoxplotsSimCub} exemplarisch durch die Boxplots der simulierten Plättchen dargestellt.
 Zunächst soll der zeitliche Fehler betrachtet werden.
 Obwohl der Median des Prädiktionsfehlers einen kleinen Bias ins Positive hat und das untere Quartil tatsächlich positiv ist, werden die Fehler der neuronalen Netzes komplett von denen des CVBC-Modells überdeckt.
 Das CV- und das CA-Modell sind beide noch einmal bedeutend schlechter als das CVBC-Modell.
-Das CV-Modell hat einen Bias von beinah zwei ganzen Zeitschritten während das CA-Modell zwar beinah biasfrei ist, ungefähr in der gleichen Größenordnung wie das neuronale Netz, hat es mit Abstand die größte Standardabweichung
+Das CV-Modell hat einen Bias von beinahe zwei ganzen Zeitschritten während das CA-Modell zwar beinahe biasfrei ist, ungefähr in der gleichen Größenordnung wie das neuronale Netz, hat es mit Abstand die größte Standardabweichung
 Diese ist ungefähr dreimal so groß wie die des Ergebnisses des neuronalen Netzes.
 Das beste Modell in diesem Szenario ist das IA-Modell.
-Es ist beinah komplett biasfrei und hat die geringste Standardabweichung von allen Modellen.
+Es ist beinahe komplett biasfrei und hat die geringste Standardabweichung von allen Modellen.
 Bei der Betrachtung des örtlichen Fehlers ist das CA-Modell tatsächlich besser als das CV- oder das CVBC-Modell, aber dennoch deutlich schlechter als das neuronale Netz.
-Alle vier Modelle sind beinahe biasfrei, aber der Interquartilsabstands der Ausgabe des neuronalen Netzes sind deutlich geringer. 
+Alle vier Modelle sind beinahe biasfrei, aber der Interquartilsabstands der Ausgabe des neuronalen Netzes ist deutlich geringer. 
 
 \begin{figure}[htbp]
     \centering
@@ -425,7 +425,7 @@ Alle vier Modelle sind beinahe biasfrei, aber der Interquartilsabstands der Ausg
 \end{figure}
 
 Im Vergleich dazu sind die Unterschiede zwischen den verschiedenen Modellen auf den selbst aufgenommenen Daten deutlich kleiner.
-Das Constant Velocity Modell schneidet oft beinah so gut 
+Das Constant Velocity Modell schneidet oft beinahe so gut,
 und bei den Weizenkörnern sogar besser ab, als das Identical Acceleration Modell.
 Auf den selbst gesammelten Daten schneidet von den bestehenden Modellen das Bias-Corrected Constant Velocity Modell am besten ab. 
 Die neuronalen Netze sind jedoch noch einmal besser. 
@@ -433,10 +433,10 @@ Wenn man die Boxplots der zeitlichen Fehler der verschiedenen Modelle auf dem We
 im Detail betrachtet gibt es einige Auffälligkeiten. 
 Im Gegensatz zu dem in Abbildung~\ref{subfig:SimCubTimeBoxplot} dargestellten Szenario
 zeigt der zeitliche Fehler des CV-Modells nur einen geringen Bias, der sogar eher negativ ist.
-Während es im bei den simulierten Plättchen so ist, 
+Während es bei den simulierten Plättchen so ist, 
 dass der Interquartilsabstands des CV-Modells um Faktoren größer ist als der der IA-Modells, ist er hier fast gleich groß.
 Tatsächlich unterscheiden sich die Ergebnisse der CV-, CVBC-, AA- und IA- fast nur in ihrem Bias.
-Dem gegenüber stehen die Ergebnisse des neuronalen Netzes, die fast komplett biasfrei sind und einen merklich kleineren Interquartilsabstands hat als jedes der bestehenden Modelle.
+Dem gegenüber stehen die Ergebnisse des neuronalen Netzes, die fast komplett biasfrei sind und einen merklich kleineren Interquartilsabstand haben als jedes der bestehenden Modelle.
 Ähnlich ist es beim räumlichen Fehler, der in Abbildung~\ref{subfig:RealWeizenLocBoxplot} dargestellt ist.
 Obwohl die Ergebnisse des neuronalen Netzes einen kleinen Bias haben, wird der Bereich zwischen ihrem oberen und unteren Quartil immer noch komplett überdeckt von der Box des CVBC-Modells, das das Beste der Vergleichsmodelle ist.
 
@@ -444,7 +444,7 @@ Obwohl die Ergebnisse des neuronalen Netzes einen kleinen Bias haben, wird der B
 Die Resultate der bestehenden Modelle hängen höchstwahrscheinlich mit der niedrigeren Bandgeschwindigkeit und dem kürzeren Prädiktionsabstand zusammen.
 Auch die könnten die unterschiedlichen Verfahren unterschiedlich anfällig gegen das Messrauschen sein, das auf den simulierten Daten nicht existiert.
 Für die bestehenden Modelle gilt, dass eine relative Verbesserung der zeitlichen Prädiktion zu einer Verbesserung der örtlichen Prädiktion führt,
-da die zeitliche Prädiktion benutzt wird um die örtliche zu bestimmen.
+da die zeitliche Prädiktion benutzt wird, um die örtliche zu bestimmen.
 Das ist besonders gut in Abbildung~\ref{fig:BoxplotsSimCub} zu erkennen. 
 Die Verbesserung der zeitlichen Prädiktion, zu sehen in Abbildung~\ref{subfig:SimCubTimeBoxplot}, zwischen dem CV- und dem CVBC-Modell sorgt auch direkt für eine Verbesserung der örtlichen Prädiktion, zu sehen in Abbildung~\ref{subfig:SimCubLocBoxplot}.
 Für die Ausgabe der neuronalen Netze gilt das jedoch nicht. Hier werden beide Ausgaben parallel bestimmt. 
@@ -479,7 +479,7 @@ Wie schon für die NextStep-Netze sind die Boxplots und Histogramme der restlich
 Die Tatsache, dass die Separator-Netze auf den DEM-Datensätzen, im Gegensatz zu allen anderen Szenarios,
 hinter dem aktuellen Stand der Technik zurück bleiben könnte darauf zurückzuführen sein, 
 dass dort verhältnismäßig weniger Trainingsdaten zur Verfügung standen.
-Wie bereits in Kapitel~\ref{cap:data} erwähnt, haben DEM-Datensätzen im Vergleich zu den selbst aufgenommenen Daten weniger, aber dafür deutlich längere Tracks.
+Wie bereits in Kapitel~\ref{cap:data} erwähnt, haben DEM-Datensätze im Vergleich zu den selbst aufgenommenen Daten weniger, aber dafür deutlich längere Tracks.
 Für die NextStep-Netze sorgt die größere Länge dazu, dass sogar mehr Feature-Label-Paare aus den DEM-Daten extrahiert werden können als aus den selbst aufgenommenen.
 Für die Separator Netze ist die Länge der Tracks jedoch unerheblich.
 Aus einem Track entsteht nur ein einzelnes Feature-Label-Paar.
@@ -487,10 +487,10 @@ Trotz der Datenaugmentierung scheint es so, als ob nicht genug Trainingsdaten vo
 % Ein ähnliches Problem Problem [... Rutsche]
 
 
-In der Zukunft wäre es wünschenswert ein präziseres Hyperparameter-Tuning für mehr Szenarios durchzuführen.
+In der Zukunft wäre es wünschenswert, ein präziseres Hyperparameter-Tuning für mehr Szenarios durchzuführen.
 Wie in Abschnitt~\ref{sec:hypp} beschrieben, wurden nur zwei Hyperparameter-Konfigurationen optimiert, was jeweils auf dem DEM-Kugel-Datensatz durchgeführt wurde.
 Diese Konfigurationen, eine für NextStep-Netze und eine für Separator-Netze,  wurden dann für alle verschiedenen Szenarien benutzt.
-Auch wenn es ein beträchtlicher Zeitaufwand wäre, würden individuelles Hyperparameter-Tuning für die einzelnen Schüttgutsorten wahrscheinlich einen positiven Effekt auf die Güte der Ergebnisse haben.
+Auch wenn es ein beträchtlicher Zeitaufwand wäre, hätte individuelles Hyperparameter-Tuning für die einzelnen Schüttgutsorten wahrscheinlich einen positiven Effekt auf die Güte der Ergebnisse.
 Insbesondere ist es so, dass das Ergebnis für die Separator-Netze nicht gut auf die Rutschenkonfiguration des \textit{TableSort} Systems anwendbar war.
 Die Partikel bewegen sich in dieser Konfiguration deutlich schneller als auf dem Förderband, weshalb weniger Beobachtungen pro Track im Sichtbereich der Kamera gemacht werden.
 Eine FeatureSize von 7, wie von der Hyperparametern-Konfiguration für Separator-Netze vorgesehen, ist bei einer durchschnittlichen Tracklänge von 10 nicht sinnvoll.

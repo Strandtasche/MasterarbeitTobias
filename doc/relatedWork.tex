@@ -34,7 +34,7 @@ Im Rahmen dieser Arbeit geht es um die Prädiktion der Bewegung von Schüttgutpa
 Der Einsatz von verschiedenen Bewegungsmodellen ist erst für Schüttgutsortierer mit Flächenkamera sinnvoll.
 Eine Zeilenkamera liefert nur einen einzelnen Datenpunkt bezüglich Zeit und Position eines Partikels.
 In~\cite{Pfaff2018} wird unter anderem ein Bewegungsmodell beschrieben, das das Verhalten eines Schüttgutsortierers mit Zeilenkamera emuliert.
-Wie in schon in Abbildung~\ref{fig:predMissed} dargestellt wurde, muss angenommen werden, dass es zu keinerlei Bewegung orthogonal zur Transportrichtung kommt.
+Wie schon in Abbildung~\ref{fig:predMissed} dargestellt wurde, muss angenommen werden, dass es zu keinerlei Bewegung orthogonal zur Transportrichtung kommt.
 Für die Prädiktion des Zeitpunkts wird die durchschnittliche Zeit bestimmt, die ein Partikel von der Position der Zeilenkamera zur Position des Druckluftdüsenarrays benötigt 
 und diese als konstanter Offset für jede Partikeldetektion angenommen.
 
@@ -45,8 +45,8 @@ Es wird direkt mit den assoziierten Trackdaten gearbeitet,
 obwohl dieser Assoziationsprozess noch Gegenstand aktueller Forschung ist.
 \todo{hier schon erwähnen, dass die Assoziation auf den selbst gesammelten Daten vielleicht flawed ist?}
 
-Die grundlegenden Bewegungsmodelle, die in \cite{Pfaff2018} beschrieben werden sind 
-einerseits das Constant Velocity Modell und andererseits das Constant Acceleration Modell.
+Die grundlegenden Bewegungsmodelle, die in \cite{Pfaff2018} beschrieben werden,
+sind einerseits das Constant Velocity Modell und andererseits das Constant Acceleration Modell.
 Das Constant Velocity Modell prädiziert die Bewegung eines Teilchens unter der Annahme, dass es sich mit einer konstanten Geschwindigkeit bewegt.
 Basierend auf den letzten zwei bekannten Positionen des Partikels wird dessen Geschwindigkeit entlang der beiden Achsen bestimmt 
 und davon die zukünftige Bewegung abgeleitet.
@@ -55,7 +55,7 @@ Es kann sein, dass bei einem Bandsortierer das Förderband nicht lang genug ist,
 Dann haben die Teilchen eine Beschleunigung, die nicht 0 ist.
 Das Constant Acceleration Modell dahingegen prädiziert die Bewegung des Teilchens unter der Annahme, dass es sich mit einer konstanten Beschleunigung bewegt.
 Diese Beschleunigung wird anhand der letzten drei bekannten Positionen bestimmt.
-Anhang dieser Beschleunigung und der aktuellen Geschwindigkeit werden die zukünftigen Positionen abgeleitet.
+Anhand dieser Beschleunigung und der aktuellen Geschwindigkeit werden die zukünftigen Positionen abgeleitet.
 
 In \cite{Pfaff2018} werden weitere, szenariospezifische Bewegungsmodelle beschrieben.
 Bei dem sogenannten Bias-Corrected Constant Velocity Modell wird das Constant Velocity Modell als Grundlage genommen und ein Korrekturterm eingeführt.
@@ -63,11 +63,12 @@ Basierend auf den zuvor beobachteten Schüttgutpartikeln wird ein durchschnittli
 Die Annahme ist hier, dass der Bias von zukünftige Partikel ähnlich zu dem der zuvor beobachteten Partikeln sein wird.
 Beim Identical Acceleration Modell wird ebenfalls ein Korrekturterm benutzt, 
 der im Gegensatz zum Bias-Corrected Constant Velocity Modell jedoch nicht absolut, sondern abhängig von der letzten bekannten Position des Partikels ist.
-Auf jedem der zuvor beobachteten Partikeln wird der Wert einer zusätzlichen Beschleunigung bestimmt, die zu einer optimalen Prädiktion führen würde und dann der Durchschnitt dieser Beschleunigungen gebildet.
+Auf jedem der zuvor beobachteten Partikeln wird der Wert einer zusätzlichen Beschleunigung bestimmt, die zu einer optimalen Prädiktion führen würde,
+und dann der Durchschnitt dieser Beschleunigungen gebildet.
 Dieser wird dann als Korrekturterm auf ein Constant Velocity Modell addiert, sodass sich eine Formel ähnlich zu der des Constant Acceleration Modelles ergibt.
-Um das Verhalten von den Partikeln, deren Geschwindigkeit sich der des Förderbands nähert ohne sie zu überschreiten, besser abzubilden als durch ein Constant Acceleration Modell,
+Um das Verhalten der Partikel, deren Geschwindigkeit sich der des Förderbands nähert ohne sie zu überschreiten, besser abzubilden als durch ein Constant Acceleration Modell,
 wird das Constant Acceleration with Limited Velocity Modell beschrieben. 
-Dabei wird die Geschwindigkeit des Förderbands bestimmt und Partikel, die diese erreichen, von dann aus mit konstanter Geschwindigkeit weiter prädiziert.
+Dabei wird die Geschwindigkeit des Förderbands bestimmt und Partikel, die diese erreichen, ab diesem Zeitpunkt mit konstanter Geschwindigkeit weiter prädiziert.
 Es wurden zudem zwei Modelle, Constant Acceleration Disallowing Sign Change Modell und Ratio-Based Deceleration Modell, vorgestellt, 
-die spezifisch konzipiert wurden um die Bewegungprädiktion orthogonal zur Transportrichtung zu verbessern.
+die spezifisch konzipiert wurden, um die Bewegungprädiktion orthogonal zur Transportrichtung zu verbessern.
 

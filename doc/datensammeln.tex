@@ -37,7 +37,7 @@ In diesem Abschnitt soll beschrieben werden, welche Form, die am Fraunhofer IOSB
 Zur Aufnahme der Daten wurde eine Bonito~CL-400~200~FPS~Kamera benutzt. 
 % , die in Abbildung~\ref{pictureCam} zu sehen ist.
 Diese wurde, wie in Abbildung~\ref{fig:tablesortsystem} dargestellt, oberhalb des Förderbandes beziehungsweise der Rutsche angebracht.
-Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726~Pixeln~\cite{alliedvisiontechnologiesgmbh2014}.
+Die Bilder, die von der Kamera aufgenommen werden, haben eine Auflösung von 2320x1726~Pixel~\cite{alliedvisiontechnologiesgmbh2014}.
 Anhand mehrerer Kalibrierungsbilder wurde bestimmt, dass 1 Pixel im Bild ungefähr \SI{0.056}{\milli\meter} entspricht.
 Im weiteren Verlauf der Arbeit wird mit Pixeln~(px) als der Einheit des Orts für die selbst aufgenommenen Bilder gearbeitet.
 
@@ -170,7 +170,7 @@ Danach müssen zunächst die gebayerten Dateien mittels eines Vorgangs, der als 
 als Farbbilder rekonstruiert werden.
 Das geschieht mit einem Skript des Fraunhofer IOSB, das die Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/} benutzt.
 % Dies geschieht mittels der Open Source Computer Vision Library OpenCV \footnote{https://opencv.org/}, die ein Bild von einem Farbraum in einen anderen übertragen kann.
-Dieses Skript wurde angepasst und damit und dann damit die einzelnen Bilder in RGB-Farbbilder konvertiert.
+Dieses Skript wurde angepasst und dann damit die einzelnen Bilder in RGB-Farbbilder konvertiert.
 % Ein Skript, das vom Fraunhofer IOSB zur Verfügung gestellt wurde, wurde angepasst und damit die einzelnen Bilder in RGB-Farbbilder konvertiert.
 % \todo[inline]{Skript ursprünglich von Georg, ein paar changes implementiert (bezüglich input und output.)}
 Auf diesen Bildern kann dann eine Segmentierung vorgenommen werden.
@@ -178,8 +178,8 @@ Dafür wurde ebenfalls ein existierendes Skript des Fraunhofer IOSBs angepasst, 
 Für jede Sorte von Schüttgut wurde ein eigenes Parameterprofil von Hand optimiert.
 Ein solches Parameterprofil besteht aus einem oberen und unteren Grenzwert in jedem Kanal des HSV-Raums und einer minimalen Fläche, die ein Teilchen umfassen muss.
 Entsprechend der im Profil festgelegten Parameter werden für die einzelnen Bilder Masken angelegt,
-die angeben ob die HSV-Werte der einzelnen Pixel innerhalb oder außerhalb der Grenzwerte liegen. 
-Mit diesen Masken werden dann alle möglichen Konturen von Schüttgutpartikeln extrahiert. 
+die angeben, ob die HSV-Werte der einzelnen Pixel innerhalb oder außerhalb der Grenzwerte liegen. 
+Mit diesen Masken werden alle möglichen Konturen von Schüttgutpartikeln extrahiert. 
 Die Konturen werden dann bezüglich der Plausibilität ihrer Größe und Form gefiltert. 
 Im letzten Schritt wird nun der gewichtete Mittelpunkt der verbleibenden Konturen bestimmt und abgespeichert.
 
@@ -285,7 +285,7 @@ In Abbildung~\ref{fig:DEMSimulation} ist die virtuelle Nachbildung des Schüttgu
 Die Positionsdaten in den Datensätzen waren ursprünglich mit einer Frequenz von \SI{1000}{\hertz} aufgelistet.
 Um jedoch Vergleichbarkeit mit den realen Daten zu erhalten wurde diese Frequenz auf \SI{200}{\hertz} reduziert.
 Die Positionsangaben der Simulation werden in Metern angeben.
-Das Förderband erstreckt sich entlang der y-Achse von \SI{0.0}{\meter} bis \SI{0.18}{\meter} und entlang der x-Achse von \SI{0.388}{\meter} bis \SI{0.788}{\meter} 
+Das Förderband erstreckt sich entlang der \(\mathsf{y}\)-Achse von \SI{0.0}{\meter} bis \SI{0.18}{\meter} und entlang der \(\mathsf{x}\)-Achse von \SI{0.388}{\meter} bis \SI{0.788}{\meter}.
 
 Dennoch gibt es einige Unterschiede zwischen den selbst aufgenommenen und den simulierten Daten.
 Von diesen Unterschieden ist der schwerwiegendste, dass die Positionen der simulierten Partikel eine absolut verlässliche Ground~Truth sind, 
@@ -305,7 +305,7 @@ Das bedeutet auch, dass in den DEM-Datensätzen die Phase der Partikel bevor und
 Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, sprich mehr Messungen enthalten.
 Bei der NextStep-Prädiktion sorgt das dafür, dass es eine deutlich größere Anzahl an Feature-Label-Paaren gibt.
 Die Bewegungsrichtung der Partikel ist ebenfalls nicht identisch.
-Während die selbst aufgenommenen Datensätze eine Bewegung entlang der y-Achse haben, bewegen sich die simulierten Partikel entlang der x-Achse.
+Während die selbst aufgenommenen Datensätze eine Bewegung entlang der \(\mathsf{y}\)-Achse haben, bewegen sich die simulierten Partikel entlang der \(\mathsf{x}\)-Achse.
 % \todo[inline]{Einheit real: Pixel, Einheit simuliert: m}
 \todo[inline]{simulierte haben viel mehr Partikel gleichzeitig auf dem Band - mehr kollisionen...?}
 
@@ -394,7 +394,7 @@ In Abbildung~\ref{fig:FLPSep} sind dies die blau markierten Einträge.
 Dabei wird die angenommen, dass die Geschwindigkeit des Partikels zwischen \(f_n\) und \(f_{n+1}\) konstant ist.
 Dies ist eine Approximation, die ebenfalls in~\cite{Pfaff2018} verwendet wird.
 Das erste Element eines jeden Labels ist die Koordinate entlang der Achse orthogonal zur Bewegungsrichtung des Förderbandes, wo das Partikel den Druckluftdüsenarray passiert.
-\todo{Bewegungsrichtung Band in der Grafik klarer machen}
+% \todo{Bewegungsrichtung Band in der Grafik klarer machen}
 Diese erhalten wir, indem wir den Schnittpunkt \(s\) zwischen der Strecke \(f_n\) nach \(f_{n+1}\) und 
 der Gerade des Druckluftdüsenarray bestimmen.
 Das zweite Element ist die Zeit, die das Partikel noch brauchen wird, bis es das Druckluftdüsenarray passiert.
@@ -406,8 +406,9 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth]{geometrie}
-	\caption[Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}.]{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}. 
+	\includegraphics[width=0.6\textwidth]{geometrie}
+	\caption[Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}.]{Geometrische Bestimmung der Labels, nach \cite{Pfaff2018}.
+	Die Transportrichtung ist von links nach rechts. 
 	\(f_n\) ist die Position des Partikels im Zeitschritt \(n\), dem letzten bevor es das Druckluftdüsenarray passiert.
 	\(f_{n+1}\) ist die Position des Partikels im Zeitschritt \(n+1\), dem ersten nach der Passage.
 	\(s\) ist der Punkt an dem das Partikeln das Druckluftdüsenarray passiert.
@@ -445,7 +446,7 @@ Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\
 	X_{\text{neu}} = \frac{X - \mu}{\sigma} %\mu_{\text{N}}}{\sigma_{\text{N}}}
 \end{equation*}
 
-Durch die Standardisierung wird jedes Label so skaliert, dass die beiden Elemente der Labels jeweils einen Erwartungswert von 0.0 und eine Standardabweichung von 1.0 haben.
+Durch die Standardisierung wird jedes Label so skaliert, dass die beiden Elemente der Labels jeweils einen Erwartungswert von 0 und eine Standardabweichung von 1 haben.
 Die Ausgaben des Netzes müssen umkehrt zurück in das ursprüngliche Format umgerechnet werden.
 % \todo{überlegen wie ich klar mache, dass es sich um den durchschnitt und die Abweichung der jeweiligen Spalte handelt}
 
@@ -494,14 +495,15 @@ zum Beispiel Rotation, Translation, Spiegeln und das Ausschneiden von Teilbilder
 
 Für den gegebenen Fall mit den Mittelpunkten von Schüttgut-Partikeln als Features resultiert von diesen Techniken nur das Spiegeln in sinnvollen Daten.
 Eine beispielhafte Darstellung der vorgenommenen Data Augmentation ist in Abbildung~\ref{fig:dataAugm} zu finden.
-Gespiegelt wird an der Mittellinie des Bands, beziehungsweise der Rutsche entlang der Bewegungsrichtung.
-Tracks, die eine gewisse Distanz zur Spiegelachse überschreiten, werden ausgenommen, da zumindest bei den selbst aufgenommenen Daten 
+Gespiegelt wird an der Mittellinie des Bands beziehungsweise der Rutsche, entlang der Bewegungsrichtung.
+Tracks, die eine gewisse Distanz zur Spiegelachse überschreiten, werden ausgenommen.
+Zumindest bei den selbst aufgenommenen Daten 
 die Kamera nicht perfekt zentriert ist.
-Deshalb könnte nicht ausgeschlossen werden, 
+Deshalb kann nicht ausgeschlossen werden, 
 dass unrealistische Feature-Label-Paare dem Trainingsset hinzugefügt werden würden.
 
 Die Anwendung dieser Technik auf die vorhandenen Daten führt beinahe zu einer Verdoppelung 
-der benutzbaren Feature-Label-Paare im Trainingsset, wovon man sich einen positiven Effekt auf die Qualität der Ergebnisse verspricht.
+der benutzbaren Feature-Label-Paare im Trainingsset, wovon ein positiver Effekt auf die Qualität der Ergebnisse zu erwarten ist.
 
 \begin{figure}[h]
 	% \missingfigure{Visualisierung Dataaugmentation}
@@ -531,10 +533,10 @@ Die Verteilung dieser Bilder ist in Abbildung~\ref{fig:barPics} dargestellt.
 
 Der \textit{Multi-Target-Tracking}-Algorithmus wurde benutzt, um die Anzahl der Kugeln zu bestimmen.
 Auf dem Förderband wurden 7712 Tracks von Kugeln,
-7170 Tracks Pfefferkörnern,
+7170 Tracks von Pfefferkörnern,
 19\,200 Tracks von Zylindern,
 und 8702 Tracks von Weizenkörnern zugeordnet.
-Zudem wurden 5132 Tracks Kugeln und 3609 Tracks von Pfefferkörnern auf der Rutsche zugeordnet.
+Zudem wurden 5132 Tracks von Kugeln und 3609 Tracks von Pfefferkörnern auf der Rutsche zugeordnet.
 
 Im DEM-Datensatz sind die Tracks von 3713 Kugeln und 4357 Plättchen enthalten.
 Die Verteilung der Tracks ist in Abbildung~\ref{fig:barTracks} zu sehen.
@@ -550,8 +552,8 @@ Die Verteilung der Tracks ist in Abbildung~\ref{fig:barTracks} zu sehen.
 
 Die Feature-Label-Paare, die aus den Tracks extrahiert werden, 
 müssen in ein Trainingsset und ein Testset aufgeteilt werden.
-In manchen Situationen wird noch ein drittes Set, das so genannte Validationset, benötigt.
-Dies ist zum Beispiel beim Hyperparameter Tuning der Fall.
+In manchen Situationen wird noch ein drittes Set, das sogenannte Validationset, benötigt.
+Dies ist zum Beispiel beim Hyperparameter-Tuning der Fall.
 
 Hierbei ist wichtig, dass das Testset eine gute Repräsentation des gesamten Datensets ist 
 und ausreichend groß ist, um statistisch aussagekräftige Ergebnisse zu produzieren.
