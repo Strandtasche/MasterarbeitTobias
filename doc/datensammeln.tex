@@ -5,7 +5,7 @@
 Bei maschinellen Lernverfahren ist die Qualität und die Menge der zugrundeliegenden Daten sehr wichtig,
 da diese die Güte des Ergebnisses stark beeinflussen können.
 Im Rahmen dieser Masterarbeit wurden zweierlei Arten von Daten benutzt:
-Einerseits wurden am \textit{TableSort} Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht, 
+Einerseits wurden am \textit{TableSort}-Schüttgutsortierer des Fraunhofer IOSBs Aufnahmen gemacht, 
 die dann über mehrere Arbeitsschritte in das richtige Datenformat übersetzt wurden.
 Zudem existieren Datensätze, die durch eine Simulation mittels der \textit{Diskrete-Elemente-Methode} (DEM) entstanden sind. 
 In diesem Kapitel soll nun beschrieben werden, woher diese Daten kommen, wie sie verarbeitet werden 
@@ -55,7 +55,7 @@ Im weiteren Verlauf der Arbeit wird mit Pixeln~(px) als der Einheit des Orts fü
 
 Aufgenommen wurden Daten von vier verschiedenen Schüttgütern: Kugeln, grüne Pfefferkörner, Zylinder und Weizenkörner.
 Diese Schüttgüter sind in Abbildung~\ref{fig:schuettgueterSchuessel} in Schüsseln 
-und in Abbildung~\ref{fig:schuettgueterBand} während den Aufnahmen zu sehen.
+und in Abbildung~\ref{fig:schuettgueterBand} und~\ref{fig:schuettgueterRutsche} während den Aufnahmen zu sehen.
 
 % die in Abbildung~\ref{fig:schuettgueterSchuessel} zu sehen sind.
 
@@ -73,8 +73,8 @@ ein Paar aus einem geometrischen Körper und einem echten Objekt, das grob desse
 
 % \todo{Mehr Details?}
 
-Alle Schüttgüter wurden auf der Förderbandkonfiguration des \textit{TableSort} Systems aufgenommen.
-Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration des \textit{TableSort} Systems aufgenommen.
+Alle Schüttgüter wurden auf der Förderbandkonfiguration des \textit{TableSort}-Systems aufgenommen.
+Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration des \textit{TableSort}-Systems aufgenommen.
 
 \begin{figure}[h]
 	\centering
@@ -82,12 +82,14 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 		\includegraphics[width=\textwidth]{KugelnCropped}
 		\caption{Kugeln}
 	\end{subfigure}
+	% \hfill
 	\quad
 	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{PfefferCropped}
 		\caption{Pfefferkörner}
 	\end{subfigure}
 	\vskip\baselineskip
+
 	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{ZylinderCropped}
 		\caption{Zylinder}
@@ -101,7 +103,7 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 	\label{fig:schuettgueterSchuessel}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[p]
 	\centering
 	\begin{subfigure}[t]{0.4\textwidth}
 		\centering
@@ -114,6 +116,7 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 		\caption{Pfefferkörner auf dem Förderband}
 	\end{subfigure}
 	\vskip\baselineskip
+	
 	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{zylinder_001_00009_debayer}
 		\caption{Zylinder auf dem Förderband}
@@ -123,7 +126,13 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 		\includegraphics[width=\textwidth]{weizen_004_00016_debayer}
 		\caption{Weizen auf dem Förderband}
 	\end{subfigure}
-	\vskip\baselineskip
+	
+	\caption{Verschiedene Schüttgüter auf dem Förderband.}
+	\label{fig:schuettgueterBand}
+\end{figure}
+
+\begin{figure}[p]
+	\centering	
 	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{kugeln_rutsche_013_00043_debayer}
 		\caption{Kugeln auf der Rutsche}
@@ -133,8 +142,9 @@ Zusätzlich dazu wurden Kugeln und Pfefferkörner auf der Rutschenkonfiguration 
 		\includegraphics[width=\textwidth]{pfeffer_rutsche_005_00056_debayer}
 		\caption{Pfefferkörner auf der Rutsche}
 	\end{subfigure}
-	\caption{Verschiedene Schüttgüter auf dem Förderband bzw. auf der Rutsche.}
-	\label{fig:schuettgueterBand}
+
+	\caption{Verschiedene Schüttgüter auf der Rutsche.}
+	\label{fig:schuettgueterRutsche}
 \end{figure}
 
 
@@ -278,7 +288,7 @@ Dies ist der Zustand in dem die Daten dann im Programmcode geladen werden.
 % \color{black}
 
 Neben den selbst aufgenommenen Daten wurde im Rahmen dieser Arbeit auch mit einigen existierenden Datensätzen gearbeitet.
-In \cite{pieper2016numerical}~und~\cite{pieper2017numerical} wird dargelegt wie diese Datensätze basierend auf einer hochgenauen numerischen Simulation des \textit{TableSort} Systems mittels der Diskrete-Elemente-Methode erstellt wurden.
+In \cite{pieper2016numerical}~und~\cite{pieper2017numerical} wird dargelegt wie diese Datensätze basierend auf einer hochgenauen numerischen Simulation des \textit{TableSort}-Systems mittels der Diskrete-Elemente-Methode erstellt wurden.
 % \todo{interaktion Teilchen untereinander und mit dem Sortierer?}
 In Abbildung~\ref{fig:DEMSimulation} ist die virtuelle Nachbildung des Schüttgutsortierers zu sehen, auf dem die Simulation durchgeführt wurde.
 % Die Simulation wird mit einem Zeitschritt von \SI{1e-5}{\second} durchgeführt.
@@ -295,7 +305,7 @@ Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann 
 Die Segmentierung kann an einigen Stellen nicht präzise sein, indem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
 Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Multi-Target-Tracking}-Algorithmus die beiden Tracks vertauscht.  
 Des Weiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
-während Messungen am realen \textit{TableSort} System darauf hindeuten, dass das Förderband dort nur eine Geschwindigkeit von 
+während Messungen am realen \textit{TableSort}-System darauf hindeuten, dass das Förderband dort nur eine Geschwindigkeit von 
 circa \SI{1.1}{\meter\per\second} hat.
 Ein weiterer Unterschied ist der Aufnahmebereich.
 Im Gegensatz zu den selbst aufgenommenen Daten, die nur Informationen 
@@ -507,7 +517,7 @@ der benutzbaren Feature-Label-Paare im Trainingsset, wovon ein positiver Effekt 
 \begin{figure}[h]
 	% \missingfigure{Visualisierung Dataaugmentation}
 	\centering
-	\includegraphics[width=\textwidth]{augmentationImage.pdf}
+	\includegraphics[width=0.9\textwidth]{augmentationImage.pdf}
 	\caption{Visualisierung der Datenaugmentierung durch Spiegelung.}
 	% \todo{Quelle Bild!}
 	\label{fig:dataAugm}

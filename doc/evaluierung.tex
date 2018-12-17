@@ -304,7 +304,7 @@ Die Boxplots und Histogramme der übrigen Szenarien sind im Anhang zu finden.
     % \quad
     \vskip\baselineskip
 	\begin{subfigure}[t]{0.8\textwidth}
-		\includegraphics[width=\textwidth]{SimulatedSpheres-evaluation_NextStep_LocationError_2018-12-10_19-09-25.pdf}
+		\includegraphics[width=\textwidth]{SimulatedKugeln-evaluation_NextStep_LocationError_2018-12-17_15-28-43.pdf}
 		\caption{Boxplots für die NextStep-Ergebnisse der Kugeln aus dem DEM-Datensatz.}
 		\label{subfig:SimSpheresBoxplot}
 	\end{subfigure}
@@ -466,7 +466,8 @@ Wie schon für die NextStep-Netze sind die Boxplots und Histogramme der restlich
 		\label{subfig:RealWeizenLocBoxplot}
 	\end{subfigure}
 	
-	\caption{Visualisierung der Ergebnisse für den Weizenkörnern-Datensatz von den selbst gesammelten Daten. Median näher an 0 und möglichst kleine Streuung sind besser.}
+    \caption[Visualisierung der Ergebnisse für den Weizenkörnern-Datensatz von den selbst gesammelten Daten.]
+    {Visualisierung der Ergebnisse für den Weizenkörnern-Datensatz von den selbst gesammelten Daten. Median näher an 0 und möglichst kleine Streuung sind besser.}
 	\label{fig:BoxplotsRealWeizen}
 \end{figure}
 
@@ -490,7 +491,7 @@ In der Zukunft wäre es wünschenswert, ein präziseres Hyperparameter-Tuning f�
 Wie in Abschnitt~\ref{sec:hypp} beschrieben, wurden nur zwei Hyperparameter-Konfigurationen optimiert, was jeweils auf dem DEM-Kugel-Datensatz durchgeführt wurde.
 Diese Konfigurationen, eine für NextStep-Netze und eine für Separator-Netze,  wurden dann für alle verschiedenen Szenarien benutzt.
 Auch wenn es ein beträchtlicher Zeitaufwand wäre, hätte individuelles Hyperparameter-Tuning für die einzelnen Schüttgutsorten wahrscheinlich einen positiven Effekt auf die Güte der Ergebnisse.
-Insbesondere ist es so, dass das Ergebnis für die Separator-Netze nicht gut auf die Rutschenkonfiguration des \textit{TableSort} Systems anwendbar war.
+Insbesondere ist es so, dass das Ergebnis für die Separator-Netze nicht gut auf die Rutschenkonfiguration des \textit{TableSort}-Systems anwendbar war.
 Die Partikel bewegen sich in dieser Konfiguration deutlich schneller als auf dem Förderband, weshalb weniger Beobachtungen pro Track im Sichtbereich der Kamera gemacht werden.
 Eine FeatureSize von 7, wie von der Hyperparameter-Konfiguration für Separator-Netze vorgesehen, ist bei einer durchschnittlichen Tracklänge von 10 nicht sinnvoll.
 
