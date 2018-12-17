@@ -226,11 +226,11 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
 
 \begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries separatorPosition}, labelindent=0.5cm]
     \item[batchSize] Die Anzahl der Feature-Label-Paare, die in einer Iteration betrachtet werden.
-    \item[epochs] Die Anzahl der Epochen, nach denen das Trainings beendet wird.
+    \item[epochs] Die Anzahl der Epochen, nach denen das Training beendet wird.
     \item[stepsPerEpoch] Die Anzahl der Iterationen, die in einer Epoche durchgeführt werden.  
     \item[learningRate] Anfängliche maximale Lernrate, mit der die Gewichte geändert werden
     \item[decaySteps] Parameter, der festlegt, wie schnell die maximale Lernrate reduziert wird. Wie dieser Parameter verwendet wird, wird im weiteren Kapitel erklärt.
-    \item[optimizer] Der Optimierer, der fürs Training verwendet wird. Zulässig sind Adams, Adagrad und Gradient Descent
+    \item[optimizer] Der Optimierer, der für das Training verwendet wird. Zulässig sind Adams, Adagrad und Gradient Descent
 \end{description}
 
 \bigskip
@@ -239,7 +239,7 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
 \begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries separatorPosition}, labelindent=0.5cm]
     % \item[numberFakeLines] Anzahl der synthetischen Trainingsbeispiele, die generiert werden sollen.
     \item[testSize] Parameter, der die Aufteilung zwischen Trainings- und Testdaten festlegt. Ein Wert von 0.1 würde einen 90:10 Split Training zu Test bedeuten.  
-    \item[augmentMidpoint] Koordinate der Spiegelachse, an der für die Data Augmentation gespiegelt wird.
+    \item[augmentMidpoint] Koordinate der Spiegelachse, an der für die Datenaugmentierung gespiegelt wird.
     \item[augmentRange] Maximale Distanz eines Feature-Label-Paares zur Spiegelachse, bis wohin die Spiegelung angewendet werden soll. Feature-Label-Paare außerhalb des Bandes werden ignoriert.
     \item[direction] Bewegungsrichtung der Partikel. ``x'' bei simulierten und ``y'' bei selbst gesammelten Daten.
     \item[unitLoc] Einheit des Orts in der Visualisierung. ``m'' beziehungsweise Meter bei simulierten Daten, ``px'' beziehungsweise Pixel bei selbst gesammelten Daten.
@@ -323,12 +323,12 @@ Was die Lernparameter angeht, so sieht das Ergebnis des Hyperparameter-Tunings f
     \centering
     % \missingfigure{Grafik architektur}
 	\includegraphics[width=\textwidth]{neuralNetImage}
-	\caption{Architektur eines Neuronales Netzes für die NextStep-Prädiktion.}
+	\caption{Architektur eines neuronales Netzes für die NextStep-Prädiktion.}
 	% \todo{Quelle Bild!}
 	\label{fig:netArchitectureNextStep}
 \end{figure}
 
-Die Netzarchitektur, die für die Separator-Netze  ermittelt wurde ist in Abbildung~\ref{fig:netArchitectureSep} zu sehen.
+Die Netzarchitektur, die für die Separator-Netze  ermittelt wurde, ist in Abbildung~\ref{fig:netArchitectureSep} zu sehen.
 % \todo[inline]{Ergebnis von Hyperparameter Tuning für Separator Netze}\
 Hier sorgt eine FeatureSize von 7 für bessere Ergebnisse.
 Dies könnte zumindest teilweise damit erklärt werden, dass für die Separator-Netze im Gegensatz zu den NextStep-Netzen eine höhere FeatureSize nicht mit einer Reduktion der Anzahl an Trainingsbeispielen einhergeht.
@@ -348,7 +348,7 @@ Das Hyperparameter-Tuning hat für die restlichen Hyperparameter die folgenden W
     \centering
     % \missingfigure{Grafik architektur Separator}
 	\includegraphics[width=\textwidth]{neuralNetImageSeparator}
-	\caption{Architektur eines Neuronales Netzes für die Separator-Prädiktion.}
+	\caption{Architektur eines neuronales Netzes für die Separator-Prädiktion.}
 	% \todo{Quelle Bild!}
 	\label{fig:netArchitectureSep}
 \end{figure}

@@ -74,7 +74,8 @@ wurde die Verbesserung der Schüttgutsortierung durch den Einsatz von Trackingve
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{PredictionMissed_translated.pdf}
-    \caption{Darstellung einer Fehlseparierung durch die Annahme, dass es keine Bewegung orthogonal zur Transportrichtung gibt. 
+    \caption[Darstellung einer Fehlseparierung basierend auf den Limitationen der Zeilenkamera. Übersetzt aus~~\cite{Pfaff2018}]
+    {Darstellung einer Fehlseparierung durch die Annahme, dass es keine Bewegung orthogonal zur Transportrichtung gibt. 
     Übersetzt aus~\cite{Pfaff2018}.}
     \label{fig:predMissed}
 \end{figure}
@@ -159,8 +160,8 @@ Nachdem im ersten Kapitel eine kurze Einführung und Motivation für das Thema g
 wird Kapitel~\ref{cap:basics} den theoretischen Grundlagen gewidmet, die für das Verständnis der restlichen Arbeit notwendig sind.
 Dabei wird zu Beginn auf die Funktionsweise von neuronalen Netzen eingegangen, 
 bevor die Funktionsweise und der Aufbau des \textit{TableSort} Schüttgutsortierers beschrieben werden.
-Am Ende des Grundlagen-Kapitels wird auf den aktuellen Stand der Technik eingegangen und erklärt wie das, 
-was im Rahmen dieser Arbeit mittels neuronaler Netze verbessert werden soll, aktuell funktioniert.
+Am Ende des Grundlagen-Kapitels wird auf den aktuellen Stand der Technik eingegangen und erklärt, wie die Bewegungsprädiktion, 
+die im Rahmen dieser Arbeit mittels neuronaler Netze durchgeführt werden wird, aktuell funktioniert.
 \todo{Verbessert ersetzen mit passenderer Formulierung}
 Kapitel~\ref{cap:data} beschreibt die Daten, die dafür verwendet werden,
 woher sie stammen, wie sie verarbeitet wurden und in welcher Form sie dann in die neuronalen Netze eingegeben werden.
@@ -171,8 +172,12 @@ In Kapitel~\ref{cap:impl} wird die Implementierung der Arbeit thematisiert.
 Dabei wird zunächst auf die verwendete Software eingegangen, bevor die Struktur des Codes beschrieben wird.
 Es werden die für das Training und die Evaluation relevanten Hyperparameter beschrieben und die Optimierung derselben erläutert.
 Kapitel~\ref{cap:Eval} beschäftigt sich mit der Evaluation der Ergebnisse.
-Nachdem kurz die Modelle erläutert werden, mit denen die Ergebnisse der neuronalen Netze verglichen werden,
-wird jeweils ein Blick auf den NextStep-Fall und den Separator-Fall geworfen und dann die Ergebnisse diskutiert.
+% 
+% Nachdem die Bewegungsmodelle erläutert werden, mit denen die Ergebnisse der neuronalen Netze verglichen werden,
+% wird jeweils ein Blick auf den NextStep-Fall und den Separator-Fall geworfen und dann die Ergebnisse diskutiert.
+Erst werden die verwendeten Bewegungsmodelle vorgestellt, die dann im NextStep-Fall und im Separator-Fall mit den Ergebnissen der neuronalen Netze verglichen werden.
+Schließlich werden diese Ergebnisse diskutiert.
+% 
 Den Abschluss der Arbeit stellt Kapitel~\ref{cap:fazit} dar, in dem die Ergebnisse der Arbeit noch einmal zusammengefasst werden 
 und ein Ausblick darauf gegeben wird, was in der Zukunft denkbare Fortführungen wären.
 % \todo{aufbau Gliederung beschreiben. Ganz am Ende dann, wenn sich nichts mehr ändert}

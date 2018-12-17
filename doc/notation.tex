@@ -1,47 +1,79 @@
+\chapter*{Notation}
+\label{cap:notation}
 \phantomsection
 \addcontentsline{toc}{chapter}{Notation}
+% \fancyhead[LE]{\footnotesize \sffamily {Notation}}
+% \fancyhead[RO]{\footnotesize \sffamily {Notation}}
+% \pagestyle{fancy}
 
-\chapter*{Notation}
+\section*{Konventionen}
 
-\section*{\ifenglish{Conventions}{Konventionen}}
+\begin{longtable}[l]{>{\raggedright}p{0.2\columnwidth}>{\raggedright}p{0.8\columnwidth}}
+$x$  & Skalar\tabularnewline
+$\underline{x}$ & Vektor\tabularnewline
+$x_{k}$ & Der $k$-te Eintrag des Vektors $\underline{x}$\tabularnewline
+$\underline{x}_{t}$ & Vektor $\underline{x}$ zum Zeitschritt $t$ \tabularnewline
+$\dot{x}$  & Erste zeitliche Ableitung von $x$\tabularnewline
+$\ddot{x}$ & Zweite zeitliche Ableitung von $x$\tabularnewline
+$\mathsf{x}$ bzw. $\mathsf{y}$ & Koordinate entlang der $\mathsf{x}$- beziehungsweise $\mathsf{y}$-Achse\tabularnewline
+$a(\cdot)$ & Funktion\tabularnewline
+$\underline{a}(\cdot)$ & Funktion, die einen Vektor als Ergebnis hat\tabularnewline
+\global\long\def\e{\text{e}}%
+$\e$ & Eulersche Zahl\tabularnewline
+$\mathbf{A}$ & Matrix\tabularnewline
+$\mathbf{0}{}$  & Nullmatrix\tabularnewline
+\end{longtable}
+
+
+% \section*{\ifenglish{Abbreviations}{Abkürzungen}}
+% \label{sec:notation}
 	
-	\begin{tabular}{ll}
-		$x$ 			& \ifenglish{Scalar}{Skalar} \\
-		$\rrx$			& \ifenglish{Random variable}{Zufallsvariable} \\
-		$\eex$			& \ifenglish{Mean of random variable \rrx.}{Erwartungswert der Zufallsvariable \rrx.} \\
-		$\vx$ 			& \ifenglish{Column vector}{Spaltenvektor} \\
-		$\rvx$			& \ifenglish{Random vector}{Zufallsvektor} \\
-		$\evx$			& \ifenglish{Mean of random vector \rvx.}{Erwartungswert des Zufallsvektors \rvx.} \\
-		$\mA$ 			& Matrix \\
-		$(.)_k$ 		& \ifenglish{Quantity at time step $k$.}{Quantität zum Zeitpunkt $k$.} \\
-		$\IR$ 			& \ifenglish{Set of real numbers.}{Menge der reellen Zahlen.} \\
-	%	$\IN$ 			& \ifenglish{Set of natural numbers.}{Menge der nat\"urlichen Zahlen.} \\
-		$\sim$ 			& \ifenglish{Distribution operator.}{Verteilungsoperator.} \\
-						& \ifenglish{E.g., $\rrx \sim \Uniform$ means $\rrx$ is distributed according to $\Uniform$.}{Z.B. bedeutet $\rrx \sim \Uniform$, dass $\rrx$ gem\"a{\ss} der Verteilung $\Uniform$ verteilt ist.} \\
-		$\blacksquare$ 	& \ifenglish{End of example.}{Ende eines Beispiels.} \\
-		$\square$		& \ifenglish{End of proof.}{Ende eines Beweises.}
-	\end{tabular}
-	
-\section*{\ifenglish{Abbreviations}{Abkürzungen}}
-\label{sec:notation}
-	
-	\begin{tabular}{ll}
-		PNG		& Portable Network Graphics \\
-		CSV		& Comma Separated Values \\
-		JSON	& JavaScript Object Notation \\
-		HSV-Farbraum		& Hue Saturation Value - Farbraum  \\
-		RMSE	& Root Mean Square Error \\
-		MSE		& Mean Square Error \\
-		DEM 	& Diskrete-Elemente-Methode	\\
-	\end{tabular}
+% 	\begin{tabular}{ll}
+% 		PNG		& Portable Network Graphics \\
+% 		CSV		& Comma Separated Values \\
+% 		JSON	& JavaScript Object Notation \\
+% 		HSV-Farbraum		& Hue Saturation Value - Farbraum  \\
+% 		RMSE	& Root Mean Square Error \\
+% 		MSE		& Mean Square Error \\
+% 		DEM 	& Diskrete-Elemente-Methode	\\
+% 	\end{tabular}
 
-	\begin{tabular}{ll}
-		NN		& Neuronales Netz \\
-		CV		& Constant Velocity \\
-		CA		& Constant Acceleration  \\
-		CVBC	& Bias-Corrected Constant Velocity \\
-		AA		& Average Acceleration \\
-		IA 		& Identical Acceleration	\\
-	\end{tabular}
+% 	\begin{tabular}{ll}
+% 		NN		& Neuronales Netz \\
+% 		CV		& Constant Velocity \\
+% 		CA		& Constant Acceleration  \\
+% 		CVBC	& Bias-Corrected Constant Velocity \\
+% 		AA		& Average Acceleration \\
+% 		IA 		& Identical Acceleration	\\
+% 	\end{tabular}
 
+\section*{Allgemeine Abkürzungen}
+
+	\vspace{-5bp}
+	\begin{longtable}[l]{>{\raggedright}p{0.2\columnwidth}>{\raggedright}p{0.82\columnwidth}}
+		PNG		& Portable Network Graphics \tabularnewline
+		CSV		& Comma Separated Values \tabularnewline
+		JSON	& JavaScript Object Notation \tabularnewline
+		RGB-Farbraum		& "Rot Grün Blau"-Farbraum  \tabularnewline
+		HSV-Farbraum		& "Hue Saturation Value"-Farbraum  \tabularnewline
+		MSE		& Mean Square Error \tabularnewline
+		RMSE	& Root Mean Square Error \tabularnewline
+		DEM 	& Diskrete-Elemente-Methode	\tabularnewline
+		MTT 	& Multi-Target-Tracking \tabularnewline
+	\end{longtable}
+
+
+\newpage
+\section*{Abgekürzte Namen verschiedener Bewegungsmodelle}
+
+\vspace{-5bp}
+\begin{longtable}[l]{>{\raggedright}p{0.1\columnwidth}>{\raggedright}p{0.82\columnwidth}}
+	NN & Neuronales Netz\tabularnewline
+
+	CV & Constant Velocity\tabularnewline
+	CVBC & Bias-Corrected Constant Velocity\tabularnewline
+	CA & Constant Acceleration\tabularnewline
+	AA & Average Acceleration\tabularnewline
+	IA & Identical Acceleration\tabularnewline
+\end{longtable}
 

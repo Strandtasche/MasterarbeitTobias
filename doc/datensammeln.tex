@@ -283,13 +283,13 @@ In \cite{pieper2016numerical}~und~\cite{pieper2017numerical} wird dargelegt wie 
 In Abbildung~\ref{fig:DEMSimulation} ist die virtuelle Nachbildung des Schüttgutsortierers zu sehen, auf dem die Simulation durchgeführt wurde.
 % Die Simulation wird mit einem Zeitschritt von \SI{1e-5}{\second} durchgeführt.
 Die Positionsdaten in den Datensätzen waren ursprünglich mit einer Frequenz von \SI{1000}{\hertz} aufgelistet.
-Um jedoch Vergleichbarkeit mit den realen Daten zu erhalten wurde diese Frequenz auf \SI{200}{\hertz} reduziert.
+Um jedoch Vergleichbarkeit mit den realen Daten zu erhalten, wurde diese Frequenz auf \SI{200}{\hertz} reduziert.
 Die Positionsangaben der Simulation werden in Metern angeben.
 Das Förderband erstreckt sich entlang der \(\mathsf{y}\)-Achse von \SI{0.0}{\meter} bis \SI{0.18}{\meter} und entlang der \(\mathsf{x}\)-Achse von \SI{0.388}{\meter} bis \SI{0.788}{\meter}.
 
 Dennoch gibt es einige Unterschiede zwischen den selbst aufgenommenen und den simulierten Daten.
 Von diesen Unterschieden ist der schwerwiegendste, dass die Positionen der simulierten Partikel eine absolut verlässliche Ground~Truth sind, 
-die direkt aus Simulation entnommen wurde.
+die direkt aus der Simulation entnommen wurde.
 So verlässlich sind die Partikelpositionen bei den selbst aufgenommen Daten nicht.
 Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann es zu Fehlern kommen, die sich durch die gesamte Pipeline fortpflanzen.
 Die Segmentierung kann an einigen Stellen nicht präzise sein, indem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
@@ -299,9 +299,9 @@ während Messungen am realen \textit{TableSort} System darauf hindeuten, dass da
 circa \SI{1.1}{\meter\per\second} hat.
 Ein weiterer Unterschied ist der Aufnahmebereich.
 Im Gegensatz zu den selbst aufgenommenen Daten, die nur Informationen 
-zu den Bewegungen der Partikel im Bereich, auf den die Hochgeschwindigkeitskamera gerichtet ist umfassen, 
+zu den Bewegungen der Partikel im Bereich, auf den die Hochgeschwindigkeitskamera gerichtet ist, umfassen, 
 befinden sich in den DEM-Datensätzen die Positionen der Teilchen über die gesamte Länge des Förderbandes.
-Das bedeutet auch, dass in den DEM-Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden enthalten ist.
+Das bedeutet auch, dass in den DEM-Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden, enthalten ist.
 Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, sprich mehr Messungen enthalten.
 Bei der NextStep-Prädiktion sorgt das dafür, dass es eine deutlich größere Anzahl an Feature-Label-Paaren gibt.
 Die Bewegungsrichtung der Partikel ist ebenfalls nicht identisch.
@@ -348,7 +348,7 @@ Während die selbst aufgenommenen Datensätze eine Bewegung entlang der \(\maths
 % optional: Histogramme über die Daten (mehr Teilchen in der Mitte bei Location...)
 % \color{black}
 
-Das Format, das die Daten annehmen, ist für die NextStep- und den Separator-Netze leicht unterschiedlich.
+Das Format, das die Daten annehmen, ist für die NextStep- und die Separator-Netze leicht unterschiedlich.
 %  unterscheidet sich leicht zwischen den beiden Anwendungen.
 Die Feature-Label-Paare der unterschiedlichen Anwendungen unterscheiden sich nur in den Labels.
 Die Eingangsdaten sind -- abhängig von einem Hyperparameter --
@@ -411,7 +411,7 @@ und der Distanz zwischen \(f_n\) und \(f_{n+1}\).
 	Die Transportrichtung ist von links nach rechts. 
 	\(f_n\) ist die Position des Partikels im Zeitschritt \(n\), dem letzten bevor es das Druckluftdüsenarray passiert.
 	\(f_{n+1}\) ist die Position des Partikels im Zeitschritt \(n+1\), dem ersten nach der Passage.
-	\(s\) ist der Punkt an dem das Partikeln das Druckluftdüsenarray passiert.
+	\(s\) ist der Punkt an dem das Partikel das Druckluftdüsenarray passiert.
 	}
 	% \todo{Quelle - test?}
 	\label{fig:Schnittpunkt}
@@ -447,7 +447,7 @@ Im Anschluss wird vom jeweiligen Eintrag \(X\) der zugehörige Mittelwert \(\mu\
 \end{equation*}
 
 Durch die Standardisierung wird jedes Label so skaliert, dass die beiden Elemente der Labels jeweils einen Erwartungswert von 0 und eine Standardabweichung von 1 haben.
-Die Ausgaben des Netzes müssen umkehrt zurück in das ursprüngliche Format umgerechnet werden.
+Die Ausgaben des Netzes müssen umgekehrt zurück in das ursprüngliche Format umgerechnet werden.
 % \todo{überlegen wie ich klar mache, dass es sich um den durchschnitt und die Abweichung der jeweiligen Spalte handelt}
 
 % \todo[inline]{Der Absatz hier nach Implementierung verschieben?}
@@ -494,11 +494,10 @@ Für Netze, die in der Computer Vision eingesetzt werden gibt es einige weit ver
 zum Beispiel Rotation, Translation, Spiegeln und das Ausschneiden von Teilbildern.
 
 Für den gegebenen Fall mit den Mittelpunkten von Schüttgut-Partikeln als Features resultiert von diesen Techniken nur das Spiegeln in sinnvollen Daten.
-Eine beispielhafte Darstellung der vorgenommenen Data Augmentation ist in Abbildung~\ref{fig:dataAugm} zu finden.
+Eine beispielhafte Darstellung der vorgenommenen Datenaugmentierung ist in Abbildung~\ref{fig:dataAugm} zu finden.
 Gespiegelt wird an der Mittellinie des Bands beziehungsweise der Rutsche, entlang der Bewegungsrichtung.
 Tracks, die eine gewisse Distanz zur Spiegelachse überschreiten, werden ausgenommen.
-Zumindest bei den selbst aufgenommenen Daten 
-die Kamera nicht perfekt zentriert ist.
+Zumindest bei den selbst aufgenommenen Daten ist die Kamera nicht perfekt zentriert.
 Deshalb kann nicht ausgeschlossen werden, 
 dass unrealistische Feature-Label-Paare dem Trainingsset hinzugefügt werden würden.
 
@@ -552,7 +551,7 @@ Die Verteilung der Tracks ist in Abbildung~\ref{fig:barTracks} zu sehen.
 
 Die Feature-Label-Paare, die aus den Tracks extrahiert werden, 
 müssen in ein Trainingsset und ein Testset aufgeteilt werden.
-In manchen Situationen wird noch ein drittes Set, das sogenannte Validationset, benötigt.
+In manchen Situationen wird noch ein drittes Set, das sogenannte Validierungsset, benötigt.
 Dies ist zum Beispiel beim Hyperparameter-Tuning der Fall.
 
 Hierbei ist wichtig, dass das Testset eine gute Repräsentation des gesamten Datensets ist 

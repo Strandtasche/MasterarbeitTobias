@@ -9,10 +9,11 @@
 % 	- RNN
 % 	- LSTM
 
-In diesem Kapitel soll eine kurze Einführung in die für das Verständnis der restlichen Arbeit benötigten Themengebiete gegeben werden.
-Primär sollen zunächst allgemein neuronale Netze und einige ihrer spezielleren Aspekte betrachtet werden, 
+In diesem Kapitel wird eine kurze Einführung in die für das Verständnis der restlichen Arbeit benötigten Themengebiete gegeben.
+Primär werden zunächst allgemein neuronale Netze und einige ihrer spezielleren Aspekte betrachtet, 
 bevor ein kurzer Blick auf das bei den Experimenten verwendete Schüttgutsortiersystem \textit{TableSort} geworfen wird. 
-Am Ende des Kapitels wird darauf eingegangen, wie das Problem der Prädiktion bei optischen Schüttgutsorierern vor der Arbeit gelöst wird.
+Am Ende des Kapitels wird auf den aktuellen Stand der Technik eingegangen.
+%  wie das Problem der Prädiktion bei optischen Schüttgutsorierern vor der Arbeit gelöst wird.
 Die Ausführungen zu den neuronalen Netzen sind, wo nicht anders angemerkt, basierend auf \cite{Goodfellow-et-al-2016}, \cite{Murphy:2012:MLP:2380985} und \cite{nielsen2015neural}.
 % \todo[inline]{Primäre Quellen sind hier \cite{Goodfellow-et-al-2016}, \cite{Murphy:2012:MLP:2380985} und \cite{nielsen2015neural} aber ich bin mir nicht sicher wo ich das richtig vermerke.}
 
@@ -21,7 +22,7 @@ Die Ausführungen zu den neuronalen Netzen sind, wo nicht anders angemerkt, basi
 
 \section{Neuronale Netze}
 
-Als Neuronale Netze  % beziehungsweise \textit{künstliche neuronale Netze}, wie sie manchmal korrekter genannt werden, 
+Als neuronale Netze  % beziehungsweise \textit{künstliche neuronale Netze}, wie sie manchmal korrekter genannt werden, 
 bezeichnet man in der Informatik Systeme aus künstlichen Neuronen, die heute eine wichtige Rolle im Feld des maschinellen Lernens einnehmen.
 Manchmal werden sie korrekter als \textit{künstliche neuronale Netze} bezeichnet, um sie von \textit{natürlichen neuronalen Netzen} 
 wie dem menschlichen Gehirn zu unterscheiden, nach deren biologischem Vorbild sie modelliert sind.
@@ -49,7 +50,7 @@ Es ist eine Art künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt 
     \centering
     % \missingfigure{Grafik Neuron}
 	\includegraphics[width=0.5\textwidth]{perceptron-2}
-	\caption[Schematischer Aufbau Perzeptron]{Aufbau eines Perzeptrons: Die Eingaben $x_i$ werden gewichtet mit $w_i$ aufsummiert und nach Anwendung der Aktivierungsfunktion $\phi$ als $y$ ausgegeben.}
+	\caption[Schematischer Aufbau eines Perzeptrons]{Aufbau eines Perzeptrons: Die Eingaben $x_i$ werden gewichtet mit $w_i$ aufsummiert und nach Anwendung der Aktivierungsfunktion $\phi$ als $y$ ausgegeben.}
 	% \todo{Quelle Bild!}
 	\label{fig:singleNeuron}
 \end{figure}
@@ -66,7 +67,7 @@ Mathematisch ist die Ausgabe eines Perzeptrons also wie folgt definiert:
 
 Ein Überblick über verschiedene Aktivierungsfunktionen, die für solch ein Perzeptron benutzt werden, ist unter~\ref{sec:activationfuncs} zu finden.
 Beim Lernen werden die Gewichte \(w_i\) so angepasst, dass die gewünschte Ausgabe für die jeweilige Eingabe erreicht wird.
-In der Anwendung verändern sich die Gewichte nicht mehr.
+Bei der Auswertung verändern sich die Gewichte nicht mehr.
 % \todo{Vielleicht ein paar Sätze zum Perceptron Learning Algorithm?}
 Ein einzelnes Perzeptron mit zwei Eingängen kann zur Darstellung der logischen Operatoren AND, OR und NOT genutzt werden.
 
@@ -121,8 +122,8 @@ Die Neuronen eines einzelnen Hidden Layers sind meist uniform und verwenden iden
 Je nachdem welche Aufgabe das neuronale Netz erfüllen soll, können unterschiedliche Aktivierungsfunktionen für das Output Layer Sinn ergeben.
 Häufig genutzt ist die \textit{Softmax}-Funktion für Klassifikation, da sie eine Wahrscheinlichkeitsverteilung als Ausgabe hat.
 Für Regression benutzt man lineare Aktivierungsfunktionen für das Output Layer. 
-Durch das Hintereinanderschalten von mehreren Layers von Neuronen können auch Probleme, die nicht linear-separierbar sind, gelöst werden.
-Tatsächlich sind solche Neuronalen Netze bewiesenermaßen universale Funktionsapproximatoren - 
+Durch das Hintereinanderschalten von mehreren Layers von Neuronen mit nichtlinearen Aktivierungsfunktionen können auch Probleme, die nicht linear-separierbar sind, gelöst werden.
+Tatsächlich sind solche neuronalen Netze bewiesenermaßen universale Funktionsapproximatoren - 
 sie können mit endlich vielen Neuronen in den Hidden Layers beliebige kontinuierliche Funktionen auf kompakten Subsets von \(\mathbb{R}^n\) approximieren.
 Das heißt zwar, dass es theoretisch für jede solche Funktion ein Netz gibt, das sie beschreiben kann, in der Praxis muss man dieses Netz aber finden und dann auch trainieren können.
 % \todo[inline]{mit Quelle belegen? Universal approximation theorem }
@@ -247,11 +248,11 @@ Neuronale Netze werden in der Regel danach bewertet, wie gut sie mit unbekannten
 % Das essenzielle Maß nachdenen neuronale Netze bewertet werden, ist wie gut sie mit neuen, unbekannten Daten umgehen, die nicht in den Trainingsdaten vorhanden waren. 
 Diese Eigenschaft von Trainingsdaten auf unabhängige Testdaten schließen zu können wird Generalisierung genannt. 
 
-Als Overfitting bezeichnet man es, wenn ein Modell sich zu sehr an ein gegebenes Datenset anpasst und 
-dafür in Kauf nimmt zusätzliche oder zukünftige Daten schlechter zu repräsentieren.
-Das System wird also schlechter darin zu generalisieren.
-Im Feld des überwachten Lernens - beziehungsweise der neuronalen Netze - ist Overfitting daran zu erkennen,
-dass die Qualität die Ausgaben des Netzes auf dem Trainingsdatenset sich weiter verbessert,
+Als Overfitting bezeichnet man es, wenn ein gelerntes Modell sich zu sehr an den gegebenen Trainingsdatensatz anpasst und 
+dafür in Kauf nimmt, zusätzliche oder zukünftige Daten schlechter zu repräsentieren.
+Das Modell wird also schlechter darin zu generalisieren.
+Speziell im Feld der neuronalen Netze ist Overfitting daran zu erkennen,
+dass sich die Qualität der Ausgaben des Netzes auf dem Trainingsdatenset weiter verbessert,
 während sie auf dem Testdatenset schlechter wird.
 Dies kann zum Beispiel der Fall sein, wenn das Modell Rauschen in den Testdaten als Teil der zugrundeliegenden Struktur interpretiert. 
 
@@ -307,7 +308,7 @@ zum Beispiel indem die Anzahl der zur Verfügung stehenden Layer reduziert wird.
 % \end{itemize}
 % \color{black}
 
-Als Regularisierung bezeichnet man Techniken, die zur Vermeidung von Overfitting verwendet wird.
+Als Regularisierung bezeichnet man Techniken, die zur Vermeidung von Overfitting verwendet werden.
 % Sie wird in der Hoffnung angewendet, dass das Modell mit Regularisierung besser generalisiert als ohne.
 Viele Techniken des maschinellen Lernens funktionieren so, dass sie den Fehler auf den Trainingsdaten reduzieren und damit potenziell indirekt auch den auf den Testdaten.
 Im Gegensatz dazu soll hier primär der Fehler auf den Testdaten reduziert werden, selbst wenn das zu schlechteren Ergebnissen auf den Trainingsdaten führt.
@@ -384,19 +385,19 @@ eine Verbesserung der Ergebnisse auf dem Trainingsset zu Lasten der Ergebnisse a
 	
 	\begin{subfigure}[t]{0.6\textwidth}
 		\includegraphics[width=\textwidth]{plotUnderfitting.pdf}
-		\caption{Underfitting}
+		\caption{Underfitting mit Polynom von Grad 1}
 		\label{subfig:underfitting}
 	\end{subfigure}
 	% \quad
 	\begin{subfigure}[t]{0.6\textwidth}
 		\includegraphics[width=\textwidth]{plotPassendesModell.pdf}
-		\caption{Passendes Modell}
+		\caption{Passendes Modell -- ein Polynom von Grad 4}
 		\label{subfig:rightfitting}
 	\end{subfigure}
 	% \quad
 	\begin{subfigure}[t]{0.6\textwidth}
         \includegraphics[width=\textwidth]{plotOverfitting.pdf}
-		\caption{Overfitting}
+		\caption{Overfitting mit Polynom von Grad 17}
 		\label{subfig:overfitting}
 	\end{subfigure}
 	\caption{Visualisierung von Modellen mit unterschiedlichen Kapazitäten.}
@@ -423,20 +424,20 @@ eine Verbesserung der Ergebnisse auf dem Trainingsset zu Lasten der Ergebnisse a
 
 
 Der \textit{TableSort} Schüttgutsortierer ist eine modulare Versuchsplattform, die konzipiert wurde, um neue Schüttgutsortierkonzepte in einem kleineren Rahmen experimentell erproben zu können.
-Industrielle Schüttgutsortieranlagen sind sehr groß und um etwas an ihrer Konfiguration zu ändern ist sowohl zeitaufwendig als auch arbeitsintensiv, 
-weshalb es sinnvoll ist, eine Plattform zu haben, die flexibel und transportabel ist und leicht umgebaut werden kann.
+Industrielle Schüttgutsortieranlagen sind sehr groß und um etwas an ihrer Konfiguration zu ändern ist sowohl zeitaufwendig als auch arbeitsintensiv.
+Daher ist es sinnvoll eine Plattform zu haben, die flexibel und transportabel ist und leicht umgebaut werden kann.
 Das System ist im Rahmen des \textit{TrackSort} Projekts in Kooperation zwischen dem Fraunhofer IOSB, Abteilung Sichtprüfsysteme, und dem Institut für Intelligente Sensor Aktor Systeme des Karlsruher Institut für Technologie entstanden\cite{doll2015}.
-Es kann in zwei verschiedenen Konfigurationen bezüglich des Schüttguttransports benutzt werden.
+Es kann in zwei verschiedenen Transportkonfigurationen benutzt werden.
 Einmal werden die Schüttgutpartikel mittels eines Förderbands beschleunigt - diese Konfiguration ist in Abbildung~\ref{fig:tablesortsystem} zu sehen.
 Dazu kommt die Möglichkeit dieses Förderband mit einer Rutsche zu ersetzen, sodass die Schüttgutpartikel stattdessen durch die Schwerkraft beschleunigt werden. 
-Im Rahmen dieser Arbeit wurde die Flächenkamera Konfiguration mit einem Ringlicht zur Beleuchtung verwendet.
+Im Rahmen dieser Arbeit wurde die Flächenkamera-Konfiguration mit einem Ringlicht zur Beleuchtung verwendet.
 Schematisch ist der Ablauf der Schüttgutsortierung in Abbildung~\ref{fig:aufbau_tablesort} zu sehen.
 Die Funktionsweise des Systems wird im Folgenden erklärt.
 Das zu sortierende Schüttgut wird durch einen Schwingförderer nach und nach über eine Rutsche auf das Förderband aufgebracht.
 Dort wird es in Richtung des Druckluftdüsenarrays beschleunigt. 
 Auf das vom Ringlicht beleuchtete Ende des Förderbands ist die Flächenkamera gerichtet.
-Kurz nachdem die Schüttgutpartikel die Flugphase beginnen passieren sie das Druckluftdüsenarray, wo sie entweder abgelenkt werden, 
-falls die Verarbeitung der Bilddaten von der Kamera sie als auszusortieren klassifiziert.
+Kurz nachdem die Schüttgutpartikel die Flugphase beginnen, passieren sie das Druckluftdüsenarray.
+Dort werden sie abgelenkt, falls die Verarbeitung der Bilddaten von der Kamera sie als auszusortieren klassifiziert.
 
 \begin{figure}[h]
 	% \missingfigure{Bild von TablesortSystem}

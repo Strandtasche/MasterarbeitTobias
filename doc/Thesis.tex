@@ -19,6 +19,7 @@
 
 \usepackage{csvsimple}
 \MakeOuterQuote{"}
+\usepackage{longtable}
 
 % \usepackage{caption}
 \usepackage{subcaption}
@@ -114,10 +115,18 @@
     \maketitle
 
     \begin{abstract}
-        This work was a cooperation with the Fraunhofer IOSB and centered around their TableSort bulk material sorting system.
-        The aim was to provide an alternative to the labour-intensive task of fine tuning motion models for particle tracking by hand. 
-        This was achieved by using neural networks, which were implemented using the Tensorflow framework. 
-        [TODO - NOT COMPLETE]
+    %     This work was a cooperation with the Fraunhofer IOSB and centered around their TableSort bulk material sorting system.
+    %     The aim was to provide an alternative to the labour-intensive task of fine tuning motion models for particle tracking by hand. 
+    %     This was achieved by using neural networks, which were implemented using the Tensorflow framework. 
+    Die Erweiterung von optischen Schüttgutsortierern mit Flächenkameras ermöglicht die Verbesserung der Sortierqualität durch bessere Bewegungsprädiktion.
+    [Labour-intensive task of fine tuning motion models for particle tracking by hand...]
+    Im Rahmen dieser Arbeit wurden neuronale Netze eingesetzt, um Bewegungsmodelle für verschiedene Schüttgüter zu trainieren.
+    Dazu wurden mehrere Datensätze für unterschiedliche Schüttgüter 
+    am modularen Schüttgutsortiersystem \textit{TableSort} des Fraunhofer IOSBs in verschiedenen Konfigurationen aufgenommen und verarbeitet.
+    Die Evaluation wurde auf diesen Datensätzen und auf bestehenden, mittels der \textit{Diskrete-Elemente-Methode} simulierten Datensätzen durchgeführt.
+    In allen Szenarien waren die Ergebnisse der neuronalen Netze mindestens vergleichbar mit dem bestehenden Stand der Technik aus \cite{Pfaff2018}.
+    Bei den aufgenommenen Datensätzen konnte eine Verbesserung der Sortierqualität im Vergleich zum Stand der Technik erzielt werden. 
+        % [TODO - NOT COMPLETE]
     \end{abstract}
 
     \maketoc
