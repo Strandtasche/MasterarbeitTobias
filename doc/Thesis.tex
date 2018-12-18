@@ -101,7 +101,7 @@
 
 \title{Ableitung von Bewegungsmodellen für Anwendungen in der Schüttgutsortierung mittels Machine Learning}
 \author{Tobias Hornberger}
-\date{31. Dezember 2018}
+\date{\today}
 
 \thesistype{Masterarbeit}
 \discussant{Prof. Dr.-Ing.  Thomas  Längle}
@@ -121,13 +121,14 @@
     %     The aim was to provide an alternative to the labour-intensive task of fine tuning motion models for particle tracking by hand. 
     %     This was achieved by using neural networks, which were implemented using the Tensorflow framework. 
     % \printlength\textwidth
-    Die Erweiterung von optischen Schüttgutsortierern mit Flächenkameras ermöglicht die Verbesserung der Sortierqualität durch bessere Bewegungsprädiktion.
-    [Labour-intensive task of fine tuning motion models for particle tracking by hand...]
+    Die Erweiterung von optischen Schüttgutsortierern mit Flächenkameras ermöglicht eine Verbesserung der Sortierqualität durch bessere Bewegungsprädiktion.
+    % [Labour-intensive task of fine tuning motion models for particle tracking by hand...]
+    Ein gutes Bewegungsmodell zu bestimmen ist aufwendig und verschiedene Bewegungsmodelle erreichen bei unterschiedlichen Schüttgütern unterschiedlich gute Qualität.
     Im Rahmen dieser Arbeit wurden neuronale Netze eingesetzt, um Bewegungsmodelle für verschiedene Schüttgüter zu trainieren.
     Dazu wurden mehrere Datensätze für unterschiedliche Schüttgüter 
-    am modularen Schüttgutsortiersystem \textit{TableSort} des Fraunhofer IOSBs in verschiedenen Konfigurationen aufgenommen und verarbeitet.
-    Die Evaluation wurde auf diesen Datensätzen und auf bestehenden, mittels der \textit{Diskrete-Elemente-Methode} simulierten Datensätzen durchgeführt.
-    In allen Szenarien waren die Ergebnisse der neuronalen Netze mindestens vergleichbar mit dem bestehenden Stand der Technik aus \cite{Pfaff2018}.
+    am modularen Schüttgutsortiersystem \textit{TableSort} des Fraunhofer IOSBs in verschiedenen Konfigurationen erfasst und verarbeitet.
+    Die Evaluation wurde auf den so ermittelten Datensätzen und auf bestehenden, mittels der \textit{Diskrete-Elemente-Methode} simulierten Datensätzen durchgeführt.
+    In allen Szenarien waren die Ergebnisse der neuronalen Netze mindestens vergleichbar mit dem bestehenden Stand der Technik.
     Bei den aufgenommenen Datensätzen konnte eine Verbesserung der Sortierqualität im Vergleich zum Stand der Technik erzielt werden. 
         % [TODO - NOT COMPLETE]
     \end{abstract}
@@ -152,5 +153,8 @@
 
     \appendix
     \include{appendix}
+
+    \includepdf[pages=-]{AufgabenBlattRotiert.pdf}
+
 \end{document}
 

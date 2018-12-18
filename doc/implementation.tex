@@ -32,8 +32,8 @@ Weitere wichtige Software, die verwendet wurde,
 % sind \textit{pandas} in der Version~0.23.1, was für den Umgang mit den Daten genutzt wurde, und 
 ist die Python-Bibliothek \textit{matplotlib} in der Version~3.0.0, mit der die Visualisierung der Ergebnisse und die meisten Grafiken dieser Arbeit generiert wurden.
 Des Weiteren wurden die Python-Bindings von \textit{OpenCV} in der Version~3.4.1.15 für die Verarbeitung der aufgenommen Bilder verwendet.
-Der existierende \textit{Multi-Target-Tracking}-Algorithmus ist in \textsc{Matlab} implementiert worden. 
-Deshalb sind Teile des Projekts, die direkt darauf aufbauen, ebenfalls in \textsc{Matlab} geschrieben.
+Der als Grundlage verwendete \textit{Multi-Target-Tracking}-Algorithmus ist in \textsc{Matlab} implementiert worden. 
+Deshalb sind Teile der Arbeit, die direkt darauf aufbauen, ebenfalls in \textsc{Matlab} geschrieben.
 
 % \todo[inline]{Aufpassen dass das nicht zu viel wird}
 
@@ -48,7 +48,7 @@ Dies resultiert in dem trainierten Modell, das nun für die Prädiktion genutzt 
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=0.75\textwidth]{implementation01v5.pdf}
+    \includegraphics[width=0.75\textwidth]{implementation01v6.pdf}
     \caption{Skizzierter Trainingsablauf eines neuronalen Netzes.}
     \label{fig:impl01}
 \end{figure}
@@ -56,10 +56,10 @@ Dies resultiert in dem trainierten Modell, das nun für die Prädiktion genutzt 
 
 Der Ablauf der Evaluation ist in Abbildung~\ref{fig:impl02} dargestellt. 
 Um das aus dem Training resultierende Modell auszuwerten, werden die Feature-Label-Paare des Testsets benutzt.
-Dem Modell werden die Features als Eingabe gegeben, um die Prädiktionen des Netzes zu erhalten.
-Am Ende steht als Ergebnis ein einzelnes \textit{pandas DataFrame} in dem alle Features, das zurücktransformierte Label, 
+Dem trainierten Modell werden die Features als Eingabe gegeben, um die Prädiktionen zu erhalten.
+Am Ende steht als Ergebnis ein einzelnes \textit{pandas DataFrame}, in dem alle Features, das zurücktransformierte Label, 
 die Prädiktionen des Netzes und die Prädiktionen der verschiedenen Vergleichsmodelle jeweils für alle Feature-Label-Paare des Testsets enthalten sind.
-Hinzu kommen noch die Fehler all dieser Prädiktionen, also die Differenz zwischen der Ground Truth, die im Label steht, und den Prädiktionen selbst.
+Hinzu kommen noch die Fehler all dieser Prädiktionen, also die Differenz zwischen der Ground Truth aus dem Label, und den Prädiktionen selbst.
 Diese Fehler werden dann analysiert.
 Es werden Durchschnitt, Median und Quartile gebildet, welche dann mittels Boxplots und Histogrammen visualisiert werden.
 Diese Diagramme sind in Kapitel~\ref{cap:Eval} zu finden.
@@ -70,7 +70,7 @@ Diese Diagramme sind in Kapitel~\ref{cap:Eval} zu finden.
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=0.75\textwidth]{implementation02v3.pdf}
+    \includegraphics[width=0.75\textwidth]{implementation02v4.pdf}
     \caption{Skizzierte Ablauf der Evaluation eines neuronalen Netzes.}
     \label{fig:impl02}
 \end{figure}
@@ -107,8 +107,8 @@ Das vereinfacht das Training und das Evaluieren von Netzen mit unterschiedlichen
 Einzelne Parameter aus den Dateien können per Kommandozeilenparameter überschrieben werden.
 Ein Beispiel für eine solche Hyperparameter-Datei ist in Listing~\ref{lst-hyperparam} zu sehen.
 Die Bedeutung der einzelnen Parameter wird im Folgenden erklärt. 
-Sollte es für einen Parameter eine begrenzte Menge an zulässigen Optionen geben, 
-so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
+Sollte es für einen Parameter eine begrenzte Menge an zulässigen Strings geben, 
+so können diese aus dem Begleitdokument entnommen werden.
 
 % \todo[inline]{überlegen wir man das sinnvoll machen kann, dass das Listing seine eigene Seite kriegt und die Description sinnvoll anfängt.}
 
@@ -199,7 +199,7 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
 \begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries separatorPosition}, labelindent=0.5cm]
     \item [dropoutRate] Wahrscheinlichkeit für das zufällige Ausschalten von einzelnen Neuronen beim Training, entsprechend der Beschreibung in Unterabschnitt~\ref{ssec:Regul}.
     \item [hiddenLayers] Ein ein­di­men­si­o­nales Array an Zahlen, das die Architektur der Hidden Layers repräsentiert. Jede Zahl repräsentiert ein Fully-Connected Layer mit der entsprechenden Anzahl Neuronen.
-    \item [featureSize] Anzahl der letzten Positionen des Partikels, die das Netz als Eingabe bekommt. Wie in Kapitel~\ref{cap:data} beschrieben.
+    \item [featureSize] Anzahl der letzten Positionen des Partikels, die das Netz als Eingabe bekommt. Siehe Kapitel~\ref{cap:data}.
     \item [activation] Legt die Aktivierungsfunktionen für die Neuronen der Hidden Layers fest. Valide Optionen sind ReLU, Leaky ReLU und lineare Aktivierungsfunktionen.
     % - optionen: "relu", "leaky_relu", "linear"
 \end{description}
@@ -244,7 +244,7 @@ so können die entsprechenden Strings aus dem Begleitdokument entnommen werden.
     \item[direction] Bewegungsrichtung der Partikel. ``x'' bei simulierten und ``y'' bei selbst gesammelten Daten.
     \item[unitLoc] Einheit des Orts in der Visualisierung. ``m'' beziehungsweise Meter bei simulierten Daten, ``px'' beziehungsweise Pixel bei selbst gesammelten Daten.
     \item[unitTime] Einheit der Zeit in der Visualisierung. ``Frames '' beziehungsweise ``1/100 Frames'' für die hier verwendeten Daten.
-    \item[limits] Bereich, der in der Visualisierung dargestellt wird.\\ \([0.388, \, 0.788, \ 0, \, 0.18]\) bei simulierten Daten und \([0,\, 2350, \ 0, \, 1750]\) bei selbst gesammelten Daten.
+    \item[limits] Bereich, der in der Visualisierung dargestellt wird\\ (\([0.388, \, 0.788, \ 0, \, 0.18]\) bei simulierten Daten und \([0,\, 2350, \ 0, \, 1750]\) bei selbst gesammelten Daten).
 
 \end{description}
 % \end{itemize}
@@ -295,9 +295,9 @@ und {\sffamily \textbf{data}}, in der unter anderem die relative Größe des Tes
 
 Für beide Arten von Netzen hat sich gezeigt, dass eine Regularisierung mittels Dropout nicht nur keine Verbesserung mit sich bringt, sondern tatsächlich die Qualität der Ausgabe merklich reduziert.
 Deshalb wurde für die letztendlich verwendete Trainingskonfiguration die Dropout Rate für alle Szenarien auf 0.0 gesetzt. 
-Auch bezüglich der Aktivierungsfunktionen und der Optimierer unterscheiden sich die beiden Aufgaben nicht. 
+Auch bezüglich der Aktivierungsfunktionen und der Optimierer  zeigen die Beobachtungen keinen Unterschied zwischen den beiden Aufgaben. % unterscheiden sich die beiden Aufgaben nicht. 
 In beiden Fällen haben sich Leaky ReLU und der Adam Optimizer als beste Option hervorgetan.
-\todo[inline]{Sollte ich erklären was genau der Adam Optimizer eigentlich macht?}
+% \todo[inline]{Sollte ich erklären was genau der Adam Optimizer eigentlich macht?}
 
 Eine während des Trainings sinkende Lernrate hat einen positiven Einfluss auf die Güte der Ausgabe der Netze gezeigt. 
 Es wurde eine Technik namens \textit{exponential learning rate decay} eingesetzt,
@@ -311,7 +311,7 @@ Die Zerfallskonstante \(\lambda\) wurde als 0.96 festgelegt, während die Basisl
 
 Das Ergebnis des Hyperparameter-Tunings bezüglich der Netzarchitektur für die NextStep-Netze ist in Abbildung~\ref{fig:netArchitectureNextStep} zu sehen.
 Auf den Testdaten produzierte von den erprobten Konfigurationen eine FeatureSize von 5 in Kombination mit 3 Hidden Layers mit jeweils 16 Neuronen die besten Ergebnisse.
-Weder \(L_1\)- noch \(L_2\)-Regularisierung haben einen positiven Effekt auf die Trainingsergebnisse gezeigt, weshalb für die NextStep-Netze darauf verzichtet wurde.
+Weder \(L_1\)- noch \(L_2\)-Regularisierung zeigen einen positiven Effekt auf die Trainingsergebnisse, weshalb für die NextStep-Netze darauf verzichtet wurde.
 Was die Lernparameter angeht, so sieht das Ergebnis des Hyperparameter-Tunings folgendermaßen aus:
 \begin{itemize}
     \item Batch Größe von 500
@@ -333,7 +333,7 @@ Die Netzarchitektur, die für die Separator-Netze  ermittelt wurde, ist in Abbil
 Hier sorgt eine FeatureSize von 7 für bessere Ergebnisse.
 Dies könnte zumindest teilweise damit erklärt werden, dass für die Separator-Netze im Gegensatz zu den NextStep-Netzen eine höhere FeatureSize nicht mit einer Reduktion der Anzahl an Trainingsbeispielen einhergeht.
 % \todo{Sind hier solche Vermutungen angebracht?}
-Des Weiteren haben 4 Layers mit jeweils 16 Neuronen die besten Ausgaben von den erprobten Konfigurationen erzielt.
+Des Weiteren wurde bei 4 Layers mit jeweils 16 Neuronen die besten Ausgaben von den erprobten Konfigurationen erzielt.
 Im Gegensatz zu den NextStep-Netzen hat die \(L_1\)-Regularisierung bei den Separator-Netzen die Güte der Ergebnisse auf den Testdaten verbessert.  
 Das Hyperparameter-Tuning hat für die restlichen Hyperparameter die folgenden Werte ergeben:
 \begin{itemize}

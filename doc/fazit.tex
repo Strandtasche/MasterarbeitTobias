@@ -3,12 +3,12 @@
 % \todo[inline]{einführungstext in Fazit und Ausblick}
 
 Im Rahmen dieser Arbeit wurde betrachtet, ob neuronale Netze ein Werkzeug sind, das für die Bewegungsprädiktion von Schüttgutpartikeln eingesetzt werden kann.
-Dazu wurden zunächst beinah 250\,000 Bilder von verschiedenen Schüttgütern auf dem \textit{TableSort}-Schüttgutsortierer aufgenommen 
+Dazu wurden zunächst beinahe 250\,000 Bilder von verschiedenen Schüttgütern auf dem \textit{TableSort}-Schüttgutsortierer aufgenommen 
 und eine Pipeline entwickelt mit der die relevanten Features aus solchen Bildern extrahiert werden können.
 Zusätzlich wurde eine einfache Form der Datenaugmentierung implementiert, die das Volumen von verfügbaren Trainingsdaten aus einem Datenset beinahe verdoppelt.
 Es wurde mit Hilfe des TensorFlow Frameworks eine Implementierung erarbeitet, mit der verschiedene neuronale Netze trainiert werden können.
 Mit dieser Implementierung wurden mehrere Netze auf verschiedenen Datensets -- den selbst aufgenommenen und bereits existierenden, mittels DEM simulierten -- trainiert und deren Ergebnisse evaluiert.
-Allgemein kann gesagt werden, dass die Ergebnisse zufriedenstellend sind.
+Es wurde festgestellt, dass die Bewegungsprädiktion von Schüttgutpartikeln ein Aufgabe ist, für die neuronale Netze geeignet sind.
 Es konnte gezeigt werden, dass sowohl NextStep-, als auch Separator-Netze gut in der Lage sind, die an sie gestellten Probleme zu lösen.
 In jedem Szenario konnten Ergebnisse erzielt werden, die besser als die der zwei grundlegenden Bewegungsmodelle
 und vergleichbar mit dem aktuellen Stand der Technik waren.
@@ -33,12 +33,14 @@ Rekurrente neuronale Netze sind besonders gut dafür geeignet Daten, bei denen d
 Maschinelles Lernen allgemein und neuronale Netze im Besonderen sind ein Feld, auf dem momentan sehr schnell große Fortschritte gemacht werden,
 die in naher Zukunft vielleicht ganz neue Möglichkeiten eröffnen werden.
 Ein Aspekt, in dem neuronale Netze schon heute beindruckende Ergebnisse liefern, ist das Extrahieren von Informationen direkt aus Bildern.
-Es gibt bereits heute Multi-Object-Tracking Verfahren die sehr gute Ergebnisse erzielen. 
+Es gibt bereits heute Multi-Object-Tracking Verfahren, die sehr gute Ergebnisse erzielen. 
 Beispiele hierfür sind \cite{Milan2017}, \cite{son2017multi} und \cite{ning2017spatially}
-\todo{hier eine Quelle?}
+% \todo{hier eine Quelle?}
 Deshalb liegt es nahe, dass es möglich sein sollte auf den Bildern direkt Ende-zu-Ende zu trainieren.
-Das würde unter anderem das Problem von Messunsicherheiten bei der Bestimmung der Objektmittelpunkte irrelevant machen.\\
-\todo{hier anmerken, dass das wahrscheinlich ein größeres Projekt wäre und mehr als nur ne MA?}
+Das könnte dabei helfen Ungenauigkeiten und Fehler, die während der in Abschnitt~\ref{sec:pipeline} beschriebenen Datenpipeline entstehen zu vermeiden.
+% Das würde unter anderem das Problem von Messunsicherheiten bei der Bestimmung der Objektmittelpunkte irrelevant machen.
+\newline
+% \todo{hier anmerken, dass das wahrscheinlich ein größeres Projekt wäre und mehr als nur ne MA?}
 Sowohl im aktuellen Stand der Technik als auch bei den im Rahmen dieser Arbeit trainierten Netzen werden alle Schüttgutpartikel individuell betrachtet.
 Dies führt dazu, dass Kollisionen zwischen Partikeln, die diese von ihrer Bahn ablenken höchstens detektiert, aber nicht sinnvoll in die Modelle miteinbezogen werden können.
 Ein Ansatz, der dies tut, könnte insbesondere für Schüttgüter mit einer starken Querbewegung zu einer Verbesserung der Sortierqualität führen.
