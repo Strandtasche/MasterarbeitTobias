@@ -39,7 +39,7 @@
 
 \usepackage{pgf}
 % \usepackage{import}
-\usepackage{todonotes}
+\usepackage[disable]{todonotes}
 \usepackage{microtype}
 
 \usepackage[style=ieee-alphabetic, sorting=none, backend=bibtex]{biblatex}
@@ -101,7 +101,7 @@
 
 \title{Ableitung von Bewegungsmodellen für Anwendungen in der Schüttgutsortierung mittels Machine Learning}
 \author{Tobias Hornberger}
-\date{\today}
+\date{20. Dezember 2018}
 
 \thesistype{Masterarbeit}
 \discussant{Prof. Dr.-Ing.  Thomas  Längle}
@@ -122,15 +122,40 @@
     %     This was achieved by using neural networks, which were implemented using the Tensorflow framework. 
     % \printlength\textwidth
     Die Erweiterung von optischen Schüttgutsortierern mit Flächenkameras ermöglicht eine Verbesserung der Sortierqualität durch bessere Bewegungsprädiktion.
+    Dafür wird ein Modell benötigt, das die Bewegung der einzelnen Schüttgutpartikel gut abbildet.
     % [Labour-intensive task of fine tuning motion models for particle tracking by hand...]
-    Ein gutes Bewegungsmodell zu bestimmen ist aufwendig und verschiedene Bewegungsmodelle erreichen bei unterschiedlichen Schüttgütern unterschiedlich gute Qualität.
-    Im Rahmen dieser Arbeit wurden neuronale Netze eingesetzt, um Bewegungsmodelle für verschiedene Schüttgüter zu trainieren.
-    Dazu wurden mehrere Datensätze für unterschiedliche Schüttgüter 
-    am modularen Schüttgutsortiersystem \textit{TableSort} des Fraunhofer IOSBs in verschiedenen Konfigurationen erfasst und verarbeitet.
-    Die Evaluation wurde auf den so ermittelten Datensätzen und auf bestehenden, mittels der \textit{Diskrete-Elemente-Methode} simulierten Datensätzen durchgeführt.
-    In allen Szenarien waren die Ergebnisse der neuronalen Netze mindestens vergleichbar mit dem bestehenden Stand der Technik.
-    Bei den aufgenommenen Datensätzen konnte eine Verbesserung der Sortierqualität im Vergleich zum Stand der Technik erzielt werden. 
+    Ein solches Bewegungsmodell zu bestimmen, ist aufwendig und verschiedene Bewegungsmodelle erreichen bei unterschiedlichen Schüttgütern variierende Qualität.
+
+    Im Rahmen dieser Arbeit wurden neuronale Netze eingesetzt, um Bewegungsmodelle für verschiedene Schüttgüter zu ermitteln.
+    Dazu wurden mehrere Datensätze für ausgewählte Schüttgüter 
+    am modularen Schüttgutsortiersystem \textit{TableSort} des Fraunhofer IOSBs in zwei Konfigurationen erfasst und für das Training vorverarbeitet.
+    Es wurde ein für die Problemstellung passendes Datenaugmentierungsverfahren implementiert und geeignete Hyperparameter für das Training der verschiedenen Szenarien ermittelt.
+
+    Die Evaluation wurde sowohl auf den so ermittelten als auch auf bestehenden, mittels der \textit{Diskrete-Elemente-Methode} simulierten Datensätzen durchgeführt.
+    In allen Szenarien waren die Ergebnisse der neuronalen Netze vergleichbar oder besser als die der betrachteten Referenzverfahren.
+    Insbesondere auf den Realdaten konnte eine Verbesserung der Sortierqualität im Vergleich zu den Referenzverfahren erzielt werden. 
         % [TODO - NOT COMPLETE]
+    \end{abstract}
+
+    \renewcommand{\abstractname}{Abstract}
+
+    \begin{abstract}
+        The addition of area scan cameras to optical bulk material sorters enables an improvement in sorting quality by better predicting particle movement. 
+        % For this a model, that describes the movement of individual bulk material particles well, is required.
+        This requires a model that accurately describes the movement of individual bulk material particles.
+        Determining such a motion model is complex and % different motion models achieve varying quality with different bulk materials.
+        the performance of different motion models depends strongly on the nature of the examined bulk material.
+
+        In this thesis, neural networks were trained to generate motion models for different bulk materials. 
+        For this purpose, several datasets of selected bulk materials were collected on the Fraunhofer IOSB's experimental optical belt sorter \textit{TableSort} and preprocessed for training.
+        These datasets were collected using two different configurations of the belt sorter. 
+        A data augmentation method suitable for the problem was implemented and %good hyperparameters for training in the different scenarios were determined.
+        and the hyperparameters for the training of the different scenarios were optimized.
+
+        The evaluation was carried out on the datasets obtained in this way as well as on existing ones 
+        that were simulated using the discrete element method.
+        In all scenarios the neural networks performed comparable to or better than the reference methods. 
+        Particularly on the collected data, an improvement compared to the reference methods was achieved .
     \end{abstract}
 
     \maketoc

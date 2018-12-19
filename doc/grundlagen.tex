@@ -120,11 +120,8 @@ Auf ein Eingabe- oder auch Input Layer folgen eine Menge an sogenannten Hidden L
 Den Abschluss bildet das Ausgabe- oder auch Output Layer.
 Die Neuronen eines einzelnen Hidden Layers sind meist mit uniform bezüglich ihrer Verbindungen zum vorherigen und zum nächsten Layer und verwenden identische Aktivierungsfunktionen, wie sie in Abschnitt~\ref{sec:activationfuncs} beschrieben sind.
 
-Je nachdem, welche Aufgabe das neuronale Netz erfüllen soll, können unterschiedliche Aktivierungsfunktionen für das Output Layer Sinn ergeben.
-Häufig genutzt ist die \textit{Softmax}-Funktion für Klassifikation, da sie eine Wahrscheinlichkeitsfunktion als Ausgabe hat.
-Für Regression benutzt man lineare Aktivierungsfunktionen für das Output Layer. 
 Durch das Hintereinanderschalten von mehreren Layers von Neuronen mit nichtlinearen Aktivierungsfunktionen können auch Probleme, die nicht linear-separierbar sind, gelöst werden.
-Tatsächlich sind solche neuronalen Netze bewiesenermaßen universale Funktionsapproximatoren -- 
+Tatsächlich sind solche neuronalen Netze bewiesenermaßen universelle Funktionsapproximatoren -- 
 sie können mit endlich vielen Neuronen in den Hidden Layers beliebige kontinuierliche Funktionen auf kompakten Subsets von \(\mathbb{R}^n\) approximieren \cite[Unterabschnitt 6.4.1]{Goodfellow-et-al-2016}.
 Das heißt zwar, dass es theoretisch für jede solche Funktion ein Netz gibt, das sie beschreiben kann, in der Praxis muss man dieses Netz aber finden und dann auch trainieren können.
 % \todo[inline]{mit Quelle belegen? Universal approximation theorem }
@@ -206,7 +203,9 @@ Leaky ReLUs haben im Gegensatz zu normalen ReLUs eine kleine positive Steigung i
 	\end{cases}
 \end{equation} 
 
-
+Je nachdem, welche Aufgabe das neuronale Netz erfüllen soll, können unterschiedliche Aktivierungsfunktionen für das Output Layer Sinn ergeben.
+Häufig genutzt ist die \textit{Softmax}-Funktion für Klassifikation, da sie eine Wahrscheinlichkeitsfunktion als Ausgabe hat.
+Für Regression benutzt man lineare Aktivierungsfunktionen für das Output Layer. 
 
 
 
@@ -351,7 +350,7 @@ Das Ziel ist also bessere Generalisierung.
 
 Eine Möglichkeit ist, dass zur Loss-Funktion ein Regularisierungsterm \(R\) hinzugefügt wird, 
 der die Kosten basierend auf der Komplexität des Modells erhöht.
- 
+%  
 \begin{equation}
 	\min_f \sum\limits_{i=1}^{m} V(f(\vec{x}_i), \vec{y}_i) + \lambda R(f)
 \end{equation} 
@@ -369,14 +368,19 @@ Ein gutes Maß für die Komplexität eines neuronalen Netzes sind die Gewichte z
 Beispiele für \(R\) wären zum Beispiel die \(L_1\)- oder die \(L_2\)-Regularisierung. % die jeweils mit der \(L_1\) beziehungsweise mit der \(L_2\)-Norm arbeiten.
 Der entscheidende Unterschied zwischen den beiden ist der unterschiedlicher Strafterm, zu sehen in Gleichung~\eqref{eq:MSE-L1} für \(L_1\) und Gleichung~\eqref{eq:MSE-L2} für \(L_2\). 
 Die Fehlerfunktion ist jeweils MSE mit dazugehörigen Strafterm. \(\mat{W}_{j,k}\) ist eine Matrix der Gewichte zwischen den einzelnen Neuronen. 
+% 
+\begin{align}
+	J(X, Y) &= \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j, k} (|\mat{W}_{j,k}|) \label{eq:MSE-L1} \\
+	J(X, Y) &= \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j, k} (\mat{W}_{j,k}^2) \label{eq:MSE-L2}
+\end{align}
+% 
+% \begin{equation} \label{eq:MSE-L1}
+% 	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j, k} (|\mat{W}_{j,k}|)
+% \end{equation} 
 
-\begin{equation} \label{eq:MSE-L1}
-	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j, k} (|\mat{W}_{j,k}|)
-\end{equation} 
-
-\begin{equation} \label{eq:MSE-L2}
-	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j, k} (\mat{W}_{j,k}^2)
-\end{equation} 
+% \begin{equation} \label{eq:MSE-L2}
+% 	J(X, Y) = \frac{1}{m} \sum_{i=1}^{m} (\vec{y}^{(i)} - \hat{\vec{y}}^{(i)})^2 + \sum_{j, k} (\mat{W}_{j,k}^2)
+% \end{equation} 
 
 
 Ein Regressionsmodell, das \(L_1\)-Regularisierung verwendet, wird auch als Lasso Regression bezeichnet, 
@@ -440,7 +444,7 @@ eine Verbesserung der Ergebnisse auf dem Trainingsset zu Lasten der Ergebnisse a
 Der \textit{TableSort}-Schüttgutsortierer ist eine modulare Versuchsplattform, die konzipiert wurde, um neue Schüttgutsortierkonzepte in einem kleineren Rahmen experimentell erproben zu können.
 Industrielle Schüttgutsortieranlagen sind sehr groß und etwas an ihrer Konfiguration zu ändern ist sowohl zeitaufwendig als auch arbeitsintensiv.
 Daher ist es sinnvoll, eine Plattform zu haben, die flexibel und transportabel ist und leicht umgebaut werden kann.
-Das System ist im Rahmen des \textit{TrackSort}-Projekts in Kooperation zwischen dem Fraunhofer IOSB, Abteilung Sichtprüfsysteme, und dem Institut für Intelligente Sensor Aktor Systeme des Karlsruher Institut für Technologie entstanden\cite{doll2015}.
+Das System ist im Rahmen des \textit{TrackSort}-Projekts in Kooperation zwischen dem Fraunhofer IOSB, Abteilung Sichtprüfsysteme, und dem Lehrstuhl für Intelligente Sensor Aktor Systeme des Karlsruher Institut für Technologie entstanden~\cite{doll2015}.
 Es kann in zwei verschiedenen Transportkonfigurationen benutzt werden.
 Einmal werden die Schüttgutpartikel mittels eines Förderbands beschleunigt.
 Diese Konfiguration ist in Abbildung~\ref{fig:tablesortsystem} zu sehen.
@@ -453,7 +457,7 @@ Das zu sortierende Schüttgut wird durch einen Schwingförderer nach und nach ü
 Dort wird es in Richtung des Druckluftdüsenarrays beschleunigt. 
 Auf das vom Ringlicht beleuchtete Ende des Förderbands ist die Flächenkamera gerichtet.
 Kurz nachdem die Schüttgutpartikel die Flugphase beginnen, passieren sie das Druckluftdüsenarray.
-Dort werden sie abgelenkt, falls die Verarbeitung der Bilddaten von der Kamera sie als auszusortieren klassifiziert.
+Dort werden sie, basierend auf ihrer Klassifizierung durch die Verarbeitung der Bilddaten von der Kamera, aussortiert oder passieren gelassen.
 
 \begin{figure}[h]
 	% \missingfigure{Bild von TablesortSystem}
@@ -468,8 +472,8 @@ Dort werden sie abgelenkt, falls die Verarbeitung der Bilddaten von der Kamera s
     \centering
     \def\svgwidth{\columnwidth}
 	\input{img/Aufbau-moved.pdf_tex}
-	\caption[Schematische Darstellung des optischen Bandsortierers TableSort nach~\cite{Pfaff2017}.]{
-		Schematische Darstellung des optischen Bandsortierers TableSort nach~\cite{Pfaff2017}.
+	\caption[Schematische Darstellung des \textit{TableSort}-Systems nach~\cite{Pfaff2017}.]{
+		Schematische Darstellung des optischen Bandsortierers \textit{TableSort} nach~\cite{Pfaff2017}.
 	}
 	\label{fig:aufbau_tablesort}
 

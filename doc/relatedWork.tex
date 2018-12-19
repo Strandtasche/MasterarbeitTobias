@@ -38,7 +38,7 @@ Wie schon in Abbildung~\ref{fig:predMissed} dargestellt wurde, muss angenommen w
 Für die Prädiktion des Zeitpunkts wird die durchschnittliche Zeit bestimmt, die ein Partikel von der Position der Zeilenkamera zur Position des Druckluftdüsenarrays benötigt 
 und diese als konstanter Offset für jede Partikeldetektion angenommen.
 
-Um den Separationsprozess durch den Einsatz von prädiktiven Tracking Methoden und Bewegungsmodellen zu verbessern ist eine Assoziation 
+Um den Separationsprozess durch den Einsatz von prädiktiven Tracking Methoden und Bewegungsmodellen zu verbessern, ist eine Assoziation 
 der beobachteten Partikelpositionen zu tatsächlichen Tracks notwendig. 
 Im Rahmen dieser Arbeit wird dieses Problem nicht betrachtet. 
 Es wird direkt mit den assoziierten Trackdaten gearbeitet, 
@@ -72,4 +72,7 @@ wird das Constant Acceleration with Limited Velocity Modell beschrieben.
 Dabei wird die Geschwindigkeit des Förderbands bestimmt und Partikel, die diese erreichen, ab diesem Zeitpunkt mit konstanter Geschwindigkeit weiter prädiziert.
 Es wurden zudem zwei Modelle, Constant Acceleration Disallowing Sign Change Modell und Ratio-Based Deceleration Modell, vorgestellt, 
 die spezifisch konzipiert wurden, um die Bewegungprädiktion orthogonal zur Transportrichtung zu verbessern.
+Im Constant Acceleration Disallowing Sign Change Modell wird verhindert, dass wenn Bewegung des Partikels orthogonal zur Transportrichtung auf 0 gesunken ist, das Partikel sich dann weiter in die entgegengesetze Richtung beschleunigt.
+Das Ratio-Based Deceleration Modell bestimmt das Verhältnis zwischen der Orthogonalgeschwindigkeit zum Beginn der Prädiktion und zu der am Ende für bereits beobachtete Partikel
+und schließt basierend darauf auf das Verhalten von zukünftigen Partikeln.
 

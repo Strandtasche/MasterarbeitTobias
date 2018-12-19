@@ -48,7 +48,7 @@ Dies resultiert in dem trainierten Modell, das nun für die Prädiktion genutzt 
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=0.75\textwidth]{implementation01v6.pdf}
+    \includegraphics[width=0.75\textwidth]{implementation01v7.pdf}
     \caption{Skizzierter Trainingsablauf eines neuronalen Netzes.}
     \label{fig:impl01}
 \end{figure}
@@ -70,7 +70,7 @@ Diese Diagramme sind in Kapitel~\ref{cap:Eval} zu finden.
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=0.75\textwidth]{implementation02v4.pdf}
+    \includegraphics[width=0.75\textwidth]{implementation02v5.pdf}
     \caption{Skizzierte Ablauf der Evaluation eines neuronalen Netzes.}
     \label{fig:impl02}
 \end{figure}
@@ -312,21 +312,14 @@ Die Zerfallskonstante \(\lambda\) wurde als 0.96 festgelegt, während die Basisl
 Das Ergebnis des Hyperparameter-Tunings bezüglich der Netzarchitektur für die NextStep-Netze ist in Abbildung~\ref{fig:netArchitectureNextStep} zu sehen.
 Auf den Testdaten produzierte von den erprobten Konfigurationen eine FeatureSize von 5 in Kombination mit 3 Hidden Layers mit jeweils 16 Neuronen die besten Ergebnisse.
 Weder \(L_1\)- noch \(L_2\)-Regularisierung zeigen einen positiven Effekt auf die Trainingsergebnisse, weshalb für die NextStep-Netze darauf verzichtet wurde.
+
 Was die Lernparameter angeht, so sieht das Ergebnis des Hyperparameter-Tunings folgendermaßen aus:
 \begin{itemize}
-    \item Batch Größe von 500
+    \item {\sffamily \textbf{batchSize}} von 500
     \item Training über insgesamt 3000 Epochen mit jeweils 5000 Iterationen
     \item Basislernrate von 0.005 und 45\,000 Zerfallsschritte
 \end{itemize}
 
-\begin{figure}[h]
-    \centering
-    % \missingfigure{Grafik architektur}
-	\includegraphics[width=\textwidth]{neuralNetImage}
-	\caption{Architektur eines neuronales Netzes für die NextStep-Prädiktion.}
-	% \todo{Quelle Bild!}
-	\label{fig:netArchitectureNextStep}
-\end{figure}
 
 Die Netzarchitektur, die für die Separator-Netze  ermittelt wurde, ist in Abbildung~\ref{fig:netArchitectureSep} zu sehen.
 % \todo[inline]{Ergebnis von Hyperparameter Tuning für Separator Netze}\
@@ -337,18 +330,31 @@ Des Weiteren wurde bei 4 Layers mit jeweils 16 Neuronen die besten Ausgaben von 
 Im Gegensatz zu den NextStep-Netzen hat die \(L_1\)-Regularisierung bei den Separator-Netzen die Güte der Ergebnisse auf den Testdaten verbessert.  
 Das Hyperparameter-Tuning hat für die restlichen Hyperparameter die folgenden Werte ergeben:
 \begin{itemize}
-    \item Batch Größe von 100
+    \item {\sffamily \textbf{batchSize}} von 100
     \item Training über insgesamt 1000 Epochen mit jeweils 5000 Iterationen
     \item Basislernrate von 0.005 und 60\,000 Zerfallsschritte
 \end{itemize}
 
 % \input{NeuralNet.pgf}
 
-\begin{figure}[h]
+\begin{figure}[p]
+    \centering
+    % \missingfigure{Grafik architektur}
+	\includegraphics[width=0.625\textwidth]{neuralNetImage_Red}
+    \caption[Architektur eines neuronales Netzes für die NextStep-Prädiktion]
+    {Architektur eines neuronales Netzes für die NextStep-Prädiktion. Die grün markierten Neuronen sind das Input Layer.
+    die Neuronen der verschiedenen Hidden Layers sind blau markiert. Die Ausgabe des neuronalen Netzes erfolgt über die rot markierten Neuronen.}
+	% \todo{Quelle Bild!}
+	\label{fig:netArchitectureNextStep}
+\end{figure}
+
+\begin{figure}[p]
     \centering
     % \missingfigure{Grafik architektur Separator}
-	\includegraphics[width=\textwidth]{neuralNetImageSeparator}
-	\caption{Architektur eines neuronales Netzes für die Separator-Prädiktion.}
+	\includegraphics[width=0.625\textwidth]{neuralNetImageSeparator_Red}
+    \caption[Architektur eines neuronales Netzes für die Separator-Prädiktion]
+    {Architektur eines neuronales Netzes für die Separator-Prädiktion. Die grün markierten Neuronen sind das Input Layer.
+    die Neuronen der verschiedenen Hidden Layers sind blau markiert. Die Ausgabe des neuronalen Netzes erfolgt über die rot markierten Neuronen.}
 	% \todo{Quelle Bild!}
 	\label{fig:netArchitectureSep}
 \end{figure}

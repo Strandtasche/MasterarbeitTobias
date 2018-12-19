@@ -293,13 +293,9 @@ Die durchschnittliche Abweichung der Ergebnisse ist kleiner und weniger weit ges
 Es ist auffällig, dass bei den simulierten Daten das CA-Modell besser als das CV-Modell ist, während es auf den Realdaten umgekehrt ist.
 Das könnte auf die höhere Bandgeschwindigkeit bei der Simulation zurückzuführen sein. 
 In Abbildung~\ref{fig:RealSpheresHistogram} sieht man das Fehlerhistogramm, das zu Abbildung~\ref{subfig:RealSpheresBoxplot} gehört.
-
-
-
-
-Die Boxplots der übrigen Szenarien sind im Anhang~\ref{cap:appendix} zu finden.
-\todo[inline]{hier könnte ich noch mehr schreiben zu verschiedenen anderen Szenarien, wenn es notwendig sein sollte.}
-\todo[inline]{NextStep Boxplot schön machen ohne titel und in mm}
+Die Boxplots von den hier vorgestellten und allen restlichen Szenarien sind im Anhang~\ref{cap:appendix} zu finden.
+% \todo[inline]{hier könnte ich noch mehr schreiben zu verschiedenen anderen Szenarien, wenn es notwendig sein sollte.}
+% \todo[inline]{NextStep Boxplot schön machen ohne titel und in mm}
 
 \begin{figure}[htbp]
     \centering
@@ -400,13 +396,16 @@ Auf den beiden simulierten Datensätzen sind die Ergebnisse marginal schlechter 
 aber deutlich besser als die der grundlegenden Modelle und des CVBC-Modells.
 Dies ist in Abbildung~\ref{fig:BoxplotsSimCub} exemplarisch durch die Boxplots der simulierten Plättchen dargestellt.
 Zunächst soll der zeitliche Fehler betrachtet werden.
-Obwohl der Median des Prädiktionsfehlers einen kleinen Bias ins Positive hat und das untere Quartil tatsächlich positiv ist, werden die Fehler des neuronalen Netzes komplett von denen des CVBC-Modells überdeckt.
+Obwohl der Median des Prädiktionsfehlers des neuronalen Netzes einen kleinen, positiven Bias hat und das untere Quartil größer als 0 ist, sind die Ergebnisse deutlich besser als die des CVBC-Modells.
+%  werden die Fehler des neuronalen Netzes komplett von denen des CVBC-Modells überdeckt.
+Für die Ergebnisse des neuronalen Netzes liegt der Bereich zwischen den Quartilen komplett innerhalb des entsprechenden Bereichs von dem CVBC-Modell
 Das CV- und das CA-Modell sind beide noch einmal bedeutend schlechter als das CVBC-Modell.
-Das CV-Modell hat einen Bias von beinahe zwei ganzen Zeitschritten, während das CA-Modell zwar beinahe biasfrei ist -- ungefähr in der gleichen Größenordnung wie das neuronale Netz -- hat es die mit Abstand größte Standardabweichung.
-Diese ist ungefähr dreimal so groß wie die des Ergebnisses des neuronalen Netzes.
+Das CV-Modell ist bezüglich seiner Verteilung erwartungsgemäß identisch zum CVBC-Modell, hat aber einen Bias von beinahe zwei ganzen Zeitschritten.
+Im Vergleich dazu ist das CA-Modell zwar etwa genauso biasfrei wie das neuronale Netz, hat aber die mit Abstand größte Standardabweichung von allen Modellen.
+Der Interquartilsabstands des CA-Modells ist größer als der Abstand zwischen den Whiskers der restlichen Modelle.
 Das beste Modell in diesem Szenario ist das IA-Modell.
 Es ist beinahe komplett biasfrei und hat die geringste Standardabweichung von allen Modellen.
-Bei der Betrachtung des örtlichen Fehlers ist das CA-Modell tatsächlich besser als das CV- oder das CVBC-Modell, aber dennoch deutlich schlechter als das neuronale Netz.
+Bei der Betrachtung des örtlichen Fehlers ist das CA-Modell tatsächlich besser als das CV- und das CVBC-Modell, aber dennoch deutlich schlechter als das neuronale Netz.
 Alle diese Modelle sind beinahe biasfrei, aber der Interquartilsabstands der Ausgabe des neuronalen Netzes ist deutlich geringer. 
 
 \begin{figure}[htbp]
@@ -437,7 +436,7 @@ Auf den selbst gesammelten Daten schneidet von den bestehenden Modellen das Bias
 Die neuronalen Netze sind jedoch noch einmal besser. 
 Wenn man die Boxplots der zeitlichen Fehler der verschiedenen Modelle auf dem Weizenkörner-Datensatz der selbst aufgenommenen Daten, dargestellt in Abbildung~\ref{subfig:RealWeizenTimeBoxplot},
 im Detail betrachtet gibt es einige Auffälligkeiten. 
-Im Gegensatz zu dem in Abbildung~\ref{subfig:SimCubTimeBoxplot} dargestellten Szenario
+Im Gegensatz zu dem Szenario, das in Abbildung~\ref{subfig:SimCubTimeBoxplot} dargestellt ist,
 zeigt der zeitliche Fehler des CV-Modells nur einen geringen Bias, der sogar eher negativ ist.
 Während es bei den simulierten Plättchen so ist, 
 dass der Interquartilsabstands des CV-Modells um Faktoren größer ist als der des IA-Modells, ist er hier fast gleich groß.
@@ -449,13 +448,13 @@ Die Ergebnisse des neuronalen Netzes einen kleinen Bias haben, der Bereich zwisc
 % \todo[inline]{Resultat verifizieren}
 Die Qualität der Resultate der bestehenden Modelle hängt höchstwahrscheinlich mit der niedrigeren Bandgeschwindigkeit und dem kürzeren Prädiktionsabstand zusammen.
 Auch könnten die unterschiedlichen Verfahren unterschiedlich anfällig gegen das Messrauschen sein, das auf den simulierten Daten nicht existiert.
+% Das CV- und das CA-Modell 
 Für die bestehenden Modelle gilt, dass eine relative Verbesserung der zeitlichen Prädiktion zu einer Verbesserung der örtlichen Prädiktion führt,
 da die zeitliche Prädiktion benutzt wird, um die örtliche zu bestimmen.
 Das ist besonders gut in Abbildung~\ref{fig:BoxplotsSimCub} zu erkennen. 
 Die Verbesserung der zeitlichen Prädiktion zwischen dem CV- und dem CVBC-Modell, zu sehen in Abbildung~\ref{subfig:SimCubTimeBoxplot}, sorgt auch direkt für eine Verbesserung der örtlichen Prädiktion, zu sehen in Abbildung~\ref{subfig:SimCubLocBoxplot}.
-Für die Ausgabe der neuronalen Netze gilt das jedoch nicht. Hier werden beide Ausgaben gemeinsam bestimmt. 
-
-Wie schon für die NextStep-Netze sind die Boxplots der restlichen Szenarien im Anhang~\ref{cap:appendix} zu finden.
+Für die Ausgabe der neuronalen Netze gilt das jedoch nicht. Hier werden beide Ausgaben gemeinsam bestimmt.
+Wie für die NextStep-Netze sind die Boxplots aller Szenarien im Anhang~\ref{cap:appendix} zu finden.
 
 \begin{figure}[htbp]
     \centering
@@ -481,7 +480,7 @@ Wie schon für die NextStep-Netze sind die Boxplots der restlichen Szenarien im 
 
 \section{Zusammenfassung und Diskussion}
 
-\todo[inline]{Einleitung und Zusammenfassung}
+% \todo[inline]{Einleitung und Zusammenfassung}
 
 Die Tatsache, dass die Separator-Netze auf den DEM-Datensätzen, im Gegensatz zu allen anderen Szenarien,
 hinter dem aktuellen Stand der Technik zurückbleiben könnte darauf zurückzuführen sein, 
@@ -514,4 +513,5 @@ Für Separator-Netze kam es sogar zu Verschiebungen zwischen der örtlichen und 
 Das Fehlermaß, nach der die neuronalen Netze optimiert worden sind, ist der MSE, wonach zwei Ergebnisse mit identischem MSE gleichwertig sind, egal wie dieser zustande kommt.
 Dies ist auf verschiedene stochastische Vorgänge während dem Training zurückzuführen, wie die Initialisierung der Gewichte zwischen den Neuronen und die Reihenfolge beziehungsweise das Batching der Trainingsbeispiele.
 Der Einsatz einer anderen Fehlerfunktion, zum Beispiel einer, die tatsächlich den Anteil der korrekt separierten Teilchen bewertet, könnte dieses Problem beheben.
+Für die Zukunft könnte im Separator-Fall das Auftrennen der zeitlichen und der örtlichen Prädiktion in unterschiedliche Netze sinnvoll sein.
 % \todo[inline]{den Ganzen Absatz weglassen? So wirklich was trägt er nicht bei zum Ergebnis und er steht ohne daten da auch sehr allein da.}
