@@ -262,10 +262,10 @@ def plotDataSeparatorPandas(numberPrint, x_pred2, y_vals2, separatorPosition, y_
 	for i in range(len(ausgleichsgeradenY)):
 		if direction:
 			plt.plot(ausgleichsgeradenX[i], ausgleichsgeradenY[i], color='orange', linestyle='dashed',
-				 label='best fit straight line')
+				 label='Ausgleichsgerade')
 		else:
 			plt.plot(ausgleichsgeradenY[i], ausgleichsgeradenX[i], color='orange', linestyle='dashed',
-					 label='best fit straight line')
+					 label='Ausgleichsgerade')
 
 	plt.plot(x, y, 'ro', label='Feature', markersize=4)
 	# if direction: swap y_t and x_t
@@ -663,7 +663,7 @@ def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition,
 	# ax1.grid(True)
 	ax1.yaxis.grid(True)
 	ax1.boxplot([pandasLost[i] for i in relevantColumnsLoc], showfliers=False, labels=relevantColumnsLocLabel)
-	xtickNames = plt.setp(ax1, xticklabels=relevantColumnsLoc)
+	xtickNames = plt.setp(ax1, xticklabels=relevantColumnsLocLabel)
 	plt.setp(xtickNames, rotation=45, fontsize=8)
 	ax1.set_title('Boxplot Location Error')
 	ax1.set_ylabel('Räumlicher Fehler in {}'.format(units['loc']))  # a little bit hacky

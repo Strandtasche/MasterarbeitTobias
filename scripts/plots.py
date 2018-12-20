@@ -210,14 +210,14 @@ def plotImagesPictures():
 def plotImagesTracks():
 
 	N = 3
-	numImgKugeln = (3713, 7712, 5132)
-	numImgPfeffer = (0, 7170, 3609)
+	numImgKugeln = (7712, 5132, 3713)
+	numImgPfeffer = (7170, 3609, 0)
 	sumKP = [sum(x) for x in zip(numImgKugeln, numImgPfeffer)]
-	numImgZyl = (4427, 19200, 0)
+	numImgZyl = (19200, 0, 4427)
 	sumKPZ = [sum(x) for x in zip(sumKP, numImgZyl)]
-	numImgWeiz = (0, 8702, 0)
+	numImgWeiz = (8702, 0, 0)
 	sumKPZP = [sum(x) for x in zip(sumKPZ, numImgWeiz)]
-	numImgCub = (4357, 0, 0)
+	numImgCub = (0, 0, 4357)
 
 	width = 0.25
 	ind = [0, 1, 2]
@@ -238,7 +238,7 @@ def plotImagesTracks():
 
 	plt.ylabel('Anzahl Tracks')
 	ax1.get_yaxis().set_major_formatter(tick.FuncFormatter(lambda  x, p:format(int(x), ',')))
-	plt.xticks(ind, ('DEM', 'Band', 'Rutsche'))
+	plt.xticks(ind, ('Band', 'Rutsche', 'DEM'))
 
 	pA = mpatches.Patch(color='C0', label='Kugeln')
 	pB = mpatches.Patch(color='C1', label='Pfeffer')
@@ -263,6 +263,6 @@ def plotImagesTracks():
 # inputFile3 = '/home/hornberger/Projects/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-BandVorne-Sept/kugeln_rot-002_trackHistory_NothingDeleted.csv'
 
 # plotParticleSpeed(inputFile, True, True)
-plotFnct()
+# plotFnct()
 
-# plotImagesTracks()
+plotImagesTracks()
