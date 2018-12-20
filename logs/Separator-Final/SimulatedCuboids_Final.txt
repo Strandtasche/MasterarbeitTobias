@@ -349,3 +349,107 @@ predicted:
 [0.06338572555666303, 23.300884688051905]
 time: 0.21s
 MSE (tensorflow): 0.01639019325375557
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cuboids-Separator-FS7-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Sim-Cuboids-final.json', '--overrideModel', '../models/final/simulated/separator-Final/simulated_Cuboids']
+INFO:root:time: 2018-12-07_17.52.13
+INFO:root:Saving to ../models/final/simulated/separator-Final/simulated_Cuboids
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Cuboids-Separator-FS7-Augm-Filtered.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((7146, 14), (7146, 2))
+INFO:root:Test: ((398, 14), (398, 2))
+INFO:root:Means: 
+LabelPosBalken     0.089823
+LabelTime         26.470602
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken     0.038389
+LabelTime         13.135486
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0011079475516453385
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Sim-Cuboids-Final/simulated_Cuboids_highestLoss_2018-12-07_17.52.13.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Sim-Cuboids-Final/simulated_Cuboids_2018-12-07_17.52.13.pdf
+INFO:root:Median Accel: 3.999999999992898e-05
+INFO:root:getting optimal accel for 7146 examples
+INFO:root:optimal Accel: 4.100759875810703e-05
+INFO:root:Evaluation on 398 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  398.000000             398.000000             398.000000                
+mean  -0.000113              -0.000139              -0.000130                  
+std    0.001448               0.002682               0.002463                  
+min   -0.017710              -0.045870              -0.043120                  
+25%   -0.000087              -0.000401              -0.000319                  
+50%   -0.000020               0.000024               0.000024                  
+75%    0.000041               0.000399               0.000319                  
+max    0.009731               0.011317               0.009427                  
+
+       CApixelErrorPosBalken  
+count  398.000000             
+mean  -0.000118               
+std    0.002903               
+min   -0.034657               
+25%   -0.000236               
+50%    0.000025               
+75%    0.000257               
+max    0.023943               
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  398.000000   398.000000   398.000000     398.000000   398.000000    
+mean   0.043915     1.899776     0.047797       0.101669     0.048545      
+std    0.366718     0.555531     0.555531       0.948475     0.299773      
+min   -2.510428     0.266588    -1.585390      -11.009997   -3.061683      
+25%    0.017948     1.756361    -0.095617      -0.285828     0.024036      
+50%    0.034430     1.823791    -0.028188       0.039389     0.038712      
+75%    0.051994     1.910003     0.058025       0.430858     0.050967      
+max    4.311867     8.384541     6.532563       9.058909     3.521399      
+
+       IAerrorTime  
+count  398.000000   
+mean   0.008558     
+std    0.298306     
+min   -3.129107     
+25%   -0.014703     
+50%   -0.000560     
+75%    0.012062     
+max    3.428403     
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Sim-Cuboids-Final
+INFO:root:Saving dataframe:
+            X_0      X_1      X_2    ...          Y_4       Y_5       Y_6
+85258   0.52069  0.52635  0.53205    ...     0.043426  0.043446  0.043466
+152408  0.51964  0.52546  0.53132    ...     0.127580  0.127560  0.127540
+42759   0.51860  0.52436  0.53015    ...     0.041610  0.041616  0.041621
+72215   0.52006  0.52572  0.53141    ...     0.096327  0.096358  0.096388
+172233  0.52490  0.52966  0.53446    ...     0.036803  0.036979  0.037153
+79497   0.51960  0.52523  0.53090    ...     0.070817  0.070798  0.070780
+137968  0.52026  0.52592  0.53162    ...     0.100070  0.100070  0.100070
+123479  0.51629  0.52197  0.52770    ...     0.069570  0.069541  0.069512
+69624   0.51552  0.52137  0.52725    ...     0.069953  0.069939  0.069926
+61727   0.52027  0.52612  0.53201    ...     0.079740  0.079873  0.080003
+
+[10 rows x 14 columns]
+        LabelPosBalken  LabelTime
+85258         0.043754  22.892012
+152408        0.127216  22.380058
+42759         0.041724  22.794161
+72215         0.096913  23.004418
+172233        0.040934  26.593333
+79497         0.068948  22.848175
+137968        0.100080  22.937870
+123479        0.069030  23.395315
+69624         0.069754  22.837410
+61727         0.081974  22.169784
+predicted: 
+[0.04369424739722127, 22.924650100157415]
+[0.12728078890931502, 22.425895234953696]
+[0.04161997387429762, 22.851790080274792]
+[0.0968555281805158, 23.00636042806447]
+[0.04006131699045045, 25.50515533088833]
+[0.0704156667023457, 23.156329069784295]
+[0.10009493479249879, 22.955129405380074]
+[0.06899095939714207, 23.43226897476476]
+[0.06968282018287796, 22.89392377864126]
+[0.08191635637287395, 22.20850602089191]
+time: 0.20s
+MSE (tensorflow): 0.00047442634240724146

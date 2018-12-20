@@ -2,3 +2,79 @@ Traceback (most recent call last):
   File "DNNRegressor-Example.py", line 11, in <module>
     import tensorflow as tf
 ModuleNotFoundError: No module named 'tensorflow'
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnFinal.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/NextStep-Final/RealSpheres-NextStep-45kDecay.json']
+INFO:root:time: 2018-12-10_12.51.29
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-SpheresReal
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnFinal.h5.
+ERROR:root:Error while loading from stored data: 'No object named xtrain in the file'
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnFinal-wrongAxis.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/NextStep-Final/RealSpheres-NextStep-45kDecay.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-SpheresReal']
+INFO:root:time: 2018-12-10_18.42.17
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-SpheresReal
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnFinal-wrongAxis.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((179904, 10), (179904, 2))
+INFO:root:Test: ((9995, 10), (9995, 2))
+INFO:root:Means: 
+LabelX    1163.774327
+LabelY    1074.281353
+dtype: float64
+INFO:root:Stds: 
+LabelX    394.612967
+LabelY    344.205298
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 7.501539016629977e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-NextStep-45kDecay-Spheres/NextStep-45kDecaySteps-SpheresReal_highestLoss_2018-12-10_18.42.17.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-NextStep-45kDecay-Spheres/NextStep-45kDecaySteps-SpheresReal_2018-12-10_18.42.17.pdf
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  9995.000000        9995.000000        9995.000000      
+mean   0.362148           0.823170           1.539966         
+std    0.242751           0.466330           0.847567         
+min    0.002916           0.011769           0.009775         
+25%    0.198488           0.456684           0.854816         
+50%    0.318299           0.783209           1.523132         
+75%    0.475457           1.121494           2.124359         
+max    6.745893           6.880006           7.977318         
+INFO:root:number of predictions with error > 3: 2
+INFO:root:Saving dataframe:
+             X_0        X_1    ...            Y_3        Y_4
+41849  1782.6823  1782.6109    ...       947.2643  1039.2615
+37460  1653.7275  1651.4097    ...       663.5639   750.8243
+37247   849.1666   844.8113    ...      1428.1758  1517.3421
+40427  1798.0731  1797.0513    ...       298.9324   386.6004
+98912   618.3292   617.0703    ...      1024.8482  1116.2359
+30826  1774.3275  1776.2350    ...      1318.1139  1409.8207
+40383  1421.3730  1422.6946    ...      1022.4005  1115.0762
+81268   574.9846   572.3697    ...       535.6290   598.2324
+78459  1757.5792  1757.2841    ...      1354.3911  1414.9215
+47772  1509.5821  1508.8077    ...      1309.1952  1400.7350
+
+[10 rows x 10 columns]
+          LabelX     LabelY
+41849  1782.2753  1132.1309
+37460  1641.5201   838.5434
+37247   827.9407  1606.8108
+40427  1792.5192   474.4766
+98912   612.6040  1208.0940
+30826  1784.3603  1502.3438
+40383  1428.0250  1208.2357
+81268   562.0872   662.1473
+78459  1756.1761  1476.7278
+47772  1505.5760  1492.9247
+predicted: 
+[1782.3433688416787, 1131.815850170658]
+[1641.2902776965016, 839.1309203823419]
+[827.431328338844, 1606.895192784581]
+[1792.4759265443504, 474.83813624912545]
+[612.5463184155487, 1208.096194860415]
+[1784.3845949732427, 1502.077094150298]
+[1428.0139470233237, 1208.6363462826107]
+[561.8075578289407, 661.3757205692152]
+[1756.4957408191494, 1476.640574214398]
+[1505.8006003067524, 1492.3361501345298]
+time: 0.20s
+MSE (tensorflow): 9.219181151820521e-07

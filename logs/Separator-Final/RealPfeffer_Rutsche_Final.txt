@@ -1,0 +1,1109 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--filter', '--save', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/h5/pfefferRutscheSeparator-FS5-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-Rutsche-final.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/pfeffer_001_trackLabels_NaN4_BW3_NotShifted.csv
+WARNING:root:skipping track 4: NaN values in track
+WARNING:root:skipping track 9: NaN values in track
+WARNING:root:skipping track 12: highest Value smaller than separator
+WARNING:root:skipping track 13: highest Value smaller than separator
+WARNING:root:skipping track 17: highest Value smaller than separator
+WARNING:root:skipping track 18: highest Value smaller than separator
+WARNING:root:skipping track 19: highest Value smaller than separator
+WARNING:root:skipping track 24: NaN values in track
+WARNING:root:skipping track 26: NaN values in track
+WARNING:root:skipping track 28: highest Value smaller than separator
+WARNING:root:skipping track 29: NaN values in track
+WARNING:root:skipping track 30: NaN values in track
+WARNING:root:skipping track 31: highest Value smaller than separator
+WARNING:root:skipping track 34: NaN values in track
+WARNING:root:skipping track 42: highest Value smaller than separator
+WARNING:root:skipping track 46: highest Value smaller than separator
+WARNING:root:skipping track 47: NaN values in track
+WARNING:root:skipping track 48: highest Value smaller than separator
+WARNING:root:skipping track 51: NaN values in track
+WARNING:root:skipping track 52: NaN values in track
+WARNING:root:skipping track 57: NaN values in track
+WARNING:root:skipping track 58: NaN values in track
+WARNING:root:skipping track 59: NaN values in track
+WARNING:root:skipping track 61: highest Value smaller than separator
+WARNING:root:skipping track 69: NaN values in track
+WARNING:root:skipping track 74: NaN values in track
+WARNING:root:skipping track 79: NaN values in track
+WARNING:root:skipping track 87: NaN values in track
+WARNING:root:skipping track 88: highest Value smaller than separator
+WARNING:root:skipping track 93: NaN values in track
+WARNING:root:skipping track 97: NaN values in track
+WARNING:root:skipping track 100: NaN values in track
+WARNING:root:skipping track 103: highest Value smaller than separator
+WARNING:root:skipping track 105: NaN values in track
+WARNING:root:skipping track 108: highest Value smaller than separator
+WARNING:root:skipping track 114: NaN values in track
+WARNING:root:skipping track 115: highest Value smaller than separator
+WARNING:root:skipping track 118: NaN values in track
+WARNING:root:skipping track 119: highest Value smaller than separator
+WARNING:root:skipping track 120: NaN values in track
+WARNING:root:skipping track 122: NaN values in track
+WARNING:root:skipping track 123: highest Value smaller than separator
+WARNING:root:skipping track 125: NaN values in track
+WARNING:root:skipping track 126: NaN values in track
+WARNING:root:skipping track 128: highest Value smaller than separator
+WARNING:root:skipping track 132: highest Value smaller than separator
+WARNING:root:skipping track 133: highest Value smaller than separator
+WARNING:root:skipping track 134: highest Value smaller than separator
+WARNING:root:skipping track 138: highest Value smaller than separator
+WARNING:root:skipping track 145: NaN values in track
+WARNING:root:skipping track 149: highest Value smaller than separator
+WARNING:root:skipping track 150: NaN values in track
+WARNING:root:skipping track 151: highest Value smaller than separator
+WARNING:root:skipping track 152: highest Value smaller than separator
+WARNING:root:skipping track 160: highest Value smaller than separator
+WARNING:root:skipping track 164: NaN values in track
+WARNING:root:skipping track 168: NaN values in track
+WARNING:root:skipping track 169: highest Value smaller than separator
+WARNING:root:skipping track 170: highest Value smaller than separator
+WARNING:root:skipping track 172: NaN values in track
+WARNING:root:skipping track 176: NaN values in track
+WARNING:root:skipping track 178: NaN values in track
+WARNING:root:skipping track 179: NaN values in track
+WARNING:root:skipping track 180: highest Value smaller than separator
+WARNING:root:skipping track 181: NaN values in track
+WARNING:root:skipping track 184: highest Value smaller than separator
+WARNING:root:skipping track 189: highest Value smaller than separator
+WARNING:root:skipping track 194: NaN values in track
+WARNING:root:skipping track 196: NaN values in track
+WARNING:root:skipping track 199: NaN values in track
+WARNING:root:skipping track 201: highest Value smaller than separator
+WARNING:root:skipping track 202: highest Value smaller than separator
+WARNING:root:skipping track 206: highest Value smaller than separator
+WARNING:root:skipping track 211: highest Value smaller than separator
+WARNING:root:skipping track 213: highest Value smaller than separator
+WARNING:root:skipping track 215: highest Value smaller than separator
+WARNING:root:skipping track 216: highest Value smaller than separator
+WARNING:root:skipping track 227: highest Value smaller than separator
+WARNING:root:skipping track 228: NaN values in track
+WARNING:root:skipping track 230: NaN values in track
+WARNING:root:skipping track 235: NaN values in track
+WARNING:root:skipping track 237: NaN values in track
+WARNING:root:skipping track 238: highest Value smaller than separator
+WARNING:root:skipping track 239: highest Value smaller than separator
+WARNING:root:skipping track 241: highest Value smaller than separator
+WARNING:root:skipping track 244: NaN values in track
+WARNING:root:skipping track 246: NaN values in track
+WARNING:root:skipping track 249: highest Value smaller than separator
+WARNING:root:skipping track 251: highest Value smaller than separator
+WARNING:root:skipping track 252: highest Value smaller than separator
+WARNING:root:skipping track 253: NaN values in track
+WARNING:root:skipping track 255: highest Value smaller than separator
+WARNING:root:skipping track 256: NaN values in track
+WARNING:root:skipping track 258: NaN values in track
+WARNING:root:skipping track 260: highest Value smaller than separator
+WARNING:root:skipping track 264: NaN values in track
+WARNING:root:skipping track 268: highest Value smaller than separator
+WARNING:root:skipping track 275: NaN values in track
+WARNING:root:skipping track 280: Not enough elements for features
+WARNING:root:skipping track 282: highest Value smaller than separator
+WARNING:root:skipping track 283: NaN values in track
+WARNING:root:skipping track 284: highest Value smaller than separator
+WARNING:root:skipping track 286: highest Value smaller than separator
+WARNING:root:skipping track 287: NaN values in track
+WARNING:root:skipping track 288: highest Value smaller than separator
+WARNING:root:skipping track 289: highest Value smaller than separator
+WARNING:root:skipping track 290: highest Value smaller than separator
+WARNING:root:skipping track 291: NaN values in track
+WARNING:root:skipping track 292: highest Value smaller than separator
+WARNING:root:skipping track 296: NaN values in track
+WARNING:root:skipping track 298: highest Value smaller than separator
+WARNING:root:skipping track 299: highest Value smaller than separator
+WARNING:root:skipping track 304: highest Value smaller than separator
+WARNING:root:skipping track 306: NaN values in track
+WARNING:root:skipping track 309: highest Value smaller than separator
+WARNING:root:skipping track 310: highest Value smaller than separator
+WARNING:root:skipping track 312: highest Value smaller than separator
+WARNING:root:skipping track 318: highest Value smaller than separator
+WARNING:root:skipping track 319: NaN values in track
+WARNING:root:skipping track 320: NaN values in track
+WARNING:root:skipping track 323: NaN values in track
+WARNING:root:skipping track 324: highest Value smaller than separator
+WARNING:root:skipping track 326: highest Value smaller than separator
+WARNING:root:skipping track 327: highest Value smaller than separator
+WARNING:root:skipping track 328: NaN values in track
+WARNING:root:skipping track 330: NaN values in track
+WARNING:root:skipping track 331: highest Value smaller than separator
+WARNING:root:skipping track 332: NaN values in track
+WARNING:root:skipping track 335: NaN values in track
+WARNING:root:skipping track 336: NaN values in track
+WARNING:root:skipping track 337: highest Value smaller than separator
+WARNING:root:skipping track 343: highest Value smaller than separator
+WARNING:root:skipping track 348: highest Value smaller than separator
+WARNING:root:skipping track 351: NaN values in track
+WARNING:root:skipping track 354: highest Value smaller than separator
+WARNING:root:skipping track 356: highest Value smaller than separator
+WARNING:root:skipping track 358: NaN values in track
+WARNING:root:skipping track 361: NaN values in track
+WARNING:root:skipping track 362: NaN values in track
+WARNING:root:skipping track 363: NaN values in track
+WARNING:root:skipping track 364: highest Value smaller than separator
+WARNING:root:skipping track 365: NaN values in track
+WARNING:root:skipping track 367: highest Value smaller than separator
+WARNING:root:skipping track 369: NaN values in track
+WARNING:root:skipping track 371: NaN values in track
+WARNING:root:skipping track 373: NaN values in track
+WARNING:root:skipping track 374: NaN values in track
+WARNING:root:skipping track 378: highest Value smaller than separator
+WARNING:root:skipping track 381: highest Value smaller than separator
+WARNING:root:skipping track 383: NaN values in track
+WARNING:root:skipping track 384: NaN values in track
+WARNING:root:skipping track 385: highest Value smaller than separator
+WARNING:root:skipping track 386: highest Value smaller than separator
+WARNING:root:skipping track 387: highest Value smaller than separator
+WARNING:root:skipping track 388: highest Value smaller than separator
+WARNING:root:skipping track 389: NaN values in track
+WARNING:root:skipping track 391: NaN values in track
+WARNING:root:skipping track 392: NaN values in track
+WARNING:root:skipping track 396: NaN values in track
+WARNING:root:skipping track 398: NaN values in track
+WARNING:root:skipping track 403: highest Value smaller than separator
+WARNING:root:skipping track 404: highest Value smaller than separator
+WARNING:root:skipping track 405: NaN values in track
+WARNING:root:skipping track 406: highest Value smaller than separator
+WARNING:root:skipping track 407: NaN values in track
+WARNING:root:skipping track 409: NaN values in track
+WARNING:root:skipping track 411: NaN values in track
+WARNING:root:skipping track 412: highest Value smaller than separator
+WARNING:root:skipping track 414: NaN values in track
+WARNING:root:skipping track 415: NaN values in track
+WARNING:root:skipping track 416: highest Value smaller than separator
+WARNING:root:skipping track 419: highest Value smaller than separator
+WARNING:root:skipping track 421: highest Value smaller than separator
+WARNING:root:skipping track 423: highest Value smaller than separator
+WARNING:root:skipping track 426: highest Value smaller than separator
+WARNING:root:skipping track 427: highest Value smaller than separator
+WARNING:root:skipping track 428: highest Value smaller than separator
+WARNING:root:skipping track 430: highest Value smaller than separator
+WARNING:root:skipping track 431: highest Value smaller than separator
+WARNING:root:skipping track 432: NaN values in track
+WARNING:root:skipping track 434: NaN values in track
+WARNING:root:skipping track 435: NaN values in track
+WARNING:root:skipping track 437: highest Value smaller than separator
+WARNING:root:skipping track 441: highest Value smaller than separator
+WARNING:root:skipping track 442: NaN values in track
+WARNING:root:skipping track 449: NaN values in track
+WARNING:root:skipping track 450: NaN values in track
+WARNING:root:skipping track 452: NaN values in track
+WARNING:root:skipping track 455: highest Value smaller than separator
+WARNING:root:skipping track 461: NaN values in track
+WARNING:root:skipping track 462: NaN values in track
+WARNING:root:skipping track 466: highest Value smaller than separator
+WARNING:root:skipping track 467: NaN values in track
+WARNING:root:skipping track 468: NaN values in track
+WARNING:root:skipping track 473: highest Value smaller than separator
+WARNING:root:skipping track 476: NaN values in track
+WARNING:root:skipping track 477: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/pfeffer_002_trackLabels_NaN4_BW3_NotShifted.csv
+WARNING:root:skipping track 2: NaN values in track
+WARNING:root:skipping track 5: highest Value smaller than separator
+WARNING:root:skipping track 7: NaN values in track
+WARNING:root:skipping track 8: highest Value smaller than separator
+WARNING:root:skipping track 10: NaN values in track
+WARNING:root:skipping track 11: highest Value smaller than separator
+WARNING:root:skipping track 13: NaN values in track
+WARNING:root:skipping track 15: highest Value smaller than separator
+WARNING:root:skipping track 16: NaN values in track
+WARNING:root:skipping track 19: highest Value smaller than separator
+WARNING:root:skipping track 24: highest Value smaller than separator
+WARNING:root:skipping track 26: NaN values in track
+WARNING:root:skipping track 27: NaN values in track
+WARNING:root:skipping track 29: NaN values in track
+WARNING:root:skipping track 30: highest Value smaller than separator
+WARNING:root:skipping track 37: NaN values in track
+WARNING:root:skipping track 38: NaN values in track
+WARNING:root:skipping track 42: NaN values in track
+WARNING:root:skipping track 46: highest Value smaller than separator
+WARNING:root:skipping track 47: highest Value smaller than separator
+WARNING:root:skipping track 48: highest Value smaller than separator
+WARNING:root:skipping track 49: highest Value smaller than separator
+WARNING:root:skipping track 51: NaN values in track
+WARNING:root:skipping track 52: NaN values in track
+WARNING:root:skipping track 53: Not enough elements for features
+WARNING:root:skipping track 54: highest Value smaller than separator
+WARNING:root:skipping track 56: NaN values in track
+WARNING:root:skipping track 60: NaN values in track
+WARNING:root:skipping track 61: NaN values in track
+WARNING:root:skipping track 62: NaN values in track
+WARNING:root:skipping track 64: NaN values in track
+WARNING:root:skipping track 66: NaN values in track
+WARNING:root:skipping track 67: NaN values in track
+WARNING:root:skipping track 70: highest Value smaller than separator
+WARNING:root:skipping track 71: highest Value smaller than separator
+WARNING:root:skipping track 72: highest Value smaller than separator
+WARNING:root:skipping track 77: highest Value smaller than separator
+WARNING:root:skipping track 78: NaN values in track
+WARNING:root:skipping track 80: NaN values in track
+WARNING:root:skipping track 81: NaN values in track
+WARNING:root:skipping track 84: highest Value smaller than separator
+WARNING:root:skipping track 87: NaN values in track
+WARNING:root:skipping track 89: highest Value smaller than separator
+WARNING:root:skipping track 91: highest Value smaller than separator
+WARNING:root:skipping track 92: NaN values in track
+WARNING:root:skipping track 93: highest Value smaller than separator
+WARNING:root:skipping track 98: highest Value smaller than separator
+WARNING:root:skipping track 100: highest Value smaller than separator
+WARNING:root:skipping track 101: NaN values in track
+WARNING:root:skipping track 102: highest Value smaller than separator
+WARNING:root:skipping track 103: highest Value smaller than separator
+WARNING:root:skipping track 104: NaN values in track
+WARNING:root:skipping track 108: highest Value smaller than separator
+WARNING:root:skipping track 111: highest Value smaller than separator
+WARNING:root:skipping track 114: highest Value smaller than separator
+WARNING:root:skipping track 115: highest Value smaller than separator
+WARNING:root:skipping track 116: NaN values in track
+WARNING:root:skipping track 127: NaN values in track
+WARNING:root:skipping track 132: NaN values in track
+WARNING:root:skipping track 133: NaN values in track
+WARNING:root:skipping track 136: NaN values in track
+WARNING:root:skipping track 137: highest Value smaller than separator
+WARNING:root:skipping track 139: highest Value smaller than separator
+WARNING:root:skipping track 141: NaN values in track
+WARNING:root:skipping track 142: highest Value smaller than separator
+WARNING:root:skipping track 144: NaN values in track
+WARNING:root:skipping track 147: highest Value smaller than separator
+WARNING:root:skipping track 148: highest Value smaller than separator
+WARNING:root:skipping track 150: NaN values in track
+WARNING:root:skipping track 152: NaN values in track
+WARNING:root:skipping track 154: highest Value smaller than separator
+WARNING:root:skipping track 155: highest Value smaller than separator
+WARNING:root:skipping track 156: NaN values in track
+WARNING:root:skipping track 160: NaN values in track
+WARNING:root:skipping track 166: highest Value smaller than separator
+WARNING:root:skipping track 167: NaN values in track
+WARNING:root:skipping track 168: NaN values in track
+WARNING:root:skipping track 169: NaN values in track
+WARNING:root:skipping track 171: highest Value smaller than separator
+WARNING:root:skipping track 174: NaN values in track
+WARNING:root:skipping track 175: NaN values in track
+WARNING:root:skipping track 177: NaN values in track
+WARNING:root:skipping track 179: highest Value smaller than separator
+WARNING:root:skipping track 180: highest Value smaller than separator
+WARNING:root:skipping track 184: NaN values in track
+WARNING:root:skipping track 189: highest Value smaller than separator
+WARNING:root:skipping track 191: highest Value smaller than separator
+WARNING:root:skipping track 192: highest Value smaller than separator
+WARNING:root:skipping track 195: highest Value smaller than separator
+WARNING:root:skipping track 197: highest Value smaller than separator
+WARNING:root:skipping track 199: highest Value smaller than separator
+WARNING:root:skipping track 201: highest Value smaller than separator
+WARNING:root:skipping track 205: highest Value smaller than separator
+WARNING:root:skipping track 206: NaN values in track
+WARNING:root:skipping track 207: NaN values in track
+WARNING:root:skipping track 210: highest Value smaller than separator
+WARNING:root:skipping track 211: highest Value smaller than separator
+WARNING:root:skipping track 217: highest Value smaller than separator
+WARNING:root:skipping track 219: highest Value smaller than separator
+WARNING:root:skipping track 220: highest Value smaller than separator
+WARNING:root:skipping track 224: highest Value smaller than separator
+WARNING:root:skipping track 227: NaN values in track
+WARNING:root:skipping track 229: highest Value smaller than separator
+WARNING:root:skipping track 230: NaN values in track
+WARNING:root:skipping track 231: highest Value smaller than separator
+WARNING:root:skipping track 237: highest Value smaller than separator
+WARNING:root:skipping track 238: highest Value smaller than separator
+WARNING:root:skipping track 240: NaN values in track
+WARNING:root:skipping track 243: NaN values in track
+WARNING:root:skipping track 246: highest Value smaller than separator
+WARNING:root:skipping track 247: NaN values in track
+WARNING:root:skipping track 249: NaN values in track
+WARNING:root:skipping track 251: NaN values in track
+WARNING:root:skipping track 252: NaN values in track
+WARNING:root:skipping track 253: NaN values in track
+WARNING:root:skipping track 254: NaN values in track
+WARNING:root:skipping track 260: NaN values in track
+WARNING:root:skipping track 264: highest Value smaller than separator
+WARNING:root:skipping track 265: highest Value smaller than separator
+WARNING:root:skipping track 268: NaN values in track
+WARNING:root:skipping track 278: NaN values in track
+WARNING:root:skipping track 279: highest Value smaller than separator
+WARNING:root:skipping track 283: highest Value smaller than separator
+WARNING:root:skipping track 284: highest Value smaller than separator
+WARNING:root:skipping track 285: NaN values in track
+WARNING:root:skipping track 286: NaN values in track
+WARNING:root:skipping track 287: NaN values in track
+WARNING:root:skipping track 288: NaN values in track
+WARNING:root:skipping track 290: highest Value smaller than separator
+WARNING:root:skipping track 291: highest Value smaller than separator
+WARNING:root:skipping track 292: highest Value smaller than separator
+WARNING:root:skipping track 296: NaN values in track
+WARNING:root:skipping track 297: NaN values in track
+WARNING:root:skipping track 311: highest Value smaller than separator
+WARNING:root:skipping track 312: NaN values in track
+WARNING:root:skipping track 314: NaN values in track
+WARNING:root:skipping track 316: NaN values in track
+WARNING:root:skipping track 317: NaN values in track
+WARNING:root:skipping track 318: NaN values in track
+WARNING:root:skipping track 321: highest Value smaller than separator
+WARNING:root:skipping track 323: highest Value smaller than separator
+WARNING:root:skipping track 324: NaN values in track
+WARNING:root:skipping track 326: NaN values in track
+WARNING:root:skipping track 329: NaN values in track
+WARNING:root:skipping track 332: NaN values in track
+WARNING:root:skipping track 335: highest Value smaller than separator
+WARNING:root:skipping track 342: highest Value smaller than separator
+WARNING:root:skipping track 345: NaN values in track
+WARNING:root:skipping track 346: highest Value smaller than separator
+WARNING:root:skipping track 348: highest Value smaller than separator
+WARNING:root:skipping track 349: highest Value smaller than separator
+WARNING:root:skipping track 351: highest Value smaller than separator
+WARNING:root:skipping track 352: NaN values in track
+WARNING:root:skipping track 354: NaN values in track
+WARNING:root:skipping track 356: highest Value smaller than separator
+WARNING:root:skipping track 357: highest Value smaller than separator
+WARNING:root:skipping track 358: highest Value smaller than separator
+WARNING:root:skipping track 360: highest Value smaller than separator
+WARNING:root:skipping track 361: NaN values in track
+WARNING:root:skipping track 362: highest Value smaller than separator
+WARNING:root:skipping track 365: highest Value smaller than separator
+WARNING:root:skipping track 366: NaN values in track
+WARNING:root:skipping track 370: highest Value smaller than separator
+WARNING:root:skipping track 373: highest Value smaller than separator
+WARNING:root:skipping track 375: NaN values in track
+WARNING:root:skipping track 376: NaN values in track
+WARNING:root:skipping track 378: highest Value smaller than separator
+WARNING:root:skipping track 384: highest Value smaller than separator
+WARNING:root:skipping track 385: NaN values in track
+WARNING:root:skipping track 386: highest Value smaller than separator
+WARNING:root:skipping track 390: NaN values in track
+WARNING:root:skipping track 393: NaN values in track
+WARNING:root:skipping track 394: NaN values in track
+WARNING:root:skipping track 395: highest Value smaller than separator
+WARNING:root:skipping track 396: highest Value smaller than separator
+WARNING:root:skipping track 398: highest Value smaller than separator
+WARNING:root:skipping track 400: NaN values in track
+WARNING:root:skipping track 401: NaN values in track
+WARNING:root:skipping track 403: highest Value smaller than separator
+WARNING:root:skipping track 405: highest Value smaller than separator
+WARNING:root:skipping track 406: NaN values in track
+WARNING:root:skipping track 409: highest Value smaller than separator
+WARNING:root:skipping track 410: NaN values in track
+WARNING:root:skipping track 415: highest Value smaller than separator
+WARNING:root:skipping track 416: highest Value smaller than separator
+WARNING:root:skipping track 417: NaN values in track
+WARNING:root:skipping track 420: NaN values in track
+WARNING:root:skipping track 422: NaN values in track
+WARNING:root:skipping track 423: highest Value smaller than separator
+WARNING:root:skipping track 425: NaN values in track
+WARNING:root:skipping track 426: highest Value smaller than separator
+WARNING:root:skipping track 427: NaN values in track
+WARNING:root:skipping track 432: highest Value smaller than separator
+WARNING:root:skipping track 434: highest Value smaller than separator
+WARNING:root:skipping track 440: NaN values in track
+WARNING:root:skipping track 441: NaN values in track
+WARNING:root:skipping track 442: highest Value smaller than separator
+WARNING:root:skipping track 443: NaN values in track
+WARNING:root:skipping track 446: highest Value smaller than separator
+WARNING:root:skipping track 447: highest Value smaller than separator
+WARNING:root:skipping track 448: highest Value smaller than separator
+WARNING:root:skipping track 450: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/pfeffer_003_trackLabels_NaN4_BW3_NotShifted.csv
+WARNING:root:skipping track 2: NaN values in track
+WARNING:root:skipping track 3: NaN values in track
+WARNING:root:skipping track 4: NaN values in track
+WARNING:root:skipping track 5: NaN values in track
+WARNING:root:skipping track 7: highest Value smaller than separator
+WARNING:root:skipping track 13: NaN values in track
+WARNING:root:skipping track 14: highest Value smaller than separator
+WARNING:root:skipping track 15: NaN values in track
+WARNING:root:skipping track 16: NaN values in track
+WARNING:root:skipping track 18: NaN values in track
+WARNING:root:skipping track 19: NaN values in track
+WARNING:root:skipping track 24: NaN values in track
+WARNING:root:skipping track 25: highest Value smaller than separator
+WARNING:root:skipping track 27: highest Value smaller than separator
+WARNING:root:skipping track 28: highest Value smaller than separator
+WARNING:root:skipping track 31: highest Value smaller than separator
+WARNING:root:skipping track 32: highest Value smaller than separator
+WARNING:root:skipping track 33: highest Value smaller than separator
+WARNING:root:skipping track 34: highest Value smaller than separator
+WARNING:root:skipping track 35: NaN values in track
+WARNING:root:skipping track 38: highest Value smaller than separator
+WARNING:root:skipping track 40: NaN values in track
+WARNING:root:skipping track 44: NaN values in track
+WARNING:root:skipping track 48: NaN values in track
+WARNING:root:skipping track 49: highest Value smaller than separator
+WARNING:root:skipping track 50: highest Value smaller than separator
+WARNING:root:skipping track 56: NaN values in track
+WARNING:root:skipping track 57: NaN values in track
+WARNING:root:skipping track 58: NaN values in track
+WARNING:root:skipping track 60: highest Value smaller than separator
+WARNING:root:skipping track 65: NaN values in track
+WARNING:root:skipping track 69: highest Value smaller than separator
+WARNING:root:skipping track 73: NaN values in track
+WARNING:root:skipping track 81: NaN values in track
+WARNING:root:skipping track 83: highest Value smaller than separator
+WARNING:root:skipping track 87: NaN values in track
+WARNING:root:skipping track 88: highest Value smaller than separator
+WARNING:root:skipping track 89: NaN values in track
+WARNING:root:skipping track 92: highest Value smaller than separator
+WARNING:root:skipping track 94: highest Value smaller than separator
+WARNING:root:skipping track 101: NaN values in track
+WARNING:root:skipping track 102: NaN values in track
+WARNING:root:skipping track 108: NaN values in track
+WARNING:root:skipping track 109: highest Value smaller than separator
+WARNING:root:skipping track 112: highest Value smaller than separator
+WARNING:root:skipping track 116: NaN values in track
+WARNING:root:skipping track 119: NaN values in track
+WARNING:root:skipping track 120: highest Value smaller than separator
+WARNING:root:skipping track 122: highest Value smaller than separator
+WARNING:root:skipping track 123: highest Value smaller than separator
+WARNING:root:skipping track 126: NaN values in track
+WARNING:root:skipping track 128: NaN values in track
+WARNING:root:skipping track 129: NaN values in track
+WARNING:root:skipping track 131: NaN values in track
+WARNING:root:skipping track 137: highest Value smaller than separator
+WARNING:root:skipping track 140: NaN values in track
+WARNING:root:skipping track 141: NaN values in track
+WARNING:root:skipping track 142: highest Value smaller than separator
+WARNING:root:skipping track 145: NaN values in track
+WARNING:root:skipping track 146: NaN values in track
+WARNING:root:skipping track 148: highest Value smaller than separator
+WARNING:root:skipping track 151: NaN values in track
+WARNING:root:skipping track 152: highest Value smaller than separator
+WARNING:root:skipping track 161: NaN values in track
+WARNING:root:skipping track 163: NaN values in track
+WARNING:root:skipping track 165: highest Value smaller than separator
+WARNING:root:skipping track 167: highest Value smaller than separator
+WARNING:root:skipping track 173: highest Value smaller than separator
+WARNING:root:skipping track 176: highest Value smaller than separator
+WARNING:root:skipping track 180: highest Value smaller than separator
+WARNING:root:skipping track 181: NaN values in track
+WARNING:root:skipping track 182: NaN values in track
+WARNING:root:skipping track 183: NaN values in track
+WARNING:root:skipping track 184: NaN values in track
+WARNING:root:skipping track 190: highest Value smaller than separator
+WARNING:root:skipping track 192: NaN values in track
+WARNING:root:skipping track 197: highest Value smaller than separator
+WARNING:root:skipping track 198: highest Value smaller than separator
+WARNING:root:skipping track 202: highest Value smaller than separator
+WARNING:root:skipping track 204: NaN values in track
+WARNING:root:skipping track 206: highest Value smaller than separator
+WARNING:root:skipping track 207: highest Value smaller than separator
+WARNING:root:skipping track 211: highest Value smaller than separator
+WARNING:root:skipping track 212: NaN values in track
+WARNING:root:skipping track 215: NaN values in track
+WARNING:root:skipping track 216: highest Value smaller than separator
+WARNING:root:skipping track 218: NaN values in track
+WARNING:root:skipping track 221: highest Value smaller than separator
+WARNING:root:skipping track 222: NaN values in track
+WARNING:root:skipping track 223: NaN values in track
+WARNING:root:skipping track 224: highest Value smaller than separator
+WARNING:root:skipping track 225: highest Value smaller than separator
+WARNING:root:skipping track 226: NaN values in track
+WARNING:root:skipping track 227: highest Value smaller than separator
+WARNING:root:skipping track 228: NaN values in track
+WARNING:root:skipping track 229: highest Value smaller than separator
+WARNING:root:skipping track 233: NaN values in track
+WARNING:root:skipping track 238: highest Value smaller than separator
+WARNING:root:skipping track 239: highest Value smaller than separator
+WARNING:root:skipping track 244: highest Value smaller than separator
+WARNING:root:skipping track 245: NaN values in track
+WARNING:root:skipping track 246: NaN values in track
+WARNING:root:skipping track 247: Not enough elements for features
+WARNING:root:skipping track 249: highest Value smaller than separator
+WARNING:root:skipping track 253: highest Value smaller than separator
+WARNING:root:skipping track 255: highest Value smaller than separator
+WARNING:root:skipping track 256: highest Value smaller than separator
+WARNING:root:skipping track 258: NaN values in track
+WARNING:root:skipping track 264: NaN values in track
+WARNING:root:skipping track 265: highest Value smaller than separator
+WARNING:root:skipping track 269: NaN values in track
+WARNING:root:skipping track 273: highest Value smaller than separator
+WARNING:root:skipping track 274: highest Value smaller than separator
+WARNING:root:skipping track 277: NaN values in track
+WARNING:root:skipping track 279: highest Value smaller than separator
+WARNING:root:skipping track 281: highest Value smaller than separator
+WARNING:root:skipping track 284: highest Value smaller than separator
+WARNING:root:skipping track 285: NaN values in track
+WARNING:root:skipping track 286: highest Value smaller than separator
+WARNING:root:skipping track 290: highest Value smaller than separator
+WARNING:root:skipping track 293: NaN values in track
+WARNING:root:skipping track 295: NaN values in track
+WARNING:root:skipping track 301: highest Value smaller than separator
+WARNING:root:skipping track 305: NaN values in track
+WARNING:root:skipping track 308: highest Value smaller than separator
+WARNING:root:skipping track 311: NaN values in track
+WARNING:root:skipping track 312: highest Value smaller than separator
+WARNING:root:skipping track 315: NaN values in track
+WARNING:root:skipping track 316: NaN values in track
+WARNING:root:skipping track 320: NaN values in track
+WARNING:root:skipping track 321: NaN values in track
+WARNING:root:skipping track 323: NaN values in track
+WARNING:root:skipping track 324: NaN values in track
+WARNING:root:skipping track 325: NaN values in track
+WARNING:root:skipping track 326: NaN values in track
+WARNING:root:skipping track 327: highest Value smaller than separator
+WARNING:root:skipping track 329: highest Value smaller than separator
+WARNING:root:skipping track 333: highest Value smaller than separator
+WARNING:root:skipping track 334: NaN values in track
+WARNING:root:skipping track 339: highest Value smaller than separator
+WARNING:root:skipping track 345: NaN values in track
+WARNING:root:skipping track 349: NaN values in track
+WARNING:root:skipping track 351: highest Value smaller than separator
+WARNING:root:skipping track 352: NaN values in track
+WARNING:root:skipping track 353: highest Value smaller than separator
+WARNING:root:skipping track 354: highest Value smaller than separator
+WARNING:root:skipping track 355: highest Value smaller than separator
+WARNING:root:skipping track 356: highest Value smaller than separator
+WARNING:root:skipping track 357: highest Value smaller than separator
+WARNING:root:skipping track 358: NaN values in track
+WARNING:root:skipping track 361: highest Value smaller than separator
+WARNING:root:skipping track 362: NaN values in track
+WARNING:root:skipping track 363: highest Value smaller than separator
+WARNING:root:skipping track 365: NaN values in track
+WARNING:root:skipping track 366: highest Value smaller than separator
+WARNING:root:skipping track 367: NaN values in track
+WARNING:root:skipping track 369: NaN values in track
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/pfeffer_004_trackLabels_NaN4_BW3_NotShifted.csv
+WARNING:root:skipping track 3: highest Value smaller than separator
+WARNING:root:skipping track 4: NaN values in track
+WARNING:root:skipping track 6: highest Value smaller than separator
+WARNING:root:skipping track 7: NaN values in track
+WARNING:root:skipping track 11: NaN values in track
+WARNING:root:skipping track 14: NaN values in track
+WARNING:root:skipping track 19: highest Value smaller than separator
+WARNING:root:skipping track 20: highest Value smaller than separator
+WARNING:root:skipping track 23: highest Value smaller than separator
+WARNING:root:skipping track 24: NaN values in track
+WARNING:root:skipping track 30: highest Value smaller than separator
+WARNING:root:skipping track 31: NaN values in track
+WARNING:root:skipping track 32: NaN values in track
+WARNING:root:skipping track 40: NaN values in track
+WARNING:root:skipping track 44: highest Value smaller than separator
+WARNING:root:skipping track 48: NaN values in track
+WARNING:root:skipping track 49: NaN values in track
+WARNING:root:skipping track 51: highest Value smaller than separator
+WARNING:root:skipping track 53: NaN values in track
+WARNING:root:skipping track 55: NaN values in track
+WARNING:root:skipping track 57: highest Value smaller than separator
+WARNING:root:skipping track 64: NaN values in track
+WARNING:root:skipping track 69: highest Value smaller than separator
+WARNING:root:skipping track 72: NaN values in track
+WARNING:root:skipping track 73: highest Value smaller than separator
+WARNING:root:skipping track 74: highest Value smaller than separator
+WARNING:root:skipping track 75: NaN values in track
+WARNING:root:skipping track 76: highest Value smaller than separator
+WARNING:root:skipping track 79: highest Value smaller than separator
+WARNING:root:skipping track 80: highest Value smaller than separator
+WARNING:root:skipping track 88: NaN values in track
+WARNING:root:skipping track 89: highest Value smaller than separator
+WARNING:root:skipping track 93: NaN values in track
+WARNING:root:skipping track 94: highest Value smaller than separator
+WARNING:root:skipping track 95: highest Value smaller than separator
+WARNING:root:skipping track 99: highest Value smaller than separator
+WARNING:root:skipping track 103: NaN values in track
+WARNING:root:skipping track 105: highest Value smaller than separator
+WARNING:root:skipping track 106: NaN values in track
+WARNING:root:skipping track 110: NaN values in track
+WARNING:root:skipping track 114: NaN values in track
+WARNING:root:skipping track 115: NaN values in track
+WARNING:root:skipping track 117: highest Value smaller than separator
+WARNING:root:skipping track 118: NaN values in track
+WARNING:root:skipping track 119: NaN values in track
+WARNING:root:skipping track 120: highest Value smaller than separator
+WARNING:root:skipping track 122: NaN values in track
+WARNING:root:skipping track 126: NaN values in track
+WARNING:root:skipping track 127: NaN values in track
+WARNING:root:skipping track 130: highest Value smaller than separator
+WARNING:root:skipping track 136: NaN values in track
+WARNING:root:skipping track 138: NaN values in track
+WARNING:root:skipping track 139: NaN values in track
+WARNING:root:skipping track 141: NaN values in track
+WARNING:root:skipping track 142: highest Value smaller than separator
+WARNING:root:skipping track 143: highest Value smaller than separator
+WARNING:root:skipping track 144: highest Value smaller than separator
+WARNING:root:skipping track 146: highest Value smaller than separator
+WARNING:root:skipping track 149: highest Value smaller than separator
+WARNING:root:skipping track 150: NaN values in track
+WARNING:root:skipping track 153: NaN values in track
+WARNING:root:skipping track 157: highest Value smaller than separator
+WARNING:root:skipping track 158: NaN values in track
+WARNING:root:skipping track 159: highest Value smaller than separator
+WARNING:root:skipping track 161: highest Value smaller than separator
+WARNING:root:skipping track 162: NaN values in track
+WARNING:root:skipping track 163: highest Value smaller than separator
+WARNING:root:skipping track 167: highest Value smaller than separator
+WARNING:root:skipping track 169: highest Value smaller than separator
+WARNING:root:skipping track 172: highest Value smaller than separator
+WARNING:root:skipping track 173: NaN values in track
+WARNING:root:skipping track 174: NaN values in track
+WARNING:root:skipping track 175: highest Value smaller than separator
+WARNING:root:skipping track 179: highest Value smaller than separator
+WARNING:root:skipping track 180: highest Value smaller than separator
+WARNING:root:skipping track 181: NaN values in track
+WARNING:root:skipping track 188: highest Value smaller than separator
+WARNING:root:skipping track 191: NaN values in track
+WARNING:root:skipping track 192: NaN values in track
+WARNING:root:skipping track 193: NaN values in track
+WARNING:root:skipping track 197: NaN values in track
+WARNING:root:skipping track 203: NaN values in track
+WARNING:root:skipping track 205: NaN values in track
+WARNING:root:skipping track 209: NaN values in track
+WARNING:root:skipping track 210: highest Value smaller than separator
+WARNING:root:skipping track 213: NaN values in track
+WARNING:root:skipping track 214: NaN values in track
+WARNING:root:skipping track 215: NaN values in track
+WARNING:root:skipping track 216: highest Value smaller than separator
+WARNING:root:skipping track 220: highest Value smaller than separator
+WARNING:root:skipping track 226: highest Value smaller than separator
+WARNING:root:skipping track 228: highest Value smaller than separator
+WARNING:root:skipping track 229: NaN values in track
+WARNING:root:skipping track 232: highest Value smaller than separator
+WARNING:root:skipping track 233: highest Value smaller than separator
+WARNING:root:skipping track 234: highest Value smaller than separator
+WARNING:root:skipping track 235: NaN values in track
+WARNING:root:skipping track 236: highest Value smaller than separator
+WARNING:root:skipping track 239: highest Value smaller than separator
+WARNING:root:skipping track 240: NaN values in track
+WARNING:root:skipping track 241: NaN values in track
+WARNING:root:skipping track 244: highest Value smaller than separator
+WARNING:root:skipping track 246: NaN values in track
+WARNING:root:skipping track 247: NaN values in track
+WARNING:root:skipping track 248: highest Value smaller than separator
+WARNING:root:skipping track 249: highest Value smaller than separator
+WARNING:root:skipping track 253: NaN values in track
+WARNING:root:skipping track 255: highest Value smaller than separator
+WARNING:root:skipping track 257: NaN values in track
+WARNING:root:skipping track 258: NaN values in track
+WARNING:root:skipping track 260: NaN values in track
+WARNING:root:skipping track 264: NaN values in track
+WARNING:root:skipping track 266: NaN values in track
+WARNING:root:skipping track 269: NaN values in track
+WARNING:root:skipping track 271: highest Value smaller than separator
+WARNING:root:skipping track 274: highest Value smaller than separator
+WARNING:root:skipping track 277: highest Value smaller than separator
+WARNING:root:skipping track 278: NaN values in track
+WARNING:root:skipping track 279: NaN values in track
+WARNING:root:skipping track 280: highest Value smaller than separator
+WARNING:root:skipping track 281: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/pfeffer_005_trackLabels_NaN4_BW3_NotShifted.csv
+WARNING:root:skipping track 3: highest Value smaller than separator
+WARNING:root:skipping track 4: highest Value smaller than separator
+WARNING:root:skipping track 7: NaN values in track
+WARNING:root:skipping track 9: NaN values in track
+WARNING:root:skipping track 10: highest Value smaller than separator
+WARNING:root:skipping track 11: highest Value smaller than separator
+WARNING:root:skipping track 13: NaN values in track
+WARNING:root:skipping track 14: highest Value smaller than separator
+WARNING:root:skipping track 16: NaN values in track
+WARNING:root:skipping track 17: highest Value smaller than separator
+WARNING:root:skipping track 18: NaN values in track
+WARNING:root:skipping track 19: NaN values in track
+WARNING:root:skipping track 22: NaN values in track
+WARNING:root:skipping track 26: highest Value smaller than separator
+WARNING:root:skipping track 27: NaN values in track
+WARNING:root:skipping track 30: NaN values in track
+WARNING:root:skipping track 31: NaN values in track
+WARNING:root:skipping track 37: highest Value smaller than separator
+WARNING:root:skipping track 38: highest Value smaller than separator
+WARNING:root:skipping track 39: highest Value smaller than separator
+WARNING:root:skipping track 40: highest Value smaller than separator
+WARNING:root:skipping track 45: highest Value smaller than separator
+WARNING:root:skipping track 46: highest Value smaller than separator
+WARNING:root:skipping track 47: highest Value smaller than separator
+WARNING:root:skipping track 49: NaN values in track
+WARNING:root:skipping track 50: NaN values in track
+WARNING:root:skipping track 51: NaN values in track
+WARNING:root:skipping track 53: highest Value smaller than separator
+WARNING:root:skipping track 57: highest Value smaller than separator
+WARNING:root:skipping track 58: highest Value smaller than separator
+WARNING:root:skipping track 59: NaN values in track
+WARNING:root:skipping track 61: highest Value smaller than separator
+WARNING:root:skipping track 63: NaN values in track
+WARNING:root:skipping track 64: highest Value smaller than separator
+WARNING:root:skipping track 65: highest Value smaller than separator
+WARNING:root:skipping track 69: NaN values in track
+WARNING:root:skipping track 71: highest Value smaller than separator
+WARNING:root:skipping track 73: highest Value smaller than separator
+WARNING:root:skipping track 74: highest Value smaller than separator
+WARNING:root:skipping track 77: highest Value smaller than separator
+WARNING:root:skipping track 79: NaN values in track
+WARNING:root:skipping track 82: highest Value smaller than separator
+WARNING:root:skipping track 83: highest Value smaller than separator
+WARNING:root:skipping track 84: NaN values in track
+WARNING:root:skipping track 85: highest Value smaller than separator
+WARNING:root:skipping track 86: NaN values in track
+WARNING:root:skipping track 87: NaN values in track
+WARNING:root:skipping track 88: NaN values in track
+WARNING:root:skipping track 89: NaN values in track
+WARNING:root:skipping track 90: highest Value smaller than separator
+WARNING:root:skipping track 96: highest Value smaller than separator
+WARNING:root:skipping track 97: NaN values in track
+WARNING:root:skipping track 98: NaN values in track
+WARNING:root:skipping track 101: NaN values in track
+WARNING:root:skipping track 103: highest Value smaller than separator
+WARNING:root:skipping track 105: NaN values in track
+WARNING:root:skipping track 107: NaN values in track
+WARNING:root:skipping track 109: NaN values in track
+WARNING:root:skipping track 111: highest Value smaller than separator
+WARNING:root:skipping track 112: NaN values in track
+WARNING:root:skipping track 114: highest Value smaller than separator
+WARNING:root:skipping track 115: NaN values in track
+WARNING:root:skipping track 119: highest Value smaller than separator
+WARNING:root:skipping track 125: highest Value smaller than separator
+WARNING:root:skipping track 129: highest Value smaller than separator
+WARNING:root:skipping track 135: NaN values in track
+WARNING:root:skipping track 138: NaN values in track
+WARNING:root:skipping track 140: highest Value smaller than separator
+WARNING:root:skipping track 142: highest Value smaller than separator
+WARNING:root:skipping track 146: NaN values in track
+WARNING:root:skipping track 149: NaN values in track
+WARNING:root:skipping track 154: NaN values in track
+WARNING:root:skipping track 158: highest Value smaller than separator
+WARNING:root:skipping track 159: highest Value smaller than separator
+WARNING:root:skipping track 161: NaN values in track
+WARNING:root:skipping track 162: NaN values in track
+WARNING:root:skipping track 167: highest Value smaller than separator
+WARNING:root:skipping track 171: NaN values in track
+WARNING:root:skipping track 174: NaN values in track
+WARNING:root:skipping track 175: NaN values in track
+WARNING:root:skipping track 178: highest Value smaller than separator
+WARNING:root:skipping track 179: highest Value smaller than separator
+WARNING:root:skipping track 181: highest Value smaller than separator
+WARNING:root:skipping track 183: NaN values in track
+WARNING:root:skipping track 184: NaN values in track
+WARNING:root:skipping track 186: highest Value smaller than separator
+WARNING:root:skipping track 187: highest Value smaller than separator
+WARNING:root:skipping track 188: NaN values in track
+WARNING:root:skipping track 193: highest Value smaller than separator
+WARNING:root:skipping track 194: NaN values in track
+WARNING:root:skipping track 196: highest Value smaller than separator
+WARNING:root:skipping track 201: NaN values in track
+WARNING:root:skipping track 202: NaN values in track
+WARNING:root:skipping track 205: NaN values in track
+WARNING:root:skipping track 208: highest Value smaller than separator
+WARNING:root:skipping track 211: highest Value smaller than separator
+WARNING:root:skipping track 217: NaN values in track
+INFO:root:applying augmentation to Training Set...
+INFO:root:Augmented. Original Size: 840. Increased by 840
+INFO:root:done!
+INFO:root:time: 2018-12-13_10.45.52
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Pfeffer_Rutsche_final
+INFO:root:model folder /home/hornberger/MasterarbeitTobias/models/final/real/Real_Pfeffer_Rutsche_final does not exist. Creating folder
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/final/real/Real_Pfeffer_Rutsche_final does not exist. Creating folder
+INFO:root:storing data in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/h5/pfefferRutscheSeparator-FS5-filterAugm-750Distance.h5
+INFO:root:using custom estimator
+INFO:root:Train: ((1680, 10), (1680, 2))
+INFO:root:Test: ((107, 10), (107, 2))
+INFO:root:Means: 
+LabelPosBalken    1148.391592
+LabelTime          455.979742
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    474.609830
+LabelTime         183.744525
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.9485465, 'loss': 50.74724, 'rmse': 0.9739335, 'global_step': 5000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.0074180327, 'loss': 0.39686474, 'rmse': 0.086128004, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.001901889, 'loss': 0.10175106, 'rmse': 0.04361065, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.001435597, 'loss': 0.07680444, 'rmse': 0.037889272, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.001265756, 'loss': 0.06771795, 'rmse': 0.035577465, 'global_step': 205000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.0010580097, 'loss': 0.056603517, 'rmse': 0.03252706, 'global_step': 255000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.0011560691, 'loss': 0.0618497, 'rmse': 0.034001015, 'global_step': 305000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.001077354, 'loss': 0.05763844, 'rmse': 0.03282307, 'global_step': 355000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.0013554934, 'loss': 0.0725189, 'rmse': 0.036817025, 'global_step': 405000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.0012138842, 'loss': 0.06494281, 'rmse': 0.03484084, 'global_step': 455000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.0010137175, 'loss': 0.054233883, 'rmse': 0.03183893, 'global_step': 505000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.0013069655, 'loss': 0.069922656, 'rmse': 0.03615198, 'global_step': 555000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.0009762868, 'loss': 0.052231345, 'rmse': 0.03124559, 'global_step': 605000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.001121819, 'loss': 0.06001732, 'rmse': 0.033493567, 'global_step': 655000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.001192649, 'loss': 0.06380672, 'rmse': 0.034534752, 'global_step': 705000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.0011014632, 'loss': 0.05892828, 'rmse': 0.0331883, 'global_step': 755000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.001068095, 'loss': 0.05714308, 'rmse': 0.032681722, 'global_step': 805000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.0009812912, 'loss': 0.052499082, 'rmse': 0.031325568, 'global_step': 855000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.0010610516, 'loss': 0.05676626, 'rmse': 0.032573786, 'global_step': 905000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.00097638404, 'loss': 0.052236542, 'rmse': 0.031247145, 'global_step': 955000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.0011015738, 'loss': 0.058934197, 'rmse': 0.033189967, 'global_step': 1005000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 0.0010175023, 'loss': 0.05443637, 'rmse': 0.031898312, 'global_step': 1055000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.0008864203, 'loss': 0.047423486, 'rmse': 0.029772813, 'global_step': 1105000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.0011894129, 'loss': 0.06363359, 'rmse': 0.034487866, 'global_step': 1155000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.0011328763, 'loss': 0.06060887, 'rmse': 0.03365823, 'global_step': 1205000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.0009497638, 'loss': 0.05081236, 'rmse': 0.030818239, 'global_step': 1255000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.00105177, 'loss': 0.056269698, 'rmse': 0.032431006, 'global_step': 1305000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.000882539, 'loss': 0.047215838, 'rmse': 0.029707558, 'global_step': 1355000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.0010240395, 'loss': 0.05478611, 'rmse': 0.032000616, 'global_step': 1405000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 0.0010926727, 'loss': 0.058457986, 'rmse': 0.0330556, 'global_step': 1455000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.0011526454, 'loss': 0.06166653, 'rmse': 0.033950634, 'global_step': 1505000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.000908062, 'loss': 0.048581317, 'rmse': 0.030134067, 'global_step': 1555000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 0.0008569336, 'loss': 0.04584595, 'rmse': 0.029273428, 'global_step': 1605000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 0.0010326902, 'loss': 0.055248924, 'rmse': 0.032135498, 'global_step': 1655000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 0.00097376487, 'loss': 0.05209642, 'rmse': 0.031205205, 'global_step': 1705000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 0.0010101559, 'loss': 0.05404334, 'rmse': 0.03178295, 'global_step': 1755000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 0.0011012105, 'loss': 0.05891476, 'rmse': 0.03318449, 'global_step': 1805000}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 0.0009587287, 'loss': 0.05129199, 'rmse': 0.030963344, 'global_step': 1855000}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 0.00092764193, 'loss': 0.04962884, 'rmse': 0.030457215, 'global_step': 1905000}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 0.0010587978, 'loss': 0.056645684, 'rmse': 0.032539174, 'global_step': 1955000}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 0.0010570994, 'loss': 0.056554824, 'rmse': 0.032513067, 'global_step': 2005000}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 0.0009894312, 'loss': 0.052934565, 'rmse': 0.031455226, 'global_step': 2055000}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 0.00092099543, 'loss': 0.04927326, 'rmse': 0.030347906, 'global_step': 2105000}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 0.0011079361, 'loss': 0.059274584, 'rmse': 0.033285674, 'global_step': 2155000}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 0.0010936928, 'loss': 0.05851257, 'rmse': 0.033071026, 'global_step': 2205000}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 0.0010444798, 'loss': 0.055879667, 'rmse': 0.032318413, 'global_step': 2255000}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 0.00111952, 'loss': 0.059894323, 'rmse': 0.03345923, 'global_step': 2305000}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 0.0011331494, 'loss': 0.06062349, 'rmse': 0.033662286, 'global_step': 2355000}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 0.0011645617, 'loss': 0.06230405, 'rmse': 0.034125675, 'global_step': 2405000}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 0.0013090604, 'loss': 0.07003473, 'rmse': 0.03618094, 'global_step': 2455000}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 0.0011185316, 'loss': 0.059841443, 'rmse': 0.033444457, 'global_step': 2505000}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 0.001117127, 'loss': 0.059766296, 'rmse': 0.03342345, 'global_step': 2555000}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 0.0010991158, 'loss': 0.058802698, 'rmse': 0.033152916, 'global_step': 2605000}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 0.0010678848, 'loss': 0.05713184, 'rmse': 0.032678507, 'global_step': 2655000}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 0.0011292403, 'loss': 0.06041436, 'rmse': 0.03360417, 'global_step': 2705000}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 0.0010299602, 'loss': 0.05510287, 'rmse': 0.032092992, 'global_step': 2755000}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 0.0010441367, 'loss': 0.055861317, 'rmse': 0.032313105, 'global_step': 2805000}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 0.0009900207, 'loss': 0.052966103, 'rmse': 0.031464595, 'global_step': 2855000}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 0.0010636309, 'loss': 0.056904256, 'rmse': 0.032613356, 'global_step': 2905000}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 0.0013122326, 'loss': 0.070204444, 'rmse': 0.036224753, 'global_step': 2955000}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 0.0010076194, 'loss': 0.053907637, 'rmse': 0.031743024, 'global_step': 3005000}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 0.0010329767, 'loss': 0.05526425, 'rmse': 0.032139953, 'global_step': 3055000}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 0.0010926716, 'loss': 0.05845793, 'rmse': 0.033055585, 'global_step': 3105000}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 0.0010057316, 'loss': 0.05380664, 'rmse': 0.031713273, 'global_step': 3155000}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 0.0010681096, 'loss': 0.057143867, 'rmse': 0.032681946, 'global_step': 3205000}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 0.0011136825, 'loss': 0.059582017, 'rmse': 0.03337188, 'global_step': 3255000}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 0.0009960976, 'loss': 0.053291224, 'rmse': 0.031561013, 'global_step': 3305000}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 0.001038095, 'loss': 0.055538077, 'rmse': 0.03221948, 'global_step': 3355000}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 0.0010896408, 'loss': 0.058295783, 'rmse': 0.033009708, 'global_step': 3405000}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 0.0011241682, 'loss': 0.060142998, 'rmse': 0.03352862, 'global_step': 3455000}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 0.0010793525, 'loss': 0.057745356, 'rmse': 0.0328535, 'global_step': 3505000}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 0.0011597266, 'loss': 0.062045377, 'rmse': 0.03405476, 'global_step': 3555000}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 0.0010828931, 'loss': 0.057934783, 'rmse': 0.03290734, 'global_step': 3605000}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 0.0011056884, 'loss': 0.059154328, 'rmse': 0.033251893, 'global_step': 3655000}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 0.0010575395, 'loss': 0.05657836, 'rmse': 0.032519832, 'global_step': 3705000}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 0.0010940658, 'loss': 0.05853252, 'rmse': 0.033076666, 'global_step': 3755000}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 0.0010901288, 'loss': 0.058321893, 'rmse': 0.0330171, 'global_step': 3805000}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 0.001207596, 'loss': 0.06460639, 'rmse': 0.034750484, 'global_step': 3855000}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 0.0011847306, 'loss': 0.06338309, 'rmse': 0.034419917, 'global_step': 3905000}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 0.0011210981, 'loss': 0.059978742, 'rmse': 0.0334828, 'global_step': 3955000}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 0.0012705029, 'loss': 0.06797191, 'rmse': 0.035644114, 'global_step': 4005000}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 0.0013152864, 'loss': 0.07036782, 'rmse': 0.03626688, 'global_step': 4055000}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 0.0011182441, 'loss': 0.059826057, 'rmse': 0.033440158, 'global_step': 4105000}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 0.0011901832, 'loss': 0.0636748, 'rmse': 0.03449903, 'global_step': 4155000}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 0.0012657911, 'loss': 0.067719825, 'rmse': 0.03557796, 'global_step': 4205000}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 0.001177538, 'loss': 0.06299828, 'rmse': 0.034315273, 'global_step': 4255000}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 0.0011352531, 'loss': 0.06073604, 'rmse': 0.03369352, 'global_step': 4305000}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 0.0011668133, 'loss': 0.06242452, 'rmse': 0.03415865, 'global_step': 4355000}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 0.001249847, 'loss': 0.066866815, 'rmse': 0.035353176, 'global_step': 4405000}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 0.0012187938, 'loss': 0.06520547, 'rmse': 0.034911226, 'global_step': 4455000}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 0.001269487, 'loss': 0.067917556, 'rmse': 0.03562986, 'global_step': 4505000}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 0.0011952707, 'loss': 0.063946985, 'rmse': 0.034572687, 'global_step': 4555000}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 0.001230376, 'loss': 0.06582511, 'rmse': 0.035076715, 'global_step': 4605000}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 0.001262961, 'loss': 0.067568414, 'rmse': 0.035538163, 'global_step': 4655000}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 0.0013077619, 'loss': 0.06996526, 'rmse': 0.03616299, 'global_step': 4705000}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 0.0012877927, 'loss': 0.06889691, 'rmse': 0.03588583, 'global_step': 4755000}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 0.0013212479, 'loss': 0.070686765, 'rmse': 0.036348972, 'global_step': 4805000}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 0.0013010949, 'loss': 0.06960858, 'rmse': 0.036070693, 'global_step': 4855000}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 0.0013413288, 'loss': 0.071761094, 'rmse': 0.036624156, 'global_step': 4905000}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 0.0013022688, 'loss': 0.069671385, 'rmse': 0.03608696, 'global_step': 4955000}
+INFO:root:Training completed. final average loss: 0.0013014572905376554, best average loss during training: 0.0008569335914216936
+INFO:root:Total Training time: 2h 29min 57s
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/h5/pfefferRutscheSeparator-FS5-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-Rutsche-final.json']
+INFO:root:time: 2018-12-13_13.49.53
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Pfeffer_Rutsche_final
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/h5/pfefferRutscheSeparator-FS5-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((1680, 10), (1680, 2))
+INFO:root:Test: ((107, 10), (107, 2))
+INFO:root:Means: 
+LabelPosBalken    1148.391592
+LabelTime          455.979742
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    474.609830
+LabelTime         183.744525
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0013014572905376554
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Rutsche-Final/Real_Pfeffer_Rutsche_final_highestLoss_2018-12-13_13.49.53.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Rutsche-Final/Real_Pfeffer_Rutsche_final_2018-12-13_13.49.53.pdf
+INFO:root:Median Accel: 1.1842499999999632
+INFO:root:getting optimal accel for 1680 examples
+INFO:root:optimal Accel: -0.4974461319626725
+INFO:root:Evaluation on 107 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  107.000000             107.000000             107.000000                
+mean   1.649997               1.895152               1.660387                  
+std    7.183418               7.976502               7.705692                  
+min   -42.522475             -41.784410             -41.305457                 
+25%   -0.804768              -2.232904              -2.602743                  
+50%    1.442720               1.787310               1.484123                  
+75%    4.895650               5.673337               5.329662                  
+max    18.076136              20.031235              18.863263                 
+
+       CApixelErrorPosBalken  
+count  107.000000             
+mean   3.967636               
+std    27.842190              
+min   -67.243720              
+25%   -11.988306              
+50%    2.536528               
+75%    14.544307              
+max    98.381647              
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  107.000000   107.000000   107.000000     107.000000   107.000000    
+mean  -1.112718     16.981284    0.108440       11.163468    4.644813      
+std    8.905774     14.233533    14.233533      59.220829    13.593747     
+min   -36.981829   -29.881307   -46.754151     -117.420656  -43.188489     
+25%   -4.997483     7.743514    -9.129330      -26.280488   -3.614730      
+50%   -0.619393     16.454928   -0.417916       3.099991     3.298464      
+75%    3.809662     24.103171    7.230327       35.490063    12.507675     
+max    25.556826    63.689557    46.816713      282.705189   46.892683     
+
+       IAerrorTime  
+count  107.000000   
+mean   22.532680    
+std    14.614359    
+min   -23.888673    
+25%    12.915130    
+50%    22.522436    
+75%    30.540645    
+max    71.349730    
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Rutsche-Final
+INFO:root:Saving dataframe:
+            X_0        X_1        X_2    ...          Y_2       Y_3       Y_4
+3892  1148.9835  1149.5496  1147.8767    ...     584.8779  712.4302  832.1561
+1434   627.2516   626.1610   625.9861    ...     606.8761  739.0111  871.0505
+5984   733.1009   738.7323   744.8030    ...     666.9527  792.0109  924.8780
+3898   568.9246   567.5192   568.5063    ...     624.0465  748.0123  877.5958
+5263  1804.7000  1806.5706  1807.6627    ...     554.7043  686.8341  823.1558
+1919  1581.4780  1586.0376  1591.3141    ...     602.1464  736.6541  873.5069
+3500  1602.1677  1606.6634  1612.3152    ...     530.2693  667.1254  801.4436
+4106  1142.6279  1144.5017  1149.4932    ...     673.7295  796.5720  928.5586
+5902  1190.1737  1196.4256  1204.5353    ...     625.3408  750.6066  874.8808
+4551  1308.9271  1308.1336  1302.8631    ...     605.4462  735.5821  871.5118
+
+[10 rows x 10 columns]
+      LabelPosBalken   LabelTime
+3892     1147.110693  535.883217
+1434      624.995195  491.614063
+5984      778.912910  469.036460
+3898      554.771598  498.896735
+5263     1827.490332  530.689545
+1919     1620.390187  489.042520
+3500     1644.519357  535.578070
+4106     1170.676521  476.177884
+5902     1252.756640  528.548833
+4551     1284.410233  488.643626
+predicted: 
+[1153.4570119280215, 539.7053606905465]
+[625.8945666605841, 487.3166456517523]
+[780.0561633288158, 472.23009687912037]
+[571.2839927550414, 496.0793187368418]
+[1817.6980865121118, 524.6850059697862]
+[1626.6908675468435, 489.20705314769174]
+[1628.120025317706, 514.2718623987513]
+[1175.73614449709, 469.79033570318745]
+[1253.0909213151886, 530.8721565508486]
+[1279.8925517962173, 501.00913279721095]
+time: 0.18s
+MSE (tensorflow): 0.0012663915986195207

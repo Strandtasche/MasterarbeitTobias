@@ -1,0 +1,76 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenFinal.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/NextStep-Final/RealWeizen-NextStep-45kDecay.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-WeizenReal']
+INFO:root:time: 2018-12-10_18.38.24
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-WeizenReal
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenFinal.h5.
+ERROR:root:Error while loading from stored data: 'No object named xtrain in the file'
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenFinal-wrongAxis.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/NextStep-Final/RealWeizen-NextStep-45kDecay.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-WeizenReal']
+INFO:root:time: 2018-12-10_18.40.46
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-WeizenReal
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenFinal-wrongAxis.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((237076, 10), (237076, 2))
+INFO:root:Test: ((13171, 10), (13171, 2))
+INFO:root:Means: 
+LabelX    1155.339646
+LabelY    1048.324664
+dtype: float64
+INFO:root:Stds: 
+LabelX    486.378596
+LabelY    356.889611
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.4187780834618025e-06
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-NextStep-45kDecay-Weizen/NextStep-45kDecaySteps-WeizenReal_highestLoss_2018-12-10_18.40.46.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-NextStep-45kDecay-Weizen/NextStep-45kDecaySteps-WeizenReal_2018-12-10_18.40.46.pdf
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  13171.000000       13171.000000       13171.000000     
+mean   0.542702           0.752588           1.291280         
+std    0.336554           0.437995           0.756149         
+min    0.006052           0.002941           0.011739         
+25%    0.291474           0.426242           0.705734         
+50%    0.484316           0.686421           1.180348         
+75%    0.727970           1.010191           1.772868         
+max    5.268779           5.750899           8.295215         
+INFO:root:number of predictions with error > 3: 6
+INFO:root:Saving dataframe:
+              X_0        X_1    ...            Y_3        Y_4
+66193   1571.6600  1571.9881    ...       908.6583   987.2877
+33193   1441.9202  1442.6005    ...      1206.5304  1283.5968
+12805   1399.2196  1400.7082    ...      1103.5942  1182.0939
+100956   834.7816   835.0736    ...      1165.7432  1245.0572
+100112   519.0515   518.6779    ...      1157.6168  1236.3666
+16977    754.1567   755.1395    ...      1086.9433  1164.5618
+118503  2110.2658  2110.7886    ...       944.4021  1022.9840
+99220   1120.4394  1120.1433    ...       523.2520   602.3285
+116572  1101.8983  1102.2568    ...       626.6947   706.1775
+85210   1519.4887  1520.1027    ...       732.9010   812.1992
+
+[10 rows x 10 columns]
+           LabelX     LabelY
+66193   1572.9297  1066.3779
+33193   1443.8535  1360.5145
+12805   1407.4346  1261.2257
+100956   836.9797  1323.4680
+100112   518.8409  1313.5596
+16977    757.9485  1242.8754
+118503  2111.7734  1100.9255
+99220   1122.0840   680.9954
+116572  1103.7412   784.6634
+85210   1521.1272   890.6462
+predicted: 
+[1572.9276782194052, 1066.302206442087]
+[1443.7135341160106, 1360.6320888371588]
+[1407.1683222622528, 1261.5928698244345]
+[836.7524023504972, 1324.0261563558627]
+[519.3824086256859, 1314.6640564060256]
+[758.5057419261357, 1242.7865589297173]
+[2111.6184500437907, 1100.9108421496592]
+[1122.0225757551232, 681.1931733237143]
+[1103.6551711435254, 785.3256139797388]
+[1520.6180538958026, 891.1997011663716]
+time: 0.20s
+MSE (tensorflow): 1.1925736771445372e-06

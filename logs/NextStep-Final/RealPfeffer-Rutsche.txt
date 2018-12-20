@@ -709,3 +709,73 @@ predicted:
 [1741.637072912452, 1316.0140219459147]
 time: 0.20s
 MSE (tensorflow): 2.752132058958523e-05
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/h5/pfefferFinal-Rutsche.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/NextStep-Final/RealPfeffer-Rutsche-NextStep-45kDecay.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-PfefferReal-Rutsche']
+INFO:root:time: 2018-12-10_18.28.26
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/real/NextStep/NextStep-45kDecaySteps-PfefferReal-Rutsche
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Rutsche-Sept/h5/pfefferFinal-Rutsche.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((18632, 10), (18632, 2))
+INFO:root:Test: ((1134, 10), (1134, 2))
+INFO:root:Means: 
+LabelX    1136.332279
+LabelY    1119.047776
+dtype: float64
+INFO:root:Stds: 
+LabelX    445.787472
+LabelY    281.734994
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 7.344742334680632e-05
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-NextStep-45kDecay-Pfeffer-Rutsche/NextStep-45kDecaySteps-PfefferReal-Rutsche_highestLoss_2018-12-10_18.28.26.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-NextStep-45kDecay-Pfeffer-Rutsche/NextStep-45kDecaySteps-PfefferReal-Rutsche_2018-12-10_18.28.26.pdf
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  1134.000000        1134.000000        1134.000000      
+mean   3.064477           4.862370           7.697765         
+std    2.000765           3.084952           5.356038         
+min    0.153589           0.173189           0.108120         
+25%    1.589907           2.494788           3.668971         
+50%    2.639375           4.302741           6.325711         
+75%    3.977977           6.506537           10.768383        
+max    12.317568          18.889371          31.438967        
+INFO:root:number of predictions with error > 3: 485
+INFO:root:Saving dataframe:
+             X_0        X_1    ...            Y_3        Y_4
+5159   1335.0739  1332.6156    ...       620.5769   746.2862
+7551   1135.9018  1141.8608    ...      1240.7545  1377.6723
+6406   1020.7534  1022.4876    ...       804.1024   918.7131
+10200  1564.8833  1569.7037    ...       723.7982   856.9898
+7270    962.0448   966.4110    ...       545.4193   676.5694
+3634   1826.9629  1832.8912    ...      1312.4742  1449.4631
+10737  1091.6340  1091.0995    ...      1150.7876  1270.9007
+5382    832.1147   834.0750    ...      1034.3358  1171.8037
+5027    544.8120   541.0944    ...      1167.6236  1297.2467
+5173   1864.5333  1865.8794    ...       583.1226   694.3030
+
+[10 rows x 10 columns]
+          LabelX     LabelY
+5159   1315.5593   881.5359
+7551   1159.3986  1517.3159
+6406   1033.1495  1035.7192
+10200  1596.8372   986.3491
+7270    984.0982   802.1667
+3634   1857.4461  1593.1047
+10737  1091.3968  1395.6316
+5382    840.2128  1307.0829
+5027    526.1404  1438.8627
+5173   1882.6111   817.1612
+predicted: 
+[1314.8553085823028, 877.8364895134939]
+[1158.457954405603, 1515.4672688940905]
+[1033.1516507612846, 1035.216464112121]
+[1593.804616137546, 989.606646140067]
+[982.6492064611865, 805.3917798171824]
+[1855.9271446178418, 1587.2613616692322]
+[1092.36088162408, 1391.0174039281233]
+[840.4675519467655, 1313.4403033880435]
+[528.2852520915866, 1435.4936465169785]
+[1882.565957734313, 820.9516401642079]
+time: 0.20s
+MSE (tensorflow): 0.00010592734906822443

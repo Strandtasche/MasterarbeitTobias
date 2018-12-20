@@ -1,0 +1,713 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--filter', '--save', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Spheres-final-length.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 131: highest Value smaller than separator
+WARNING:root:skipping track 258: NaN values in track
+WARNING:root:skipping track 259: NaN values in track
+WARNING:root:skipping track 444: highest Value smaller than separator
+WARNING:root:skipping track 445: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_002_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 185: highest Value smaller than separator
+WARNING:root:skipping track 186: highest Value smaller than separator
+WARNING:root:skipping track 338: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_003_trackHistory_NothingDeleted.csv
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_004_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 310: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_005_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 66: Not enough elements for features
+WARNING:root:skipping track 127: highest Value smaller than separator
+WARNING:root:skipping track 129: highest Value smaller than separator
+WARNING:root:skipping track 150: highest Value smaller than separator
+WARNING:root:skipping track 226: highest Value smaller than separator
+WARNING:root:skipping track 283: highest Value smaller than separator
+WARNING:root:skipping track 658: highest Value smaller than separator
+WARNING:root:skipping track 660: highest Value smaller than separator
+WARNING:root:skipping track 724: highest Value smaller than separator
+WARNING:root:skipping track 830: NaN values in track
+WARNING:root:skipping track 831: NaN values in track
+WARNING:root:skipping track 903: highest Value smaller than separator
+WARNING:root:skipping track 904: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_006_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 20: NaN values in track
+WARNING:root:skipping track 21: NaN values in track
+WARNING:root:skipping track 50: NaN values in track
+WARNING:root:skipping track 51: NaN values in track
+WARNING:root:skipping track 96: NaN values in track
+WARNING:root:skipping track 122: highest Value smaller than separator
+WARNING:root:skipping track 124: highest Value smaller than separator
+WARNING:root:skipping track 329: highest Value smaller than separator
+WARNING:root:skipping track 331: highest Value smaller than separator
+WARNING:root:skipping track 468: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_007_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 208: highest Value smaller than separator
+WARNING:root:skipping track 209: highest Value smaller than separator
+WARNING:root:skipping track 531: NaN values in track
+WARNING:root:skipping track 532: NaN values in track
+WARNING:root:skipping track 662: highest Value smaller than separator
+WARNING:root:skipping track 749: highest Value smaller than separator
+WARNING:root:skipping track 750: highest Value smaller than separator
+WARNING:root:skipping track 751: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_008_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 446: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_009_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 68: highest Value smaller than separator
+WARNING:root:skipping track 89: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_010_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 31: highest Value smaller than separator
+WARNING:root:skipping track 32: highest Value smaller than separator
+WARNING:root:skipping track 98: Not enough elements for features
+WARNING:root:skipping track 242: NaN values in track
+WARNING:root:skipping track 243: NaN values in track
+WARNING:root:skipping track 338: highest Value smaller than separator
+WARNING:root:skipping track 451: highest Value smaller than separator
+WARNING:root:skipping track 452: highest Value smaller than separator
+WARNING:root:skipping track 822: highest Value smaller than separator
+WARNING:root:skipping track 823: highest Value smaller than separator
+WARNING:root:skipping track 825: highest Value smaller than separator
+WARNING:root:skipping track 826: highest Value smaller than separator
+WARNING:root:skipping track 830: highest Value smaller than separator
+WARNING:root:skipping track 831: highest Value smaller than separator
+WARNING:root:skipping track 832: highest Value smaller than separator
+WARNING:root:skipping track 833: highest Value smaller than separator
+WARNING:root:skipping track 835: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_011_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 268: highest Value smaller than separator
+WARNING:root:skipping track 308: highest Value smaller than separator
+WARNING:root:skipping track 468: highest Value smaller than separator
+WARNING:root:skipping track 469: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_012_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 624: highest Value smaller than separator
+WARNING:root:skipping track 641: highest Value smaller than separator
+WARNING:root:skipping track 642: highest Value smaller than separator
+WARNING:root:skipping track 643: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_013_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 11: highest Value smaller than separator
+WARNING:root:skipping track 19: highest Value smaller than separator
+WARNING:root:skipping track 47: highest Value smaller than separator
+WARNING:root:skipping track 48: highest Value smaller than separator
+WARNING:root:skipping track 112: Not enough elements for features
+WARNING:root:skipping track 217: highest Value smaller than separator
+WARNING:root:skipping track 218: highest Value smaller than separator
+WARNING:root:skipping track 350: highest Value smaller than separator
+WARNING:root:skipping track 357: Not enough elements for features
+WARNING:root:skipping track 449: NaN values in track
+WARNING:root:skipping track 450: NaN values in track
+WARNING:root:skipping track 497: NaN values in track
+WARNING:root:skipping track 498: NaN values in track
+WARNING:root:skipping track 524: highest Value smaller than separator
+WARNING:root:skipping track 525: highest Value smaller than separator
+WARNING:root:skipping track 569: highest Value smaller than separator
+WARNING:root:skipping track 570: highest Value smaller than separator
+WARNING:root:skipping track 571: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_014_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 19: highest Value smaller than separator
+WARNING:root:skipping track 20: highest Value smaller than separator
+WARNING:root:skipping track 62: highest Value smaller than separator
+WARNING:root:skipping track 63: highest Value smaller than separator
+WARNING:root:skipping track 362: highest Value smaller than separator
+WARNING:root:skipping track 363: highest Value smaller than separator
+WARNING:root:skipping track 382: highest Value smaller than separator
+WARNING:root:skipping track 383: Not enough elements for features
+WARNING:root:skipping track 446: highest Value smaller than separator
+WARNING:root:skipping track 447: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_015_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 32: NaN values in track
+WARNING:root:skipping track 73: highest Value smaller than separator
+WARNING:root:skipping track 93: highest Value smaller than separator
+WARNING:root:skipping track 95: highest Value smaller than separator
+WARNING:root:skipping track 96: Not enough elements for features
+WARNING:root:skipping track 281: highest Value smaller than separator
+WARNING:root:skipping track 386: highest Value smaller than separator
+WARNING:root:skipping track 449: highest Value smaller than separator
+WARNING:root:skipping track 494: NaN values in track
+INFO:root:applying augmentation to Training Set...
+INFO:root:Augmented. Original Size: 6683. Increased by 6683
+INFO:root:done!
+INFO:root:time: 2018-12-05_15.13.35
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator-Final/real_Spheres_length
+INFO:root:model folder /home/hornberger/MasterarbeitTobias/models/simulated/separator-Final/real_Spheres_length does not exist. Creating folder
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/simulated/separator-Final/real_Spheres_length does not exist. Creating folder
+INFO:root:storing data in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5
+INFO:root:using custom estimator
+INFO:root:Train: ((13366, 14), (13366, 2))
+INFO:root:Test: ((690, 14), (690, 2))
+INFO:root:Means: 
+LabelPosBalken    1160.011003
+LabelTime          655.042913
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    396.260029
+LabelTime         324.157749
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.46347913, 'loss': 45.6858, 'rmse': 0.680793, 'global_step': 5000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.002227051, 'loss': 0.2195236, 'rmse': 0.047191642, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.0007197563, 'loss': 0.0709474, 'rmse': 0.026828274, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.0004751752, 'loss': 0.0468387, 'rmse': 0.021798514, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.0006550021, 'loss': 0.06456449, 'rmse': 0.025593009, 'global_step': 205000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.0006371219, 'loss': 0.06280202, 'rmse': 0.025241274, 'global_step': 255000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.00023908306, 'loss': 0.023566758, 'rmse': 0.015462311, 'global_step': 305000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.0006028531, 'loss': 0.05942409, 'rmse': 0.024553066, 'global_step': 355000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.0001335577, 'loss': 0.013164972, 'rmse': 0.011556717, 'global_step': 405000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.00010889489, 'loss': 0.010733925, 'rmse': 0.010435271, 'global_step': 455000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.00017252061, 'loss': 0.017005604, 'rmse': 0.0131347105, 'global_step': 505000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.00023082586, 'loss': 0.022752834, 'rmse': 0.015192954, 'global_step': 555000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.00015971712, 'loss': 0.015743544, 'rmse': 0.0126379235, 'global_step': 605000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.000260759, 'loss': 0.025703387, 'rmse': 0.016148034, 'global_step': 655000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 7.629548e-05, 'loss': 0.007520554, 'rmse': 0.008734728, 'global_step': 705000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 9.409008e-05, 'loss': 0.009274594, 'rmse': 0.009700004, 'global_step': 755000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 3.2779026e-05, 'loss': 0.0032310758, 'rmse': 0.005725297, 'global_step': 805000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 5.0799936e-05, 'loss': 0.0050074225, 'rmse': 0.0071274075, 'global_step': 855000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 6.494359e-05, 'loss': 0.0064015826, 'rmse': 0.008058758, 'global_step': 905000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.00018053057, 'loss': 0.017795157, 'rmse': 0.013436167, 'global_step': 955000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 3.852481e-05, 'loss': 0.0037974454, 'rmse': 0.0062068356, 'global_step': 1005000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 9.930651e-05, 'loss': 0.009788784, 'rmse': 0.009965265, 'global_step': 1055000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.00010039397, 'loss': 0.009895978, 'rmse': 0.010019679, 'global_step': 1105000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 4.6495683e-05, 'loss': 0.004583146, 'rmse': 0.006818774, 'global_step': 1155000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 2.312339e-05, 'loss': 0.0022793056, 'rmse': 0.0048086788, 'global_step': 1205000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 2.0274745e-05, 'loss': 0.0019985107, 'rmse': 0.0045027486, 'global_step': 1255000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 3.6620073e-05, 'loss': 0.0036096934, 'rmse': 0.0060514524, 'global_step': 1305000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 2.4766567e-05, 'loss': 0.0024412759, 'rmse': 0.004976602, 'global_step': 1355000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 2.0052226e-05, 'loss': 0.0019765764, 'rmse': 0.0044779712, 'global_step': 1405000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 2.8693932e-05, 'loss': 0.0028284022, 'rmse': 0.0053566718, 'global_step': 1455000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 1.2657065e-05, 'loss': 0.001247625, 'rmse': 0.003557677, 'global_step': 1505000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 4.2481206e-05, 'loss': 0.0041874335, 'rmse': 0.006517761, 'global_step': 1555000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 2.3151259e-05, 'loss': 0.0022820528, 'rmse': 0.0048115756, 'global_step': 1605000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 1.8020351e-05, 'loss': 0.0017762918, 'rmse': 0.0042450386, 'global_step': 1655000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 4.778906e-05, 'loss': 0.004710636, 'rmse': 0.0069129635, 'global_step': 1705000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 4.994046e-05, 'loss': 0.0049227024, 'rmse': 0.0070668566, 'global_step': 1755000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 3.123104e-05, 'loss': 0.0030784882, 'rmse': 0.0055884738, 'global_step': 1805000}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 2.9295046e-05, 'loss': 0.0028876546, 'rmse': 0.0054124896, 'global_step': 1855000}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 1.4048728e-05, 'loss': 0.0013848032, 'rmse': 0.0037481633, 'global_step': 1905000}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 1.48927265e-05, 'loss': 0.0014679973, 'rmse': 0.0038591095, 'global_step': 1955000}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 1.2163926e-05, 'loss': 0.0011990155, 'rmse': 0.003487682, 'global_step': 2005000}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 1.4977393e-05, 'loss': 0.001476343, 'rmse': 0.0038700637, 'global_step': 2055000}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 2.3475035e-05, 'loss': 0.0023139678, 'rmse': 0.004845104, 'global_step': 2105000}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 2.2068085e-05, 'loss': 0.0021752827, 'rmse': 0.004697668, 'global_step': 2155000}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 1.7450613e-05, 'loss': 0.001720132, 'rmse': 0.004177393, 'global_step': 2205000}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 3.7365317e-05, 'loss': 0.0036831524, 'rmse': 0.0061127176, 'global_step': 2255000}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 1.9590074e-05, 'loss': 0.0019310216, 'rmse': 0.0044260677, 'global_step': 2305000}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 1.4679406e-05, 'loss': 0.00144697, 'rmse': 0.0038313714, 'global_step': 2355000}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 1.2285051e-05, 'loss': 0.001210955, 'rmse': 0.0035050036, 'global_step': 2405000}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 2.272725e-05, 'loss': 0.0022402576, 'rmse': 0.004767311, 'global_step': 2455000}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 2.01845e-05, 'loss': 0.001989615, 'rmse': 0.0044927164, 'global_step': 2505000}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 1.6519436e-05, 'loss': 0.0016283443, 'rmse': 0.004064411, 'global_step': 2555000}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 1.7393053e-05, 'loss': 0.0017144581, 'rmse': 0.004170498, 'global_step': 2605000}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 1.2166583e-05, 'loss': 0.0011992774, 'rmse': 0.0034880629, 'global_step': 2655000}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 1.6569582e-05, 'loss': 0.0016332873, 'rmse': 0.0040705753, 'global_step': 2705000}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 1.4740272e-05, 'loss': 0.0014529696, 'rmse': 0.003839306, 'global_step': 2755000}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 2.2556389e-05, 'loss': 0.0022234155, 'rmse': 0.004749357, 'global_step': 2805000}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 1.2441795e-05, 'loss': 0.0012264055, 'rmse': 0.0035272927, 'global_step': 2855000}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 1.60979e-05, 'loss': 0.001586793, 'rmse': 0.0040122187, 'global_step': 2905000}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 1.1942274e-05, 'loss': 0.0011771669, 'rmse': 0.0034557595, 'global_step': 2955000}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 3.3305067e-05, 'loss': 0.0032829281, 'rmse': 0.0057710544, 'global_step': 3005000}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 1.7279468e-05, 'loss': 0.0017032617, 'rmse': 0.0041568577, 'global_step': 3055000}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 2.1352513e-05, 'loss': 0.0021047476, 'rmse': 0.004620878, 'global_step': 3105000}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 1.5429767e-05, 'loss': 0.0015209342, 'rmse': 0.003928074, 'global_step': 3155000}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 2.1824531e-05, 'loss': 0.0021512753, 'rmse': 0.0046716733, 'global_step': 3205000}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 1.8911636e-05, 'loss': 0.001864147, 'rmse': 0.004348751, 'global_step': 3255000}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 1.3807061e-05, 'loss': 0.0013609817, 'rmse': 0.0037157855, 'global_step': 3305000}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 1.674965e-05, 'loss': 0.0016510368, 'rmse': 0.0040926337, 'global_step': 3355000}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 2.1108062e-05, 'loss': 0.002080652, 'rmse': 0.004594351, 'global_step': 3405000}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 1.5596042e-05, 'loss': 0.0015373243, 'rmse': 0.0039491826, 'global_step': 3455000}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 1.5186121e-05, 'loss': 0.0014969178, 'rmse': 0.0038969375, 'global_step': 3505000}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 1.1900596e-05, 'loss': 0.0011730588, 'rmse': 0.003449724, 'global_step': 3555000}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 1.6941487e-05, 'loss': 0.0016699465, 'rmse': 0.004116004, 'global_step': 3605000}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 1.7136284e-05, 'loss': 0.001689148, 'rmse': 0.0041395994, 'global_step': 3655000}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 1.3758428e-05, 'loss': 0.001356188, 'rmse': 0.0037092355, 'global_step': 3705000}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 1.3216568e-05, 'loss': 0.0013027759, 'rmse': 0.0036354598, 'global_step': 3755000}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 1.1047092e-05, 'loss': 0.0010889276, 'rmse': 0.0033237166, 'global_step': 3805000}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 1.0677978e-05, 'loss': 0.0010525435, 'rmse': 0.0032677175, 'global_step': 3855000}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 2.2422912e-05, 'loss': 0.0022102585, 'rmse': 0.0047352836, 'global_step': 3905000}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 1.6849437e-05, 'loss': 0.001660873, 'rmse': 0.0041048066, 'global_step': 3955000}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 1.223085e-05, 'loss': 0.0012056123, 'rmse': 0.0034972632, 'global_step': 4005000}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 1.0333768e-05, 'loss': 0.0010186143, 'rmse': 0.003214618, 'global_step': 4055000}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 1.3590743e-05, 'loss': 0.001339659, 'rmse': 0.0036865624, 'global_step': 4105000}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 1.2163344e-05, 'loss': 0.0011989583, 'rmse': 0.0034875986, 'global_step': 4155000}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 1.0477294e-05, 'loss': 0.0010327619, 'rmse': 0.003236865, 'global_step': 4205000}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 1.3028328e-05, 'loss': 0.001284221, 'rmse': 0.0036094775, 'global_step': 4255000}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 1.3891995e-05, 'loss': 0.0013693537, 'rmse': 0.0037271967, 'global_step': 4305000}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 1.317736e-05, 'loss': 0.0012989112, 'rmse': 0.0036300635, 'global_step': 4355000}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 1.23564005e-05, 'loss': 0.0012179881, 'rmse': 0.0035151672, 'global_step': 4405000}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 1.3316671e-05, 'loss': 0.0013126433, 'rmse': 0.0036492015, 'global_step': 4455000}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 1.2596525e-05, 'loss': 0.0012416575, 'rmse': 0.0035491583, 'global_step': 4505000}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 1.04749315e-05, 'loss': 0.0010325289, 'rmse': 0.0032364998, 'global_step': 4555000}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 1.11415275e-05, 'loss': 0.0010982363, 'rmse': 0.0033378927, 'global_step': 4605000}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 1.30404815e-05, 'loss': 0.0012854189, 'rmse': 0.0036111607, 'global_step': 4655000}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 1.0460068e-05, 'loss': 0.0010310638, 'rmse': 0.0032342027, 'global_step': 4705000}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 1.0916292e-05, 'loss': 0.0010760345, 'rmse': 0.0033039812, 'global_step': 4755000}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 1.1321807e-05, 'loss': 0.0011160066, 'rmse': 0.0033647893, 'global_step': 4805000}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 1.1680607e-05, 'loss': 0.0011513742, 'rmse': 0.0034176903, 'global_step': 4855000}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 1.1641727e-05, 'loss': 0.0011475416, 'rmse': 0.0034119976, 'global_step': 4905000}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 1.0668551e-05, 'loss': 0.0010516143, 'rmse': 0.0032662747, 'global_step': 4955000}
+INFO:root:Training completed. final average loss: 1.2351278201094829e-05, best average loss during training: 1.0333767932024784e-05
+INFO:root:Total Training time: 2h 57min 1s
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--augment', '--filter', '--save', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Spheres-final-length.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/kugeln_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 131: highest Value smaller than separator
+WARNING:root:skipping track 258: NaN values in track
+WARNING:root:skipping track 259: NaN values in track
+WARNING:root:skipping track 444: highest Value smaller than separator
+WARNING:root:skipping track 445: highest Value smaller than separator
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Spheres-final-length.json']
+INFO:root:time: 2018-12-05_18.25.17
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator-Final/real_Spheres_length
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5.
+INFO:root:using premade Estimator
+INFO:root:Train: ((13366, 14), (13366, 2))
+INFO:root:Test: ((690, 14), (690, 2))
+INFO:root:Means: 
+LabelPosBalken    1160.011003
+LabelTime          655.042913
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    396.260029
+LabelTime         324.157749
+dtype: float64
+INFO:root:No training today, just prediction
+ERROR:root:Unknown Error while trying to evaluate: Restoring from checkpoint failed. This is most likely due to a Variable name or other graph key that is missing from the checkpoint. Please ensure that you have not altered the graph expected based on the checkpoint. Original error:
+
+Key dnn/hiddenlayer_0/bias not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_15}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_20_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+Caused by op 'save/RestoreV2', defined at:
+  File "DNNRegressor-Example.py", line 643, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 535, in main
+    eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(F_test, L_test, BATCH_SIZE))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 476, in evaluate
+    return _evaluate()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 469, in _evaluate
+    output_dir=self.eval_dir(name))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1528, in _evaluate_run
+    config=self._session_config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/evaluation.py", line 209, in _evaluate_once
+    session_creator=session_creator, hooks=hooks) as session:
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 921, in __init__
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 643, in __init__
+    self._sess = _RecoverableSession(self._coordinated_creator)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1107, in __init__
+    _WrappedSession.__init__(self, self._create_session())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1112, in _create_session
+    return self._sess_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 800, in create_session
+    self.tf_sess = self._session_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 557, in create_session
+    self._scaffold.finalize()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 213, in finalize
+    self._saver = training_saver._get_saver_or_default()  # pylint: disable=protected-access
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 878, in _get_saver_or_default
+    saver = Saver(sharded=True, allow_empty=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1094, in __init__
+    self.build()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1106, in build
+    self._build(self._filename, build_save=True, build_restore=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1143, in _build
+    build_save=build_save, build_restore=build_restore)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 781, in _build_internal
+    restore_sequentially, reshape)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 459, in _AddShardedRestoreOps
+    name="restore_shard"))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 406, in _AddRestoreOps
+    restore_sequentially)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 854, in bulk_restore
+    return io_ops.restore_v2(filename_tensor, names, slices, dtypes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/ops/gen_io_ops.py", line 1466, in restore_v2
+    shape_and_slices=shape_and_slices, dtypes=dtypes, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 787, in _apply_op_helper
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/util/deprecation.py", line 488, in new_func
+    return func(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3272, in create_op
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1768, in __init__
+    self._traceback = tf_stack.extract_stack()
+
+NotFoundError (see above for traceback): Restoring from checkpoint failed. This is most likely due to a Variable name or other graph key that is missing from the checkpoint. Please ensure that you have not altered the graph expected based on the checkpoint. Original error:
+
+Key dnn/hiddenlayer_0/bias not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_15}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_20_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Spheres-final-length.json']
+INFO:root:time: 2018-12-05_18.26.37
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator-Final/real_Spheres_length
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5.
+INFO:root:using premade Estimator
+INFO:root:Train: ((13366, 14), (13366, 2))
+INFO:root:Test: ((690, 14), (690, 2))
+INFO:root:Means: 
+LabelPosBalken    1160.011003
+LabelTime          655.042913
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    396.260029
+LabelTime         324.157749
+dtype: float64
+INFO:root:No training today, just prediction
+ERROR:root:Unknown Error while trying to evaluate: Restoring from checkpoint failed. This is most likely due to a Variable name or other graph key that is missing from the checkpoint. Please ensure that you have not altered the graph expected based on the checkpoint. Original error:
+
+Key dnn/hiddenlayer_0/bias not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_15}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_20_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+Caused by op 'save/RestoreV2', defined at:
+  File "DNNRegressor-Example.py", line 643, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 535, in main
+    eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(F_test, L_test, BATCH_SIZE))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 476, in evaluate
+    return _evaluate()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 469, in _evaluate
+    output_dir=self.eval_dir(name))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1528, in _evaluate_run
+    config=self._session_config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/evaluation.py", line 209, in _evaluate_once
+    session_creator=session_creator, hooks=hooks) as session:
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 921, in __init__
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 643, in __init__
+    self._sess = _RecoverableSession(self._coordinated_creator)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1107, in __init__
+    _WrappedSession.__init__(self, self._create_session())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1112, in _create_session
+    return self._sess_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 800, in create_session
+    self.tf_sess = self._session_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 557, in create_session
+    self._scaffold.finalize()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 213, in finalize
+    self._saver = training_saver._get_saver_or_default()  # pylint: disable=protected-access
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 878, in _get_saver_or_default
+    saver = Saver(sharded=True, allow_empty=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1094, in __init__
+    self.build()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1106, in build
+    self._build(self._filename, build_save=True, build_restore=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1143, in _build
+    build_save=build_save, build_restore=build_restore)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 781, in _build_internal
+    restore_sequentially, reshape)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 459, in _AddShardedRestoreOps
+    name="restore_shard"))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 406, in _AddRestoreOps
+    restore_sequentially)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 854, in bulk_restore
+    return io_ops.restore_v2(filename_tensor, names, slices, dtypes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/ops/gen_io_ops.py", line 1466, in restore_v2
+    shape_and_slices=shape_and_slices, dtypes=dtypes, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 787, in _apply_op_helper
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/util/deprecation.py", line 488, in new_func
+    return func(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3272, in create_op
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1768, in __init__
+    self._traceback = tf_stack.extract_stack()
+
+NotFoundError (see above for traceback): Restoring from checkpoint failed. This is most likely due to a Variable name or other graph key that is missing from the checkpoint. Please ensure that you have not altered the graph expected based on the checkpoint. Original error:
+
+Key dnn/hiddenlayer_0/bias not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_15}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_20_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Spheres-final-length.json']
+INFO:root:time: 2018-12-05_18.28.04
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator-Final/real_Spheres_length
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5.
+INFO:root:using premade Estimator
+INFO:root:Train: ((13366, 14), (13366, 2))
+INFO:root:Test: ((690, 14), (690, 2))
+INFO:root:Means: 
+LabelPosBalken    1160.011003
+LabelTime          655.042913
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    396.260029
+LabelTime         324.157749
+dtype: float64
+INFO:root:No training today, just prediction
+ERROR:root:Unknown Error while trying to evaluate: Restoring from checkpoint failed. This is most likely due to a Variable name or other graph key that is missing from the checkpoint. Please ensure that you have not altered the graph expected based on the checkpoint. Original error:
+
+Key dnn/hiddenlayer_0/bias not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_1}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_6_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+Caused by op 'save/RestoreV2', defined at:
+  File "DNNRegressor-Example.py", line 643, in <module>
+    tf.app.run(main)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 125, in run
+    _sys.exit(main(argv))
+  File "DNNRegressor-Example.py", line 535, in main
+    eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(F_test, L_test, BATCH_SIZE))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 476, in evaluate
+    return _evaluate()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 469, in _evaluate
+    output_dir=self.eval_dir(name))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/estimator/estimator.py", line 1528, in _evaluate_run
+    config=self._session_config)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/evaluation.py", line 209, in _evaluate_once
+    session_creator=session_creator, hooks=hooks) as session:
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 921, in __init__
+    stop_grace_period_secs=stop_grace_period_secs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 643, in __init__
+    self._sess = _RecoverableSession(self._coordinated_creator)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1107, in __init__
+    _WrappedSession.__init__(self, self._create_session())
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 1112, in _create_session
+    return self._sess_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 800, in create_session
+    self.tf_sess = self._session_creator.create_session()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 557, in create_session
+    self._scaffold.finalize()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/monitored_session.py", line 213, in finalize
+    self._saver = training_saver._get_saver_or_default()  # pylint: disable=protected-access
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 878, in _get_saver_or_default
+    saver = Saver(sharded=True, allow_empty=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1094, in __init__
+    self.build()
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1106, in build
+    self._build(self._filename, build_save=True, build_restore=True)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 1143, in _build
+    build_save=build_save, build_restore=build_restore)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 781, in _build_internal
+    restore_sequentially, reshape)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 459, in _AddShardedRestoreOps
+    name="restore_shard"))
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 406, in _AddRestoreOps
+    restore_sequentially)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/training/saver.py", line 854, in bulk_restore
+    return io_ops.restore_v2(filename_tensor, names, slices, dtypes)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/ops/gen_io_ops.py", line 1466, in restore_v2
+    shape_and_slices=shape_and_slices, dtypes=dtypes, name=name)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 787, in _apply_op_helper
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/util/deprecation.py", line 488, in new_func
+    return func(*args, **kwargs)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3272, in create_op
+    op_def=op_def)
+  File "/home/hornberger/.virtualenvs/gpu-tensorflow-updated/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1768, in __init__
+    self._traceback = tf_stack.extract_stack()
+
+NotFoundError (see above for traceback): Restoring from checkpoint failed. This is most likely due to a Variable name or other graph key that is missing from the checkpoint. Please ensure that you have not altered the graph expected based on the checkpoint. Original error:
+
+Key dnn/hiddenlayer_0/bias not found in checkpoint
+	 [[{{node save/RestoreV2}} = RestoreV2[dtypes=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_INT64], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2/tensor_names, save/RestoreV2/shape_and_slices)]]
+	 [[{{node save/RestoreV2/_1}} = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_6_save/RestoreV2", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--augment', '--custom', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Spheres-final-length.json']
+INFO:root:time: 2018-12-05_18.31.56
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/separator-Final/real_Spheres_length
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Kugeln-Band-Juli/h5/kugelnSeparatorFinal-FS7-filterAugm-Length.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((13366, 14), (13366, 2))
+INFO:root:Test: ((690, 14), (690, 2))
+INFO:root:Means: 
+LabelPosBalken    1160.011003
+LabelTime          655.042913
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    396.260029
+LabelTime         324.157749
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.2351278201094829e-05
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Spheres-Final_length/real_Spheres_length_highestLoss_2018-12-05_18.31.56.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Spheres-Final_length/real_Spheres_length_2018-12-05_18.31.56.pdf
+INFO:root:getting optimal accel for 13366 examples
+INFO:root:Evaluation on 690 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  690.000000             690.000000             690.000000                
+mean  -0.427128              -0.009828              -0.023800                  
+std    0.862537               0.813539               0.812991                  
+min   -5.389096              -4.133806              -4.221991                  
+25%   -0.915862              -0.474854              -0.489445                  
+50%   -0.461833              -0.042228              -0.048820                  
+75%    0.043691               0.430368               0.407722                  
+max    3.479576               5.143610               5.093462                  
+
+       CApixelErrorPosBalken  
+count  690.000000             
+mean  -0.105603               
+std    2.464699               
+min   -16.028264              
+25%   -1.135954               
+50%   -0.177853               
+75%    0.989361               
+max    25.258704              
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  690.000000   690.000000   690.000000     690.000000   690.000000    
+mean  -0.602629    -1.951270     0.002805       0.410550    -0.473257      
+std    1.271085     2.548164     2.548164       10.979981    2.520207      
+min   -7.114986    -14.602988   -12.648914     -41.995275   -9.976763      
+25%   -1.345057    -3.571853    -1.617778      -6.998442    -2.240710      
+50%   -0.576893    -1.710179     0.243896      -0.031003    -0.385127      
+75%    0.249371    -0.104162     1.849913       6.834960     1.252702      
+max    3.057003     6.888652     8.842726       73.227550    11.694740     
+
+       IAerrorTime  
+count  690.000000   
+mean   2.092308     
+std    3.181981     
+min   -3.646731     
+25%   -0.083176     
+50%    1.963022     
+75%    3.526110     
+max    20.226985    
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Real-Spheres-Final_length
+INFO:root:Saving dataframe:
+             X_0        X_1    ...            Y_5        Y_6
+44001  1329.0623  1328.0096    ...      1142.2868  1234.6034
+27452  1263.2791  1263.4197    ...      1170.0062  1261.5716
+26630  1726.8412  1727.1301    ...      1161.0808  1251.4802
+21382   773.7273   769.4840    ...      1122.1721  1215.0878
+28414   890.0525   893.7084    ...      1160.3410  1252.5897
+43419   385.1456   379.6157    ...      1183.5071  1275.2292
+63009   663.3865   659.0018    ...      1196.0232  1284.5356
+37758  1441.3843  1436.8670    ...      1181.9212  1271.5682
+50418   598.3001   596.1848    ...      1176.9825  1269.5928
+31147   873.5336   870.6388    ...      1146.9541  1238.7332
+
+[10 rows x 14 columns]
+       LabelPosBalken   LabelTime
+44001     1319.808813  343.932156
+27452     1264.491497  314.196952
+26630     1725.893321  330.957123
+21382      731.611702  362.727695
+28414      926.722663  324.717866
+43419      338.047723  302.755183
+63009      624.153195  299.253711
+37758     1397.938875  309.596639
+50418      580.111832  305.949049
+31147      849.522280  341.784918
+predicted: 
+[1319.2508294349554, 343.9800645400832]
+[1264.8558476870176, 314.0038288796562]
+[1725.93512455547, 329.22832358524494]
+[731.7103718170631, 364.16379787214834]
+[926.2434111993053, 324.30154475528894]
+[337.4656991177668, 302.633239443795]
+[623.932196399869, 299.20733977675775]
+[1397.0539740725635, 309.49431300544677]
+[579.4361478807547, 305.83825792403405]
+[848.1245285945697, 341.5655966755752]
+time: 0.21s
+MSE (tensorflow): 3.905097401002422e-06

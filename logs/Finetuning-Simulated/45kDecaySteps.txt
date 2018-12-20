@@ -804,3 +804,73 @@ predicted:
 [0.6448780519857518, 0.09720892219104704]
 time: 0.20s
 MSE (tensorflow): 5.229834787456866e-09
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Finetuning-Simulated/Simulated-NextStep-45kDecay.json']
+INFO:root:time: 2018-12-10_19.09.20
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/simulated/NextStep/NextStep-45kDecaySteps
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Spheres-FS5-Augm.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((363825, 10), (363825, 2))
+INFO:root:Test: ((20404, 10), (20404, 2))
+INFO:root:Means: 
+LabelX    0.590534
+LabelY    0.090353
+dtype: float64
+INFO:root:Stds: 
+LabelX    0.109367
+LabelY    0.037051
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 3.8834019733258174e-07
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay/NextStep-45kDecaySteps_highestLoss_2018-12-10_19.09.20.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Simulated-NextStep-45kDecay/NextStep-45kDecaySteps_2018-12-10_19.09.20.pdf
+INFO:root:
+       NNpixelErrorTotal  CVpixelErrorTotal  CApixelErrorTotal
+count  2.040400e+04       20404.000000       20404.000000     
+mean   1.392436e-05       0.000037           0.000033         
+std    5.589524e-05       0.000061           0.000063         
+min    4.716653e-08       0.000000           0.000000         
+25%    3.464427e-06       0.000010           0.000010         
+50%    6.279404e-06       0.000030           0.000020         
+75%    1.123218e-05       0.000040           0.000028         
+max    2.671912e-03       0.001924           0.001551         
+INFO:root:number of predictions with error > 3: 0
+INFO:root:Saving dataframe:
+            X_0      X_1      X_2    ...          Y_2       Y_3       Y_4
+45616   0.57923  0.58570  0.59221    ...     0.071380  0.071383  0.071385
+51124   0.63781  0.64472  0.65167    ...     0.142610  0.142610  0.142610
+60534   0.63582  0.64270  0.64963    ...     0.086006  0.086007  0.086007
+127118  0.62501  0.63187  0.63877    ...     0.140180  0.140200  0.140210
+89000   0.49475  0.50075  0.50680    ...     0.134350  0.134400  0.134460
+8571    0.54856  0.55486  0.56121    ...     0.126100  0.126090  0.126080
+136512  0.65764  0.66465  0.67170    ...     0.130540  0.130590  0.130640
+124581  0.70063  0.70780  0.71498    ...     0.118470  0.118450  0.118430
+158068  0.48331  0.48930  0.49530    ...     0.103610  0.103600  0.103600
+86823   0.69465  0.70182  0.70899    ...     0.123460  0.123460  0.123460
+
+[10 rows x 10 columns]
+         LabelX    LabelY
+45616   0.61199  0.071387
+51124   0.67277  0.142610
+60534   0.67064  0.086008
+127118  0.65972  0.140220
+89000   0.52517  0.134510
+8571    0.58047  0.126070
+136512  0.69304  0.130680
+124581  0.73657  0.118420
+158068  0.51355  0.103600
+86823   0.73056  0.123460
+predicted: 
+[0.6119917076395235, 0.07138667505775168]
+[0.6727674157944735, 0.14261041738638508]
+[0.6706392776948903, 0.08600764127974109]
+[0.6597210561169355, 0.14022243569957257]
+[0.5251725100519021, 0.13451207389858966]
+[0.5804720379592127, 0.12607710917697124]
+[0.6930346942864924, 0.1306852610309559]
+[0.7365751839187514, 0.11840957055317224]
+[0.5135591504965191, 0.10359594726353866]
+[0.7305546355904442, 0.12345584589219996]
+time: 0.20s
+MSE (tensorflow): 9.216168272985215e-09

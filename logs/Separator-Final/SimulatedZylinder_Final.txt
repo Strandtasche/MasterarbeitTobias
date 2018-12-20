@@ -34,11 +34,11 @@ INFO:root:storing data in /home/hornberger/MasterarbeitTobias/data/simulated/dow
 INFO:root:using custom estimator
 INFO:root:Train: ((7480, 14), (7480, 2))
 INFO:root:Test: ((408, 14), (408, 2))
-INFO:root:Means: 
+INFO:root:Means:
 LabelPosBalken     0.090439
 LabelTime         27.987676
 dtype: float64
-INFO:root:Stds: 
+INFO:root:Stds:
 LabelPosBalken     0.036109
 LabelTime         13.584922
 dtype: float64
@@ -254,11 +254,11 @@ INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/d
 INFO:root:using custom estimator
 INFO:root:Train: ((7480, 14), (7480, 2))
 INFO:root:Test: ((408, 14), (408, 2))
-INFO:root:Means: 
+INFO:root:Means:
 LabelPosBalken     0.090439
 LabelTime         27.987676
 dtype: float64
-INFO:root:Stds: 
+INFO:root:Stds:
 LabelPosBalken     0.036109
 LabelTime         13.584922
 dtype: float64
@@ -271,44 +271,44 @@ INFO:root:getting optimal accel for 7480 examples
 INFO:root:Evaluation on 408 data points
 INFO:root:
        NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
-count  408.000000             4.080000e+02           4.080000e+02              
-mean   0.000063               4.268345e-05           4.238455e-05              
-std    0.000151               8.534531e-04           8.467463e-04              
-min   -0.000411              -2.557317e-03          -2.537413e-03              
-25%    0.000005              -2.015559e-04          -2.000179e-04              
-50%    0.000055              -2.081668e-16          -2.081668e-16              
-75%    0.000110               2.675761e-04           2.648621e-04              
-max    0.000962               2.871183e-03           2.845851e-03              
+count  408.000000             4.080000e+02           4.080000e+02
+mean   0.000063               4.268345e-05           4.238455e-05
+std    0.000151               8.534531e-04           8.467463e-04
+min   -0.000411              -2.557317e-03          -2.537413e-03
+25%    0.000005              -2.015559e-04          -2.000179e-04
+50%    0.000055              -2.081668e-16          -2.081668e-16
+75%    0.000110               2.675761e-04           2.648621e-04
+max    0.000962               2.871183e-03           2.845851e-03
 
-       CApixelErrorPosBalken  
-count  4.080000e+02           
-mean   4.171707e-05           
-std    2.719149e-03           
-min   -1.042233e-02           
-25%   -6.416271e-04           
-50%   -2.498002e-16           
-75%    7.736782e-04           
-max    1.184388e-02           
+       CApixelErrorPosBalken
+count  4.080000e+02
+mean   4.171707e-05
+std    2.719149e-03
+min   -1.042233e-02
+25%   -6.416271e-04
+50%   -2.498002e-16
+75%    7.736782e-04
+max    1.184388e-02
 INFO:root:
        NNerrorTime   CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
-count  408.000000   4.080000e+02  408.000000     408.000000   408.000000    
-mean   0.009782     1.856179e-01  0.004679      -0.242408     0.185515      
-std    0.042003     2.689916e-01  0.268992       0.797707     0.268989      
-min   -0.324128    -2.197151e-01 -0.400654      -2.363464    -0.224457      
-25%   -0.013952    -1.714184e-13 -0.180938      -0.684618    -0.000346      
-50%    0.002594     5.611445e-02 -0.124824      -0.003587     0.053564      
-75%    0.027926     3.699462e-01  0.189008       0.004229     0.368536      
-max    0.158967     2.717211e+00  2.536272       5.512368     2.712446      
+count  408.000000   4.080000e+02  408.000000     408.000000   408.000000
+mean   0.009782     1.856179e-01  0.004679      -0.242408     0.185515
+std    0.042003     2.689916e-01  0.268992       0.797707     0.268989
+min   -0.324128    -2.197151e-01 -0.400654      -2.363464    -0.224457
+25%   -0.013952    -1.714184e-13 -0.180938      -0.684618    -0.000346
+50%    0.002594     5.611445e-02 -0.124824      -0.003587     0.053564
+75%    0.027926     3.699462e-01  0.189008       0.004229     0.368536
+max    0.158967     2.717211e+00  2.536272       5.512368     2.712446
 
-       IAerrorTime  
-count  408.000000   
-mean   0.140369     
-std    0.267139     
-min   -0.261575     
-25%   -0.044412     
-50%    0.012660     
-75%    0.324148     
-max    2.651384     
+       IAerrorTime
+count  408.000000
+mean   0.140369
+std    0.267139
+min   -0.261575
+25%   -0.044412
+50%    0.012660
+75%    0.324148
+max    2.651384
 INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final
 INFO:root:Saving dataframe:
             X_0      X_1      X_2    ...          Y_4       Y_5       Y_6
@@ -335,7 +335,7 @@ INFO:root:Saving dataframe:
 76611         0.093294  26.139130
 64146         0.051898  26.003478
 16145         0.043300  25.410435
-predicted: 
+predicted:
 [0.040569812504349365, 25.836148199583963]
 [0.038238071018891664, 25.783074202733335]
 [0.14771804039325165, 25.271573489764886]
@@ -356,11 +356,11 @@ INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/d
 INFO:root:using custom estimator
 INFO:root:Train: ((7480, 14), (7480, 2))
 INFO:root:Test: ((408, 14), (408, 2))
-INFO:root:Means: 
+INFO:root:Means:
 LabelPosBalken     0.090439
 LabelTime         27.987676
 dtype: float64
-INFO:root:Stds: 
+INFO:root:Stds:
 LabelPosBalken     0.036109
 LabelTime         13.584922
 dtype: float64
@@ -373,44 +373,44 @@ INFO:root:getting optimal accel for 7480 examples
 INFO:root:Evaluation on 408 data points
 INFO:root:
        NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
-count  408.000000             4.080000e+02           4.080000e+02              
-mean   0.000063               4.268345e-05           4.238455e-05              
-std    0.000151               8.534531e-04           8.467463e-04              
-min   -0.000411              -2.557317e-03          -2.537413e-03              
-25%    0.000005              -2.015559e-04          -2.000179e-04              
-50%    0.000055              -2.081668e-16          -2.081668e-16              
-75%    0.000110               2.675761e-04           2.648621e-04              
-max    0.000962               2.871183e-03           2.845851e-03              
+count  408.000000             4.080000e+02           4.080000e+02
+mean   0.000063               4.268345e-05           4.238455e-05
+std    0.000151               8.534531e-04           8.467463e-04
+min   -0.000411              -2.557317e-03          -2.537413e-03
+25%    0.000005              -2.015559e-04          -2.000179e-04
+50%    0.000055              -2.081668e-16          -2.081668e-16
+75%    0.000110               2.675761e-04           2.648621e-04
+max    0.000962               2.871183e-03           2.845851e-03
 
-       CApixelErrorPosBalken  
-count  4.080000e+02           
-mean   4.171707e-05           
-std    2.719149e-03           
-min   -1.042233e-02           
-25%   -6.416271e-04           
-50%   -2.498002e-16           
-75%    7.736782e-04           
-max    1.184388e-02           
+       CApixelErrorPosBalken
+count  4.080000e+02
+mean   4.171707e-05
+std    2.719149e-03
+min   -1.042233e-02
+25%   -6.416271e-04
+50%   -2.498002e-16
+75%    7.736782e-04
+max    1.184388e-02
 INFO:root:
        NNerrorTime   CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
-count  408.000000   4.080000e+02  408.000000     408.000000   408.000000    
-mean   0.009782     1.856179e-01  0.004679      -0.242408     0.185515      
-std    0.042003     2.689916e-01  0.268992       0.797707     0.268989      
-min   -0.324128    -2.197151e-01 -0.400654      -2.363464    -0.224457      
-25%   -0.013952    -1.714184e-13 -0.180938      -0.684618    -0.000346      
-50%    0.002594     5.611445e-02 -0.124824      -0.003587     0.053564      
-75%    0.027926     3.699462e-01  0.189008       0.004229     0.368536      
-max    0.158967     2.717211e+00  2.536272       5.512368     2.712446      
+count  408.000000   4.080000e+02  408.000000     408.000000   408.000000
+mean   0.009782     1.856179e-01  0.004679      -0.242408     0.185515
+std    0.042003     2.689916e-01  0.268992       0.797707     0.268989
+min   -0.324128    -2.197151e-01 -0.400654      -2.363464    -0.224457
+25%   -0.013952    -1.714184e-13 -0.180938      -0.684618    -0.000346
+50%    0.002594     5.611445e-02 -0.124824      -0.003587     0.053564
+75%    0.027926     3.699462e-01  0.189008       0.004229     0.368536
+max    0.158967     2.717211e+00  2.536272       5.512368     2.712446
 
-       IAerrorTime  
-count  408.000000   
-mean   0.140369     
-std    0.267139     
-min   -0.261575     
-25%   -0.044412     
-50%    0.012660     
-75%    0.324148     
-max    2.651384     
+       IAerrorTime
+count  408.000000
+mean   0.140369
+std    0.267139
+min   -0.261575
+25%   -0.044412
+50%    0.012660
+75%    0.324148
+max    2.651384
 INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final
 INFO:root:Saving dataframe:
             X_0      X_1      X_2    ...          Y_4       Y_5       Y_6
@@ -437,7 +437,7 @@ INFO:root:Saving dataframe:
 142956        0.050151  25.798261
 44427         0.026937  26.135652
 80928         0.142010  25.252174
-predicted: 
+predicted:
 [0.12247744933683168, 25.260747878632287]
 [0.14259250768280435, 26.069712612014467]
 [0.05555183955458642, 25.32107356529187]
@@ -458,11 +458,11 @@ INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/d
 INFO:root:using custom estimator
 INFO:root:Train: ((7480, 14), (7480, 2))
 INFO:root:Test: ((408, 14), (408, 2))
-INFO:root:Means: 
+INFO:root:Means:
 LabelPosBalken     0.090439
 LabelTime         27.987676
 dtype: float64
-INFO:root:Stds: 
+INFO:root:Stds:
 LabelPosBalken     0.036109
 LabelTime         13.584922
 dtype: float64
@@ -475,44 +475,44 @@ INFO:root:getting optimal accel for 7480 examples
 INFO:root:Evaluation on 408 data points
 INFO:root:
        NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
-count  408.000000             4.080000e+02           4.080000e+02              
-mean   0.000063               4.268345e-05           4.238455e-05              
-std    0.000151               8.534531e-04           8.467463e-04              
-min   -0.000411              -2.557317e-03          -2.537413e-03              
-25%    0.000005              -2.015559e-04          -2.000179e-04              
-50%    0.000055              -2.081668e-16          -2.081668e-16              
-75%    0.000110               2.675761e-04           2.648621e-04              
-max    0.000962               2.871183e-03           2.845851e-03              
+count  408.000000             4.080000e+02           4.080000e+02
+mean   0.000063               4.268345e-05           4.238455e-05
+std    0.000151               8.534531e-04           8.467463e-04
+min   -0.000411              -2.557317e-03          -2.537413e-03
+25%    0.000005              -2.015559e-04          -2.000179e-04
+50%    0.000055              -2.081668e-16          -2.081668e-16
+75%    0.000110               2.675761e-04           2.648621e-04
+max    0.000962               2.871183e-03           2.845851e-03
 
-       CApixelErrorPosBalken  
-count  4.080000e+02           
-mean   4.171707e-05           
-std    2.719149e-03           
-min   -1.042233e-02           
-25%   -6.416271e-04           
-50%   -2.498002e-16           
-75%    7.736782e-04           
-max    1.184388e-02           
+       CApixelErrorPosBalken
+count  4.080000e+02
+mean   4.171707e-05
+std    2.719149e-03
+min   -1.042233e-02
+25%   -6.416271e-04
+50%   -2.498002e-16
+75%    7.736782e-04
+max    1.184388e-02
 INFO:root:
        NNerrorTime   CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
-count  408.000000   4.080000e+02  408.000000     408.000000   408.000000    
-mean   0.009782     1.856179e-01  0.004679      -0.242408     0.185515      
-std    0.042003     2.689916e-01  0.268992       0.797707     0.268989      
-min   -0.324128    -2.197151e-01 -0.400654      -2.363464    -0.224457      
-25%   -0.013952    -1.714184e-13 -0.180938      -0.684618    -0.000346      
-50%    0.002594     5.611445e-02 -0.124824      -0.003587     0.053564      
-75%    0.027926     3.699462e-01  0.189008       0.004229     0.368536      
-max    0.158967     2.717211e+00  2.536272       5.512368     2.712446      
+count  408.000000   4.080000e+02  408.000000     408.000000   408.000000
+mean   0.009782     1.856179e-01  0.004679      -0.242408     0.185515
+std    0.042003     2.689916e-01  0.268992       0.797707     0.268989
+min   -0.324128    -2.197151e-01 -0.400654      -2.363464    -0.224457
+25%   -0.013952    -1.714184e-13 -0.180938      -0.684618    -0.000346
+50%    0.002594     5.611445e-02 -0.124824      -0.003587     0.053564
+75%    0.027926     3.699462e-01  0.189008       0.004229     0.368536
+max    0.158967     2.717211e+00  2.536272       5.512368     2.712446
 
-       IAerrorTime  
-count  408.000000   
-mean   0.140369     
-std    0.267139     
-min   -0.261575     
-25%   -0.044412     
-50%    0.012660     
-75%    0.324148     
-max    2.651384     
+       IAerrorTime
+count  408.000000
+mean   0.140369
+std    0.267139
+min   -0.261575
+25%   -0.044412
+50%    0.012660
+75%    0.324148
+max    2.651384
 INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final
 INFO:root:Saving dataframe:
             X_0      X_1      X_2    ...          Y_4       Y_5       Y_6
@@ -539,7 +539,7 @@ INFO:root:Saving dataframe:
 176745        0.141472  25.784348
 107170        0.104340  25.194783
 76327         0.075357  25.322862
-predicted: 
+predicted:
 [0.05527247205446419, 26.134432066010767]
 [0.09863335679503461, 25.95793075797005]
 [0.12888304479375579, 25.652708767530406]
@@ -560,6 +560,121 @@ INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/d
 INFO:root:using custom estimator
 INFO:root:Train: ((7480, 14), (7480, 2))
 INFO:root:Test: ((408, 14), (408, 2))
+INFO:root:Means:
+LabelPosBalken     0.090439
+LabelTime         27.987676
+dtype: float64
+INFO:root:Stds:
+LabelPosBalken     0.036109
+LabelTime         13.584922
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.5269550203811377e-05
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final/simulated_Zylinder_highestLoss_2018-12-05_09.20.00.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final/simulated_Zylinder_2018-12-05_09.20.00.pdf
+INFO:root:getting optimal accel for 7480 examples
+INFO:root:Evaluation on 408 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  408.000000             4.080000e+02           4.080000e+02
+mean   0.000063               4.268345e-05           4.238455e-05
+std    0.000151               8.534531e-04           8.467463e-04
+min   -0.000411              -2.557317e-03          -2.537413e-03
+25%    0.000005              -2.015559e-04          -2.000179e-04
+50%    0.000055              -2.081668e-16          -2.081668e-16
+75%    0.000110               2.675761e-04           2.648621e-04
+max    0.000962               2.871183e-03           2.845851e-03
+
+       CApixelErrorPosBalken
+count  4.080000e+02
+mean   4.171707e-05
+std    2.719149e-03
+min   -1.042233e-02
+25%   -6.416271e-04
+50%   -2.498002e-16
+75%    7.736782e-04
+max    1.184388e-02
+INFO:root:
+       NNerrorTime   CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  408.000000   4.080000e+02  408.000000     408.000000   408.000000
+mean   0.009782     1.856179e-01  0.004679      -0.242408     0.185515
+std    0.042003     2.689916e-01  0.268992       0.797707     0.268989
+min   -0.324128    -2.197151e-01 -0.400654      -2.363464    -0.224457
+25%   -0.013952    -1.714184e-13 -0.180938      -0.684618    -0.000346
+50%    0.002594     5.611445e-02 -0.124824      -0.003587     0.053564
+75%    0.027926     3.699462e-01  0.189008       0.004229     0.368536
+max    0.158967     2.717211e+00  2.536272       5.512368     2.712446
+
+       IAerrorTime
+count  408.000000
+mean   0.140369
+std    0.267139
+min   -0.261575
+25%   -0.044412
+50%    0.012660
+75%    0.324148
+max    2.651384
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final
+INFO:root:Saving dataframe:
+            X_0      X_1      X_2    ...          Y_4       Y_5       Y_6
+145176  0.51941  0.52501  0.53064    ...     0.101110  0.101110  0.101110
+44100   0.51627  0.52196  0.52768    ...     0.149560  0.149560  0.149560
+10876   0.51732  0.52300  0.52871    ...     0.061604  0.061604  0.061604
+157491  0.51674  0.52232  0.52790    ...     0.160140  0.160130  0.160120
+92812   0.51884  0.52431  0.52979    ...     0.050630  0.050696  0.050758
+152733  0.52013  0.52588  0.53164    ...     0.056751  0.056794  0.056844
+102554  0.51837  0.52403  0.52968    ...     0.063256  0.063196  0.063143
+191898  0.52109  0.52684  0.53259    ...     0.067564  0.067564  0.067564
+2796    0.51613  0.52177  0.52746    ...     0.042020  0.042020  0.042019
+107170  0.52193  0.52750  0.53309    ...     0.104650  0.104590  0.104540
+
+[10 rows x 14 columns]
+        LabelPosBalken  LabelTime
+145176        0.101110  25.474783
+44100         0.149560  25.968696
+10876         0.061604  25.791304
+157491        0.160100  26.060870
+92812         0.051133  25.967014
+152733        0.056827  25.273043
+102554        0.062975  25.685217
+191898        0.067564  25.114783
+2796          0.042019  26.012174
+107170        0.104340  25.194783
+predicted:
+[0.10124337887316029, 25.5126276509948]
+[0.14957822761775574, 25.96476159349229]
+[0.06165917469231223, 25.782106582006797]
+[0.15998579910289445, 26.098551960718712]
+[0.05104333882518719, 25.884333687454433]
+[0.056989402724206085, 25.244745699043822]
+[0.06296134147751212, 25.707341888823674]
+[0.06761869687313593, 25.10421032708764]
+[0.04207376527264985, 26.009797860516993]
+[0.10417331978476567, 25.210500225000054]
+time: 0.21s
+MSE (tensorflow): 7.03438763594022e-06
+INFO:root:Tensorflow 1.11.0
+usage: DNNRegressor-Example.py [-h] [--training] [--plot] [--single] [--fake]
+                               [--plotNo PLOTNO] [--hyperparams HYPERPARAMS]
+                               [--save [SAVE [SAVE ...]]]
+                               [--load [LOAD [LOAD ...]]] [--dispWeights]
+                               [--overrideModel OVERRIDEMODEL]
+                               [--overrideInput OVERRIDEINPUT]
+                               [--progressPlot] [--debug]
+                               [--tensorboard_debug_address TENSORBOARD_DEBUG_ADDRESS]
+                               [--lossAna] [--custom]
+                               [--separator [SEPARATOR [SEPARATOR ...]]]
+                               [--augment] [--filter] [--target TARGET]
+DNNRegressor-Example.py: error: argument --overrideModel: expected one argument
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Zylinder-Separator-FS7-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Sim-Zylinder-final.json', '--overrideModel', '/home/hornberger/MasterarbeitTobias/models/final/simulated/separator-Final/simulated_Zylinder']
+INFO:root:time: 2018-12-07_13.12.06
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/simulated/separator-Final/simulated_Zylinder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Zylinder-Separator-FS7-Augm-Filtered.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((7480, 14), (7480, 2))
+INFO:root:Test: ((408, 14), (408, 2))
 INFO:root:Means: 
 LabelPosBalken     0.090439
 LabelTime         27.987676
@@ -571,9 +686,11 @@ dtype: float64
 INFO:root:No training today, just prediction
 INFO:root:Error on whole Test set:
 MSE (tensorflow): 1.5269550203811377e-05
-INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final/simulated_Zylinder_highestLoss_2018-12-05_09.20.00.pdf
-INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final/simulated_Zylinder_2018-12-05_09.20.00.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final/simulated_Zylinder_highestLoss_2018-12-07_13.12.06.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final/simulated_Zylinder_2018-12-07_13.12.06.pdf
+INFO:root:Median Accel: 1.1102230246251565e-16
 INFO:root:getting optimal accel for 7480 examples
+INFO:root:optimal Accel: 7.753509457563246e-07
 INFO:root:Evaluation on 408 data points
 INFO:root:
        NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
@@ -618,39 +735,143 @@ max    2.651384
 INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final
 INFO:root:Saving dataframe:
             X_0      X_1      X_2    ...          Y_4       Y_5       Y_6
-145176  0.51941  0.52501  0.53064    ...     0.101110  0.101110  0.101110
-44100   0.51627  0.52196  0.52768    ...     0.149560  0.149560  0.149560
-10876   0.51732  0.52300  0.52871    ...     0.061604  0.061604  0.061604
-157491  0.51674  0.52232  0.52790    ...     0.160140  0.160130  0.160120
-92812   0.51884  0.52431  0.52979    ...     0.050630  0.050696  0.050758
-152733  0.52013  0.52588  0.53164    ...     0.056751  0.056794  0.056844
-102554  0.51837  0.52403  0.52968    ...     0.063256  0.063196  0.063143
-191898  0.52109  0.52684  0.53259    ...     0.067564  0.067564  0.067564
-2796    0.51613  0.52177  0.52746    ...     0.042020  0.042020  0.042019
-107170  0.52193  0.52750  0.53309    ...     0.104650  0.104590  0.104540
+72      0.51723  0.52293  0.52866    ...     0.038178  0.038177  0.038177
+143284  0.51702  0.52261  0.52820    ...     0.099226  0.099348  0.099448
+41003   0.51673  0.52238  0.52806    ...     0.107450  0.107450  0.107450
+81601   0.51941  0.52515  0.53090    ...     0.030651  0.030647  0.030640
+122921  0.51911  0.52476  0.53045    ...     0.050004  0.050014  0.050031
+194302  0.52141  0.52688  0.53236    ...     0.140850  0.140820  0.140790
+137185  0.51883  0.52446  0.53010    ...     0.122280  0.122340  0.122390
+185001  0.51775  0.52344  0.52914    ...     0.066318  0.066393  0.066436
+73406   0.51781  0.52338  0.52899    ...     0.051509  0.051524  0.051535
+167542  0.51834  0.52408  0.52984    ...     0.139070  0.139110  0.139130
 
 [10 rows x 14 columns]
         LabelPosBalken  LabelTime
-145176        0.101110  25.474783
-44100         0.149560  25.968696
-10876         0.061604  25.791304
-157491        0.160100  26.060870
-92812         0.051133  25.967014
-152733        0.056827  25.273043
-102554        0.062975  25.685217
-191898        0.067564  25.114783
-2796          0.042019  26.012174
-107170        0.104340  25.194783
+72            0.038177  25.798261
+143284        0.099880  26.040000
+41003         0.107450  25.907826
+81601         0.030615  25.384348
+122921        0.050106  25.473043
+194302        0.140610  25.528696
+137185        0.122470  25.619130
+185001        0.066341  25.732174
+73406         0.051586  25.899130
+167542        0.139110  25.580870
 predicted: 
-[0.10124337887316029, 25.5126276509948]
-[0.14957822761775574, 25.96476159349229]
-[0.06165917469231223, 25.782106582006797]
-[0.15998579910289445, 26.098551960718712]
-[0.05104333882518719, 25.884333687454433]
-[0.056989402724206085, 25.244745699043822]
-[0.06296134147751212, 25.707341888823674]
-[0.06761869687313593, 25.10421032708764]
-[0.04207376527264985, 26.009797860516993]
-[0.10417331978476567, 25.210500225000054]
+[0.038238071018891664, 25.783074202733335]
+[0.10023097085380366, 26.033192014676647]
+[0.10746248468614686, 25.912734367933908]
+[0.030696117046986597, 25.38165229084437]
+[0.050121981366116924, 25.486268285872317]
+[0.14059172413643597, 25.470553558466214]
+[0.122857935819163, 25.649067436645687]
+[0.06667693138142963, 25.736564237196248]
+[0.051627918547630915, 25.889030089307088]
+[0.13931102000694656, 25.556774233271987]
 time: 0.21s
-MSE (tensorflow): 7.03438763594022e-06
+MSE (tensorflow): 1.8342554540140554e-05
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Zylinder-Separator-FS7-Augm-Filtered.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Sim-Zylinder-final.json', '--overrideModel', '../models/final/simulated/separator-Final/simulated_Zylinder']
+INFO:root:time: 2018-12-07_17.50.58
+INFO:root:Saving to ../models/final/simulated/separator-Final/simulated_Zylinder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/simulated/downsampled/h5/Zylinder-Separator-FS7-Augm-Filtered.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((7480, 14), (7480, 2))
+INFO:root:Test: ((408, 14), (408, 2))
+INFO:root:Means: 
+LabelPosBalken     0.090439
+LabelTime         27.987676
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken     0.036109
+LabelTime         13.584922
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 1.5269550203811377e-05
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final/simulated_Zylinder_highestLoss_2018-12-07_17.50.58.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final/simulated_Zylinder_2018-12-07_17.50.58.pdf
+INFO:root:Median Accel: 1.1102230246251565e-16
+INFO:root:getting optimal accel for 7480 examples
+INFO:root:optimal Accel: 7.753509457563246e-07
+INFO:root:Evaluation on 408 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  408.000000             4.080000e+02           4.080000e+02              
+mean   0.000063               4.268345e-05           4.238455e-05              
+std    0.000151               8.534531e-04           8.467463e-04              
+min   -0.000411              -2.557317e-03          -2.537413e-03              
+25%    0.000005              -2.015559e-04          -2.000179e-04              
+50%    0.000055              -2.081668e-16          -2.081668e-16              
+75%    0.000110               2.675761e-04           2.648621e-04              
+max    0.000962               2.871183e-03           2.845851e-03              
+
+       CApixelErrorPosBalken  
+count  4.080000e+02           
+mean   4.171707e-05           
+std    2.719149e-03           
+min   -1.042233e-02           
+25%   -6.416271e-04           
+50%   -2.498002e-16           
+75%    7.736782e-04           
+max    1.184388e-02           
+INFO:root:
+       NNerrorTime   CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  408.000000   4.080000e+02  408.000000     408.000000   408.000000    
+mean   0.009782     1.856179e-01  0.004679      -0.242408     0.185515      
+std    0.042003     2.689916e-01  0.268992       0.797707     0.268989      
+min   -0.324128    -2.197151e-01 -0.400654      -2.363464    -0.224457      
+25%   -0.013952    -1.714184e-13 -0.180938      -0.684618    -0.000346      
+50%    0.002594     5.611445e-02 -0.124824      -0.003587     0.053564      
+75%    0.027926     3.699462e-01  0.189008       0.004229     0.368536      
+max    0.158967     2.717211e+00  2.536272       5.512368     2.712446      
+
+       IAerrorTime  
+count  408.000000   
+mean   0.140369     
+std    0.267139     
+min   -0.261575     
+25%   -0.044412     
+50%    0.012660     
+75%    0.324148     
+max    2.651384     
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Sim-Zylinder-Final
+INFO:root:Saving dataframe:
+            X_0      X_1      X_2    ...          Y_4       Y_5       Y_6
+2796    0.51613  0.52177  0.52746    ...     0.042020  0.042020  0.042019
+11545   0.51969  0.52521  0.53076    ...     0.075281  0.075320  0.075358
+123201  0.51922  0.52497  0.53072    ...     0.039587  0.039587  0.039587
+184670  0.51820  0.52395  0.52970    ...     0.041300  0.041285  0.041258
+30753   0.51940  0.52516  0.53093    ...     0.044297  0.044304  0.044319
+81601   0.51941  0.52515  0.53090    ...     0.030651  0.030647  0.030640
+186787  0.51804  0.52365  0.52928    ...     0.060159  0.060079  0.060005
+140052  0.51696  0.52268  0.52840    ...     0.139800  0.139790  0.139770
+102741  0.51866  0.52441  0.53016    ...     0.053204  0.053204  0.053204
+99635   0.51906  0.52467  0.53029    ...     0.128610  0.128630  0.128650
+
+[10 rows x 14 columns]
+        LabelPosBalken  LabelTime
+2796          0.042019  26.012174
+11545         0.075538  25.681739
+123201        0.039587  25.440000
+184670        0.041266  25.617391
+30753         0.044314  25.398261
+81601         0.030615  25.384348
+186787        0.059748  25.808696
+140052        0.139700  25.880000
+102741        0.053204  25.537391
+99635         0.128710  25.627826
+predicted: 
+[0.04207376527264985, 26.009797860516993]
+[0.07549258592469316, 25.651228186360136]
+[0.039646651424592644, 25.423951486772104]
+[0.041401019061184506, 25.594228847771365]
+[0.044326711348404366, 25.373357068641006]
+[0.030696117046986597, 25.38165229084437]
+[0.05969077237891256, 25.82997364573441]
+[0.1397308805189176, 25.86275776956377]
+[0.05326260583590386, 25.518894108570265]
+[0.12888304479375579, 25.652708767530406]
+time: 0.20s
+MSE (tensorflow): 3.832777110801544e-06

@@ -1,0 +1,632 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--filter', '--save', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Weizen-final.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 4: Not enough elements for features
+WARNING:root:skipping track 5: Not enough elements for features
+WARNING:root:skipping track 95: NaN values in track
+WARNING:root:skipping track 96: NaN values in track
+WARNING:root:skipping track 132: highest Value smaller than separator
+WARNING:root:skipping track 133: highest Value smaller than separator
+WARNING:root:skipping track 191: highest Value smaller than separator
+WARNING:root:skipping track 223: NaN values in track
+WARNING:root:skipping track 236: NaN values in track
+WARNING:root:skipping track 349: NaN values in track
+WARNING:root:skipping track 351: highest Value smaller than separator
+WARNING:root:skipping track 492: NaN values in track
+WARNING:root:skipping track 516: NaN values in track
+WARNING:root:skipping track 517: NaN values in track
+WARNING:root:skipping track 542: NaN values in track
+WARNING:root:skipping track 585: highest Value smaller than separator
+WARNING:root:skipping track 586: highest Value smaller than separator
+WARNING:root:skipping track 866: NaN values in track
+WARNING:root:skipping track 868: NaN values in track
+WARNING:root:skipping track 989: highest Value smaller than separator
+WARNING:root:skipping track 992: highest Value smaller than separator
+WARNING:root:skipping track 1017: highest Value smaller than separator
+WARNING:root:skipping track 1288: NaN values in track
+WARNING:root:skipping track 1302: highest Value smaller than separator
+WARNING:root:skipping track 1303: highest Value smaller than separator
+WARNING:root:skipping track 1312: highest Value smaller than separator
+WARNING:root:skipping track 1408: highest Value smaller than separator
+WARNING:root:skipping track 1434: NaN values in track
+WARNING:root:skipping track 1446: NaN values in track
+WARNING:root:skipping track 1447: NaN values in track
+WARNING:root:skipping track 1505: highest Value smaller than separator
+WARNING:root:skipping track 1553: NaN values in track
+WARNING:root:skipping track 1562: Not enough elements for features
+WARNING:root:skipping track 1563: Not enough elements for features
+WARNING:root:skipping track 1632: NaN values in track
+WARNING:root:skipping track 1726: highest Value smaller than separator
+WARNING:root:skipping track 1728: highest Value smaller than separator
+WARNING:root:skipping track 1766: NaN values in track
+WARNING:root:skipping track 1817: NaN values in track
+WARNING:root:skipping track 1845: highest Value smaller than separator
+WARNING:root:skipping track 1961: Not enough elements for features
+WARNING:root:skipping track 2161: NaN values in track
+WARNING:root:skipping track 2163: NaN values in track
+WARNING:root:skipping track 2173: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_002_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 1: Not enough elements for features
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_003_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 43: highest Value smaller than separator
+WARNING:root:skipping track 45: highest Value smaller than separator
+WARNING:root:skipping track 49: Not enough elements for features
+WARNING:root:skipping track 316: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_004_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 168: NaN values in track
+WARNING:root:skipping track 481: NaN values in track
+WARNING:root:skipping track 482: NaN values in track
+WARNING:root:skipping track 605: NaN values in track
+WARNING:root:skipping track 721: NaN values in track
+WARNING:root:skipping track 914: highest Value smaller than separator
+WARNING:root:skipping track 915: highest Value smaller than separator
+WARNING:root:skipping track 916: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_005_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 103: highest Value smaller than separator
+WARNING:root:skipping track 141: highest Value smaller than separator
+WARNING:root:skipping track 222: NaN values in track
+WARNING:root:skipping track 223: NaN values in track
+WARNING:root:skipping track 393: NaN values in track
+WARNING:root:skipping track 394: NaN values in track
+WARNING:root:skipping track 541: highest Value smaller than separator
+WARNING:root:skipping track 871: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_006_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 51: highest Value smaller than separator
+WARNING:root:skipping track 109: highest Value smaller than separator
+WARNING:root:skipping track 466: NaN values in track
+WARNING:root:skipping track 467: NaN values in track
+WARNING:root:skipping track 646: highest Value smaller than separator
+WARNING:root:skipping track 716: highest Value smaller than separator
+WARNING:root:skipping track 717: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_007_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 183: highest Value smaller than separator
+WARNING:root:skipping track 316: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_008_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 32: NaN values in track
+WARNING:root:skipping track 210: highest Value smaller than separator
+WARNING:root:skipping track 775: NaN values in track
+WARNING:root:skipping track 873: highest Value smaller than separator
+WARNING:root:skipping track 874: highest Value smaller than separator
+WARNING:root:skipping track 875: highest Value smaller than separator
+WARNING:root:skipping track 876: highest Value smaller than separator
+WARNING:root:skipping track 877: highest Value smaller than separator
+WARNING:root:skipping track 878: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_009_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 102: highest Value smaller than separator
+WARNING:root:skipping track 219: Not enough elements for features
+WARNING:root:skipping track 220: Not enough elements for features
+WARNING:root:skipping track 351: NaN values in track
+WARNING:root:skipping track 437: NaN values in track
+WARNING:root:skipping track 694: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_010_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 131: highest Value smaller than separator
+WARNING:root:skipping track 132: highest Value smaller than separator
+WARNING:root:skipping track 532: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_011_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 2: Not enough elements for features
+WARNING:root:skipping track 335: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_012_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 168: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/weizen_013_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 266: highest Value smaller than separator
+INFO:root:applying augmentation to Training Set...
+INFO:root:Augmented. Original Size: 7495. Increased by 7472
+INFO:root:done!
+INFO:root:time: 2018-12-06_23.31.47
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Weizen_final
+INFO:root:model folder /home/hornberger/MasterarbeitTobias/models/final/real/Real_Weizen_final does not exist. Creating folder
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/final/real/Real_Weizen_final does not exist. Creating folder
+INFO:root:storing data in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenSeparatorFinal-FS7-filterAugm-750Distance.h5
+INFO:root:using custom estimator
+INFO:root:Train: ((14967, 14), (14967, 2))
+INFO:root:Test: ((810, 14), (810, 2))
+INFO:root:Means: 
+LabelPosBalken    1157.864359
+LabelTime          744.165645
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    485.177818
+LabelTime         335.757078
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.012871608, 'loss': 1.1584448, 'rmse': 0.11345311, 'global_step': 5000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.0012494186, 'loss': 0.11244767, 'rmse': 0.035347115, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.0005813101, 'loss': 0.052317906, 'rmse': 0.024110373, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.0008282173, 'loss': 0.07453956, 'rmse': 0.028778765, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.00046079306, 'loss': 0.041471377, 'rmse': 0.021466091, 'global_step': 205000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.0005339704, 'loss': 0.048057336, 'rmse': 0.0231078, 'global_step': 255000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.00032480064, 'loss': 0.029232059, 'rmse': 0.018022226, 'global_step': 305000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.00039407192, 'loss': 0.035466474, 'rmse': 0.019851245, 'global_step': 355000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.0003572755, 'loss': 0.032154795, 'rmse': 0.018901734, 'global_step': 405000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.0003329219, 'loss': 0.02996297, 'rmse': 0.018246148, 'global_step': 455000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.00034211538, 'loss': 0.030790385, 'rmse': 0.01849636, 'global_step': 505000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.0003557476, 'loss': 0.032017283, 'rmse': 0.018861271, 'global_step': 555000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.0002570748, 'loss': 0.023136731, 'rmse': 0.016033553, 'global_step': 605000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.00031430597, 'loss': 0.028287537, 'rmse': 0.017728677, 'global_step': 655000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.00027462473, 'loss': 0.024716226, 'rmse': 0.016571805, 'global_step': 705000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.00027593042, 'loss': 0.024833737, 'rmse': 0.016611153, 'global_step': 755000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.00032209198, 'loss': 0.02898828, 'rmse': 0.017946921, 'global_step': 805000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.00024346613, 'loss': 0.021911953, 'rmse': 0.015603401, 'global_step': 855000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.00024621497, 'loss': 0.022159347, 'rmse': 0.01569124, 'global_step': 905000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.00031966867, 'loss': 0.028770182, 'rmse': 0.017879281, 'global_step': 955000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.000309888, 'loss': 0.02788992, 'rmse': 0.017603636, 'global_step': 1005000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 0.00025966094, 'loss': 0.023369484, 'rmse': 0.016113998, 'global_step': 1055000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.00025717114, 'loss': 0.023145402, 'rmse': 0.016036557, 'global_step': 1105000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.00025840336, 'loss': 0.023256302, 'rmse': 0.01607493, 'global_step': 1155000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.00027657064, 'loss': 0.024891354, 'rmse': 0.016630413, 'global_step': 1205000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.00033154959, 'loss': 0.029839464, 'rmse': 0.018208504, 'global_step': 1255000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.00027366175, 'loss': 0.024629556, 'rmse': 0.016542725, 'global_step': 1305000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.0002986695, 'loss': 0.026880255, 'rmse': 0.017282058, 'global_step': 1355000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.000266184, 'loss': 0.023956561, 'rmse': 0.016315147, 'global_step': 1405000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 0.0002410439, 'loss': 0.021693952, 'rmse': 0.015525589, 'global_step': 1455000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.00022567563, 'loss': 0.020310806, 'rmse': 0.015022504, 'global_step': 1505000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.00027813707, 'loss': 0.025032334, 'rmse': 0.016677441, 'global_step': 1555000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 0.00024568595, 'loss': 0.022111736, 'rmse': 0.015674373, 'global_step': 1605000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 0.00024879345, 'loss': 0.022391412, 'rmse': 0.015773188, 'global_step': 1655000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 0.00026912635, 'loss': 0.024221372, 'rmse': 0.01640507, 'global_step': 1705000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 0.00023300585, 'loss': 0.020970527, 'rmse': 0.015264529, 'global_step': 1755000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 0.00025229072, 'loss': 0.022706164, 'rmse': 0.015883662, 'global_step': 1805000}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 0.00022757945, 'loss': 0.02048215, 'rmse': 0.015085737, 'global_step': 1855000}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 0.00023956511, 'loss': 0.021560859, 'rmse': 0.015477891, 'global_step': 1905000}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 0.000238569, 'loss': 0.02147121, 'rmse': 0.015445679, 'global_step': 1955000}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 0.00023159219, 'loss': 0.020843297, 'rmse': 0.015218154, 'global_step': 2005000}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 0.00023839698, 'loss': 0.021455728, 'rmse': 0.015440109, 'global_step': 2055000}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 0.0002376171, 'loss': 0.02138554, 'rmse': 0.015414834, 'global_step': 2105000}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 0.00023817252, 'loss': 0.021435527, 'rmse': 0.015432839, 'global_step': 2155000}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 0.00022693576, 'loss': 0.020424219, 'rmse': 0.015064388, 'global_step': 2205000}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 0.00021998124, 'loss': 0.019798312, 'rmse': 0.014831765, 'global_step': 2255000}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 0.00024277983, 'loss': 0.021850185, 'rmse': 0.015581394, 'global_step': 2305000}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 0.00023327762, 'loss': 0.020994985, 'rmse': 0.0152734285, 'global_step': 2355000}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 0.0002237163, 'loss': 0.020134468, 'rmse': 0.014957149, 'global_step': 2405000}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 0.00022822375, 'loss': 0.020540137, 'rmse': 0.015107077, 'global_step': 2455000}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 0.00023240849, 'loss': 0.020916766, 'rmse': 0.01524495, 'global_step': 2505000}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 0.00026280415, 'loss': 0.023652373, 'rmse': 0.016211236, 'global_step': 2555000}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 0.00022755338, 'loss': 0.020479804, 'rmse': 0.015084872, 'global_step': 2605000}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 0.00023198366, 'loss': 0.020878531, 'rmse': 0.01523101, 'global_step': 2655000}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 0.00022723908, 'loss': 0.020451518, 'rmse': 0.015074451, 'global_step': 2705000}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 0.00022001879, 'loss': 0.019801691, 'rmse': 0.01483303, 'global_step': 2755000}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 0.00022181195, 'loss': 0.019963076, 'rmse': 0.014893352, 'global_step': 2805000}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 0.00023617542, 'loss': 0.021255787, 'rmse': 0.015368, 'global_step': 2855000}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 0.00022721091, 'loss': 0.020448983, 'rmse': 0.015073517, 'global_step': 2905000}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 0.00022413726, 'loss': 0.020172352, 'rmse': 0.014971214, 'global_step': 2955000}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 0.00022244528, 'loss': 0.02002007, 'rmse': 0.014914599, 'global_step': 3005000}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 0.0002560153, 'loss': 0.023041375, 'rmse': 0.016000478, 'global_step': 3055000}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 0.00024407197, 'loss': 0.021966478, 'rmse': 0.015622803, 'global_step': 3105000}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 0.0002288766, 'loss': 0.020598894, 'rmse': 0.015128668, 'global_step': 3155000}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 0.00022412228, 'loss': 0.020171005, 'rmse': 0.014970714, 'global_step': 3205000}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 0.0002499443, 'loss': 0.022494989, 'rmse': 0.015809627, 'global_step': 3255000}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 0.00021743905, 'loss': 0.019569514, 'rmse': 0.014745815, 'global_step': 3305000}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 0.00023899126, 'loss': 0.021509213, 'rmse': 0.015459342, 'global_step': 3355000}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 0.00027333433, 'loss': 0.024600085, 'rmse': 0.016532825, 'global_step': 3405000}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 0.00021598642, 'loss': 0.019438779, 'rmse': 0.014696477, 'global_step': 3455000}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 0.0002480027, 'loss': 0.022320244, 'rmse': 0.015748102, 'global_step': 3505000}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 0.0002170006, 'loss': 0.019530054, 'rmse': 0.014730941, 'global_step': 3555000}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 0.00023106251, 'loss': 0.020795628, 'rmse': 0.015200741, 'global_step': 3605000}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 0.0002146895, 'loss': 0.019322054, 'rmse': 0.014652287, 'global_step': 3655000}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 0.00022030907, 'loss': 0.019827817, 'rmse': 0.014842812, 'global_step': 3705000}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 0.00022326557, 'loss': 0.020093901, 'rmse': 0.014942074, 'global_step': 3755000}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 0.00022924016, 'loss': 0.020631615, 'rmse': 0.015140679, 'global_step': 3805000}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 0.00022106351, 'loss': 0.019895716, 'rmse': 0.0148682045, 'global_step': 3855000}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 0.00022243739, 'loss': 0.020019365, 'rmse': 0.014914335, 'global_step': 3905000}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 0.00021861354, 'loss': 0.019675218, 'rmse': 0.014785586, 'global_step': 3955000}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 0.00021836587, 'loss': 0.019652925, 'rmse': 0.014777208, 'global_step': 4005000}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 0.0002344817, 'loss': 0.021103354, 'rmse': 0.0153127955, 'global_step': 4055000}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 0.00024127384, 'loss': 0.021714646, 'rmse': 0.015532992, 'global_step': 4105000}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 0.00022243152, 'loss': 0.020018838, 'rmse': 0.014914138, 'global_step': 4155000}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 0.00021953642, 'loss': 0.019758277, 'rmse': 0.014816762, 'global_step': 4205000}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 0.00022406435, 'loss': 0.020165792, 'rmse': 0.014968779, 'global_step': 4255000}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 0.00023201089, 'loss': 0.02088098, 'rmse': 0.015231904, 'global_step': 4305000}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 0.00022319912, 'loss': 0.02008792, 'rmse': 0.01493985, 'global_step': 4355000}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 0.00021800079, 'loss': 0.01962007, 'rmse': 0.01476485, 'global_step': 4405000}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 0.00021876418, 'loss': 0.019688778, 'rmse': 0.014790678, 'global_step': 4455000}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 0.00021642023, 'loss': 0.019477822, 'rmse': 0.014711228, 'global_step': 4505000}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 0.00021182564, 'loss': 0.019064307, 'rmse': 0.0145542305, 'global_step': 4555000}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 0.00022722891, 'loss': 0.020450601, 'rmse': 0.015074114, 'global_step': 4605000}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 0.00022345531, 'loss': 0.020110978, 'rmse': 0.014948422, 'global_step': 4655000}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 0.00021039041, 'loss': 0.018935136, 'rmse': 0.014504841, 'global_step': 4705000}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 0.0002230547, 'loss': 0.020074924, 'rmse': 0.014935016, 'global_step': 4755000}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 0.00021811288, 'loss': 0.01963016, 'rmse': 0.014768645, 'global_step': 4805000}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 0.00022419041, 'loss': 0.020177137, 'rmse': 0.014972989, 'global_step': 4855000}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 0.00021673719, 'loss': 0.019506346, 'rmse': 0.014721997, 'global_step': 4905000}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 0.00022103616, 'loss': 0.019893251, 'rmse': 0.014867284, 'global_step': 4955000}
+INFO:root:Training completed. final average loss: 0.0002157685230486095, best average loss during training: 0.00021039041166659445
+INFO:root:Total Training time: 2h 57min 54s
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Weizen-final.json']
+INFO:root:time: 2018-12-07_09.35.57
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Weizen_final
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenSeparatorFinal-FS7-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((14967, 14), (14967, 2))
+INFO:root:Test: ((810, 14), (810, 2))
+INFO:root:Means: 
+LabelPosBalken    1157.864359
+LabelTime          744.165645
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    485.177818
+LabelTime         335.757078
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0002157685230486095
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Weizen-Final/Real_Weizen_final_highestLoss_2018-12-07_09.35.57.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Weizen-Final/Real_Weizen_final_2018-12-07_09.35.57.pdf
+INFO:root:Median Accel: 0.017999999999915417
+INFO:root:getting optimal accel for 14967 examples
+INFO:root:optimal Accel: -0.17244540092163435
+INFO:root:Evaluation on 810 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  810.000000             810.000000             810.000000                
+mean  -1.234329              -0.256805              -0.247543                  
+std    3.786139               4.812409               4.824744                  
+min   -22.377275             -22.111208             -22.150684                 
+25%   -2.006876              -2.428704              -2.423884                  
+50%   -1.208856              -0.217523              -0.205613                  
+75%   -0.294795               1.870560               1.883254                  
+max    40.649782              29.077361              29.177293                 
+
+       CApixelErrorPosBalken  
+count  810.000000             
+mean  -0.592906               
+std    16.623321              
+min   -63.465031              
+25%   -9.565504               
+50%   -1.017763               
+75%    8.824444               
+max    125.025289             
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  810.000000   810.000000   810.000000     810.000000   810.000000    
+mean  -0.982017    -2.954054     0.300311       0.750522    -3.884320      
+std    6.336198     9.476848     9.476848       44.849961    9.452678      
+min   -28.209218   -49.193301   -45.938937     -114.793287  -50.034513     
+25%   -4.505477    -8.805627    -5.551262      -31.301298   -9.665181      
+50%   -0.734431    -2.984552     0.269812      -3.506882    -3.917681      
+75%    2.398706     3.176582     6.430947       30.216593    2.279845      
+max    32.181500    38.130165    41.384530      244.849265   37.026849     
+
+       IAerrorTime  
+count  810.000000   
+mean   6.158159     
+std    9.739624     
+min   -40.966033    
+25%    0.101622     
+50%    6.115123     
+75%    12.336933    
+max    48.962015    
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Real-Weizen-Final
+INFO:root:Saving dataframe:
+             X_0        X_1        X_2    ...          Y_4       Y_5       Y_6
+13809   770.6921   770.8354   771.4711    ...     698.6634  778.1534  857.9296
+49955   893.5936   893.9260   894.3000    ...     684.0387  762.5577  842.3162
+28744   607.1548   607.5863   607.7418    ...     679.0285  757.6673  837.1388
+54697  1710.6517  1710.8762  1710.8399    ...     704.5437  783.5103  862.3272
+61477  2067.5556  2068.0515  2068.4485    ...     713.6146  791.0855  869.1752
+6339    202.6344   202.7558   202.4805    ...     649.7690  727.9676  805.2773
+9878   1104.7373  1104.7745  1105.2816    ...     700.4586  778.6343  857.5767
+69060  1639.1791  1639.9004  1640.2363    ...     675.2650  753.5846  832.4730
+43218   939.5113   937.2239   935.7031    ...     694.8436  770.1839  846.3836
+6781    633.2051   633.2299   633.4648    ...     679.0070  756.8055  835.5151
+
+[10 rows x 14 columns]
+       LabelPosBalken   LabelTime
+13809      776.089342  884.690773
+49955      899.250528  899.881595
+28744      612.370733  909.406793
+54697     1713.350709  870.909063
+61477     2069.032463  879.008120
+6339       208.211373  947.710728
+9878      1109.269924  882.074840
+69060     1642.572177  913.110183
+43218      926.986782  918.135123
+6781       639.071822  915.040476
+predicted: 
+[778.2332344059213, 879.2096173424093]
+[897.9977081679358, 898.7870628900357]
+[611.1939573437372, 906.0405391661527]
+[1710.2551399301856, 873.5083246311344]
+[2068.6841767449114, 871.6428225272108]
+[207.11905829610146, 953.8192949050589]
+[1108.4939795930384, 881.4151749276867]
+[1641.576337881232, 913.3754270299665]
+[931.1469827778054, 904.8058367781111]
+[638.502665029377, 910.5415513012932]
+time: 0.20s
+MSE (tensorflow): 0.00015849355258978903
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Weizen-final.json']
+INFO:root:time: 2018-12-07_17.19.07
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Weizen_final
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenSeparatorFinal-FS7-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((14967, 14), (14967, 2))
+INFO:root:Test: ((810, 14), (810, 2))
+INFO:root:Means: 
+LabelPosBalken    1157.864359
+LabelTime          744.165645
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    485.177818
+LabelTime         335.757078
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0002157685230486095
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Weizen-Final/Real_Weizen_final_highestLoss_2018-12-07_17.19.07.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Weizen-Final/Real_Weizen_final_2018-12-07_17.19.07.pdf
+INFO:root:Median Accel: 0.017999999999915417
+INFO:root:getting optimal accel for 14967 examples
+INFO:root:optimal Accel: -0.17244540092163435
+INFO:root:Evaluation on 810 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  810.000000             810.000000             810.000000                
+mean  -1.234329              -0.256805              -0.247543                  
+std    3.786139               4.812409               4.824744                  
+min   -22.377275             -22.111208             -22.150684                 
+25%   -2.006876              -2.428704              -2.423884                  
+50%   -1.208856              -0.217523              -0.205613                  
+75%   -0.294795               1.870560               1.883254                  
+max    40.649782              29.077361              29.177293                 
+
+       CApixelErrorPosBalken  
+count  810.000000             
+mean  -0.592906               
+std    16.623321              
+min   -63.465031              
+25%   -9.565504               
+50%   -1.017763               
+75%    8.824444               
+max    125.025289             
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  810.000000   810.000000   810.000000     810.000000   810.000000    
+mean  -0.982017    -2.954054     0.300311       0.750522    -3.884320      
+std    6.336198     9.476848     9.476848       44.849961    9.452678      
+min   -28.209218   -49.193301   -45.938937     -114.793287  -50.034513     
+25%   -4.505477    -8.805627    -5.551262      -31.301298   -9.665181      
+50%   -0.734431    -2.984552     0.269812      -3.506882    -3.917681      
+75%    2.398706     3.176582     6.430947       30.216593    2.279845      
+max    32.181500    38.130165    41.384530      244.849265   37.026849     
+
+       IAerrorTime  
+count  810.000000   
+mean   6.158159     
+std    9.739624     
+min   -40.966033    
+25%    0.101622     
+50%    6.115123     
+75%    12.336933    
+max    48.962015    
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Real-Weizen-Final
+INFO:root:Saving dataframe:
+             X_0        X_1        X_2    ...          Y_4       Y_5       Y_6
+94898  1540.7278  1540.9617  1541.4563    ...     672.4899  751.6667  830.5838
+29318  2117.5798  2118.3458  2118.3984    ...     692.7693  771.4666  850.8097
+33692   349.5330   349.4987   349.1808    ...     692.9696  772.3560  851.6310
+24438   879.8481   877.9964   876.7328    ...     649.8863  729.8600  809.5286
+68359  1149.4271  1149.7633  1149.7249    ...     701.3071  781.6784  861.3165
+46179  1491.1039  1491.6393  1491.9108    ...     658.7318  737.0151  815.6336
+47284  1175.1578  1175.4377  1175.4715    ...     669.4951  747.8995  826.9713
+71974  1948.0733  1948.9548  1949.4753    ...     659.1200  736.2029  814.5592
+78622  1585.4641  1585.8167  1586.1834    ...     661.9987  740.2631  817.9829
+47919  1650.5025  1650.6050  1651.3524    ...     709.6842  786.9953  863.1782
+
+[10 rows x 14 columns]
+       LabelPosBalken   LabelTime
+94898     1543.710642  916.061194
+29318     2121.156803  894.189656
+33692      355.230936  899.194654
+24438      898.996866  950.625317
+68359     1154.357262  873.147143
+46179     1494.497038  935.441191
+47284     1179.563021  915.888408
+71974     1950.645343  927.152885
+78622     1587.981952  937.357848
+47919     1654.582292  887.319032
+predicted: 
+[1541.7496192592778, 913.3685426675851]
+[2119.0406885362654, 891.4851559250726]
+[354.227867768803, 887.1449656971918]
+[882.4370525531253, 938.7737610725642]
+[1151.7014042675169, 870.9326124917658]
+[1492.8360424823386, 934.1508316826915]
+[1178.938451039141, 919.525083854015]
+[1950.4691172085331, 941.3416282408471]
+[1587.2475326479166, 934.9048294649117]
+[1652.3469906090836, 879.2710162487648]
+time: 0.21s
+MSE (tensorflow): 0.0003262007958255708
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--plotNo', '5', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Weizen-final.json']
+INFO:root:time: 2018-12-07_17.20.13
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Weizen_final
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Weizen-Band-Juli/h5/weizenSeparatorFinal-FS7-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((14967, 14), (14967, 2))
+INFO:root:Test: ((810, 14), (810, 2))
+INFO:root:Means: 
+LabelPosBalken    1157.864359
+LabelTime          744.165645
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    485.177818
+LabelTime         335.757078
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0002157685230486095
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Weizen-Final/Real_Weizen_final_highestLoss_2018-12-07_17.20.13.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Weizen-Final/Real_Weizen_final_2018-12-07_17.20.13.pdf
+INFO:root:Median Accel: 0.017999999999915417
+INFO:root:getting optimal accel for 14967 examples
+INFO:root:optimal Accel: -0.17244540092163435
+INFO:root:Evaluation on 810 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  810.000000             810.000000             810.000000                
+mean  -1.234329              -0.256805              -0.247543                  
+std    3.786139               4.812409               4.824744                  
+min   -22.377275             -22.111208             -22.150684                 
+25%   -2.006876              -2.428704              -2.423884                  
+50%   -1.208856              -0.217523              -0.205613                  
+75%   -0.294795               1.870560               1.883254                  
+max    40.649782              29.077361              29.177293                 
+
+       CApixelErrorPosBalken  
+count  810.000000             
+mean  -0.592906               
+std    16.623321              
+min   -63.465031              
+25%   -9.565504               
+50%   -1.017763               
+75%    8.824444               
+max    125.025289             
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  810.000000   810.000000   810.000000     810.000000   810.000000    
+mean  -0.982017    -2.954054     0.300311       0.750522    -3.884320      
+std    6.336198     9.476848     9.476848       44.849961    9.452678      
+min   -28.209218   -49.193301   -45.938937     -114.793287  -50.034513     
+25%   -4.505477    -8.805627    -5.551262      -31.301298   -9.665181      
+50%   -0.734431    -2.984552     0.269812      -3.506882    -3.917681      
+75%    2.398706     3.176582     6.430947       30.216593    2.279845      
+max    32.181500    38.130165    41.384530      244.849265   37.026849     
+
+       IAerrorTime  
+count  810.000000   
+mean   6.158159     
+std    9.739624     
+min   -40.966033    
+25%    0.101622     
+50%    6.115123     
+75%    12.336933    
+max    48.962015    
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Real-Weizen-Final
+INFO:root:Saving dataframe:
+             X_0        X_1        X_2    ...          Y_4       Y_5       Y_6
+42998  1026.9233  1027.7070  1028.7691    ...     646.2956  726.2787  805.6652
+22423  1398.2054  1398.3559  1398.8240    ...     675.5883  754.0259  833.1457
+75618   512.4031   512.7661   512.9265    ...     642.5343  722.4307  802.4100
+57985  1081.1863  1081.3143  1081.5274    ...     661.4430  739.5429  817.8185
+69593   629.2590   629.2192   629.7732    ...     701.4492  780.0293  858.4705
+
+[5 rows x 14 columns]
+       LabelPosBalken   LabelTime
+42998     1035.185113  942.904992
+22423     1402.703544  919.160924
+75618      518.677991  945.001123
+57985     1084.682064  933.221296
+69593      635.257166  879.158402
+predicted: 
+[1036.1552655360206, 944.9343047952624]
+[1400.4500286757807, 911.7877009430621]
+[517.4324472844604, 947.895621278718]
+[1084.9629414787685, 931.3596229906382]
+[633.7444728790676, 880.6376422322091]
+time: 0.21s
+MSE (tensorflow): 6.854619277874008e-05

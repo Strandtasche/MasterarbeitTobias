@@ -1,0 +1,1200 @@
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json']
+INFO:root:time: 2018-12-06_20.25.42
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Pfeffer_final
+INFO:root:model folder /home/hornberger/MasterarbeitTobias/models/final/real/Real_Pfeffer_final does not exist. Creating folder
+INFO:root:image folder: /home/hornberger/MasterarbeitTobias/models/final/real/Real_Pfeffer_final does not exist. Creating folder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5.
+ERROR:root:Error while loading from stored data: 'No object named xtrain in the file'
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json']
+INFO:root:time: 2018-12-07_09.33.45
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Pfeffer_final
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5.
+ERROR:root:Error while loading from stored data: 'No object named xtrain in the file'
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--filter', '--save', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json']
+INFO:root:getting all csv files in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_001_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 66: highest Value smaller than separator
+WARNING:root:skipping track 181: highest Value smaller than separator
+WARNING:root:skipping track 182: highest Value smaller than separator
+WARNING:root:skipping track 206: highest Value smaller than separator
+WARNING:root:skipping track 255: highest Value smaller than separator
+WARNING:root:skipping track 257: Not enough elements for features
+WARNING:root:skipping track 292: highest Value smaller than separator
+WARNING:root:skipping track 293: highest Value smaller than separator
+WARNING:root:skipping track 295: Not enough elements for features
+WARNING:root:skipping track 327: highest Value smaller than separator
+WARNING:root:skipping track 329: highest Value smaller than separator
+WARNING:root:skipping track 399: NaN values in track
+WARNING:root:skipping track 400: NaN values in track
+WARNING:root:skipping track 506: highest Value smaller than separator
+WARNING:root:skipping track 507: highest Value smaller than separator
+WARNING:root:skipping track 525: highest Value smaller than separator
+WARNING:root:skipping track 526: highest Value smaller than separator
+WARNING:root:skipping track 562: highest Value smaller than separator
+WARNING:root:skipping track 564: highest Value smaller than separator
+WARNING:root:skipping track 641: highest Value smaller than separator
+WARNING:root:skipping track 643: highest Value smaller than separator
+WARNING:root:skipping track 662: highest Value smaller than separator
+WARNING:root:skipping track 663: highest Value smaller than separator
+WARNING:root:skipping track 664: highest Value smaller than separator
+WARNING:root:skipping track 665: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_002_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 35: NaN values in track
+WARNING:root:skipping track 36: NaN values in track
+WARNING:root:skipping track 149: NaN values in track
+WARNING:root:skipping track 175: highest Value smaller than separator
+WARNING:root:skipping track 207: NaN values in track
+WARNING:root:skipping track 314: highest Value smaller than separator
+WARNING:root:skipping track 367: highest Value smaller than separator
+WARNING:root:skipping track 368: highest Value smaller than separator
+WARNING:root:skipping track 369: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_003_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 11: NaN values in track
+WARNING:root:skipping track 26: NaN values in track
+WARNING:root:skipping track 59: Not enough elements for features
+WARNING:root:skipping track 82: NaN values in track
+WARNING:root:skipping track 85: highest Value smaller than separator
+WARNING:root:skipping track 89: highest Value smaller than separator
+WARNING:root:skipping track 118: highest Value smaller than separator
+WARNING:root:skipping track 119: highest Value smaller than separator
+WARNING:root:skipping track 178: highest Value smaller than separator
+WARNING:root:skipping track 179: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_004_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 2: Not enough elements for features
+WARNING:root:skipping track 3: Not enough elements for features
+WARNING:root:skipping track 16: highest Value smaller than separator
+WARNING:root:skipping track 83: NaN values in track
+WARNING:root:skipping track 107: NaN values in track
+WARNING:root:skipping track 243: highest Value smaller than separator
+WARNING:root:skipping track 245: highest Value smaller than separator
+WARNING:root:skipping track 257: NaN values in track
+WARNING:root:skipping track 258: NaN values in track
+WARNING:root:skipping track 298: highest Value smaller than separator
+WARNING:root:skipping track 299: highest Value smaller than separator
+WARNING:root:skipping track 300: highest Value smaller than separator
+WARNING:root:skipping track 337: highest Value smaller than separator
+WARNING:root:skipping track 355: highest Value smaller than separator
+WARNING:root:skipping track 363: NaN values in track
+WARNING:root:skipping track 425: NaN values in track
+WARNING:root:skipping track 426: NaN values in track
+WARNING:root:skipping track 537: highest Value smaller than separator
+WARNING:root:skipping track 629: highest Value smaller than separator
+WARNING:root:skipping track 660: highest Value smaller than separator
+WARNING:root:skipping track 726: highest Value smaller than separator
+WARNING:root:skipping track 727: highest Value smaller than separator
+WARNING:root:skipping track 730: NaN values in track
+WARNING:root:skipping track 746: highest Value smaller than separator
+WARNING:root:skipping track 747: NaN values in track
+WARNING:root:skipping track 761: highest Value smaller than separator
+WARNING:root:skipping track 769: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_005_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 3: Not enough elements for features
+WARNING:root:skipping track 38: NaN values in track
+WARNING:root:skipping track 88: highest Value smaller than separator
+WARNING:root:skipping track 93: highest Value smaller than separator
+WARNING:root:skipping track 94: NaN values in track
+WARNING:root:skipping track 136: NaN values in track
+WARNING:root:skipping track 217: highest Value smaller than separator
+WARNING:root:skipping track 226: highest Value smaller than separator
+WARNING:root:skipping track 240: highest Value smaller than separator
+WARNING:root:skipping track 250: NaN values in track
+WARNING:root:skipping track 252: NaN values in track
+WARNING:root:skipping track 284: NaN values in track
+WARNING:root:skipping track 285: NaN values in track
+WARNING:root:skipping track 289: NaN values in track
+WARNING:root:skipping track 297: highest Value smaller than separator
+WARNING:root:skipping track 312: highest Value smaller than separator
+WARNING:root:skipping track 329: highest Value smaller than separator
+WARNING:root:skipping track 330: NaN values in track
+WARNING:root:skipping track 343: highest Value smaller than separator
+WARNING:root:skipping track 361: highest Value smaller than separator
+WARNING:root:skipping track 362: highest Value smaller than separator
+WARNING:root:skipping track 369: highest Value smaller than separator
+WARNING:root:skipping track 465: highest Value smaller than separator
+WARNING:root:skipping track 483: highest Value smaller than separator
+WARNING:root:skipping track 576: highest Value smaller than separator
+WARNING:root:skipping track 614: highest Value smaller than separator
+WARNING:root:skipping track 615: highest Value smaller than separator
+WARNING:root:skipping track 616: highest Value smaller than separator
+WARNING:root:skipping track 617: highest Value smaller than separator
+WARNING:root:skipping track 619: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_006_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 43: NaN values in track
+WARNING:root:skipping track 170: highest Value smaller than separator
+WARNING:root:skipping track 171: highest Value smaller than separator
+WARNING:root:skipping track 204: NaN values in track
+WARNING:root:skipping track 219: highest Value smaller than separator
+WARNING:root:skipping track 227: Not enough elements for features
+WARNING:root:skipping track 284: NaN values in track
+WARNING:root:skipping track 285: highest Value smaller than separator
+WARNING:root:skipping track 298: highest Value smaller than separator
+WARNING:root:skipping track 300: Not enough elements for features
+WARNING:root:skipping track 305: highest Value smaller than separator
+WARNING:root:skipping track 311: highest Value smaller than separator
+WARNING:root:skipping track 401: highest Value smaller than separator
+WARNING:root:skipping track 403: NaN values in track
+WARNING:root:skipping track 406: highest Value smaller than separator
+WARNING:root:skipping track 407: highest Value smaller than separator
+WARNING:root:skipping track 475: highest Value smaller than separator
+WARNING:root:skipping track 479: NaN values in track
+WARNING:root:skipping track 515: highest Value smaller than separator
+WARNING:root:skipping track 540: highest Value smaller than separator
+WARNING:root:skipping track 561: highest Value smaller than separator
+WARNING:root:skipping track 562: highest Value smaller than separator
+WARNING:root:skipping track 620: highest Value smaller than separator
+WARNING:root:skipping track 621: highest Value smaller than separator
+WARNING:root:skipping track 622: highest Value smaller than separator
+WARNING:root:skipping track 623: highest Value smaller than separator
+WARNING:root:skipping track 624: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_007_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 12: highest Value smaller than separator
+WARNING:root:skipping track 13: highest Value smaller than separator
+WARNING:root:skipping track 130: NaN values in track
+WARNING:root:skipping track 153: highest Value smaller than separator
+WARNING:root:skipping track 154: highest Value smaller than separator
+WARNING:root:skipping track 173: highest Value smaller than separator
+WARNING:root:skipping track 210: NaN values in track
+WARNING:root:skipping track 259: NaN values in track
+WARNING:root:skipping track 260: NaN values in track
+WARNING:root:skipping track 291: NaN values in track
+WARNING:root:skipping track 304: highest Value smaller than separator
+WARNING:root:skipping track 305: highest Value smaller than separator
+WARNING:root:skipping track 312: Not enough elements for features
+WARNING:root:skipping track 424: highest Value smaller than separator
+WARNING:root:skipping track 446: highest Value smaller than separator
+WARNING:root:skipping track 448: highest Value smaller than separator
+WARNING:root:skipping track 525: highest Value smaller than separator
+WARNING:root:skipping track 526: highest Value smaller than separator
+WARNING:root:skipping track 527: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_008_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 118: NaN values in track
+WARNING:root:skipping track 119: NaN values in track
+WARNING:root:skipping track 259: highest Value smaller than separator
+WARNING:root:skipping track 263: Not enough elements for features
+WARNING:root:skipping track 292: highest Value smaller than separator
+WARNING:root:skipping track 351: NaN values in track
+WARNING:root:skipping track 396: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_009_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 13: NaN values in track
+WARNING:root:skipping track 47: NaN values in track
+WARNING:root:skipping track 48: NaN values in track
+WARNING:root:skipping track 53: highest Value smaller than separator
+WARNING:root:skipping track 69: highest Value smaller than separator
+WARNING:root:skipping track 111: NaN values in track
+WARNING:root:skipping track 112: NaN values in track
+WARNING:root:skipping track 254: NaN values in track
+WARNING:root:skipping track 255: NaN values in track
+WARNING:root:skipping track 315: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_010_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 8: highest Value smaller than separator
+WARNING:root:skipping track 10: highest Value smaller than separator
+WARNING:root:skipping track 24: highest Value smaller than separator
+WARNING:root:skipping track 25: highest Value smaller than separator
+WARNING:root:skipping track 51: highest Value smaller than separator
+WARNING:root:skipping track 98: highest Value smaller than separator
+WARNING:root:skipping track 99: highest Value smaller than separator
+WARNING:root:skipping track 101: Not enough elements for features
+WARNING:root:skipping track 102: Not enough elements for features
+WARNING:root:skipping track 197: highest Value smaller than separator
+WARNING:root:skipping track 253: highest Value smaller than separator
+WARNING:root:skipping track 329: highest Value smaller than separator
+WARNING:root:skipping track 370: NaN values in track
+WARNING:root:skipping track 377: highest Value smaller than separator
+WARNING:root:skipping track 385: NaN values in track
+WARNING:root:skipping track 387: NaN values in track
+WARNING:root:skipping track 411: NaN values in track
+WARNING:root:skipping track 412: NaN values in track
+WARNING:root:skipping track 462: highest Value smaller than separator
+WARNING:root:skipping track 477: highest Value smaller than separator
+WARNING:root:skipping track 514: highest Value smaller than separator
+WARNING:root:skipping track 517: highest Value smaller than separator
+WARNING:root:skipping track 532: highest Value smaller than separator
+WARNING:root:skipping track 533: highest Value smaller than separator
+WARNING:root:skipping track 558: highest Value smaller than separator
+WARNING:root:skipping track 560: highest Value smaller than separator
+WARNING:root:skipping track 657: highest Value smaller than separator
+WARNING:root:skipping track 662: highest Value smaller than separator
+WARNING:root:skipping track 663: highest Value smaller than separator
+WARNING:root:skipping track 665: highest Value smaller than separator
+WARNING:root:skipping track 719: highest Value smaller than separator
+WARNING:root:skipping track 722: NaN values in track
+WARNING:root:skipping track 774: highest Value smaller than separator
+WARNING:root:skipping track 778: Not enough elements for features
+WARNING:root:skipping track 782: highest Value smaller than separator
+WARNING:root:skipping track 854: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_011_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 85: Not enough elements for features
+WARNING:root:skipping track 260: highest Value smaller than separator
+WARNING:root:skipping track 261: Not enough elements for features
+WARNING:root:skipping track 269: highest Value smaller than separator
+WARNING:root:skipping track 366: NaN values in track
+WARNING:root:skipping track 457: NaN values in track
+WARNING:root:skipping track 479: highest Value smaller than separator
+WARNING:root:skipping track 521: highest Value smaller than separator
+WARNING:root:skipping track 522: highest Value smaller than separator
+WARNING:root:skipping track 526: Not enough elements for features
+WARNING:root:skipping track 573: NaN values in track
+WARNING:root:skipping track 574: NaN values in track
+WARNING:root:skipping track 626: highest Value smaller than separator
+WARNING:root:skipping track 691: highest Value smaller than separator
+WARNING:root:skipping track 694: highest Value smaller than separator
+WARNING:root:skipping track 725: highest Value smaller than separator
+WARNING:root:skipping track 733: highest Value smaller than separator
+WARNING:root:skipping track 734: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_012_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 5: Not enough elements for features
+WARNING:root:skipping track 37: highest Value smaller than separator
+WARNING:root:skipping track 108: highest Value smaller than separator
+WARNING:root:skipping track 109: highest Value smaller than separator
+WARNING:root:skipping track 112: Not enough elements for features
+WARNING:root:skipping track 145: highest Value smaller than separator
+WARNING:root:skipping track 196: highest Value smaller than separator
+WARNING:root:skipping track 271: highest Value smaller than separator
+WARNING:root:skipping track 295: highest Value smaller than separator
+WARNING:root:skipping track 296: highest Value smaller than separator
+WARNING:root:skipping track 308: highest Value smaller than separator
+WARNING:root:skipping track 399: highest Value smaller than separator
+WARNING:root:skipping track 415: highest Value smaller than separator
+WARNING:root:skipping track 437: highest Value smaller than separator
+WARNING:root:skipping track 493: highest Value smaller than separator
+WARNING:root:skipping track 511: highest Value smaller than separator
+WARNING:root:skipping track 512: highest Value smaller than separator
+WARNING:root:skipping track 518: highest Value smaller than separator
+WARNING:root:skipping track 519: NaN values in track
+WARNING:root:skipping track 520: NaN values in track
+WARNING:root:skipping track 530: highest Value smaller than separator
+WARNING:root:skipping track 601: highest Value smaller than separator
+WARNING:root:skipping track 603: highest Value smaller than separator
+WARNING:root:skipping track 614: highest Value smaller than separator
+WARNING:root:skipping track 615: highest Value smaller than separator
+WARNING:root:skipping track 616: highest Value smaller than separator
+INFO:root:Preparing Data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/pfeffer_013_trackHistory_NothingDeleted.csv
+WARNING:root:skipping track 10: highest Value smaller than separator
+WARNING:root:skipping track 36: highest Value smaller than separator
+WARNING:root:skipping track 43: highest Value smaller than separator
+WARNING:root:skipping track 199: highest Value smaller than separator
+WARNING:root:skipping track 200: highest Value smaller than separator
+WARNING:root:skipping track 201: highest Value smaller than separator
+WARNING:root:skipping track 343: highest Value smaller than separator
+WARNING:root:skipping track 405: highest Value smaller than separator
+INFO:root:applying augmentation to Training Set...
+INFO:root:Augmented. Original Size: 5917. Increased by 5891
+INFO:root:done!
+INFO:root:time: 2018-12-07_09.40.24
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Pfeffer_final
+INFO:root:storing data in /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5
+INFO:root:using custom estimator
+INFO:root:Train: ((11808, 14), (11808, 2))
+INFO:root:Test: ((671, 14), (671, 2))
+INFO:root:Means: 
+LabelPosBalken    1107.994907
+LabelTime          760.721118
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    563.395980
+LabelTime         348.451177
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.33763683, 'loss': 32.364902, 'rmse': 0.58106524, 'global_step': 5000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.0060117156, 'loss': 0.5762659, 'rmse': 0.07753526, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.0022965095, 'loss': 0.22013684, 'rmse': 0.04792191, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.0018664356, 'loss': 0.1789112, 'rmse': 0.043202262, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.0013417895, 'loss': 0.1286201, 'rmse': 0.036630444, 'global_step': 205000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.0015384962, 'loss': 0.14747585, 'rmse': 0.03922367, 'global_step': 255000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.0012229218, 'loss': 0.11722581, 'rmse': 0.0349703, 'global_step': 305000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.0012529979, 'loss': 0.1201088, 'rmse': 0.035397712, 'global_step': 355000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.0010273679, 'loss': 0.098480545, 'rmse': 0.03205258, 'global_step': 405000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.0010586986, 'loss': 0.10148383, 'rmse': 0.03253765, 'global_step': 455000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.0011494589, 'loss': 0.11018386, 'rmse': 0.03390367, 'global_step': 505000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.001000838, 'loss': 0.095937476, 'rmse': 0.031636022, 'global_step': 555000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.0011181232, 'loss': 0.107180096, 'rmse': 0.033438347, 'global_step': 605000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.001063873, 'loss': 0.101979814, 'rmse': 0.032617066, 'global_step': 655000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.0010008098, 'loss': 0.09593477, 'rmse': 0.03163558, 'global_step': 705000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.0011276045, 'loss': 0.10808895, 'rmse': 0.033579823, 'global_step': 755000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.0008489579, 'loss': 0.08137868, 'rmse': 0.029136883, 'global_step': 805000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.00088111975, 'loss': 0.08446162, 'rmse': 0.02968366, 'global_step': 855000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.0009591704, 'loss': 0.09194333, 'rmse': 0.030970477, 'global_step': 905000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.00099401, 'loss': 0.09528296, 'rmse': 0.031527925, 'global_step': 955000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.00084034086, 'loss': 0.080552675, 'rmse': 0.028988633, 'global_step': 1005000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 0.0012240978, 'loss': 0.117338516, 'rmse': 0.03498711, 'global_step': 1055000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.0008023899, 'loss': 0.0769148, 'rmse': 0.028326489, 'global_step': 1105000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.00082392024, 'loss': 0.07897864, 'rmse': 0.028704012, 'global_step': 1155000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.00080936856, 'loss': 0.07758375, 'rmse': 0.028449403, 'global_step': 1205000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.00086093595, 'loss': 0.08252686, 'rmse': 0.02934171, 'global_step': 1255000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.0010710481, 'loss': 0.10266761, 'rmse': 0.032726873, 'global_step': 1305000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.00085545145, 'loss': 0.082001135, 'rmse': 0.029248102, 'global_step': 1355000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.0008604834, 'loss': 0.08248348, 'rmse': 0.029333998, 'global_step': 1405000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 0.00093564455, 'loss': 0.08968822, 'rmse': 0.030588308, 'global_step': 1455000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.00095819554, 'loss': 0.091849886, 'rmse': 0.030954733, 'global_step': 1505000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.0009671227, 'loss': 0.092705615, 'rmse': 0.031098597, 'global_step': 1555000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 0.0008043123, 'loss': 0.07709908, 'rmse': 0.0283604, 'global_step': 1605000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 0.00083422166, 'loss': 0.079966106, 'rmse': 0.028882897, 'global_step': 1655000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 0.00079863076, 'loss': 0.07655446, 'rmse': 0.028260056, 'global_step': 1705000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 0.0008841705, 'loss': 0.08475406, 'rmse': 0.029735005, 'global_step': 1755000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 0.0009873436, 'loss': 0.09464394, 'rmse': 0.031422023, 'global_step': 1805000}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 0.0008971152, 'loss': 0.0859949, 'rmse': 0.029951882, 'global_step': 1855000}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 0.0007786011, 'loss': 0.07463448, 'rmse': 0.027903425, 'global_step': 1905000}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 0.0010770244, 'loss': 0.10324048, 'rmse': 0.03281805, 'global_step': 1955000}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 0.0007828991, 'loss': 0.07504647, 'rmse': 0.027980333, 'global_step': 2005000}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 0.0009440482, 'loss': 0.09049376, 'rmse': 0.030725367, 'global_step': 2055000}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 0.00085255585, 'loss': 0.08172357, 'rmse': 0.029198559, 'global_step': 2105000}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 0.0007772895, 'loss': 0.07450875, 'rmse': 0.027879912, 'global_step': 2155000}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 0.0007971049, 'loss': 0.0764082, 'rmse': 0.028233046, 'global_step': 2205000}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 0.0007844979, 'loss': 0.07519972, 'rmse': 0.02800889, 'global_step': 2255000}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 0.0009493132, 'loss': 0.090998456, 'rmse': 0.030810926, 'global_step': 2305000}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 0.0008217645, 'loss': 0.078772, 'rmse': 0.028666435, 'global_step': 2355000}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 0.0007978639, 'loss': 0.07648095, 'rmse': 0.028246485, 'global_step': 2405000}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 0.00076079305, 'loss': 0.07292745, 'rmse': 0.027582478, 'global_step': 2455000}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 0.0007661794, 'loss': 0.07344377, 'rmse': 0.027679946, 'global_step': 2505000}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 0.000771755, 'loss': 0.07397823, 'rmse': 0.027780479, 'global_step': 2555000}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 0.0008162338, 'loss': 0.07824184, 'rmse': 0.028569806, 'global_step': 2605000}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 0.0007719483, 'loss': 0.07399676, 'rmse': 0.027783958, 'global_step': 2655000}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 0.0008047113, 'loss': 0.07713733, 'rmse': 0.028367434, 'global_step': 2705000}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 0.00074986357, 'loss': 0.07187978, 'rmse': 0.027383637, 'global_step': 2755000}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 0.0008849062, 'loss': 0.08482458, 'rmse': 0.029747372, 'global_step': 2805000}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 0.0007851028, 'loss': 0.07525771, 'rmse': 0.028019685, 'global_step': 2855000}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 0.00073570927, 'loss': 0.07052299, 'rmse': 0.027123962, 'global_step': 2905000}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 0.0007914359, 'loss': 0.075864784, 'rmse': 0.02813247, 'global_step': 2955000}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 0.00080705486, 'loss': 0.07736198, 'rmse': 0.028408712, 'global_step': 3005000}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 0.0007787178, 'loss': 0.07464566, 'rmse': 0.027905516, 'global_step': 3055000}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 0.0007519118, 'loss': 0.07207612, 'rmse': 0.02742101, 'global_step': 3105000}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 0.00081399595, 'loss': 0.07802732, 'rmse': 0.028530614, 'global_step': 3155000}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 0.001004038, 'loss': 0.096244216, 'rmse': 0.03168656, 'global_step': 3205000}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 0.0007338716, 'loss': 0.07034684, 'rmse': 0.027090065, 'global_step': 3255000}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 0.00074185635, 'loss': 0.07111223, 'rmse': 0.027237039, 'global_step': 3305000}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 0.000746521, 'loss': 0.07155937, 'rmse': 0.027322536, 'global_step': 3355000}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 0.0007473791, 'loss': 0.071641624, 'rmse': 0.027338235, 'global_step': 3405000}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 0.0007853663, 'loss': 0.07528297, 'rmse': 0.028024387, 'global_step': 3455000}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 0.0007642098, 'loss': 0.073254965, 'rmse': 0.027644344, 'global_step': 3505000}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 0.00074234034, 'loss': 0.071158625, 'rmse': 0.027245924, 'global_step': 3555000}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 0.00075628434, 'loss': 0.07249526, 'rmse': 0.027500624, 'global_step': 3605000}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 0.0007550598, 'loss': 0.072377875, 'rmse': 0.027478352, 'global_step': 3655000}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 0.0008547853, 'loss': 0.08193727, 'rmse': 0.029236712, 'global_step': 3705000}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 0.0007451616, 'loss': 0.07142907, 'rmse': 0.027297648, 'global_step': 3755000}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 0.00076969096, 'loss': 0.07378037, 'rmse': 0.027743304, 'global_step': 3805000}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 0.0007310355, 'loss': 0.07007497, 'rmse': 0.027037667, 'global_step': 3855000}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 0.00073166343, 'loss': 0.07013517, 'rmse': 0.027049277, 'global_step': 3905000}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 0.00073577056, 'loss': 0.070528865, 'rmse': 0.02712509, 'global_step': 3955000}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 0.00074699643, 'loss': 0.071604945, 'rmse': 0.027331235, 'global_step': 4005000}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 0.0007549913, 'loss': 0.07237131, 'rmse': 0.027477106, 'global_step': 4055000}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 0.0007461657, 'loss': 0.07152531, 'rmse': 0.027316034, 'global_step': 4105000}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 0.00074800773, 'loss': 0.071701884, 'rmse': 0.027349731, 'global_step': 4155000}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 0.0007916652, 'loss': 0.07588677, 'rmse': 0.028136546, 'global_step': 4205000}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 0.00075746846, 'loss': 0.07260876, 'rmse': 0.027522145, 'global_step': 4255000}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 0.00074344163, 'loss': 0.07126419, 'rmse': 0.027266126, 'global_step': 4305000}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 0.0007392802, 'loss': 0.07086529, 'rmse': 0.027189707, 'global_step': 4355000}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 0.00073158054, 'loss': 0.07012722, 'rmse': 0.027047746, 'global_step': 4405000}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 0.0007341891, 'loss': 0.070377275, 'rmse': 0.027095925, 'global_step': 4455000}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 0.00074891857, 'loss': 0.0717892, 'rmse': 0.027366377, 'global_step': 4505000}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 0.0007255723, 'loss': 0.06955129, 'rmse': 0.02693645, 'global_step': 4555000}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 0.00074935734, 'loss': 0.07183125, 'rmse': 0.027374392, 'global_step': 4605000}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 0.00072044774, 'loss': 0.069060065, 'rmse': 0.026841158, 'global_step': 4655000}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 0.0007314919, 'loss': 0.070118725, 'rmse': 0.027046107, 'global_step': 4705000}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 0.0007571213, 'loss': 0.07257549, 'rmse': 0.027515838, 'global_step': 4755000}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 0.0007267114, 'loss': 0.06966048, 'rmse': 0.026957585, 'global_step': 4805000}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 0.0007255905, 'loss': 0.06955303, 'rmse': 0.026936788, 'global_step': 4855000}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 0.0007301783, 'loss': 0.0699928, 'rmse': 0.027021812, 'global_step': 4905000}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 0.000731684, 'loss': 0.070137136, 'rmse': 0.027049657, 'global_step': 4955000}
+INFO:root:Training completed. final average loss: 0.0007567483698949218, best average loss during training: 0.000720447744242847
+INFO:root:Total Training time: 2h 56min 56s
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json']
+INFO:root:time: 2018-12-07_13.11.03
+INFO:root:Saving to /home/hornberger/MasterarbeitTobias/models/final/real/Real_Pfeffer_final
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((11808, 14), (11808, 2))
+INFO:root:Test: ((671, 14), (671, 2))
+INFO:root:Means: 
+LabelPosBalken    1107.994907
+LabelTime          760.721118
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    563.395980
+LabelTime         348.451177
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0007567483698949218
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final/Real_Pfeffer_final_highestLoss_2018-12-07_13.11.03.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final/Real_Pfeffer_final_2018-12-07_13.11.03.pdf
+INFO:root:Median Accel: -0.0015499999999519787
+INFO:root:getting optimal accel for 11808 examples
+INFO:root:optimal Accel: -0.16981745285427205
+INFO:root:Evaluation on 671 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  671.000000             671.000000             671.000000                
+mean  -2.479076               0.033163               0.037926                  
+std    10.151737              10.638593              10.662791                 
+min   -41.047295             -49.581059             -49.785935                 
+25%   -8.409911              -5.952496              -5.950852                  
+50%   -2.631285               0.695999               0.713668                  
+75%    3.850930               6.272251               6.289123                  
+max    32.219886              32.475895              32.568539                 
+
+       CApixelErrorPosBalken  
+count  671.000000             
+mean  -0.797749               
+std    23.496965              
+min   -126.957325             
+25%   -14.078285              
+50%   -1.689482               
+75%    11.823019              
+max    108.576634             
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  671.000000   671.000000   671.000000     671.000000   671.000000    
+mean  -0.372524    -2.735666    -0.383580       2.346286    -2.651887      
+std    11.921624    13.060911    13.060911      59.991487    13.065117     
+min   -48.525291   -41.663883   -39.311797     -122.329706  -41.576831     
+25%   -6.988826    -10.832332   -8.480246      -42.862581   -10.747100     
+50%    0.225859    -3.433759    -1.081673      -10.078437   -3.351694      
+75%    7.006687     4.846222     7.198308       40.747308    4.937149      
+max    37.298241    42.180308    44.532394      297.600584   42.273904     
+
+       IAerrorTime  
+count  671.000000   
+mean   6.632720     
+std    13.615722    
+min   -31.930411    
+25%   -2.066454     
+50%    5.906732     
+75%    14.896115    
+max    52.663231    
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final
+INFO:root:Saving dataframe:
+             X_0        X_1        X_2    ...          Y_4       Y_5       Y_6
+34162   762.8270   763.9696   765.2550    ...     687.5994  765.4999  842.0618
+36036  1050.2026  1050.2902  1050.0589    ...     663.9363  737.2713  812.1850
+71177   818.8161   816.8654   814.5050    ...     671.2409  752.6426  832.7266
+44657  1775.2656  1781.7671  1788.2872    ...     695.9715  767.0569  839.1484
+27285   400.5087   394.5572   388.8952    ...     662.7391  740.5638  819.0893
+13415   807.4362   806.7258   805.6068    ...     706.9974  784.6343  863.3215
+59849   386.6907   385.1523   384.8478    ...     696.7280  778.0340  858.6853
+35614  1981.4567  1982.1437  1983.1499    ...     651.1120  728.6416  805.7014
+25941  1243.0240  1245.4447  1247.3790    ...     691.3358  769.4358  847.2904
+1533    823.4834   822.8112   821.7736    ...     706.9031  788.6828  868.8431
+
+[10 rows x 14 columns]
+       LabelPosBalken   LabelTime
+34162      785.155624  932.146379
+36036     1069.088493  968.822590
+71177      765.308090  905.102095
+44657     1866.557491  985.721073
+27285      312.991136  945.493536
+13415      806.161828  869.405699
+59849      382.379598  869.609734
+35614     2008.875543  963.884042
+25941     1266.510691  883.129986
+1533       821.214492  869.823621
+predicted: 
+[781.9120136621159, 922.1421786435712]
+[1055.0393891267152, 987.5270360236916]
+[759.7159686986977, 899.8551320313949]
+[1848.4533148908151, 990.3720159178797]
+[325.6578813549986, 947.9654077406688]
+[796.6172418534343, 878.9570537022067]
+[381.9999105898403, 860.7364715625292]
+[1984.2713361353578, 964.5983008525222]
+[1270.9491439130243, 893.5305452489549]
+[814.9011990517447, 861.0181033873591]
+time: 0.20s
+MSE (tensorflow): 0.0005884141428396106
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--training', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json', '--overrideModel', '../models/final/real/Real_Pfeffer_final_Retrain']
+INFO:root:time: 2018-12-07_13.13.51
+INFO:root:Saving to ../models/final/real/Real_Pfeffer_final_Retrain
+INFO:root:model folder ../models/final/real/Real_Pfeffer_final_Retrain does not exist. Creating folder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((11808, 14), (11808, 2))
+INFO:root:Test: ((671, 14), (671, 2))
+INFO:root:Means: 
+LabelPosBalken    1107.994907
+LabelTime          760.721118
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    563.395980
+LabelTime         348.451177
+dtype: float64
+INFO:root:Train the DNN Regressor...
+
+INFO:root:Progress: epoch 0
+INFO:root:eval: {'average_loss': 0.060412962, 'loss': 5.791014, 'rmse': 0.24579048, 'global_step': 5000}
+INFO:root:Progress: epoch 10
+INFO:root:eval: {'average_loss': 0.004225688, 'loss': 0.40506238, 'rmse': 0.065005295, 'global_step': 55000}
+INFO:root:Progress: epoch 20
+INFO:root:eval: {'average_loss': 0.0020490226, 'loss': 0.19641344, 'rmse': 0.04526613, 'global_step': 105000}
+INFO:root:Progress: epoch 30
+INFO:root:eval: {'average_loss': 0.0018310905, 'loss': 0.17552312, 'rmse': 0.042791244, 'global_step': 155000}
+INFO:root:Progress: epoch 40
+INFO:root:eval: {'average_loss': 0.0026878177, 'loss': 0.25764653, 'rmse': 0.05184417, 'global_step': 205000}
+INFO:root:Progress: epoch 50
+INFO:root:eval: {'average_loss': 0.0016001378, 'loss': 0.15338464, 'rmse': 0.040001724, 'global_step': 255000}
+INFO:root:Progress: epoch 60
+INFO:root:eval: {'average_loss': 0.0013116735, 'loss': 0.12573329, 'rmse': 0.036217034, 'global_step': 305000}
+INFO:root:Progress: epoch 70
+INFO:root:eval: {'average_loss': 0.0011842883, 'loss': 0.11352249, 'rmse': 0.03441349, 'global_step': 355000}
+INFO:root:Progress: epoch 80
+INFO:root:eval: {'average_loss': 0.0016230642, 'loss': 0.1555823, 'rmse': 0.04028727, 'global_step': 405000}
+INFO:root:Progress: epoch 90
+INFO:root:eval: {'average_loss': 0.0010446818, 'loss': 0.10014021, 'rmse': 0.03232154, 'global_step': 455000}
+INFO:root:Progress: epoch 100
+INFO:root:eval: {'average_loss': 0.0011653043, 'loss': 0.11170275, 'rmse': 0.034136552, 'global_step': 505000}
+INFO:root:Progress: epoch 110
+INFO:root:eval: {'average_loss': 0.0010821165, 'loss': 0.1037286, 'rmse': 0.03289554, 'global_step': 555000}
+INFO:root:Progress: epoch 120
+INFO:root:eval: {'average_loss': 0.001122221, 'loss': 0.1075729, 'rmse': 0.03349957, 'global_step': 605000}
+INFO:root:Progress: epoch 130
+INFO:root:eval: {'average_loss': 0.0009450514, 'loss': 0.090589926, 'rmse': 0.030741688, 'global_step': 655000}
+INFO:root:Progress: epoch 140
+INFO:root:eval: {'average_loss': 0.0010068088, 'loss': 0.09650982, 'rmse': 0.03173025, 'global_step': 705000}
+INFO:root:Progress: epoch 150
+INFO:root:eval: {'average_loss': 0.0008834862, 'loss': 0.08468846, 'rmse': 0.029723495, 'global_step': 755000}
+INFO:root:Progress: epoch 160
+INFO:root:eval: {'average_loss': 0.000979469, 'loss': 0.0938891, 'rmse': 0.03129647, 'global_step': 805000}
+INFO:root:Progress: epoch 170
+INFO:root:eval: {'average_loss': 0.00087053963, 'loss': 0.08344744, 'rmse': 0.029504908, 'global_step': 855000}
+INFO:root:Progress: epoch 180
+INFO:root:eval: {'average_loss': 0.00085509446, 'loss': 0.081966914, 'rmse': 0.029241998, 'global_step': 905000}
+INFO:root:Progress: epoch 190
+INFO:root:eval: {'average_loss': 0.00082638615, 'loss': 0.07921501, 'rmse': 0.028746933, 'global_step': 955000}
+INFO:root:Progress: epoch 200
+INFO:root:eval: {'average_loss': 0.0009963852, 'loss': 0.09551065, 'rmse': 0.03156557, 'global_step': 1005000}
+INFO:root:Progress: epoch 210
+INFO:root:eval: {'average_loss': 0.00092125934, 'loss': 0.08830929, 'rmse': 0.030352253, 'global_step': 1055000}
+INFO:root:Progress: epoch 220
+INFO:root:eval: {'average_loss': 0.0009588132, 'loss': 0.091909096, 'rmse': 0.030964708, 'global_step': 1105000}
+INFO:root:Progress: epoch 230
+INFO:root:eval: {'average_loss': 0.00082374713, 'loss': 0.07896204, 'rmse': 0.028700996, 'global_step': 1155000}
+INFO:root:Progress: epoch 240
+INFO:root:eval: {'average_loss': 0.000866589, 'loss': 0.08306874, 'rmse': 0.029437885, 'global_step': 1205000}
+INFO:root:Progress: epoch 250
+INFO:root:eval: {'average_loss': 0.00079760957, 'loss': 0.07645657, 'rmse': 0.028241983, 'global_step': 1255000}
+INFO:root:Progress: epoch 260
+INFO:root:eval: {'average_loss': 0.00085112813, 'loss': 0.08158671, 'rmse': 0.0291741, 'global_step': 1305000}
+INFO:root:Progress: epoch 270
+INFO:root:eval: {'average_loss': 0.00083461177, 'loss': 0.0800035, 'rmse': 0.028889649, 'global_step': 1355000}
+INFO:root:Progress: epoch 280
+INFO:root:eval: {'average_loss': 0.0008577652, 'loss': 0.08222292, 'rmse': 0.029287629, 'global_step': 1405000}
+INFO:root:Progress: epoch 290
+INFO:root:eval: {'average_loss': 0.0008503108, 'loss': 0.08150836, 'rmse': 0.029160088, 'global_step': 1455000}
+INFO:root:Progress: epoch 300
+INFO:root:eval: {'average_loss': 0.00084708974, 'loss': 0.0811996, 'rmse': 0.029104806, 'global_step': 1505000}
+INFO:root:Progress: epoch 310
+INFO:root:eval: {'average_loss': 0.0008313776, 'loss': 0.07969348, 'rmse': 0.028833618, 'global_step': 1555000}
+INFO:root:Progress: epoch 320
+INFO:root:eval: {'average_loss': 0.00084609014, 'loss': 0.08110379, 'rmse': 0.02908763, 'global_step': 1605000}
+INFO:root:Progress: epoch 330
+INFO:root:eval: {'average_loss': 0.0008239765, 'loss': 0.07898403, 'rmse': 0.02870499, 'global_step': 1655000}
+INFO:root:Progress: epoch 340
+INFO:root:eval: {'average_loss': 0.000815049, 'loss': 0.07812827, 'rmse': 0.028549062, 'global_step': 1705000}
+INFO:root:Progress: epoch 350
+INFO:root:eval: {'average_loss': 0.0009194043, 'loss': 0.08813147, 'rmse': 0.03032168, 'global_step': 1755000}
+INFO:root:Progress: epoch 360
+INFO:root:eval: {'average_loss': 0.0008097301, 'loss': 0.07761841, 'rmse': 0.028455757, 'global_step': 1805000}
+INFO:root:Progress: epoch 370
+INFO:root:eval: {'average_loss': 0.0009364913, 'loss': 0.08976938, 'rmse': 0.030602146, 'global_step': 1855000}
+INFO:root:Progress: epoch 380
+INFO:root:eval: {'average_loss': 0.00078424264, 'loss': 0.07517526, 'rmse': 0.028004333, 'global_step': 1905000}
+INFO:root:Progress: epoch 390
+INFO:root:eval: {'average_loss': 0.00077090785, 'loss': 0.07389702, 'rmse': 0.027765227, 'global_step': 1955000}
+INFO:root:Progress: epoch 400
+INFO:root:eval: {'average_loss': 0.00083293696, 'loss': 0.07984296, 'rmse': 0.028860647, 'global_step': 2005000}
+INFO:root:Progress: epoch 410
+INFO:root:eval: {'average_loss': 0.0007700258, 'loss': 0.07381248, 'rmse': 0.02774934, 'global_step': 2055000}
+INFO:root:Progress: epoch 420
+INFO:root:eval: {'average_loss': 0.0008370885, 'loss': 0.08024091, 'rmse': 0.028932482, 'global_step': 2105000}
+INFO:root:Progress: epoch 430
+INFO:root:eval: {'average_loss': 0.0009571954, 'loss': 0.09175403, 'rmse': 0.030938575, 'global_step': 2155000}
+INFO:root:Progress: epoch 440
+INFO:root:eval: {'average_loss': 0.0008325035, 'loss': 0.0798014, 'rmse': 0.028853137, 'global_step': 2205000}
+INFO:root:Progress: epoch 450
+INFO:root:eval: {'average_loss': 0.0008303283, 'loss': 0.0795929, 'rmse': 0.028815418, 'global_step': 2255000}
+INFO:root:Progress: epoch 460
+INFO:root:eval: {'average_loss': 0.00076277246, 'loss': 0.07311719, 'rmse': 0.027618336, 'global_step': 2305000}
+INFO:root:Progress: epoch 470
+INFO:root:eval: {'average_loss': 0.0007753474, 'loss': 0.07432259, 'rmse': 0.02784506, 'global_step': 2355000}
+INFO:root:Progress: epoch 480
+INFO:root:eval: {'average_loss': 0.00077514705, 'loss': 0.07430338, 'rmse': 0.027841464, 'global_step': 2405000}
+INFO:root:Progress: epoch 490
+INFO:root:eval: {'average_loss': 0.0009756736, 'loss': 0.09352528, 'rmse': 0.031235775, 'global_step': 2455000}
+INFO:root:Progress: epoch 500
+INFO:root:eval: {'average_loss': 0.0011153317, 'loss': 0.1069125, 'rmse': 0.033396583, 'global_step': 2505000}
+INFO:root:Progress: epoch 510
+INFO:root:eval: {'average_loss': 0.0007666098, 'loss': 0.073485024, 'rmse': 0.02768772, 'global_step': 2555000}
+INFO:root:Progress: epoch 520
+INFO:root:eval: {'average_loss': 0.00078242447, 'loss': 0.07500098, 'rmse': 0.02797185, 'global_step': 2605000}
+INFO:root:Progress: epoch 530
+INFO:root:eval: {'average_loss': 0.00075635326, 'loss': 0.07250186, 'rmse': 0.027501877, 'global_step': 2655000}
+INFO:root:Progress: epoch 540
+INFO:root:eval: {'average_loss': 0.0007664436, 'loss': 0.073469095, 'rmse': 0.027684718, 'global_step': 2705000}
+INFO:root:Progress: epoch 550
+INFO:root:eval: {'average_loss': 0.00075897295, 'loss': 0.072752975, 'rmse': 0.027549464, 'global_step': 2755000}
+INFO:root:Progress: epoch 560
+INFO:root:eval: {'average_loss': 0.00078163063, 'loss': 0.07492488, 'rmse': 0.027957657, 'global_step': 2805000}
+INFO:root:Progress: epoch 570
+INFO:root:eval: {'average_loss': 0.0007885293, 'loss': 0.07558616, 'rmse': 0.028080763, 'global_step': 2855000}
+INFO:root:Progress: epoch 580
+INFO:root:eval: {'average_loss': 0.00081725646, 'loss': 0.07833987, 'rmse': 0.028587697, 'global_step': 2905000}
+INFO:root:Progress: epoch 590
+INFO:root:eval: {'average_loss': 0.00079043716, 'loss': 0.07576905, 'rmse': 0.028114714, 'global_step': 2955000}
+INFO:root:Progress: epoch 600
+INFO:root:eval: {'average_loss': 0.00083349564, 'loss': 0.07989651, 'rmse': 0.028870324, 'global_step': 3005000}
+INFO:root:Progress: epoch 610
+INFO:root:eval: {'average_loss': 0.000754932, 'loss': 0.07236563, 'rmse': 0.027476026, 'global_step': 3055000}
+INFO:root:Progress: epoch 620
+INFO:root:eval: {'average_loss': 0.000813632, 'loss': 0.07799244, 'rmse': 0.028524235, 'global_step': 3105000}
+INFO:root:Progress: epoch 630
+INFO:root:eval: {'average_loss': 0.0007807314, 'loss': 0.07483868, 'rmse': 0.027941572, 'global_step': 3155000}
+INFO:root:Progress: epoch 640
+INFO:root:eval: {'average_loss': 0.00078485726, 'loss': 0.075234175, 'rmse': 0.028015304, 'global_step': 3205000}
+INFO:root:Progress: epoch 650
+INFO:root:eval: {'average_loss': 0.0007906985, 'loss': 0.0757941, 'rmse': 0.028119361, 'global_step': 3255000}
+INFO:root:Progress: epoch 660
+INFO:root:eval: {'average_loss': 0.00075512705, 'loss': 0.07238432, 'rmse': 0.027479576, 'global_step': 3305000}
+INFO:root:Progress: epoch 670
+INFO:root:eval: {'average_loss': 0.00074618985, 'loss': 0.07152762, 'rmse': 0.027316475, 'global_step': 3355000}
+INFO:root:Progress: epoch 680
+INFO:root:eval: {'average_loss': 0.0007853653, 'loss': 0.07528287, 'rmse': 0.02802437, 'global_step': 3405000}
+INFO:root:Progress: epoch 690
+INFO:root:eval: {'average_loss': 0.0007433733, 'loss': 0.07125764, 'rmse': 0.027264873, 'global_step': 3455000}
+INFO:root:Progress: epoch 700
+INFO:root:eval: {'average_loss': 0.0007607712, 'loss': 0.07292535, 'rmse': 0.027582081, 'global_step': 3505000}
+INFO:root:Progress: epoch 710
+INFO:root:eval: {'average_loss': 0.0007339583, 'loss': 0.07035515, 'rmse': 0.027091665, 'global_step': 3555000}
+INFO:root:Progress: epoch 720
+INFO:root:eval: {'average_loss': 0.00073806575, 'loss': 0.07074887, 'rmse': 0.027167365, 'global_step': 3605000}
+INFO:root:Progress: epoch 730
+INFO:root:eval: {'average_loss': 0.00075884274, 'loss': 0.072740495, 'rmse': 0.0275471, 'global_step': 3655000}
+INFO:root:Progress: epoch 740
+INFO:root:eval: {'average_loss': 0.0007409852, 'loss': 0.071028724, 'rmse': 0.027221043, 'global_step': 3705000}
+INFO:root:Progress: epoch 750
+INFO:root:eval: {'average_loss': 0.0007504794, 'loss': 0.07193881, 'rmse': 0.02739488, 'global_step': 3755000}
+INFO:root:Progress: epoch 760
+INFO:root:eval: {'average_loss': 0.0007499596, 'loss': 0.07188898, 'rmse': 0.027385391, 'global_step': 3805000}
+INFO:root:Progress: epoch 770
+INFO:root:eval: {'average_loss': 0.0007845351, 'loss': 0.07520329, 'rmse': 0.028009553, 'global_step': 3855000}
+INFO:root:Progress: epoch 780
+INFO:root:eval: {'average_loss': 0.0007568942, 'loss': 0.07255371, 'rmse': 0.02751171, 'global_step': 3905000}
+INFO:root:Progress: epoch 790
+INFO:root:eval: {'average_loss': 0.0007425691, 'loss': 0.07118055, 'rmse': 0.02725012, 'global_step': 3955000}
+INFO:root:Progress: epoch 800
+INFO:root:eval: {'average_loss': 0.0007257359, 'loss': 0.06956697, 'rmse': 0.026939485, 'global_step': 4005000}
+INFO:root:Progress: epoch 810
+INFO:root:eval: {'average_loss': 0.00072723953, 'loss': 0.069711104, 'rmse': 0.026967378, 'global_step': 4055000}
+INFO:root:Progress: epoch 820
+INFO:root:eval: {'average_loss': 0.0007298688, 'loss': 0.06996314, 'rmse': 0.027016085, 'global_step': 4105000}
+INFO:root:Progress: epoch 830
+INFO:root:eval: {'average_loss': 0.0007615876, 'loss': 0.073003605, 'rmse': 0.027596876, 'global_step': 4155000}
+INFO:root:Progress: epoch 840
+INFO:root:eval: {'average_loss': 0.00073108356, 'loss': 0.07007958, 'rmse': 0.027038557, 'global_step': 4205000}
+INFO:root:Progress: epoch 850
+INFO:root:eval: {'average_loss': 0.00077639724, 'loss': 0.07442322, 'rmse': 0.027863905, 'global_step': 4255000}
+INFO:root:Progress: epoch 860
+INFO:root:eval: {'average_loss': 0.000757903, 'loss': 0.07265042, 'rmse': 0.027530037, 'global_step': 4305000}
+INFO:root:Progress: epoch 870
+INFO:root:eval: {'average_loss': 0.00073313667, 'loss': 0.07027639, 'rmse': 0.027076496, 'global_step': 4355000}
+INFO:root:Progress: epoch 880
+INFO:root:eval: {'average_loss': 0.0007297745, 'loss': 0.0699541, 'rmse': 0.027014337, 'global_step': 4405000}
+INFO:root:Progress: epoch 890
+INFO:root:eval: {'average_loss': 0.0007213001, 'loss': 0.06914176, 'rmse': 0.02685703, 'global_step': 4455000}
+INFO:root:Progress: epoch 900
+INFO:root:eval: {'average_loss': 0.0007312701, 'loss': 0.07009746, 'rmse': 0.027042007, 'global_step': 4505000}
+INFO:root:Progress: epoch 910
+INFO:root:eval: {'average_loss': 0.0007532577, 'loss': 0.072205134, 'rmse': 0.027445542, 'global_step': 4555000}
+INFO:root:Progress: epoch 920
+INFO:root:eval: {'average_loss': 0.0007401771, 'loss': 0.07095127, 'rmse': 0.027206196, 'global_step': 4605000}
+INFO:root:Progress: epoch 930
+INFO:root:eval: {'average_loss': 0.0007709461, 'loss': 0.07390069, 'rmse': 0.027765917, 'global_step': 4655000}
+INFO:root:Progress: epoch 940
+INFO:root:eval: {'average_loss': 0.00073658966, 'loss': 0.07060738, 'rmse': 0.027140185, 'global_step': 4705000}
+INFO:root:Progress: epoch 950
+INFO:root:eval: {'average_loss': 0.0007595175, 'loss': 0.07280517, 'rmse': 0.027559346, 'global_step': 4755000}
+INFO:root:Progress: epoch 960
+INFO:root:eval: {'average_loss': 0.0007231994, 'loss': 0.06932382, 'rmse': 0.026892368, 'global_step': 4805000}
+INFO:root:Progress: epoch 970
+INFO:root:eval: {'average_loss': 0.0007302406, 'loss': 0.06999878, 'rmse': 0.027022965, 'global_step': 4855000}
+INFO:root:Progress: epoch 980
+INFO:root:eval: {'average_loss': 0.000732575, 'loss': 0.07022255, 'rmse': 0.027066123, 'global_step': 4905000}
+INFO:root:Progress: epoch 990
+INFO:root:eval: {'average_loss': 0.00071926456, 'loss': 0.068946645, 'rmse': 0.026819108, 'global_step': 4955000}
+INFO:root:Training completed. final average loss: 0.0007321403827518225, best average loss during training: 0.0007192645571194589
+INFO:root:Total Training time: 2h 56min 46s
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json', '--overrideModel', '../models/final/real/Real_Pfeffer_final_Retrain']
+INFO:root:time: 2018-12-07_17.09.15
+INFO:root:Saving to ../models/final/real/Real_Pfeffer_final_Retrain
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((11808, 14), (11808, 2))
+INFO:root:Test: ((671, 14), (671, 2))
+INFO:root:Means: 
+LabelPosBalken    1107.994907
+LabelTime          760.721118
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    563.395980
+LabelTime         348.451177
+dtype: float64
+INFO:root:No training today, just prediction
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 0.0007321403827518225
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final/Real_Pfeffer_final_Retrain_highestLoss_2018-12-07_17.09.15.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final/Real_Pfeffer_final_Retrain_2018-12-07_17.09.15.pdf
+INFO:root:Median Accel: -0.0015499999999519787
+INFO:root:getting optimal accel for 11808 examples
+INFO:root:optimal Accel: -0.16981745285427205
+INFO:root:Evaluation on 671 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  671.000000             671.000000             671.000000                
+mean   1.016530               0.033163               0.037926                  
+std    10.237357              10.638593              10.662791                 
+min   -33.391222             -49.581059             -49.785935                 
+25%   -5.082354              -5.952496              -5.950852                  
+50%    0.698605               0.695999               0.713668                  
+75%    7.376403               6.272251               6.289123                  
+max    35.574361              32.475895              32.568539                 
+
+       CApixelErrorPosBalken  
+count  671.000000             
+mean  -0.797749               
+std    23.496965              
+min   -126.957325             
+25%   -14.078285              
+50%   -1.689482               
+75%    11.823019              
+max    108.576634             
+INFO:root:
+       NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  671.000000   671.000000   671.000000     671.000000   671.000000    
+mean  -0.390447    -2.735666    -0.383580       2.346286    -2.651887      
+std    11.722524    13.060911    13.060911      59.991487    13.065117     
+min   -36.900377   -41.663883   -39.311797     -122.329706  -41.576831     
+25%   -7.140729    -10.832332   -8.480246      -42.862581   -10.747100     
+50%    0.109318    -3.433759    -1.081673      -10.078437   -3.351694      
+75%    6.635676     4.846222     7.198308       40.747308    4.937149      
+max    35.884943    42.180308    44.532394      297.600584   42.273904     
+
+       IAerrorTime  
+count  671.000000   
+mean   6.632720     
+std    13.615722    
+min   -31.930411    
+25%   -2.066454     
+50%    5.906732     
+75%    14.896115    
+max    52.663231    
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final
+INFO:root:Saving dataframe:
+             X_0        X_1        X_2    ...          Y_4       Y_5       Y_6
+34656   702.4778   703.4494   704.2584    ...     704.6139  784.3218  862.6880
+39834  1182.2639  1181.6396  1181.3955    ...     718.5725  797.2650  875.6479
+902    1497.9805  1491.2397  1484.2262    ...     717.6797  797.5050  876.0556
+29336   534.5718   536.6239   538.3572    ...     698.8183  776.5312  853.3233
+27903  1022.9216  1024.6005  1026.7106    ...     680.9647  752.3535  823.1337
+56286   474.8353   479.3287   484.0737    ...     675.8757  750.0627  825.5265
+11510   514.6987   507.5173   500.9032    ...     701.0848  774.3684  848.1542
+30527  1227.4722  1228.1081  1228.4116    ...     710.4703  788.1229  864.9084
+31575  1503.1083  1503.5771  1504.0141    ...     710.7132  794.4435  877.3533
+22478  1280.3274  1279.1387  1277.7009    ...     716.8030  793.7431  868.5601
+
+[10 rows x 14 columns]
+       LabelPosBalken    LabelTime
+34656      707.760277   883.348741
+39834     1201.980165   849.057974
+902       1395.499748   861.600120
+29336      534.573080   930.966259
+27903     1030.113913  1011.589742
+56286      555.782303   941.222050
+11510      445.134359   952.559797
+30527     1230.908038   879.026301
+31575     1511.190985   816.657732
+22478     1244.389399   900.502231
+predicted: 
+[704.5658640896811, 870.9939346244515]
+[1209.0205094885307, 860.7676255254529]
+[1391.6649085994504, 857.6567984809828]
+[552.369373307931, 896.9914597594525]
+[1040.7661135601218, 1006.6260768405816]
+[554.17656933158, 957.6226377835952]
+[449.98441133886126, 952.0305429774163]
+[1231.1857942401593, 889.0109775396944]
+[1519.9986613702547, 817.8267476534098]
+[1245.1717506232694, 895.2964349447022]
+time: 0.21s
+MSE (tensorflow): 0.0008707979577593505
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json', '--overrideModel', '../models/final/real/Real_Pfeffer_final_Retrain']
+INFO:root:time: 2018-12-11_13.30.50
+INFO:root:Saving to ../models/final/real/Real_Pfeffer_final_Retrain
+INFO:root:model folder ../models/final/real/Real_Pfeffer_final_Retrain does not exist. Creating folder
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((11808, 14), (11808, 2))
+INFO:root:Test: ((671, 14), (671, 2))
+INFO:root:Means: 
+LabelPosBalken    1107.994907
+LabelTime          760.721118
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    563.395980
+LabelTime         348.451177
+dtype: float64
+INFO:root:No training today, just prediction
+WARNING:root:Careful: No prior LabelMeans or LabelStds found!
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 27726.380859375
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json', '--overrideModel', '../models/final/real/Real_Pfeffer_final_Retrain']
+INFO:root:time: 2018-12-11_13.31.09
+INFO:root:Saving to ../models/final/real/Real_Pfeffer_final_Retrain
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((11808, 14), (11808, 2))
+INFO:root:Test: ((671, 14), (671, 2))
+INFO:root:Means: 
+LabelPosBalken    1107.994907
+LabelTime          760.721118
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    563.395980
+LabelTime         348.451177
+dtype: float64
+INFO:root:No training today, just prediction
+WARNING:root:Careful: No prior LabelMeans or LabelStds found!
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 217827.40625
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final/Real_Pfeffer_final_Retrain_highestLoss_2018-12-11_13.31.09.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final/Real_Pfeffer_final_Retrain_2018-12-11_13.31.09.pdf
+INFO:root:Median Accel: -0.0015499999999519787
+INFO:root:getting optimal accel for 11808 examples
+INFO:root:optimal Accel: -0.16981745285427205
+INFO:root:Evaluation on 671 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  671.000000             671.000000             671.000000                
+mean   212857.919897          0.033163               0.037926                  
+std    82557.421046           10.638593              10.662791                 
+min    60064.835758          -49.581059             -49.785935                 
+25%    153753.226264         -5.952496              -5.950852                  
+50%    215533.894935          0.695999               0.713668                  
+75%    275841.246153          6.272251               6.289123                  
+max    367423.662611          32.475895              32.568539                 
+
+       CApixelErrorPosBalken  
+count  671.000000             
+mean  -0.797749               
+std    23.496965              
+min   -126.957325             
+25%   -14.078285              
+50%   -1.689482               
+75%    11.823019              
+max    108.576634             
+INFO:root:
+         NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  671.000000     671.000000   671.000000     671.000000   671.000000    
+mean  -106544.690876 -2.735666    -0.383580       2.346286    -2.651887      
+std    37656.500592   13.060911    13.060911      59.991487    13.065117     
+min   -168895.098423 -41.663883   -39.311797     -122.329706  -41.576831     
+25%   -139431.770677 -10.832332   -8.480246      -42.862581   -10.747100     
+50%   -111122.167054 -3.433759    -1.081673      -10.078437   -3.351694      
+75%   -77160.476077   4.846222     7.198308       40.747308    4.937149      
+max   -39521.337480   42.180308    44.532394      297.600584   42.273904     
+
+       IAerrorTime  
+count  671.000000   
+mean   6.632720     
+std    13.615722    
+min   -31.930411    
+25%   -2.066454     
+50%    5.906732     
+75%    14.896115    
+max    52.663231    
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final
+INFO:root:Saving dataframe:
+             X_0        X_1        X_2    ...          Y_4       Y_5       Y_6
+60140   134.1178   136.3296   138.3343    ...     709.4186  787.1145  865.6792
+52172  1117.0179  1119.4350  1121.9379    ...     723.2984  799.9276  877.3341
+57262  1891.3607  1891.7447  1891.0700    ...     695.7579  775.7146  856.5976
+65959   747.1725   745.0791   743.4986    ...     688.3654  764.8070  840.1874
+47350   862.2134   864.9398   867.5105    ...     705.2847  781.9425  857.8926
+31138   900.8767   899.2812   897.7688    ...     714.7351  791.8035  869.5226
+58501   831.5975   835.5984   839.3556    ...     698.3022  771.6145  843.6030
+12359   114.7224   115.3642   116.6225    ...     687.9277  759.3410  831.5339
+9959   2091.2127  2088.7103  2086.5518    ...     652.2558  736.6225  822.3029
+9077   1378.8517  1379.4289  1380.1249    ...     643.5036  723.6789  802.8786
+
+[10 rows x 14 columns]
+       LabelPosBalken   LabelTime
+60140      169.401958  873.479251
+52172     1151.711053  865.341565
+57262     1861.262301  859.982567
+65959      754.204468  919.278866
+47350      913.457710  914.206457
+31138      887.283564  835.316530
+58501      927.579966  973.595105
+12359      135.833122  980.572897
+9959      2049.070401  859.055533
+9077      1399.798863  934.367001
+predicted: 
+[66475.45122403119, 107120.82773522296]
+[86001.1417561738, 67070.4228509601]
+[103018.99977184072, 77437.15374397328]
+[128915.94094566435, 81733.61056159553]
+[114049.6321368059, 72686.90115776288]
+[119590.6439763823, 74556.89659756052]
+[113978.657447958, 72962.52084928911]
+[60219.663402834216, 104003.75926428214]
+[115662.26028387762, 82621.8856448323]
+[70187.78163648189, 59057.188926905175]
+time: 0.21s
+MSE (tensorflow): 36823.85546875
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json', '--overrideModel', '../models/final/real/Real_Pfeffer_final_Retrain']
+INFO:root:time: 2018-12-12_12.55.14
+INFO:root:Saving to ../models/final/real/Real_Pfeffer_final_Retrain
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((11808, 14), (11808, 2))
+INFO:root:Test: ((671, 14), (671, 2))
+INFO:root:Means: 
+LabelPosBalken    1107.994907
+LabelTime          760.721118
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    563.395980
+LabelTime         348.451177
+dtype: float64
+INFO:root:No training today, just prediction
+WARNING:root:Careful: No prior LabelMeans or LabelStds found!
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json', '--overrideModel', '../models/final/real/Real_Pfeffer_final_Retrain']
+INFO:root:time: 2018-12-12_12.55.38
+INFO:root:Saving to ../models/final/real/Real_Pfeffer_final_Retrain
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferSeparatorFinal-FS7-filterAugm-750Distance.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((11808, 14), (11808, 2))
+INFO:root:Test: ((671, 14), (671, 2))
+INFO:root:Means: 
+LabelPosBalken    1107.994907
+LabelTime          760.721118
+dtype: float64
+INFO:root:Stds: 
+LabelPosBalken    563.395980
+LabelTime         348.451177
+dtype: float64
+INFO:root:No training today, just prediction
+WARNING:root:Careful: No prior LabelMeans or LabelStds found!
+INFO:root:Error on whole Test set:
+MSE (tensorflow): 99978.578125
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final/Real_Pfeffer_final_Retrain_highestLoss_2018-12-12_12.55.38.pdf
+INFO:root:Saving Image to file /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final/Real_Pfeffer_final_Retrain_2018-12-12_12.55.38.pdf
+INFO:root:Median Accel: -0.0015499999999519787
+INFO:root:getting optimal accel for 11808 examples
+INFO:root:optimal Accel: -0.16981745285427205
+INFO:root:Evaluation on 671 data points
+INFO:root:
+       NNpixelErrorPosBalken  CVpixelErrorPosBalken  CVBCpixelErrorPosBalken  \
+count  6.710000e+02           671.000000             671.000000                
+mean   6.014746e+05           0.033163               0.037926                  
+std    2.327447e+05           10.638593              10.662791                 
+min    1.515538e+05          -49.581059             -49.785935                 
+25%    4.491601e+05          -5.952496              -5.950852                  
+50%    5.962401e+05           0.695999               0.713668                  
+75%    7.777649e+05           6.272251               6.289123                  
+max    1.048012e+06           32.475895              32.568539                 
+
+       CApixelErrorPosBalken  
+count  671.000000             
+mean  -0.797749               
+std    23.496965              
+min   -126.957325             
+25%   -14.078285              
+50%   -1.689482               
+75%    11.823019              
+max    108.576634             
+INFO:root:
+        NNerrorTime  CVerrorTime  CVBCerrorTime  CAerrorTime  AAerrorTime  \
+count  671.000000    671.000000   671.000000     671.000000   671.000000    
+mean   40047.040040 -2.735666    -0.383580       2.346286    -2.651887      
+std    34438.837566  13.060911    13.060911      59.991487    13.065117     
+min   -32465.364565 -41.663883   -39.311797     -122.329706  -41.576831     
+25%    18361.937604 -10.832332   -8.480246      -42.862581   -10.747100     
+50%    46891.572972 -3.433759    -1.081673      -10.078437   -3.351694      
+75%    66422.298128  4.846222     7.198308       40.747308    4.937149      
+max    94239.443242  42.180308    44.532394      297.600584   42.273904     
+
+       IAerrorTime  
+count  671.000000   
+mean   6.632720     
+std    13.615722    
+min   -31.930411    
+25%   -2.066454     
+50%    5.906732     
+75%    14.896115    
+max    52.663231    
+INFO:root:Saving evaluation images to /home/hornberger/MasterarbeitTobias/images/Real-Pfeffer-Final
+INFO:root:Saving dataframe:
+             X_0        X_1        X_2    ...          Y_4       Y_5       Y_6
+12999  1006.9851  1007.6305  1008.5531    ...     701.0497  778.7264  855.2432
+13811   782.6957   782.1938   781.4984    ...     702.4219  780.7194  857.8644
+19571  1895.5851  1900.0329  1904.4325    ...     685.1169  767.9881  851.4562
+53999  1419.5294  1431.8819  1444.1581    ...     701.7723  786.6061  870.6877
+30527  1227.4722  1228.1081  1228.4116    ...     710.4703  788.1229  864.9084
+27929  1418.5515  1426.3153  1433.7344    ...     675.3765  753.6421  832.2052
+35469   200.9810   203.0875   204.6066    ...     652.8272  734.6636  816.3619
+23259   334.3641   330.9248   328.2198    ...     671.0491  748.1280  825.2075
+49811  1189.3725  1193.7596  1197.9566    ...     702.9727  782.8575  861.5751
+23549  1306.6060  1307.4391  1308.3564    ...     699.8206  779.4445  858.4265
+
+[10 rows x 14 columns]
+       LabelPosBalken   LabelTime
+12999     1039.124770  925.140144
+13811      776.136095  888.880574
+19571     1942.154314  855.423078
+53999     1589.282395  818.677741
+30527     1230.908038  879.026301
+27929     1517.115282  938.063397
+35469      204.391657  895.781182
+23259      297.838414  959.443435
+49811     1230.642430  863.986710
+23549     1325.342249  878.785644
+predicted: 
+[-366572.15107321733, 92415.22677023156]
+[-293056.7127897911, 65125.952990482496]
+[-652334.9892690029, 184118.1591391303]
+[-508049.739655184, 140275.30641557855]
+[-438058.4491365727, 116455.9653462824]
+[-502724.1277433902, 138559.91172755582]
+[-37928.65994086092, -6818.195657939761]
+[-107221.85215425241, 6096.893512863153]
+[-427633.0788771097, 113775.3328250163]
+[-461695.80586682045, 124638.68746252802]
+time: 0.21s
+MSE (tensorflow): 37908.20703125
+INFO:root:Tensorflow 1.11.0
+INFO:root:Cmdline Input: ['DNNRegressor-Example.py', '--plot', '--lossAna', '--custom', '--augment', '--filter', '--load', '/home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferFinal-wrongAxis.h5', '--hyperparams', '/home/hornberger/Projects/MasterarbeitTobias/implementation/Separator-Final/filteredParticles-Real-Pfeffer-final.json', '--overrideModel', '../models/final/real/Real_Pfeffer_final_Retrain']
+INFO:root:time: 2018-12-12_12.56.10
+INFO:root:Saving to ../models/final/real/Real_Pfeffer_final_Retrain
+INFO:root:loading data from /home/hornberger/MasterarbeitTobias/data/selbstgesammelteDaten2/Pfeffer-Band-Juli/h5/pfefferFinal-wrongAxis.h5.
+INFO:root:using custom estimator
+INFO:root:Train: ((195606, 10), (195606, 2))
+INFO:root:Test: ((10867, 10), (10867, 2))
+INFO:root:Means: 
+LabelX    1107.918789
+LabelY    1044.277693
+dtype: float64
+INFO:root:Stds: 
+LabelX    566.140792
+LabelY    361.121252
+dtype: float64
+INFO:root:No training today, just prediction
+WARNING:root:Careful: No prior LabelMeans or LabelStds found!
+ERROR:root:Feature X_5 is not in features dictionary.
