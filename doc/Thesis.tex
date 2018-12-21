@@ -140,22 +140,22 @@
     \renewcommand{\abstractname}{Abstract}
 
     \begin{abstract}
-        The addition of area scan cameras to optical bulk material sorters enables an improvement in sorting quality by better predicting particle movement. 
+        The addition of area scan cameras to optical sorters for bulk material enables an improvement in sorting quality by better predicting particle movement. 
         % For this a model, that describes the movement of individual bulk material particles well, is required.
         This requires a model that accurately describes the movement of individual bulk material particles.
         Determining such a motion model is complex and % different motion models achieve varying quality with different bulk materials.
         the performance of different motion models depends strongly on the nature of the examined bulk material.
 
         In this thesis, neural networks were trained to generate motion models for different bulk materials. 
-        For this purpose, several datasets of selected bulk materials were collected on the Fraunhofer IOSB's experimental optical belt sorter \textit{TableSort} and preprocessed for training.
-        These datasets were collected using two different configurations of the belt sorter. 
-        A data augmentation method suitable for the problem was implemented and %good hyperparameters for training in the different scenarios were determined.
+        For this purpose, several datasets of selected bulk materials were collected on the Fraunhofer IOSB's experimental optical sorter \textit{TableSort} and preprocessed for training.
+        These datasets were collected using two different configurations of the sorter. 
+        A data augmentation method suitable for the problem was implemented %good hyperparameters for training in the different scenarios were determined.
         and the hyperparameters for the training of the different scenarios were optimized.
 
-        The evaluation was carried out on the datasets obtained in this way as well as on existing ones 
+        The evaluation was carried out both on the datasets obtained in this way as well as on existing ones 
         that were simulated using the discrete element method.
         In all scenarios the neural networks performed comparable to or better than the reference methods. 
-        Particularly on the collected data, an improvement compared to the reference methods was achieved .
+        In particular, an improvement compared to the reference methods was achieved on the collected data.
     \end{abstract}
 
     \maketoc
@@ -179,7 +179,7 @@
     \appendix
     \include{appendix}
 
-    \includepdf[pages=-]{AufgabenBlattRotiert.pdf}
+    \includepdf[pages=-]{AufgabenBlattRotiert_shifted.pdf}
 
 \end{document}
 

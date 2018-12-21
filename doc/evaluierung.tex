@@ -3,7 +3,7 @@
 
 Im vorhergegangenen Kapitel wurde die Implementierung der neuronalen Netze beschrieben.
 Nun wird in diesem Kapitel betrachtet, wie gut die Ergebnisse sind, die von diesen Netzen geliefert werden.
-Dazu wird zunächst beschrieben auf was für einem System das Training und die Evaluation durchgeführt wurde.
+Dazu wird zunächst beschrieben, auf was für einem System das Training und die Evaluation durchgeführt wurde.
 Es werden mehrere, bereits aus dem Stand der Technik bekannte Modelle beschrieben, die dann mit den Ergebnissen der neuronalen Netze 
 verglichen werden.
 Anschließend werden diese Ergebnisse diskutiert.
@@ -34,7 +34,7 @@ Dieses verfügt über einen Intel i7-7700k CPU mit \SI{4.20}{\giga\hertz}, \SI{3
 
 % \color{black}
 
-In diesem Abschnitt sollen einige der existierenden Modelle detaillierter beschrieben werden mit denen die Ergebnisse der neuronalen Netze nun verglichen werden.
+In diesem Abschnitt sollen einige der existierenden Modelle detaillierter beschrieben werden, mit denen die Ergebnisse der neuronalen Netze nun verglichen werden.
 Diese Modelle wurden schon in Abschnitt~\ref{cap:relWork} erwähnt, dort aber ohne die Berechnung zu erklären.
 Mit Ausnahme des \textit{Average Acceleration} Modells stammen sie alle aus \cite{Pfaff2018} und sowohl Definition als auch Notation wurden von dort übernommen.
 Dabei seien \(\mathsf{x}\) die Achse entlang der Bewegungsrichtung des Förderbands und \(\mathsf{y}\) die Achse orthogonal zur Bewegungsrichtung des Förderbands.
@@ -42,8 +42,8 @@ Zeitdiskrete Messungen entlang der einzelnen Achsen werden als \(\mathsf{x}_t\) 
 Die daraus rekonstruierten zeitkontinuierlichen Positionsgleichungen werden als \(\mathsf{x}(t)\) beziehungsweise \(\mathsf{y}(t)\) bezeichnet.
 Sei \(t^{\text{Last}}\) der Zeitpunkt der Beobachtung des aktuellsten Features und \(\mathsf{x}^{\text{Last}}\) und \(\mathsf{y}^{\text{Last}}\) die dazugehörigen Positionen entlang der beiden Achsen.
 Sei \(\mathsf{x}^{\text{PredTo}}\) die Position des Druckluftdüsenarrays entlang der \(\mathsf{x}\)-Achse.
-Der Zeitpunkt an dem ein Partikel das Druckluftdüsenarray passiert wird als \(t^{\text{Pred}}\) bezeichnet.
-Sei \(\mathsf{y}^{\text{Pred}} = \mathsf{y}(t^{\text{Pred}})\) die Position entlang der \(\mathsf{y}\)-Achse an dem der Partikel den Druckluftdüsenarray passiert.
+Der Zeitpunkt, an dem ein Partikel das Druckluftdüsenarray passiert, wird als \(t^{\text{Pred}}\) bezeichnet.
+Sei \(\mathsf{y}^{\text{Pred}} = \mathsf{y}(t^{\text{Pred}})\) die Position entlang der \(\mathsf{y}\)-Achse, an dem der Partikel den Druckluftdüsenarray passiert.
 Die Zeit, die der Partikel noch benötigt um das Druckluftdüsenarray zu erreichen \(\Delta t = t^{\text{Pred}} - t^{\text{Last}} \) und die Position an der er es passiert \(\mathsf{y}^{\text{Pred}}\) sind die Labels der einzelnen Feature-Label-Paare für das Separator-Netz.
 \(\mathsf{x}(t^{\text{Last}} + 1)\) und \(\mathsf{y}(t^{\text{Last}} + 1)\), also jeweils einen diskreten Zeitschritt in die Zukunft, sind die Labels der Feature-Label-Paare für das NextStep-Netz.
 Die verschiedenen Modelle können nun ebenso wie die Ergebnisse der verschiedenen Netze bewertet werden, 
@@ -323,7 +323,7 @@ Die Boxplots von den hier vorgestellten und allen restlichen Szenarien sind im A
     % \missingfigure{Boxplots Result NeuralNets NextStep}
 	\includegraphics[width=0.8\textwidth]{RealSpheres-evaluation_NextStep_ErrorHistogram_2018-12-10_18-42-20.pdf}
     \caption[Fehlerhistogramm für die NextStep-Ergebnisse der selbst aufgenommenen Kugeln auf dem Förderband]
-    {Histogramm der Fehler für die NextStep-Ergebnisse der selbst aufgenommenen Kugeln auf dem Förderband.}
+    {Fehlerhistogramm für die NextStep-Ergebnisse der selbst aufgenommenen Kugeln auf dem Förderband.}
 	\label{fig:RealSpheresHistogram}
 \end{figure}
 
@@ -425,7 +425,7 @@ Alle diese Modelle sind beinahe biasfrei, aber der Interquartilsabstands der Aus
 	\end{subfigure}
 	
     \caption[Visualisierung der Ergebnisse für die Plättchen aus der DEM-Simulation]
-    {Visualisierung der Ergebnisse für die Plättchen aus der DEM-Simulation. Ein betragsmäßig kleinerer Median und möglichst kleine Streuung sind besser.}
+    {Visualisierung der Ergebnisse für die Plättchen aus der DEM-Simulation. Ein betragsmäßig kleinerer Median und eine möglichst kleine Streuung sind besser.}
 	\label{fig:BoxplotsSimCub}
 \end{figure}
 

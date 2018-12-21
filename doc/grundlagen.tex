@@ -44,7 +44,7 @@ mittels neuronaler Netze erzielt wurden, wurde das Interesse an dem Feld neu ent
 
 \subsection{Perzeptron}
 Die kleinste Einheit eines neuronalen Netzes ist das Perzeptron, wie es 1958 von Frank Rosenblatt in \cite{rosenblatt1958perceptron} beschrieben wurde.
-Es ist ein künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(y\) ausgibt.
+Es ist ein künstliches Neuron, das eine Reihe an Eingaben entgegen nimmt und einen einzelnen Wert \(y\) ausgibt.
 
 \begin{figure}[h]
     \centering
@@ -55,7 +55,7 @@ Es ist ein künstliches Neuron, dass eine Reihe an Eingaben entgegen nimmt und e
 	\label{fig:singleNeuron}
 \end{figure}
 
-Wie in Abbildung~\ref{fig:singleNeuron} zu sehen, haben die einzelnen Eingaben \(x_i\) jeweils eine Gewichtung \(w_i\).
+Wie in Abbildung~\ref{fig:singleNeuron} zu sehen ist, haben die einzelnen Eingaben \(x_i\) jeweils eine Gewichtung \(w_i\).
 Es existiert ein Schwellwert oder \textit{bias}, der normalerweise 
 durch eine zusätzliche Eingabe \(x_{m+1}\) mit dem Eingabewert \(+1\) und dem dazugehörigen Gewicht \(w_{m+1}\) modelliert wird.
 Den Ausgabewert \(y\) erhält man dadurch, dass man die gewichteten Eingaben aufsummiert und in die Aktivierungsfunktion \( \phi \) des Perzeptrons gibt.
@@ -402,7 +402,7 @@ Dies soll insofern Overfitting vermeiden, dass es übermäßige Coadaption von m
 Dropout als Technik wird insbesondere bei tiefen neuronalen Netzen mit einer hohen Anzahl von Hidden Layers eingesetzt. 
 Als Early Stopping wird eine Technik bezeichnet, bei der die Regularisierung durch das frühzeitige Beenden des Trainings erreicht wird \cite[Kapitel 7.8]{Goodfellow-et-al-2016}.
 Dabei wird versucht abzuschätzen, an welchem Punkt des Trainings 
-eine Verbesserung der Ergebnisse auf dem Trainingsset zu Lasten der Ergebnisse auf dem Testset geschieht.
+eine Verbesserung der Ergebnisse auf dem Trainingsset zu Lasten der Ergebnisse auf dem Testset stattfindet.
 
 
 \begin{figure}[h]

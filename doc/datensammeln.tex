@@ -307,7 +307,7 @@ die direkt aus der Simulation entnommen wurde.
 So verlässlich sind die Partikelpositionen bei den selbst aufgenommen Daten nicht.
 Während den einzelnen in Sektion~\ref{sec:pipeline} beschrieben Schritten kann es zu Fehlern kommen, die sich durch die gesamte Pipeline fortpflanzen.
 In Ermangelung von idealen Kameras muss man von Ungenauigkeiten bei den Aufnahmen durch Bildrauschen ausgehen.
-Zudem kann die Segmentierung an einigen Stellen nicht präzise sein, indem z.\,B. ein Stück Schattens als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
+Zudem kann die Segmentierung an einigen Stellen nicht präzise sein, indem z.\,B. ein Stück Schatten als Teil des Partikels interpretiert wird und dadurch den Mittelpunkt verschiebt. 
 Bei einer Kollision von zwei Partikeln kann es dazu kommen, dass der \textit{Multi-Target-Tracking}-Algorithmus die beiden Tracks vertauscht.  
 Des Weiteren bewegt sich das Förderband in der Simulation mit \SI{1.5}{\meter\per\second}, 
 während Messungen am realen \textit{TableSort}-System darauf hindeuten, dass das Förderband dort nur eine Geschwindigkeit von 
@@ -317,7 +317,7 @@ Im Gegensatz zu den selbst aufgenommenen Daten, die nur Informationen
 zu den Bewegungen der Partikel im Bereich, auf den die Hochgeschwindigkeitskamera gerichtet ist, umfassen, 
 befinden sich in den DEM-Datensätzen die Positionen der Teilchen über die gesamte Länge des Förderbandes.
 Das bedeutet auch, dass in den DEM-Datensätzen die Phase der Partikel bevor und während sie vom Förderband beruhigt werden, enthalten ist.
-Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, sprich mehr Messungen enthalten.
+Außerdem hat es zur Folge, dass die individuellen Tracks deutlich länger sind, also mehr Messungen enthalten.
 Bei der NextStep-Prädiktion sorgt das dafür, dass es insgesamt eine deutlich größere Anzahl an Feature-Label-Paaren gibt.
 Die Transportrichtung des Förderbandes ist ebenfalls nicht identisch.
 Während die selbst aufgenommenen Datensätze eine Bewegung entlang der \(\mathsf{y}\)-Achse haben, bewegen sich die simulierten Partikel entlang der \(\mathsf{x}\)-Achse.
@@ -327,7 +327,7 @@ Während die selbst aufgenommenen Datensätze eine Bewegung entlang der \(\maths
 \begin{figure}[h]
     \centering
     % \missingfigure{DEM Simulationsgrafik}
-	\includegraphics[width=\textwidth]{DEM-SimOverview}
+	\includegraphics[width=\textwidth]{DEM-SimOverview_Red}
 	\caption{Visualisierung der DEM-Simulation, übersetzt~aus~\cite{Pfaff2018}.}
 	\label{fig:DEMSimulation}
 \end{figure}
