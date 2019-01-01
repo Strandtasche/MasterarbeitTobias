@@ -36,6 +36,30 @@ aber um eigene Netze zu trainieren wäre es empfehlenswert.
 
 Eine komplette Liste der Python Packages, die in der virtual environment installiert wurden ist in der [requirements.txt]{implementation/requirements-gpu-upgraded.txt} Datei zu finden.
 
+### Training
+
+1. sicherstellen, dass das richtige virtual environment aktiviert ist.
+2. in den `implementation` Ordner wechseln
+3.  `richtigen Befehl`
+
+### Evaluation
+
+
+1. sicherstellen, dass das richtige virtual environment aktiviert ist.
+2. in den `implementation` Ordner wechseln
+3.  `richtigen Befehl`
+
+
+## Kommandozeilenparameter
+
+TODO: überlegen wie ich das formatiere
+
+## License
+
+
+
+##
+
 
 
 
