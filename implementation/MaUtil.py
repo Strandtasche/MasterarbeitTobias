@@ -61,7 +61,7 @@ def training_input_fn_Slices(features, labels, batch_size):
 	# return iterator.get_next()
 
 
-# kopiert aus Stackoverflow thread "https://stackoverflow.com/questions/20677795/how-do-i-compute-the-intersection-point-of-two-lines-in-python"f
+# aus Stackoverflow thread "https://stackoverflow.com/questions/20677795/how-do-i-compute-the-intersection-point-of-two-lines-in-python"f
 def _line(p1, p2):
 	"""helper function, which returns the representation a line through the 2 given points"""
 	A = (p1[1] - p2[1])
@@ -436,6 +436,7 @@ def evaluateResultNextStep(X_test, y_test, totalPredictions, units, imageLoc):
 
 
 def _printPDfull(dataframe):
+	"""helper function that prints the entirety of a pandas DataFrame with certain display parameters"""
 	pd.set_option('display.max_colwidth', -1)
 	pd.set_option('display.max_columns', None)
 	logging.info("\n{}".format(dataframe))
@@ -444,6 +445,7 @@ def _printPDfull(dataframe):
 
 
 def _getRelIndices(columns, separator, direction):
+	""""helper function that returns the relevant column indices for augmentation"""
 	if not separator:
 		if direction:
 			relIndices = [i for i in range(int((len(columns) - 2) / 2))]
@@ -480,7 +482,6 @@ def mirrorSingleFeature(points, midpoint, relIndices):
 def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, labelMeans, labelStds, direction=True):
 	"""applies the mirror input data augmentation to some data"""
 
-
 	labelsTrain = labelsTrain * labelStds + labelMeans
 
 	oldDf = pd.concat([featuresTrain, labelsTrain], axis=1, sort=False)
@@ -513,6 +514,7 @@ def augmentData(featuresTrain, labelsTrain, midpoint, augmentRange, separator, l
 
 
 def getMedianAccel(X_test, separator, direction):
+	"""function that calculates the median acceleration of a set of particles - used for AA"""
 	if not direction: # moving along x axis
 		relCols = X_test.columns[0:int(len(X_test.columns)/2)]
 		# print("x axis")
@@ -531,6 +533,8 @@ def getMedianAccel(X_test, separator, direction):
 
 
 def getOptimalAccel(X_test, y_test, separatorPosition, direction):
+	"""function that calculates the median  of the accelerations a set of particles would have to experience
+	in order to hit a separator at a given time - used for IA Prediction"""
 	assert X_test.shape[0] != 0
 	logging.info("getting optimal accel for {} examples".format(X_test.shape[0]))
 	if not direction: # moving along x axis
@@ -550,6 +554,8 @@ def getOptimalAccel(X_test, y_test, separatorPosition, direction):
 
 
 def filterDataForIntersection(dataSet, thresholdPoint, direction):
+	"""helper function that filters a set of feature-label-pairs so that the remaining pairs are
+	the first after a given threshold """
 	if direction:
 		columnNameLast = dataSet.columns[-1]
 		columnNamePenultimate = dataSet.columns[-2]
@@ -562,6 +568,8 @@ def filterDataForIntersection(dataSet, thresholdPoint, direction):
 
 
 def getCVBias(dataSetFeatures, dataSetLabels, separatorPosition, direction):
+	"""helper function that determines the average bias CV predictions would produce on a given data set -
+	used for CVBC Prediction"""
 	# locPredCV = []
 	timePredCV = []
 	for index, row in dataSetFeatures.iterrows():
@@ -581,7 +589,7 @@ def getCVBias(dataSetFeatures, dataSetLabels, separatorPosition, direction):
 
 
 def evaluateResultSeparator(X_test, y_test, totalPredictions, separatorPosition, thresholdPoint, configDict, units, imageLoc, direction):
-	"""function to evaluate the result of this nets nextStep prediction.
+	"""function to evaluate the result of this nets NextStep Prediction.
 	no return value, but writes a description of the error distribution and shows some plots for better visualisation"""
 
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')

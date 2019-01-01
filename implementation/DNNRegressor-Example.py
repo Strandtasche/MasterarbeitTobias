@@ -69,8 +69,8 @@ parser.add_argument('--target', type=float, help="accuracy target.")
 def main(argv):
 	args = parser.parse_args(argv[1:])
 
+	# handling commandline parameters
 	logging.info("Cmdline Input: {}".format(argv))
-
 	TRAINING = args.training
 	WITHPLOT = args.plot
 	singleData = args.single
@@ -93,8 +93,7 @@ def main(argv):
 	maximumLossAnalysis = args.lossAna
 	cancelThreshold = args.target
 
-	# MIDPOINT = 1123
-
+	# Commandline parameters sanity checks
 	saveLoc = None
 	if args.save is not None and args.load is not None:
 		raise ValueError(
@@ -144,6 +143,7 @@ def main(argv):
 
 	time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H.%M.%S')
 
+	# load hyperparameters from hyperparameter file
 	try:
 		hyper_params = load_params(hyperParamFile)
 
@@ -218,8 +218,8 @@ def main(argv):
 
 
 	if loading is None:
+		# Generate feature-label-pairs from given csv track files based on given parameters
 		if not FAKE and not separator:
-			# (F_train, L_train), (F_test, L_test) = ld.loadData(FEATURE_SIZE)
 			(F_train, L_train), (F_test, L_test), (labelMeans, labelStds) = ld.loadRawMeasNextStep(dataFolder, FEATURE_SIZE, testSize)
 		elif separator:
 			(F_train, L_train), (F_test, L_test), (labelMeans, labelStds) = ld.loadRawMeasSeparation(dataFolder, FEATURE_SIZE, testSize,
@@ -242,6 +242,7 @@ def main(argv):
 			L_test = L_train
 
 		# ExTODO: find Augmentation MIDPOINT from data or as argument? - from Argument
+		# Applying augmentation to feature-label-pairs
 		if augment:
 			logging.info("applying augmentation to Training Set...")
 			if separator:
@@ -262,13 +263,14 @@ def main(argv):
 		my_feature_columns.append(tf.feature_column.numeric_column(key=key))
 
 	if not overrideModelPath:
-		MODEL_PATH = baseModelPath #genModelPath(hyper_params, FAKE, usingCustomEstimator, separator)
+		MODEL_PATH = baseModelPath  # genModelPath(hyper_params, FAKE, usingCustomEstimator, separator)
 	else:
 		MODEL_PATH = overrideModelPath
 
 	logging.info("time: {}".format(time_stamp))
 	logging.info('Saving to %s' % MODEL_PATH)
 
+	# Preparing the initialisation of the estimator
 	if optimizer == 'Adagrad':
 		opti = tf.train.AdagradOptimizer
 	elif optimizer == 'Adam':
@@ -289,6 +291,7 @@ def main(argv):
 		logging.error("No (or wrong) activation function given in hyperparameter file")
 		sys.exit(-1)
 
+	# File System preparation: check if right folders exist and create them if they dont
 	if not os.path.exists(MODEL_PATH):
 		os.makedirs(MODEL_PATH)
 		logging.info("model folder {} does not exist. Creating folder".format(MODEL_PATH))
@@ -307,6 +310,7 @@ def main(argv):
 		shutil.copy2(hyperParamFile, MODEL_PATH + '/' + os.path.basename(hyperParamFile)[:-5] + time_stamp + ".json")
 		# print("added another version of hyper param file")
 
+	# Saving the generated feature-label-pairs for future use
 	if saving is not None:
 		logging.info("storing data in {}".format(saveLoc))
 
@@ -323,6 +327,7 @@ def main(argv):
 			store['labelMeans'] = labelMeans
 			store['labelStds'] = labelStds
 
+	# loading a set of pregenerated feature-label-pairs for usage
 	if loading is not None:
 		try:
 			if loadLoc is None:
@@ -349,7 +354,7 @@ def main(argv):
 	assert not F_test.index.duplicated().any()
 	assert not L_test.index.duplicated().any()
 
-	#Plot progress Vars:
+	# Plot progress Vars - more or less deprecated, but could be updated for current state
 	if progressPlot:
 		pos = [int(i * EPOCHS/10) for i in range(1, 10)]
 		debugVisualizerIndex = random.randint(1, F_test.shape[0])
@@ -378,7 +383,7 @@ def main(argv):
 										  save_checkpoints_secs=None,
 										  save_summary_steps=500)
 
-		useRatioScaling = False # Todo: überlegen ob es hierfür noch eine sinnvolle verwendung gibt
+		useRatioScaling = False  # Todo: überlegen ob es hierfür noch eine sinnvolle verwendung gibt
 
 		if separator and useRatioScaling:
 			medianDim1 = L_train.iloc[:,0].median()
@@ -414,6 +419,7 @@ def main(argv):
 
 	hooks = None
 
+	# Debug hooks are handled here
 	if DEBUG and tensorboardDebugAddress:
 		raise ValueError(
 			"The --debug and --tensorboard_debug_address flags are mutually "
@@ -454,12 +460,12 @@ def main(argv):
 
 		for epoch in range(EPOCHS):
 
-			# Fit the DNNRegressor (This is where the magic happens!!!)
+			# Fit the DNNRegressor
 			# regressor.train(input_fn=training_input_fn(batch_size=BATCH_SIZE), steps=STEPS_PER_EPOCH)
 			regressor.train(input_fn=lambda: training_input_fn_Slices(F_train, L_train, BATCH_SIZE),
 			                steps=STEPS_PER_EPOCH, hooks=hooks)
 
-			# Thats it -----------------------------
+
 			# Start Tensorboard in Terminal:
 			# 	tensorboard --logdir='./DNNRegressors/'
 			# Now open Browser and visit localhost:6006\
@@ -474,6 +480,7 @@ def main(argv):
 				avgLoss = eval_dict['average_loss']
 				epochInterm.append(avgLoss)
 
+				# optional canceling of training upon hitting a specified loss threshold
 				if cancelThreshold is not None:
 					if avgLoss < cancelThreshold:
 						logging.info("reached cancel Threshold. finishing training")
@@ -505,7 +512,7 @@ def main(argv):
 				savePath = '/home/hornberger/testReal'
 			plotTrainDataPandas(featureVals, labelVals, predictions, savePath, units)
 
-	# Now it's trained. We can try to predict some values.
+	# Evaluation/Prediction
 	else:
 		logging.info('No training today, just prediction')
 
@@ -527,8 +534,6 @@ def main(argv):
 					logging.info("New labelStds: \n{}".format(labelStds))
 
 					L_test = (L_test - labelMeans) / labelStds
-
-
 
 		try:
 			# Prediction
@@ -574,6 +579,7 @@ def main(argv):
 		eval_dict = regressor.evaluate(input_fn=lambda: eval_input_fn(x_pred2, y_vals2, batch_size=BATCH_SIZE))
 		print('MSE (tensorflow): {}'.format(eval_dict['average_loss']))
 
+		# Maximum Loss Analysis: display the X worst predictions of the testset
 		if maximumLossAnalysis:
 			if not separator:
 				printDF = prepareMaximumLossAnalysisNextStep(F_test, L_test, numberPrint, regressor, BATCH_SIZE, labelMeans, labelStds)
@@ -588,7 +594,7 @@ def main(argv):
 										os.path.basename(MODEL_PATH) + '_' + 'highestLoss' + '_' + time_stamp + '.pdf')
 			# print(printDF)
 
-		# displaying weights in Net - (a bit redundant after implementation of debugger
+		# displaying weights in Net - (a bit redundant after implementation of debugger)
 		if displayWeights:
 			for variable in regressor.get_variable_names():
 				logging.info("name: \n{}\nvalue: \n{}\n".format(variable, regressor.get_variable_value(variable)))

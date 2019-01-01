@@ -342,6 +342,7 @@ def loadFakeData(featureSize=5, numberOfLines=100, testSize=0.1):
 
 
 def loadFakeDataPandas(featureSize=5, numberOfLines=10, testSize=0.1, numberOfExamples=100):
+	"""creates a tuple of pandas DataFrames representing fake data"""
 	dataArray = []
 
 	featureDict = {}

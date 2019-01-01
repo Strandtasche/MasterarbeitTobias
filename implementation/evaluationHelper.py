@@ -173,6 +173,9 @@ def predictionConstantVelSeparator(array, separatorPosition, direction):
 
 
 def predictionAverageAccelSeparator(array, medianAccel, separatorPosition, direction):
+	"""a helper function for the helper function for evaluation.
+	given one set of features, returns a tuple of predictions for location and time until intersection with the separator
+	made with the AA model"""
 
 	indexLastX = int((len(array)) / 2) - 1  # assuming 2 labels and 2*(featureSize) length)
 	indexLastY = int(len(array) - 1)
@@ -316,6 +319,9 @@ def predictionConstantAccelSeparator(array, separatorPosition, direction):
 
 
 def predictionIdenticalAccelSeparator(array, optimalAccel, separatorPosition, direction):
+	"""a helper function for the helper function for evaluation.
+	given one set of features, returns a tuple of predictions for location and time to intersection
+	made with the IA model"""
 
 	indexLastX = int((len(array)) / 2) - 1  # assuming 2 labels and 2*(featureSize) length)
 	indexLastY = int(len(array) - 1)
