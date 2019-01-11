@@ -34,7 +34,15 @@ da so der zugegebenermaßen aufwändige Prozess um GPU Unterstützung zu erhalte
 Für eine Evaluation der existierenden Netze ist die GPU Unterstützung wahrscheinlich nicht notwendig, 
 aber um eigene Netze zu trainieren wäre es empfehlenswert.
 
-Eine komplette Liste der Python Packages, die in der virtual environment installiert wurden ist in der [requirements.txt]{implementation/requirements-gpu-upgraded.txt} Datei zu finden.
+Es ist wichtig sicherzustellen, dass python3 und nicht python2 verwendet wird.
+Welche Python Version defaultmässig verwendet wird kann mit `python --version` überprüft werden.
+
+Eine komplette Liste der Python Packages, die in der virtual environment installiert wurden ist in der [requirements.txt](implementation/requirements-gpu-upgraded.txt) Datei zu finden.
+Um die Implementierung zu benutzen werden die meisten von diesen Packages benötigt.
+Falls irgendetwas schief geht und es eine Fehlermeldung gibt, die über ein fehlendes Modul spricht, ist es sinnvoll sicherzugehen, dass das entsprechende Modul im aktuellen environment installiert ist.
+Fehlende Module lassen sich mit `pip install MODULE` installieren.
+
+
 
 ### Training/Evaluation
 
@@ -55,6 +63,10 @@ Für die Evaluation eines Netzes mit Plots:
 ```bash
 python DNNRegressor-Example.py --plot --lossAna --custom --load ~/data/pfefferRutscheSeparator-FS5-filterAugm-750Distance.h5 --hyperparams ~/filteredParticles-Real-Pfeffer-Rutsche-final.json --overrideModel ~/models/Separator/pfefferRutscheSeparator 2>&1 | tee -a ~/logs/RealPfeffer_Rutsche_Final.txt
 ```
+Es ist ein bekanntes Problem, dass die Hyperparameter Files, die bei der Abgabe dabei waren die spezifischen Pfade entsprechend des Filesystems haben.
+Mit `--overrideInput` und `--overrideModel` können diese Hyperparameter jeweils überschrieben werden, aber für den ImageFolder wurde das leider nicht mehr implementiert.
+
+Dementsprechend muss man um die existierenden Netze auf einem anderen System laufen zu lassen das Hyperparameter-File kopieren, die entsprechenden Dateipfade ändern und es dann ausführen.
 
 
 
@@ -81,24 +93,40 @@ python DNNRegressor-Example.py --plot --lossAna --custom --load ~/data/pfefferRu
 `--separator POSITION`: Flag, die den Separator Parameter und die Position aus dem Hyperparameter File überschreibt. type=int. Use with care.
 
 `--augment`: Flag, die festlegt, ob beim generieren des Trainingssets data augmentation verwendet werden soll.<br/>
-`--filter POSITION`: Flag, die die Feature-Label-Paare so filtert, dass von der gegebenen Position wepredictet wird.
+`--filter POSITION`: Flag, die die Feature-Label-Paare so filtert, dass von der gegebenen Position wepredictet wird.<br/>
 
-`--tensorboard_debug_address ADDRESS`: Connect to the TensorBoard Debugger Plugin backend specified by the gRPC address (e.g., localhost:1234). Mutually exclusive with the `--debug` flag.
+`--tensorboard_debug_address ADDRESS`: Connect to the TensorBoard Debugger Plugin backend specified by the gRPC address (e.g., localhost:1234). Mutually exclusive with the `--debug` flag.<br/>
 
 
 
 **Flags that are not usable right now:**
-`--progressplot`: Flag, die dafür sorgt, dass die Prädiktionen für ein einzelnes Feature-Label-Paar zu verschiedenen Zeitpunkten während dem Training dargestellt wird.
-`--fake FAKE`: Flag, die dafür sorgt, das ausschließlich synthetische Daten verwendet werden.
-`--debug`: Flag, die ursprüngliche Debug Funktionen aktiviert
+`--progressplot`: Flag, die dafür sorgt, dass die Prädiktionen für ein einzelnes Feature-Label-Paar zu verschiedenen Zeitpunkten während dem Training dargestellt wird.<br/>
+`--fake FAKE`: Flag, die dafür sorgt, das ausschließlich synthetische Daten verwendet werden.<br/>
+`--debug`: Flag, die ursprüngliche Debug Funktionen aktiviert<br/>
 
 
+
+## Feature-Extraktions-Pipeline
+
+Im Rahmen dieser Arbeit wurde eine Pipeline entwickelt mit der man aus den gesammelten Bilddaten, die Mittelpunkte der Schüttgutpartikel extrahieren und den entsprechenden Tracks zuweisen kann.
+Diese basiert auf verschiedenen vorherschon existierenden Scripts und Programmen.
+Sie sieht folgendermaßen aus:
+
+1. BMP-Bilder zu PNG-Bilder konvertieren: [convertBMPtoPNG.sh](scripts/convertBMPtoPNG.sh)
+2. PNG-Bilder debayern (Zu RGB-Bildern konvertieren): [convertPNGtoRGB.sh](scripts/convertPNGtoRGB.sh)
+3. Durchführung einer Segmentierung auf den RGB-Bildern und Mittelpunkte der einzelnen Segmente bestimmen: [convertRGBtoCSV.sh](scripts/convertRGBtoCSV.sh)
+4. Mittelpunkte den einzelnen Tracks zuweisen: [create_track_history.m](scripts/create_track_history.m). Vorraussetzung: TrackSort Matlab Code
+
+Am Ende dieser Pipeline steht ein CSV-File, das die gleiche Form wie die existierenden Trackdaten aus dem DEM-Datensatz.
+
+Mehr Details zu den einzelnen Scripts findet man dem ReadMe File im Script Folder.
+
+
+## Kontakt
+
+Falls es irgendwelche Fragen über dieses ReadMe hinaus gibt, meldet euch bei mir. Meine E-Mail ist <saibot1207@googlemail.com>.
 
 ## License
 
 TODO?
-
-
-
-
 
