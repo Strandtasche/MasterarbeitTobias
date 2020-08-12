@@ -128,5 +128,5 @@ Falls es irgendwelche Fragen über dieses ReadMe hinaus gibt, meldet euch bei mi
 
 ## License
 
-TODO?
+Dieses Projekt ist unter der MIT License lizensiert. Mehr Details sind in der LICENSE Datei zu finden
 
